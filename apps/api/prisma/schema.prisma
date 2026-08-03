@@ -1,0 +1,141 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum OrganisationStatus {
+  ACTIVE
+  SUSPENDED
+  INACTIVE
+}
+
+enum UserStatus {
+  INVITED
+  ACTIVE
+  SUSPENDED
+  INACTIVE
+}
+
+model Organisation {
+  id        String             @id @default(uuid()) @db.Uuid
+  name      String
+  slug      String             @unique
+  status    OrganisationStatus @default(ACTIVE)
+  country   String?
+  timezone  String             @default("Europe/London")
+  createdAt DateTime           @default(now())
+  updatedAt DateTime           @updatedAt
+
+  users       User[]
+  roles       Role[]
+  permissions Permission[]
+  auditEvents AuditEvent[]
+
+  @@map("organisations")
+}
+
+model User {
+  id             String     @id @db.Uuid
+  organisationId String     @db.Uuid
+  email          String
+  firstName      String?
+  lastName       String?
+  status         UserStatus @default(INVITED)
+  lastLoginAt    DateTime?
+  createdAt      DateTime   @default(now())
+  updatedAt      DateTime   @updatedAt
+
+  organisation Organisation @relation(fields: [organisationId], references: [id], onDelete: Cascade)
+  userRoles    UserRole[]
+  auditEvents  AuditEvent[]
+
+  @@unique([organisationId, email])
+  @@index([organisationId])
+  @@map("users")
+}
+
+model Role {
+  id             String   @id @default(uuid()) @db.Uuid
+  organisationId String   @db.Uuid
+  name           String
+  description    String?
+  isSystem       Boolean  @default(false)
+  isActive       Boolean  @default(true)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  organisation    Organisation     @relation(fields: [organisationId], references: [id], onDelete: Cascade)
+  userRoles       UserRole[]
+  rolePermissions RolePermission[]
+
+  @@unique([organisationId, name])
+  @@index([organisationId])
+  @@map("roles")
+}
+
+model Permission {
+  id             String   @id @default(uuid()) @db.Uuid
+  organisationId String   @db.Uuid
+  module         String
+  resource       String
+  action         String
+  scope          String
+  createdAt      DateTime @default(now())
+
+  organisation    Organisation     @relation(fields: [organisationId], references: [id], onDelete: Cascade)
+  rolePermissions RolePermission[]
+
+  @@unique([organisationId, module, resource, action, scope])
+  @@index([organisationId])
+  @@map("permissions")
+}
+
+model UserRole {
+  userId     String   @db.Uuid
+  roleId     String   @db.Uuid
+  assignedAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  role Role @relation(fields: [roleId], references: [id], onDelete: Cascade)
+
+  @@id([userId, roleId])
+  @@map("user_roles")
+}
+
+model RolePermission {
+  roleId       String   @db.Uuid
+  permissionId String   @db.Uuid
+  assignedAt   DateTime @default(now())
+
+  role       Role       @relation(fields: [roleId], references: [id], onDelete: Cascade)
+  permission Permission @relation(fields: [permissionId], references: [id], onDelete: Cascade)
+
+  @@id([roleId, permissionId])
+  @@map("role_permissions")
+}
+
+model AuditEvent {
+  id             String   @id @default(uuid()) @db.Uuid
+  organisationId String   @db.Uuid
+  actorUserId    String?  @db.Uuid
+  eventType      String
+  targetType     String?
+  targetId       String?
+  previousValue  Json?
+  newValue       Json?
+  ipAddress      String?
+  requestId      String?
+  createdAt      DateTime @default(now())
+
+  organisation Organisation @relation(fields: [organisationId], references: [id], onDelete: Cascade)
+  actorUser    User?        @relation(fields: [actorUserId], references: [id], onDelete: SetNull)
+
+  @@index([organisationId])
+  @@index([actorUserId])
+  @@index([createdAt])
+  @@map("audit_events")
+}
