@@ -62,6 +62,11 @@ const navigationItems: NavigationItem[] = [
     icon: LayoutDashboard,
   },
   {
+    label: "Account security",
+    href: "/settings/security",
+    icon: ShieldCheck,
+  },
+  {
     label: "Enquiries",
     href: "/enquiries",
     icon: FileText,
@@ -76,13 +81,21 @@ const navigationItems: NavigationItem[] = [
     label: "Clients",
     href: "/clients",
     icon: Users,
-    permissions: ["clients.read", "client.read", "clients.view"],
+    permissions: [
+      "clients.read",
+      "client.read",
+      "clients.view",
+    ],
   },
   {
     label: "AI Workspace",
     href: "/ai",
     icon: Bot,
-    permissions: ["ai.use", "ai.execute", "ai.workspace.access"],
+    permissions: [
+      "ai.use",
+      "ai.execute",
+      "ai.workspace.access",
+    ],
   },
   {
     label: "Organisation",
@@ -105,7 +118,9 @@ function hasAnyPermission(
   }
 
   const normalisedPermissions = new Set(
-    userPermissions.map((permission) => permission.toLowerCase()),
+    userPermissions.map((permission) =>
+      permission.toLowerCase(),
+    ),
   );
 
   return requiredPermissions.some((permission) =>
@@ -118,7 +133,10 @@ function getDisplayName(user: DashboardUser): string {
     return user.displayName.trim();
   }
 
-  const fullName = [user.firstName, user.lastName]
+  const fullName = [
+    user.firstName,
+    user.lastName,
+  ]
     .filter(Boolean)
     .join(" ")
     .trim();
@@ -148,8 +166,12 @@ export function DashboardShell({
   user,
   organisation,
 }: DashboardShellProps) {
-  const visibleNavigation = navigationItems.filter((item) =>
-    hasAnyPermission(organisation.permissions, item.permissions),
+  const visibleNavigation = navigationItems.filter(
+    (item) =>
+      hasAnyPermission(
+        organisation.permissions,
+        item.permissions,
+      ),
   );
 
   return (
@@ -165,7 +187,10 @@ export function DashboardShell({
             </div>
 
             <div className="min-w-0">
-              <p className="font-semibold tracking-tight">BusinessOS</p>
+              <p className="font-semibold tracking-tight">
+                BusinessOS
+              </p>
+
               <p className="truncate text-xs text-slate-500">
                 {organisation.organisationName}
               </p>
@@ -177,6 +202,7 @@ export function DashboardShell({
               <p className="text-sm font-medium">
                 {getDisplayName(user)}
               </p>
+
               <p className="max-w-52 truncate text-xs text-slate-500">
                 {getAccessLabel(organisation)}
               </p>
@@ -187,8 +213,14 @@ export function DashboardShell({
                 type="submit"
                 className="inline-flex h-10 items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white px-4 text-sm font-medium transition hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2"
               >
-                <LogOut aria-hidden="true" className="h-4 w-4" />
-                <span className="hidden sm:inline">Sign out</span>
+                <LogOut
+                  aria-hidden="true"
+                  className="h-4 w-4"
+                />
+
+                <span className="hidden sm:inline">
+                  Sign out
+                </span>
               </button>
             </form>
           </div>
@@ -210,7 +242,11 @@ export function DashboardShell({
                   href={item.href}
                   className="flex shrink-0 items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-slate-700 transition hover:bg-white hover:text-slate-950 hover:shadow-sm"
                 >
-                  <Icon aria-hidden="true" className="h-4 w-4" />
+                  <Icon
+                    aria-hidden="true"
+                    className="h-4 w-4"
+                  />
+
                   {item.label}
                 </Link>
               );
@@ -234,9 +270,9 @@ export function DashboardShell({
 
             <p className="mt-4 max-w-2xl leading-7 text-slate-300">
               Your workspace is securely connected to{" "}
-              {organisation.organisationName}. Available features are
-              controlled by your verified organisation membership and
-              permissions.
+              {organisation.organisationName}. Available
+              features are controlled by your verified
+              organisation membership and permissions.
             </p>
           </section>
 
@@ -249,12 +285,15 @@ export function DashboardShell({
                 aria-hidden="true"
                 className="h-6 w-6 text-slate-700"
               />
+
               <p className="mt-5 text-sm text-slate-500">
                 Organisation
               </p>
+
               <p className="mt-1 font-semibold">
                 {organisation.organisationName}
               </p>
+
               <p className="mt-2 text-xs uppercase tracking-wide text-emerald-700">
                 {organisation.organisationStatus}
               </p>
@@ -265,14 +304,17 @@ export function DashboardShell({
                 aria-hidden="true"
                 className="h-6 w-6 text-slate-700"
               />
+
               <p className="mt-5 text-sm text-slate-500">
                 Access roles
               </p>
+
               <p className="mt-1 font-semibold">
                 {organisation.roles.length > 0
                   ? organisation.roles.join(", ")
                   : "Restricted access"}
               </p>
+
               <p className="mt-2 text-xs text-slate-500">
                 Server-verified access
               </p>
@@ -283,12 +325,15 @@ export function DashboardShell({
                 aria-hidden="true"
                 className="h-6 w-6 text-slate-700"
               />
+
               <p className="mt-5 text-sm text-slate-500">
                 Granted permissions
               </p>
+
               <p className="mt-1 text-2xl font-semibold">
                 {organisation.permissions.length}
               </p>
+
               <p className="mt-2 text-xs text-slate-500">
                 Applied through organisation RBAC
               </p>
@@ -299,10 +344,12 @@ export function DashboardShell({
             <h2 className="text-lg font-semibold">
               Operational workspace
             </h2>
+
             <p className="mt-2 text-sm leading-6 text-slate-600">
-              Authentication, organisation access and RBAC are
-              connected. The Enquiries workflow is the next
-              operational module.
+              Authentication, organisation access, RBAC and
+              the Enquiries workflow are securely connected.
+              Use the navigation to manage your available
+              workspace modules.
             </p>
           </section>
         </main>
