@@ -1,8 +1,9 @@
 /**
  * BusinessOS Next.js request proxy.
  *
- * Refreshes Supabase authentication and performs an initial route-access check.
- * Final organisation and RBAC authorization remains enforced by the NestJS API.
+ * Refreshes Supabase authentication and performs initial route-access checks.
+ * Final organisation and RBAC authorisation remains enforced by NestJS and
+ * PostgreSQL Row Level Security.
  */
 
 import type { NextRequest } from "next/server";
@@ -15,8 +16,17 @@ export async function proxy(request: NextRequest) {
 
 export const config = {
   matcher: [
+    "/login/:path*",
+    "/signup/:path*",
+    "/mfa/:path*",
     "/dashboard/:path*",
     "/enquiries/:path*",
+    "/clients/:path*",
+    "/matters/:path*",
+    "/tasks/:path*",
+    "/documents/:path*",
+    "/settings/:path*",
+    "/admin/:path*",
     "/api/:path*",
   ],
 };

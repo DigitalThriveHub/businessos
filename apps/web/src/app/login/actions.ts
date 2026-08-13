@@ -1,17 +1,13 @@
 /**
  * BusinessOS login Server Action.
  *
- * Purpose:
- * - Validates login input on the server.
- * - Authenticates users through Supabase.
- * - Creates secure server-managed authentication cookies.
- * - Redirects authenticated users only to safe internal routes.
- *
  * Security:
+ * - Validates login input on the server.
+ * - Authenticates through Supabase.
+ * - Detects enrolled MFA factors through the session AAL.
+ * - Redirects AAL1 sessions requiring verification to the MFA challenge.
+ * - Prevents external or authentication-flow redirect targets.
  * - Returns neutral errors to prevent account enumeration.
- * - Never logs credentials, tokens or authentication cookies.
- * - Never accepts roles, permissions or organisation IDs from the browser.
- * - RBAC and organisation access remain enforced by the NestJS API.
  */
 
 "use server";
@@ -19,6 +15,10 @@
 import { redirect } from "next/navigation";
 import { z } from "zod";
 
+import {
+  getMfaChallengePath,
+  getSafePostAuthenticationPath,
+} from "@/lib/security/safe-return-path";
 import { createClient } from "@/lib/supabase/server";
 
 const loginSchema = z.object({
@@ -47,28 +47,15 @@ export type LoginActionState = {
   };
 };
 
-function getSafeReturnPath(value?: string): string {
-  if (
-    !value ||
-    !value.startsWith("/") ||
-    value.startsWith("//") ||
-    value.includes("\\") ||
-    /[\r\n]/.test(value)
-  ) {
-    return "/dashboard";
-  }
-
+async function clearLocalSession(
+  supabase: Awaited<ReturnType<typeof createClient>>,
+): Promise<void> {
   try {
-    const trustedOrigin = "https://businessos.invalid";
-    const parsed = new URL(value, trustedOrigin);
-
-    if (parsed.origin !== trustedOrigin) {
-      return "/dashboard";
-    }
-
-    return `${parsed.pathname}${parsed.search}${parsed.hash}`;
+    await supabase.auth.signOut({
+      scope: "local",
+    });
   } catch {
-    return "/dashboard";
+    // Preserve the original authentication failure.
   }
 }
 
@@ -83,11 +70,13 @@ export async function login(
   });
 
   if (!validation.success) {
-    const errors = validation.error.flatten().fieldErrors;
+    const errors =
+      validation.error.flatten().fieldErrors;
 
     return {
       status: "error",
-      message: "Check the highlighted fields and try again.",
+      message:
+        "Check the highlighted fields and try again.",
       fieldErrors: {
         email: errors.email,
         password: errors.password,
@@ -95,23 +84,72 @@ export async function login(
     };
   }
 
-  const { email, password, returnTo } = validation.data;
+  const { email, password, returnTo } =
+    validation.data;
+
   const supabase = await createClient();
+  const safeReturnPath =
+    getSafePostAuthenticationPath(returnTo);
+
+  let destination = safeReturnPath;
 
   try {
-    const { error } = await supabase.auth.signInWithPassword({
-      email,
-      password,
-    });
+    const signInResult =
+      await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
 
-    if (error) {
+    if (signInResult.error) {
       return {
         status: "error",
         message:
           "We could not sign you in with those details. Check your email and password and try again.",
       };
     }
+
+    const assuranceResult =
+      await supabase.auth.mfa
+        .getAuthenticatorAssuranceLevel();
+
+    if (assuranceResult.error) {
+      await clearLocalSession(supabase);
+
+      return {
+        status: "error",
+        message:
+          "The secure sign-in service is temporarily unavailable. Please try again.",
+      };
+    }
+
+    const { currentLevel, nextLevel } =
+      assuranceResult.data;
+
+    if (
+      currentLevel === "aal1" &&
+      nextLevel === "aal2"
+    ) {
+      destination =
+        getMfaChallengePath(safeReturnPath);
+    } else if (
+      !(
+        (currentLevel === "aal1" &&
+          nextLevel === "aal1") ||
+        (currentLevel === "aal2" &&
+          nextLevel === "aal2")
+      )
+    ) {
+      await clearLocalSession(supabase);
+
+      return {
+        status: "error",
+        message:
+          "Your authentication session could not be verified. Please sign in again.",
+      };
+    }
   } catch {
+    await clearLocalSession(supabase);
+
     return {
       status: "error",
       message:
@@ -119,5 +157,5 @@ export async function login(
     };
   }
 
-  redirect(getSafeReturnPath(returnTo));
+  redirect(destination);
 }
