@@ -4,45 +4,26 @@ import {
   ForbiddenException,
   Injectable,
 } from '@nestjs/common';
-import type { Request } from 'express';
-import type { JWTPayload } from 'jose';
+import {
+  MembershipStatus,
+  OrganisationStatus,
+  UserProfileStatus,
+} from '../../../generated/prisma/enums';
 import { RlsTransactionService } from '../../../database/rls-transaction.service';
-
-type OrganisationRequest = Request & {
-  user?: JWTPayload;
-};
-
-const UUID_PATTERN =
-  /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
-
-function resolveOrganisationId(
-  request: OrganisationRequest,
-): string | null {
-  const body = request.body as
-    | { organisationId?: unknown }
-    | undefined;
-
-  const query = request.query as
-    | { organisationId?: unknown }
-    | undefined;
-
-  const candidate =
-    body?.organisationId ?? query?.organisationId;
-
-  return typeof candidate === 'string' &&
-    UUID_PATTERN.test(candidate)
-    ? candidate
-    : null;
-}
-
-function resolveAal(user: JWTPayload): 'AAL1' | 'AAL2' {
-  return user.aal === 'aal2' || user.aal === 'AAL2'
-    ? 'AAL2'
-    : 'AAL1';
-}
+import {
+  assignOrganisationAccessContext,
+  resolveRequestOrganisationId,
+  type OrganisationScopedRequest,
+} from '../../request-security-context';
+import {
+  resolveAssuranceLevel,
+  verifyUserJwtPayload,
+} from '../../verified-jwt-payload';
 
 @Injectable()
-export class OrganisationAccessGuard implements CanActivate {
+export class OrganisationAccessGuard
+  implements CanActivate
+{
   constructor(
     private readonly rls: RlsTransactionService,
   ) {}
@@ -51,37 +32,34 @@ export class OrganisationAccessGuard implements CanActivate {
     context: ExecutionContext,
   ): Promise<boolean> {
     const request =
-      context.switchToHttp().getRequest<OrganisationRequest>();
+      context
+        .switchToHttp()
+        .getRequest<OrganisationScopedRequest>();
 
-    const user = request.user;
-    const userId = user?.sub;
-    const organisationId = resolveOrganisationId(request);
-
-    if (!user || !userId || !organisationId) {
-      throw new ForbiddenException(
-        'Organisation access could not be verified',
-      );
-    }
+    const user = verifyUserJwtPayload(request.user);
+    const organisationId =
+      resolveRequestOrganisationId(request);
+    const aal = resolveAssuranceLevel(user);
 
     const membership = await this.rls.run(
       {
-        userId,
+        userId: user.sub,
         organisationId,
-        aal: resolveAal(user),
+        aal,
       },
       (transaction) =>
         transaction.organisationMembership.findFirst({
           where: {
-            userProfileId: userId,
+            userProfileId: user.sub,
             organisationId,
-            status: 'ACTIVE',
+            status: MembershipStatus.ACTIVE,
             deletedAt: null,
             userProfile: {
-              status: 'ACTIVE',
+              status: UserProfileStatus.ACTIVE,
               deletedAt: null,
             },
             organisation: {
-              status: 'ACTIVE',
+              status: OrganisationStatus.ACTIVE,
               deletedAt: null,
             },
           },
@@ -96,6 +74,14 @@ export class OrganisationAccessGuard implements CanActivate {
         'You do not have access to this organisation',
       );
     }
+
+    assignOrganisationAccessContext(request, {
+      userId: user.sub,
+      organisationId,
+      membershipId: membership.id,
+      sessionId: user.session_id,
+      aal,
+    });
 
     return true;
   }

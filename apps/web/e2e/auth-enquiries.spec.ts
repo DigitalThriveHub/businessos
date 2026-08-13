@@ -217,3 +217,44 @@ test.describe("enquiries workflow", () => {
     ).toHaveCount(0);
   });
 });
+
+test.describe("tenant isolation", () => {
+  test("denies access to another organisation's enquiries", async ({
+    page,
+  }) => {
+    test.skip(
+      !email || !password,
+      "E2E credentials have not been configured.",
+    );
+
+    await signIn(page);
+
+    const foreignOrganisationId = crypto.randomUUID();
+
+    const query = new URLSearchParams({
+      organisationId: foreignOrganisationId,
+      page: "1",
+      limit: "20",
+    });
+
+    const response = await page.request.get(
+      `/api/enquiries?${query.toString()}`,
+    );
+
+    expect(response.status()).toBe(403);
+    expect(response.headers()["cache-control"]).toContain(
+      "no-store",
+    );
+
+    const responseBody =
+      (await response.json()) as Record<string, unknown>;
+
+    expect(responseBody).toEqual({
+      message:
+        "You do not have permission to perform this action.",
+    });
+
+    expect(responseBody).not.toHaveProperty("items");
+    expect(responseBody).not.toHaveProperty("pagination");
+  });
+});
