@@ -8,11 +8,14 @@ import {
   Max,
   Min,
 } from 'class-validator';
-import { EnquiryPriority, EnquiryStatus } from '../../generated/prisma/enums';
+import {
+  EnquiryPriority,
+  EnquiryStatus,
+} from '../../generated/prisma/enums';
 
 export class EnquiryQueryDto {
   @IsUUID()
-  organisationId: string;
+  organisationId!: string;
 
   @IsOptional()
   @IsEnum(EnquiryStatus)

@@ -9,11 +9,12 @@
  */
 
 import { redirect } from "next/navigation";
+
 import {
   DashboardShell,
   type DashboardOrganisation,
   type DashboardUser,
-} from "@/components/dashboard/dashboard-shell"; 
+} from "@/components/dashboard/dashboard-shell";
 import { ApiError, apiFetch } from "@/lib/api";
 import { createClient } from "@/lib/supabase/server";
 
@@ -71,7 +72,8 @@ export default async function DashboardPage() {
     redirect("/onboarding");
   }
 
-  const activeOrganisation = user.organisations.find(isActiveOrganisation);
+  const activeOrganisation =
+    user.organisations.find(isActiveOrganisation);
 
   if (!activeOrganisation) {
     redirect("/access-unavailable");

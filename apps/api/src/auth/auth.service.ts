@@ -1,65 +1,210 @@
-import { Injectable, UnauthorizedException } from '@nestjs/common';
+import {
+  ForbiddenException,
+  Injectable,
+} from '@nestjs/common';
 import type { JWTPayload } from 'jose';
-import { PrismaService } from '../database/prisma.service';
+import {
+  MembershipStatus,
+  OrganisationStatus,
+  UserProfileStatus,
+} from '../generated/prisma/enums';
+import { RlsTransactionService } from '../database/rls-transaction.service';
+import {
+  resolveAssuranceLevel,
+  verifyUserJwtPayload,
+} from './verified-jwt-payload';
+
+export interface CurrentUserOrganisation {
+  organisationId: string;
+  membershipId: string;
+  organisationName: string;
+  organisationSlug: string;
+  organisationStatus: OrganisationStatus;
+  jobTitle: string | null;
+  roles: string[];
+  permissions: string[];
+}
+
+function optionalString(value: unknown): string | undefined {
+  return typeof value === 'string' ? value : undefined;
+}
 
 @Injectable()
 export class AuthService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(
+    private readonly rls: RlsTransactionService,
+  ) {}
 
-  async getCurrentUser(tokenUser: JWTPayload) {
-    if (!tokenUser.sub) {
-      throw new UnauthorizedException('Token has no user ID');
-    }
-
+  async getCurrentUser(
+    tokenUser: JWTPayload | undefined,
+  ) {
+    const verifiedUser = verifyUserJwtPayload(tokenUser);
+    const userId = verifiedUser.sub;
+    const aal = resolveAssuranceLevel(verifiedUser);
     const now = new Date();
 
-    const profile = await this.prisma.userProfile.findUnique({
-      where: {
-        id: tokenUser.sub,
+    const profile = await this.rls.run(
+      {
+        userId,
+        aal,
       },
-      include: {
-        organisationMemberships: {
+      (transaction) =>
+        transaction.userProfile.findUnique({
           where: {
-            status: 'ACTIVE',
-            deletedAt: null,
+            id: userId,
           },
-          include: {
-            organisation: true,
-            roleAssignments: {
+          select: {
+            id: true,
+            email: true,
+            displayName: true,
+            firstName: true,
+            lastName: true,
+            status: true,
+            deletedAt: true,
+            organisationMemberships: {
               where: {
-                revokedAt: null,
+                status: MembershipStatus.ACTIVE,
                 deletedAt: null,
-                validFrom: { lte: now },
-                OR: [
-                  { validUntil: null },
-                  { validUntil: { gt: now } },
-                ],
+                organisation: {
+                  status: {
+                    in: [
+                      OrganisationStatus.PROVISIONING,
+                      OrganisationStatus.ACTIVE,
+                    ],
+                  },
+                  deletedAt: null,
+                },
               },
-              include: {
-                role: {
-                  include: {
-                    permissions: {
-                      include: {
-                        permission: true,
+              select: {
+                id: true,
+                organisationId: true,
+                jobTitle: true,
+                organisation: {
+                  select: {
+                    id: true,
+                    name: true,
+                    slug: true,
+                    status: true,
+                  },
+                },
+              },
+            },
+          },
+        }),
+    );
+
+    if (!profile) {
+      return {
+        id: userId,
+        email: optionalString(verifiedUser.email),
+        authenticated: true,
+        onboardingRequired: true,
+        organisations: [] as CurrentUserOrganisation[],
+      };
+    }
+
+    if (
+      profile.status !== UserProfileStatus.ACTIVE ||
+      profile.deletedAt !== null
+    ) {
+      throw new ForbiddenException(
+        'Account access is unavailable',
+      );
+    }
+
+    const organisations: CurrentUserOrganisation[] = [];
+
+    for (const membership of profile.organisationMemberships) {
+      const assignments = await this.rls.run(
+        {
+          userId,
+          organisationId: membership.organisationId,
+          aal,
+        },
+        (transaction) =>
+          transaction.roleAssignment.findMany({
+            where: {
+              userProfileId: userId,
+              organisationId: membership.organisationId,
+              organisationMembershipId: membership.id,
+              revokedAt: null,
+              deletedAt: null,
+              validFrom: {
+                lte: now,
+              },
+              OR: [
+                {
+                  validUntil: null,
+                },
+                {
+                  validUntil: {
+                    gt: now,
+                  },
+                },
+              ],
+              role: {
+                organisationId: membership.organisationId,
+                deletedAt: null,
+              },
+            },
+            select: {
+              role: {
+                select: {
+                  key: true,
+                  permissions: {
+                    where: {
+                      permission: {
+                        isActive: true,
+                        deletedAt: null,
+                      },
+                    },
+                    select: {
+                      permission: {
+                        select: {
+                          key: true,
+                          requiresMfa: true,
+                        },
                       },
                     },
                   },
                 },
               },
             },
-          },
-        },
-      },
-    });
+          }),
+      );
 
-    if (!profile) {
-      return {
-        id: tokenUser.sub,
-        email: tokenUser.email,
-        authenticated: true,
-        onboardingRequired: true,
-        organisations: [],
-      };
+      const roles = [
+        ...new Set(
+          assignments.map(
+            (assignment) => assignment.role.key,
+          ),
+        ),
+      ].sort();
+
+      const permissions = [
+        ...new Set(
+          assignments.flatMap((assignment) =>
+            assignment.role.permissions
+              .filter(
+                ({ permission }) =>
+                  !permission.requiresMfa ||
+                  aal === 'AAL2',
+              )
+              .map(({ permission }) => permission.key),
+          ),
+        ),
+      ].sort();
+
+      organisations.push({
+        organisationId: membership.organisationId,
+        membershipId: membership.id,
+        organisationName: membership.organisation.name,
+        organisationSlug: membership.organisation.slug,
+        organisationStatus: membership.organisation.status,
+        jobTitle: membership.jobTitle,
+        roles,
+        permissions,
+      });
     }
 
     return {
@@ -71,26 +216,7 @@ export class AuthService {
       status: profile.status,
       authenticated: true,
       onboardingRequired: false,
-      organisations: profile.organisationMemberships.map((membership) => ({
-        organisationId: membership.organisationId,
-        membershipId: membership.id,
-        organisationName: membership.organisation.name,
-        organisationSlug: membership.organisation.slug,
-        organisationStatus: membership.organisation.status,
-        jobTitle: membership.jobTitle,
-        roles: membership.roleAssignments.map(
-          (assignment) => assignment.role.key,
-        ),
-        permissions: [
-          ...new Set(
-            membership.roleAssignments.flatMap((assignment) =>
-              assignment.role.permissions
-                .filter((item) => item.permission.isActive)
-                .map((item) => item.permission.key),
-            ),
-          ),
-        ],
-      })),
+      organisations,
     };
   }
 }

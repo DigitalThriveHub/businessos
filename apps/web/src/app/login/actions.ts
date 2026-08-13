@@ -18,6 +18,7 @@
 
 import { redirect } from "next/navigation";
 import { z } from "zod";
+
 import { createClient } from "@/lib/supabase/server";
 
 const loginSchema = z.object({
@@ -46,10 +47,6 @@ export type LoginActionState = {
   };
 };
 
-export const initialLoginState: LoginActionState = {
-  status: "idle",
-};
-
 function getSafeReturnPath(value?: string): string {
   if (
     !value ||
@@ -62,9 +59,10 @@ function getSafeReturnPath(value?: string): string {
   }
 
   try {
-    const parsed = new URL(value, "https://businessos.invalid");
+    const trustedOrigin = "https://businessos.invalid";
+    const parsed = new URL(value, trustedOrigin);
 
-    if (parsed.origin !== "https://businessos.invalid") {
+    if (parsed.origin !== trustedOrigin) {
       return "/dashboard";
     }
 

@@ -7,14 +7,15 @@
 
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useEffect, useState } from "react";
 import { useFormStatus } from "react-dom";
 import { ArrowRight, LockKeyhole, ShieldCheck } from "lucide-react";
-import {
-  initialLoginState,
-  login,
-  type LoginActionState,
-} from "./actions";
+
+import { login, type LoginActionState } from "./actions";
+
+const initialLoginState: LoginActionState = {
+  status: "idle",
+};
 
 function SubmitButton() {
   const { pending } = useFormStatus();
@@ -23,8 +24,7 @@ function SubmitButton() {
     <button
       type="submit"
       disabled={pending}
-      aria-disabled={pending}
-      className="flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-slate-950 px-5 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60"
+      className="flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-slate-950 px-5 font-medium text-white transition hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-950 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60"
     >
       {pending ? (
         "Signing in securely…"
@@ -62,6 +62,13 @@ export default function LoginPage() {
     initialLoginState,
   );
 
+  const [returnTo, setReturnTo] = useState("");
+
+  useEffect(() => {
+    const value = new URLSearchParams(window.location.search).get("returnTo");
+    setReturnTo(value ?? "");
+  }, []);
+
   const emailErrorId = state.fieldErrors?.email
     ? "login-email-error"
     : undefined;
@@ -71,8 +78,8 @@ export default function LoginPage() {
     : undefined;
 
   return (
-    <main className="flex min-h-screen bg-slate-50">
-      <section className="hidden w-1/2 flex-col justify-between bg-slate-950 p-12 text-white lg:flex">
+    <main className="min-h-screen bg-slate-50 lg:flex">
+      <section className="hidden min-h-screen w-1/2 flex-col justify-between bg-slate-950 p-12 text-white lg:flex xl:p-16">
         <div className="flex items-center gap-3">
           <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/10">
             <ShieldCheck aria-hidden="true" className="h-6 w-6" />
@@ -143,17 +150,7 @@ export default function LoginPage() {
             ) : null}
 
             <form action={formAction} className="space-y-5" noValidate>
-              <input
-                type="hidden"
-                name="returnTo"
-                value={
-                  typeof window !== "undefined"
-                    ? new URLSearchParams(window.location.search).get(
-                        "returnTo",
-                      ) ?? ""
-                    : ""
-                }
-              />
+              <input type="hidden" name="returnTo" value={returnTo} />
 
               <div>
                 <label

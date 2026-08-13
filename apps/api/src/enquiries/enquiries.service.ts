@@ -1,18 +1,23 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { PrismaService } from '../database/prisma.service';
+import { RlsTransactionService } from '../database/rls-transaction.service';
 import { Prisma } from '../generated/prisma/client';
 import { EnquiryStatus } from '../generated/prisma/enums';
 import { CreateEnquiryDto } from './dto/create-enquiry.dto';
 import { EnquiryQueryDto } from './dto/enquiry-query.dto';
 import { UpdateEnquiryDto } from './dto/update-enquiry.dto';
+import type { EnquiryRequestContext } from './enquiry-context';
+import { assertValidEnquiryTransition } from './enquiry-workflow';
 
 @Injectable()
 export class EnquiriesService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(private readonly rls: RlsTransactionService) {}
 
-  async create(dto: CreateEnquiryDto, actorUserId?: string) {
+  async create(
+    dto: CreateEnquiryDto,
+    context: EnquiryRequestContext,
+  ) {
     const data: Prisma.EnquiryUncheckedCreateInput = {
-      organisationId: dto.organisationId,
+      organisationId: context.organisationId,
       assignedToUserId: dto.assignedToUserId,
       firstName: dto.firstName,
       lastName: dto.lastName,
@@ -27,21 +32,26 @@ export class EnquiriesService {
       nextFollowUpAt: dto.nextFollowUpAt
         ? new Date(dto.nextFollowUpAt)
         : undefined,
-      createdByUserId: actorUserId,
-      updatedByUserId: actorUserId,
+      createdByUserId: context.userId,
+      updatedByUserId: context.userId,
     };
 
-    return this.prisma.enquiry.create({ data });
+    return this.rls.run(context, (transaction) =>
+      transaction.enquiry.create({ data }),
+    );
   }
 
-  async findAll(query: EnquiryQueryDto) {
+  async findAll(
+    query: EnquiryQueryDto,
+    context: EnquiryRequestContext,
+  ) {
     const page = query.page ?? 1;
     const limit = query.limit ?? 20;
     const skip = (page - 1) * limit;
     const search = query.search?.trim();
 
     const where: Prisma.EnquiryWhereInput = {
-      organisationId: query.organisationId,
+      organisationId: context.organisationId,
       deletedAt: null,
       status: query.status,
       priority: query.priority,
@@ -84,17 +94,21 @@ export class EnquiriesService {
         : {}),
     };
 
-    const [items, total] = await this.prisma.$transaction([
-      this.prisma.enquiry.findMany({
-        where,
-        skip,
-        take: limit,
-        orderBy: {
-          createdAt: 'desc',
-        },
-      }),
-      this.prisma.enquiry.count({ where }),
-    ]);
+    const [items, total] = await this.rls.run(
+      context,
+      (transaction) =>
+        Promise.all([
+          transaction.enquiry.findMany({
+            where,
+            skip,
+            take: limit,
+            orderBy: {
+              createdAt: 'desc',
+            },
+          }),
+          transaction.enquiry.count({ where }),
+        ]),
+    );
 
     return {
       items,
@@ -107,8 +121,25 @@ export class EnquiriesService {
     };
   }
 
-  async findOne(id: string, organisationId: string) {
-    const enquiry = await this.prisma.enquiry.findFirst({
+  async findOne(
+    id: string,
+    context: EnquiryRequestContext,
+  ) {
+    return this.rls.run(context, (transaction) =>
+      this.findOneWithClient(
+        transaction,
+        id,
+        context.organisationId,
+      ),
+    );
+  }
+
+  private async findOneWithClient(
+    transaction: Prisma.TransactionClient,
+    id: string,
+    organisationId: string,
+  ) {
+    const enquiry = await transaction.enquiry.findFirst({
       where: {
         id,
         organisationId,
@@ -125,59 +156,77 @@ export class EnquiriesService {
 
   async update(
     id: string,
-    organisationId: string,
     dto: UpdateEnquiryDto,
-    actorUserId?: string,
+    context: EnquiryRequestContext,
   ) {
-    await this.findOne(id, organisationId);
+    return this.rls.run(context, async (transaction) => {
+      const current = await this.findOneWithClient(
+        transaction,
+        id,
+        context.organisationId,
+      );
 
-    const data: Prisma.EnquiryUncheckedUpdateInput = {
-      assignedToUserId: dto.assignedToUserId,
-      firstName: dto.firstName,
-      lastName: dto.lastName,
-      email: dto.email?.trim().toLowerCase(),
-      phone: dto.phone,
-      country: dto.country,
-      serviceType: dto.serviceType,
-      message: dto.message,
-      source: dto.source,
-      status: dto.status,
-      priority: dto.priority,
-      nextFollowUpAt: dto.nextFollowUpAt
-        ? new Date(dto.nextFollowUpAt)
-        : undefined,
-      lastContactedAt: dto.lastContactedAt
-        ? new Date(dto.lastContactedAt)
-        : undefined,
-      updatedByUserId: actorUserId,
-      ...(dto.status === EnquiryStatus.CONVERTED
-        ? { convertedAt: new Date() }
-        : {}),
-    };
+      assertValidEnquiryTransition(
+        current.status,
+        dto.status,
+      );
 
-    return this.prisma.enquiry.update({
-      where: { id },
-      data,
+      const data: Prisma.EnquiryUncheckedUpdateInput = {
+        assignedToUserId: dto.assignedToUserId,
+        firstName: dto.firstName,
+        lastName: dto.lastName,
+        email: dto.email?.trim().toLowerCase(),
+        phone: dto.phone,
+        country: dto.country,
+        serviceType: dto.serviceType,
+        message: dto.message,
+        source: dto.source,
+        status: dto.status,
+        priority: dto.priority,
+        nextFollowUpAt: dto.nextFollowUpAt
+          ? new Date(dto.nextFollowUpAt)
+          : undefined,
+        lastContactedAt: dto.lastContactedAt
+          ? new Date(dto.lastContactedAt)
+          : undefined,
+        updatedByUserId: context.userId,
+        ...(dto.status === EnquiryStatus.CONVERTED
+          ? {
+              convertedAt: new Date(),
+            }
+          : {}),
+      };
+
+      return transaction.enquiry.update({
+        where: {
+          id,
+        },
+        data,
+      });
     });
   }
 
   async remove(
     id: string,
-    organisationId: string,
-    actorUserId?: string,
+    context: EnquiryRequestContext,
   ) {
-    await this.findOne(id, organisationId);
+    return this.rls.run(context, async (transaction) => {
+      const [result] = await transaction.$queryRaw<
+        Array<{ deleted: boolean }>
+      >`
+        SELECT private.soft_delete_enquiry(
+          ${id}::uuid,
+          ${context.organisationId}::uuid
+        ) AS deleted
+      `;
 
-    await this.prisma.enquiry.update({
-      where: { id },
-      data: {
-        deletedAt: new Date(),
-        updatedByUserId: actorUserId,
-      },
+      if (result?.deleted !== true) {
+        throw new NotFoundException('Enquiry not found');
+      }
+
+      return {
+        message: 'Enquiry deleted successfully',
+      };
     });
-
-    return {
-      message: 'Enquiry deleted successfully',
-    };
   }
 }

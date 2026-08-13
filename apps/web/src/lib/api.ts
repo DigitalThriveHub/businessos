@@ -88,20 +88,36 @@ export async function apiFetch<T>(
   }
 
   const abortController = new AbortController();
-  const timeout = setTimeout(() => abortController.abort(), timeoutMs);
+  const timeout = setTimeout(
+    () => abortController.abort(),
+    timeoutMs,
+  );
 
   try {
-    const response = await fetch(`${getApiBaseUrl()}${path}`, {
-      ...requestOptions,
-      headers,
-      signal: abortController.signal,
-      cache: "no-store",
-      redirect: "error",
-    });
+    const response = await fetch(
+      `${getApiBaseUrl()}${path}`,
+      {
+        ...requestOptions,
+        headers,
+        signal: abortController.signal,
+        cache: "no-store",
+        redirect: "error",
+      },
+    );
 
     if (!response.ok) {
+      if (response.status === 400) {
+        throw new ApiError(
+          "The submitted information is invalid.",
+          400,
+        );
+      }
+
       if (response.status === 401) {
-        throw new ApiError("Authentication is required.", 401);
+        throw new ApiError(
+          "Authentication is required.",
+          401,
+        );
       }
 
       if (response.status === 403) {
@@ -112,10 +128,23 @@ export async function apiFetch<T>(
       }
 
       if (response.status === 404) {
-        throw new ApiError("The requested resource was not found.", 404);
+        throw new ApiError(
+          "The requested resource was not found.",
+          404,
+        );
       }
 
-      throw new ApiError("The API request could not be completed.", response.status);
+      if (response.status === 409) {
+        throw new ApiError(
+          "The requested operation conflicts with an existing record.",
+          409,
+        );
+      }
+
+      throw new ApiError(
+        "The API request could not be completed.",
+        response.status,
+      );
     }
 
     if (response.status === 204) {
@@ -125,7 +154,10 @@ export async function apiFetch<T>(
     const contentType = response.headers.get("content-type");
 
     if (!contentType?.includes("application/json")) {
-      throw new ApiError("The API returned an invalid response.", 502);
+      throw new ApiError(
+        "The API returned an invalid response.",
+        502,
+      );
     }
 
     return (await response.json()) as T;
@@ -134,11 +166,20 @@ export async function apiFetch<T>(
       throw error;
     }
 
-    if (error instanceof Error && error.name === "AbortError") {
-      throw new ApiError("The API request timed out.", 504);
+    if (
+      error instanceof Error &&
+      error.name === "AbortError"
+    ) {
+      throw new ApiError(
+        "The API request timed out.",
+        504,
+      );
     }
 
-    throw new ApiError("The secure API service is unavailable.", 503);
+    throw new ApiError(
+      "The secure API service is unavailable.",
+      503,
+    );
   } finally {
     clearTimeout(timeout);
   }

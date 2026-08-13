@@ -2,9 +2,10 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { AuthModule } from './auth/auth.module';
+import { BootstrapModule } from './bootstrap/bootstrap.module';
 import { validateEnvironment } from './config/env.validation';
 import { DatabaseModule } from './database/database.module';
-import { AuthModule } from './auth/auth.module';
 import { EnquiriesModule } from './enquiries/enquiries.module';
 
 @Module({
@@ -16,6 +17,7 @@ import { EnquiriesModule } from './enquiries/enquiries.module';
     }),
     DatabaseModule,
     AuthModule,
+    BootstrapModule,
     EnquiriesModule,
   ],
   controllers: [AppController],

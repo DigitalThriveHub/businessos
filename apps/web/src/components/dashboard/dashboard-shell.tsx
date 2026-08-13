@@ -17,6 +17,7 @@ import {
   ShieldCheck,
   Users,
 } from "lucide-react";
+
 import { logout } from "@/app/dashboard/actions";
 
 export type DashboardOrganisation = {
@@ -129,6 +130,20 @@ function getDisplayName(user: DashboardUser): string {
   return user.email ?? "Authorised user";
 }
 
+function getAccessLabel(
+  organisation: DashboardOrganisation,
+): string {
+  if (organisation.jobTitle?.trim()) {
+    return organisation.jobTitle.trim();
+  }
+
+  if (organisation.roles.length > 0) {
+    return organisation.roles.join(", ");
+  }
+
+  return "Authorised user";
+}
+
 export function DashboardShell({
   user,
   organisation,
@@ -140,10 +155,13 @@ export function DashboardShell({
   return (
     <div className="min-h-screen bg-slate-50 text-slate-950">
       <header className="border-b border-slate-200 bg-white">
-        <div className="mx-auto flex min-h-16 max-w-7xl items-center justify-between gap-6 px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
           <div className="flex min-w-0 items-center gap-3">
             <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-slate-950 text-white">
-              <ShieldCheck aria-hidden="true" className="h-5 w-5" />
+              <LayoutDashboard
+                aria-hidden="true"
+                className="h-5 w-5"
+              />
             </div>
 
             <div className="min-w-0">
@@ -156,11 +174,11 @@ export function DashboardShell({
 
           <div className="flex items-center gap-3">
             <div className="hidden text-right sm:block">
-              <p className="text-sm font-medium">{getDisplayName(user)}</p>
+              <p className="text-sm font-medium">
+                {getDisplayName(user)}
+              </p>
               <p className="max-w-52 truncate text-xs text-slate-500">
-                {organisation.jobTitle ??
-                  organisation.roles.join(", ") ??
-                  "Authorised user"}
+                {getAccessLabel(organisation)}
               </p>
             </div>
 
@@ -207,13 +225,18 @@ export function DashboardShell({
             </p>
 
             <h1 className="mt-4 max-w-3xl text-3xl font-semibold tracking-tight sm:text-4xl">
-              Welcome back, {getDisplayName(user)}.
+              Dashboard
             </h1>
+
+            <p className="mt-3 text-xl text-white">
+              Welcome back, {getDisplayName(user)}.
+            </p>
 
             <p className="mt-4 max-w-2xl leading-7 text-slate-300">
               Your workspace is securely connected to{" "}
-              {organisation.organisationName}. Available features are controlled
-              by your verified organisation membership and permissions.
+              {organisation.organisationName}. Available features are
+              controlled by your verified organisation membership and
+              permissions.
             </p>
           </section>
 
@@ -226,7 +249,9 @@ export function DashboardShell({
                 aria-hidden="true"
                 className="h-6 w-6 text-slate-700"
               />
-              <p className="mt-5 text-sm text-slate-500">Organisation</p>
+              <p className="mt-5 text-sm text-slate-500">
+                Organisation
+              </p>
               <p className="mt-1 font-semibold">
                 {organisation.organisationName}
               </p>
@@ -240,9 +265,11 @@ export function DashboardShell({
                 aria-hidden="true"
                 className="h-6 w-6 text-slate-700"
               />
-              <p className="mt-5 text-sm text-slate-500">Access roles</p>
+              <p className="mt-5 text-sm text-slate-500">
+                Access roles
+              </p>
               <p className="mt-1 font-semibold">
-                {organisation.roles.length
+                {organisation.roles.length > 0
                   ? organisation.roles.join(", ")
                   : "Restricted access"}
               </p>
@@ -269,10 +296,13 @@ export function DashboardShell({
           </section>
 
           <section className="mt-7 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-            <h2 className="text-lg font-semibold">Operational workspace</h2>
+            <h2 className="text-lg font-semibold">
+              Operational workspace
+            </h2>
             <p className="mt-2 text-sm leading-6 text-slate-600">
-              Authentication, organisation access and RBAC are connected. The
-              Enquiries workflow is the next operational module.
+              Authentication, organisation access and RBAC are
+              connected. The Enquiries workflow is the next
+              operational module.
             </p>
           </section>
         </main>

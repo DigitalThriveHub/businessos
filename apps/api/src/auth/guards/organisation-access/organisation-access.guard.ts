@@ -6,50 +6,90 @@ import {
 } from '@nestjs/common';
 import type { Request } from 'express';
 import type { JWTPayload } from 'jose';
-import { PrismaService } from '../../../database/prisma.service';
+import { RlsTransactionService } from '../../../database/rls-transaction.service';
 
-interface OrganisationRequest extends Request {
-  user: JWTPayload;
-  body: {
-    organisationId?: string;
-  };
-  query: {
-    organisationId?: string;
-  };
+type OrganisationRequest = Request & {
+  user?: JWTPayload;
+};
+
+const UUID_PATTERN =
+  /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+
+function resolveOrganisationId(
+  request: OrganisationRequest,
+): string | null {
+  const body = request.body as
+    | { organisationId?: unknown }
+    | undefined;
+
+  const query = request.query as
+    | { organisationId?: unknown }
+    | undefined;
+
+  const candidate =
+    body?.organisationId ?? query?.organisationId;
+
+  return typeof candidate === 'string' &&
+    UUID_PATTERN.test(candidate)
+    ? candidate
+    : null;
+}
+
+function resolveAal(user: JWTPayload): 'AAL1' | 'AAL2' {
+  return user.aal === 'aal2' || user.aal === 'AAL2'
+    ? 'AAL2'
+    : 'AAL1';
 }
 
 @Injectable()
 export class OrganisationAccessGuard implements CanActivate {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(
+    private readonly rls: RlsTransactionService,
+  ) {}
 
-  async canActivate(context: ExecutionContext): Promise<boolean> {
-    const request = context
-      .switchToHttp()
-      .getRequest<OrganisationRequest>();
+  async canActivate(
+    context: ExecutionContext,
+  ): Promise<boolean> {
+    const request =
+      context.switchToHttp().getRequest<OrganisationRequest>();
 
-    const userId = request.user?.sub;
-    const organisationId =
-      request.body?.organisationId ?? request.query?.organisationId;
+    const user = request.user;
+    const userId = user?.sub;
+    const organisationId = resolveOrganisationId(request);
 
-    if (!userId || !organisationId) {
-      throw new ForbiddenException('Organisation access could not be verified');
+    if (!user || !userId || !organisationId) {
+      throw new ForbiddenException(
+        'Organisation access could not be verified',
+      );
     }
 
-    const membership = await this.prisma.organisationMembership.findFirst({
-      where: {
-        userProfileId: userId,
+    const membership = await this.rls.run(
+      {
+        userId,
         organisationId,
-        status: 'ACTIVE',
-        deletedAt: null,
-        organisation: {
-          status: 'ACTIVE',
-          deletedAt: null,
-        },
+        aal: resolveAal(user),
       },
-      select: {
-        id: true,
-      },
-    });
+      (transaction) =>
+        transaction.organisationMembership.findFirst({
+          where: {
+            userProfileId: userId,
+            organisationId,
+            status: 'ACTIVE',
+            deletedAt: null,
+            userProfile: {
+              status: 'ACTIVE',
+              deletedAt: null,
+            },
+            organisation: {
+              status: 'ACTIVE',
+              deletedAt: null,
+            },
+          },
+          select: {
+            id: true,
+          },
+        }),
+    );
 
     if (!membership) {
       throw new ForbiddenException(

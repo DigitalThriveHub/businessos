@@ -5,64 +5,176 @@ import {
   UnauthorizedException,
 } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { createRemoteJWKSet, jwtVerify, JWTPayload } from 'jose';
 import type { Request } from 'express';
+import {
+  createRemoteJWKSet,
+  jwtVerify,
+} from 'jose';
+import {
+  verifyUserJwtPayload,
+  type VerifiedUserJwtPayload,
+} from '../../verified-jwt-payload';
+
+const MAX_AUTHORIZATION_HEADER_LENGTH = 16_384;
+
+const BEARER_TOKEN_PATTERN =
+  /^Bearer ([A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+)$/i;
 
 export interface AuthenticatedRequest extends Request {
-  user: JWTPayload;
+  user: VerifiedUserJwtPayload;
+}
+
+function requireConfiguration(
+  config: ConfigService,
+  key: string,
+): string {
+  const value = config.getOrThrow<string>(key).trim();
+
+  if (!value) {
+    throw new Error(`${key} must not be empty`);
+  }
+
+  return value;
+}
+
+function validateServiceUrl(value: string, key: string): URL {
+  let url: URL;
+
+  try {
+    url = new URL(value);
+  } catch {
+    throw new Error(`${key} must be a valid URL`);
+  }
+
+  if (url.username || url.password) {
+    throw new Error(`${key} must not contain credentials`);
+  }
+
+  const isLocalDevelopment =
+    url.hostname === 'localhost' ||
+    url.hostname === '127.0.0.1' ||
+    url.hostname === '::1';
+
+  if (
+    url.protocol !== 'https:' &&
+    !(isLocalDevelopment && url.protocol === 'http:')
+  ) {
+    throw new Error(
+      `${key} must use HTTPS outside local development`,
+    );
+  }
+
+  return url;
 }
 
 @Injectable()
 export class JwtAuthGuard implements CanActivate {
-  private readonly jwks: ReturnType<typeof createRemoteJWKSet>;
+  private readonly jwks: ReturnType<
+    typeof createRemoteJWKSet
+  >;
+
   private readonly issuer: string;
   private readonly audience: string;
 
-  constructor(private readonly config: ConfigService) {
-    const supabaseUrl = this.config.getOrThrow<string>('SUPABASE_URL');
+  constructor(config: ConfigService) {
+    const supabaseUrlValue = requireConfiguration(
+      config,
+      'SUPABASE_URL',
+    );
 
-    this.issuer = this.config.getOrThrow<string>('SUPABASE_JWT_ISSUER');
-    this.audience = this.config.getOrThrow<string>(
+    this.issuer = requireConfiguration(
+      config,
+      'SUPABASE_JWT_ISSUER',
+    );
+
+    this.audience = requireConfiguration(
+      config,
       'SUPABASE_JWT_AUDIENCE',
     );
 
-    this.jwks = createRemoteJWKSet(
-      new URL(`${supabaseUrl}/auth/v1/.well-known/jwks.json`),
+    const supabaseUrl = validateServiceUrl(
+      supabaseUrlValue,
+      'SUPABASE_URL',
     );
+
+    validateServiceUrl(
+      this.issuer,
+      'SUPABASE_JWT_ISSUER',
+    );
+
+    const jwksUrl = new URL(
+      '/auth/v1/.well-known/jwks.json',
+      supabaseUrl,
+    );
+
+    this.jwks = createRemoteJWKSet(jwksUrl);
   }
 
-  async canActivate(context: ExecutionContext): Promise<boolean> {
-    const request = context
-      .switchToHttp()
-      .getRequest<AuthenticatedRequest>();
+  async canActivate(
+    context: ExecutionContext,
+  ): Promise<boolean> {
+    const request =
+      context.switchToHttp().getRequest<AuthenticatedRequest>();
 
     const authorization = request.headers.authorization;
 
-    if (!authorization?.startsWith('Bearer ')) {
-      throw new UnauthorizedException('Missing bearer token');
+    if (
+      typeof authorization !== 'string' ||
+      authorization.length > MAX_AUTHORIZATION_HEADER_LENGTH
+    ) {
+      throw new UnauthorizedException(
+        'Authentication is required',
+      );
     }
 
-    const token = authorization.slice(7).trim();
+    const match = BEARER_TOKEN_PATTERN.exec(authorization);
 
-    if (!token) {
-      throw new UnauthorizedException('Missing bearer token');
+    if (!match) {
+      throw new UnauthorizedException(
+        'Authentication is required',
+      );
     }
+
+    const token = match[1];
 
     try {
-      const { payload } = await jwtVerify(token, this.jwks, {
-        issuer: this.issuer,
-        audience: this.audience,
-        algorithms: ['ES256', 'RS256'],
-      });
+      const { payload, protectedHeader } = await jwtVerify(
+        token,
+        this.jwks,
+        {
+          issuer: this.issuer,
+          audience: this.audience,
+          algorithms: ['ES256', 'RS256'],
+          requiredClaims: [
+            'exp',
+            'iat',
+            'sub',
+            'role',
+            'session_id',
+            'is_anonymous',
+          ],
+          clockTolerance: 5,
+        },
+      );
 
-      if (!payload.sub) {
-        throw new UnauthorizedException('Token has no user ID');
+      if (
+        typeof protectedHeader.kid !== 'string' ||
+        protectedHeader.kid.length === 0
+      ) {
+        throw new UnauthorizedException(
+          'Authentication is required',
+        );
       }
 
-      request.user = payload;
+      request.user = Object.freeze(
+        verifyUserJwtPayload(payload),
+      );
+
       return true;
     } catch {
-      throw new UnauthorizedException('Invalid or expired access token');
+      throw new UnauthorizedException(
+        'Invalid or expired access token',
+      );
     }
   }
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import {
-  FormEvent,
+  type FormEvent,
   useCallback,
   useEffect,
   useMemo,
@@ -20,25 +20,6 @@ import {
 
 type ApiMessage = {
   message?: string;
-};
-
-type CurrentUserResponse = {
-  organisationId?: string;
-  activeOrganisationId?: string;
-  organisation?: {
-    id?: string;
-  };
-  membership?: {
-    organisationId?: string;
-  };
-  memberships?: Array<{
-    organisationId?: string;
-    status?: string;
-    organisation?: {
-      id?: string;
-      status?: string;
-    };
-  }>;
 };
 
 type EnquiryFormState = {
@@ -70,57 +51,44 @@ const EMPTY_FORM: EnquiryFormState = {
 };
 
 const PAGE_SIZE = 20;
+const API_REQUEST_TIMEOUT_MS = 15_000;
 
-function isUuid(value: unknown): value is string {
-  return (
-    typeof value === "string" &&
-    /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(
-      value,
-    )
-  );
-}
+async function fetchWithTimeout(
+  input: RequestInfo | URL,
+  init: RequestInit = {},
+): Promise<Response> {
+  const controller = new AbortController();
+  const callerSignal = init.signal;
 
-function resolveOrganisationId(user: CurrentUserResponse): string | null {
-  const directCandidates = [
-    user.activeOrganisationId,
-    user.organisationId,
-    user.organisation?.id,
-    user.membership?.organisationId,
-  ];
+  const abortFromCaller = () => {
+    controller.abort(callerSignal?.reason);
+  };
 
-  const directMatch = directCandidates.find(isUuid);
-
-  if (directMatch) {
-    return directMatch;
+  if (callerSignal?.aborted) {
+    abortFromCaller();
+  } else {
+    callerSignal?.addEventListener("abort", abortFromCaller, { once: true });
   }
 
-  const activeMembership = user.memberships?.find(
-    (membership) =>
-      membership.status === "ACTIVE" &&
-      membership.organisation?.status !== "INACTIVE" &&
-      (isUuid(membership.organisationId) ||
-        isUuid(membership.organisation?.id)),
-  );
+  const timeoutId = window.setTimeout(() => {
+    controller.abort(new DOMException("Request timed out", "TimeoutError"));
+  }, API_REQUEST_TIMEOUT_MS);
 
-  const activeId =
-    activeMembership?.organisationId ??
-    activeMembership?.organisation?.id;
+  try {
+    return await fetch(input, {
+      ...init,
+      signal: controller.signal,
+    });
+  } catch (error) {
+    if (controller.signal.aborted && !callerSignal?.aborted) {
+      throw new Error("The request timed out. Please try again.");
+    }
 
-  if (isUuid(activeId)) {
-    return activeId;
+    throw error;
+  } finally {
+    window.clearTimeout(timeoutId);
+    callerSignal?.removeEventListener("abort", abortFromCaller);
   }
-
-  const firstMembership = user.memberships?.find(
-    (membership) =>
-      isUuid(membership.organisationId) ||
-      isUuid(membership.organisation?.id),
-  );
-
-  const firstId =
-    firstMembership?.organisationId ??
-    firstMembership?.organisation?.id;
-
-  return isUuid(firstId) ? firstId : null;
 }
 
 async function readApiError(response: Response): Promise<string> {
@@ -240,8 +208,13 @@ function statusClass(status: EnquiryStatus): string {
   }
 }
 
-export function EnquiriesWorkspace() {
-  const [organisationId, setOrganisationId] = useState<string | null>(null);
+type EnquiriesWorkspaceProps = {
+  organisationId: string;
+};
+
+export function EnquiriesWorkspace({
+  organisationId,
+}: EnquiriesWorkspaceProps) {
   const [items, setItems] = useState<Enquiry[]>([]);
   const [total, setTotal] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
@@ -252,7 +225,6 @@ export function EnquiriesWorkspace() {
   const [status, setStatus] = useState<EnquiryStatus | "">("");
   const [priority, setPriority] = useState<EnquiryPriority | "">("");
 
-  const [initialising, setInitialising] = useState(true);
   const [loading, setLoading] = useState(false);
   const [saving, setSaving] = useState(false);
   const [deletingId, setDeletingId] = useState<string | null>(null);
@@ -260,8 +232,7 @@ export function EnquiriesWorkspace() {
   const [notice, setNotice] = useState<string | null>(null);
 
   const [editorOpen, setEditorOpen] = useState(false);
-  const [selectedEnquiry, setSelectedEnquiry] =
-    useState<Enquiry | null>(null);
+  const [selectedEnquiry, setSelectedEnquiry] = useState<Enquiry | null>(null);
   const [form, setForm] = useState<EnquiryFormState>(EMPTY_FORM);
 
   useEffect(() => {
@@ -272,64 +243,6 @@ export function EnquiriesWorkspace() {
 
     return () => window.clearTimeout(timeout);
   }, [searchInput]);
-
-  useEffect(() => {
-    let cancelled = false;
-
-    async function initialise() {
-      setInitialising(true);
-      setError(null);
-
-      try {
-        const response = await fetch("/api/auth/me", {
-          method: "GET",
-          cache: "no-store",
-          credentials: "same-origin",
-          headers: {
-            Accept: "application/json",
-          },
-        });
-
-        if (!response.ok) {
-          throw new Error(await readApiError(response));
-        }
-
-        const currentUser =
-          (await response.json()) as CurrentUserResponse;
-
-        const resolvedOrganisationId =
-          resolveOrganisationId(currentUser);
-
-        if (!resolvedOrganisationId) {
-          throw new Error(
-            "No active organisation is available for this account.",
-          );
-        }
-
-        if (!cancelled) {
-          setOrganisationId(resolvedOrganisationId);
-        }
-      } catch (caughtError) {
-        if (!cancelled) {
-          setError(
-            caughtError instanceof Error
-              ? caughtError.message
-              : "Your account could not be verified.",
-          );
-        }
-      } finally {
-        if (!cancelled) {
-          setInitialising(false);
-        }
-      }
-    }
-
-    void initialise();
-
-    return () => {
-      cancelled = true;
-    };
-  }, []);
 
   const loadEnquiries = useCallback(
     async (signal?: AbortSignal) => {
@@ -359,7 +272,7 @@ export function EnquiriesWorkspace() {
       }
 
       try {
-        const response = await fetch(
+        const response = await fetchWithTimeout(
           `/api/enquiries?${query.toString()}`,
           {
             method: "GET",
@@ -403,18 +316,15 @@ export function EnquiriesWorkspace() {
     [organisationId, page, priority, search, status],
   );
 
- useEffect(() => {
-  const controller = new AbortController();
+  useEffect(() => {
+    const controller = new AbortController();
 
-  const timeoutId = window.setTimeout(() => {
     void loadEnquiries(controller.signal);
-  }, 0);
 
-  return () => {
-    window.clearTimeout(timeoutId);
-    controller.abort();
-  };
-}, [loadEnquiries]);
+    return () => {
+      controller.abort();
+    };
+  }, [loadEnquiries]);
 
   const visibleFrom = useMemo(() => {
     if (total === 0) {
@@ -495,7 +405,7 @@ export function EnquiriesWorkspace() {
       : "/api/enquiries";
 
     try {
-      const response = await fetch(endpoint, {
+      const response = await fetchWithTimeout(endpoint, {
         method: editing ? "PATCH" : "POST",
         credentials: "same-origin",
         headers: {
@@ -561,7 +471,7 @@ export function EnquiriesWorkspace() {
     setNotice(null);
 
     try {
-      const response = await fetch(
+      const response = await fetchWithTimeout(
         `/api/enquiries/${encodeURIComponent(
           enquiry.id,
         )}?organisationId=${encodeURIComponent(organisationId)}`,
@@ -594,34 +504,6 @@ export function EnquiriesWorkspace() {
     } finally {
       setDeletingId(null);
     }
-  }
-
-  if (initialising) {
-    return (
-      <section
-        className="mx-auto max-w-7xl p-6 lg:p-8"
-        aria-busy="true"
-      >
-        <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
-          <p className="text-sm text-slate-600">
-            Verifying your secure workspace…
-          </p>
-        </div>
-      </section>
-    );
-  }
-
-  if (!organisationId) {
-    return (
-      <section className="mx-auto max-w-7xl p-6 lg:p-8">
-        <div
-          role="alert"
-          className="rounded-2xl border border-red-200 bg-red-50 p-6 text-sm text-red-800"
-        >
-          {error ?? "No active organisation is available."}
-        </div>
-      </section>
-    );
   }
 
   return (
@@ -767,10 +649,7 @@ export function EnquiriesWorkspace() {
                 </tr>
               ) : items.length === 0 ? (
                 <tr>
-                  <td
-                    colSpan={6}
-                    className="px-4 py-12 text-center"
-                  >
+                  <td colSpan={6} className="px-4 py-12 text-center">
                     <p className="font-medium text-slate-900">
                       No enquiries found
                     </p>
@@ -781,18 +660,13 @@ export function EnquiriesWorkspace() {
                 </tr>
               ) : (
                 items.map((enquiry) => (
-                  <tr
-                    key={enquiry.id}
-                    className="transition hover:bg-slate-50"
-                  >
+                  <tr key={enquiry.id} className="transition hover:bg-slate-50">
                     <td className="whitespace-nowrap px-4 py-4">
                       <p className="font-medium text-slate-950">
                         {enquiry.firstName} {enquiry.lastName ?? ""}
                       </p>
                       <p className="mt-1 text-xs text-slate-500">
-                        {enquiry.email ??
-                          enquiry.phone ??
-                          "No contact details"}
+                        {enquiry.email ?? enquiry.phone ?? "No contact details"}
                       </p>
                     </td>
 
@@ -840,9 +714,7 @@ export function EnquiriesWorkspace() {
                           onClick={() => void deleteEnquiry(enquiry)}
                           className="rounded-lg border border-red-200 px-3 py-2 text-xs font-medium text-red-700 hover:bg-red-50 focus:outline-none focus:ring-2 focus:ring-red-600 disabled:cursor-not-allowed disabled:opacity-50"
                         >
-                          {deletingId === enquiry.id
-                            ? "Deleting…"
-                            : "Delete"}
+                          {deletingId === enquiry.id ? "Deleting…" : "Delete"}
                         </button>
                       </div>
                     </td>
@@ -872,9 +744,7 @@ export function EnquiriesWorkspace() {
               type="button"
               disabled={page >= totalPages || totalPages === 0 || loading}
               onClick={() =>
-                setPage((current) =>
-                  Math.min(totalPages, current + 1),
-                )
+                setPage((current) => Math.min(totalPages, current + 1))
               }
               className="rounded-lg border border-slate-300 px-3 py-2 font-medium text-slate-700 hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-50"
             >
@@ -1028,10 +898,7 @@ export function EnquiriesWorkspace() {
                   <select
                     value={form.status}
                     onChange={(event) =>
-                      updateField(
-                        "status",
-                        event.target.value as EnquiryStatus,
-                      )
+                      updateField("status", event.target.value as EnquiryStatus)
                     }
                     className="form-input"
                   >
