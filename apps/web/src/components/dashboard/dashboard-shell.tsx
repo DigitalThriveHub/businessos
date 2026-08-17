@@ -10,6 +10,7 @@ import {
   LogOut,
   Settings,
   ShieldCheck,
+  UserRound,
   Users,
   type LucideIcon,
 } from "lucide-react";
@@ -57,6 +58,11 @@ const navigationItems: NavigationItem[] = [
     label: "Overview",
     href: "/dashboard",
     icon: LayoutDashboard,
+  },
+  {
+    label: "Your profile",
+    href: "/settings/profile",
+    icon: UserRound,
   },
   {
     label: "Account security",
@@ -125,7 +131,9 @@ function hasAnyPermission(
   );
 }
 
-function getDisplayName(user: DashboardUser): string {
+function getDisplayName(
+  user: DashboardUser,
+): string {
   if (user.displayName?.trim()) {
     return user.displayName.trim();
   }
@@ -180,13 +188,13 @@ export function DashboardShell({
 }: DashboardShellProps) {
   const pathname = usePathname();
 
-  const visibleNavigation = navigationItems.filter(
-    (item) =>
+  const visibleNavigation =
+    navigationItems.filter((item) =>
       hasAnyPermission(
         organisation.permissions,
         item.permissions,
       ),
-  );
+    );
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-950">
@@ -259,6 +267,7 @@ export function DashboardShell({
           >
             {visibleNavigation.map((item) => {
               const Icon = item.icon;
+
               const active = isActiveRoute(
                 pathname,
                 item.href,
