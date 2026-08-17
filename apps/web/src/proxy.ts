@@ -18,6 +18,9 @@ export const config = {
   matcher: [
     "/login/:path*",
     "/signup/:path*",
+    "/forgot-password/:path*",
+    "/reset-password/:path*",
+    "/auth/:path*",
     "/mfa/:path*",
     "/dashboard/:path*",
     "/enquiries/:path*",

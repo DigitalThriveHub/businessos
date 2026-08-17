@@ -109,7 +109,7 @@ test.describe("multi-factor authentication", () => {
 
     await expect(
       page.getByRole("heading", {
-        name: "Security settings",
+        name: "Account security",
       }),
     ).toBeVisible();
 

@@ -5,12 +5,16 @@
  * - Validates signed Supabase JWT claims.
  * - Refreshes authentication cookies.
  * - Redirects unauthenticated users away from protected routes.
- * - Allows authenticated AAL1 users to reach the MFA challenge flow.
+ * - Keeps password-recovery callbacks publicly accessible.
+ * - Requires a valid recovery session before opening reset-password.
  * - Never performs RBAC using browser-controlled data.
  */
 
 import { createServerClient } from "@supabase/ssr";
-import { NextResponse, type NextRequest } from "next/server";
+import {
+  NextResponse,
+  type NextRequest,
+} from "next/server";
 
 const PROTECTED_ROUTES = [
   "/mfa",
@@ -22,9 +26,13 @@ const PROTECTED_ROUTES = [
   "/documents",
   "/settings",
   "/admin",
-];
+] as const;
 
-const AUTH_ROUTES = ["/login", "/signup"];
+const PUBLIC_AUTH_ROUTES = [
+  "/login",
+  "/signup",
+  "/forgot-password",
+] as const;
 
 function isMatchingRoute(
   pathname: string,
@@ -41,10 +49,12 @@ function getSupabaseConfiguration(): {
   url: string;
   publishableKey: string;
 } {
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const url =
+    process.env.NEXT_PUBLIC_SUPABASE_URL;
 
   const publishableKey =
-    process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY ??
+    process.env
+      .NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY ??
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
   if (!url || !publishableKey) {
@@ -73,6 +83,7 @@ function createLoginRedirect(
   response: NextResponse,
 ): NextResponse {
   const loginUrl = request.nextUrl.clone();
+
   const returnTo =
     `${request.nextUrl.pathname}${request.nextUrl.search}`;
 
@@ -85,11 +96,19 @@ function createLoginRedirect(
     !returnTo.includes("\\") &&
     !/[\r\n]/.test(returnTo)
   ) {
-    loginUrl.searchParams.set("returnTo", returnTo);
+    loginUrl.searchParams.set(
+      "returnTo",
+      returnTo,
+    );
   }
 
-  const redirectResponse = NextResponse.redirect(loginUrl);
-  copyResponseCookies(response, redirectResponse);
+  const redirectResponse =
+    NextResponse.redirect(loginUrl);
+
+  copyResponseCookies(
+    response,
+    redirectResponse,
+  );
 
   return redirectResponse;
 }
@@ -98,7 +117,8 @@ function createDashboardRedirect(
   request: NextRequest,
   response: NextResponse,
 ): NextResponse {
-  const dashboardUrl = request.nextUrl.clone();
+  const dashboardUrl =
+    request.nextUrl.clone();
 
   dashboardUrl.pathname = "/dashboard";
   dashboardUrl.search = "";
@@ -106,7 +126,10 @@ function createDashboardRedirect(
   const redirectResponse =
     NextResponse.redirect(dashboardUrl);
 
-  copyResponseCookies(response, redirectResponse);
+  copyResponseCookies(
+    response,
+    redirectResponse,
+  );
 
   return redirectResponse;
 }
@@ -131,24 +154,40 @@ export async function updateSession(
         },
 
         setAll(cookiesToSet) {
-          cookiesToSet.forEach(({ name, value }) => {
-            request.cookies.set(name, value);
-          });
+          cookiesToSet.forEach(
+            ({ name, value }) => {
+              request.cookies.set(
+                name,
+                value,
+              );
+            },
+          );
 
           response = NextResponse.next({
             request,
           });
 
           cookiesToSet.forEach(
-            ({ name, value, options }) => {
-              response.cookies.set(name, value, {
-                ...options,
-                secure:
-                  process.env.NODE_ENV === "production",
-                sameSite:
-                  options?.sameSite ?? "lax",
-                path: options?.path ?? "/",
-              });
+            ({
+              name,
+              value,
+              options,
+            }) => {
+              response.cookies.set(
+                name,
+                value,
+                {
+                  ...options,
+                  secure:
+                    process.env.NODE_ENV ===
+                    "production",
+                  sameSite:
+                    options?.sameSite ??
+                    "lax",
+                  path:
+                    options?.path ?? "/",
+                },
+              );
             },
           );
         },
@@ -157,30 +196,48 @@ export async function updateSession(
   );
 
   /*
-   * Do not place application logic between client creation
-   * and getClaims(). This validates and refreshes the session.
+   * Keep session validation immediately after client creation.
+   * getClaims() validates the JWT and refreshes cookies when needed.
    */
   const { data, error } =
     await supabase.auth.getClaims();
 
   const isAuthenticated =
-    Boolean(data?.claims?.sub) && !error;
+    Boolean(data?.claims?.sub) &&
+    !error;
 
-  const pathname = request.nextUrl.pathname;
+  const pathname =
+    request.nextUrl.pathname;
 
   if (
     !isAuthenticated &&
-    isMatchingRoute(pathname, PROTECTED_ROUTES)
+    isMatchingRoute(
+      pathname,
+      PROTECTED_ROUTES,
+    )
   ) {
-    return createLoginRedirect(request, response);
+    return createLoginRedirect(
+      request,
+      response,
+    );
   }
 
   if (
     isAuthenticated &&
-    isMatchingRoute(pathname, AUTH_ROUTES)
+    isMatchingRoute(
+      pathname,
+      PUBLIC_AUTH_ROUTES,
+    )
   ) {
-    return createDashboardRedirect(request, response);
+    return createDashboardRedirect(
+      request,
+      response,
+    );
   }
 
+  /*
+   * /auth/callback remains public so Supabase can exchange a
+   * one-time PKCE recovery code for secure session cookies.
+   */
   return response;
 }
