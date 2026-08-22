@@ -18,6 +18,10 @@ import { useFormStatus } from "react-dom";
 import { ArrowRight } from "lucide-react";
 
 import { AuthShell } from "@/components/auth/auth-shell";
+import {
+  getSafePostAuthenticationPath,
+  isPortalInvitationReturnPath,
+} from "@/lib/security/safe-return-path";
 
 import {
   login,
@@ -82,7 +86,19 @@ function LoginContent() {
   const searchParams = useSearchParams();
 
   const returnTo =
-    searchParams.get("returnTo") ?? "";
+    getSafePostAuthenticationPath(
+      searchParams.get("returnTo"),
+    );
+
+  const portalInvitationFlow =
+    isPortalInvitationReturnPath(
+      returnTo,
+    );
+
+  const signupHref =
+    `/signup?returnTo=${encodeURIComponent(
+      returnTo,
+    )}`;
 
   const [state, formAction] =
     useActionState<
@@ -108,8 +124,9 @@ function LoginContent() {
       title="Welcome back"
       description={
         <p>
-          Sign in using your authorised
-          BusinessOS account.
+          {portalInvitationFlow
+            ? "Sign in with the exact email address that received your secure client invitation."
+            : "Sign in using your authorised BusinessOS account."}
         </p>
       }
     >
@@ -219,6 +236,24 @@ function LoginContent() {
 
         <SubmitButton />
       </form>
+
+      <div className="mt-6 border-t border-slate-200 pt-6 text-center text-sm text-slate-600">
+        <p>
+          {portalInvitationFlow
+            ? "First time using the client portal?"
+            : "New to BusinessOS?"}{" "}
+
+          <Link
+            href={signupHref}
+            prefetch={false}
+            className="font-semibold text-sky-700 hover:text-sky-900 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2"
+          >
+            {portalInvitationFlow
+              ? "Create your client account"
+              : "Create an account"}
+          </Link>
+        </p>
+      </div>
     </AuthShell>
   );
 }

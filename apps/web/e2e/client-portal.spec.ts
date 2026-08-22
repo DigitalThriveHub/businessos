@@ -31,18 +31,117 @@ async function signIn(page: Page): Promise<void> {
 }
 
 test.describe("Gate D client portal", () => {
-  test("keeps the invitation landing page public without exposing data", async ({ page }) => {
+  test("keeps the invitation landing page public and preserves account setup context", async ({ page }) => {
     const token = `bop_v1_${"A".repeat(43)}`;
-    await page.goto(`/portal/invitations/accept?token=${token}`);
+    const invitationPath =
+      `/portal/invitations/accept?token=${token}`;
+
+    await page.goto(invitationPath);
+
     await expect(page.getByRole("heading", { name: "Activate secure client access" })).toBeVisible();
-    await expect(page.getByRole("link", { name: "Sign in first" })).toHaveAttribute("href", /returnTo=/);
-    await expect(page.getByRole("link", { name: "Create account" })).toHaveAttribute("href", /returnTo=/);
+    await expect(page.getByRole("button", { name: "Accept secure invitation" })).toHaveCount(0);
+
+    const createAccount = page.getByRole("link", {
+      name: "Create client account",
+    });
+    const signIn = page.getByRole("link", {
+      name: "Sign in",
+      exact: true,
+    });
+
+    const createAccountHref =
+      await createAccount.getAttribute("href");
+    const signInHref =
+      await signIn.getAttribute("href");
+
+    expect(createAccountHref).not.toBeNull();
+    expect(signInHref).not.toBeNull();
+
+    const createAccountUrl = new URL(
+      createAccountHref ?? "",
+      page.url(),
+    );
+    const signInUrl = new URL(
+      signInHref ?? "",
+      page.url(),
+    );
+
+    expect(createAccountUrl.pathname).toBe("/signup");
+    expect(createAccountUrl.searchParams.get("returnTo")).toBe(
+      invitationPath,
+    );
+    expect(signInUrl.pathname).toBe("/login");
+    expect(signInUrl.searchParams.get("returnTo")).toBe(
+      invitationPath,
+    );
+
+    await createAccount.click();
+    await expect(page).toHaveURL(/\/signup\?/);
+    await expect(
+      page.getByRole("heading", {
+        name: "Create your account",
+      }),
+    ).toBeVisible();
+
+    const signupSignInHref =
+      await page
+        .getByRole("link", {
+          name: "Sign in",
+          exact: true,
+        })
+        .getAttribute("href");
+
+    expect(signupSignInHref).not.toBeNull();
+    expect(
+      new URL(
+        signupSignInHref ?? "",
+        page.url(),
+      ).searchParams.get("returnTo"),
+    ).toBe(invitationPath);
+
+    await page.goto(signInHref ?? "");
+    await expect(page).toHaveURL(/\/login\?/);
+    await expect(
+      page.getByRole("link", {
+        name: "Create your client account",
+      }),
+    ).toHaveAttribute(
+      "href",
+      `/signup?returnTo=${encodeURIComponent(
+        invitationPath,
+      )}`,
+    );
   });
 
   test("shows only the signed-in client's explicit grants", async ({ page }) => {
     test.skip(!email || !password, "A staging client with an active Gate D grant is not configured.");
     await signIn(page);
     await expect(page.getByRole("heading", { name: "Your cases" })).toBeVisible({ timeout: 20_000 });
+
+    const token = `bop_v1_${"B".repeat(43)}`;
+    const invitationPath =
+      `/portal/invitations/accept?token=${token}`;
+
+    await page.goto(
+      `/login?returnTo=${encodeURIComponent(
+        invitationPath,
+      )}`,
+    );
+
+    await expect(page).toHaveURL(
+      new RegExp(
+        `/portal/invitations/accept\\?token=${token}$`,
+      ),
+    );
+    await expect(
+      page.getByRole("button", {
+        name: "Accept secure invitation",
+      }),
+    ).toBeVisible();
+
+    await page.goto("/portal");
+    await expect(page.getByRole("heading", { name: "Your cases" })).toBeVisible({ timeout: 20_000 });
+
     const response = await page.request.get("/api/client-portal");
     expect(response.status()).toBe(200);
     expect(response.headers()["cache-control"]).toContain("no-store");

@@ -16,6 +16,8 @@ import {
   type NextRequest,
 } from "next/server";
 
+import { getSafePostAuthenticationPath } from "@/lib/security/safe-return-path";
+
 const PROTECTED_ROUTES = [
   "/mfa",
   "/dashboard",
@@ -116,18 +118,34 @@ function createLoginRedirect(
   return redirectResponse;
 }
 
-function createDashboardRedirect(
+function authenticatedDestination(
+  request: NextRequest,
+): string {
+  const returnToValues =
+    request.nextUrl.searchParams.getAll(
+      "returnTo",
+    );
+
+  if (returnToValues.length !== 1) {
+    return "/dashboard";
+  }
+
+  return getSafePostAuthenticationPath(
+    returnToValues[0],
+  );
+}
+
+function createAuthenticatedRedirect(
   request: NextRequest,
   response: NextResponse,
 ): NextResponse {
-  const dashboardUrl =
-    request.nextUrl.clone();
-
-  dashboardUrl.pathname = "/dashboard";
-  dashboardUrl.search = "";
+  const destinationUrl = new URL(
+    authenticatedDestination(request),
+    request.nextUrl.origin,
+  );
 
   const redirectResponse =
-    NextResponse.redirect(dashboardUrl);
+    NextResponse.redirect(destinationUrl);
 
   copyResponseCookies(
     response,
@@ -236,7 +254,7 @@ export async function updateSession(
       PUBLIC_AUTH_ROUTES,
     )
   ) {
-    return createDashboardRedirect(
+    return createAuthenticatedRedirect(
       request,
       response,
     );

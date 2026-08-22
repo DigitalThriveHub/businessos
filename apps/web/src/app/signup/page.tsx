@@ -4,7 +4,10 @@ import {
 } from "lucide-react";
 
 import { AuthShell } from "@/components/auth/auth-shell";
-import { getSafePostAuthenticationPath } from "@/lib/security/safe-return-path";
+import {
+  getSafePostAuthenticationPath,
+  isPortalInvitationReturnPath,
+} from "@/lib/security/safe-return-path";
 
 import { SignupForm } from "./signup-form";
 
@@ -71,8 +74,7 @@ function isInvitationReturnPath(
     value.startsWith(
       "/invitations/accept?",
     ) ||
-    value === "/portal/invitations/accept" ||
-    value.startsWith("/portal/invitations/accept?")
+    isPortalInvitationReturnPath(value)
   );
 }
 
@@ -96,6 +98,11 @@ export default async function SignupPage({
       ),
     );
 
+  const portalInvitationFlow =
+    isPortalInvitationReturnPath(
+      returnTo,
+    );
+
   const invitationFlow =
     isInvitationReturnPath(
       returnTo,
@@ -105,7 +112,13 @@ export default async function SignupPage({
     <AuthShell
       title="Create your account"
       description={
-        invitationFlow ? (
+        portalInvitationFlow ? (
+          <p>
+            Create an account using the exact
+            email address that received your
+            secure client portal invitation.
+          </p>
+        ) : invitationFlow ? (
           <p>
             Create an account using the exact
             email address that received your

@@ -5,10 +5,17 @@ import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { ShieldCheck } from "lucide-react";
 
+import { portalInvitationLogout } from "@/app/portal/actions";
 import { clientPortalRequest } from "@/components/client-portal/client-portal-client";
 import { portalInvitationAcceptanceSchema } from "@/lib/client-portal";
 
-export function PortalInvitationAcceptance() {
+type PortalInvitationAcceptanceProps = {
+  authenticated: boolean;
+};
+
+export function PortalInvitationAcceptance({
+  authenticated,
+}: PortalInvitationAcceptanceProps) {
   const searchParams = useSearchParams();
   const router = useRouter();
   const token = searchParams.get("token") ?? "";
@@ -47,7 +54,63 @@ export function PortalInvitationAcceptance() {
         <p className="mt-3 text-sm leading-6 text-slate-600">Your signed-in account must use the exact verified email address named in the invitation. Access is limited to the authorised client and matters.</p>
         {!validToken ? <p role="alert" className="mt-5 rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-800">This invitation link is incomplete or invalid. Ask your case team to issue a new link.</p> : null}
         {error ? <p role="alert" className="mt-5 rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-800">{error}</p> : null}
-        <div className="mt-6 flex flex-col gap-3"><button type="button" onClick={() => void accept()} disabled={!validToken || busy} className="h-11 rounded-xl bg-slate-950 px-5 text-sm font-semibold text-white disabled:opacity-50">{busy ? "Activating…" : "Accept secure invitation"}</button><div className="grid gap-3 sm:grid-cols-2"><Link prefetch={false} href={`/login?${new URLSearchParams({ returnTo }).toString()}`} className="inline-flex h-11 items-center justify-center rounded-xl border border-slate-300 px-5 text-sm font-semibold">Sign in first</Link><Link prefetch={false} href={`/signup?${new URLSearchParams({ returnTo }).toString()}`} className="inline-flex h-11 items-center justify-center rounded-xl border border-slate-300 px-5 text-sm font-semibold">Create account</Link></div><Link prefetch={false} href="/portal" className="text-center text-sm font-semibold text-blue-800">Go to existing portal access</Link></div>
+        <div className="mt-6 flex flex-col gap-3">
+          {authenticated ? (
+            <>
+              <button
+                type="button"
+                onClick={() => void accept()}
+                disabled={!validToken || busy}
+                className="h-11 rounded-xl bg-slate-950 px-5 text-sm font-semibold text-white disabled:opacity-50"
+              >
+                {busy
+                  ? "Activating…"
+                  : "Accept secure invitation"}
+              </button>
+
+              <form action={portalInvitationLogout}>
+                <input
+                  type="hidden"
+                  name="returnTo"
+                  value={returnTo}
+                />
+
+                <button
+                  type="submit"
+                  className="h-11 w-full rounded-xl border border-slate-300 px-5 text-sm font-semibold"
+                >
+                  Use a different account
+                </button>
+              </form>
+            </>
+          ) : (
+            <div className="grid gap-3 sm:grid-cols-2">
+              <Link
+                prefetch={false}
+                href={`/signup?${new URLSearchParams({ returnTo }).toString()}`}
+                className="inline-flex h-11 items-center justify-center rounded-xl bg-slate-950 px-5 text-sm font-semibold text-white"
+              >
+                Create client account
+              </Link>
+
+              <Link
+                prefetch={false}
+                href={`/login?${new URLSearchParams({ returnTo }).toString()}`}
+                className="inline-flex h-11 items-center justify-center rounded-xl border border-slate-300 px-5 text-sm font-semibold"
+              >
+                Sign in
+              </Link>
+            </div>
+          )}
+
+          <Link
+            prefetch={false}
+            href="/portal"
+            className="text-center text-sm font-semibold text-blue-800"
+          >
+            Go to existing portal access
+          </Link>
+        </div>
       </section>
     </main>
   );

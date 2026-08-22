@@ -8,6 +8,7 @@ import type {
   DashboardUser,
 } from "@/components/dashboard/dashboard-shell";
 import { ApiError, apiFetch } from "@/lib/api";
+import { clientPortalDashboardSchema } from "@/lib/client-portal";
 import { createClient } from "@/lib/supabase/server";
 
 function isActiveOrganisation(
@@ -82,6 +83,24 @@ export const getAuthenticatedWorkspace = cache(
       user.organisations.find(isActiveOrganisation);
 
     if (!organisation) {
+      const portalDashboard =
+        clientPortalDashboardSchema.parse(
+          await apiFetch<unknown>(
+            "/api/v1/client-portal",
+            {
+              accessToken:
+                session.access_token,
+            },
+          ),
+        );
+
+      if (
+        portalDashboard.accessGrants
+          .length > 0
+      ) {
+        redirect("/portal");
+      }
+
       redirect("/access-unavailable");
     }
 

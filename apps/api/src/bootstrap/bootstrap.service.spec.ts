@@ -158,6 +158,25 @@ describe('BootstrapService', () => {
     ).rejects.toBeInstanceOf(BadRequestException);
   });
 
+  it('maps a portal-only bootstrap denial to forbidden', async () => {
+    const error = Object.assign(
+      new Error(
+        'Client portal identities cannot bootstrap organisations',
+      ),
+      {
+        meta: {
+          code: '42501',
+        },
+      },
+    );
+
+    rlsTransaction.run.mockRejectedValue(error);
+
+    await expect(
+      service.bootstrapOrganisation(actor, dto),
+    ).rejects.toBeInstanceOf(ForbiddenException);
+  });
+
   it('does not expose unexpected database errors', async () => {
     rlsTransaction.run.mockRejectedValue(
       new Error('Sensitive database information'),

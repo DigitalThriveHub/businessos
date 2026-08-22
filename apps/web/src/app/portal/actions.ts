@@ -2,13 +2,44 @@
 
 import { redirect } from "next/navigation";
 
+import { isPortalInvitationReturnPath } from "@/lib/security/safe-return-path";
 import { createClient } from "@/lib/supabase/server";
 
-export async function portalLogout(): Promise<never> {
+async function signOutLocal(): Promise<void> {
   const supabase = await createClient();
+
   try {
     await supabase.auth.signOut({ scope: "local" });
-  } finally {
-    redirect("/login?returnTo=%2Fportal");
+  } catch {
+    // Continue to the trusted login destination even if the
+    // local session has already expired.
   }
+}
+
+export async function portalLogout(): Promise<never> {
+  await signOutLocal();
+  redirect("/login?returnTo=%2Fportal");
+}
+
+export async function portalInvitationLogout(
+  formData: FormData,
+): Promise<never> {
+  const submittedReturnTo =
+    formData.get("returnTo");
+
+  const returnTo =
+    typeof submittedReturnTo === "string" &&
+    isPortalInvitationReturnPath(
+      submittedReturnTo,
+    )
+      ? submittedReturnTo
+      : "/portal";
+
+  await signOutLocal();
+
+  redirect(
+    `/login?returnTo=${encodeURIComponent(
+      returnTo,
+    )}`,
+  );
 }
