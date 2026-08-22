@@ -26,4 +26,3 @@ powershell -ExecutionPolicy Bypass -File .\scripts\verify-gate-d.ps1 -ApplyMigra
 ```
 
 See `docs\GATE-D-DEPLOYMENT.md` and `docs\GATE-D-ACCEPTANCE.md` before processing live client data.
-
