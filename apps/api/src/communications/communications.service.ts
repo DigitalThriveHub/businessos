@@ -460,6 +460,7 @@ export class CommunicationsService {
         'DOCUMENTS',
         'MESSAGES',
         'NOTIFICATIONS',
+        'BILLING',
       ];
 
       const invitation = await this.rls.run(

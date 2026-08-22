@@ -337,3 +337,43 @@ export type CommunicationReminder = Prisma.CommunicationReminderModel
  * 
  */
 export type ClientNotification = Prisma.ClientNotificationModel
+/**
+ * Model FinanceSettings
+ * 
+ */
+export type FinanceSettings = Prisma.FinanceSettingsModel
+/**
+ * Model FinanceLedgerAccount
+ * 
+ */
+export type FinanceLedgerAccount = Prisma.FinanceLedgerAccountModel
+/**
+ * Model FinanceDocument
+ * 
+ */
+export type FinanceDocument = Prisma.FinanceDocumentModel
+/**
+ * Model FinanceDocumentLine
+ * 
+ */
+export type FinanceDocumentLine = Prisma.FinanceDocumentLineModel
+/**
+ * Model FinancePayment
+ * 
+ */
+export type FinancePayment = Prisma.FinancePaymentModel
+/**
+ * Model FinancePaymentAllocation
+ * 
+ */
+export type FinancePaymentAllocation = Prisma.FinancePaymentAllocationModel
+/**
+ * Model FinanceJournalEntry
+ * 
+ */
+export type FinanceJournalEntry = Prisma.FinanceJournalEntryModel
+/**
+ * Model FinanceJournalLine
+ * 
+ */
+export type FinanceJournalLine = Prisma.FinanceJournalLineModel

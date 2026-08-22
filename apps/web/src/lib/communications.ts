@@ -6,6 +6,7 @@ export const PORTAL_SCOPES = [
   "DOCUMENTS",
   "MESSAGES",
   "NOTIFICATIONS",
+  "BILLING",
 ] as const;
 
 const uuid = z.string().uuid();
@@ -192,7 +193,11 @@ const templateCreate = z.object({
   operation: z.literal("template.create"),
   organisationId: uuid,
   payload: z.object({
-    key: z.string().trim().max(120).regex(/^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$/),
+    key: z
+      .string()
+      .trim()
+      .max(120)
+      .regex(/^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$/),
     name: z.string().trim().min(1).max(180),
     description: z.string().trim().max(1000).nullable().optional(),
     channel: activeChannel,
@@ -210,7 +215,7 @@ const invitationCreate = z.object({
     clientId: uuid,
     email: z.string().trim().email().max(320),
     matterIds: z.array(uuid).min(1).max(50),
-    scopes: z.array(z.enum(PORTAL_SCOPES)).min(1).max(4).optional(),
+    scopes: z.array(z.enum(PORTAL_SCOPES)).min(1).max(5).optional(),
     expiresInHours: z.number().int().min(1).max(336).optional(),
   }),
 });

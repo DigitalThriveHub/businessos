@@ -28,6 +28,7 @@ const PORTAL_SCOPES = [
   'DOCUMENTS',
   'MESSAGES',
   'NOTIFICATIONS',
+  'BILLING',
 ] as const;
 const IDEMPOTENCY_PATTERN = /^[A-Za-z0-9][A-Za-z0-9._:/-]{7,179}$/;
 const TEMPLATE_KEY_PATTERN = /^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$/;
@@ -168,7 +169,7 @@ export class CreateClientPortalInvitationDto {
 
   @IsArray()
   @ArrayMinSize(1)
-  @ArrayMaxSize(4)
+  @ArrayMaxSize(5)
   @ArrayUnique()
   @IsIn(PORTAL_SCOPES, { each: true })
   @IsOptional()

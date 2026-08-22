@@ -633,6 +633,88 @@ enum PortalInvitationStatus {
   @@map("portal_invitation_status")
 }
 
+enum FinanceVatScheme {
+  NOT_REGISTERED
+  STANDARD
+  CASH_ACCOUNTING
+  FLAT_RATE
+
+  @@map("finance_vat_scheme")
+}
+
+enum FinanceTaxCategory {
+  STANDARD
+  REDUCED
+  ZERO
+  EXEMPT
+  OUTSIDE_SCOPE
+
+  @@map("finance_tax_category")
+}
+
+enum FinanceDocumentType {
+  INVOICE
+  CREDIT_NOTE
+
+  @@map("finance_document_type")
+}
+
+enum FinanceDocumentStatus {
+  DRAFT
+  ISSUED
+  PARTIALLY_PAID
+  PAID
+  OVERDUE
+  VOID
+
+  @@map("finance_document_status")
+}
+
+enum FinancePaymentType {
+  RECEIPT
+  REFUND
+
+  @@map("finance_payment_type")
+}
+
+enum FinancePaymentMethod {
+  BANK_TRANSFER
+  CARD
+  CASH
+  DIRECT_DEBIT
+  CHEQUE
+  OTHER
+
+  @@map("finance_payment_method")
+}
+
+enum FinancePaymentStatus {
+  CLEARED
+  REVERSED
+
+  @@map("finance_payment_status")
+}
+
+enum FinanceLedgerAccountType {
+  ASSET
+  LIABILITY
+  EQUITY
+  REVENUE
+  EXPENSE
+
+  @@map("finance_ledger_account_type")
+}
+
+enum FinanceJournalSource {
+  INVOICE
+  CREDIT_NOTE
+  PAYMENT
+  REFUND
+  REVERSAL
+
+  @@map("finance_journal_source")
+}
+
 model Organisation {
   id          String             @id(map: "pk_organisations") @default(uuid()) @map("id") @db.Uuid
   slug        String             @unique(map: "uq_organisations_slug") @map("slug") @db.VarChar(80)
@@ -2728,4 +2810,190 @@ model DocumentScanJob {
   @@index([organisationId, status, updatedAt(sort: Desc)], map: "ix_document_scan_jobs_org_status")
   @@map("document_scan_jobs")
   @@ignore
+}
+
+model FinanceSettings {
+  id                    String           @id(map: "pk_finance_settings") @default(uuid()) @db.Uuid
+  organisationId        String           @unique(map: "uq_finance_settings_org") @map("organisation_id") @db.Uuid
+  legalName             String?          @map("legal_name") @db.VarChar(250)
+  addressLine1          String?          @map("address_line_1") @db.VarChar(240)
+  addressLine2          String?          @map("address_line_2") @db.VarChar(240)
+  city                  String?          @db.VarChar(120)
+  region                String?          @db.VarChar(120)
+  postalCode            String?          @map("postal_code") @db.VarChar(30)
+  countryCode           String           @default("GB") @map("country_code") @db.Char(2)
+  vatScheme             FinanceVatScheme @default(NOT_REGISTERED) @map("vat_scheme")
+  vatRegistrationNumber String?          @map("vat_registration_number") @db.VarChar(32)
+  baseCurrency          String           @default("GBP") @map("base_currency") @db.Char(3)
+  invoicePrefix         String           @default("INV") @map("invoice_prefix") @db.VarChar(12)
+  creditNotePrefix      String           @default("CRN") @map("credit_note_prefix") @db.VarChar(12)
+  paymentPrefix         String           @default("PAY") @map("payment_prefix") @db.VarChar(12)
+  paymentTermsDays      Int              @default(14) @map("payment_terms_days")
+  paymentInstructions   String?          @map("payment_instructions") @db.VarChar(2000)
+  version               Int              @default(1)
+  updatedByUserId       String?          @map("updated_by_user_id") @db.Uuid
+  createdAt             DateTime         @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt             DateTime         @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@map("finance_settings")
+}
+
+model FinanceLedgerAccount {
+  id             String                   @id(map: "pk_finance_ledger_accounts") @default(uuid()) @db.Uuid
+  organisationId String                   @map("organisation_id") @db.Uuid
+  code           String                   @db.VarChar(20)
+  name           String                   @db.VarChar(160)
+  accountType    FinanceLedgerAccountType @map("account_type")
+  systemKey      String?                  @map("system_key") @db.VarChar(40)
+  active         Boolean                  @default(true)
+  createdAt      DateTime                 @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt      DateTime                 @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@unique([organisationId, code], map: "uq_finance_accounts_org_code")
+  @@unique([organisationId, systemKey], map: "uq_finance_accounts_org_system")
+  @@unique([id, organisationId], map: "uq_finance_accounts_id_org")
+  @@index([organisationId, accountType, active], map: "ix_finance_accounts_org_type")
+  @@map("finance_ledger_accounts")
+}
+
+model FinanceDocument {
+  id                String                @id(map: "pk_finance_documents") @default(uuid()) @db.Uuid
+  organisationId    String                @map("organisation_id") @db.Uuid
+  clientId          String                @map("client_id") @db.Uuid
+  matterId          String?               @map("matter_id") @db.Uuid
+  documentType      FinanceDocumentType   @map("document_type")
+  status            FinanceDocumentStatus @default(DRAFT)
+  documentNumber    String?               @map("document_number") @db.VarChar(40)
+  relatedDocumentId String?               @map("related_document_id") @db.Uuid
+  currencyCode      String                @default("GBP") @map("currency_code") @db.Char(3)
+  issueDate         DateTime?             @map("issue_date") @db.Date
+  dueDate           DateTime?             @map("due_date") @db.Date
+  reference         String?               @db.VarChar(120)
+  notes             String?               @db.VarChar(2000)
+  sellerSnapshot    Json                  @default("{}") @map("seller_snapshot")
+  customerSnapshot  Json                  @default("{}") @map("customer_snapshot")
+  subtotalMinor     BigInt                @default(0) @map("subtotal_minor")
+  taxMinor          BigInt                @default(0) @map("tax_minor")
+  totalMinor        BigInt                @default(0) @map("total_minor")
+  allocatedMinor    BigInt                @default(0) @map("allocated_minor")
+  creditedMinor     BigInt                @default(0) @map("credited_minor")
+  balanceMinor      BigInt                @default(0) @map("balance_minor")
+  clientVisible     Boolean               @default(true) @map("client_visible")
+  version           Int                   @default(1)
+  issuedAt          DateTime?             @map("issued_at") @db.Timestamptz(6)
+  issuedByUserId    String?               @map("issued_by_user_id") @db.Uuid
+  voidedAt          DateTime?             @map("voided_at") @db.Timestamptz(6)
+  voidedByUserId    String?               @map("voided_by_user_id") @db.Uuid
+  voidReason        String?               @map("void_reason") @db.VarChar(1000)
+  createdByUserId   String                @map("created_by_user_id") @db.Uuid
+  updatedByUserId   String                @map("updated_by_user_id") @db.Uuid
+  createdAt         DateTime              @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt         DateTime              @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@unique([id, organisationId], map: "uq_finance_documents_id_org")
+  @@unique([organisationId, documentNumber], map: "uq_finance_documents_org_number")
+  @@index([organisationId, status, dueDate], map: "ix_finance_documents_org_status_due")
+  @@index([organisationId, clientId, createdAt(sort: Desc)], map: "ix_finance_documents_org_client")
+  @@index([organisationId, matterId, createdAt(sort: Desc)], map: "ix_finance_documents_org_matter")
+  @@map("finance_documents")
+}
+
+model FinanceDocumentLine {
+  id                 String             @id(map: "pk_finance_document_lines") @default(uuid()) @db.Uuid
+  organisationId     String             @map("organisation_id") @db.Uuid
+  documentId         String             @map("document_id") @db.Uuid
+  position           Int
+  description        String             @db.VarChar(500)
+  quantityMilli      Int                @map("quantity_milli")
+  unitAmountMinor    BigInt             @map("unit_amount_minor")
+  taxCategory        FinanceTaxCategory @map("tax_category")
+  vatRateBasisPoints Int                @map("vat_rate_basis_points")
+  netMinor           BigInt             @map("net_minor")
+  taxMinor           BigInt             @map("tax_minor")
+  grossMinor         BigInt             @map("gross_minor")
+  createdAt          DateTime           @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  @@unique([documentId, position], map: "uq_finance_lines_document_position")
+  @@unique([id, organisationId], map: "uq_finance_lines_id_org")
+  @@index([organisationId, documentId, position], map: "ix_finance_lines_org_document")
+  @@map("finance_document_lines")
+}
+
+model FinancePayment {
+  id                String               @id(map: "pk_finance_payments") @default(uuid()) @db.Uuid
+  organisationId    String               @map("organisation_id") @db.Uuid
+  clientId          String               @map("client_id") @db.Uuid
+  paymentNumber     String               @map("payment_number") @db.VarChar(40)
+  paymentType       FinancePaymentType   @map("payment_type")
+  method            FinancePaymentMethod
+  status            FinancePaymentStatus @default(CLEARED)
+  currencyCode      String               @default("GBP") @map("currency_code") @db.Char(3)
+  amountMinor       BigInt               @map("amount_minor")
+  occurredAt        DateTime             @map("occurred_at") @db.Timestamptz(6)
+  reference         String?              @db.VarChar(240)
+  provider          String?              @db.VarChar(80)
+  providerReference String?              @map("provider_reference") @db.VarChar(240)
+  relatedPaymentId  String?              @map("related_payment_id") @db.Uuid
+  idempotencyKey    String               @map("idempotency_key") @db.VarChar(180)
+  recordedByUserId  String               @map("recorded_by_user_id") @db.Uuid
+  reversedAt        DateTime?            @map("reversed_at") @db.Timestamptz(6)
+  reversedByUserId  String?              @map("reversed_by_user_id") @db.Uuid
+  reversalReason    String?              @map("reversal_reason") @db.VarChar(1000)
+  createdAt         DateTime             @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  @@unique([id, organisationId], map: "uq_finance_payments_id_org")
+  @@unique([organisationId, paymentNumber], map: "uq_finance_payments_org_number")
+  @@unique([organisationId, idempotencyKey], map: "uq_finance_payments_org_idempotency")
+  @@index([organisationId, clientId, occurredAt(sort: Desc)], map: "ix_finance_payments_org_client")
+  @@map("finance_payments")
+}
+
+model FinancePaymentAllocation {
+  id             String   @id(map: "pk_finance_payment_allocations") @default(uuid()) @db.Uuid
+  organisationId String   @map("organisation_id") @db.Uuid
+  paymentId      String   @map("payment_id") @db.Uuid
+  documentId     String   @map("document_id") @db.Uuid
+  amountMinor    BigInt   @map("amount_minor")
+  createdAt      DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  @@unique([paymentId, documentId], map: "uq_finance_allocations_payment_document")
+  @@unique([id, organisationId], map: "uq_finance_allocations_id_org")
+  @@index([organisationId, documentId], map: "ix_finance_allocations_org_document")
+  @@map("finance_payment_allocations")
+}
+
+model FinanceJournalEntry {
+  id             String               @id(map: "pk_finance_journal_entries") @default(uuid()) @db.Uuid
+  organisationId String               @map("organisation_id") @db.Uuid
+  entryNumber    String               @map("entry_number") @db.VarChar(40)
+  source         FinanceJournalSource
+  sourceId       String               @map("source_id") @db.Uuid
+  entryDate      DateTime             @map("entry_date") @db.Date
+  description    String               @db.VarChar(500)
+  reversalOfId   String?              @map("reversal_of_id") @db.Uuid
+  postedByUserId String               @map("posted_by_user_id") @db.Uuid
+  postedAt       DateTime             @default(now()) @map("posted_at") @db.Timestamptz(6)
+
+  @@unique([id, organisationId], map: "uq_finance_journals_id_org")
+  @@unique([organisationId, entryNumber], map: "uq_finance_journals_org_number")
+  @@unique([organisationId, source, sourceId], map: "uq_finance_journals_org_source")
+  @@index([organisationId, entryDate, postedAt(sort: Desc)], map: "ix_finance_journals_org_date")
+  @@map("finance_journal_entries")
+}
+
+model FinanceJournalLine {
+  id             String   @id(map: "pk_finance_journal_lines") @default(uuid()) @db.Uuid
+  organisationId String   @map("organisation_id") @db.Uuid
+  journalEntryId String   @map("journal_entry_id") @db.Uuid
+  accountId      String   @map("account_id") @db.Uuid
+  position       Int
+  debitMinor     BigInt   @default(0) @map("debit_minor")
+  creditMinor    BigInt   @default(0) @map("credit_minor")
+  description    String?  @db.VarChar(500)
+  createdAt      DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  @@unique([journalEntryId, position], map: "uq_finance_journal_lines_entry_position")
+  @@unique([id, organisationId], map: "uq_finance_journal_lines_id_org")
+  @@index([organisationId, accountId, createdAt], map: "ix_finance_journal_lines_org_account")
+  @@map("finance_journal_lines")
 }

@@ -129,6 +129,30 @@ export const clientPortalDashboardSchema = z.object({
       createdAt: dateTime,
     }),
   ),
+  invoices: z.array(
+    z.object({
+      id: uuid,
+      organisationId: uuid,
+      matterId: uuid,
+      matterNumber: z.string(),
+      documentType: z.enum(["INVOICE", "CREDIT_NOTE"]),
+      documentNumber: z.string(),
+      status: z.string(),
+      currencyCode: z.string().length(3),
+      issueDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+      dueDate: z
+        .string()
+        .regex(/^\d{4}-\d{2}-\d{2}$/)
+        .nullable(),
+      reference: z.string().nullable(),
+      subtotalMinor: z.string().regex(/^\d+$/),
+      taxMinor: z.string().regex(/^\d+$/),
+      totalMinor: z.string().regex(/^\d+$/),
+      balanceMinor: z.string().regex(/^\d+$/),
+      sellerName: z.string().nullable(),
+      paymentInstructions: z.string().nullable(),
+    }),
+  ),
 });
 export type ClientPortalDashboard = z.infer<typeof clientPortalDashboardSchema>;
 
@@ -156,7 +180,12 @@ export const clientPortalMutationSchema = z.discriminatedUnion("operation", [
     operation: z.literal("document.register"),
     payload: z.object({
       requestItemId: uuid,
-      originalFileName: z.string().trim().min(1).max(255).regex(/^[^\\/]+$/),
+      originalFileName: z
+        .string()
+        .trim()
+        .min(1)
+        .max(255)
+        .regex(/^[^\\/]+$/),
       contentType: z.enum([
         "application/pdf",
         "image/jpeg",

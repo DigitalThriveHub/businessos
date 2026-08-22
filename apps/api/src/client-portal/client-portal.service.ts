@@ -65,7 +65,11 @@ export class ClientPortalService {
         this.context(user),
         (transaction) =>
           transaction.$queryRaw<{ dashboard: unknown }[]>`
-          SELECT private.get_client_portal_dashboard() AS dashboard
+          SELECT
+            private.get_client_portal_dashboard()
+            || jsonb_build_object(
+              'invoices', private.get_client_portal_finance_dashboard()
+            ) AS dashboard
         `,
       );
 

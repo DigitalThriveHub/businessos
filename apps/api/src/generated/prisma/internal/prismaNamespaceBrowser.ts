@@ -114,7 +114,15 @@ export const ModelName = {
   CommunicationDeliveryEvent: 'CommunicationDeliveryEvent',
   CommunicationTemplate: 'CommunicationTemplate',
   CommunicationReminder: 'CommunicationReminder',
-  ClientNotification: 'ClientNotification'
+  ClientNotification: 'ClientNotification',
+  FinanceSettings: 'FinanceSettings',
+  FinanceLedgerAccount: 'FinanceLedgerAccount',
+  FinanceDocument: 'FinanceDocument',
+  FinanceDocumentLine: 'FinanceDocumentLine',
+  FinancePayment: 'FinancePayment',
+  FinancePaymentAllocation: 'FinancePaymentAllocation',
+  FinanceJournalEntry: 'FinanceJournalEntry',
+  FinanceJournalLine: 'FinanceJournalLine'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -1569,6 +1577,174 @@ export const ClientNotificationScalarFieldEnum = {
 } as const
 
 export type ClientNotificationScalarFieldEnum = (typeof ClientNotificationScalarFieldEnum)[keyof typeof ClientNotificationScalarFieldEnum]
+
+
+export const FinanceSettingsScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  legalName: 'legalName',
+  addressLine1: 'addressLine1',
+  addressLine2: 'addressLine2',
+  city: 'city',
+  region: 'region',
+  postalCode: 'postalCode',
+  countryCode: 'countryCode',
+  vatScheme: 'vatScheme',
+  vatRegistrationNumber: 'vatRegistrationNumber',
+  baseCurrency: 'baseCurrency',
+  invoicePrefix: 'invoicePrefix',
+  creditNotePrefix: 'creditNotePrefix',
+  paymentPrefix: 'paymentPrefix',
+  paymentTermsDays: 'paymentTermsDays',
+  paymentInstructions: 'paymentInstructions',
+  version: 'version',
+  updatedByUserId: 'updatedByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type FinanceSettingsScalarFieldEnum = (typeof FinanceSettingsScalarFieldEnum)[keyof typeof FinanceSettingsScalarFieldEnum]
+
+
+export const FinanceLedgerAccountScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  code: 'code',
+  name: 'name',
+  accountType: 'accountType',
+  systemKey: 'systemKey',
+  active: 'active',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type FinanceLedgerAccountScalarFieldEnum = (typeof FinanceLedgerAccountScalarFieldEnum)[keyof typeof FinanceLedgerAccountScalarFieldEnum]
+
+
+export const FinanceDocumentScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  clientId: 'clientId',
+  matterId: 'matterId',
+  documentType: 'documentType',
+  status: 'status',
+  documentNumber: 'documentNumber',
+  relatedDocumentId: 'relatedDocumentId',
+  currencyCode: 'currencyCode',
+  issueDate: 'issueDate',
+  dueDate: 'dueDate',
+  reference: 'reference',
+  notes: 'notes',
+  sellerSnapshot: 'sellerSnapshot',
+  customerSnapshot: 'customerSnapshot',
+  subtotalMinor: 'subtotalMinor',
+  taxMinor: 'taxMinor',
+  totalMinor: 'totalMinor',
+  allocatedMinor: 'allocatedMinor',
+  creditedMinor: 'creditedMinor',
+  balanceMinor: 'balanceMinor',
+  clientVisible: 'clientVisible',
+  version: 'version',
+  issuedAt: 'issuedAt',
+  issuedByUserId: 'issuedByUserId',
+  voidedAt: 'voidedAt',
+  voidedByUserId: 'voidedByUserId',
+  voidReason: 'voidReason',
+  createdByUserId: 'createdByUserId',
+  updatedByUserId: 'updatedByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type FinanceDocumentScalarFieldEnum = (typeof FinanceDocumentScalarFieldEnum)[keyof typeof FinanceDocumentScalarFieldEnum]
+
+
+export const FinanceDocumentLineScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  documentId: 'documentId',
+  position: 'position',
+  description: 'description',
+  quantityMilli: 'quantityMilli',
+  unitAmountMinor: 'unitAmountMinor',
+  taxCategory: 'taxCategory',
+  vatRateBasisPoints: 'vatRateBasisPoints',
+  netMinor: 'netMinor',
+  taxMinor: 'taxMinor',
+  grossMinor: 'grossMinor',
+  createdAt: 'createdAt'
+} as const
+
+export type FinanceDocumentLineScalarFieldEnum = (typeof FinanceDocumentLineScalarFieldEnum)[keyof typeof FinanceDocumentLineScalarFieldEnum]
+
+
+export const FinancePaymentScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  clientId: 'clientId',
+  paymentNumber: 'paymentNumber',
+  paymentType: 'paymentType',
+  method: 'method',
+  status: 'status',
+  currencyCode: 'currencyCode',
+  amountMinor: 'amountMinor',
+  occurredAt: 'occurredAt',
+  reference: 'reference',
+  provider: 'provider',
+  providerReference: 'providerReference',
+  relatedPaymentId: 'relatedPaymentId',
+  idempotencyKey: 'idempotencyKey',
+  recordedByUserId: 'recordedByUserId',
+  reversedAt: 'reversedAt',
+  reversedByUserId: 'reversedByUserId',
+  reversalReason: 'reversalReason',
+  createdAt: 'createdAt'
+} as const
+
+export type FinancePaymentScalarFieldEnum = (typeof FinancePaymentScalarFieldEnum)[keyof typeof FinancePaymentScalarFieldEnum]
+
+
+export const FinancePaymentAllocationScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  paymentId: 'paymentId',
+  documentId: 'documentId',
+  amountMinor: 'amountMinor',
+  createdAt: 'createdAt'
+} as const
+
+export type FinancePaymentAllocationScalarFieldEnum = (typeof FinancePaymentAllocationScalarFieldEnum)[keyof typeof FinancePaymentAllocationScalarFieldEnum]
+
+
+export const FinanceJournalEntryScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  entryNumber: 'entryNumber',
+  source: 'source',
+  sourceId: 'sourceId',
+  entryDate: 'entryDate',
+  description: 'description',
+  reversalOfId: 'reversalOfId',
+  postedByUserId: 'postedByUserId',
+  postedAt: 'postedAt'
+} as const
+
+export type FinanceJournalEntryScalarFieldEnum = (typeof FinanceJournalEntryScalarFieldEnum)[keyof typeof FinanceJournalEntryScalarFieldEnum]
+
+
+export const FinanceJournalLineScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  journalEntryId: 'journalEntryId',
+  accountId: 'accountId',
+  position: 'position',
+  debitMinor: 'debitMinor',
+  creditMinor: 'creditMinor',
+  description: 'description',
+  createdAt: 'createdAt'
+} as const
+
+export type FinanceJournalLineScalarFieldEnum = (typeof FinanceJournalLineScalarFieldEnum)[keyof typeof FinanceJournalLineScalarFieldEnum]
 
 
 export const SortOrder = {

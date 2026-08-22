@@ -9,6 +9,7 @@ import {
   BriefcaseBusiness,
   MessagesSquare,
   FileText,
+  Landmark,
   LayoutDashboard,
   LogOut,
   Settings,
@@ -98,11 +99,7 @@ const navigationItems: NavigationItem[] = [
     label: "Clients",
     href: "/clients",
     icon: Users,
-    permissions: [
-      "clients.read",
-      "client.read",
-      "clients.view",
-    ],
+    permissions: ["clients.read", "client.read", "clients.view"],
   },
   {
     label: "Matters",
@@ -123,14 +120,16 @@ const navigationItems: NavigationItem[] = [
     permissions: ["communications.read"],
   },
   {
+    label: "Finance",
+    href: "/finance",
+    icon: Landmark,
+    permissions: ["finance.read"],
+  },
+  {
     label: "AI Workspace",
     href: "/ai",
     icon: Bot,
-    permissions: [
-      "ai.use",
-      "ai.execute",
-      "ai.workspace.access",
-    ],
+    permissions: ["ai.use", "ai.execute", "ai.workspace.access"],
   },
   {
     label: "Organisation",
@@ -153,9 +152,7 @@ function hasAnyPermission(
   }
 
   const granted = new Set(
-    grantedPermissions.map((permission) =>
-      permission.toLowerCase(),
-    ),
+    grantedPermissions.map((permission) => permission.toLowerCase()),
   );
 
   return requiredPermissions.some((permission) =>
@@ -163,31 +160,20 @@ function hasAnyPermission(
   );
 }
 
-function getDisplayName(
-  user: DashboardUser,
-): string {
+function getDisplayName(user: DashboardUser): string {
   if (user.displayName?.trim()) {
     return user.displayName.trim();
   }
 
-  const fullName = [
-    user.firstName,
-    user.lastName,
-  ]
+  const fullName = [user.firstName, user.lastName]
     .filter(Boolean)
     .join(" ")
     .trim();
 
-  return (
-    fullName ||
-    user.email ||
-    "Authorised user"
-  );
+  return fullName || user.email || "Authorised user";
 }
 
-function getAccessLabel(
-  organisation: DashboardOrganisation,
-): string {
+function getAccessLabel(organisation: DashboardOrganisation): string {
   if (organisation.jobTitle?.trim()) {
     return organisation.jobTitle.trim();
   }
@@ -199,18 +185,12 @@ function getAccessLabel(
   return "Authorised user";
 }
 
-function isActiveRoute(
-  pathname: string,
-  href: string,
-): boolean {
+function isActiveRoute(pathname: string, href: string): boolean {
   if (href === "/dashboard") {
     return pathname === href;
   }
 
-  return (
-    pathname === href ||
-    pathname.startsWith(`${href}/`)
-  );
+  return pathname === href || pathname.startsWith(`${href}/`);
 }
 
 export function DashboardShell({
@@ -220,13 +200,9 @@ export function DashboardShell({
 }: DashboardShellProps) {
   const pathname = usePathname();
 
-  const visibleNavigation =
-    navigationItems.filter((item) =>
-      hasAnyPermission(
-        organisation.permissions,
-        item.permissions,
-      ),
-    );
+  const visibleNavigation = navigationItems.filter((item) =>
+    hasAnyPermission(organisation.permissions, item.permissions),
+  );
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-950">
@@ -244,16 +220,11 @@ export function DashboardShell({
             className="flex min-w-0 items-center gap-3 rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2"
           >
             <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-slate-950 text-white">
-              <LayoutDashboard
-                aria-hidden="true"
-                className="h-5 w-5"
-              />
+              <LayoutDashboard aria-hidden="true" className="h-5 w-5" />
             </div>
 
             <div className="min-w-0">
-              <p className="font-semibold tracking-tight">
-                BusinessOS
-              </p>
+              <p className="font-semibold tracking-tight">BusinessOS</p>
 
               <p className="truncate text-xs text-slate-500">
                 {organisation.organisationName}
@@ -263,9 +234,7 @@ export function DashboardShell({
 
           <div className="flex items-center gap-3">
             <div className="hidden text-right sm:block">
-              <p className="text-sm font-medium">
-                {getDisplayName(user)}
-              </p>
+              <p className="text-sm font-medium">{getDisplayName(user)}</p>
 
               <p className="max-w-52 truncate text-xs text-slate-500">
                 {getAccessLabel(organisation)}
@@ -277,14 +246,9 @@ export function DashboardShell({
                 type="submit"
                 className="inline-flex h-10 items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white px-4 text-sm font-medium transition hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2"
               >
-                <LogOut
-                  aria-hidden="true"
-                  className="h-4 w-4"
-                />
+                <LogOut aria-hidden="true" className="h-4 w-4" />
 
-                <span className="hidden sm:inline">
-                  Sign out
-                </span>
+                <span className="hidden sm:inline">Sign out</span>
               </button>
             </form>
           </div>
@@ -300,28 +264,20 @@ export function DashboardShell({
             {visibleNavigation.map((item) => {
               const Icon = item.icon;
 
-              const active = isActiveRoute(
-                pathname,
-                item.href,
-              );
+              const active = isActiveRoute(pathname, item.href);
 
               return (
                 <Link
                   key={item.href}
                   href={item.href}
-                  aria-current={
-                    active ? "page" : undefined
-                  }
+                  aria-current={active ? "page" : undefined}
                   className={
                     active
                       ? "flex min-h-11 shrink-0 items-center gap-3 rounded-xl bg-slate-950 px-4 py-3 text-sm font-medium text-white shadow-sm"
                       : "flex min-h-11 shrink-0 items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-slate-700 transition hover:bg-white hover:text-slate-950 hover:shadow-sm"
                   }
                 >
-                  <Icon
-                    aria-hidden="true"
-                    className="h-4 w-4"
-                  />
+                  <Icon aria-hidden="true" className="h-4 w-4" />
 
                   {item.label}
                 </Link>
@@ -330,10 +286,7 @@ export function DashboardShell({
           </nav>
         </aside>
 
-        <main
-          id="workspace-content"
-          className="min-w-0"
-        >
+        <main id="workspace-content" className="min-w-0">
           {children}
         </main>
       </div>

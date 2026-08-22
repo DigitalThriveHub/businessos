@@ -103,6 +103,16 @@ export const DEFAULT_PERMISSION_KEYS = [
   'portal_access.read',
   'portal_access.manage',
   'portal_updates.publish',
+
+  // UK-ready billing, payment and accounting evidence
+  'finance.read',
+  'finance.settings.manage',
+  'invoices.create',
+  'invoices.issue',
+  'invoices.void',
+  'payments.record',
+  'payments.refund',
+  'ledger.read',
 ] as const;
 
 export type DefaultPermissionKey = (typeof DEFAULT_PERMISSION_KEYS)[number];

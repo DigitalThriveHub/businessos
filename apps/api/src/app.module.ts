@@ -13,6 +13,7 @@ import { CommunicationsModule } from './communications/communications.module';
 import { validateEnvironment } from './config/env.validation';
 import { DatabaseModule } from './database/database.module';
 import { EnquiriesModule } from './enquiries/enquiries.module';
+import { FinanceModule } from './finance/finance.module';
 import { InvitationsModule } from './invitations/invitations.module';
 import { OrganisationsModule } from './organisations/organisations.module';
 import { WorkforceConfigurationModule } from './workforce-configuration/workforce-configuration.module';
@@ -33,6 +34,7 @@ import { WorkforceConfigurationModule } from './workforce-configuration/workforc
     ClientPortalModule,
     CommunicationsModule,
     EnquiriesModule,
+    FinanceModule,
     InvitationsModule,
     OrganisationsModule,
     WorkforceConfigurationModule,

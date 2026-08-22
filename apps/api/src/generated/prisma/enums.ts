@@ -698,6 +698,97 @@ export const PortalInvitationStatus = {
 export type PortalInvitationStatus = (typeof PortalInvitationStatus)[keyof typeof PortalInvitationStatus]
 
 
+export const FinanceVatScheme = {
+  NOT_REGISTERED: 'NOT_REGISTERED',
+  STANDARD: 'STANDARD',
+  CASH_ACCOUNTING: 'CASH_ACCOUNTING',
+  FLAT_RATE: 'FLAT_RATE'
+} as const
+
+export type FinanceVatScheme = (typeof FinanceVatScheme)[keyof typeof FinanceVatScheme]
+
+
+export const FinanceTaxCategory = {
+  STANDARD: 'STANDARD',
+  REDUCED: 'REDUCED',
+  ZERO: 'ZERO',
+  EXEMPT: 'EXEMPT',
+  OUTSIDE_SCOPE: 'OUTSIDE_SCOPE'
+} as const
+
+export type FinanceTaxCategory = (typeof FinanceTaxCategory)[keyof typeof FinanceTaxCategory]
+
+
+export const FinanceDocumentType = {
+  INVOICE: 'INVOICE',
+  CREDIT_NOTE: 'CREDIT_NOTE'
+} as const
+
+export type FinanceDocumentType = (typeof FinanceDocumentType)[keyof typeof FinanceDocumentType]
+
+
+export const FinanceDocumentStatus = {
+  DRAFT: 'DRAFT',
+  ISSUED: 'ISSUED',
+  PARTIALLY_PAID: 'PARTIALLY_PAID',
+  PAID: 'PAID',
+  OVERDUE: 'OVERDUE',
+  VOID: 'VOID'
+} as const
+
+export type FinanceDocumentStatus = (typeof FinanceDocumentStatus)[keyof typeof FinanceDocumentStatus]
+
+
+export const FinancePaymentType = {
+  RECEIPT: 'RECEIPT',
+  REFUND: 'REFUND'
+} as const
+
+export type FinancePaymentType = (typeof FinancePaymentType)[keyof typeof FinancePaymentType]
+
+
+export const FinancePaymentMethod = {
+  BANK_TRANSFER: 'BANK_TRANSFER',
+  CARD: 'CARD',
+  CASH: 'CASH',
+  DIRECT_DEBIT: 'DIRECT_DEBIT',
+  CHEQUE: 'CHEQUE',
+  OTHER: 'OTHER'
+} as const
+
+export type FinancePaymentMethod = (typeof FinancePaymentMethod)[keyof typeof FinancePaymentMethod]
+
+
+export const FinancePaymentStatus = {
+  CLEARED: 'CLEARED',
+  REVERSED: 'REVERSED'
+} as const
+
+export type FinancePaymentStatus = (typeof FinancePaymentStatus)[keyof typeof FinancePaymentStatus]
+
+
+export const FinanceLedgerAccountType = {
+  ASSET: 'ASSET',
+  LIABILITY: 'LIABILITY',
+  EQUITY: 'EQUITY',
+  REVENUE: 'REVENUE',
+  EXPENSE: 'EXPENSE'
+} as const
+
+export type FinanceLedgerAccountType = (typeof FinanceLedgerAccountType)[keyof typeof FinanceLedgerAccountType]
+
+
+export const FinanceJournalSource = {
+  INVOICE: 'INVOICE',
+  CREDIT_NOTE: 'CREDIT_NOTE',
+  PAYMENT: 'PAYMENT',
+  REFUND: 'REFUND',
+  REVERSAL: 'REVERSAL'
+} as const
+
+export type FinanceJournalSource = (typeof FinanceJournalSource)[keyof typeof FinanceJournalSource]
+
+
 export const EnquiryStatus = {
   NEW: 'NEW',
   CONTACTED: 'CONTACTED',

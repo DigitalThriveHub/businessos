@@ -77,6 +77,8 @@ export const DEFAULT_ROLES = [
       'communications.delivery.read',
       'communication_templates.read',
       'portal_access.read',
+      'finance.read',
+      'ledger.read',
     ],
   },
   {
@@ -139,6 +141,8 @@ export const DEFAULT_ROLES = [
       'portal_access.read',
       'portal_access.manage',
       'portal_updates.publish',
+      'finance.read',
+      'invoices.create',
     ],
   },
   {
@@ -223,7 +227,7 @@ export const DEFAULT_ROLES = [
     key: 'finance',
     name: 'Finance',
     description:
-      'Receives read-only organisation, client and matter access for authorised financial work.',
+      'Runs controlled billing, payment allocation and accounting evidence for the organisation.',
     scope: RoleScope.ORGANISATION,
     isAssignable: true,
     permissions: [
@@ -233,6 +237,14 @@ export const DEFAULT_ROLES = [
       'clients.read_all',
       'matters.read',
       'matters.read_all',
+      'finance.read',
+      'finance.settings.manage',
+      'invoices.create',
+      'invoices.issue',
+      'invoices.void',
+      'payments.record',
+      'payments.refund',
+      'ledger.read',
     ],
   },
   {
@@ -259,6 +271,8 @@ export const DEFAULT_ROLES = [
       'communications.read',
       'communication_templates.read',
       'portal_access.read',
+      'finance.read',
+      'ledger.read',
     ],
   },
   {
@@ -330,6 +344,8 @@ export const DEFAULT_ROLES = [
       'portal_access.read',
       'portal_access.manage',
       'portal_updates.publish',
+      'finance.read',
+      'invoices.create',
     ],
   },
   {
