@@ -127,8 +127,9 @@ export default async function DashboardPage() {
         </h2>
 
         <p className="mt-2 text-sm leading-6 text-slate-600">
-          Authentication, organisation access, RBAC and the
-          Enquiries workflow are securely connected.
+          Authentication, organisation access, RBAC, enquiries, case
+          operations and controlled workflow automation are securely
+          connected.
         </p>
       </section>
     </>

@@ -68,7 +68,53 @@ export const ModelName = {
   SupportAccessGrant: 'SupportAccessGrant',
   AuditEvent: 'AuditEvent',
   SecurityEvent: 'SecurityEvent',
-  Enquiry: 'Enquiry'
+  JobProfile: 'JobProfile',
+  JobProfileDuty: 'JobProfileDuty',
+  KpiDefinition: 'KpiDefinition',
+  JobProfileKpi: 'JobProfileKpi',
+  AgentProfile: 'AgentProfile',
+  AgentPolicy: 'AgentPolicy',
+  WorkforceAssignment: 'WorkforceAssignment',
+  WorkforceAssignmentKpi: 'WorkforceAssignmentKpi',
+  InvitationOnboardingPlan: 'InvitationOnboardingPlan',
+  InvitationOnboardingRole: 'InvitationOnboardingRole',
+  InvitationOnboardingKpi: 'InvitationOnboardingKpi',
+  Enquiry: 'Enquiry',
+  OrganisationNumberSequence: 'OrganisationNumberSequence',
+  Client: 'Client',
+  Matter: 'Matter',
+  MatterParty: 'MatterParty',
+  MatterCompliance: 'MatterCompliance',
+  MatterStatusHistory: 'MatterStatusHistory',
+  EnquiryConversion: 'EnquiryConversion',
+  MatterTask: 'MatterTask',
+  MatterDeadline: 'MatterDeadline',
+  DocumentRequest: 'DocumentRequest',
+  DocumentRequestItem: 'DocumentRequestItem',
+  MatterDocument: 'MatterDocument',
+  MatterDocumentVersion: 'MatterDocumentVersion',
+  MatterTimelineEvent: 'MatterTimelineEvent',
+  WorkflowDefinition: 'WorkflowDefinition',
+  WorkflowVersion: 'WorkflowVersion',
+  WorkflowRun: 'WorkflowRun',
+  WorkflowAction: 'WorkflowAction',
+  SlaPolicy: 'SlaPolicy',
+  SlaInstance: 'SlaInstance',
+  EscalationRule: 'EscalationRule',
+  EscalationEvent: 'EscalationEvent',
+  ApprovalRequest: 'ApprovalRequest',
+  ApprovalDecision: 'ApprovalDecision',
+  ClientPortalAccessGrant: 'ClientPortalAccessGrant',
+  ClientPortalMatterGrant: 'ClientPortalMatterGrant',
+  ClientPortalInvitation: 'ClientPortalInvitation',
+  PortalMatterUpdate: 'PortalMatterUpdate',
+  CommunicationConversation: 'CommunicationConversation',
+  CommunicationMessage: 'CommunicationMessage',
+  CommunicationAttachment: 'CommunicationAttachment',
+  CommunicationDeliveryEvent: 'CommunicationDeliveryEvent',
+  CommunicationTemplate: 'CommunicationTemplate',
+  CommunicationReminder: 'CommunicationReminder',
+  ClientNotification: 'ClientNotification'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -436,6 +482,239 @@ export const SecurityEventScalarFieldEnum = {
 export type SecurityEventScalarFieldEnum = (typeof SecurityEventScalarFieldEnum)[keyof typeof SecurityEventScalarFieldEnum]
 
 
+export const JobProfileScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  departmentId: 'departmentId',
+  key: 'key',
+  name: 'name',
+  description: 'description',
+  purpose: 'purpose',
+  version: 'version',
+  isManagerial: 'isManagerial',
+  isActive: 'isActive',
+  createdByUserProfileId: 'createdByUserProfileId',
+  updatedByUserProfileId: 'updatedByUserProfileId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  deletedAt: 'deletedAt'
+} as const
+
+export type JobProfileScalarFieldEnum = (typeof JobProfileScalarFieldEnum)[keyof typeof JobProfileScalarFieldEnum]
+
+
+export const JobProfileDutyScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  jobProfileId: 'jobProfileId',
+  code: 'code',
+  title: 'title',
+  description: 'description',
+  position: 'position',
+  isCritical: 'isCritical',
+  requiresEvidence: 'requiresEvidence',
+  isActive: 'isActive',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  deletedAt: 'deletedAt'
+} as const
+
+export type JobProfileDutyScalarFieldEnum = (typeof JobProfileDutyScalarFieldEnum)[keyof typeof JobProfileDutyScalarFieldEnum]
+
+
+export const KpiDefinitionScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  departmentId: 'departmentId',
+  key: 'key',
+  name: 'name',
+  description: 'description',
+  valueType: 'valueType',
+  direction: 'direction',
+  frequency: 'frequency',
+  unitLabel: 'unitLabel',
+  currencyCode: 'currencyCode',
+  measurementSource: 'measurementSource',
+  isActive: 'isActive',
+  createdByUserProfileId: 'createdByUserProfileId',
+  updatedByUserProfileId: 'updatedByUserProfileId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  deletedAt: 'deletedAt'
+} as const
+
+export type KpiDefinitionScalarFieldEnum = (typeof KpiDefinitionScalarFieldEnum)[keyof typeof KpiDefinitionScalarFieldEnum]
+
+
+export const JobProfileKpiScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  jobProfileId: 'jobProfileId',
+  kpiDefinitionId: 'kpiDefinitionId',
+  targetValue: 'targetValue',
+  minimumValue: 'minimumValue',
+  maximumValue: 'maximumValue',
+  weightPercent: 'weightPercent',
+  startsAt: 'startsAt',
+  endsAt: 'endsAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  deletedAt: 'deletedAt'
+} as const
+
+export type JobProfileKpiScalarFieldEnum = (typeof JobProfileKpiScalarFieldEnum)[keyof typeof JobProfileKpiScalarFieldEnum]
+
+
+export const AgentProfileScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  departmentId: 'departmentId',
+  key: 'key',
+  name: 'name',
+  description: 'description',
+  behaviourInstructions: 'behaviourInstructions',
+  authorityCeiling: 'authorityCeiling',
+  requiresHumanReview: 'requiresHumanReview',
+  version: 'version',
+  isActive: 'isActive',
+  createdByUserProfileId: 'createdByUserProfileId',
+  updatedByUserProfileId: 'updatedByUserProfileId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  deletedAt: 'deletedAt'
+} as const
+
+export type AgentProfileScalarFieldEnum = (typeof AgentProfileScalarFieldEnum)[keyof typeof AgentProfileScalarFieldEnum]
+
+
+export const AgentPolicyScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  agentProfileId: 'agentProfileId',
+  toolKey: 'toolKey',
+  requiredPermissionKey: 'requiredPermissionKey',
+  authorityLevel: 'authorityLevel',
+  maximumDataScope: 'maximumDataScope',
+  requiresApproval: 'requiresApproval',
+  requiresMfa: 'requiresMfa',
+  maxActionsPerRun: 'maxActionsPerRun',
+  configuration: 'configuration',
+  isActive: 'isActive',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  deletedAt: 'deletedAt'
+} as const
+
+export type AgentPolicyScalarFieldEnum = (typeof AgentPolicyScalarFieldEnum)[keyof typeof AgentPolicyScalarFieldEnum]
+
+
+export const WorkforceAssignmentScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  organisationMembershipId: 'organisationMembershipId',
+  jobProfileId: 'jobProfileId',
+  departmentId: 'departmentId',
+  teamId: 'teamId',
+  managerOrganisationMembershipId: 'managerOrganisationMembershipId',
+  agentProfileId: 'agentProfileId',
+  jobTitle: 'jobTitle',
+  status: 'status',
+  isPrimary: 'isPrimary',
+  startsAt: 'startsAt',
+  endsAt: 'endsAt',
+  endReason: 'endReason',
+  createdByUserProfileId: 'createdByUserProfileId',
+  updatedByUserProfileId: 'updatedByUserProfileId',
+  endedByUserProfileId: 'endedByUserProfileId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  deletedAt: 'deletedAt'
+} as const
+
+export type WorkforceAssignmentScalarFieldEnum = (typeof WorkforceAssignmentScalarFieldEnum)[keyof typeof WorkforceAssignmentScalarFieldEnum]
+
+
+export const WorkforceAssignmentKpiScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  workforceAssignmentId: 'workforceAssignmentId',
+  kpiDefinitionId: 'kpiDefinitionId',
+  sourceJobProfileKpiId: 'sourceJobProfileKpiId',
+  targetValue: 'targetValue',
+  minimumValue: 'minimumValue',
+  maximumValue: 'maximumValue',
+  weightPercent: 'weightPercent',
+  effectiveFrom: 'effectiveFrom',
+  effectiveUntil: 'effectiveUntil',
+  isActive: 'isActive',
+  createdByUserProfileId: 'createdByUserProfileId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  deletedAt: 'deletedAt'
+} as const
+
+export type WorkforceAssignmentKpiScalarFieldEnum = (typeof WorkforceAssignmentKpiScalarFieldEnum)[keyof typeof WorkforceAssignmentKpiScalarFieldEnum]
+
+
+export const InvitationOnboardingPlanScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  invitationId: 'invitationId',
+  jobProfileId: 'jobProfileId',
+  departmentId: 'departmentId',
+  teamId: 'teamId',
+  managerOrganisationMembershipId: 'managerOrganisationMembershipId',
+  agentProfileId: 'agentProfileId',
+  jobTitle: 'jobTitle',
+  isDepartmentManager: 'isDepartmentManager',
+  isTeamLead: 'isTeamLead',
+  startsAt: 'startsAt',
+  status: 'status',
+  version: 'version',
+  createdByUserProfileId: 'createdByUserProfileId',
+  provisionedOrganisationMembershipId: 'provisionedOrganisationMembershipId',
+  provisionedWorkforceAssignmentId: 'provisionedWorkforceAssignmentId',
+  provisionedAt: 'provisionedAt',
+  cancelledAt: 'cancelledAt',
+  cancellationReason: 'cancellationReason',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  deletedAt: 'deletedAt'
+} as const
+
+export type InvitationOnboardingPlanScalarFieldEnum = (typeof InvitationOnboardingPlanScalarFieldEnum)[keyof typeof InvitationOnboardingPlanScalarFieldEnum]
+
+
+export const InvitationOnboardingRoleScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  onboardingPlanId: 'onboardingPlanId',
+  roleId: 'roleId',
+  scope: 'scope',
+  departmentId: 'departmentId',
+  teamId: 'teamId',
+  createdAt: 'createdAt'
+} as const
+
+export type InvitationOnboardingRoleScalarFieldEnum = (typeof InvitationOnboardingRoleScalarFieldEnum)[keyof typeof InvitationOnboardingRoleScalarFieldEnum]
+
+
+export const InvitationOnboardingKpiScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  onboardingPlanId: 'onboardingPlanId',
+  kpiDefinitionId: 'kpiDefinitionId',
+  sourceJobProfileKpiId: 'sourceJobProfileKpiId',
+  targetValue: 'targetValue',
+  minimumValue: 'minimumValue',
+  maximumValue: 'maximumValue',
+  weightPercent: 'weightPercent',
+  createdAt: 'createdAt'
+} as const
+
+export type InvitationOnboardingKpiScalarFieldEnum = (typeof InvitationOnboardingKpiScalarFieldEnum)[keyof typeof InvitationOnboardingKpiScalarFieldEnum]
+
+
 export const EnquiryScalarFieldEnum = {
   id: 'id',
   organisationId: 'organisationId',
@@ -463,6 +742,835 @@ export const EnquiryScalarFieldEnum = {
 export type EnquiryScalarFieldEnum = (typeof EnquiryScalarFieldEnum)[keyof typeof EnquiryScalarFieldEnum]
 
 
+export const OrganisationNumberSequenceScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  key: 'key',
+  nextValue: 'nextValue',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type OrganisationNumberSequenceScalarFieldEnum = (typeof OrganisationNumberSequenceScalarFieldEnum)[keyof typeof OrganisationNumberSequenceScalarFieldEnum]
+
+
+export const ClientScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  clientNumber: 'clientNumber',
+  sourceEnquiryId: 'sourceEnquiryId',
+  kind: 'kind',
+  status: 'status',
+  displayName: 'displayName',
+  firstName: 'firstName',
+  lastName: 'lastName',
+  organisationName: 'organisationName',
+  email: 'email',
+  phone: 'phone',
+  dateOfBirth: 'dateOfBirth',
+  nationality: 'nationality',
+  countryOfResidenceCode: 'countryOfResidenceCode',
+  addressLine1: 'addressLine1',
+  addressLine2: 'addressLine2',
+  city: 'city',
+  region: 'region',
+  postalCode: 'postalCode',
+  addressCountryCode: 'addressCountryCode',
+  preferredLanguage: 'preferredLanguage',
+  preferredCommunication: 'preferredCommunication',
+  processingLawfulBasis: 'processingLawfulBasis',
+  privacyNoticeVersion: 'privacyNoticeVersion',
+  privacyNoticeAcknowledgedAt: 'privacyNoticeAcknowledgedAt',
+  marketingConsent: 'marketingConsent',
+  marketingConsentAt: 'marketingConsentAt',
+  marketingConsentSource: 'marketingConsentSource',
+  riskRating: 'riskRating',
+  identityVerificationStatus: 'identityVerificationStatus',
+  identityVerifiedAt: 'identityVerifiedAt',
+  identityVerificationExpiresAt: 'identityVerificationExpiresAt',
+  assignedToUserId: 'assignedToUserId',
+  lastContactedAt: 'lastContactedAt',
+  retentionReviewAt: 'retentionReviewAt',
+  archivedAt: 'archivedAt',
+  archiveReason: 'archiveReason',
+  createdByUserId: 'createdByUserId',
+  updatedByUserId: 'updatedByUserId',
+  version: 'version',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  deletedAt: 'deletedAt'
+} as const
+
+export type ClientScalarFieldEnum = (typeof ClientScalarFieldEnum)[keyof typeof ClientScalarFieldEnum]
+
+
+export const MatterScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  matterNumber: 'matterNumber',
+  sourceEnquiryId: 'sourceEnquiryId',
+  departmentId: 'departmentId',
+  teamId: 'teamId',
+  assignedToUserId: 'assignedToUserId',
+  supervisorUserId: 'supervisorUserId',
+  title: 'title',
+  description: 'description',
+  serviceType: 'serviceType',
+  jurisdictionCountryCode: 'jurisdictionCountryCode',
+  externalReference: 'externalReference',
+  status: 'status',
+  priority: 'priority',
+  nextActionSummary: 'nextActionSummary',
+  nextActionAt: 'nextActionAt',
+  criticalDeadlineAt: 'criticalDeadlineAt',
+  targetCompletionAt: 'targetCompletionAt',
+  openedAt: 'openedAt',
+  closedAt: 'closedAt',
+  closureReason: 'closureReason',
+  outcome: 'outcome',
+  archivedAt: 'archivedAt',
+  archiveReason: 'archiveReason',
+  createdByUserId: 'createdByUserId',
+  updatedByUserId: 'updatedByUserId',
+  version: 'version',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  deletedAt: 'deletedAt'
+} as const
+
+export type MatterScalarFieldEnum = (typeof MatterScalarFieldEnum)[keyof typeof MatterScalarFieldEnum]
+
+
+export const MatterPartyScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  matterId: 'matterId',
+  clientId: 'clientId',
+  role: 'role',
+  isPrimary: 'isPrimary',
+  roleDescription: 'roleDescription',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  deletedAt: 'deletedAt'
+} as const
+
+export type MatterPartyScalarFieldEnum = (typeof MatterPartyScalarFieldEnum)[keyof typeof MatterPartyScalarFieldEnum]
+
+
+export const MatterComplianceScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  matterId: 'matterId',
+  conflictStatus: 'conflictStatus',
+  conflictReference: 'conflictReference',
+  conflictCheckedAt: 'conflictCheckedAt',
+  conflictCheckedByUserId: 'conflictCheckedByUserId',
+  amlStatus: 'amlStatus',
+  amlReference: 'amlReference',
+  amlCheckedAt: 'amlCheckedAt',
+  amlCheckedByUserId: 'amlCheckedByUserId',
+  clientCareStatus: 'clientCareStatus',
+  clientCareSentAt: 'clientCareSentAt',
+  clientCareRespondedAt: 'clientCareRespondedAt',
+  riskRating: 'riskRating',
+  riskReason: 'riskReason',
+  riskReviewedAt: 'riskReviewedAt',
+  riskReviewedByUserId: 'riskReviewedByUserId',
+  createdByUserId: 'createdByUserId',
+  updatedByUserId: 'updatedByUserId',
+  version: 'version',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type MatterComplianceScalarFieldEnum = (typeof MatterComplianceScalarFieldEnum)[keyof typeof MatterComplianceScalarFieldEnum]
+
+
+export const MatterStatusHistoryScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  matterId: 'matterId',
+  fromStatus: 'fromStatus',
+  toStatus: 'toStatus',
+  reason: 'reason',
+  changedByUserId: 'changedByUserId',
+  occurredAt: 'occurredAt'
+} as const
+
+export type MatterStatusHistoryScalarFieldEnum = (typeof MatterStatusHistoryScalarFieldEnum)[keyof typeof MatterStatusHistoryScalarFieldEnum]
+
+
+export const EnquiryConversionScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  enquiryId: 'enquiryId',
+  clientId: 'clientId',
+  matterId: 'matterId',
+  idempotencyKey: 'idempotencyKey',
+  convertedByUserId: 'convertedByUserId',
+  createdAt: 'createdAt'
+} as const
+
+export type EnquiryConversionScalarFieldEnum = (typeof EnquiryConversionScalarFieldEnum)[keyof typeof EnquiryConversionScalarFieldEnum]
+
+
+export const MatterTaskScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  matterId: 'matterId',
+  title: 'title',
+  description: 'description',
+  status: 'status',
+  priority: 'priority',
+  assignedToUserId: 'assignedToUserId',
+  dueAt: 'dueAt',
+  reminderAt: 'reminderAt',
+  blockedReason: 'blockedReason',
+  completionNote: 'completionNote',
+  completedAt: 'completedAt',
+  completedByUserId: 'completedByUserId',
+  cancelledAt: 'cancelledAt',
+  cancelledByUserId: 'cancelledByUserId',
+  cancellationReason: 'cancellationReason',
+  createdByUserId: 'createdByUserId',
+  updatedByUserId: 'updatedByUserId',
+  version: 'version',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  deletedAt: 'deletedAt'
+} as const
+
+export type MatterTaskScalarFieldEnum = (typeof MatterTaskScalarFieldEnum)[keyof typeof MatterTaskScalarFieldEnum]
+
+
+export const MatterDeadlineScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  matterId: 'matterId',
+  title: 'title',
+  description: 'description',
+  deadlineType: 'deadlineType',
+  status: 'status',
+  dueAt: 'dueAt',
+  timezone: 'timezone',
+  isCritical: 'isCritical',
+  ownerUserId: 'ownerUserId',
+  sourceReference: 'sourceReference',
+  satisfiedAt: 'satisfiedAt',
+  satisfiedByUserId: 'satisfiedByUserId',
+  satisfactionNote: 'satisfactionNote',
+  missedAt: 'missedAt',
+  missedReason: 'missedReason',
+  cancelledAt: 'cancelledAt',
+  cancelledByUserId: 'cancelledByUserId',
+  cancellationReason: 'cancellationReason',
+  createdByUserId: 'createdByUserId',
+  updatedByUserId: 'updatedByUserId',
+  version: 'version',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  deletedAt: 'deletedAt'
+} as const
+
+export type MatterDeadlineScalarFieldEnum = (typeof MatterDeadlineScalarFieldEnum)[keyof typeof MatterDeadlineScalarFieldEnum]
+
+
+export const DocumentRequestScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  matterId: 'matterId',
+  recipientClientId: 'recipientClientId',
+  title: 'title',
+  message: 'message',
+  status: 'status',
+  dueAt: 'dueAt',
+  sentAt: 'sentAt',
+  sentByUserId: 'sentByUserId',
+  completedAt: 'completedAt',
+  cancelledAt: 'cancelledAt',
+  cancelledByUserId: 'cancelledByUserId',
+  statusReason: 'statusReason',
+  createdByUserId: 'createdByUserId',
+  updatedByUserId: 'updatedByUserId',
+  version: 'version',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  deletedAt: 'deletedAt'
+} as const
+
+export type DocumentRequestScalarFieldEnum = (typeof DocumentRequestScalarFieldEnum)[keyof typeof DocumentRequestScalarFieldEnum]
+
+
+export const DocumentRequestItemScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  requestId: 'requestId',
+  category: 'category',
+  title: 'title',
+  description: 'description',
+  isRequired: 'isRequired',
+  status: 'status',
+  statusReason: 'statusReason',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type DocumentRequestItemScalarFieldEnum = (typeof DocumentRequestItemScalarFieldEnum)[keyof typeof DocumentRequestItemScalarFieldEnum]
+
+
+export const MatterDocumentScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  matterId: 'matterId',
+  requestItemId: 'requestItemId',
+  title: 'title',
+  category: 'category',
+  securityClassification: 'securityClassification',
+  status: 'status',
+  clientVisible: 'clientVisible',
+  currentVersionId: 'currentVersionId',
+  retentionReviewAt: 'retentionReviewAt',
+  archivedAt: 'archivedAt',
+  archiveReason: 'archiveReason',
+  createdByUserId: 'createdByUserId',
+  updatedByUserId: 'updatedByUserId',
+  version: 'version',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  deletedAt: 'deletedAt'
+} as const
+
+export type MatterDocumentScalarFieldEnum = (typeof MatterDocumentScalarFieldEnum)[keyof typeof MatterDocumentScalarFieldEnum]
+
+
+export const MatterDocumentVersionScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  matterId: 'matterId',
+  documentId: 'documentId',
+  versionNumber: 'versionNumber',
+  originalFileName: 'originalFileName',
+  contentType: 'contentType',
+  sizeBytes: 'sizeBytes',
+  sha256Hex: 'sha256Hex',
+  storageBucket: 'storageBucket',
+  storagePath: 'storagePath',
+  status: 'status',
+  scanStatus: 'scanStatus',
+  scanProvider: 'scanProvider',
+  scanReference: 'scanReference',
+  scanObservedSha256Hex: 'scanObservedSha256Hex',
+  scanEngineVersion: 'scanEngineVersion',
+  scanSignature: 'scanSignature',
+  scanCompletedAt: 'scanCompletedAt',
+  uploadedByUserId: 'uploadedByUserId',
+  uploadedAt: 'uploadedAt',
+  supersededAt: 'supersededAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type MatterDocumentVersionScalarFieldEnum = (typeof MatterDocumentVersionScalarFieldEnum)[keyof typeof MatterDocumentVersionScalarFieldEnum]
+
+
+export const MatterTimelineEventScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  matterId: 'matterId',
+  eventType: 'eventType',
+  sourceType: 'sourceType',
+  sourceId: 'sourceId',
+  summary: 'summary',
+  details: 'details',
+  actorUserId: 'actorUserId',
+  actorType: 'actorType',
+  actorIdentifier: 'actorIdentifier',
+  occurredAt: 'occurredAt',
+  createdAt: 'createdAt'
+} as const
+
+export type MatterTimelineEventScalarFieldEnum = (typeof MatterTimelineEventScalarFieldEnum)[keyof typeof MatterTimelineEventScalarFieldEnum]
+
+
+export const WorkflowDefinitionScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  key: 'key',
+  name: 'name',
+  description: 'description',
+  subjectType: 'subjectType',
+  triggerEvent: 'triggerEvent',
+  status: 'status',
+  createdByUserProfileId: 'createdByUserProfileId',
+  updatedByUserProfileId: 'updatedByUserProfileId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  deletedAt: 'deletedAt'
+} as const
+
+export type WorkflowDefinitionScalarFieldEnum = (typeof WorkflowDefinitionScalarFieldEnum)[keyof typeof WorkflowDefinitionScalarFieldEnum]
+
+
+export const WorkflowVersionScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  workflowDefinitionId: 'workflowDefinitionId',
+  version: 'version',
+  configuration: 'configuration',
+  checksumSha256: 'checksumSha256',
+  publishedAt: 'publishedAt',
+  publishedByUserProfileId: 'publishedByUserProfileId',
+  createdAt: 'createdAt'
+} as const
+
+export type WorkflowVersionScalarFieldEnum = (typeof WorkflowVersionScalarFieldEnum)[keyof typeof WorkflowVersionScalarFieldEnum]
+
+
+export const WorkflowRunScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  workflowDefinitionId: 'workflowDefinitionId',
+  workflowVersionId: 'workflowVersionId',
+  subjectType: 'subjectType',
+  subjectId: 'subjectId',
+  triggerEvent: 'triggerEvent',
+  idempotencyKey: 'idempotencyKey',
+  status: 'status',
+  currentStepKey: 'currentStepKey',
+  ownerUserId: 'ownerUserId',
+  ownerTeamId: 'ownerTeamId',
+  nextActionSummary: 'nextActionSummary',
+  nextActionAt: 'nextActionAt',
+  attemptCount: 'attemptCount',
+  maxAttempts: 'maxAttempts',
+  lastErrorCode: 'lastErrorCode',
+  lastErrorDetail: 'lastErrorDetail',
+  startedByActorType: 'startedByActorType',
+  startedByUserProfileId: 'startedByUserProfileId',
+  startedAt: 'startedAt',
+  completedAt: 'completedAt',
+  failedAt: 'failedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  version: 'version'
+} as const
+
+export type WorkflowRunScalarFieldEnum = (typeof WorkflowRunScalarFieldEnum)[keyof typeof WorkflowRunScalarFieldEnum]
+
+
+export const WorkflowActionScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  workflowRunId: 'workflowRunId',
+  stepKey: 'stepKey',
+  actionType: 'actionType',
+  actionKey: 'actionKey',
+  title: 'title',
+  description: 'description',
+  status: 'status',
+  priority: 'priority',
+  ownerUserId: 'ownerUserId',
+  ownerTeamId: 'ownerTeamId',
+  dueAt: 'dueAt',
+  input: 'input',
+  output: 'output',
+  idempotencyKey: 'idempotencyKey',
+  requiresApproval: 'requiresApproval',
+  attemptCount: 'attemptCount',
+  maxAttempts: 'maxAttempts',
+  nextAttemptAt: 'nextAttemptAt',
+  lastErrorCode: 'lastErrorCode',
+  lastErrorDetail: 'lastErrorDetail',
+  startedAt: 'startedAt',
+  completedAt: 'completedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  version: 'version'
+} as const
+
+export type WorkflowActionScalarFieldEnum = (typeof WorkflowActionScalarFieldEnum)[keyof typeof WorkflowActionScalarFieldEnum]
+
+
+export const SlaPolicyScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  key: 'key',
+  name: 'name',
+  description: 'description',
+  subjectType: 'subjectType',
+  startEvent: 'startEvent',
+  stopEvent: 'stopEvent',
+  targetSeconds: 'targetSeconds',
+  warningSeconds: 'warningSeconds',
+  timezone: 'timezone',
+  calendarConfiguration: 'calendarConfiguration',
+  isActive: 'isActive',
+  createdByUserProfileId: 'createdByUserProfileId',
+  updatedByUserProfileId: 'updatedByUserProfileId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  deletedAt: 'deletedAt',
+  version: 'version'
+} as const
+
+export type SlaPolicyScalarFieldEnum = (typeof SlaPolicyScalarFieldEnum)[keyof typeof SlaPolicyScalarFieldEnum]
+
+
+export const SlaInstanceScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  slaPolicyId: 'slaPolicyId',
+  workflowRunId: 'workflowRunId',
+  workflowActionId: 'workflowActionId',
+  subjectType: 'subjectType',
+  subjectId: 'subjectId',
+  idempotencyKey: 'idempotencyKey',
+  status: 'status',
+  ownerUserId: 'ownerUserId',
+  ownerTeamId: 'ownerTeamId',
+  startedAt: 'startedAt',
+  warningAt: 'warningAt',
+  dueAt: 'dueAt',
+  atRiskAt: 'atRiskAt',
+  breachedAt: 'breachedAt',
+  satisfiedAt: 'satisfiedAt',
+  cancelledAt: 'cancelledAt',
+  cancellationReason: 'cancellationReason',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  version: 'version'
+} as const
+
+export type SlaInstanceScalarFieldEnum = (typeof SlaInstanceScalarFieldEnum)[keyof typeof SlaInstanceScalarFieldEnum]
+
+
+export const EscalationRuleScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  slaPolicyId: 'slaPolicyId',
+  level: 'level',
+  name: 'name',
+  afterBreachSeconds: 'afterBreachSeconds',
+  actionKey: 'actionKey',
+  configuration: 'configuration',
+  isActive: 'isActive',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  deletedAt: 'deletedAt'
+} as const
+
+export type EscalationRuleScalarFieldEnum = (typeof EscalationRuleScalarFieldEnum)[keyof typeof EscalationRuleScalarFieldEnum]
+
+
+export const EscalationEventScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  slaInstanceId: 'slaInstanceId',
+  escalationRuleId: 'escalationRuleId',
+  level: 'level',
+  actionKey: 'actionKey',
+  status: 'status',
+  details: 'details',
+  occurredAt: 'occurredAt',
+  acknowledgedAt: 'acknowledgedAt',
+  acknowledgedByUserProfileId: 'acknowledgedByUserProfileId',
+  resolvedAt: 'resolvedAt',
+  resolvedByUserProfileId: 'resolvedByUserProfileId',
+  resolution: 'resolution',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  version: 'version'
+} as const
+
+export type EscalationEventScalarFieldEnum = (typeof EscalationEventScalarFieldEnum)[keyof typeof EscalationEventScalarFieldEnum]
+
+
+export const ApprovalRequestScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  workflowRunId: 'workflowRunId',
+  workflowActionId: 'workflowActionId',
+  subjectType: 'subjectType',
+  subjectId: 'subjectId',
+  title: 'title',
+  summary: 'summary',
+  actionKey: 'actionKey',
+  riskLevel: 'riskLevel',
+  proposedPayload: 'proposedPayload',
+  status: 'status',
+  requestedByActorType: 'requestedByActorType',
+  requestedByUserProfileId: 'requestedByUserProfileId',
+  approverUserId: 'approverUserId',
+  approverTeamId: 'approverTeamId',
+  allowSelfApproval: 'allowSelfApproval',
+  expiresAt: 'expiresAt',
+  decidedAt: 'decidedAt',
+  cancelledAt: 'cancelledAt',
+  cancellationReason: 'cancellationReason',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  version: 'version'
+} as const
+
+export type ApprovalRequestScalarFieldEnum = (typeof ApprovalRequestScalarFieldEnum)[keyof typeof ApprovalRequestScalarFieldEnum]
+
+
+export const ApprovalDecisionScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  approvalRequestId: 'approvalRequestId',
+  decision: 'decision',
+  reason: 'reason',
+  evidence: 'evidence',
+  decidedByUserProfileId: 'decidedByUserProfileId',
+  occurredAt: 'occurredAt'
+} as const
+
+export type ApprovalDecisionScalarFieldEnum = (typeof ApprovalDecisionScalarFieldEnum)[keyof typeof ApprovalDecisionScalarFieldEnum]
+
+
+export const ClientPortalAccessGrantScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  clientId: 'clientId',
+  userProfileId: 'userProfileId',
+  status: 'status',
+  scopes: 'scopes',
+  startsAt: 'startsAt',
+  expiresAt: 'expiresAt',
+  grantedByUserId: 'grantedByUserId',
+  grantReason: 'grantReason',
+  suspendedAt: 'suspendedAt',
+  suspendedByUserId: 'suspendedByUserId',
+  suspensionReason: 'suspensionReason',
+  revokedAt: 'revokedAt',
+  revokedByUserId: 'revokedByUserId',
+  revocationReason: 'revocationReason',
+  lastAccessedAt: 'lastAccessedAt',
+  version: 'version',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ClientPortalAccessGrantScalarFieldEnum = (typeof ClientPortalAccessGrantScalarFieldEnum)[keyof typeof ClientPortalAccessGrantScalarFieldEnum]
+
+
+export const ClientPortalMatterGrantScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  accessGrantId: 'accessGrantId',
+  matterId: 'matterId',
+  createdAt: 'createdAt'
+} as const
+
+export type ClientPortalMatterGrantScalarFieldEnum = (typeof ClientPortalMatterGrantScalarFieldEnum)[keyof typeof ClientPortalMatterGrantScalarFieldEnum]
+
+
+export const ClientPortalInvitationScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  clientId: 'clientId',
+  email: 'email',
+  matterIds: 'matterIds',
+  scopes: 'scopes',
+  tokenHash: 'tokenHash',
+  status: 'status',
+  expiresAt: 'expiresAt',
+  invitedByUserId: 'invitedByUserId',
+  acceptedAt: 'acceptedAt',
+  acceptedByUserId: 'acceptedByUserId',
+  accessGrantId: 'accessGrantId',
+  revokedAt: 'revokedAt',
+  revokedByUserId: 'revokedByUserId',
+  revocationReason: 'revocationReason',
+  deliveryProvider: 'deliveryProvider',
+  deliveryMessageId: 'deliveryMessageId',
+  deliveredAt: 'deliveredAt',
+  deliveryErrorCode: 'deliveryErrorCode',
+  deliveryErrorDetail: 'deliveryErrorDetail',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ClientPortalInvitationScalarFieldEnum = (typeof ClientPortalInvitationScalarFieldEnum)[keyof typeof ClientPortalInvitationScalarFieldEnum]
+
+
+export const PortalMatterUpdateScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  matterId: 'matterId',
+  title: 'title',
+  summary: 'summary',
+  stageKey: 'stageKey',
+  progressPercent: 'progressPercent',
+  publishedAt: 'publishedAt',
+  publishedByUserId: 'publishedByUserId',
+  supersededAt: 'supersededAt',
+  supersededByUserId: 'supersededByUserId',
+  createdAt: 'createdAt'
+} as const
+
+export type PortalMatterUpdateScalarFieldEnum = (typeof PortalMatterUpdateScalarFieldEnum)[keyof typeof PortalMatterUpdateScalarFieldEnum]
+
+
+export const CommunicationConversationScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  matterId: 'matterId',
+  clientId: 'clientId',
+  channel: 'channel',
+  subject: 'subject',
+  status: 'status',
+  externalThreadId: 'externalThreadId',
+  assignedToUserId: 'assignedToUserId',
+  createdByUserId: 'createdByUserId',
+  lastMessageAt: 'lastMessageAt',
+  resolvedAt: 'resolvedAt',
+  archivedAt: 'archivedAt',
+  version: 'version',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  deletedAt: 'deletedAt'
+} as const
+
+export type CommunicationConversationScalarFieldEnum = (typeof CommunicationConversationScalarFieldEnum)[keyof typeof CommunicationConversationScalarFieldEnum]
+
+
+export const CommunicationMessageScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  conversationId: 'conversationId',
+  matterId: 'matterId',
+  clientId: 'clientId',
+  channel: 'channel',
+  direction: 'direction',
+  actorType: 'actorType',
+  authorUserProfileId: 'authorUserProfileId',
+  senderAddress: 'senderAddress',
+  recipientAddresses: 'recipientAddresses',
+  subject: 'subject',
+  bodyText: 'bodyText',
+  status: 'status',
+  clientVisible: 'clientVisible',
+  approvalRequestId: 'approvalRequestId',
+  idempotencyKey: 'idempotencyKey',
+  provider: 'provider',
+  providerMessageId: 'providerMessageId',
+  scheduledAt: 'scheduledAt',
+  queuedAt: 'queuedAt',
+  sentAt: 'sentAt',
+  deliveredAt: 'deliveredAt',
+  readAt: 'readAt',
+  failedAt: 'failedAt',
+  failureCode: 'failureCode',
+  failureDetail: 'failureDetail',
+  attempts: 'attempts',
+  maxAttempts: 'maxAttempts',
+  nextAttemptAt: 'nextAttemptAt',
+  leaseOwner: 'leaseOwner',
+  leaseExpiresAt: 'leaseExpiresAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type CommunicationMessageScalarFieldEnum = (typeof CommunicationMessageScalarFieldEnum)[keyof typeof CommunicationMessageScalarFieldEnum]
+
+
+export const CommunicationAttachmentScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  messageId: 'messageId',
+  documentId: 'documentId',
+  documentVersionId: 'documentVersionId',
+  clientVisible: 'clientVisible',
+  createdAt: 'createdAt'
+} as const
+
+export type CommunicationAttachmentScalarFieldEnum = (typeof CommunicationAttachmentScalarFieldEnum)[keyof typeof CommunicationAttachmentScalarFieldEnum]
+
+
+export const CommunicationDeliveryEventScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  messageId: 'messageId',
+  eventType: 'eventType',
+  provider: 'provider',
+  providerEventId: 'providerEventId',
+  occurredAt: 'occurredAt',
+  payload: 'payload',
+  createdAt: 'createdAt'
+} as const
+
+export type CommunicationDeliveryEventScalarFieldEnum = (typeof CommunicationDeliveryEventScalarFieldEnum)[keyof typeof CommunicationDeliveryEventScalarFieldEnum]
+
+
+export const CommunicationTemplateScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  key: 'key',
+  name: 'name',
+  description: 'description',
+  channel: 'channel',
+  subjectTemplate: 'subjectTemplate',
+  bodyTemplate: 'bodyTemplate',
+  allowedVariables: 'allowedVariables',
+  status: 'status',
+  version: 'version',
+  createdByUserId: 'createdByUserId',
+  updatedByUserId: 'updatedByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  deletedAt: 'deletedAt'
+} as const
+
+export type CommunicationTemplateScalarFieldEnum = (typeof CommunicationTemplateScalarFieldEnum)[keyof typeof CommunicationTemplateScalarFieldEnum]
+
+
+export const CommunicationReminderScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  conversationId: 'conversationId',
+  matterId: 'matterId',
+  clientId: 'clientId',
+  channel: 'channel',
+  recipientAddress: 'recipientAddress',
+  subject: 'subject',
+  bodyText: 'bodyText',
+  scheduledFor: 'scheduledFor',
+  status: 'status',
+  idempotencyKey: 'idempotencyKey',
+  messageId: 'messageId',
+  createdByUserId: 'createdByUserId',
+  cancelledAt: 'cancelledAt',
+  cancelledByUserId: 'cancelledByUserId',
+  cancellationReason: 'cancellationReason',
+  failureCode: 'failureCode',
+  failureDetail: 'failureDetail',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type CommunicationReminderScalarFieldEnum = (typeof CommunicationReminderScalarFieldEnum)[keyof typeof CommunicationReminderScalarFieldEnum]
+
+
+export const ClientNotificationScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  accessGrantId: 'accessGrantId',
+  userProfileId: 'userProfileId',
+  matterId: 'matterId',
+  notificationType: 'notificationType',
+  title: 'title',
+  body: 'body',
+  sourceType: 'sourceType',
+  sourceId: 'sourceId',
+  readAt: 'readAt',
+  createdAt: 'createdAt'
+} as const
+
+export type ClientNotificationScalarFieldEnum = (typeof ClientNotificationScalarFieldEnum)[keyof typeof ClientNotificationScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -477,6 +1585,13 @@ export const NullableJsonNullValueInput = {
 } as const
 
 export type NullableJsonNullValueInput = (typeof NullableJsonNullValueInput)[keyof typeof NullableJsonNullValueInput]
+
+
+export const JsonNullValueInput = {
+  JsonNull: JsonNull
+} as const
+
+export type JsonNullValueInput = (typeof JsonNullValueInput)[keyof typeof JsonNullValueInput]
 
 
 export const QueryMode = {

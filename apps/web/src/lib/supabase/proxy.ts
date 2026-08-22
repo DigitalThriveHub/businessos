@@ -22,6 +22,9 @@ const PROTECTED_ROUTES = [
   "/enquiries",
   "/clients",
   "/matters",
+  "/communications",
+  "/operations",
+  "/portal",
   "/tasks",
   "/documents",
   "/settings",
@@ -209,8 +212,12 @@ export async function updateSession(
   const pathname =
     request.nextUrl.pathname;
 
+  const isPublicPortalInvitation =
+    pathname === "/portal/invitations/accept";
+
   if (
     !isAuthenticated &&
+    !isPublicPortalInvitation &&
     isMatchingRoute(
       pathname,
       PROTECTED_ROUTES,

@@ -4,12 +4,16 @@ import type { ReactNode } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
+  Activity,
   Bot,
+  BriefcaseBusiness,
+  MessagesSquare,
   FileText,
   LayoutDashboard,
   LogOut,
   Settings,
   ShieldCheck,
+  UserPlus,
   UserRound,
   Users,
   type LucideIcon,
@@ -81,6 +85,16 @@ const navigationItems: NavigationItem[] = [
     ],
   },
   {
+    label: "Team",
+    href: "/settings/team",
+    icon: UserPlus,
+    permissions: [
+      "invitations.read",
+      "invitations.create",
+      "invitations.revoke",
+    ],
+  },
+  {
     label: "Clients",
     href: "/clients",
     icon: Users,
@@ -89,6 +103,24 @@ const navigationItems: NavigationItem[] = [
       "client.read",
       "clients.view",
     ],
+  },
+  {
+    label: "Matters",
+    href: "/matters",
+    icon: BriefcaseBusiness,
+    permissions: ["matters.read", "matters.read_all"],
+  },
+  {
+    label: "Operations",
+    href: "/operations",
+    icon: Activity,
+    permissions: ["automation.read"],
+  },
+  {
+    label: "Communications",
+    href: "/communications",
+    icon: MessagesSquare,
+    permissions: ["communications.read"],
   },
   {
     label: "AI Workspace",

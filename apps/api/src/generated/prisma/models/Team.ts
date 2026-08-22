@@ -226,6 +226,10 @@ export type TeamWhereInput = {
   department?: Prisma.XOR<Prisma.DepartmentNullableScalarRelationFilter, Prisma.DepartmentWhereInput> | null
   memberships?: Prisma.TeamMembershipListRelationFilter
   roleAssignments?: Prisma.RoleAssignmentListRelationFilter
+  workforceAssignments?: Prisma.WorkforceAssignmentListRelationFilter
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanListRelationFilter
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleListRelationFilter
+  matters?: Prisma.MatterListRelationFilter
 }
 
 export type TeamOrderByWithRelationInput = {
@@ -243,6 +247,10 @@ export type TeamOrderByWithRelationInput = {
   department?: Prisma.DepartmentOrderByWithRelationInput
   memberships?: Prisma.TeamMembershipOrderByRelationAggregateInput
   roleAssignments?: Prisma.RoleAssignmentOrderByRelationAggregateInput
+  workforceAssignments?: Prisma.WorkforceAssignmentOrderByRelationAggregateInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanOrderByRelationAggregateInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleOrderByRelationAggregateInput
+  matters?: Prisma.MatterOrderByRelationAggregateInput
 }
 
 export type TeamWhereUniqueInput = Prisma.AtLeast<{
@@ -266,6 +274,10 @@ export type TeamWhereUniqueInput = Prisma.AtLeast<{
   department?: Prisma.XOR<Prisma.DepartmentNullableScalarRelationFilter, Prisma.DepartmentWhereInput> | null
   memberships?: Prisma.TeamMembershipListRelationFilter
   roleAssignments?: Prisma.RoleAssignmentListRelationFilter
+  workforceAssignments?: Prisma.WorkforceAssignmentListRelationFilter
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanListRelationFilter
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleListRelationFilter
+  matters?: Prisma.MatterListRelationFilter
 }, "id" | "id_organisationId" | "organisationId_name" | "organisationId_code">
 
 export type TeamOrderByWithAggregationInput = {
@@ -313,6 +325,10 @@ export type TeamCreateInput = {
   department?: Prisma.DepartmentCreateNestedOneWithoutTeamsInput
   memberships?: Prisma.TeamMembershipCreateNestedManyWithoutTeamInput
   roleAssignments?: Prisma.RoleAssignmentCreateNestedManyWithoutTeamInput
+  workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutTeamInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutTeamInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleCreateNestedManyWithoutTeamInput
+  matters?: Prisma.MatterCreateNestedManyWithoutTeamInput
 }
 
 export type TeamUncheckedCreateInput = {
@@ -328,6 +344,10 @@ export type TeamUncheckedCreateInput = {
   deletedAt?: Date | string | null
   memberships?: Prisma.TeamMembershipUncheckedCreateNestedManyWithoutTeamInput
   roleAssignments?: Prisma.RoleAssignmentUncheckedCreateNestedManyWithoutTeamInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutTeamInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutTeamInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUncheckedCreateNestedManyWithoutTeamInput
+  matters?: Prisma.MatterUncheckedCreateNestedManyWithoutTeamInput
 }
 
 export type TeamUpdateInput = {
@@ -343,6 +363,10 @@ export type TeamUpdateInput = {
   department?: Prisma.DepartmentUpdateOneWithoutTeamsNestedInput
   memberships?: Prisma.TeamMembershipUpdateManyWithoutTeamNestedInput
   roleAssignments?: Prisma.RoleAssignmentUpdateManyWithoutTeamNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutTeamNestedInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutTeamNestedInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUpdateManyWithoutTeamNestedInput
+  matters?: Prisma.MatterUpdateManyWithoutTeamNestedInput
 }
 
 export type TeamUncheckedUpdateInput = {
@@ -358,6 +382,10 @@ export type TeamUncheckedUpdateInput = {
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   memberships?: Prisma.TeamMembershipUncheckedUpdateManyWithoutTeamNestedInput
   roleAssignments?: Prisma.RoleAssignmentUncheckedUpdateManyWithoutTeamNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutTeamNestedInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutTeamNestedInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUncheckedUpdateManyWithoutTeamNestedInput
+  matters?: Prisma.MatterUncheckedUpdateManyWithoutTeamNestedInput
 }
 
 export type TeamCreateManyInput = {
@@ -585,6 +613,70 @@ export type TeamUpdateOneWithoutRoleAssignmentsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.TeamUpdateToOneWithWhereWithoutRoleAssignmentsInput, Prisma.TeamUpdateWithoutRoleAssignmentsInput>, Prisma.TeamUncheckedUpdateWithoutRoleAssignmentsInput>
 }
 
+export type TeamCreateNestedOneWithoutWorkforceAssignmentsInput = {
+  create?: Prisma.XOR<Prisma.TeamCreateWithoutWorkforceAssignmentsInput, Prisma.TeamUncheckedCreateWithoutWorkforceAssignmentsInput>
+  connectOrCreate?: Prisma.TeamCreateOrConnectWithoutWorkforceAssignmentsInput
+  connect?: Prisma.TeamWhereUniqueInput
+}
+
+export type TeamUpdateOneWithoutWorkforceAssignmentsNestedInput = {
+  create?: Prisma.XOR<Prisma.TeamCreateWithoutWorkforceAssignmentsInput, Prisma.TeamUncheckedCreateWithoutWorkforceAssignmentsInput>
+  connectOrCreate?: Prisma.TeamCreateOrConnectWithoutWorkforceAssignmentsInput
+  upsert?: Prisma.TeamUpsertWithoutWorkforceAssignmentsInput
+  disconnect?: Prisma.TeamWhereInput | boolean
+  delete?: Prisma.TeamWhereInput | boolean
+  connect?: Prisma.TeamWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.TeamUpdateToOneWithWhereWithoutWorkforceAssignmentsInput, Prisma.TeamUpdateWithoutWorkforceAssignmentsInput>, Prisma.TeamUncheckedUpdateWithoutWorkforceAssignmentsInput>
+}
+
+export type TeamCreateNestedOneWithoutInvitationOnboardingPlansInput = {
+  create?: Prisma.XOR<Prisma.TeamCreateWithoutInvitationOnboardingPlansInput, Prisma.TeamUncheckedCreateWithoutInvitationOnboardingPlansInput>
+  connectOrCreate?: Prisma.TeamCreateOrConnectWithoutInvitationOnboardingPlansInput
+  connect?: Prisma.TeamWhereUniqueInput
+}
+
+export type TeamUpdateOneWithoutInvitationOnboardingPlansNestedInput = {
+  create?: Prisma.XOR<Prisma.TeamCreateWithoutInvitationOnboardingPlansInput, Prisma.TeamUncheckedCreateWithoutInvitationOnboardingPlansInput>
+  connectOrCreate?: Prisma.TeamCreateOrConnectWithoutInvitationOnboardingPlansInput
+  upsert?: Prisma.TeamUpsertWithoutInvitationOnboardingPlansInput
+  disconnect?: Prisma.TeamWhereInput | boolean
+  delete?: Prisma.TeamWhereInput | boolean
+  connect?: Prisma.TeamWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.TeamUpdateToOneWithWhereWithoutInvitationOnboardingPlansInput, Prisma.TeamUpdateWithoutInvitationOnboardingPlansInput>, Prisma.TeamUncheckedUpdateWithoutInvitationOnboardingPlansInput>
+}
+
+export type TeamCreateNestedOneWithoutInvitationOnboardingRolesInput = {
+  create?: Prisma.XOR<Prisma.TeamCreateWithoutInvitationOnboardingRolesInput, Prisma.TeamUncheckedCreateWithoutInvitationOnboardingRolesInput>
+  connectOrCreate?: Prisma.TeamCreateOrConnectWithoutInvitationOnboardingRolesInput
+  connect?: Prisma.TeamWhereUniqueInput
+}
+
+export type TeamUpdateOneWithoutInvitationOnboardingRolesNestedInput = {
+  create?: Prisma.XOR<Prisma.TeamCreateWithoutInvitationOnboardingRolesInput, Prisma.TeamUncheckedCreateWithoutInvitationOnboardingRolesInput>
+  connectOrCreate?: Prisma.TeamCreateOrConnectWithoutInvitationOnboardingRolesInput
+  upsert?: Prisma.TeamUpsertWithoutInvitationOnboardingRolesInput
+  disconnect?: Prisma.TeamWhereInput | boolean
+  delete?: Prisma.TeamWhereInput | boolean
+  connect?: Prisma.TeamWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.TeamUpdateToOneWithWhereWithoutInvitationOnboardingRolesInput, Prisma.TeamUpdateWithoutInvitationOnboardingRolesInput>, Prisma.TeamUncheckedUpdateWithoutInvitationOnboardingRolesInput>
+}
+
+export type TeamCreateNestedOneWithoutMattersInput = {
+  create?: Prisma.XOR<Prisma.TeamCreateWithoutMattersInput, Prisma.TeamUncheckedCreateWithoutMattersInput>
+  connectOrCreate?: Prisma.TeamCreateOrConnectWithoutMattersInput
+  connect?: Prisma.TeamWhereUniqueInput
+}
+
+export type TeamUpdateOneWithoutMattersNestedInput = {
+  create?: Prisma.XOR<Prisma.TeamCreateWithoutMattersInput, Prisma.TeamUncheckedCreateWithoutMattersInput>
+  connectOrCreate?: Prisma.TeamCreateOrConnectWithoutMattersInput
+  upsert?: Prisma.TeamUpsertWithoutMattersInput
+  disconnect?: Prisma.TeamWhereInput | boolean
+  delete?: Prisma.TeamWhereInput | boolean
+  connect?: Prisma.TeamWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.TeamUpdateToOneWithWhereWithoutMattersInput, Prisma.TeamUpdateWithoutMattersInput>, Prisma.TeamUncheckedUpdateWithoutMattersInput>
+}
+
 export type TeamCreateWithoutOrganisationInput = {
   id?: string
   name: string
@@ -597,6 +689,10 @@ export type TeamCreateWithoutOrganisationInput = {
   department?: Prisma.DepartmentCreateNestedOneWithoutTeamsInput
   memberships?: Prisma.TeamMembershipCreateNestedManyWithoutTeamInput
   roleAssignments?: Prisma.RoleAssignmentCreateNestedManyWithoutTeamInput
+  workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutTeamInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutTeamInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleCreateNestedManyWithoutTeamInput
+  matters?: Prisma.MatterCreateNestedManyWithoutTeamInput
 }
 
 export type TeamUncheckedCreateWithoutOrganisationInput = {
@@ -611,6 +707,10 @@ export type TeamUncheckedCreateWithoutOrganisationInput = {
   deletedAt?: Date | string | null
   memberships?: Prisma.TeamMembershipUncheckedCreateNestedManyWithoutTeamInput
   roleAssignments?: Prisma.RoleAssignmentUncheckedCreateNestedManyWithoutTeamInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutTeamInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutTeamInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUncheckedCreateNestedManyWithoutTeamInput
+  matters?: Prisma.MatterUncheckedCreateNestedManyWithoutTeamInput
 }
 
 export type TeamCreateOrConnectWithoutOrganisationInput = {
@@ -667,6 +767,10 @@ export type TeamCreateWithoutDepartmentInput = {
   organisation: Prisma.OrganisationCreateNestedOneWithoutTeamsInput
   memberships?: Prisma.TeamMembershipCreateNestedManyWithoutTeamInput
   roleAssignments?: Prisma.RoleAssignmentCreateNestedManyWithoutTeamInput
+  workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutTeamInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutTeamInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleCreateNestedManyWithoutTeamInput
+  matters?: Prisma.MatterCreateNestedManyWithoutTeamInput
 }
 
 export type TeamUncheckedCreateWithoutDepartmentInput = {
@@ -680,6 +784,10 @@ export type TeamUncheckedCreateWithoutDepartmentInput = {
   deletedAt?: Date | string | null
   memberships?: Prisma.TeamMembershipUncheckedCreateNestedManyWithoutTeamInput
   roleAssignments?: Prisma.RoleAssignmentUncheckedCreateNestedManyWithoutTeamInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutTeamInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutTeamInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUncheckedCreateNestedManyWithoutTeamInput
+  matters?: Prisma.MatterUncheckedCreateNestedManyWithoutTeamInput
 }
 
 export type TeamCreateOrConnectWithoutDepartmentInput = {
@@ -720,6 +828,10 @@ export type TeamCreateWithoutMembershipsInput = {
   organisation: Prisma.OrganisationCreateNestedOneWithoutTeamsInput
   department?: Prisma.DepartmentCreateNestedOneWithoutTeamsInput
   roleAssignments?: Prisma.RoleAssignmentCreateNestedManyWithoutTeamInput
+  workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutTeamInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutTeamInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleCreateNestedManyWithoutTeamInput
+  matters?: Prisma.MatterCreateNestedManyWithoutTeamInput
 }
 
 export type TeamUncheckedCreateWithoutMembershipsInput = {
@@ -734,6 +846,10 @@ export type TeamUncheckedCreateWithoutMembershipsInput = {
   updatedAt?: Date | string
   deletedAt?: Date | string | null
   roleAssignments?: Prisma.RoleAssignmentUncheckedCreateNestedManyWithoutTeamInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutTeamInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutTeamInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUncheckedCreateNestedManyWithoutTeamInput
+  matters?: Prisma.MatterUncheckedCreateNestedManyWithoutTeamInput
 }
 
 export type TeamCreateOrConnectWithoutMembershipsInput = {
@@ -764,6 +880,10 @@ export type TeamUpdateWithoutMembershipsInput = {
   organisation?: Prisma.OrganisationUpdateOneRequiredWithoutTeamsNestedInput
   department?: Prisma.DepartmentUpdateOneWithoutTeamsNestedInput
   roleAssignments?: Prisma.RoleAssignmentUpdateManyWithoutTeamNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutTeamNestedInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutTeamNestedInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUpdateManyWithoutTeamNestedInput
+  matters?: Prisma.MatterUpdateManyWithoutTeamNestedInput
 }
 
 export type TeamUncheckedUpdateWithoutMembershipsInput = {
@@ -778,6 +898,10 @@ export type TeamUncheckedUpdateWithoutMembershipsInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   roleAssignments?: Prisma.RoleAssignmentUncheckedUpdateManyWithoutTeamNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutTeamNestedInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutTeamNestedInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUncheckedUpdateManyWithoutTeamNestedInput
+  matters?: Prisma.MatterUncheckedUpdateManyWithoutTeamNestedInput
 }
 
 export type TeamCreateWithoutRoleAssignmentsInput = {
@@ -792,6 +916,10 @@ export type TeamCreateWithoutRoleAssignmentsInput = {
   organisation: Prisma.OrganisationCreateNestedOneWithoutTeamsInput
   department?: Prisma.DepartmentCreateNestedOneWithoutTeamsInput
   memberships?: Prisma.TeamMembershipCreateNestedManyWithoutTeamInput
+  workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutTeamInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutTeamInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleCreateNestedManyWithoutTeamInput
+  matters?: Prisma.MatterCreateNestedManyWithoutTeamInput
 }
 
 export type TeamUncheckedCreateWithoutRoleAssignmentsInput = {
@@ -806,6 +934,10 @@ export type TeamUncheckedCreateWithoutRoleAssignmentsInput = {
   updatedAt?: Date | string
   deletedAt?: Date | string | null
   memberships?: Prisma.TeamMembershipUncheckedCreateNestedManyWithoutTeamInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutTeamInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutTeamInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUncheckedCreateNestedManyWithoutTeamInput
+  matters?: Prisma.MatterUncheckedCreateNestedManyWithoutTeamInput
 }
 
 export type TeamCreateOrConnectWithoutRoleAssignmentsInput = {
@@ -836,6 +968,10 @@ export type TeamUpdateWithoutRoleAssignmentsInput = {
   organisation?: Prisma.OrganisationUpdateOneRequiredWithoutTeamsNestedInput
   department?: Prisma.DepartmentUpdateOneWithoutTeamsNestedInput
   memberships?: Prisma.TeamMembershipUpdateManyWithoutTeamNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutTeamNestedInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutTeamNestedInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUpdateManyWithoutTeamNestedInput
+  matters?: Prisma.MatterUpdateManyWithoutTeamNestedInput
 }
 
 export type TeamUncheckedUpdateWithoutRoleAssignmentsInput = {
@@ -850,6 +986,362 @@ export type TeamUncheckedUpdateWithoutRoleAssignmentsInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   memberships?: Prisma.TeamMembershipUncheckedUpdateManyWithoutTeamNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutTeamNestedInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutTeamNestedInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUncheckedUpdateManyWithoutTeamNestedInput
+  matters?: Prisma.MatterUncheckedUpdateManyWithoutTeamNestedInput
+}
+
+export type TeamCreateWithoutWorkforceAssignmentsInput = {
+  id?: string
+  name: string
+  code?: string | null
+  description?: string | null
+  isActive?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  organisation: Prisma.OrganisationCreateNestedOneWithoutTeamsInput
+  department?: Prisma.DepartmentCreateNestedOneWithoutTeamsInput
+  memberships?: Prisma.TeamMembershipCreateNestedManyWithoutTeamInput
+  roleAssignments?: Prisma.RoleAssignmentCreateNestedManyWithoutTeamInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutTeamInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleCreateNestedManyWithoutTeamInput
+  matters?: Prisma.MatterCreateNestedManyWithoutTeamInput
+}
+
+export type TeamUncheckedCreateWithoutWorkforceAssignmentsInput = {
+  id?: string
+  organisationId: string
+  departmentId?: string | null
+  name: string
+  code?: string | null
+  description?: string | null
+  isActive?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  memberships?: Prisma.TeamMembershipUncheckedCreateNestedManyWithoutTeamInput
+  roleAssignments?: Prisma.RoleAssignmentUncheckedCreateNestedManyWithoutTeamInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutTeamInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUncheckedCreateNestedManyWithoutTeamInput
+  matters?: Prisma.MatterUncheckedCreateNestedManyWithoutTeamInput
+}
+
+export type TeamCreateOrConnectWithoutWorkforceAssignmentsInput = {
+  where: Prisma.TeamWhereUniqueInput
+  create: Prisma.XOR<Prisma.TeamCreateWithoutWorkforceAssignmentsInput, Prisma.TeamUncheckedCreateWithoutWorkforceAssignmentsInput>
+}
+
+export type TeamUpsertWithoutWorkforceAssignmentsInput = {
+  update: Prisma.XOR<Prisma.TeamUpdateWithoutWorkforceAssignmentsInput, Prisma.TeamUncheckedUpdateWithoutWorkforceAssignmentsInput>
+  create: Prisma.XOR<Prisma.TeamCreateWithoutWorkforceAssignmentsInput, Prisma.TeamUncheckedCreateWithoutWorkforceAssignmentsInput>
+  where?: Prisma.TeamWhereInput
+}
+
+export type TeamUpdateToOneWithWhereWithoutWorkforceAssignmentsInput = {
+  where?: Prisma.TeamWhereInput
+  data: Prisma.XOR<Prisma.TeamUpdateWithoutWorkforceAssignmentsInput, Prisma.TeamUncheckedUpdateWithoutWorkforceAssignmentsInput>
+}
+
+export type TeamUpdateWithoutWorkforceAssignmentsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  code?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  organisation?: Prisma.OrganisationUpdateOneRequiredWithoutTeamsNestedInput
+  department?: Prisma.DepartmentUpdateOneWithoutTeamsNestedInput
+  memberships?: Prisma.TeamMembershipUpdateManyWithoutTeamNestedInput
+  roleAssignments?: Prisma.RoleAssignmentUpdateManyWithoutTeamNestedInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutTeamNestedInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUpdateManyWithoutTeamNestedInput
+  matters?: Prisma.MatterUpdateManyWithoutTeamNestedInput
+}
+
+export type TeamUncheckedUpdateWithoutWorkforceAssignmentsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  organisationId?: Prisma.StringFieldUpdateOperationsInput | string
+  departmentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  code?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  memberships?: Prisma.TeamMembershipUncheckedUpdateManyWithoutTeamNestedInput
+  roleAssignments?: Prisma.RoleAssignmentUncheckedUpdateManyWithoutTeamNestedInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutTeamNestedInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUncheckedUpdateManyWithoutTeamNestedInput
+  matters?: Prisma.MatterUncheckedUpdateManyWithoutTeamNestedInput
+}
+
+export type TeamCreateWithoutInvitationOnboardingPlansInput = {
+  id?: string
+  name: string
+  code?: string | null
+  description?: string | null
+  isActive?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  organisation: Prisma.OrganisationCreateNestedOneWithoutTeamsInput
+  department?: Prisma.DepartmentCreateNestedOneWithoutTeamsInput
+  memberships?: Prisma.TeamMembershipCreateNestedManyWithoutTeamInput
+  roleAssignments?: Prisma.RoleAssignmentCreateNestedManyWithoutTeamInput
+  workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutTeamInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleCreateNestedManyWithoutTeamInput
+  matters?: Prisma.MatterCreateNestedManyWithoutTeamInput
+}
+
+export type TeamUncheckedCreateWithoutInvitationOnboardingPlansInput = {
+  id?: string
+  organisationId: string
+  departmentId?: string | null
+  name: string
+  code?: string | null
+  description?: string | null
+  isActive?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  memberships?: Prisma.TeamMembershipUncheckedCreateNestedManyWithoutTeamInput
+  roleAssignments?: Prisma.RoleAssignmentUncheckedCreateNestedManyWithoutTeamInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutTeamInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUncheckedCreateNestedManyWithoutTeamInput
+  matters?: Prisma.MatterUncheckedCreateNestedManyWithoutTeamInput
+}
+
+export type TeamCreateOrConnectWithoutInvitationOnboardingPlansInput = {
+  where: Prisma.TeamWhereUniqueInput
+  create: Prisma.XOR<Prisma.TeamCreateWithoutInvitationOnboardingPlansInput, Prisma.TeamUncheckedCreateWithoutInvitationOnboardingPlansInput>
+}
+
+export type TeamUpsertWithoutInvitationOnboardingPlansInput = {
+  update: Prisma.XOR<Prisma.TeamUpdateWithoutInvitationOnboardingPlansInput, Prisma.TeamUncheckedUpdateWithoutInvitationOnboardingPlansInput>
+  create: Prisma.XOR<Prisma.TeamCreateWithoutInvitationOnboardingPlansInput, Prisma.TeamUncheckedCreateWithoutInvitationOnboardingPlansInput>
+  where?: Prisma.TeamWhereInput
+}
+
+export type TeamUpdateToOneWithWhereWithoutInvitationOnboardingPlansInput = {
+  where?: Prisma.TeamWhereInput
+  data: Prisma.XOR<Prisma.TeamUpdateWithoutInvitationOnboardingPlansInput, Prisma.TeamUncheckedUpdateWithoutInvitationOnboardingPlansInput>
+}
+
+export type TeamUpdateWithoutInvitationOnboardingPlansInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  code?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  organisation?: Prisma.OrganisationUpdateOneRequiredWithoutTeamsNestedInput
+  department?: Prisma.DepartmentUpdateOneWithoutTeamsNestedInput
+  memberships?: Prisma.TeamMembershipUpdateManyWithoutTeamNestedInput
+  roleAssignments?: Prisma.RoleAssignmentUpdateManyWithoutTeamNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutTeamNestedInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUpdateManyWithoutTeamNestedInput
+  matters?: Prisma.MatterUpdateManyWithoutTeamNestedInput
+}
+
+export type TeamUncheckedUpdateWithoutInvitationOnboardingPlansInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  organisationId?: Prisma.StringFieldUpdateOperationsInput | string
+  departmentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  code?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  memberships?: Prisma.TeamMembershipUncheckedUpdateManyWithoutTeamNestedInput
+  roleAssignments?: Prisma.RoleAssignmentUncheckedUpdateManyWithoutTeamNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutTeamNestedInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUncheckedUpdateManyWithoutTeamNestedInput
+  matters?: Prisma.MatterUncheckedUpdateManyWithoutTeamNestedInput
+}
+
+export type TeamCreateWithoutInvitationOnboardingRolesInput = {
+  id?: string
+  name: string
+  code?: string | null
+  description?: string | null
+  isActive?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  organisation: Prisma.OrganisationCreateNestedOneWithoutTeamsInput
+  department?: Prisma.DepartmentCreateNestedOneWithoutTeamsInput
+  memberships?: Prisma.TeamMembershipCreateNestedManyWithoutTeamInput
+  roleAssignments?: Prisma.RoleAssignmentCreateNestedManyWithoutTeamInput
+  workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutTeamInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutTeamInput
+  matters?: Prisma.MatterCreateNestedManyWithoutTeamInput
+}
+
+export type TeamUncheckedCreateWithoutInvitationOnboardingRolesInput = {
+  id?: string
+  organisationId: string
+  departmentId?: string | null
+  name: string
+  code?: string | null
+  description?: string | null
+  isActive?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  memberships?: Prisma.TeamMembershipUncheckedCreateNestedManyWithoutTeamInput
+  roleAssignments?: Prisma.RoleAssignmentUncheckedCreateNestedManyWithoutTeamInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutTeamInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutTeamInput
+  matters?: Prisma.MatterUncheckedCreateNestedManyWithoutTeamInput
+}
+
+export type TeamCreateOrConnectWithoutInvitationOnboardingRolesInput = {
+  where: Prisma.TeamWhereUniqueInput
+  create: Prisma.XOR<Prisma.TeamCreateWithoutInvitationOnboardingRolesInput, Prisma.TeamUncheckedCreateWithoutInvitationOnboardingRolesInput>
+}
+
+export type TeamUpsertWithoutInvitationOnboardingRolesInput = {
+  update: Prisma.XOR<Prisma.TeamUpdateWithoutInvitationOnboardingRolesInput, Prisma.TeamUncheckedUpdateWithoutInvitationOnboardingRolesInput>
+  create: Prisma.XOR<Prisma.TeamCreateWithoutInvitationOnboardingRolesInput, Prisma.TeamUncheckedCreateWithoutInvitationOnboardingRolesInput>
+  where?: Prisma.TeamWhereInput
+}
+
+export type TeamUpdateToOneWithWhereWithoutInvitationOnboardingRolesInput = {
+  where?: Prisma.TeamWhereInput
+  data: Prisma.XOR<Prisma.TeamUpdateWithoutInvitationOnboardingRolesInput, Prisma.TeamUncheckedUpdateWithoutInvitationOnboardingRolesInput>
+}
+
+export type TeamUpdateWithoutInvitationOnboardingRolesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  code?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  organisation?: Prisma.OrganisationUpdateOneRequiredWithoutTeamsNestedInput
+  department?: Prisma.DepartmentUpdateOneWithoutTeamsNestedInput
+  memberships?: Prisma.TeamMembershipUpdateManyWithoutTeamNestedInput
+  roleAssignments?: Prisma.RoleAssignmentUpdateManyWithoutTeamNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutTeamNestedInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutTeamNestedInput
+  matters?: Prisma.MatterUpdateManyWithoutTeamNestedInput
+}
+
+export type TeamUncheckedUpdateWithoutInvitationOnboardingRolesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  organisationId?: Prisma.StringFieldUpdateOperationsInput | string
+  departmentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  code?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  memberships?: Prisma.TeamMembershipUncheckedUpdateManyWithoutTeamNestedInput
+  roleAssignments?: Prisma.RoleAssignmentUncheckedUpdateManyWithoutTeamNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutTeamNestedInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutTeamNestedInput
+  matters?: Prisma.MatterUncheckedUpdateManyWithoutTeamNestedInput
+}
+
+export type TeamCreateWithoutMattersInput = {
+  id?: string
+  name: string
+  code?: string | null
+  description?: string | null
+  isActive?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  organisation: Prisma.OrganisationCreateNestedOneWithoutTeamsInput
+  department?: Prisma.DepartmentCreateNestedOneWithoutTeamsInput
+  memberships?: Prisma.TeamMembershipCreateNestedManyWithoutTeamInput
+  roleAssignments?: Prisma.RoleAssignmentCreateNestedManyWithoutTeamInput
+  workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutTeamInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutTeamInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleCreateNestedManyWithoutTeamInput
+}
+
+export type TeamUncheckedCreateWithoutMattersInput = {
+  id?: string
+  organisationId: string
+  departmentId?: string | null
+  name: string
+  code?: string | null
+  description?: string | null
+  isActive?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  memberships?: Prisma.TeamMembershipUncheckedCreateNestedManyWithoutTeamInput
+  roleAssignments?: Prisma.RoleAssignmentUncheckedCreateNestedManyWithoutTeamInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutTeamInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutTeamInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUncheckedCreateNestedManyWithoutTeamInput
+}
+
+export type TeamCreateOrConnectWithoutMattersInput = {
+  where: Prisma.TeamWhereUniqueInput
+  create: Prisma.XOR<Prisma.TeamCreateWithoutMattersInput, Prisma.TeamUncheckedCreateWithoutMattersInput>
+}
+
+export type TeamUpsertWithoutMattersInput = {
+  update: Prisma.XOR<Prisma.TeamUpdateWithoutMattersInput, Prisma.TeamUncheckedUpdateWithoutMattersInput>
+  create: Prisma.XOR<Prisma.TeamCreateWithoutMattersInput, Prisma.TeamUncheckedCreateWithoutMattersInput>
+  where?: Prisma.TeamWhereInput
+}
+
+export type TeamUpdateToOneWithWhereWithoutMattersInput = {
+  where?: Prisma.TeamWhereInput
+  data: Prisma.XOR<Prisma.TeamUpdateWithoutMattersInput, Prisma.TeamUncheckedUpdateWithoutMattersInput>
+}
+
+export type TeamUpdateWithoutMattersInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  code?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  organisation?: Prisma.OrganisationUpdateOneRequiredWithoutTeamsNestedInput
+  department?: Prisma.DepartmentUpdateOneWithoutTeamsNestedInput
+  memberships?: Prisma.TeamMembershipUpdateManyWithoutTeamNestedInput
+  roleAssignments?: Prisma.RoleAssignmentUpdateManyWithoutTeamNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutTeamNestedInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutTeamNestedInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUpdateManyWithoutTeamNestedInput
+}
+
+export type TeamUncheckedUpdateWithoutMattersInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  organisationId?: Prisma.StringFieldUpdateOperationsInput | string
+  departmentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  code?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  memberships?: Prisma.TeamMembershipUncheckedUpdateManyWithoutTeamNestedInput
+  roleAssignments?: Prisma.RoleAssignmentUncheckedUpdateManyWithoutTeamNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutTeamNestedInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutTeamNestedInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUncheckedUpdateManyWithoutTeamNestedInput
 }
 
 export type TeamCreateManyOrganisationInput = {
@@ -876,6 +1368,10 @@ export type TeamUpdateWithoutOrganisationInput = {
   department?: Prisma.DepartmentUpdateOneWithoutTeamsNestedInput
   memberships?: Prisma.TeamMembershipUpdateManyWithoutTeamNestedInput
   roleAssignments?: Prisma.RoleAssignmentUpdateManyWithoutTeamNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutTeamNestedInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutTeamNestedInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUpdateManyWithoutTeamNestedInput
+  matters?: Prisma.MatterUpdateManyWithoutTeamNestedInput
 }
 
 export type TeamUncheckedUpdateWithoutOrganisationInput = {
@@ -890,6 +1386,10 @@ export type TeamUncheckedUpdateWithoutOrganisationInput = {
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   memberships?: Prisma.TeamMembershipUncheckedUpdateManyWithoutTeamNestedInput
   roleAssignments?: Prisma.RoleAssignmentUncheckedUpdateManyWithoutTeamNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutTeamNestedInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutTeamNestedInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUncheckedUpdateManyWithoutTeamNestedInput
+  matters?: Prisma.MatterUncheckedUpdateManyWithoutTeamNestedInput
 }
 
 export type TeamUncheckedUpdateManyWithoutOrganisationInput = {
@@ -927,6 +1427,10 @@ export type TeamUpdateWithoutDepartmentInput = {
   organisation?: Prisma.OrganisationUpdateOneRequiredWithoutTeamsNestedInput
   memberships?: Prisma.TeamMembershipUpdateManyWithoutTeamNestedInput
   roleAssignments?: Prisma.RoleAssignmentUpdateManyWithoutTeamNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutTeamNestedInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutTeamNestedInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUpdateManyWithoutTeamNestedInput
+  matters?: Prisma.MatterUpdateManyWithoutTeamNestedInput
 }
 
 export type TeamUncheckedUpdateWithoutDepartmentInput = {
@@ -940,6 +1444,10 @@ export type TeamUncheckedUpdateWithoutDepartmentInput = {
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   memberships?: Prisma.TeamMembershipUncheckedUpdateManyWithoutTeamNestedInput
   roleAssignments?: Prisma.RoleAssignmentUncheckedUpdateManyWithoutTeamNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutTeamNestedInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutTeamNestedInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUncheckedUpdateManyWithoutTeamNestedInput
+  matters?: Prisma.MatterUncheckedUpdateManyWithoutTeamNestedInput
 }
 
 export type TeamUncheckedUpdateManyWithoutDepartmentInput = {
@@ -961,11 +1469,19 @@ export type TeamUncheckedUpdateManyWithoutDepartmentInput = {
 export type TeamCountOutputType = {
   memberships: number
   roleAssignments: number
+  workforceAssignments: number
+  invitationOnboardingPlans: number
+  invitationOnboardingRoles: number
+  matters: number
 }
 
 export type TeamCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   memberships?: boolean | TeamCountOutputTypeCountMembershipsArgs
   roleAssignments?: boolean | TeamCountOutputTypeCountRoleAssignmentsArgs
+  workforceAssignments?: boolean | TeamCountOutputTypeCountWorkforceAssignmentsArgs
+  invitationOnboardingPlans?: boolean | TeamCountOutputTypeCountInvitationOnboardingPlansArgs
+  invitationOnboardingRoles?: boolean | TeamCountOutputTypeCountInvitationOnboardingRolesArgs
+  matters?: boolean | TeamCountOutputTypeCountMattersArgs
 }
 
 /**
@@ -992,6 +1508,34 @@ export type TeamCountOutputTypeCountRoleAssignmentsArgs<ExtArgs extends runtime.
   where?: Prisma.RoleAssignmentWhereInput
 }
 
+/**
+ * TeamCountOutputType without action
+ */
+export type TeamCountOutputTypeCountWorkforceAssignmentsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.WorkforceAssignmentWhereInput
+}
+
+/**
+ * TeamCountOutputType without action
+ */
+export type TeamCountOutputTypeCountInvitationOnboardingPlansArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.InvitationOnboardingPlanWhereInput
+}
+
+/**
+ * TeamCountOutputType without action
+ */
+export type TeamCountOutputTypeCountInvitationOnboardingRolesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.InvitationOnboardingRoleWhereInput
+}
+
+/**
+ * TeamCountOutputType without action
+ */
+export type TeamCountOutputTypeCountMattersArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.MatterWhereInput
+}
+
 
 export type TeamSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -1008,6 +1552,10 @@ export type TeamSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   department?: boolean | Prisma.Team$departmentArgs<ExtArgs>
   memberships?: boolean | Prisma.Team$membershipsArgs<ExtArgs>
   roleAssignments?: boolean | Prisma.Team$roleAssignmentsArgs<ExtArgs>
+  workforceAssignments?: boolean | Prisma.Team$workforceAssignmentsArgs<ExtArgs>
+  invitationOnboardingPlans?: boolean | Prisma.Team$invitationOnboardingPlansArgs<ExtArgs>
+  invitationOnboardingRoles?: boolean | Prisma.Team$invitationOnboardingRolesArgs<ExtArgs>
+  matters?: boolean | Prisma.Team$mattersArgs<ExtArgs>
   _count?: boolean | Prisma.TeamCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["team"]>
 
@@ -1060,6 +1608,10 @@ export type TeamInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   department?: boolean | Prisma.Team$departmentArgs<ExtArgs>
   memberships?: boolean | Prisma.Team$membershipsArgs<ExtArgs>
   roleAssignments?: boolean | Prisma.Team$roleAssignmentsArgs<ExtArgs>
+  workforceAssignments?: boolean | Prisma.Team$workforceAssignmentsArgs<ExtArgs>
+  invitationOnboardingPlans?: boolean | Prisma.Team$invitationOnboardingPlansArgs<ExtArgs>
+  invitationOnboardingRoles?: boolean | Prisma.Team$invitationOnboardingRolesArgs<ExtArgs>
+  matters?: boolean | Prisma.Team$mattersArgs<ExtArgs>
   _count?: boolean | Prisma.TeamCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type TeamIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1078,6 +1630,10 @@ export type $TeamPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     department: Prisma.$DepartmentPayload<ExtArgs> | null
     memberships: Prisma.$TeamMembershipPayload<ExtArgs>[]
     roleAssignments: Prisma.$RoleAssignmentPayload<ExtArgs>[]
+    workforceAssignments: Prisma.$WorkforceAssignmentPayload<ExtArgs>[]
+    invitationOnboardingPlans: Prisma.$InvitationOnboardingPlanPayload<ExtArgs>[]
+    invitationOnboardingRoles: Prisma.$InvitationOnboardingRolePayload<ExtArgs>[]
+    matters: Prisma.$MatterPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1488,6 +2044,10 @@ export interface Prisma__TeamClient<T, Null = never, ExtArgs extends runtime.Typ
   department<T extends Prisma.Team$departmentArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Team$departmentArgs<ExtArgs>>): Prisma.Prisma__DepartmentClient<runtime.Types.Result.GetResult<Prisma.$DepartmentPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   memberships<T extends Prisma.Team$membershipsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Team$membershipsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TeamMembershipPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   roleAssignments<T extends Prisma.Team$roleAssignmentsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Team$roleAssignmentsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$RoleAssignmentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  workforceAssignments<T extends Prisma.Team$workforceAssignmentsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Team$workforceAssignmentsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$WorkforceAssignmentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  invitationOnboardingPlans<T extends Prisma.Team$invitationOnboardingPlansArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Team$invitationOnboardingPlansArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$InvitationOnboardingPlanPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  invitationOnboardingRoles<T extends Prisma.Team$invitationOnboardingRolesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Team$invitationOnboardingRolesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$InvitationOnboardingRolePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  matters<T extends Prisma.Team$mattersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Team$mattersArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$MatterPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1992,6 +2552,102 @@ export type Team$roleAssignmentsArgs<ExtArgs extends runtime.Types.Extensions.In
   take?: number
   skip?: number
   distinct?: Prisma.RoleAssignmentScalarFieldEnum | Prisma.RoleAssignmentScalarFieldEnum[]
+}
+
+/**
+ * Team.workforceAssignments
+ */
+export type Team$workforceAssignmentsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the WorkforceAssignment
+   */
+  select?: Prisma.WorkforceAssignmentSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the WorkforceAssignment
+   */
+  omit?: Prisma.WorkforceAssignmentOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.WorkforceAssignmentInclude<ExtArgs> | null
+  where?: Prisma.WorkforceAssignmentWhereInput
+  orderBy?: Prisma.WorkforceAssignmentOrderByWithRelationInput | Prisma.WorkforceAssignmentOrderByWithRelationInput[]
+  cursor?: Prisma.WorkforceAssignmentWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.WorkforceAssignmentScalarFieldEnum | Prisma.WorkforceAssignmentScalarFieldEnum[]
+}
+
+/**
+ * Team.invitationOnboardingPlans
+ */
+export type Team$invitationOnboardingPlansArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the InvitationOnboardingPlan
+   */
+  select?: Prisma.InvitationOnboardingPlanSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the InvitationOnboardingPlan
+   */
+  omit?: Prisma.InvitationOnboardingPlanOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.InvitationOnboardingPlanInclude<ExtArgs> | null
+  where?: Prisma.InvitationOnboardingPlanWhereInput
+  orderBy?: Prisma.InvitationOnboardingPlanOrderByWithRelationInput | Prisma.InvitationOnboardingPlanOrderByWithRelationInput[]
+  cursor?: Prisma.InvitationOnboardingPlanWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.InvitationOnboardingPlanScalarFieldEnum | Prisma.InvitationOnboardingPlanScalarFieldEnum[]
+}
+
+/**
+ * Team.invitationOnboardingRoles
+ */
+export type Team$invitationOnboardingRolesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the InvitationOnboardingRole
+   */
+  select?: Prisma.InvitationOnboardingRoleSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the InvitationOnboardingRole
+   */
+  omit?: Prisma.InvitationOnboardingRoleOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.InvitationOnboardingRoleInclude<ExtArgs> | null
+  where?: Prisma.InvitationOnboardingRoleWhereInput
+  orderBy?: Prisma.InvitationOnboardingRoleOrderByWithRelationInput | Prisma.InvitationOnboardingRoleOrderByWithRelationInput[]
+  cursor?: Prisma.InvitationOnboardingRoleWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.InvitationOnboardingRoleScalarFieldEnum | Prisma.InvitationOnboardingRoleScalarFieldEnum[]
+}
+
+/**
+ * Team.matters
+ */
+export type Team$mattersArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Matter
+   */
+  select?: Prisma.MatterSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Matter
+   */
+  omit?: Prisma.MatterOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.MatterInclude<ExtArgs> | null
+  where?: Prisma.MatterWhereInput
+  orderBy?: Prisma.MatterOrderByWithRelationInput | Prisma.MatterOrderByWithRelationInput[]
+  cursor?: Prisma.MatterWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.MatterScalarFieldEnum | Prisma.MatterScalarFieldEnum[]
 }
 
 /**

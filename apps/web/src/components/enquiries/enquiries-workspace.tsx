@@ -67,11 +67,20 @@ async function fetchWithTimeout(
   if (callerSignal?.aborted) {
     abortFromCaller();
   } else {
-    callerSignal?.addEventListener("abort", abortFromCaller, { once: true });
+    callerSignal?.addEventListener(
+      "abort",
+      abortFromCaller,
+      { once: true },
+    );
   }
 
   const timeoutId = window.setTimeout(() => {
-    controller.abort(new DOMException("Request timed out", "TimeoutError"));
+    controller.abort(
+      new DOMException(
+        "Request timed out",
+        "TimeoutError",
+      ),
+    );
   }, API_REQUEST_TIMEOUT_MS);
 
   try {
@@ -80,20 +89,31 @@ async function fetchWithTimeout(
       signal: controller.signal,
     });
   } catch (error) {
-    if (controller.signal.aborted && !callerSignal?.aborted) {
-      throw new Error("The request timed out. Please try again.");
+    if (
+      controller.signal.aborted &&
+      !callerSignal?.aborted
+    ) {
+      throw new Error(
+        "The request timed out. Please try again.",
+      );
     }
 
     throw error;
   } finally {
     window.clearTimeout(timeoutId);
-    callerSignal?.removeEventListener("abort", abortFromCaller);
+    callerSignal?.removeEventListener(
+      "abort",
+      abortFromCaller,
+    );
   }
 }
 
-async function readApiError(response: Response): Promise<string> {
+async function readApiError(
+  response: Response,
+): Promise<string> {
   try {
-    const body = (await response.json()) as ApiMessage;
+    const body =
+      (await response.json()) as ApiMessage;
 
     if (body.message) {
       return body.message;
@@ -117,7 +137,9 @@ async function readApiError(response: Response): Promise<string> {
   return "The request could not be completed. Please try again.";
 }
 
-function toDateTimeLocal(value: string | null): string {
+function toDateTimeLocal(
+  value: string | null,
+): string {
   if (!value) {
     return "";
   }
@@ -128,22 +150,33 @@ function toDateTimeLocal(value: string | null): string {
     return "";
   }
 
-  const offset = date.getTimezoneOffset() * 60_000;
+  const offset =
+    date.getTimezoneOffset() * 60_000;
 
-  return new Date(date.getTime() - offset).toISOString().slice(0, 16);
+  return new Date(
+    date.getTime() - offset,
+  )
+    .toISOString()
+    .slice(0, 16);
 }
 
-function toIsoDate(value: string): string | undefined {
+function toIsoDate(
+  value: string,
+): string | undefined {
   if (!value) {
     return undefined;
   }
 
   const date = new Date(value);
 
-  return Number.isNaN(date.getTime()) ? undefined : date.toISOString();
+  return Number.isNaN(date.getTime())
+    ? undefined
+    : date.toISOString();
 }
 
-function formatDate(value: string | null): string {
+function formatDate(
+  value: string | null,
+): string {
   if (!value) {
     return "—";
   }
@@ -154,29 +187,39 @@ function formatDate(value: string | null): string {
     return "—";
   }
 
-  return new Intl.DateTimeFormat("en-GB", {
-    dateStyle: "medium",
-    timeStyle: "short",
-  }).format(date);
+  return new Intl.DateTimeFormat(
+    "en-GB",
+    {
+      dateStyle: "medium",
+      timeStyle: "short",
+    },
+  ).format(date);
 }
 
-function enquiryToForm(enquiry: Enquiry): EnquiryFormState {
+function enquiryToForm(
+  enquiry: Enquiry,
+): EnquiryFormState {
   return {
     firstName: enquiry.firstName,
     lastName: enquiry.lastName ?? "",
     email: enquiry.email ?? "",
     phone: enquiry.phone ?? "",
     country: enquiry.country ?? "",
-    serviceType: enquiry.serviceType ?? "",
+    serviceType:
+      enquiry.serviceType ?? "",
     source: enquiry.source ?? "",
     message: enquiry.message ?? "",
     status: enquiry.status,
     priority: enquiry.priority,
-    nextFollowUpAt: toDateTimeLocal(enquiry.nextFollowUpAt),
+    nextFollowUpAt: toDateTimeLocal(
+      enquiry.nextFollowUpAt,
+    ),
   };
 }
 
-function priorityClass(priority: EnquiryPriority): string {
+function priorityClass(
+  priority: EnquiryPriority,
+): string {
   switch (priority) {
     case "URGENT":
       return "bg-red-100 text-red-800";
@@ -189,7 +232,9 @@ function priorityClass(priority: EnquiryPriority): string {
   }
 }
 
-function statusClass(status: EnquiryStatus): string {
+function statusClass(
+  status: EnquiryStatus,
+): string {
   switch (status) {
     case "NEW":
       return "bg-violet-100 text-violet-800";
@@ -215,33 +260,74 @@ type EnquiriesWorkspaceProps = {
 export function EnquiriesWorkspace({
   organisationId,
 }: EnquiriesWorkspaceProps) {
-  const [items, setItems] = useState<Enquiry[]>([]);
-  const [total, setTotal] = useState(0);
-  const [totalPages, setTotalPages] = useState(0);
+  const [items, setItems] =
+    useState<Enquiry[]>([]);
+
+  const [total, setTotal] =
+    useState(0);
+
+  const [totalPages, setTotalPages] =
+    useState(0);
 
   const [page, setPage] = useState(1);
-  const [searchInput, setSearchInput] = useState("");
-  const [search, setSearch] = useState("");
-  const [status, setStatus] = useState<EnquiryStatus | "">("");
-  const [priority, setPriority] = useState<EnquiryPriority | "">("");
 
-  const [loading, setLoading] = useState(false);
-  const [saving, setSaving] = useState(false);
-  const [deletingId, setDeletingId] = useState<string | null>(null);
-  const [error, setError] = useState<string | null>(null);
-  const [notice, setNotice] = useState<string | null>(null);
+  const [
+    searchInput,
+    setSearchInput,
+  ] = useState("");
 
-  const [editorOpen, setEditorOpen] = useState(false);
-  const [selectedEnquiry, setSelectedEnquiry] = useState<Enquiry | null>(null);
-  const [form, setForm] = useState<EnquiryFormState>(EMPTY_FORM);
+  const [search, setSearch] =
+    useState("");
+
+  const [status, setStatus] =
+    useState<EnquiryStatus | "">("");
+
+  const [priority, setPriority] =
+    useState<EnquiryPriority | "">("");
+
+  const [loading, setLoading] =
+    useState(false);
+
+  const [saving, setSaving] =
+    useState(false);
+
+  const [
+    deletingId,
+    setDeletingId,
+  ] = useState<string | null>(null);
+
+  const [error, setError] =
+    useState<string | null>(null);
+
+  const [notice, setNotice] =
+    useState<string | null>(null);
+
+  const [
+    editorOpen,
+    setEditorOpen,
+  ] = useState(false);
+
+  const [
+    selectedEnquiry,
+    setSelectedEnquiry,
+  ] = useState<Enquiry | null>(null);
+
+  const [form, setForm] =
+    useState<EnquiryFormState>(
+      EMPTY_FORM,
+    );
 
   useEffect(() => {
-    const timeout = window.setTimeout(() => {
-      setPage(1);
-      setSearch(searchInput.trim());
-    }, 350);
+    const timeout = window.setTimeout(
+      () => {
+        setPage(1);
+        setSearch(searchInput.trim());
+      },
+      350,
+    );
 
-    return () => window.clearTimeout(timeout);
+    return () =>
+      window.clearTimeout(timeout);
   }, [searchInput]);
 
   const loadEnquiries = useCallback(
@@ -253,11 +339,12 @@ export function EnquiriesWorkspace({
       setLoading(true);
       setError(null);
 
-      const query = new URLSearchParams({
-        organisationId,
-        page: String(page),
-        limit: String(PAGE_SIZE),
-      });
+      const query =
+        new URLSearchParams({
+          organisationId,
+          page: String(page),
+          limit: String(PAGE_SIZE),
+        });
 
       if (search) {
         query.set("search", search);
@@ -272,32 +359,46 @@ export function EnquiriesWorkspace({
       }
 
       try {
-        const response = await fetchWithTimeout(
-          `/api/enquiries?${query.toString()}`,
-          {
-            method: "GET",
-            cache: "no-store",
-            credentials: "same-origin",
-            signal,
-            headers: {
-              Accept: "application/json",
+        const response =
+          await fetchWithTimeout(
+            `/api/enquiries?${query.toString()}`,
+            {
+              method: "GET",
+              cache: "no-store",
+              credentials:
+                "same-origin",
+              signal,
+              headers: {
+                Accept:
+                  "application/json",
+              },
             },
-          },
-        );
+          );
 
         if (!response.ok) {
-          throw new Error(await readApiError(response));
+          throw new Error(
+            await readApiError(
+              response,
+            ),
+          );
         }
 
-        const data = (await response.json()) as EnquiryListResponse;
+        const data =
+          (await response.json()) as EnquiryListResponse;
 
         setItems(data.items);
-        setTotal(data.pagination.total);
-        setTotalPages(data.pagination.totalPages);
+        setTotal(
+          data.pagination.total,
+        );
+        setTotalPages(
+          data.pagination.totalPages,
+        );
       } catch (caughtError) {
         if (
-          caughtError instanceof DOMException &&
-          caughtError.name === "AbortError"
+          caughtError instanceof
+            DOMException &&
+          caughtError.name ===
+            "AbortError"
         ) {
           return;
         }
@@ -313,15 +414,30 @@ export function EnquiriesWorkspace({
         }
       }
     },
-    [organisationId, page, priority, search, status],
+    [
+      organisationId,
+      page,
+      priority,
+      search,
+      status,
+    ],
   );
 
   useEffect(() => {
-    const controller = new AbortController();
+    const controller =
+      new AbortController();
 
-    void loadEnquiries(controller.signal);
+    const startRequest =
+      window.setTimeout(() => {
+        void loadEnquiries(
+          controller.signal,
+        );
+      }, 0);
 
     return () => {
+      window.clearTimeout(
+        startRequest,
+      );
       controller.abort();
     };
   }, [loadEnquiries]);
@@ -331,10 +447,15 @@ export function EnquiriesWorkspace({
       return 0;
     }
 
-    return (page - 1) * PAGE_SIZE + 1;
+    return (
+      (page - 1) * PAGE_SIZE + 1
+    );
   }, [page, total]);
 
-  const visibleTo = Math.min(page * PAGE_SIZE, total);
+  const visibleTo = Math.min(
+    page * PAGE_SIZE,
+    total,
+  );
 
   function openCreateEditor() {
     setSelectedEnquiry(null);
@@ -344,9 +465,13 @@ export function EnquiriesWorkspace({
     setEditorOpen(true);
   }
 
-  function openEditEditor(enquiry: Enquiry) {
+  function openEditEditor(
+    enquiry: Enquiry,
+  ) {
     setSelectedEnquiry(enquiry);
-    setForm(enquiryToForm(enquiry));
+    setForm(
+      enquiryToForm(enquiry),
+    );
     setError(null);
     setNotice(null);
     setEditorOpen(true);
@@ -362,7 +487,9 @@ export function EnquiriesWorkspace({
     setForm(EMPTY_FORM);
   }
 
-  function updateField<K extends keyof EnquiryFormState>(
+  function updateField<
+    K extends keyof EnquiryFormState,
+  >(
     field: K,
     value: EnquiryFormState[K],
   ) {
@@ -372,7 +499,9 @@ export function EnquiriesWorkspace({
     }));
   }
 
-  async function submitEnquiry(event: FormEvent<HTMLFormElement>) {
+  async function submitEnquiry(
+    event: FormEvent<HTMLFormElement>,
+  ) {
     event.preventDefault();
 
     if (!organisationId || saving) {
@@ -384,58 +513,108 @@ export function EnquiriesWorkspace({
     setNotice(null);
 
     const payload = {
-      firstName: form.firstName.trim(),
-      lastName: form.lastName.trim() || undefined,
-      email: form.email.trim() || undefined,
-      phone: form.phone.trim() || undefined,
-      country: form.country.trim() || undefined,
-      serviceType: form.serviceType.trim() || undefined,
-      source: form.source.trim() || undefined,
-      message: form.message.trim() || undefined,
+      firstName:
+        form.firstName.trim(),
+
+      lastName:
+        form.lastName.trim() ||
+        undefined,
+
+      email:
+        form.email.trim() ||
+        undefined,
+
+      phone:
+        form.phone.trim() ||
+        undefined,
+
+      country:
+        form.country.trim() ||
+        undefined,
+
+      serviceType:
+        form.serviceType.trim() ||
+        undefined,
+
+      source:
+        form.source.trim() ||
+        undefined,
+
+      message:
+        form.message.trim() ||
+        undefined,
+
       status: form.status,
       priority: form.priority,
-      nextFollowUpAt: toIsoDate(form.nextFollowUpAt),
+
+      nextFollowUpAt: toIsoDate(
+        form.nextFollowUpAt,
+      ),
     };
 
-    const editing = selectedEnquiry !== null;
+    const editing =
+      selectedEnquiry !== null;
+
     const endpoint = editing
       ? `/api/enquiries/${encodeURIComponent(
           selectedEnquiry.id,
-        )}?organisationId=${encodeURIComponent(organisationId)}`
+        )}?organisationId=${encodeURIComponent(
+          organisationId,
+        )}`
       : "/api/enquiries";
 
     try {
-      const response = await fetchWithTimeout(endpoint, {
-        method: editing ? "PATCH" : "POST",
-        credentials: "same-origin",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(
-          editing
-            ? payload
-            : {
-                organisationId,
-                ...payload,
-              },
-        ),
-      });
+      const response =
+        await fetchWithTimeout(
+          endpoint,
+          {
+            method: editing
+              ? "PATCH"
+              : "POST",
+
+            credentials:
+              "same-origin",
+
+            headers: {
+              Accept:
+                "application/json",
+              "Content-Type":
+                "application/json",
+            },
+
+            body: JSON.stringify(
+              editing
+                ? payload
+                : {
+                    organisationId,
+                    ...payload,
+                  },
+            ),
+          },
+        );
 
       if (!response.ok) {
-        throw new Error(await readApiError(response));
+        throw new Error(
+          await readApiError(
+            response,
+          ),
+        );
       }
 
       setEditorOpen(false);
       setSelectedEnquiry(null);
       setForm(EMPTY_FORM);
+
       setNotice(
         editing
           ? "Enquiry updated successfully."
           : "Enquiry created successfully.",
       );
 
-      if (!editing && page !== 1) {
+      if (
+        !editing &&
+        page !== 1
+      ) {
         setPage(1);
       } else {
         await loadEnquiries();
@@ -451,16 +630,26 @@ export function EnquiriesWorkspace({
     }
   }
 
-  async function deleteEnquiry(enquiry: Enquiry) {
-    if (!organisationId || deletingId) {
+  async function deleteEnquiry(
+    enquiry: Enquiry,
+  ) {
+    if (
+      !organisationId ||
+      deletingId
+    ) {
       return;
     }
 
-    const confirmed = window.confirm(
-      `Delete the enquiry for ${enquiry.firstName}${
-        enquiry.lastName ? ` ${enquiry.lastName}` : ""
-      }?\n\nThis action should only be used where deletion is permitted by your organisation's retention policy.`,
-    );
+    const confirmed =
+      window.confirm(
+        `Delete the enquiry for ${
+          enquiry.firstName
+        }${
+          enquiry.lastName
+            ? ` ${enquiry.lastName}`
+            : ""
+        }?\n\nThis action should only be used where deletion is permitted by your organisation's retention policy.`,
+      );
 
     if (!confirmed) {
       return;
@@ -471,27 +660,44 @@ export function EnquiriesWorkspace({
     setNotice(null);
 
     try {
-      const response = await fetchWithTimeout(
-        `/api/enquiries/${encodeURIComponent(
-          enquiry.id,
-        )}?organisationId=${encodeURIComponent(organisationId)}`,
-        {
-          method: "DELETE",
-          credentials: "same-origin",
-          headers: {
-            Accept: "application/json",
+      const response =
+        await fetchWithTimeout(
+          `/api/enquiries/${encodeURIComponent(
+            enquiry.id,
+          )}?organisationId=${encodeURIComponent(
+            organisationId,
+          )}`,
+          {
+            method: "DELETE",
+            credentials:
+              "same-origin",
+            headers: {
+              Accept:
+                "application/json",
+            },
           },
-        },
-      );
+        );
 
       if (!response.ok) {
-        throw new Error(await readApiError(response));
+        throw new Error(
+          await readApiError(
+            response,
+          ),
+        );
       }
 
-      setNotice("Enquiry deleted successfully.");
+      setNotice(
+        "Enquiry deleted successfully.",
+      );
 
-      if (items.length === 1 && page > 1) {
-        setPage((current) => current - 1);
+      if (
+        items.length === 1 &&
+        page > 1
+      ) {
+        setPage(
+          (current) =>
+            current - 1,
+        );
       } else {
         await loadEnquiries();
       }
@@ -513,8 +719,10 @@ export function EnquiriesWorkspace({
           <h1 className="text-2xl font-semibold tracking-tight text-slate-950">
             Enquiries
           </h1>
+
           <p className="mt-1 text-sm text-slate-600">
-            Manage leads, follow-ups and conversion progress.
+            Manage leads, follow-ups and
+            conversion progress.
           </p>
         </div>
 
@@ -533,9 +741,12 @@ export function EnquiriesWorkspace({
           className="mb-4 flex items-start justify-between gap-4 rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-800"
         >
           <span>{error}</span>
+
           <button
             type="button"
-            onClick={() => setError(null)}
+            onClick={() =>
+              setError(null)
+            }
             className="font-medium underline"
           >
             Dismiss
@@ -549,9 +760,12 @@ export function EnquiriesWorkspace({
           className="mb-4 flex items-start justify-between gap-4 rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-800"
         >
           <span>{notice}</span>
+
           <button
             type="button"
-            onClick={() => setNotice(null)}
+            onClick={() =>
+              setNotice(null)
+            }
             className="font-medium underline"
           >
             Dismiss
@@ -561,11 +775,18 @@ export function EnquiriesWorkspace({
 
       <div className="mb-5 grid gap-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm md:grid-cols-[minmax(0,1fr)_220px_180px]">
         <label className="block">
-          <span className="sr-only">Search enquiries</span>
+          <span className="sr-only">
+            Search enquiries
+          </span>
+
           <input
             type="search"
             value={searchInput}
-            onChange={(event) => setSearchInput(event.target.value)}
+            onChange={(event) =>
+              setSearchInput(
+                event.target.value,
+              )
+            }
             placeholder="Search name, email, phone or service"
             maxLength={200}
             className="min-h-11 w-full rounded-lg border border-slate-300 bg-white px-3 text-sm text-slate-950 outline-none transition placeholder:text-slate-400 focus:border-slate-950 focus:ring-2 focus:ring-slate-950/10"
@@ -573,40 +794,82 @@ export function EnquiriesWorkspace({
         </label>
 
         <label className="block">
-          <span className="sr-only">Filter by status</span>
+          <span className="sr-only">
+            Filter by status
+          </span>
+
           <select
             value={status}
             onChange={(event) => {
               setPage(1);
-              setStatus(event.target.value as EnquiryStatus | "");
+
+              setStatus(
+                event.target
+                  .value as
+                  | EnquiryStatus
+                  | "",
+              );
             }}
             className="min-h-11 w-full rounded-lg border border-slate-300 bg-white px-3 text-sm text-slate-950 outline-none focus:border-slate-950 focus:ring-2 focus:ring-slate-950/10"
           >
-            <option value="">All statuses</option>
-            {ENQUIRY_STATUSES.map((option) => (
-              <option key={option} value={option}>
-                {ENQUIRY_STATUS_LABELS[option]}
-              </option>
-            ))}
+            <option value="">
+              All statuses
+            </option>
+
+            {ENQUIRY_STATUSES.map(
+              (option) => (
+                <option
+                  key={option}
+                  value={option}
+                >
+                  {
+                    ENQUIRY_STATUS_LABELS[
+                      option
+                    ]
+                  }
+                </option>
+              ),
+            )}
           </select>
         </label>
 
         <label className="block">
-          <span className="sr-only">Filter by priority</span>
+          <span className="sr-only">
+            Filter by priority
+          </span>
+
           <select
             value={priority}
             onChange={(event) => {
               setPage(1);
-              setPriority(event.target.value as EnquiryPriority | "");
+
+              setPriority(
+                event.target
+                  .value as
+                  | EnquiryPriority
+                  | "",
+              );
             }}
             className="min-h-11 w-full rounded-lg border border-slate-300 bg-white px-3 text-sm text-slate-950 outline-none focus:border-slate-950 focus:ring-2 focus:ring-slate-950/10"
           >
-            <option value="">All priorities</option>
-            {ENQUIRY_PRIORITIES.map((option) => (
-              <option key={option} value={option}>
-                {ENQUIRY_PRIORITY_LABELS[option]}
-              </option>
-            ))}
+            <option value="">
+              All priorities
+            </option>
+
+            {ENQUIRY_PRIORITIES.map(
+              (option) => (
+                <option
+                  key={option}
+                  value={option}
+                >
+                  {
+                    ENQUIRY_PRIORITY_LABELS[
+                      option
+                    ]
+                  }
+                </option>
+              ),
+            )}
           </select>
         </label>
       </div>
@@ -619,18 +882,23 @@ export function EnquiriesWorkspace({
                 <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-600">
                   Contact
                 </th>
+
                 <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-600">
                   Service
                 </th>
+
                 <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-600">
                   Status
                 </th>
+
                 <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-600">
                   Priority
                 </th>
+
                 <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-600">
                   Follow-up
                 </th>
+
                 <th className="px-4 py-3 text-right text-xs font-semibold uppercase tracking-wide text-slate-600">
                   Actions
                 </th>
@@ -638,7 +906,8 @@ export function EnquiriesWorkspace({
             </thead>
 
             <tbody className="divide-y divide-slate-100">
-              {loading && items.length === 0 ? (
+              {loading &&
+              items.length === 0 ? (
                 <tr>
                   <td
                     colSpan={6}
@@ -649,77 +918,122 @@ export function EnquiriesWorkspace({
                 </tr>
               ) : items.length === 0 ? (
                 <tr>
-                  <td colSpan={6} className="px-4 py-12 text-center">
+                  <td
+                    colSpan={6}
+                    className="px-4 py-12 text-center"
+                  >
                     <p className="font-medium text-slate-900">
                       No enquiries found
                     </p>
+
                     <p className="mt-1 text-sm text-slate-500">
-                      Change the filters or add your first enquiry.
+                      Change the filters
+                      or add your first
+                      enquiry.
                     </p>
                   </td>
                 </tr>
               ) : (
-                items.map((enquiry) => (
-                  <tr key={enquiry.id} className="transition hover:bg-slate-50">
-                    <td className="whitespace-nowrap px-4 py-4">
-                      <p className="font-medium text-slate-950">
-                        {enquiry.firstName} {enquiry.lastName ?? ""}
-                      </p>
-                      <p className="mt-1 text-xs text-slate-500">
-                        {enquiry.email ?? enquiry.phone ?? "No contact details"}
-                      </p>
-                    </td>
+                items.map(
+                  (enquiry) => (
+                    <tr
+                      key={enquiry.id}
+                      className="transition hover:bg-slate-50"
+                    >
+                      <td className="whitespace-nowrap px-4 py-4">
+                        <p className="font-medium text-slate-950">
+                          {
+                            enquiry.firstName
+                          }{" "}
+                          {enquiry.lastName ??
+                            ""}
+                        </p>
 
-                    <td className="px-4 py-4 text-sm text-slate-700">
-                      {enquiry.serviceType ?? "—"}
-                    </td>
+                        <p className="mt-1 text-xs text-slate-500">
+                          {enquiry.email ??
+                            enquiry.phone ??
+                            "No contact details"}
+                        </p>
+                      </td>
 
-                    <td className="whitespace-nowrap px-4 py-4">
-                      <span
-                        className={`inline-flex rounded-full px-2.5 py-1 text-xs font-medium ${statusClass(
-                          enquiry.status,
-                        )}`}
-                      >
-                        {ENQUIRY_STATUS_LABELS[enquiry.status]}
-                      </span>
-                    </td>
+                      <td className="px-4 py-4 text-sm text-slate-700">
+                        {enquiry.serviceType ??
+                          "—"}
+                      </td>
 
-                    <td className="whitespace-nowrap px-4 py-4">
-                      <span
-                        className={`inline-flex rounded-full px-2.5 py-1 text-xs font-medium ${priorityClass(
-                          enquiry.priority,
-                        )}`}
-                      >
-                        {ENQUIRY_PRIORITY_LABELS[enquiry.priority]}
-                      </span>
-                    </td>
-
-                    <td className="whitespace-nowrap px-4 py-4 text-sm text-slate-600">
-                      {formatDate(enquiry.nextFollowUpAt)}
-                    </td>
-
-                    <td className="whitespace-nowrap px-4 py-4 text-right">
-                      <div className="flex justify-end gap-2">
-                        <button
-                          type="button"
-                          onClick={() => openEditEditor(enquiry)}
-                          className="rounded-lg border border-slate-300 px-3 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-950"
+                      <td className="whitespace-nowrap px-4 py-4">
+                        <span
+                          className={`inline-flex rounded-full px-2.5 py-1 text-xs font-medium ${statusClass(
+                            enquiry.status,
+                          )}`}
                         >
-                          Edit
-                        </button>
+                          {
+                            ENQUIRY_STATUS_LABELS[
+                              enquiry
+                                .status
+                            ]
+                          }
+                        </span>
+                      </td>
 
-                        <button
-                          type="button"
-                          disabled={deletingId === enquiry.id}
-                          onClick={() => void deleteEnquiry(enquiry)}
-                          className="rounded-lg border border-red-200 px-3 py-2 text-xs font-medium text-red-700 hover:bg-red-50 focus:outline-none focus:ring-2 focus:ring-red-600 disabled:cursor-not-allowed disabled:opacity-50"
+                      <td className="whitespace-nowrap px-4 py-4">
+                        <span
+                          className={`inline-flex rounded-full px-2.5 py-1 text-xs font-medium ${priorityClass(
+                            enquiry.priority,
+                          )}`}
                         >
-                          {deletingId === enquiry.id ? "Deleting…" : "Delete"}
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                ))
+                          {
+                            ENQUIRY_PRIORITY_LABELS[
+                              enquiry
+                                .priority
+                            ]
+                          }
+                        </span>
+                      </td>
+
+                      <td className="whitespace-nowrap px-4 py-4 text-sm text-slate-600">
+                        {formatDate(
+                          enquiry.nextFollowUpAt,
+                        )}
+                      </td>
+
+                      <td className="whitespace-nowrap px-4 py-4 text-right">
+                        <div className="flex justify-end gap-2">
+                          <button
+                            type="button"
+                            onClick={() =>
+                              openEditEditor(
+                                enquiry,
+                              )
+                            }
+                            className="rounded-lg border border-slate-300 px-3 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-950"
+                          >
+                            Edit
+                          </button>
+
+                          <button
+                            type="button"
+                            disabled={
+                              deletingId ===
+                              enquiry.id
+                            }
+                            onClick={() =>
+                              void deleteEnquiry(
+                                enquiry,
+                              )
+                            }
+                            className="rounded-lg border border-red-200 px-3 py-2 text-xs font-medium text-red-700 hover:bg-red-50 focus:outline-none focus:ring-2 focus:ring-red-600 disabled:cursor-not-allowed disabled:opacity-50"
+                          >
+                            {deletingId ===
+                            enquiry.id
+                              ? "Deleting…"
+                              : "Delete"}
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  ),
+                )
               )}
             </tbody>
           </table>
@@ -727,14 +1041,24 @@ export function EnquiriesWorkspace({
 
         <div className="flex flex-col gap-3 border-t border-slate-200 px-4 py-4 text-sm sm:flex-row sm:items-center sm:justify-between">
           <p className="text-slate-600">
-            Showing {visibleFrom}–{visibleTo} of {total}
+            Showing {visibleFrom}–
+            {visibleTo} of {total}
           </p>
 
           <div className="flex gap-2">
             <button
               type="button"
-              disabled={page <= 1 || loading}
-              onClick={() => setPage((current) => Math.max(1, current - 1))}
+              disabled={
+                page <= 1 || loading
+              }
+              onClick={() =>
+                setPage((current) =>
+                  Math.max(
+                    1,
+                    current - 1,
+                  ),
+                )
+              }
               className="rounded-lg border border-slate-300 px-3 py-2 font-medium text-slate-700 hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-50"
             >
               Previous
@@ -742,9 +1066,18 @@ export function EnquiriesWorkspace({
 
             <button
               type="button"
-              disabled={page >= totalPages || totalPages === 0 || loading}
+              disabled={
+                page >= totalPages ||
+                totalPages === 0 ||
+                loading
+              }
               onClick={() =>
-                setPage((current) => Math.min(totalPages, current + 1))
+                setPage((current) =>
+                  Math.min(
+                    totalPages,
+                    current + 1,
+                  ),
+                )
               }
               className="rounded-lg border border-slate-300 px-3 py-2 font-medium text-slate-700 hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-50"
             >
@@ -759,7 +1092,10 @@ export function EnquiriesWorkspace({
           className="fixed inset-0 z-50 flex items-end justify-center bg-slate-950/50 p-0 backdrop-blur-sm sm:items-center sm:p-6"
           role="presentation"
           onMouseDown={(event) => {
-            if (event.target === event.currentTarget) {
+            if (
+              event.target ===
+              event.currentTarget
+            ) {
               closeEditor();
             }
           }}
@@ -776,10 +1112,16 @@ export function EnquiriesWorkspace({
                   id="enquiry-editor-title"
                   className="text-lg font-semibold text-slate-950"
                 >
-                  {selectedEnquiry ? "Edit enquiry" : "Add enquiry"}
+                  {selectedEnquiry
+                    ? "Edit enquiry"
+                    : "Add enquiry"}
                 </h2>
+
                 <p className="mt-0.5 text-xs text-slate-500">
-                  Only collect information required for managing the enquiry.
+                  Only collect
+                  information required
+                  for managing the
+                  enquiry.
                 </p>
               </div>
 
@@ -794,17 +1136,29 @@ export function EnquiriesWorkspace({
               </button>
             </div>
 
-            <form onSubmit={submitEnquiry} className="p-5 sm:p-6">
+            <form
+              onSubmit={submitEnquiry}
+              className="p-5 sm:p-6"
+            >
               <div className="grid gap-5 sm:grid-cols-2">
-                <FormField label="First name" required>
+                <FormField
+                  label="First name"
+                  required
+                >
                   <input
                     required
                     autoFocus
                     maxLength={100}
                     autoComplete="given-name"
-                    value={form.firstName}
+                    value={
+                      form.firstName
+                    }
                     onChange={(event) =>
-                      updateField("firstName", event.target.value)
+                      updateField(
+                        "firstName",
+                        event.target
+                          .value,
+                      )
                     }
                     className="form-input"
                   />
@@ -814,9 +1168,15 @@ export function EnquiriesWorkspace({
                   <input
                     maxLength={100}
                     autoComplete="family-name"
-                    value={form.lastName}
+                    value={
+                      form.lastName
+                    }
                     onChange={(event) =>
-                      updateField("lastName", event.target.value)
+                      updateField(
+                        "lastName",
+                        event.target
+                          .value,
+                      )
                     }
                     className="form-input"
                   />
@@ -829,7 +1189,11 @@ export function EnquiriesWorkspace({
                     autoComplete="email"
                     value={form.email}
                     onChange={(event) =>
-                      updateField("email", event.target.value)
+                      updateField(
+                        "email",
+                        event.target
+                          .value,
+                      )
                     }
                     className="form-input"
                   />
@@ -842,7 +1206,11 @@ export function EnquiriesWorkspace({
                     autoComplete="tel"
                     value={form.phone}
                     onChange={(event) =>
-                      updateField("phone", event.target.value)
+                      updateField(
+                        "phone",
+                        event.target
+                          .value,
+                      )
                     }
                     className="form-input"
                   />
@@ -852,9 +1220,15 @@ export function EnquiriesWorkspace({
                   <input
                     maxLength={100}
                     autoComplete="country-name"
-                    value={form.country}
+                    value={
+                      form.country
+                    }
                     onChange={(event) =>
-                      updateField("country", event.target.value)
+                      updateField(
+                        "country",
+                        event.target
+                          .value,
+                      )
                     }
                     className="form-input"
                   />
@@ -863,9 +1237,15 @@ export function EnquiriesWorkspace({
                 <FormField label="Service type">
                   <input
                     maxLength={160}
-                    value={form.serviceType}
+                    value={
+                      form.serviceType
+                    }
                     onChange={(event) =>
-                      updateField("serviceType", event.target.value)
+                      updateField(
+                        "serviceType",
+                        event.target
+                          .value,
+                      )
                     }
                     className="form-input"
                   />
@@ -877,7 +1257,11 @@ export function EnquiriesWorkspace({
                     placeholder="Website, referral, telephone…"
                     value={form.source}
                     onChange={(event) =>
-                      updateField("source", event.target.value)
+                      updateField(
+                        "source",
+                        event.target
+                          .value,
+                      )
                     }
                     className="form-input"
                   />
@@ -886,9 +1270,15 @@ export function EnquiriesWorkspace({
                 <FormField label="Next follow-up">
                   <input
                     type="datetime-local"
-                    value={form.nextFollowUpAt}
+                    value={
+                      form.nextFollowUpAt
+                    }
                     onChange={(event) =>
-                      updateField("nextFollowUpAt", event.target.value)
+                      updateField(
+                        "nextFollowUpAt",
+                        event.target
+                          .value,
+                      )
                     }
                     className="form-input"
                   />
@@ -898,34 +1288,59 @@ export function EnquiriesWorkspace({
                   <select
                     value={form.status}
                     onChange={(event) =>
-                      updateField("status", event.target.value as EnquiryStatus)
+                      updateField(
+                        "status",
+                        event.target
+                          .value as EnquiryStatus,
+                      )
                     }
                     className="form-input"
                   >
-                    {ENQUIRY_STATUSES.map((option) => (
-                      <option key={option} value={option}>
-                        {ENQUIRY_STATUS_LABELS[option]}
-                      </option>
-                    ))}
+                    {ENQUIRY_STATUSES.map(
+                      (option) => (
+                        <option
+                          key={option}
+                          value={option}
+                        >
+                          {
+                            ENQUIRY_STATUS_LABELS[
+                              option
+                            ]
+                          }
+                        </option>
+                      ),
+                    )}
                   </select>
                 </FormField>
 
                 <FormField label="Priority">
                   <select
-                    value={form.priority}
+                    value={
+                      form.priority
+                    }
                     onChange={(event) =>
                       updateField(
                         "priority",
-                        event.target.value as EnquiryPriority,
+                        event.target
+                          .value as EnquiryPriority,
                       )
                     }
                     className="form-input"
                   >
-                    {ENQUIRY_PRIORITIES.map((option) => (
-                      <option key={option} value={option}>
-                        {ENQUIRY_PRIORITY_LABELS[option]}
-                      </option>
-                    ))}
+                    {ENQUIRY_PRIORITIES.map(
+                      (option) => (
+                        <option
+                          key={option}
+                          value={option}
+                        >
+                          {
+                            ENQUIRY_PRIORITY_LABELS[
+                              option
+                            ]
+                          }
+                        </option>
+                      ),
+                    )}
                   </select>
                 </FormField>
 
@@ -933,10 +1348,18 @@ export function EnquiriesWorkspace({
                   <FormField label="Message or notes">
                     <textarea
                       rows={5}
-                      maxLength={10_000}
-                      value={form.message}
+                      maxLength={
+                        10_000
+                      }
+                      value={
+                        form.message
+                      }
                       onChange={(event) =>
-                        updateField("message", event.target.value)
+                        updateField(
+                          "message",
+                          event.target
+                            .value,
+                        )
                       }
                       className="form-input resize-y"
                     />
@@ -956,7 +1379,10 @@ export function EnquiriesWorkspace({
 
                 <button
                   type="submit"
-                  disabled={saving || !form.firstName.trim()}
+                  disabled={
+                    saving ||
+                    !form.firstName.trim()
+                  }
                   className="min-h-11 rounded-lg bg-slate-950 px-5 py-2 text-sm font-medium text-white hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-50"
                 >
                   {saving
@@ -976,9 +1402,11 @@ export function EnquiriesWorkspace({
           min-height: 44px;
           width: 100%;
           border-radius: 0.5rem;
-          border: 1px solid rgb(203 213 225);
+          border: 1px solid
+            rgb(203 213 225);
           background: white;
-          padding: 0.625rem 0.75rem;
+          padding: 0.625rem
+            0.75rem;
           font-size: 0.875rem;
           color: rgb(15 23 42);
           outline: none;
@@ -988,8 +1416,11 @@ export function EnquiriesWorkspace({
         }
 
         :global(.form-input:focus) {
-          border-color: rgb(15 23 42);
-          box-shadow: 0 0 0 3px rgb(15 23 42 / 0.1);
+          border-color: rgb(
+            15 23 42
+          );
+          box-shadow: 0 0 0 3px
+            rgb(15 23 42 / 0.1);
         }
       `}</style>
     </section>
@@ -1009,12 +1440,17 @@ function FormField({
     <label className="block">
       <span className="mb-1.5 block text-sm font-medium text-slate-700">
         {label}
+
         {required && (
-          <span className="ml-1 text-red-600" aria-hidden="true">
+          <span
+            className="ml-1 text-red-600"
+            aria-hidden="true"
+          >
             *
           </span>
         )}
       </span>
+
       {children}
     </label>
   );

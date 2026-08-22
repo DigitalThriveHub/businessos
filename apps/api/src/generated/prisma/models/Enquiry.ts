@@ -314,6 +314,9 @@ export type EnquiryWhereInput = {
   assignedTo?: Prisma.XOR<Prisma.UserProfileNullableScalarRelationFilter, Prisma.UserProfileWhereInput> | null
   createdBy?: Prisma.XOR<Prisma.UserProfileNullableScalarRelationFilter, Prisma.UserProfileWhereInput> | null
   updatedBy?: Prisma.XOR<Prisma.UserProfileNullableScalarRelationFilter, Prisma.UserProfileWhereInput> | null
+  sourceClient?: Prisma.XOR<Prisma.ClientNullableScalarRelationFilter, Prisma.ClientWhereInput> | null
+  sourceMatter?: Prisma.XOR<Prisma.MatterNullableScalarRelationFilter, Prisma.MatterWhereInput> | null
+  conversion?: Prisma.XOR<Prisma.EnquiryConversionNullableScalarRelationFilter, Prisma.EnquiryConversionWhereInput> | null
 }
 
 export type EnquiryOrderByWithRelationInput = {
@@ -342,10 +345,14 @@ export type EnquiryOrderByWithRelationInput = {
   assignedTo?: Prisma.UserProfileOrderByWithRelationInput
   createdBy?: Prisma.UserProfileOrderByWithRelationInput
   updatedBy?: Prisma.UserProfileOrderByWithRelationInput
+  sourceClient?: Prisma.ClientOrderByWithRelationInput
+  sourceMatter?: Prisma.MatterOrderByWithRelationInput
+  conversion?: Prisma.EnquiryConversionOrderByWithRelationInput
 }
 
 export type EnquiryWhereUniqueInput = Prisma.AtLeast<{
   id?: string
+  id_organisationId?: Prisma.EnquiryIdOrganisationIdCompoundUniqueInput
   AND?: Prisma.EnquiryWhereInput | Prisma.EnquiryWhereInput[]
   OR?: Prisma.EnquiryWhereInput[]
   NOT?: Prisma.EnquiryWhereInput | Prisma.EnquiryWhereInput[]
@@ -373,7 +380,10 @@ export type EnquiryWhereUniqueInput = Prisma.AtLeast<{
   assignedTo?: Prisma.XOR<Prisma.UserProfileNullableScalarRelationFilter, Prisma.UserProfileWhereInput> | null
   createdBy?: Prisma.XOR<Prisma.UserProfileNullableScalarRelationFilter, Prisma.UserProfileWhereInput> | null
   updatedBy?: Prisma.XOR<Prisma.UserProfileNullableScalarRelationFilter, Prisma.UserProfileWhereInput> | null
-}, "id">
+  sourceClient?: Prisma.XOR<Prisma.ClientNullableScalarRelationFilter, Prisma.ClientWhereInput> | null
+  sourceMatter?: Prisma.XOR<Prisma.MatterNullableScalarRelationFilter, Prisma.MatterWhereInput> | null
+  conversion?: Prisma.XOR<Prisma.EnquiryConversionNullableScalarRelationFilter, Prisma.EnquiryConversionWhereInput> | null
+}, "id" | "id_organisationId">
 
 export type EnquiryOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
@@ -451,6 +461,9 @@ export type EnquiryCreateInput = {
   assignedTo?: Prisma.UserProfileCreateNestedOneWithoutAssignedEnquiriesInput
   createdBy?: Prisma.UserProfileCreateNestedOneWithoutCreatedEnquiriesInput
   updatedBy?: Prisma.UserProfileCreateNestedOneWithoutUpdatedEnquiriesInput
+  sourceClient?: Prisma.ClientCreateNestedOneWithoutSourceEnquiryInput
+  sourceMatter?: Prisma.MatterCreateNestedOneWithoutSourceEnquiryInput
+  conversion?: Prisma.EnquiryConversionCreateNestedOneWithoutEnquiryInput
 }
 
 export type EnquiryUncheckedCreateInput = {
@@ -475,6 +488,9 @@ export type EnquiryUncheckedCreateInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
+  sourceClient?: Prisma.ClientUncheckedCreateNestedOneWithoutSourceEnquiryInput
+  sourceMatter?: Prisma.MatterUncheckedCreateNestedOneWithoutSourceEnquiryInput
+  conversion?: Prisma.EnquiryConversionUncheckedCreateNestedOneWithoutEnquiryInput
 }
 
 export type EnquiryUpdateInput = {
@@ -499,6 +515,9 @@ export type EnquiryUpdateInput = {
   assignedTo?: Prisma.UserProfileUpdateOneWithoutAssignedEnquiriesNestedInput
   createdBy?: Prisma.UserProfileUpdateOneWithoutCreatedEnquiriesNestedInput
   updatedBy?: Prisma.UserProfileUpdateOneWithoutUpdatedEnquiriesNestedInput
+  sourceClient?: Prisma.ClientUpdateOneWithoutSourceEnquiryNestedInput
+  sourceMatter?: Prisma.MatterUpdateOneWithoutSourceEnquiryNestedInput
+  conversion?: Prisma.EnquiryConversionUpdateOneWithoutEnquiryNestedInput
 }
 
 export type EnquiryUncheckedUpdateInput = {
@@ -523,6 +542,9 @@ export type EnquiryUncheckedUpdateInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  sourceClient?: Prisma.ClientUncheckedUpdateOneWithoutSourceEnquiryNestedInput
+  sourceMatter?: Prisma.MatterUncheckedUpdateOneWithoutSourceEnquiryNestedInput
+  conversion?: Prisma.EnquiryConversionUncheckedUpdateOneWithoutEnquiryNestedInput
 }
 
 export type EnquiryCreateManyInput = {
@@ -603,6 +625,11 @@ export type EnquiryOrderByRelationAggregateInput = {
   _count?: Prisma.SortOrder
 }
 
+export type EnquiryIdOrganisationIdCompoundUniqueInput = {
+  id: string
+  organisationId: string
+}
+
 export type EnquiryCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   organisationId?: Prisma.SortOrder
@@ -673,6 +700,16 @@ export type EnquiryMinOrderByAggregateInput = {
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   deletedAt?: Prisma.SortOrder
+}
+
+export type EnquiryNullableScalarRelationFilter = {
+  is?: Prisma.EnquiryWhereInput | null
+  isNot?: Prisma.EnquiryWhereInput | null
+}
+
+export type EnquiryScalarRelationFilter = {
+  is?: Prisma.EnquiryWhereInput
+  isNot?: Prisma.EnquiryWhereInput
 }
 
 export type EnquiryCreateNestedManyWithoutOrganisationInput = {
@@ -851,6 +888,52 @@ export type EnumEnquiryPriorityFieldUpdateOperationsInput = {
   set?: $Enums.EnquiryPriority
 }
 
+export type EnquiryCreateNestedOneWithoutSourceClientInput = {
+  create?: Prisma.XOR<Prisma.EnquiryCreateWithoutSourceClientInput, Prisma.EnquiryUncheckedCreateWithoutSourceClientInput>
+  connectOrCreate?: Prisma.EnquiryCreateOrConnectWithoutSourceClientInput
+  connect?: Prisma.EnquiryWhereUniqueInput
+}
+
+export type EnquiryUpdateOneWithoutSourceClientNestedInput = {
+  create?: Prisma.XOR<Prisma.EnquiryCreateWithoutSourceClientInput, Prisma.EnquiryUncheckedCreateWithoutSourceClientInput>
+  connectOrCreate?: Prisma.EnquiryCreateOrConnectWithoutSourceClientInput
+  upsert?: Prisma.EnquiryUpsertWithoutSourceClientInput
+  disconnect?: Prisma.EnquiryWhereInput | boolean
+  delete?: Prisma.EnquiryWhereInput | boolean
+  connect?: Prisma.EnquiryWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.EnquiryUpdateToOneWithWhereWithoutSourceClientInput, Prisma.EnquiryUpdateWithoutSourceClientInput>, Prisma.EnquiryUncheckedUpdateWithoutSourceClientInput>
+}
+
+export type EnquiryCreateNestedOneWithoutSourceMatterInput = {
+  create?: Prisma.XOR<Prisma.EnquiryCreateWithoutSourceMatterInput, Prisma.EnquiryUncheckedCreateWithoutSourceMatterInput>
+  connectOrCreate?: Prisma.EnquiryCreateOrConnectWithoutSourceMatterInput
+  connect?: Prisma.EnquiryWhereUniqueInput
+}
+
+export type EnquiryUpdateOneWithoutSourceMatterNestedInput = {
+  create?: Prisma.XOR<Prisma.EnquiryCreateWithoutSourceMatterInput, Prisma.EnquiryUncheckedCreateWithoutSourceMatterInput>
+  connectOrCreate?: Prisma.EnquiryCreateOrConnectWithoutSourceMatterInput
+  upsert?: Prisma.EnquiryUpsertWithoutSourceMatterInput
+  disconnect?: Prisma.EnquiryWhereInput | boolean
+  delete?: Prisma.EnquiryWhereInput | boolean
+  connect?: Prisma.EnquiryWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.EnquiryUpdateToOneWithWhereWithoutSourceMatterInput, Prisma.EnquiryUpdateWithoutSourceMatterInput>, Prisma.EnquiryUncheckedUpdateWithoutSourceMatterInput>
+}
+
+export type EnquiryCreateNestedOneWithoutConversionInput = {
+  create?: Prisma.XOR<Prisma.EnquiryCreateWithoutConversionInput, Prisma.EnquiryUncheckedCreateWithoutConversionInput>
+  connectOrCreate?: Prisma.EnquiryCreateOrConnectWithoutConversionInput
+  connect?: Prisma.EnquiryWhereUniqueInput
+}
+
+export type EnquiryUpdateOneRequiredWithoutConversionNestedInput = {
+  create?: Prisma.XOR<Prisma.EnquiryCreateWithoutConversionInput, Prisma.EnquiryUncheckedCreateWithoutConversionInput>
+  connectOrCreate?: Prisma.EnquiryCreateOrConnectWithoutConversionInput
+  upsert?: Prisma.EnquiryUpsertWithoutConversionInput
+  connect?: Prisma.EnquiryWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.EnquiryUpdateToOneWithWhereWithoutConversionInput, Prisma.EnquiryUpdateWithoutConversionInput>, Prisma.EnquiryUncheckedUpdateWithoutConversionInput>
+}
+
 export type EnquiryCreateWithoutOrganisationInput = {
   id?: string
   firstName: string
@@ -872,6 +955,9 @@ export type EnquiryCreateWithoutOrganisationInput = {
   assignedTo?: Prisma.UserProfileCreateNestedOneWithoutAssignedEnquiriesInput
   createdBy?: Prisma.UserProfileCreateNestedOneWithoutCreatedEnquiriesInput
   updatedBy?: Prisma.UserProfileCreateNestedOneWithoutUpdatedEnquiriesInput
+  sourceClient?: Prisma.ClientCreateNestedOneWithoutSourceEnquiryInput
+  sourceMatter?: Prisma.MatterCreateNestedOneWithoutSourceEnquiryInput
+  conversion?: Prisma.EnquiryConversionCreateNestedOneWithoutEnquiryInput
 }
 
 export type EnquiryUncheckedCreateWithoutOrganisationInput = {
@@ -895,6 +981,9 @@ export type EnquiryUncheckedCreateWithoutOrganisationInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
+  sourceClient?: Prisma.ClientUncheckedCreateNestedOneWithoutSourceEnquiryInput
+  sourceMatter?: Prisma.MatterUncheckedCreateNestedOneWithoutSourceEnquiryInput
+  conversion?: Prisma.EnquiryConversionUncheckedCreateNestedOneWithoutEnquiryInput
 }
 
 export type EnquiryCreateOrConnectWithoutOrganisationInput = {
@@ -971,6 +1060,9 @@ export type EnquiryCreateWithoutAssignedToInput = {
   organisation: Prisma.OrganisationCreateNestedOneWithoutEnquiriesInput
   createdBy?: Prisma.UserProfileCreateNestedOneWithoutCreatedEnquiriesInput
   updatedBy?: Prisma.UserProfileCreateNestedOneWithoutUpdatedEnquiriesInput
+  sourceClient?: Prisma.ClientCreateNestedOneWithoutSourceEnquiryInput
+  sourceMatter?: Prisma.MatterCreateNestedOneWithoutSourceEnquiryInput
+  conversion?: Prisma.EnquiryConversionCreateNestedOneWithoutEnquiryInput
 }
 
 export type EnquiryUncheckedCreateWithoutAssignedToInput = {
@@ -994,6 +1086,9 @@ export type EnquiryUncheckedCreateWithoutAssignedToInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
+  sourceClient?: Prisma.ClientUncheckedCreateNestedOneWithoutSourceEnquiryInput
+  sourceMatter?: Prisma.MatterUncheckedCreateNestedOneWithoutSourceEnquiryInput
+  conversion?: Prisma.EnquiryConversionUncheckedCreateNestedOneWithoutEnquiryInput
 }
 
 export type EnquiryCreateOrConnectWithoutAssignedToInput = {
@@ -1027,6 +1122,9 @@ export type EnquiryCreateWithoutCreatedByInput = {
   organisation: Prisma.OrganisationCreateNestedOneWithoutEnquiriesInput
   assignedTo?: Prisma.UserProfileCreateNestedOneWithoutAssignedEnquiriesInput
   updatedBy?: Prisma.UserProfileCreateNestedOneWithoutUpdatedEnquiriesInput
+  sourceClient?: Prisma.ClientCreateNestedOneWithoutSourceEnquiryInput
+  sourceMatter?: Prisma.MatterCreateNestedOneWithoutSourceEnquiryInput
+  conversion?: Prisma.EnquiryConversionCreateNestedOneWithoutEnquiryInput
 }
 
 export type EnquiryUncheckedCreateWithoutCreatedByInput = {
@@ -1050,6 +1148,9 @@ export type EnquiryUncheckedCreateWithoutCreatedByInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
+  sourceClient?: Prisma.ClientUncheckedCreateNestedOneWithoutSourceEnquiryInput
+  sourceMatter?: Prisma.MatterUncheckedCreateNestedOneWithoutSourceEnquiryInput
+  conversion?: Prisma.EnquiryConversionUncheckedCreateNestedOneWithoutEnquiryInput
 }
 
 export type EnquiryCreateOrConnectWithoutCreatedByInput = {
@@ -1083,6 +1184,9 @@ export type EnquiryCreateWithoutUpdatedByInput = {
   organisation: Prisma.OrganisationCreateNestedOneWithoutEnquiriesInput
   assignedTo?: Prisma.UserProfileCreateNestedOneWithoutAssignedEnquiriesInput
   createdBy?: Prisma.UserProfileCreateNestedOneWithoutCreatedEnquiriesInput
+  sourceClient?: Prisma.ClientCreateNestedOneWithoutSourceEnquiryInput
+  sourceMatter?: Prisma.MatterCreateNestedOneWithoutSourceEnquiryInput
+  conversion?: Prisma.EnquiryConversionCreateNestedOneWithoutEnquiryInput
 }
 
 export type EnquiryUncheckedCreateWithoutUpdatedByInput = {
@@ -1106,6 +1210,9 @@ export type EnquiryUncheckedCreateWithoutUpdatedByInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
+  sourceClient?: Prisma.ClientUncheckedCreateNestedOneWithoutSourceEnquiryInput
+  sourceMatter?: Prisma.MatterUncheckedCreateNestedOneWithoutSourceEnquiryInput
+  conversion?: Prisma.EnquiryConversionUncheckedCreateNestedOneWithoutEnquiryInput
 }
 
 export type EnquiryCreateOrConnectWithoutUpdatedByInput = {
@@ -1166,6 +1273,366 @@ export type EnquiryUpdateManyWithWhereWithoutUpdatedByInput = {
   data: Prisma.XOR<Prisma.EnquiryUpdateManyMutationInput, Prisma.EnquiryUncheckedUpdateManyWithoutUpdatedByInput>
 }
 
+export type EnquiryCreateWithoutSourceClientInput = {
+  id?: string
+  firstName: string
+  lastName?: string | null
+  email?: string | null
+  phone?: string | null
+  country?: string | null
+  serviceType?: string | null
+  message?: string | null
+  source?: string | null
+  status?: $Enums.EnquiryStatus
+  priority?: $Enums.EnquiryPriority
+  nextFollowUpAt?: Date | string | null
+  lastContactedAt?: Date | string | null
+  convertedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  organisation: Prisma.OrganisationCreateNestedOneWithoutEnquiriesInput
+  assignedTo?: Prisma.UserProfileCreateNestedOneWithoutAssignedEnquiriesInput
+  createdBy?: Prisma.UserProfileCreateNestedOneWithoutCreatedEnquiriesInput
+  updatedBy?: Prisma.UserProfileCreateNestedOneWithoutUpdatedEnquiriesInput
+  sourceMatter?: Prisma.MatterCreateNestedOneWithoutSourceEnquiryInput
+  conversion?: Prisma.EnquiryConversionCreateNestedOneWithoutEnquiryInput
+}
+
+export type EnquiryUncheckedCreateWithoutSourceClientInput = {
+  id?: string
+  organisationId: string
+  assignedToUserId?: string | null
+  firstName: string
+  lastName?: string | null
+  email?: string | null
+  phone?: string | null
+  country?: string | null
+  serviceType?: string | null
+  message?: string | null
+  source?: string | null
+  status?: $Enums.EnquiryStatus
+  priority?: $Enums.EnquiryPriority
+  nextFollowUpAt?: Date | string | null
+  lastContactedAt?: Date | string | null
+  convertedAt?: Date | string | null
+  createdByUserId?: string | null
+  updatedByUserId?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  sourceMatter?: Prisma.MatterUncheckedCreateNestedOneWithoutSourceEnquiryInput
+  conversion?: Prisma.EnquiryConversionUncheckedCreateNestedOneWithoutEnquiryInput
+}
+
+export type EnquiryCreateOrConnectWithoutSourceClientInput = {
+  where: Prisma.EnquiryWhereUniqueInput
+  create: Prisma.XOR<Prisma.EnquiryCreateWithoutSourceClientInput, Prisma.EnquiryUncheckedCreateWithoutSourceClientInput>
+}
+
+export type EnquiryUpsertWithoutSourceClientInput = {
+  update: Prisma.XOR<Prisma.EnquiryUpdateWithoutSourceClientInput, Prisma.EnquiryUncheckedUpdateWithoutSourceClientInput>
+  create: Prisma.XOR<Prisma.EnquiryCreateWithoutSourceClientInput, Prisma.EnquiryUncheckedCreateWithoutSourceClientInput>
+  where?: Prisma.EnquiryWhereInput
+}
+
+export type EnquiryUpdateToOneWithWhereWithoutSourceClientInput = {
+  where?: Prisma.EnquiryWhereInput
+  data: Prisma.XOR<Prisma.EnquiryUpdateWithoutSourceClientInput, Prisma.EnquiryUncheckedUpdateWithoutSourceClientInput>
+}
+
+export type EnquiryUpdateWithoutSourceClientInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.StringFieldUpdateOperationsInput | string
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  country?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  serviceType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  message?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  source?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumEnquiryStatusFieldUpdateOperationsInput | $Enums.EnquiryStatus
+  priority?: Prisma.EnumEnquiryPriorityFieldUpdateOperationsInput | $Enums.EnquiryPriority
+  nextFollowUpAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  lastContactedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  convertedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  organisation?: Prisma.OrganisationUpdateOneRequiredWithoutEnquiriesNestedInput
+  assignedTo?: Prisma.UserProfileUpdateOneWithoutAssignedEnquiriesNestedInput
+  createdBy?: Prisma.UserProfileUpdateOneWithoutCreatedEnquiriesNestedInput
+  updatedBy?: Prisma.UserProfileUpdateOneWithoutUpdatedEnquiriesNestedInput
+  sourceMatter?: Prisma.MatterUpdateOneWithoutSourceEnquiryNestedInput
+  conversion?: Prisma.EnquiryConversionUpdateOneWithoutEnquiryNestedInput
+}
+
+export type EnquiryUncheckedUpdateWithoutSourceClientInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  organisationId?: Prisma.StringFieldUpdateOperationsInput | string
+  assignedToUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  firstName?: Prisma.StringFieldUpdateOperationsInput | string
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  country?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  serviceType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  message?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  source?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumEnquiryStatusFieldUpdateOperationsInput | $Enums.EnquiryStatus
+  priority?: Prisma.EnumEnquiryPriorityFieldUpdateOperationsInput | $Enums.EnquiryPriority
+  nextFollowUpAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  lastContactedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  convertedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  updatedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  sourceMatter?: Prisma.MatterUncheckedUpdateOneWithoutSourceEnquiryNestedInput
+  conversion?: Prisma.EnquiryConversionUncheckedUpdateOneWithoutEnquiryNestedInput
+}
+
+export type EnquiryCreateWithoutSourceMatterInput = {
+  id?: string
+  firstName: string
+  lastName?: string | null
+  email?: string | null
+  phone?: string | null
+  country?: string | null
+  serviceType?: string | null
+  message?: string | null
+  source?: string | null
+  status?: $Enums.EnquiryStatus
+  priority?: $Enums.EnquiryPriority
+  nextFollowUpAt?: Date | string | null
+  lastContactedAt?: Date | string | null
+  convertedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  organisation: Prisma.OrganisationCreateNestedOneWithoutEnquiriesInput
+  assignedTo?: Prisma.UserProfileCreateNestedOneWithoutAssignedEnquiriesInput
+  createdBy?: Prisma.UserProfileCreateNestedOneWithoutCreatedEnquiriesInput
+  updatedBy?: Prisma.UserProfileCreateNestedOneWithoutUpdatedEnquiriesInput
+  sourceClient?: Prisma.ClientCreateNestedOneWithoutSourceEnquiryInput
+  conversion?: Prisma.EnquiryConversionCreateNestedOneWithoutEnquiryInput
+}
+
+export type EnquiryUncheckedCreateWithoutSourceMatterInput = {
+  id?: string
+  organisationId: string
+  assignedToUserId?: string | null
+  firstName: string
+  lastName?: string | null
+  email?: string | null
+  phone?: string | null
+  country?: string | null
+  serviceType?: string | null
+  message?: string | null
+  source?: string | null
+  status?: $Enums.EnquiryStatus
+  priority?: $Enums.EnquiryPriority
+  nextFollowUpAt?: Date | string | null
+  lastContactedAt?: Date | string | null
+  convertedAt?: Date | string | null
+  createdByUserId?: string | null
+  updatedByUserId?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  sourceClient?: Prisma.ClientUncheckedCreateNestedOneWithoutSourceEnquiryInput
+  conversion?: Prisma.EnquiryConversionUncheckedCreateNestedOneWithoutEnquiryInput
+}
+
+export type EnquiryCreateOrConnectWithoutSourceMatterInput = {
+  where: Prisma.EnquiryWhereUniqueInput
+  create: Prisma.XOR<Prisma.EnquiryCreateWithoutSourceMatterInput, Prisma.EnquiryUncheckedCreateWithoutSourceMatterInput>
+}
+
+export type EnquiryUpsertWithoutSourceMatterInput = {
+  update: Prisma.XOR<Prisma.EnquiryUpdateWithoutSourceMatterInput, Prisma.EnquiryUncheckedUpdateWithoutSourceMatterInput>
+  create: Prisma.XOR<Prisma.EnquiryCreateWithoutSourceMatterInput, Prisma.EnquiryUncheckedCreateWithoutSourceMatterInput>
+  where?: Prisma.EnquiryWhereInput
+}
+
+export type EnquiryUpdateToOneWithWhereWithoutSourceMatterInput = {
+  where?: Prisma.EnquiryWhereInput
+  data: Prisma.XOR<Prisma.EnquiryUpdateWithoutSourceMatterInput, Prisma.EnquiryUncheckedUpdateWithoutSourceMatterInput>
+}
+
+export type EnquiryUpdateWithoutSourceMatterInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.StringFieldUpdateOperationsInput | string
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  country?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  serviceType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  message?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  source?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumEnquiryStatusFieldUpdateOperationsInput | $Enums.EnquiryStatus
+  priority?: Prisma.EnumEnquiryPriorityFieldUpdateOperationsInput | $Enums.EnquiryPriority
+  nextFollowUpAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  lastContactedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  convertedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  organisation?: Prisma.OrganisationUpdateOneRequiredWithoutEnquiriesNestedInput
+  assignedTo?: Prisma.UserProfileUpdateOneWithoutAssignedEnquiriesNestedInput
+  createdBy?: Prisma.UserProfileUpdateOneWithoutCreatedEnquiriesNestedInput
+  updatedBy?: Prisma.UserProfileUpdateOneWithoutUpdatedEnquiriesNestedInput
+  sourceClient?: Prisma.ClientUpdateOneWithoutSourceEnquiryNestedInput
+  conversion?: Prisma.EnquiryConversionUpdateOneWithoutEnquiryNestedInput
+}
+
+export type EnquiryUncheckedUpdateWithoutSourceMatterInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  organisationId?: Prisma.StringFieldUpdateOperationsInput | string
+  assignedToUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  firstName?: Prisma.StringFieldUpdateOperationsInput | string
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  country?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  serviceType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  message?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  source?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumEnquiryStatusFieldUpdateOperationsInput | $Enums.EnquiryStatus
+  priority?: Prisma.EnumEnquiryPriorityFieldUpdateOperationsInput | $Enums.EnquiryPriority
+  nextFollowUpAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  lastContactedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  convertedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  updatedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  sourceClient?: Prisma.ClientUncheckedUpdateOneWithoutSourceEnquiryNestedInput
+  conversion?: Prisma.EnquiryConversionUncheckedUpdateOneWithoutEnquiryNestedInput
+}
+
+export type EnquiryCreateWithoutConversionInput = {
+  id?: string
+  firstName: string
+  lastName?: string | null
+  email?: string | null
+  phone?: string | null
+  country?: string | null
+  serviceType?: string | null
+  message?: string | null
+  source?: string | null
+  status?: $Enums.EnquiryStatus
+  priority?: $Enums.EnquiryPriority
+  nextFollowUpAt?: Date | string | null
+  lastContactedAt?: Date | string | null
+  convertedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  organisation: Prisma.OrganisationCreateNestedOneWithoutEnquiriesInput
+  assignedTo?: Prisma.UserProfileCreateNestedOneWithoutAssignedEnquiriesInput
+  createdBy?: Prisma.UserProfileCreateNestedOneWithoutCreatedEnquiriesInput
+  updatedBy?: Prisma.UserProfileCreateNestedOneWithoutUpdatedEnquiriesInput
+  sourceClient?: Prisma.ClientCreateNestedOneWithoutSourceEnquiryInput
+  sourceMatter?: Prisma.MatterCreateNestedOneWithoutSourceEnquiryInput
+}
+
+export type EnquiryUncheckedCreateWithoutConversionInput = {
+  id?: string
+  organisationId: string
+  assignedToUserId?: string | null
+  firstName: string
+  lastName?: string | null
+  email?: string | null
+  phone?: string | null
+  country?: string | null
+  serviceType?: string | null
+  message?: string | null
+  source?: string | null
+  status?: $Enums.EnquiryStatus
+  priority?: $Enums.EnquiryPriority
+  nextFollowUpAt?: Date | string | null
+  lastContactedAt?: Date | string | null
+  convertedAt?: Date | string | null
+  createdByUserId?: string | null
+  updatedByUserId?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  sourceClient?: Prisma.ClientUncheckedCreateNestedOneWithoutSourceEnquiryInput
+  sourceMatter?: Prisma.MatterUncheckedCreateNestedOneWithoutSourceEnquiryInput
+}
+
+export type EnquiryCreateOrConnectWithoutConversionInput = {
+  where: Prisma.EnquiryWhereUniqueInput
+  create: Prisma.XOR<Prisma.EnquiryCreateWithoutConversionInput, Prisma.EnquiryUncheckedCreateWithoutConversionInput>
+}
+
+export type EnquiryUpsertWithoutConversionInput = {
+  update: Prisma.XOR<Prisma.EnquiryUpdateWithoutConversionInput, Prisma.EnquiryUncheckedUpdateWithoutConversionInput>
+  create: Prisma.XOR<Prisma.EnquiryCreateWithoutConversionInput, Prisma.EnquiryUncheckedCreateWithoutConversionInput>
+  where?: Prisma.EnquiryWhereInput
+}
+
+export type EnquiryUpdateToOneWithWhereWithoutConversionInput = {
+  where?: Prisma.EnquiryWhereInput
+  data: Prisma.XOR<Prisma.EnquiryUpdateWithoutConversionInput, Prisma.EnquiryUncheckedUpdateWithoutConversionInput>
+}
+
+export type EnquiryUpdateWithoutConversionInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.StringFieldUpdateOperationsInput | string
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  country?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  serviceType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  message?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  source?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumEnquiryStatusFieldUpdateOperationsInput | $Enums.EnquiryStatus
+  priority?: Prisma.EnumEnquiryPriorityFieldUpdateOperationsInput | $Enums.EnquiryPriority
+  nextFollowUpAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  lastContactedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  convertedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  organisation?: Prisma.OrganisationUpdateOneRequiredWithoutEnquiriesNestedInput
+  assignedTo?: Prisma.UserProfileUpdateOneWithoutAssignedEnquiriesNestedInput
+  createdBy?: Prisma.UserProfileUpdateOneWithoutCreatedEnquiriesNestedInput
+  updatedBy?: Prisma.UserProfileUpdateOneWithoutUpdatedEnquiriesNestedInput
+  sourceClient?: Prisma.ClientUpdateOneWithoutSourceEnquiryNestedInput
+  sourceMatter?: Prisma.MatterUpdateOneWithoutSourceEnquiryNestedInput
+}
+
+export type EnquiryUncheckedUpdateWithoutConversionInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  organisationId?: Prisma.StringFieldUpdateOperationsInput | string
+  assignedToUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  firstName?: Prisma.StringFieldUpdateOperationsInput | string
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  country?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  serviceType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  message?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  source?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumEnquiryStatusFieldUpdateOperationsInput | $Enums.EnquiryStatus
+  priority?: Prisma.EnumEnquiryPriorityFieldUpdateOperationsInput | $Enums.EnquiryPriority
+  nextFollowUpAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  lastContactedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  convertedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  updatedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  sourceClient?: Prisma.ClientUncheckedUpdateOneWithoutSourceEnquiryNestedInput
+  sourceMatter?: Prisma.MatterUncheckedUpdateOneWithoutSourceEnquiryNestedInput
+}
+
 export type EnquiryCreateManyOrganisationInput = {
   id?: string
   assignedToUserId?: string | null
@@ -1210,6 +1677,9 @@ export type EnquiryUpdateWithoutOrganisationInput = {
   assignedTo?: Prisma.UserProfileUpdateOneWithoutAssignedEnquiriesNestedInput
   createdBy?: Prisma.UserProfileUpdateOneWithoutCreatedEnquiriesNestedInput
   updatedBy?: Prisma.UserProfileUpdateOneWithoutUpdatedEnquiriesNestedInput
+  sourceClient?: Prisma.ClientUpdateOneWithoutSourceEnquiryNestedInput
+  sourceMatter?: Prisma.MatterUpdateOneWithoutSourceEnquiryNestedInput
+  conversion?: Prisma.EnquiryConversionUpdateOneWithoutEnquiryNestedInput
 }
 
 export type EnquiryUncheckedUpdateWithoutOrganisationInput = {
@@ -1233,6 +1703,9 @@ export type EnquiryUncheckedUpdateWithoutOrganisationInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  sourceClient?: Prisma.ClientUncheckedUpdateOneWithoutSourceEnquiryNestedInput
+  sourceMatter?: Prisma.MatterUncheckedUpdateOneWithoutSourceEnquiryNestedInput
+  conversion?: Prisma.EnquiryConversionUncheckedUpdateOneWithoutEnquiryNestedInput
 }
 
 export type EnquiryUncheckedUpdateManyWithoutOrganisationInput = {
@@ -1348,6 +1821,9 @@ export type EnquiryUpdateWithoutAssignedToInput = {
   organisation?: Prisma.OrganisationUpdateOneRequiredWithoutEnquiriesNestedInput
   createdBy?: Prisma.UserProfileUpdateOneWithoutCreatedEnquiriesNestedInput
   updatedBy?: Prisma.UserProfileUpdateOneWithoutUpdatedEnquiriesNestedInput
+  sourceClient?: Prisma.ClientUpdateOneWithoutSourceEnquiryNestedInput
+  sourceMatter?: Prisma.MatterUpdateOneWithoutSourceEnquiryNestedInput
+  conversion?: Prisma.EnquiryConversionUpdateOneWithoutEnquiryNestedInput
 }
 
 export type EnquiryUncheckedUpdateWithoutAssignedToInput = {
@@ -1371,6 +1847,9 @@ export type EnquiryUncheckedUpdateWithoutAssignedToInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  sourceClient?: Prisma.ClientUncheckedUpdateOneWithoutSourceEnquiryNestedInput
+  sourceMatter?: Prisma.MatterUncheckedUpdateOneWithoutSourceEnquiryNestedInput
+  conversion?: Prisma.EnquiryConversionUncheckedUpdateOneWithoutEnquiryNestedInput
 }
 
 export type EnquiryUncheckedUpdateManyWithoutAssignedToInput = {
@@ -1417,6 +1896,9 @@ export type EnquiryUpdateWithoutCreatedByInput = {
   organisation?: Prisma.OrganisationUpdateOneRequiredWithoutEnquiriesNestedInput
   assignedTo?: Prisma.UserProfileUpdateOneWithoutAssignedEnquiriesNestedInput
   updatedBy?: Prisma.UserProfileUpdateOneWithoutUpdatedEnquiriesNestedInput
+  sourceClient?: Prisma.ClientUpdateOneWithoutSourceEnquiryNestedInput
+  sourceMatter?: Prisma.MatterUpdateOneWithoutSourceEnquiryNestedInput
+  conversion?: Prisma.EnquiryConversionUpdateOneWithoutEnquiryNestedInput
 }
 
 export type EnquiryUncheckedUpdateWithoutCreatedByInput = {
@@ -1440,6 +1922,9 @@ export type EnquiryUncheckedUpdateWithoutCreatedByInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  sourceClient?: Prisma.ClientUncheckedUpdateOneWithoutSourceEnquiryNestedInput
+  sourceMatter?: Prisma.MatterUncheckedUpdateOneWithoutSourceEnquiryNestedInput
+  conversion?: Prisma.EnquiryConversionUncheckedUpdateOneWithoutEnquiryNestedInput
 }
 
 export type EnquiryUncheckedUpdateManyWithoutCreatedByInput = {
@@ -1486,6 +1971,9 @@ export type EnquiryUpdateWithoutUpdatedByInput = {
   organisation?: Prisma.OrganisationUpdateOneRequiredWithoutEnquiriesNestedInput
   assignedTo?: Prisma.UserProfileUpdateOneWithoutAssignedEnquiriesNestedInput
   createdBy?: Prisma.UserProfileUpdateOneWithoutCreatedEnquiriesNestedInput
+  sourceClient?: Prisma.ClientUpdateOneWithoutSourceEnquiryNestedInput
+  sourceMatter?: Prisma.MatterUpdateOneWithoutSourceEnquiryNestedInput
+  conversion?: Prisma.EnquiryConversionUpdateOneWithoutEnquiryNestedInput
 }
 
 export type EnquiryUncheckedUpdateWithoutUpdatedByInput = {
@@ -1509,6 +1997,9 @@ export type EnquiryUncheckedUpdateWithoutUpdatedByInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  sourceClient?: Prisma.ClientUncheckedUpdateOneWithoutSourceEnquiryNestedInput
+  sourceMatter?: Prisma.MatterUncheckedUpdateOneWithoutSourceEnquiryNestedInput
+  conversion?: Prisma.EnquiryConversionUncheckedUpdateOneWithoutEnquiryNestedInput
 }
 
 export type EnquiryUncheckedUpdateManyWithoutUpdatedByInput = {
@@ -1562,6 +2053,9 @@ export type EnquirySelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   assignedTo?: boolean | Prisma.Enquiry$assignedToArgs<ExtArgs>
   createdBy?: boolean | Prisma.Enquiry$createdByArgs<ExtArgs>
   updatedBy?: boolean | Prisma.Enquiry$updatedByArgs<ExtArgs>
+  sourceClient?: boolean | Prisma.Enquiry$sourceClientArgs<ExtArgs>
+  sourceMatter?: boolean | Prisma.Enquiry$sourceMatterArgs<ExtArgs>
+  conversion?: boolean | Prisma.Enquiry$conversionArgs<ExtArgs>
 }, ExtArgs["result"]["enquiry"]>
 
 export type EnquirySelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -1650,6 +2144,9 @@ export type EnquiryInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs
   assignedTo?: boolean | Prisma.Enquiry$assignedToArgs<ExtArgs>
   createdBy?: boolean | Prisma.Enquiry$createdByArgs<ExtArgs>
   updatedBy?: boolean | Prisma.Enquiry$updatedByArgs<ExtArgs>
+  sourceClient?: boolean | Prisma.Enquiry$sourceClientArgs<ExtArgs>
+  sourceMatter?: boolean | Prisma.Enquiry$sourceMatterArgs<ExtArgs>
+  conversion?: boolean | Prisma.Enquiry$conversionArgs<ExtArgs>
 }
 export type EnquiryIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   organisation?: boolean | Prisma.OrganisationDefaultArgs<ExtArgs>
@@ -1671,6 +2168,9 @@ export type $EnquiryPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     assignedTo: Prisma.$UserProfilePayload<ExtArgs> | null
     createdBy: Prisma.$UserProfilePayload<ExtArgs> | null
     updatedBy: Prisma.$UserProfilePayload<ExtArgs> | null
+    sourceClient: Prisma.$ClientPayload<ExtArgs> | null
+    sourceMatter: Prisma.$MatterPayload<ExtArgs> | null
+    conversion: Prisma.$EnquiryConversionPayload<ExtArgs> | null
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -2092,6 +2592,9 @@ export interface Prisma__EnquiryClient<T, Null = never, ExtArgs extends runtime.
   assignedTo<T extends Prisma.Enquiry$assignedToArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Enquiry$assignedToArgs<ExtArgs>>): Prisma.Prisma__UserProfileClient<runtime.Types.Result.GetResult<Prisma.$UserProfilePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   createdBy<T extends Prisma.Enquiry$createdByArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Enquiry$createdByArgs<ExtArgs>>): Prisma.Prisma__UserProfileClient<runtime.Types.Result.GetResult<Prisma.$UserProfilePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   updatedBy<T extends Prisma.Enquiry$updatedByArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Enquiry$updatedByArgs<ExtArgs>>): Prisma.Prisma__UserProfileClient<runtime.Types.Result.GetResult<Prisma.$UserProfilePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  sourceClient<T extends Prisma.Enquiry$sourceClientArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Enquiry$sourceClientArgs<ExtArgs>>): Prisma.Prisma__ClientClient<runtime.Types.Result.GetResult<Prisma.$ClientPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  sourceMatter<T extends Prisma.Enquiry$sourceMatterArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Enquiry$sourceMatterArgs<ExtArgs>>): Prisma.Prisma__MatterClient<runtime.Types.Result.GetResult<Prisma.$MatterPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  conversion<T extends Prisma.Enquiry$conversionArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Enquiry$conversionArgs<ExtArgs>>): Prisma.Prisma__EnquiryConversionClient<runtime.Types.Result.GetResult<Prisma.$EnquiryConversionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2597,6 +3100,63 @@ export type Enquiry$updatedByArgs<ExtArgs extends runtime.Types.Extensions.Inter
    */
   include?: Prisma.UserProfileInclude<ExtArgs> | null
   where?: Prisma.UserProfileWhereInput
+}
+
+/**
+ * Enquiry.sourceClient
+ */
+export type Enquiry$sourceClientArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Client
+   */
+  select?: Prisma.ClientSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Client
+   */
+  omit?: Prisma.ClientOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ClientInclude<ExtArgs> | null
+  where?: Prisma.ClientWhereInput
+}
+
+/**
+ * Enquiry.sourceMatter
+ */
+export type Enquiry$sourceMatterArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Matter
+   */
+  select?: Prisma.MatterSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Matter
+   */
+  omit?: Prisma.MatterOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.MatterInclude<ExtArgs> | null
+  where?: Prisma.MatterWhereInput
+}
+
+/**
+ * Enquiry.conversion
+ */
+export type Enquiry$conversionArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the EnquiryConversion
+   */
+  select?: Prisma.EnquiryConversionSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the EnquiryConversion
+   */
+  omit?: Prisma.EnquiryConversionOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.EnquiryConversionInclude<ExtArgs> | null
+  where?: Prisma.EnquiryConversionWhereInput
 }
 
 /**

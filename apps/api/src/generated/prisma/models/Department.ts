@@ -228,6 +228,13 @@ export type DepartmentWhereInput = {
   memberships?: Prisma.DepartmentMembershipListRelationFilter
   teams?: Prisma.TeamListRelationFilter
   roleAssignments?: Prisma.RoleAssignmentListRelationFilter
+  jobProfiles?: Prisma.JobProfileListRelationFilter
+  kpiDefinitions?: Prisma.KpiDefinitionListRelationFilter
+  agentProfiles?: Prisma.AgentProfileListRelationFilter
+  workforceAssignments?: Prisma.WorkforceAssignmentListRelationFilter
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanListRelationFilter
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleListRelationFilter
+  matters?: Prisma.MatterListRelationFilter
 }
 
 export type DepartmentOrderByWithRelationInput = {
@@ -247,6 +254,13 @@ export type DepartmentOrderByWithRelationInput = {
   memberships?: Prisma.DepartmentMembershipOrderByRelationAggregateInput
   teams?: Prisma.TeamOrderByRelationAggregateInput
   roleAssignments?: Prisma.RoleAssignmentOrderByRelationAggregateInput
+  jobProfiles?: Prisma.JobProfileOrderByRelationAggregateInput
+  kpiDefinitions?: Prisma.KpiDefinitionOrderByRelationAggregateInput
+  agentProfiles?: Prisma.AgentProfileOrderByRelationAggregateInput
+  workforceAssignments?: Prisma.WorkforceAssignmentOrderByRelationAggregateInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanOrderByRelationAggregateInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleOrderByRelationAggregateInput
+  matters?: Prisma.MatterOrderByRelationAggregateInput
 }
 
 export type DepartmentWhereUniqueInput = Prisma.AtLeast<{
@@ -272,6 +286,13 @@ export type DepartmentWhereUniqueInput = Prisma.AtLeast<{
   memberships?: Prisma.DepartmentMembershipListRelationFilter
   teams?: Prisma.TeamListRelationFilter
   roleAssignments?: Prisma.RoleAssignmentListRelationFilter
+  jobProfiles?: Prisma.JobProfileListRelationFilter
+  kpiDefinitions?: Prisma.KpiDefinitionListRelationFilter
+  agentProfiles?: Prisma.AgentProfileListRelationFilter
+  workforceAssignments?: Prisma.WorkforceAssignmentListRelationFilter
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanListRelationFilter
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleListRelationFilter
+  matters?: Prisma.MatterListRelationFilter
 }, "id" | "id_organisationId" | "organisationId_name" | "organisationId_code">
 
 export type DepartmentOrderByWithAggregationInput = {
@@ -321,6 +342,13 @@ export type DepartmentCreateInput = {
   memberships?: Prisma.DepartmentMembershipCreateNestedManyWithoutDepartmentInput
   teams?: Prisma.TeamCreateNestedManyWithoutDepartmentInput
   roleAssignments?: Prisma.RoleAssignmentCreateNestedManyWithoutDepartmentInput
+  jobProfiles?: Prisma.JobProfileCreateNestedManyWithoutDepartmentInput
+  kpiDefinitions?: Prisma.KpiDefinitionCreateNestedManyWithoutDepartmentInput
+  agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutDepartmentInput
+  workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutDepartmentInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutDepartmentInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleCreateNestedManyWithoutDepartmentInput
+  matters?: Prisma.MatterCreateNestedManyWithoutDepartmentInput
 }
 
 export type DepartmentUncheckedCreateInput = {
@@ -338,6 +366,13 @@ export type DepartmentUncheckedCreateInput = {
   memberships?: Prisma.DepartmentMembershipUncheckedCreateNestedManyWithoutDepartmentInput
   teams?: Prisma.TeamUncheckedCreateNestedManyWithoutDepartmentInput
   roleAssignments?: Prisma.RoleAssignmentUncheckedCreateNestedManyWithoutDepartmentInput
+  jobProfiles?: Prisma.JobProfileUncheckedCreateNestedManyWithoutDepartmentInput
+  kpiDefinitions?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutDepartmentInput
+  agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutDepartmentInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutDepartmentInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutDepartmentInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUncheckedCreateNestedManyWithoutDepartmentInput
+  matters?: Prisma.MatterUncheckedCreateNestedManyWithoutDepartmentInput
 }
 
 export type DepartmentUpdateInput = {
@@ -355,6 +390,13 @@ export type DepartmentUpdateInput = {
   memberships?: Prisma.DepartmentMembershipUpdateManyWithoutDepartmentNestedInput
   teams?: Prisma.TeamUpdateManyWithoutDepartmentNestedInput
   roleAssignments?: Prisma.RoleAssignmentUpdateManyWithoutDepartmentNestedInput
+  jobProfiles?: Prisma.JobProfileUpdateManyWithoutDepartmentNestedInput
+  kpiDefinitions?: Prisma.KpiDefinitionUpdateManyWithoutDepartmentNestedInput
+  agentProfiles?: Prisma.AgentProfileUpdateManyWithoutDepartmentNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutDepartmentNestedInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutDepartmentNestedInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUpdateManyWithoutDepartmentNestedInput
+  matters?: Prisma.MatterUpdateManyWithoutDepartmentNestedInput
 }
 
 export type DepartmentUncheckedUpdateInput = {
@@ -372,6 +414,13 @@ export type DepartmentUncheckedUpdateInput = {
   memberships?: Prisma.DepartmentMembershipUncheckedUpdateManyWithoutDepartmentNestedInput
   teams?: Prisma.TeamUncheckedUpdateManyWithoutDepartmentNestedInput
   roleAssignments?: Prisma.RoleAssignmentUncheckedUpdateManyWithoutDepartmentNestedInput
+  jobProfiles?: Prisma.JobProfileUncheckedUpdateManyWithoutDepartmentNestedInput
+  kpiDefinitions?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutDepartmentNestedInput
+  agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutDepartmentNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutDepartmentNestedInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutDepartmentNestedInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUncheckedUpdateManyWithoutDepartmentNestedInput
+  matters?: Prisma.MatterUncheckedUpdateManyWithoutDepartmentNestedInput
 }
 
 export type DepartmentCreateManyInput = {
@@ -631,6 +680,118 @@ export type DepartmentUpdateOneWithoutRoleAssignmentsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.DepartmentUpdateToOneWithWhereWithoutRoleAssignmentsInput, Prisma.DepartmentUpdateWithoutRoleAssignmentsInput>, Prisma.DepartmentUncheckedUpdateWithoutRoleAssignmentsInput>
 }
 
+export type DepartmentCreateNestedOneWithoutJobProfilesInput = {
+  create?: Prisma.XOR<Prisma.DepartmentCreateWithoutJobProfilesInput, Prisma.DepartmentUncheckedCreateWithoutJobProfilesInput>
+  connectOrCreate?: Prisma.DepartmentCreateOrConnectWithoutJobProfilesInput
+  connect?: Prisma.DepartmentWhereUniqueInput
+}
+
+export type DepartmentUpdateOneWithoutJobProfilesNestedInput = {
+  create?: Prisma.XOR<Prisma.DepartmentCreateWithoutJobProfilesInput, Prisma.DepartmentUncheckedCreateWithoutJobProfilesInput>
+  connectOrCreate?: Prisma.DepartmentCreateOrConnectWithoutJobProfilesInput
+  upsert?: Prisma.DepartmentUpsertWithoutJobProfilesInput
+  disconnect?: Prisma.DepartmentWhereInput | boolean
+  delete?: Prisma.DepartmentWhereInput | boolean
+  connect?: Prisma.DepartmentWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.DepartmentUpdateToOneWithWhereWithoutJobProfilesInput, Prisma.DepartmentUpdateWithoutJobProfilesInput>, Prisma.DepartmentUncheckedUpdateWithoutJobProfilesInput>
+}
+
+export type DepartmentCreateNestedOneWithoutKpiDefinitionsInput = {
+  create?: Prisma.XOR<Prisma.DepartmentCreateWithoutKpiDefinitionsInput, Prisma.DepartmentUncheckedCreateWithoutKpiDefinitionsInput>
+  connectOrCreate?: Prisma.DepartmentCreateOrConnectWithoutKpiDefinitionsInput
+  connect?: Prisma.DepartmentWhereUniqueInput
+}
+
+export type DepartmentUpdateOneWithoutKpiDefinitionsNestedInput = {
+  create?: Prisma.XOR<Prisma.DepartmentCreateWithoutKpiDefinitionsInput, Prisma.DepartmentUncheckedCreateWithoutKpiDefinitionsInput>
+  connectOrCreate?: Prisma.DepartmentCreateOrConnectWithoutKpiDefinitionsInput
+  upsert?: Prisma.DepartmentUpsertWithoutKpiDefinitionsInput
+  disconnect?: Prisma.DepartmentWhereInput | boolean
+  delete?: Prisma.DepartmentWhereInput | boolean
+  connect?: Prisma.DepartmentWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.DepartmentUpdateToOneWithWhereWithoutKpiDefinitionsInput, Prisma.DepartmentUpdateWithoutKpiDefinitionsInput>, Prisma.DepartmentUncheckedUpdateWithoutKpiDefinitionsInput>
+}
+
+export type DepartmentCreateNestedOneWithoutAgentProfilesInput = {
+  create?: Prisma.XOR<Prisma.DepartmentCreateWithoutAgentProfilesInput, Prisma.DepartmentUncheckedCreateWithoutAgentProfilesInput>
+  connectOrCreate?: Prisma.DepartmentCreateOrConnectWithoutAgentProfilesInput
+  connect?: Prisma.DepartmentWhereUniqueInput
+}
+
+export type DepartmentUpdateOneWithoutAgentProfilesNestedInput = {
+  create?: Prisma.XOR<Prisma.DepartmentCreateWithoutAgentProfilesInput, Prisma.DepartmentUncheckedCreateWithoutAgentProfilesInput>
+  connectOrCreate?: Prisma.DepartmentCreateOrConnectWithoutAgentProfilesInput
+  upsert?: Prisma.DepartmentUpsertWithoutAgentProfilesInput
+  disconnect?: Prisma.DepartmentWhereInput | boolean
+  delete?: Prisma.DepartmentWhereInput | boolean
+  connect?: Prisma.DepartmentWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.DepartmentUpdateToOneWithWhereWithoutAgentProfilesInput, Prisma.DepartmentUpdateWithoutAgentProfilesInput>, Prisma.DepartmentUncheckedUpdateWithoutAgentProfilesInput>
+}
+
+export type DepartmentCreateNestedOneWithoutWorkforceAssignmentsInput = {
+  create?: Prisma.XOR<Prisma.DepartmentCreateWithoutWorkforceAssignmentsInput, Prisma.DepartmentUncheckedCreateWithoutWorkforceAssignmentsInput>
+  connectOrCreate?: Prisma.DepartmentCreateOrConnectWithoutWorkforceAssignmentsInput
+  connect?: Prisma.DepartmentWhereUniqueInput
+}
+
+export type DepartmentUpdateOneWithoutWorkforceAssignmentsNestedInput = {
+  create?: Prisma.XOR<Prisma.DepartmentCreateWithoutWorkforceAssignmentsInput, Prisma.DepartmentUncheckedCreateWithoutWorkforceAssignmentsInput>
+  connectOrCreate?: Prisma.DepartmentCreateOrConnectWithoutWorkforceAssignmentsInput
+  upsert?: Prisma.DepartmentUpsertWithoutWorkforceAssignmentsInput
+  disconnect?: Prisma.DepartmentWhereInput | boolean
+  delete?: Prisma.DepartmentWhereInput | boolean
+  connect?: Prisma.DepartmentWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.DepartmentUpdateToOneWithWhereWithoutWorkforceAssignmentsInput, Prisma.DepartmentUpdateWithoutWorkforceAssignmentsInput>, Prisma.DepartmentUncheckedUpdateWithoutWorkforceAssignmentsInput>
+}
+
+export type DepartmentCreateNestedOneWithoutInvitationOnboardingPlansInput = {
+  create?: Prisma.XOR<Prisma.DepartmentCreateWithoutInvitationOnboardingPlansInput, Prisma.DepartmentUncheckedCreateWithoutInvitationOnboardingPlansInput>
+  connectOrCreate?: Prisma.DepartmentCreateOrConnectWithoutInvitationOnboardingPlansInput
+  connect?: Prisma.DepartmentWhereUniqueInput
+}
+
+export type DepartmentUpdateOneWithoutInvitationOnboardingPlansNestedInput = {
+  create?: Prisma.XOR<Prisma.DepartmentCreateWithoutInvitationOnboardingPlansInput, Prisma.DepartmentUncheckedCreateWithoutInvitationOnboardingPlansInput>
+  connectOrCreate?: Prisma.DepartmentCreateOrConnectWithoutInvitationOnboardingPlansInput
+  upsert?: Prisma.DepartmentUpsertWithoutInvitationOnboardingPlansInput
+  disconnect?: Prisma.DepartmentWhereInput | boolean
+  delete?: Prisma.DepartmentWhereInput | boolean
+  connect?: Prisma.DepartmentWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.DepartmentUpdateToOneWithWhereWithoutInvitationOnboardingPlansInput, Prisma.DepartmentUpdateWithoutInvitationOnboardingPlansInput>, Prisma.DepartmentUncheckedUpdateWithoutInvitationOnboardingPlansInput>
+}
+
+export type DepartmentCreateNestedOneWithoutInvitationOnboardingRolesInput = {
+  create?: Prisma.XOR<Prisma.DepartmentCreateWithoutInvitationOnboardingRolesInput, Prisma.DepartmentUncheckedCreateWithoutInvitationOnboardingRolesInput>
+  connectOrCreate?: Prisma.DepartmentCreateOrConnectWithoutInvitationOnboardingRolesInput
+  connect?: Prisma.DepartmentWhereUniqueInput
+}
+
+export type DepartmentUpdateOneWithoutInvitationOnboardingRolesNestedInput = {
+  create?: Prisma.XOR<Prisma.DepartmentCreateWithoutInvitationOnboardingRolesInput, Prisma.DepartmentUncheckedCreateWithoutInvitationOnboardingRolesInput>
+  connectOrCreate?: Prisma.DepartmentCreateOrConnectWithoutInvitationOnboardingRolesInput
+  upsert?: Prisma.DepartmentUpsertWithoutInvitationOnboardingRolesInput
+  disconnect?: Prisma.DepartmentWhereInput | boolean
+  delete?: Prisma.DepartmentWhereInput | boolean
+  connect?: Prisma.DepartmentWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.DepartmentUpdateToOneWithWhereWithoutInvitationOnboardingRolesInput, Prisma.DepartmentUpdateWithoutInvitationOnboardingRolesInput>, Prisma.DepartmentUncheckedUpdateWithoutInvitationOnboardingRolesInput>
+}
+
+export type DepartmentCreateNestedOneWithoutMattersInput = {
+  create?: Prisma.XOR<Prisma.DepartmentCreateWithoutMattersInput, Prisma.DepartmentUncheckedCreateWithoutMattersInput>
+  connectOrCreate?: Prisma.DepartmentCreateOrConnectWithoutMattersInput
+  connect?: Prisma.DepartmentWhereUniqueInput
+}
+
+export type DepartmentUpdateOneWithoutMattersNestedInput = {
+  create?: Prisma.XOR<Prisma.DepartmentCreateWithoutMattersInput, Prisma.DepartmentUncheckedCreateWithoutMattersInput>
+  connectOrCreate?: Prisma.DepartmentCreateOrConnectWithoutMattersInput
+  upsert?: Prisma.DepartmentUpsertWithoutMattersInput
+  disconnect?: Prisma.DepartmentWhereInput | boolean
+  delete?: Prisma.DepartmentWhereInput | boolean
+  connect?: Prisma.DepartmentWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.DepartmentUpdateToOneWithWhereWithoutMattersInput, Prisma.DepartmentUpdateWithoutMattersInput>, Prisma.DepartmentUncheckedUpdateWithoutMattersInput>
+}
+
 export type DepartmentCreateWithoutOrganisationInput = {
   id?: string
   name: string
@@ -645,6 +806,13 @@ export type DepartmentCreateWithoutOrganisationInput = {
   memberships?: Prisma.DepartmentMembershipCreateNestedManyWithoutDepartmentInput
   teams?: Prisma.TeamCreateNestedManyWithoutDepartmentInput
   roleAssignments?: Prisma.RoleAssignmentCreateNestedManyWithoutDepartmentInput
+  jobProfiles?: Prisma.JobProfileCreateNestedManyWithoutDepartmentInput
+  kpiDefinitions?: Prisma.KpiDefinitionCreateNestedManyWithoutDepartmentInput
+  agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutDepartmentInput
+  workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutDepartmentInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutDepartmentInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleCreateNestedManyWithoutDepartmentInput
+  matters?: Prisma.MatterCreateNestedManyWithoutDepartmentInput
 }
 
 export type DepartmentUncheckedCreateWithoutOrganisationInput = {
@@ -661,6 +829,13 @@ export type DepartmentUncheckedCreateWithoutOrganisationInput = {
   memberships?: Prisma.DepartmentMembershipUncheckedCreateNestedManyWithoutDepartmentInput
   teams?: Prisma.TeamUncheckedCreateNestedManyWithoutDepartmentInput
   roleAssignments?: Prisma.RoleAssignmentUncheckedCreateNestedManyWithoutDepartmentInput
+  jobProfiles?: Prisma.JobProfileUncheckedCreateNestedManyWithoutDepartmentInput
+  kpiDefinitions?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutDepartmentInput
+  agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutDepartmentInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutDepartmentInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutDepartmentInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUncheckedCreateNestedManyWithoutDepartmentInput
+  matters?: Prisma.MatterUncheckedCreateNestedManyWithoutDepartmentInput
 }
 
 export type DepartmentCreateOrConnectWithoutOrganisationInput = {
@@ -719,6 +894,13 @@ export type DepartmentCreateWithoutChildrenInput = {
   memberships?: Prisma.DepartmentMembershipCreateNestedManyWithoutDepartmentInput
   teams?: Prisma.TeamCreateNestedManyWithoutDepartmentInput
   roleAssignments?: Prisma.RoleAssignmentCreateNestedManyWithoutDepartmentInput
+  jobProfiles?: Prisma.JobProfileCreateNestedManyWithoutDepartmentInput
+  kpiDefinitions?: Prisma.KpiDefinitionCreateNestedManyWithoutDepartmentInput
+  agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutDepartmentInput
+  workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutDepartmentInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutDepartmentInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleCreateNestedManyWithoutDepartmentInput
+  matters?: Prisma.MatterCreateNestedManyWithoutDepartmentInput
 }
 
 export type DepartmentUncheckedCreateWithoutChildrenInput = {
@@ -735,6 +917,13 @@ export type DepartmentUncheckedCreateWithoutChildrenInput = {
   memberships?: Prisma.DepartmentMembershipUncheckedCreateNestedManyWithoutDepartmentInput
   teams?: Prisma.TeamUncheckedCreateNestedManyWithoutDepartmentInput
   roleAssignments?: Prisma.RoleAssignmentUncheckedCreateNestedManyWithoutDepartmentInput
+  jobProfiles?: Prisma.JobProfileUncheckedCreateNestedManyWithoutDepartmentInput
+  kpiDefinitions?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutDepartmentInput
+  agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutDepartmentInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutDepartmentInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutDepartmentInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUncheckedCreateNestedManyWithoutDepartmentInput
+  matters?: Prisma.MatterUncheckedCreateNestedManyWithoutDepartmentInput
 }
 
 export type DepartmentCreateOrConnectWithoutChildrenInput = {
@@ -756,6 +945,13 @@ export type DepartmentCreateWithoutParentInput = {
   memberships?: Prisma.DepartmentMembershipCreateNestedManyWithoutDepartmentInput
   teams?: Prisma.TeamCreateNestedManyWithoutDepartmentInput
   roleAssignments?: Prisma.RoleAssignmentCreateNestedManyWithoutDepartmentInput
+  jobProfiles?: Prisma.JobProfileCreateNestedManyWithoutDepartmentInput
+  kpiDefinitions?: Prisma.KpiDefinitionCreateNestedManyWithoutDepartmentInput
+  agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutDepartmentInput
+  workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutDepartmentInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutDepartmentInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleCreateNestedManyWithoutDepartmentInput
+  matters?: Prisma.MatterCreateNestedManyWithoutDepartmentInput
 }
 
 export type DepartmentUncheckedCreateWithoutParentInput = {
@@ -771,6 +967,13 @@ export type DepartmentUncheckedCreateWithoutParentInput = {
   memberships?: Prisma.DepartmentMembershipUncheckedCreateNestedManyWithoutDepartmentInput
   teams?: Prisma.TeamUncheckedCreateNestedManyWithoutDepartmentInput
   roleAssignments?: Prisma.RoleAssignmentUncheckedCreateNestedManyWithoutDepartmentInput
+  jobProfiles?: Prisma.JobProfileUncheckedCreateNestedManyWithoutDepartmentInput
+  kpiDefinitions?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutDepartmentInput
+  agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutDepartmentInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutDepartmentInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutDepartmentInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUncheckedCreateNestedManyWithoutDepartmentInput
+  matters?: Prisma.MatterUncheckedCreateNestedManyWithoutDepartmentInput
 }
 
 export type DepartmentCreateOrConnectWithoutParentInput = {
@@ -808,6 +1011,13 @@ export type DepartmentUpdateWithoutChildrenInput = {
   memberships?: Prisma.DepartmentMembershipUpdateManyWithoutDepartmentNestedInput
   teams?: Prisma.TeamUpdateManyWithoutDepartmentNestedInput
   roleAssignments?: Prisma.RoleAssignmentUpdateManyWithoutDepartmentNestedInput
+  jobProfiles?: Prisma.JobProfileUpdateManyWithoutDepartmentNestedInput
+  kpiDefinitions?: Prisma.KpiDefinitionUpdateManyWithoutDepartmentNestedInput
+  agentProfiles?: Prisma.AgentProfileUpdateManyWithoutDepartmentNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutDepartmentNestedInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutDepartmentNestedInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUpdateManyWithoutDepartmentNestedInput
+  matters?: Prisma.MatterUpdateManyWithoutDepartmentNestedInput
 }
 
 export type DepartmentUncheckedUpdateWithoutChildrenInput = {
@@ -824,6 +1034,13 @@ export type DepartmentUncheckedUpdateWithoutChildrenInput = {
   memberships?: Prisma.DepartmentMembershipUncheckedUpdateManyWithoutDepartmentNestedInput
   teams?: Prisma.TeamUncheckedUpdateManyWithoutDepartmentNestedInput
   roleAssignments?: Prisma.RoleAssignmentUncheckedUpdateManyWithoutDepartmentNestedInput
+  jobProfiles?: Prisma.JobProfileUncheckedUpdateManyWithoutDepartmentNestedInput
+  kpiDefinitions?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutDepartmentNestedInput
+  agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutDepartmentNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutDepartmentNestedInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutDepartmentNestedInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUncheckedUpdateManyWithoutDepartmentNestedInput
+  matters?: Prisma.MatterUncheckedUpdateManyWithoutDepartmentNestedInput
 }
 
 export type DepartmentUpsertWithWhereUniqueWithoutParentInput = {
@@ -856,6 +1073,13 @@ export type DepartmentCreateWithoutMembershipsInput = {
   children?: Prisma.DepartmentCreateNestedManyWithoutParentInput
   teams?: Prisma.TeamCreateNestedManyWithoutDepartmentInput
   roleAssignments?: Prisma.RoleAssignmentCreateNestedManyWithoutDepartmentInput
+  jobProfiles?: Prisma.JobProfileCreateNestedManyWithoutDepartmentInput
+  kpiDefinitions?: Prisma.KpiDefinitionCreateNestedManyWithoutDepartmentInput
+  agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutDepartmentInput
+  workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutDepartmentInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutDepartmentInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleCreateNestedManyWithoutDepartmentInput
+  matters?: Prisma.MatterCreateNestedManyWithoutDepartmentInput
 }
 
 export type DepartmentUncheckedCreateWithoutMembershipsInput = {
@@ -872,6 +1096,13 @@ export type DepartmentUncheckedCreateWithoutMembershipsInput = {
   children?: Prisma.DepartmentUncheckedCreateNestedManyWithoutParentInput
   teams?: Prisma.TeamUncheckedCreateNestedManyWithoutDepartmentInput
   roleAssignments?: Prisma.RoleAssignmentUncheckedCreateNestedManyWithoutDepartmentInput
+  jobProfiles?: Prisma.JobProfileUncheckedCreateNestedManyWithoutDepartmentInput
+  kpiDefinitions?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutDepartmentInput
+  agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutDepartmentInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutDepartmentInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutDepartmentInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUncheckedCreateNestedManyWithoutDepartmentInput
+  matters?: Prisma.MatterUncheckedCreateNestedManyWithoutDepartmentInput
 }
 
 export type DepartmentCreateOrConnectWithoutMembershipsInput = {
@@ -904,6 +1135,13 @@ export type DepartmentUpdateWithoutMembershipsInput = {
   children?: Prisma.DepartmentUpdateManyWithoutParentNestedInput
   teams?: Prisma.TeamUpdateManyWithoutDepartmentNestedInput
   roleAssignments?: Prisma.RoleAssignmentUpdateManyWithoutDepartmentNestedInput
+  jobProfiles?: Prisma.JobProfileUpdateManyWithoutDepartmentNestedInput
+  kpiDefinitions?: Prisma.KpiDefinitionUpdateManyWithoutDepartmentNestedInput
+  agentProfiles?: Prisma.AgentProfileUpdateManyWithoutDepartmentNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutDepartmentNestedInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutDepartmentNestedInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUpdateManyWithoutDepartmentNestedInput
+  matters?: Prisma.MatterUpdateManyWithoutDepartmentNestedInput
 }
 
 export type DepartmentUncheckedUpdateWithoutMembershipsInput = {
@@ -920,6 +1158,13 @@ export type DepartmentUncheckedUpdateWithoutMembershipsInput = {
   children?: Prisma.DepartmentUncheckedUpdateManyWithoutParentNestedInput
   teams?: Prisma.TeamUncheckedUpdateManyWithoutDepartmentNestedInput
   roleAssignments?: Prisma.RoleAssignmentUncheckedUpdateManyWithoutDepartmentNestedInput
+  jobProfiles?: Prisma.JobProfileUncheckedUpdateManyWithoutDepartmentNestedInput
+  kpiDefinitions?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutDepartmentNestedInput
+  agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutDepartmentNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutDepartmentNestedInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutDepartmentNestedInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUncheckedUpdateManyWithoutDepartmentNestedInput
+  matters?: Prisma.MatterUncheckedUpdateManyWithoutDepartmentNestedInput
 }
 
 export type DepartmentCreateWithoutTeamsInput = {
@@ -936,6 +1181,13 @@ export type DepartmentCreateWithoutTeamsInput = {
   children?: Prisma.DepartmentCreateNestedManyWithoutParentInput
   memberships?: Prisma.DepartmentMembershipCreateNestedManyWithoutDepartmentInput
   roleAssignments?: Prisma.RoleAssignmentCreateNestedManyWithoutDepartmentInput
+  jobProfiles?: Prisma.JobProfileCreateNestedManyWithoutDepartmentInput
+  kpiDefinitions?: Prisma.KpiDefinitionCreateNestedManyWithoutDepartmentInput
+  agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutDepartmentInput
+  workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutDepartmentInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutDepartmentInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleCreateNestedManyWithoutDepartmentInput
+  matters?: Prisma.MatterCreateNestedManyWithoutDepartmentInput
 }
 
 export type DepartmentUncheckedCreateWithoutTeamsInput = {
@@ -952,6 +1204,13 @@ export type DepartmentUncheckedCreateWithoutTeamsInput = {
   children?: Prisma.DepartmentUncheckedCreateNestedManyWithoutParentInput
   memberships?: Prisma.DepartmentMembershipUncheckedCreateNestedManyWithoutDepartmentInput
   roleAssignments?: Prisma.RoleAssignmentUncheckedCreateNestedManyWithoutDepartmentInput
+  jobProfiles?: Prisma.JobProfileUncheckedCreateNestedManyWithoutDepartmentInput
+  kpiDefinitions?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutDepartmentInput
+  agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutDepartmentInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutDepartmentInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutDepartmentInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUncheckedCreateNestedManyWithoutDepartmentInput
+  matters?: Prisma.MatterUncheckedCreateNestedManyWithoutDepartmentInput
 }
 
 export type DepartmentCreateOrConnectWithoutTeamsInput = {
@@ -984,6 +1243,13 @@ export type DepartmentUpdateWithoutTeamsInput = {
   children?: Prisma.DepartmentUpdateManyWithoutParentNestedInput
   memberships?: Prisma.DepartmentMembershipUpdateManyWithoutDepartmentNestedInput
   roleAssignments?: Prisma.RoleAssignmentUpdateManyWithoutDepartmentNestedInput
+  jobProfiles?: Prisma.JobProfileUpdateManyWithoutDepartmentNestedInput
+  kpiDefinitions?: Prisma.KpiDefinitionUpdateManyWithoutDepartmentNestedInput
+  agentProfiles?: Prisma.AgentProfileUpdateManyWithoutDepartmentNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutDepartmentNestedInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutDepartmentNestedInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUpdateManyWithoutDepartmentNestedInput
+  matters?: Prisma.MatterUpdateManyWithoutDepartmentNestedInput
 }
 
 export type DepartmentUncheckedUpdateWithoutTeamsInput = {
@@ -1000,6 +1266,13 @@ export type DepartmentUncheckedUpdateWithoutTeamsInput = {
   children?: Prisma.DepartmentUncheckedUpdateManyWithoutParentNestedInput
   memberships?: Prisma.DepartmentMembershipUncheckedUpdateManyWithoutDepartmentNestedInput
   roleAssignments?: Prisma.RoleAssignmentUncheckedUpdateManyWithoutDepartmentNestedInput
+  jobProfiles?: Prisma.JobProfileUncheckedUpdateManyWithoutDepartmentNestedInput
+  kpiDefinitions?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutDepartmentNestedInput
+  agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutDepartmentNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutDepartmentNestedInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutDepartmentNestedInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUncheckedUpdateManyWithoutDepartmentNestedInput
+  matters?: Prisma.MatterUncheckedUpdateManyWithoutDepartmentNestedInput
 }
 
 export type DepartmentCreateWithoutRoleAssignmentsInput = {
@@ -1016,6 +1289,13 @@ export type DepartmentCreateWithoutRoleAssignmentsInput = {
   children?: Prisma.DepartmentCreateNestedManyWithoutParentInput
   memberships?: Prisma.DepartmentMembershipCreateNestedManyWithoutDepartmentInput
   teams?: Prisma.TeamCreateNestedManyWithoutDepartmentInput
+  jobProfiles?: Prisma.JobProfileCreateNestedManyWithoutDepartmentInput
+  kpiDefinitions?: Prisma.KpiDefinitionCreateNestedManyWithoutDepartmentInput
+  agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutDepartmentInput
+  workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutDepartmentInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutDepartmentInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleCreateNestedManyWithoutDepartmentInput
+  matters?: Prisma.MatterCreateNestedManyWithoutDepartmentInput
 }
 
 export type DepartmentUncheckedCreateWithoutRoleAssignmentsInput = {
@@ -1032,6 +1312,13 @@ export type DepartmentUncheckedCreateWithoutRoleAssignmentsInput = {
   children?: Prisma.DepartmentUncheckedCreateNestedManyWithoutParentInput
   memberships?: Prisma.DepartmentMembershipUncheckedCreateNestedManyWithoutDepartmentInput
   teams?: Prisma.TeamUncheckedCreateNestedManyWithoutDepartmentInput
+  jobProfiles?: Prisma.JobProfileUncheckedCreateNestedManyWithoutDepartmentInput
+  kpiDefinitions?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutDepartmentInput
+  agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutDepartmentInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutDepartmentInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutDepartmentInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUncheckedCreateNestedManyWithoutDepartmentInput
+  matters?: Prisma.MatterUncheckedCreateNestedManyWithoutDepartmentInput
 }
 
 export type DepartmentCreateOrConnectWithoutRoleAssignmentsInput = {
@@ -1064,6 +1351,13 @@ export type DepartmentUpdateWithoutRoleAssignmentsInput = {
   children?: Prisma.DepartmentUpdateManyWithoutParentNestedInput
   memberships?: Prisma.DepartmentMembershipUpdateManyWithoutDepartmentNestedInput
   teams?: Prisma.TeamUpdateManyWithoutDepartmentNestedInput
+  jobProfiles?: Prisma.JobProfileUpdateManyWithoutDepartmentNestedInput
+  kpiDefinitions?: Prisma.KpiDefinitionUpdateManyWithoutDepartmentNestedInput
+  agentProfiles?: Prisma.AgentProfileUpdateManyWithoutDepartmentNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutDepartmentNestedInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutDepartmentNestedInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUpdateManyWithoutDepartmentNestedInput
+  matters?: Prisma.MatterUpdateManyWithoutDepartmentNestedInput
 }
 
 export type DepartmentUncheckedUpdateWithoutRoleAssignmentsInput = {
@@ -1080,6 +1374,769 @@ export type DepartmentUncheckedUpdateWithoutRoleAssignmentsInput = {
   children?: Prisma.DepartmentUncheckedUpdateManyWithoutParentNestedInput
   memberships?: Prisma.DepartmentMembershipUncheckedUpdateManyWithoutDepartmentNestedInput
   teams?: Prisma.TeamUncheckedUpdateManyWithoutDepartmentNestedInput
+  jobProfiles?: Prisma.JobProfileUncheckedUpdateManyWithoutDepartmentNestedInput
+  kpiDefinitions?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutDepartmentNestedInput
+  agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutDepartmentNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutDepartmentNestedInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutDepartmentNestedInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUncheckedUpdateManyWithoutDepartmentNestedInput
+  matters?: Prisma.MatterUncheckedUpdateManyWithoutDepartmentNestedInput
+}
+
+export type DepartmentCreateWithoutJobProfilesInput = {
+  id?: string
+  name: string
+  code?: string | null
+  description?: string | null
+  isActive?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  organisation: Prisma.OrganisationCreateNestedOneWithoutDepartmentsInput
+  parent?: Prisma.DepartmentCreateNestedOneWithoutChildrenInput
+  children?: Prisma.DepartmentCreateNestedManyWithoutParentInput
+  memberships?: Prisma.DepartmentMembershipCreateNestedManyWithoutDepartmentInput
+  teams?: Prisma.TeamCreateNestedManyWithoutDepartmentInput
+  roleAssignments?: Prisma.RoleAssignmentCreateNestedManyWithoutDepartmentInput
+  kpiDefinitions?: Prisma.KpiDefinitionCreateNestedManyWithoutDepartmentInput
+  agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutDepartmentInput
+  workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutDepartmentInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutDepartmentInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleCreateNestedManyWithoutDepartmentInput
+  matters?: Prisma.MatterCreateNestedManyWithoutDepartmentInput
+}
+
+export type DepartmentUncheckedCreateWithoutJobProfilesInput = {
+  id?: string
+  organisationId: string
+  parentId?: string | null
+  name: string
+  code?: string | null
+  description?: string | null
+  isActive?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  children?: Prisma.DepartmentUncheckedCreateNestedManyWithoutParentInput
+  memberships?: Prisma.DepartmentMembershipUncheckedCreateNestedManyWithoutDepartmentInput
+  teams?: Prisma.TeamUncheckedCreateNestedManyWithoutDepartmentInput
+  roleAssignments?: Prisma.RoleAssignmentUncheckedCreateNestedManyWithoutDepartmentInput
+  kpiDefinitions?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutDepartmentInput
+  agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutDepartmentInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutDepartmentInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutDepartmentInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUncheckedCreateNestedManyWithoutDepartmentInput
+  matters?: Prisma.MatterUncheckedCreateNestedManyWithoutDepartmentInput
+}
+
+export type DepartmentCreateOrConnectWithoutJobProfilesInput = {
+  where: Prisma.DepartmentWhereUniqueInput
+  create: Prisma.XOR<Prisma.DepartmentCreateWithoutJobProfilesInput, Prisma.DepartmentUncheckedCreateWithoutJobProfilesInput>
+}
+
+export type DepartmentUpsertWithoutJobProfilesInput = {
+  update: Prisma.XOR<Prisma.DepartmentUpdateWithoutJobProfilesInput, Prisma.DepartmentUncheckedUpdateWithoutJobProfilesInput>
+  create: Prisma.XOR<Prisma.DepartmentCreateWithoutJobProfilesInput, Prisma.DepartmentUncheckedCreateWithoutJobProfilesInput>
+  where?: Prisma.DepartmentWhereInput
+}
+
+export type DepartmentUpdateToOneWithWhereWithoutJobProfilesInput = {
+  where?: Prisma.DepartmentWhereInput
+  data: Prisma.XOR<Prisma.DepartmentUpdateWithoutJobProfilesInput, Prisma.DepartmentUncheckedUpdateWithoutJobProfilesInput>
+}
+
+export type DepartmentUpdateWithoutJobProfilesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  code?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  organisation?: Prisma.OrganisationUpdateOneRequiredWithoutDepartmentsNestedInput
+  parent?: Prisma.DepartmentUpdateOneWithoutChildrenNestedInput
+  children?: Prisma.DepartmentUpdateManyWithoutParentNestedInput
+  memberships?: Prisma.DepartmentMembershipUpdateManyWithoutDepartmentNestedInput
+  teams?: Prisma.TeamUpdateManyWithoutDepartmentNestedInput
+  roleAssignments?: Prisma.RoleAssignmentUpdateManyWithoutDepartmentNestedInput
+  kpiDefinitions?: Prisma.KpiDefinitionUpdateManyWithoutDepartmentNestedInput
+  agentProfiles?: Prisma.AgentProfileUpdateManyWithoutDepartmentNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutDepartmentNestedInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutDepartmentNestedInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUpdateManyWithoutDepartmentNestedInput
+  matters?: Prisma.MatterUpdateManyWithoutDepartmentNestedInput
+}
+
+export type DepartmentUncheckedUpdateWithoutJobProfilesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  organisationId?: Prisma.StringFieldUpdateOperationsInput | string
+  parentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  code?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  children?: Prisma.DepartmentUncheckedUpdateManyWithoutParentNestedInput
+  memberships?: Prisma.DepartmentMembershipUncheckedUpdateManyWithoutDepartmentNestedInput
+  teams?: Prisma.TeamUncheckedUpdateManyWithoutDepartmentNestedInput
+  roleAssignments?: Prisma.RoleAssignmentUncheckedUpdateManyWithoutDepartmentNestedInput
+  kpiDefinitions?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutDepartmentNestedInput
+  agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutDepartmentNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutDepartmentNestedInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutDepartmentNestedInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUncheckedUpdateManyWithoutDepartmentNestedInput
+  matters?: Prisma.MatterUncheckedUpdateManyWithoutDepartmentNestedInput
+}
+
+export type DepartmentCreateWithoutKpiDefinitionsInput = {
+  id?: string
+  name: string
+  code?: string | null
+  description?: string | null
+  isActive?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  organisation: Prisma.OrganisationCreateNestedOneWithoutDepartmentsInput
+  parent?: Prisma.DepartmentCreateNestedOneWithoutChildrenInput
+  children?: Prisma.DepartmentCreateNestedManyWithoutParentInput
+  memberships?: Prisma.DepartmentMembershipCreateNestedManyWithoutDepartmentInput
+  teams?: Prisma.TeamCreateNestedManyWithoutDepartmentInput
+  roleAssignments?: Prisma.RoleAssignmentCreateNestedManyWithoutDepartmentInput
+  jobProfiles?: Prisma.JobProfileCreateNestedManyWithoutDepartmentInput
+  agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutDepartmentInput
+  workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutDepartmentInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutDepartmentInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleCreateNestedManyWithoutDepartmentInput
+  matters?: Prisma.MatterCreateNestedManyWithoutDepartmentInput
+}
+
+export type DepartmentUncheckedCreateWithoutKpiDefinitionsInput = {
+  id?: string
+  organisationId: string
+  parentId?: string | null
+  name: string
+  code?: string | null
+  description?: string | null
+  isActive?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  children?: Prisma.DepartmentUncheckedCreateNestedManyWithoutParentInput
+  memberships?: Prisma.DepartmentMembershipUncheckedCreateNestedManyWithoutDepartmentInput
+  teams?: Prisma.TeamUncheckedCreateNestedManyWithoutDepartmentInput
+  roleAssignments?: Prisma.RoleAssignmentUncheckedCreateNestedManyWithoutDepartmentInput
+  jobProfiles?: Prisma.JobProfileUncheckedCreateNestedManyWithoutDepartmentInput
+  agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutDepartmentInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutDepartmentInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutDepartmentInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUncheckedCreateNestedManyWithoutDepartmentInput
+  matters?: Prisma.MatterUncheckedCreateNestedManyWithoutDepartmentInput
+}
+
+export type DepartmentCreateOrConnectWithoutKpiDefinitionsInput = {
+  where: Prisma.DepartmentWhereUniqueInput
+  create: Prisma.XOR<Prisma.DepartmentCreateWithoutKpiDefinitionsInput, Prisma.DepartmentUncheckedCreateWithoutKpiDefinitionsInput>
+}
+
+export type DepartmentUpsertWithoutKpiDefinitionsInput = {
+  update: Prisma.XOR<Prisma.DepartmentUpdateWithoutKpiDefinitionsInput, Prisma.DepartmentUncheckedUpdateWithoutKpiDefinitionsInput>
+  create: Prisma.XOR<Prisma.DepartmentCreateWithoutKpiDefinitionsInput, Prisma.DepartmentUncheckedCreateWithoutKpiDefinitionsInput>
+  where?: Prisma.DepartmentWhereInput
+}
+
+export type DepartmentUpdateToOneWithWhereWithoutKpiDefinitionsInput = {
+  where?: Prisma.DepartmentWhereInput
+  data: Prisma.XOR<Prisma.DepartmentUpdateWithoutKpiDefinitionsInput, Prisma.DepartmentUncheckedUpdateWithoutKpiDefinitionsInput>
+}
+
+export type DepartmentUpdateWithoutKpiDefinitionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  code?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  organisation?: Prisma.OrganisationUpdateOneRequiredWithoutDepartmentsNestedInput
+  parent?: Prisma.DepartmentUpdateOneWithoutChildrenNestedInput
+  children?: Prisma.DepartmentUpdateManyWithoutParentNestedInput
+  memberships?: Prisma.DepartmentMembershipUpdateManyWithoutDepartmentNestedInput
+  teams?: Prisma.TeamUpdateManyWithoutDepartmentNestedInput
+  roleAssignments?: Prisma.RoleAssignmentUpdateManyWithoutDepartmentNestedInput
+  jobProfiles?: Prisma.JobProfileUpdateManyWithoutDepartmentNestedInput
+  agentProfiles?: Prisma.AgentProfileUpdateManyWithoutDepartmentNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutDepartmentNestedInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutDepartmentNestedInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUpdateManyWithoutDepartmentNestedInput
+  matters?: Prisma.MatterUpdateManyWithoutDepartmentNestedInput
+}
+
+export type DepartmentUncheckedUpdateWithoutKpiDefinitionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  organisationId?: Prisma.StringFieldUpdateOperationsInput | string
+  parentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  code?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  children?: Prisma.DepartmentUncheckedUpdateManyWithoutParentNestedInput
+  memberships?: Prisma.DepartmentMembershipUncheckedUpdateManyWithoutDepartmentNestedInput
+  teams?: Prisma.TeamUncheckedUpdateManyWithoutDepartmentNestedInput
+  roleAssignments?: Prisma.RoleAssignmentUncheckedUpdateManyWithoutDepartmentNestedInput
+  jobProfiles?: Prisma.JobProfileUncheckedUpdateManyWithoutDepartmentNestedInput
+  agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutDepartmentNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutDepartmentNestedInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutDepartmentNestedInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUncheckedUpdateManyWithoutDepartmentNestedInput
+  matters?: Prisma.MatterUncheckedUpdateManyWithoutDepartmentNestedInput
+}
+
+export type DepartmentCreateWithoutAgentProfilesInput = {
+  id?: string
+  name: string
+  code?: string | null
+  description?: string | null
+  isActive?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  organisation: Prisma.OrganisationCreateNestedOneWithoutDepartmentsInput
+  parent?: Prisma.DepartmentCreateNestedOneWithoutChildrenInput
+  children?: Prisma.DepartmentCreateNestedManyWithoutParentInput
+  memberships?: Prisma.DepartmentMembershipCreateNestedManyWithoutDepartmentInput
+  teams?: Prisma.TeamCreateNestedManyWithoutDepartmentInput
+  roleAssignments?: Prisma.RoleAssignmentCreateNestedManyWithoutDepartmentInput
+  jobProfiles?: Prisma.JobProfileCreateNestedManyWithoutDepartmentInput
+  kpiDefinitions?: Prisma.KpiDefinitionCreateNestedManyWithoutDepartmentInput
+  workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutDepartmentInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutDepartmentInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleCreateNestedManyWithoutDepartmentInput
+  matters?: Prisma.MatterCreateNestedManyWithoutDepartmentInput
+}
+
+export type DepartmentUncheckedCreateWithoutAgentProfilesInput = {
+  id?: string
+  organisationId: string
+  parentId?: string | null
+  name: string
+  code?: string | null
+  description?: string | null
+  isActive?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  children?: Prisma.DepartmentUncheckedCreateNestedManyWithoutParentInput
+  memberships?: Prisma.DepartmentMembershipUncheckedCreateNestedManyWithoutDepartmentInput
+  teams?: Prisma.TeamUncheckedCreateNestedManyWithoutDepartmentInput
+  roleAssignments?: Prisma.RoleAssignmentUncheckedCreateNestedManyWithoutDepartmentInput
+  jobProfiles?: Prisma.JobProfileUncheckedCreateNestedManyWithoutDepartmentInput
+  kpiDefinitions?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutDepartmentInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutDepartmentInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutDepartmentInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUncheckedCreateNestedManyWithoutDepartmentInput
+  matters?: Prisma.MatterUncheckedCreateNestedManyWithoutDepartmentInput
+}
+
+export type DepartmentCreateOrConnectWithoutAgentProfilesInput = {
+  where: Prisma.DepartmentWhereUniqueInput
+  create: Prisma.XOR<Prisma.DepartmentCreateWithoutAgentProfilesInput, Prisma.DepartmentUncheckedCreateWithoutAgentProfilesInput>
+}
+
+export type DepartmentUpsertWithoutAgentProfilesInput = {
+  update: Prisma.XOR<Prisma.DepartmentUpdateWithoutAgentProfilesInput, Prisma.DepartmentUncheckedUpdateWithoutAgentProfilesInput>
+  create: Prisma.XOR<Prisma.DepartmentCreateWithoutAgentProfilesInput, Prisma.DepartmentUncheckedCreateWithoutAgentProfilesInput>
+  where?: Prisma.DepartmentWhereInput
+}
+
+export type DepartmentUpdateToOneWithWhereWithoutAgentProfilesInput = {
+  where?: Prisma.DepartmentWhereInput
+  data: Prisma.XOR<Prisma.DepartmentUpdateWithoutAgentProfilesInput, Prisma.DepartmentUncheckedUpdateWithoutAgentProfilesInput>
+}
+
+export type DepartmentUpdateWithoutAgentProfilesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  code?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  organisation?: Prisma.OrganisationUpdateOneRequiredWithoutDepartmentsNestedInput
+  parent?: Prisma.DepartmentUpdateOneWithoutChildrenNestedInput
+  children?: Prisma.DepartmentUpdateManyWithoutParentNestedInput
+  memberships?: Prisma.DepartmentMembershipUpdateManyWithoutDepartmentNestedInput
+  teams?: Prisma.TeamUpdateManyWithoutDepartmentNestedInput
+  roleAssignments?: Prisma.RoleAssignmentUpdateManyWithoutDepartmentNestedInput
+  jobProfiles?: Prisma.JobProfileUpdateManyWithoutDepartmentNestedInput
+  kpiDefinitions?: Prisma.KpiDefinitionUpdateManyWithoutDepartmentNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutDepartmentNestedInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutDepartmentNestedInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUpdateManyWithoutDepartmentNestedInput
+  matters?: Prisma.MatterUpdateManyWithoutDepartmentNestedInput
+}
+
+export type DepartmentUncheckedUpdateWithoutAgentProfilesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  organisationId?: Prisma.StringFieldUpdateOperationsInput | string
+  parentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  code?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  children?: Prisma.DepartmentUncheckedUpdateManyWithoutParentNestedInput
+  memberships?: Prisma.DepartmentMembershipUncheckedUpdateManyWithoutDepartmentNestedInput
+  teams?: Prisma.TeamUncheckedUpdateManyWithoutDepartmentNestedInput
+  roleAssignments?: Prisma.RoleAssignmentUncheckedUpdateManyWithoutDepartmentNestedInput
+  jobProfiles?: Prisma.JobProfileUncheckedUpdateManyWithoutDepartmentNestedInput
+  kpiDefinitions?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutDepartmentNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutDepartmentNestedInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutDepartmentNestedInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUncheckedUpdateManyWithoutDepartmentNestedInput
+  matters?: Prisma.MatterUncheckedUpdateManyWithoutDepartmentNestedInput
+}
+
+export type DepartmentCreateWithoutWorkforceAssignmentsInput = {
+  id?: string
+  name: string
+  code?: string | null
+  description?: string | null
+  isActive?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  organisation: Prisma.OrganisationCreateNestedOneWithoutDepartmentsInput
+  parent?: Prisma.DepartmentCreateNestedOneWithoutChildrenInput
+  children?: Prisma.DepartmentCreateNestedManyWithoutParentInput
+  memberships?: Prisma.DepartmentMembershipCreateNestedManyWithoutDepartmentInput
+  teams?: Prisma.TeamCreateNestedManyWithoutDepartmentInput
+  roleAssignments?: Prisma.RoleAssignmentCreateNestedManyWithoutDepartmentInput
+  jobProfiles?: Prisma.JobProfileCreateNestedManyWithoutDepartmentInput
+  kpiDefinitions?: Prisma.KpiDefinitionCreateNestedManyWithoutDepartmentInput
+  agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutDepartmentInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutDepartmentInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleCreateNestedManyWithoutDepartmentInput
+  matters?: Prisma.MatterCreateNestedManyWithoutDepartmentInput
+}
+
+export type DepartmentUncheckedCreateWithoutWorkforceAssignmentsInput = {
+  id?: string
+  organisationId: string
+  parentId?: string | null
+  name: string
+  code?: string | null
+  description?: string | null
+  isActive?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  children?: Prisma.DepartmentUncheckedCreateNestedManyWithoutParentInput
+  memberships?: Prisma.DepartmentMembershipUncheckedCreateNestedManyWithoutDepartmentInput
+  teams?: Prisma.TeamUncheckedCreateNestedManyWithoutDepartmentInput
+  roleAssignments?: Prisma.RoleAssignmentUncheckedCreateNestedManyWithoutDepartmentInput
+  jobProfiles?: Prisma.JobProfileUncheckedCreateNestedManyWithoutDepartmentInput
+  kpiDefinitions?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutDepartmentInput
+  agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutDepartmentInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutDepartmentInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUncheckedCreateNestedManyWithoutDepartmentInput
+  matters?: Prisma.MatterUncheckedCreateNestedManyWithoutDepartmentInput
+}
+
+export type DepartmentCreateOrConnectWithoutWorkforceAssignmentsInput = {
+  where: Prisma.DepartmentWhereUniqueInput
+  create: Prisma.XOR<Prisma.DepartmentCreateWithoutWorkforceAssignmentsInput, Prisma.DepartmentUncheckedCreateWithoutWorkforceAssignmentsInput>
+}
+
+export type DepartmentUpsertWithoutWorkforceAssignmentsInput = {
+  update: Prisma.XOR<Prisma.DepartmentUpdateWithoutWorkforceAssignmentsInput, Prisma.DepartmentUncheckedUpdateWithoutWorkforceAssignmentsInput>
+  create: Prisma.XOR<Prisma.DepartmentCreateWithoutWorkforceAssignmentsInput, Prisma.DepartmentUncheckedCreateWithoutWorkforceAssignmentsInput>
+  where?: Prisma.DepartmentWhereInput
+}
+
+export type DepartmentUpdateToOneWithWhereWithoutWorkforceAssignmentsInput = {
+  where?: Prisma.DepartmentWhereInput
+  data: Prisma.XOR<Prisma.DepartmentUpdateWithoutWorkforceAssignmentsInput, Prisma.DepartmentUncheckedUpdateWithoutWorkforceAssignmentsInput>
+}
+
+export type DepartmentUpdateWithoutWorkforceAssignmentsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  code?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  organisation?: Prisma.OrganisationUpdateOneRequiredWithoutDepartmentsNestedInput
+  parent?: Prisma.DepartmentUpdateOneWithoutChildrenNestedInput
+  children?: Prisma.DepartmentUpdateManyWithoutParentNestedInput
+  memberships?: Prisma.DepartmentMembershipUpdateManyWithoutDepartmentNestedInput
+  teams?: Prisma.TeamUpdateManyWithoutDepartmentNestedInput
+  roleAssignments?: Prisma.RoleAssignmentUpdateManyWithoutDepartmentNestedInput
+  jobProfiles?: Prisma.JobProfileUpdateManyWithoutDepartmentNestedInput
+  kpiDefinitions?: Prisma.KpiDefinitionUpdateManyWithoutDepartmentNestedInput
+  agentProfiles?: Prisma.AgentProfileUpdateManyWithoutDepartmentNestedInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutDepartmentNestedInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUpdateManyWithoutDepartmentNestedInput
+  matters?: Prisma.MatterUpdateManyWithoutDepartmentNestedInput
+}
+
+export type DepartmentUncheckedUpdateWithoutWorkforceAssignmentsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  organisationId?: Prisma.StringFieldUpdateOperationsInput | string
+  parentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  code?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  children?: Prisma.DepartmentUncheckedUpdateManyWithoutParentNestedInput
+  memberships?: Prisma.DepartmentMembershipUncheckedUpdateManyWithoutDepartmentNestedInput
+  teams?: Prisma.TeamUncheckedUpdateManyWithoutDepartmentNestedInput
+  roleAssignments?: Prisma.RoleAssignmentUncheckedUpdateManyWithoutDepartmentNestedInput
+  jobProfiles?: Prisma.JobProfileUncheckedUpdateManyWithoutDepartmentNestedInput
+  kpiDefinitions?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutDepartmentNestedInput
+  agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutDepartmentNestedInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutDepartmentNestedInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUncheckedUpdateManyWithoutDepartmentNestedInput
+  matters?: Prisma.MatterUncheckedUpdateManyWithoutDepartmentNestedInput
+}
+
+export type DepartmentCreateWithoutInvitationOnboardingPlansInput = {
+  id?: string
+  name: string
+  code?: string | null
+  description?: string | null
+  isActive?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  organisation: Prisma.OrganisationCreateNestedOneWithoutDepartmentsInput
+  parent?: Prisma.DepartmentCreateNestedOneWithoutChildrenInput
+  children?: Prisma.DepartmentCreateNestedManyWithoutParentInput
+  memberships?: Prisma.DepartmentMembershipCreateNestedManyWithoutDepartmentInput
+  teams?: Prisma.TeamCreateNestedManyWithoutDepartmentInput
+  roleAssignments?: Prisma.RoleAssignmentCreateNestedManyWithoutDepartmentInput
+  jobProfiles?: Prisma.JobProfileCreateNestedManyWithoutDepartmentInput
+  kpiDefinitions?: Prisma.KpiDefinitionCreateNestedManyWithoutDepartmentInput
+  agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutDepartmentInput
+  workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutDepartmentInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleCreateNestedManyWithoutDepartmentInput
+  matters?: Prisma.MatterCreateNestedManyWithoutDepartmentInput
+}
+
+export type DepartmentUncheckedCreateWithoutInvitationOnboardingPlansInput = {
+  id?: string
+  organisationId: string
+  parentId?: string | null
+  name: string
+  code?: string | null
+  description?: string | null
+  isActive?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  children?: Prisma.DepartmentUncheckedCreateNestedManyWithoutParentInput
+  memberships?: Prisma.DepartmentMembershipUncheckedCreateNestedManyWithoutDepartmentInput
+  teams?: Prisma.TeamUncheckedCreateNestedManyWithoutDepartmentInput
+  roleAssignments?: Prisma.RoleAssignmentUncheckedCreateNestedManyWithoutDepartmentInput
+  jobProfiles?: Prisma.JobProfileUncheckedCreateNestedManyWithoutDepartmentInput
+  kpiDefinitions?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutDepartmentInput
+  agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutDepartmentInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutDepartmentInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUncheckedCreateNestedManyWithoutDepartmentInput
+  matters?: Prisma.MatterUncheckedCreateNestedManyWithoutDepartmentInput
+}
+
+export type DepartmentCreateOrConnectWithoutInvitationOnboardingPlansInput = {
+  where: Prisma.DepartmentWhereUniqueInput
+  create: Prisma.XOR<Prisma.DepartmentCreateWithoutInvitationOnboardingPlansInput, Prisma.DepartmentUncheckedCreateWithoutInvitationOnboardingPlansInput>
+}
+
+export type DepartmentUpsertWithoutInvitationOnboardingPlansInput = {
+  update: Prisma.XOR<Prisma.DepartmentUpdateWithoutInvitationOnboardingPlansInput, Prisma.DepartmentUncheckedUpdateWithoutInvitationOnboardingPlansInput>
+  create: Prisma.XOR<Prisma.DepartmentCreateWithoutInvitationOnboardingPlansInput, Prisma.DepartmentUncheckedCreateWithoutInvitationOnboardingPlansInput>
+  where?: Prisma.DepartmentWhereInput
+}
+
+export type DepartmentUpdateToOneWithWhereWithoutInvitationOnboardingPlansInput = {
+  where?: Prisma.DepartmentWhereInput
+  data: Prisma.XOR<Prisma.DepartmentUpdateWithoutInvitationOnboardingPlansInput, Prisma.DepartmentUncheckedUpdateWithoutInvitationOnboardingPlansInput>
+}
+
+export type DepartmentUpdateWithoutInvitationOnboardingPlansInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  code?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  organisation?: Prisma.OrganisationUpdateOneRequiredWithoutDepartmentsNestedInput
+  parent?: Prisma.DepartmentUpdateOneWithoutChildrenNestedInput
+  children?: Prisma.DepartmentUpdateManyWithoutParentNestedInput
+  memberships?: Prisma.DepartmentMembershipUpdateManyWithoutDepartmentNestedInput
+  teams?: Prisma.TeamUpdateManyWithoutDepartmentNestedInput
+  roleAssignments?: Prisma.RoleAssignmentUpdateManyWithoutDepartmentNestedInput
+  jobProfiles?: Prisma.JobProfileUpdateManyWithoutDepartmentNestedInput
+  kpiDefinitions?: Prisma.KpiDefinitionUpdateManyWithoutDepartmentNestedInput
+  agentProfiles?: Prisma.AgentProfileUpdateManyWithoutDepartmentNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutDepartmentNestedInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUpdateManyWithoutDepartmentNestedInput
+  matters?: Prisma.MatterUpdateManyWithoutDepartmentNestedInput
+}
+
+export type DepartmentUncheckedUpdateWithoutInvitationOnboardingPlansInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  organisationId?: Prisma.StringFieldUpdateOperationsInput | string
+  parentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  code?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  children?: Prisma.DepartmentUncheckedUpdateManyWithoutParentNestedInput
+  memberships?: Prisma.DepartmentMembershipUncheckedUpdateManyWithoutDepartmentNestedInput
+  teams?: Prisma.TeamUncheckedUpdateManyWithoutDepartmentNestedInput
+  roleAssignments?: Prisma.RoleAssignmentUncheckedUpdateManyWithoutDepartmentNestedInput
+  jobProfiles?: Prisma.JobProfileUncheckedUpdateManyWithoutDepartmentNestedInput
+  kpiDefinitions?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutDepartmentNestedInput
+  agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutDepartmentNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutDepartmentNestedInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUncheckedUpdateManyWithoutDepartmentNestedInput
+  matters?: Prisma.MatterUncheckedUpdateManyWithoutDepartmentNestedInput
+}
+
+export type DepartmentCreateWithoutInvitationOnboardingRolesInput = {
+  id?: string
+  name: string
+  code?: string | null
+  description?: string | null
+  isActive?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  organisation: Prisma.OrganisationCreateNestedOneWithoutDepartmentsInput
+  parent?: Prisma.DepartmentCreateNestedOneWithoutChildrenInput
+  children?: Prisma.DepartmentCreateNestedManyWithoutParentInput
+  memberships?: Prisma.DepartmentMembershipCreateNestedManyWithoutDepartmentInput
+  teams?: Prisma.TeamCreateNestedManyWithoutDepartmentInput
+  roleAssignments?: Prisma.RoleAssignmentCreateNestedManyWithoutDepartmentInput
+  jobProfiles?: Prisma.JobProfileCreateNestedManyWithoutDepartmentInput
+  kpiDefinitions?: Prisma.KpiDefinitionCreateNestedManyWithoutDepartmentInput
+  agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutDepartmentInput
+  workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutDepartmentInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutDepartmentInput
+  matters?: Prisma.MatterCreateNestedManyWithoutDepartmentInput
+}
+
+export type DepartmentUncheckedCreateWithoutInvitationOnboardingRolesInput = {
+  id?: string
+  organisationId: string
+  parentId?: string | null
+  name: string
+  code?: string | null
+  description?: string | null
+  isActive?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  children?: Prisma.DepartmentUncheckedCreateNestedManyWithoutParentInput
+  memberships?: Prisma.DepartmentMembershipUncheckedCreateNestedManyWithoutDepartmentInput
+  teams?: Prisma.TeamUncheckedCreateNestedManyWithoutDepartmentInput
+  roleAssignments?: Prisma.RoleAssignmentUncheckedCreateNestedManyWithoutDepartmentInput
+  jobProfiles?: Prisma.JobProfileUncheckedCreateNestedManyWithoutDepartmentInput
+  kpiDefinitions?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutDepartmentInput
+  agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutDepartmentInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutDepartmentInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutDepartmentInput
+  matters?: Prisma.MatterUncheckedCreateNestedManyWithoutDepartmentInput
+}
+
+export type DepartmentCreateOrConnectWithoutInvitationOnboardingRolesInput = {
+  where: Prisma.DepartmentWhereUniqueInput
+  create: Prisma.XOR<Prisma.DepartmentCreateWithoutInvitationOnboardingRolesInput, Prisma.DepartmentUncheckedCreateWithoutInvitationOnboardingRolesInput>
+}
+
+export type DepartmentUpsertWithoutInvitationOnboardingRolesInput = {
+  update: Prisma.XOR<Prisma.DepartmentUpdateWithoutInvitationOnboardingRolesInput, Prisma.DepartmentUncheckedUpdateWithoutInvitationOnboardingRolesInput>
+  create: Prisma.XOR<Prisma.DepartmentCreateWithoutInvitationOnboardingRolesInput, Prisma.DepartmentUncheckedCreateWithoutInvitationOnboardingRolesInput>
+  where?: Prisma.DepartmentWhereInput
+}
+
+export type DepartmentUpdateToOneWithWhereWithoutInvitationOnboardingRolesInput = {
+  where?: Prisma.DepartmentWhereInput
+  data: Prisma.XOR<Prisma.DepartmentUpdateWithoutInvitationOnboardingRolesInput, Prisma.DepartmentUncheckedUpdateWithoutInvitationOnboardingRolesInput>
+}
+
+export type DepartmentUpdateWithoutInvitationOnboardingRolesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  code?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  organisation?: Prisma.OrganisationUpdateOneRequiredWithoutDepartmentsNestedInput
+  parent?: Prisma.DepartmentUpdateOneWithoutChildrenNestedInput
+  children?: Prisma.DepartmentUpdateManyWithoutParentNestedInput
+  memberships?: Prisma.DepartmentMembershipUpdateManyWithoutDepartmentNestedInput
+  teams?: Prisma.TeamUpdateManyWithoutDepartmentNestedInput
+  roleAssignments?: Prisma.RoleAssignmentUpdateManyWithoutDepartmentNestedInput
+  jobProfiles?: Prisma.JobProfileUpdateManyWithoutDepartmentNestedInput
+  kpiDefinitions?: Prisma.KpiDefinitionUpdateManyWithoutDepartmentNestedInput
+  agentProfiles?: Prisma.AgentProfileUpdateManyWithoutDepartmentNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutDepartmentNestedInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutDepartmentNestedInput
+  matters?: Prisma.MatterUpdateManyWithoutDepartmentNestedInput
+}
+
+export type DepartmentUncheckedUpdateWithoutInvitationOnboardingRolesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  organisationId?: Prisma.StringFieldUpdateOperationsInput | string
+  parentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  code?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  children?: Prisma.DepartmentUncheckedUpdateManyWithoutParentNestedInput
+  memberships?: Prisma.DepartmentMembershipUncheckedUpdateManyWithoutDepartmentNestedInput
+  teams?: Prisma.TeamUncheckedUpdateManyWithoutDepartmentNestedInput
+  roleAssignments?: Prisma.RoleAssignmentUncheckedUpdateManyWithoutDepartmentNestedInput
+  jobProfiles?: Prisma.JobProfileUncheckedUpdateManyWithoutDepartmentNestedInput
+  kpiDefinitions?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutDepartmentNestedInput
+  agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutDepartmentNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutDepartmentNestedInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutDepartmentNestedInput
+  matters?: Prisma.MatterUncheckedUpdateManyWithoutDepartmentNestedInput
+}
+
+export type DepartmentCreateWithoutMattersInput = {
+  id?: string
+  name: string
+  code?: string | null
+  description?: string | null
+  isActive?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  organisation: Prisma.OrganisationCreateNestedOneWithoutDepartmentsInput
+  parent?: Prisma.DepartmentCreateNestedOneWithoutChildrenInput
+  children?: Prisma.DepartmentCreateNestedManyWithoutParentInput
+  memberships?: Prisma.DepartmentMembershipCreateNestedManyWithoutDepartmentInput
+  teams?: Prisma.TeamCreateNestedManyWithoutDepartmentInput
+  roleAssignments?: Prisma.RoleAssignmentCreateNestedManyWithoutDepartmentInput
+  jobProfiles?: Prisma.JobProfileCreateNestedManyWithoutDepartmentInput
+  kpiDefinitions?: Prisma.KpiDefinitionCreateNestedManyWithoutDepartmentInput
+  agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutDepartmentInput
+  workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutDepartmentInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutDepartmentInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleCreateNestedManyWithoutDepartmentInput
+}
+
+export type DepartmentUncheckedCreateWithoutMattersInput = {
+  id?: string
+  organisationId: string
+  parentId?: string | null
+  name: string
+  code?: string | null
+  description?: string | null
+  isActive?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  children?: Prisma.DepartmentUncheckedCreateNestedManyWithoutParentInput
+  memberships?: Prisma.DepartmentMembershipUncheckedCreateNestedManyWithoutDepartmentInput
+  teams?: Prisma.TeamUncheckedCreateNestedManyWithoutDepartmentInput
+  roleAssignments?: Prisma.RoleAssignmentUncheckedCreateNestedManyWithoutDepartmentInput
+  jobProfiles?: Prisma.JobProfileUncheckedCreateNestedManyWithoutDepartmentInput
+  kpiDefinitions?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutDepartmentInput
+  agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutDepartmentInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutDepartmentInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutDepartmentInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUncheckedCreateNestedManyWithoutDepartmentInput
+}
+
+export type DepartmentCreateOrConnectWithoutMattersInput = {
+  where: Prisma.DepartmentWhereUniqueInput
+  create: Prisma.XOR<Prisma.DepartmentCreateWithoutMattersInput, Prisma.DepartmentUncheckedCreateWithoutMattersInput>
+}
+
+export type DepartmentUpsertWithoutMattersInput = {
+  update: Prisma.XOR<Prisma.DepartmentUpdateWithoutMattersInput, Prisma.DepartmentUncheckedUpdateWithoutMattersInput>
+  create: Prisma.XOR<Prisma.DepartmentCreateWithoutMattersInput, Prisma.DepartmentUncheckedCreateWithoutMattersInput>
+  where?: Prisma.DepartmentWhereInput
+}
+
+export type DepartmentUpdateToOneWithWhereWithoutMattersInput = {
+  where?: Prisma.DepartmentWhereInput
+  data: Prisma.XOR<Prisma.DepartmentUpdateWithoutMattersInput, Prisma.DepartmentUncheckedUpdateWithoutMattersInput>
+}
+
+export type DepartmentUpdateWithoutMattersInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  code?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  organisation?: Prisma.OrganisationUpdateOneRequiredWithoutDepartmentsNestedInput
+  parent?: Prisma.DepartmentUpdateOneWithoutChildrenNestedInput
+  children?: Prisma.DepartmentUpdateManyWithoutParentNestedInput
+  memberships?: Prisma.DepartmentMembershipUpdateManyWithoutDepartmentNestedInput
+  teams?: Prisma.TeamUpdateManyWithoutDepartmentNestedInput
+  roleAssignments?: Prisma.RoleAssignmentUpdateManyWithoutDepartmentNestedInput
+  jobProfiles?: Prisma.JobProfileUpdateManyWithoutDepartmentNestedInput
+  kpiDefinitions?: Prisma.KpiDefinitionUpdateManyWithoutDepartmentNestedInput
+  agentProfiles?: Prisma.AgentProfileUpdateManyWithoutDepartmentNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutDepartmentNestedInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutDepartmentNestedInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUpdateManyWithoutDepartmentNestedInput
+}
+
+export type DepartmentUncheckedUpdateWithoutMattersInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  organisationId?: Prisma.StringFieldUpdateOperationsInput | string
+  parentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  code?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  children?: Prisma.DepartmentUncheckedUpdateManyWithoutParentNestedInput
+  memberships?: Prisma.DepartmentMembershipUncheckedUpdateManyWithoutDepartmentNestedInput
+  teams?: Prisma.TeamUncheckedUpdateManyWithoutDepartmentNestedInput
+  roleAssignments?: Prisma.RoleAssignmentUncheckedUpdateManyWithoutDepartmentNestedInput
+  jobProfiles?: Prisma.JobProfileUncheckedUpdateManyWithoutDepartmentNestedInput
+  kpiDefinitions?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutDepartmentNestedInput
+  agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutDepartmentNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutDepartmentNestedInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutDepartmentNestedInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUncheckedUpdateManyWithoutDepartmentNestedInput
 }
 
 export type DepartmentCreateManyOrganisationInput = {
@@ -1108,6 +2165,13 @@ export type DepartmentUpdateWithoutOrganisationInput = {
   memberships?: Prisma.DepartmentMembershipUpdateManyWithoutDepartmentNestedInput
   teams?: Prisma.TeamUpdateManyWithoutDepartmentNestedInput
   roleAssignments?: Prisma.RoleAssignmentUpdateManyWithoutDepartmentNestedInput
+  jobProfiles?: Prisma.JobProfileUpdateManyWithoutDepartmentNestedInput
+  kpiDefinitions?: Prisma.KpiDefinitionUpdateManyWithoutDepartmentNestedInput
+  agentProfiles?: Prisma.AgentProfileUpdateManyWithoutDepartmentNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutDepartmentNestedInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutDepartmentNestedInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUpdateManyWithoutDepartmentNestedInput
+  matters?: Prisma.MatterUpdateManyWithoutDepartmentNestedInput
 }
 
 export type DepartmentUncheckedUpdateWithoutOrganisationInput = {
@@ -1124,6 +2188,13 @@ export type DepartmentUncheckedUpdateWithoutOrganisationInput = {
   memberships?: Prisma.DepartmentMembershipUncheckedUpdateManyWithoutDepartmentNestedInput
   teams?: Prisma.TeamUncheckedUpdateManyWithoutDepartmentNestedInput
   roleAssignments?: Prisma.RoleAssignmentUncheckedUpdateManyWithoutDepartmentNestedInput
+  jobProfiles?: Prisma.JobProfileUncheckedUpdateManyWithoutDepartmentNestedInput
+  kpiDefinitions?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutDepartmentNestedInput
+  agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutDepartmentNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutDepartmentNestedInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutDepartmentNestedInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUncheckedUpdateManyWithoutDepartmentNestedInput
+  matters?: Prisma.MatterUncheckedUpdateManyWithoutDepartmentNestedInput
 }
 
 export type DepartmentUncheckedUpdateManyWithoutOrganisationInput = {
@@ -1163,6 +2234,13 @@ export type DepartmentUpdateWithoutParentInput = {
   memberships?: Prisma.DepartmentMembershipUpdateManyWithoutDepartmentNestedInput
   teams?: Prisma.TeamUpdateManyWithoutDepartmentNestedInput
   roleAssignments?: Prisma.RoleAssignmentUpdateManyWithoutDepartmentNestedInput
+  jobProfiles?: Prisma.JobProfileUpdateManyWithoutDepartmentNestedInput
+  kpiDefinitions?: Prisma.KpiDefinitionUpdateManyWithoutDepartmentNestedInput
+  agentProfiles?: Prisma.AgentProfileUpdateManyWithoutDepartmentNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutDepartmentNestedInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutDepartmentNestedInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUpdateManyWithoutDepartmentNestedInput
+  matters?: Prisma.MatterUpdateManyWithoutDepartmentNestedInput
 }
 
 export type DepartmentUncheckedUpdateWithoutParentInput = {
@@ -1178,6 +2256,13 @@ export type DepartmentUncheckedUpdateWithoutParentInput = {
   memberships?: Prisma.DepartmentMembershipUncheckedUpdateManyWithoutDepartmentNestedInput
   teams?: Prisma.TeamUncheckedUpdateManyWithoutDepartmentNestedInput
   roleAssignments?: Prisma.RoleAssignmentUncheckedUpdateManyWithoutDepartmentNestedInput
+  jobProfiles?: Prisma.JobProfileUncheckedUpdateManyWithoutDepartmentNestedInput
+  kpiDefinitions?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutDepartmentNestedInput
+  agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutDepartmentNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutDepartmentNestedInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutDepartmentNestedInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUncheckedUpdateManyWithoutDepartmentNestedInput
+  matters?: Prisma.MatterUncheckedUpdateManyWithoutDepartmentNestedInput
 }
 
 export type DepartmentUncheckedUpdateManyWithoutParentInput = {
@@ -1201,6 +2286,13 @@ export type DepartmentCountOutputType = {
   memberships: number
   teams: number
   roleAssignments: number
+  jobProfiles: number
+  kpiDefinitions: number
+  agentProfiles: number
+  workforceAssignments: number
+  invitationOnboardingPlans: number
+  invitationOnboardingRoles: number
+  matters: number
 }
 
 export type DepartmentCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1208,6 +2300,13 @@ export type DepartmentCountOutputTypeSelect<ExtArgs extends runtime.Types.Extens
   memberships?: boolean | DepartmentCountOutputTypeCountMembershipsArgs
   teams?: boolean | DepartmentCountOutputTypeCountTeamsArgs
   roleAssignments?: boolean | DepartmentCountOutputTypeCountRoleAssignmentsArgs
+  jobProfiles?: boolean | DepartmentCountOutputTypeCountJobProfilesArgs
+  kpiDefinitions?: boolean | DepartmentCountOutputTypeCountKpiDefinitionsArgs
+  agentProfiles?: boolean | DepartmentCountOutputTypeCountAgentProfilesArgs
+  workforceAssignments?: boolean | DepartmentCountOutputTypeCountWorkforceAssignmentsArgs
+  invitationOnboardingPlans?: boolean | DepartmentCountOutputTypeCountInvitationOnboardingPlansArgs
+  invitationOnboardingRoles?: boolean | DepartmentCountOutputTypeCountInvitationOnboardingRolesArgs
+  matters?: boolean | DepartmentCountOutputTypeCountMattersArgs
 }
 
 /**
@@ -1248,6 +2347,55 @@ export type DepartmentCountOutputTypeCountRoleAssignmentsArgs<ExtArgs extends ru
   where?: Prisma.RoleAssignmentWhereInput
 }
 
+/**
+ * DepartmentCountOutputType without action
+ */
+export type DepartmentCountOutputTypeCountJobProfilesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.JobProfileWhereInput
+}
+
+/**
+ * DepartmentCountOutputType without action
+ */
+export type DepartmentCountOutputTypeCountKpiDefinitionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.KpiDefinitionWhereInput
+}
+
+/**
+ * DepartmentCountOutputType without action
+ */
+export type DepartmentCountOutputTypeCountAgentProfilesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.AgentProfileWhereInput
+}
+
+/**
+ * DepartmentCountOutputType without action
+ */
+export type DepartmentCountOutputTypeCountWorkforceAssignmentsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.WorkforceAssignmentWhereInput
+}
+
+/**
+ * DepartmentCountOutputType without action
+ */
+export type DepartmentCountOutputTypeCountInvitationOnboardingPlansArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.InvitationOnboardingPlanWhereInput
+}
+
+/**
+ * DepartmentCountOutputType without action
+ */
+export type DepartmentCountOutputTypeCountInvitationOnboardingRolesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.InvitationOnboardingRoleWhereInput
+}
+
+/**
+ * DepartmentCountOutputType without action
+ */
+export type DepartmentCountOutputTypeCountMattersArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.MatterWhereInput
+}
+
 
 export type DepartmentSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -1266,6 +2414,13 @@ export type DepartmentSelect<ExtArgs extends runtime.Types.Extensions.InternalAr
   memberships?: boolean | Prisma.Department$membershipsArgs<ExtArgs>
   teams?: boolean | Prisma.Department$teamsArgs<ExtArgs>
   roleAssignments?: boolean | Prisma.Department$roleAssignmentsArgs<ExtArgs>
+  jobProfiles?: boolean | Prisma.Department$jobProfilesArgs<ExtArgs>
+  kpiDefinitions?: boolean | Prisma.Department$kpiDefinitionsArgs<ExtArgs>
+  agentProfiles?: boolean | Prisma.Department$agentProfilesArgs<ExtArgs>
+  workforceAssignments?: boolean | Prisma.Department$workforceAssignmentsArgs<ExtArgs>
+  invitationOnboardingPlans?: boolean | Prisma.Department$invitationOnboardingPlansArgs<ExtArgs>
+  invitationOnboardingRoles?: boolean | Prisma.Department$invitationOnboardingRolesArgs<ExtArgs>
+  matters?: boolean | Prisma.Department$mattersArgs<ExtArgs>
   _count?: boolean | Prisma.DepartmentCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["department"]>
 
@@ -1320,6 +2475,13 @@ export type DepartmentInclude<ExtArgs extends runtime.Types.Extensions.InternalA
   memberships?: boolean | Prisma.Department$membershipsArgs<ExtArgs>
   teams?: boolean | Prisma.Department$teamsArgs<ExtArgs>
   roleAssignments?: boolean | Prisma.Department$roleAssignmentsArgs<ExtArgs>
+  jobProfiles?: boolean | Prisma.Department$jobProfilesArgs<ExtArgs>
+  kpiDefinitions?: boolean | Prisma.Department$kpiDefinitionsArgs<ExtArgs>
+  agentProfiles?: boolean | Prisma.Department$agentProfilesArgs<ExtArgs>
+  workforceAssignments?: boolean | Prisma.Department$workforceAssignmentsArgs<ExtArgs>
+  invitationOnboardingPlans?: boolean | Prisma.Department$invitationOnboardingPlansArgs<ExtArgs>
+  invitationOnboardingRoles?: boolean | Prisma.Department$invitationOnboardingRolesArgs<ExtArgs>
+  matters?: boolean | Prisma.Department$mattersArgs<ExtArgs>
   _count?: boolean | Prisma.DepartmentCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type DepartmentIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1340,6 +2502,13 @@ export type $DepartmentPayload<ExtArgs extends runtime.Types.Extensions.Internal
     memberships: Prisma.$DepartmentMembershipPayload<ExtArgs>[]
     teams: Prisma.$TeamPayload<ExtArgs>[]
     roleAssignments: Prisma.$RoleAssignmentPayload<ExtArgs>[]
+    jobProfiles: Prisma.$JobProfilePayload<ExtArgs>[]
+    kpiDefinitions: Prisma.$KpiDefinitionPayload<ExtArgs>[]
+    agentProfiles: Prisma.$AgentProfilePayload<ExtArgs>[]
+    workforceAssignments: Prisma.$WorkforceAssignmentPayload<ExtArgs>[]
+    invitationOnboardingPlans: Prisma.$InvitationOnboardingPlanPayload<ExtArgs>[]
+    invitationOnboardingRoles: Prisma.$InvitationOnboardingRolePayload<ExtArgs>[]
+    matters: Prisma.$MatterPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1752,6 +2921,13 @@ export interface Prisma__DepartmentClient<T, Null = never, ExtArgs extends runti
   memberships<T extends Prisma.Department$membershipsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Department$membershipsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$DepartmentMembershipPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   teams<T extends Prisma.Department$teamsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Department$teamsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TeamPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   roleAssignments<T extends Prisma.Department$roleAssignmentsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Department$roleAssignmentsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$RoleAssignmentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  jobProfiles<T extends Prisma.Department$jobProfilesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Department$jobProfilesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$JobProfilePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  kpiDefinitions<T extends Prisma.Department$kpiDefinitionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Department$kpiDefinitionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$KpiDefinitionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  agentProfiles<T extends Prisma.Department$agentProfilesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Department$agentProfilesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AgentProfilePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  workforceAssignments<T extends Prisma.Department$workforceAssignmentsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Department$workforceAssignmentsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$WorkforceAssignmentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  invitationOnboardingPlans<T extends Prisma.Department$invitationOnboardingPlansArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Department$invitationOnboardingPlansArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$InvitationOnboardingPlanPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  invitationOnboardingRoles<T extends Prisma.Department$invitationOnboardingRolesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Department$invitationOnboardingRolesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$InvitationOnboardingRolePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  matters<T extends Prisma.Department$mattersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Department$mattersArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$MatterPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2304,6 +3480,174 @@ export type Department$roleAssignmentsArgs<ExtArgs extends runtime.Types.Extensi
   take?: number
   skip?: number
   distinct?: Prisma.RoleAssignmentScalarFieldEnum | Prisma.RoleAssignmentScalarFieldEnum[]
+}
+
+/**
+ * Department.jobProfiles
+ */
+export type Department$jobProfilesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the JobProfile
+   */
+  select?: Prisma.JobProfileSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the JobProfile
+   */
+  omit?: Prisma.JobProfileOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.JobProfileInclude<ExtArgs> | null
+  where?: Prisma.JobProfileWhereInput
+  orderBy?: Prisma.JobProfileOrderByWithRelationInput | Prisma.JobProfileOrderByWithRelationInput[]
+  cursor?: Prisma.JobProfileWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.JobProfileScalarFieldEnum | Prisma.JobProfileScalarFieldEnum[]
+}
+
+/**
+ * Department.kpiDefinitions
+ */
+export type Department$kpiDefinitionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the KpiDefinition
+   */
+  select?: Prisma.KpiDefinitionSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the KpiDefinition
+   */
+  omit?: Prisma.KpiDefinitionOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.KpiDefinitionInclude<ExtArgs> | null
+  where?: Prisma.KpiDefinitionWhereInput
+  orderBy?: Prisma.KpiDefinitionOrderByWithRelationInput | Prisma.KpiDefinitionOrderByWithRelationInput[]
+  cursor?: Prisma.KpiDefinitionWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.KpiDefinitionScalarFieldEnum | Prisma.KpiDefinitionScalarFieldEnum[]
+}
+
+/**
+ * Department.agentProfiles
+ */
+export type Department$agentProfilesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the AgentProfile
+   */
+  select?: Prisma.AgentProfileSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the AgentProfile
+   */
+  omit?: Prisma.AgentProfileOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.AgentProfileInclude<ExtArgs> | null
+  where?: Prisma.AgentProfileWhereInput
+  orderBy?: Prisma.AgentProfileOrderByWithRelationInput | Prisma.AgentProfileOrderByWithRelationInput[]
+  cursor?: Prisma.AgentProfileWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.AgentProfileScalarFieldEnum | Prisma.AgentProfileScalarFieldEnum[]
+}
+
+/**
+ * Department.workforceAssignments
+ */
+export type Department$workforceAssignmentsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the WorkforceAssignment
+   */
+  select?: Prisma.WorkforceAssignmentSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the WorkforceAssignment
+   */
+  omit?: Prisma.WorkforceAssignmentOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.WorkforceAssignmentInclude<ExtArgs> | null
+  where?: Prisma.WorkforceAssignmentWhereInput
+  orderBy?: Prisma.WorkforceAssignmentOrderByWithRelationInput | Prisma.WorkforceAssignmentOrderByWithRelationInput[]
+  cursor?: Prisma.WorkforceAssignmentWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.WorkforceAssignmentScalarFieldEnum | Prisma.WorkforceAssignmentScalarFieldEnum[]
+}
+
+/**
+ * Department.invitationOnboardingPlans
+ */
+export type Department$invitationOnboardingPlansArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the InvitationOnboardingPlan
+   */
+  select?: Prisma.InvitationOnboardingPlanSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the InvitationOnboardingPlan
+   */
+  omit?: Prisma.InvitationOnboardingPlanOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.InvitationOnboardingPlanInclude<ExtArgs> | null
+  where?: Prisma.InvitationOnboardingPlanWhereInput
+  orderBy?: Prisma.InvitationOnboardingPlanOrderByWithRelationInput | Prisma.InvitationOnboardingPlanOrderByWithRelationInput[]
+  cursor?: Prisma.InvitationOnboardingPlanWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.InvitationOnboardingPlanScalarFieldEnum | Prisma.InvitationOnboardingPlanScalarFieldEnum[]
+}
+
+/**
+ * Department.invitationOnboardingRoles
+ */
+export type Department$invitationOnboardingRolesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the InvitationOnboardingRole
+   */
+  select?: Prisma.InvitationOnboardingRoleSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the InvitationOnboardingRole
+   */
+  omit?: Prisma.InvitationOnboardingRoleOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.InvitationOnboardingRoleInclude<ExtArgs> | null
+  where?: Prisma.InvitationOnboardingRoleWhereInput
+  orderBy?: Prisma.InvitationOnboardingRoleOrderByWithRelationInput | Prisma.InvitationOnboardingRoleOrderByWithRelationInput[]
+  cursor?: Prisma.InvitationOnboardingRoleWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.InvitationOnboardingRoleScalarFieldEnum | Prisma.InvitationOnboardingRoleScalarFieldEnum[]
+}
+
+/**
+ * Department.matters
+ */
+export type Department$mattersArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Matter
+   */
+  select?: Prisma.MatterSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Matter
+   */
+  omit?: Prisma.MatterOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.MatterInclude<ExtArgs> | null
+  where?: Prisma.MatterWhereInput
+  orderBy?: Prisma.MatterOrderByWithRelationInput | Prisma.MatterOrderByWithRelationInput[]
+  cursor?: Prisma.MatterWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.MatterScalarFieldEnum | Prisma.MatterScalarFieldEnum[]
 }
 
 /**

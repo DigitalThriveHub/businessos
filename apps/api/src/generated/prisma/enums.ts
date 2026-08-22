@@ -154,6 +154,550 @@ export const SecurityEventStatus = {
 export type SecurityEventStatus = (typeof SecurityEventStatus)[keyof typeof SecurityEventStatus]
 
 
+export const WorkforceAssignmentStatus = {
+  ACTIVE: 'ACTIVE',
+  SUSPENDED: 'SUSPENDED',
+  ENDED: 'ENDED'
+} as const
+
+export type WorkforceAssignmentStatus = (typeof WorkforceAssignmentStatus)[keyof typeof WorkforceAssignmentStatus]
+
+
+export const KpiValueType = {
+  NUMBER: 'NUMBER',
+  PERCENTAGE: 'PERCENTAGE',
+  CURRENCY: 'CURRENCY',
+  DURATION_SECONDS: 'DURATION_SECONDS',
+  RATING: 'RATING'
+} as const
+
+export type KpiValueType = (typeof KpiValueType)[keyof typeof KpiValueType]
+
+
+export const KpiDirection = {
+  HIGHER_IS_BETTER: 'HIGHER_IS_BETTER',
+  LOWER_IS_BETTER: 'LOWER_IS_BETTER',
+  TARGET_RANGE: 'TARGET_RANGE'
+} as const
+
+export type KpiDirection = (typeof KpiDirection)[keyof typeof KpiDirection]
+
+
+export const KpiFrequency = {
+  DAILY: 'DAILY',
+  WEEKLY: 'WEEKLY',
+  MONTHLY: 'MONTHLY',
+  QUARTERLY: 'QUARTERLY',
+  ANNUALLY: 'ANNUALLY',
+  CASE_BASED: 'CASE_BASED'
+} as const
+
+export type KpiFrequency = (typeof KpiFrequency)[keyof typeof KpiFrequency]
+
+
+export const AgentAuthorityLevel = {
+  DISABLED: 'DISABLED',
+  READ: 'READ',
+  DRAFT: 'DRAFT',
+  PROPOSE: 'PROPOSE',
+  EXECUTE_WITH_APPROVAL: 'EXECUTE_WITH_APPROVAL',
+  EXECUTE_AUTOMATIC: 'EXECUTE_AUTOMATIC'
+} as const
+
+export type AgentAuthorityLevel = (typeof AgentAuthorityLevel)[keyof typeof AgentAuthorityLevel]
+
+
+export const OnboardingPlanStatus = {
+  PENDING: 'PENDING',
+  PROVISIONED: 'PROVISIONED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type OnboardingPlanStatus = (typeof OnboardingPlanStatus)[keyof typeof OnboardingPlanStatus]
+
+
+export const ClientKind = {
+  INDIVIDUAL: 'INDIVIDUAL',
+  ORGANISATION: 'ORGANISATION'
+} as const
+
+export type ClientKind = (typeof ClientKind)[keyof typeof ClientKind]
+
+
+export const ClientStatus = {
+  ONBOARDING: 'ONBOARDING',
+  ACTIVE: 'ACTIVE',
+  INACTIVE: 'INACTIVE',
+  ARCHIVED: 'ARCHIVED'
+} as const
+
+export type ClientStatus = (typeof ClientStatus)[keyof typeof ClientStatus]
+
+
+export const ClientRiskRating = {
+  NOT_ASSESSED: 'NOT_ASSESSED',
+  LOW: 'LOW',
+  MEDIUM: 'MEDIUM',
+  HIGH: 'HIGH'
+} as const
+
+export type ClientRiskRating = (typeof ClientRiskRating)[keyof typeof ClientRiskRating]
+
+
+export const IdentityVerificationStatus = {
+  NOT_STARTED: 'NOT_STARTED',
+  PENDING: 'PENDING',
+  VERIFIED: 'VERIFIED',
+  FAILED: 'FAILED',
+  EXPIRED: 'EXPIRED'
+} as const
+
+export type IdentityVerificationStatus = (typeof IdentityVerificationStatus)[keyof typeof IdentityVerificationStatus]
+
+
+export const ProcessingLawfulBasis = {
+  CONTRACT: 'CONTRACT',
+  LEGAL_OBLIGATION: 'LEGAL_OBLIGATION',
+  LEGITIMATE_INTEREST: 'LEGITIMATE_INTEREST',
+  CONSENT: 'CONSENT',
+  VITAL_INTEREST: 'VITAL_INTEREST',
+  PUBLIC_TASK: 'PUBLIC_TASK'
+} as const
+
+export type ProcessingLawfulBasis = (typeof ProcessingLawfulBasis)[keyof typeof ProcessingLawfulBasis]
+
+
+export const CommunicationChannel = {
+  EMAIL: 'EMAIL',
+  PHONE: 'PHONE',
+  SMS: 'SMS',
+  WHATSAPP: 'WHATSAPP',
+  POST: 'POST',
+  NONE: 'NONE'
+} as const
+
+export type CommunicationChannel = (typeof CommunicationChannel)[keyof typeof CommunicationChannel]
+
+
+export const MatterStatus = {
+  INTAKE: 'INTAKE',
+  CONFLICT_CHECK: 'CONFLICT_CHECK',
+  CLIENT_CARE: 'CLIENT_CARE',
+  AWAITING_DOCUMENTS: 'AWAITING_DOCUMENTS',
+  ACTIVE: 'ACTIVE',
+  SUBMITTED: 'SUBMITTED',
+  DECISION_RECEIVED: 'DECISION_RECEIVED',
+  ON_HOLD: 'ON_HOLD',
+  CLOSED: 'CLOSED',
+  CANCELLED: 'CANCELLED',
+  ARCHIVED: 'ARCHIVED'
+} as const
+
+export type MatterStatus = (typeof MatterStatus)[keyof typeof MatterStatus]
+
+
+export const MatterPriority = {
+  LOW: 'LOW',
+  NORMAL: 'NORMAL',
+  HIGH: 'HIGH',
+  URGENT: 'URGENT'
+} as const
+
+export type MatterPriority = (typeof MatterPriority)[keyof typeof MatterPriority]
+
+
+export const MatterPartyRole = {
+  PRIMARY_CLIENT: 'PRIMARY_CLIENT',
+  DEPENDANT: 'DEPENDANT',
+  SPONSOR: 'SPONSOR',
+  EMPLOYER: 'EMPLOYER',
+  REPRESENTATIVE: 'REPRESENTATIVE',
+  OTHER: 'OTHER'
+} as const
+
+export type MatterPartyRole = (typeof MatterPartyRole)[keyof typeof MatterPartyRole]
+
+
+export const ConflictCheckStatus = {
+  NOT_STARTED: 'NOT_STARTED',
+  PENDING: 'PENDING',
+  CLEARED: 'CLEARED',
+  FLAGGED: 'FLAGGED',
+  WAIVED: 'WAIVED'
+} as const
+
+export type ConflictCheckStatus = (typeof ConflictCheckStatus)[keyof typeof ConflictCheckStatus]
+
+
+export const AmlCheckStatus = {
+  NOT_REQUIRED: 'NOT_REQUIRED',
+  NOT_STARTED: 'NOT_STARTED',
+  PENDING: 'PENDING',
+  VERIFIED: 'VERIFIED',
+  FAILED: 'FAILED',
+  EXPIRED: 'EXPIRED'
+} as const
+
+export type AmlCheckStatus = (typeof AmlCheckStatus)[keyof typeof AmlCheckStatus]
+
+
+export const ClientCareStatus = {
+  NOT_SENT: 'NOT_SENT',
+  SENT: 'SENT',
+  ACCEPTED: 'ACCEPTED',
+  DECLINED: 'DECLINED'
+} as const
+
+export type ClientCareStatus = (typeof ClientCareStatus)[keyof typeof ClientCareStatus]
+
+
+export const CaseTaskStatus = {
+  OPEN: 'OPEN',
+  IN_PROGRESS: 'IN_PROGRESS',
+  BLOCKED: 'BLOCKED',
+  COMPLETED: 'COMPLETED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type CaseTaskStatus = (typeof CaseTaskStatus)[keyof typeof CaseTaskStatus]
+
+
+export const CaseTaskPriority = {
+  LOW: 'LOW',
+  NORMAL: 'NORMAL',
+  HIGH: 'HIGH',
+  URGENT: 'URGENT'
+} as const
+
+export type CaseTaskPriority = (typeof CaseTaskPriority)[keyof typeof CaseTaskPriority]
+
+
+export const MatterDeadlineType = {
+  INTERNAL: 'INTERNAL',
+  CLIENT: 'CLIENT',
+  STATUTORY: 'STATUTORY',
+  COURT: 'COURT',
+  TRIBUNAL: 'TRIBUNAL',
+  REGULATORY: 'REGULATORY',
+  OTHER: 'OTHER'
+} as const
+
+export type MatterDeadlineType = (typeof MatterDeadlineType)[keyof typeof MatterDeadlineType]
+
+
+export const MatterDeadlineStatus = {
+  OPEN: 'OPEN',
+  SATISFIED: 'SATISFIED',
+  MISSED: 'MISSED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type MatterDeadlineStatus = (typeof MatterDeadlineStatus)[keyof typeof MatterDeadlineStatus]
+
+
+export const DocumentCategory = {
+  GENERAL: 'GENERAL',
+  IDENTITY: 'IDENTITY',
+  FINANCIAL: 'FINANCIAL',
+  LEGAL: 'LEGAL',
+  EVIDENCE: 'EVIDENCE',
+  CLIENT_CARE: 'CLIENT_CARE',
+  SUBMISSION: 'SUBMISSION',
+  DECISION: 'DECISION',
+  CORRESPONDENCE: 'CORRESPONDENCE',
+  OTHER: 'OTHER'
+} as const
+
+export type DocumentCategory = (typeof DocumentCategory)[keyof typeof DocumentCategory]
+
+
+export const DocumentSecurityClassification = {
+  INTERNAL: 'INTERNAL',
+  CONFIDENTIAL: 'CONFIDENTIAL',
+  RESTRICTED: 'RESTRICTED',
+  LEGALLY_PRIVILEGED: 'LEGALLY_PRIVILEGED'
+} as const
+
+export type DocumentSecurityClassification = (typeof DocumentSecurityClassification)[keyof typeof DocumentSecurityClassification]
+
+
+export const DocumentStatus = {
+  PENDING_UPLOAD: 'PENDING_UPLOAD',
+  PENDING_SCAN: 'PENDING_SCAN',
+  AVAILABLE: 'AVAILABLE',
+  QUARANTINED: 'QUARANTINED',
+  SUPERSEDED: 'SUPERSEDED',
+  ARCHIVED: 'ARCHIVED'
+} as const
+
+export type DocumentStatus = (typeof DocumentStatus)[keyof typeof DocumentStatus]
+
+
+export const DocumentScanStatus = {
+  NOT_SCANNED: 'NOT_SCANNED',
+  PENDING: 'PENDING',
+  CLEAN: 'CLEAN',
+  INFECTED: 'INFECTED',
+  ERROR: 'ERROR'
+} as const
+
+export type DocumentScanStatus = (typeof DocumentScanStatus)[keyof typeof DocumentScanStatus]
+
+
+export const DocumentScanJobStatus = {
+  QUEUED: 'QUEUED',
+  LEASED: 'LEASED',
+  SUCCEEDED: 'SUCCEEDED',
+  FAILED: 'FAILED',
+  DEAD_LETTER: 'DEAD_LETTER'
+} as const
+
+export type DocumentScanJobStatus = (typeof DocumentScanJobStatus)[keyof typeof DocumentScanJobStatus]
+
+
+export const DocumentRequestStatus = {
+  DRAFT: 'DRAFT',
+  SENT: 'SENT',
+  PARTIALLY_RECEIVED: 'PARTIALLY_RECEIVED',
+  COMPLETED: 'COMPLETED',
+  CANCELLED: 'CANCELLED',
+  EXPIRED: 'EXPIRED'
+} as const
+
+export type DocumentRequestStatus = (typeof DocumentRequestStatus)[keyof typeof DocumentRequestStatus]
+
+
+export const DocumentRequestItemStatus = {
+  REQUESTED: 'REQUESTED',
+  RECEIVED: 'RECEIVED',
+  ACCEPTED: 'ACCEPTED',
+  REJECTED: 'REJECTED',
+  WAIVED: 'WAIVED'
+} as const
+
+export type DocumentRequestItemStatus = (typeof DocumentRequestItemStatus)[keyof typeof DocumentRequestItemStatus]
+
+
+export const AutomationSubjectType = {
+  ENQUIRY: 'ENQUIRY',
+  CLIENT: 'CLIENT',
+  MATTER: 'MATTER'
+} as const
+
+export type AutomationSubjectType = (typeof AutomationSubjectType)[keyof typeof AutomationSubjectType]
+
+
+export const WorkflowDefinitionStatus = {
+  DRAFT: 'DRAFT',
+  ACTIVE: 'ACTIVE',
+  RETIRED: 'RETIRED'
+} as const
+
+export type WorkflowDefinitionStatus = (typeof WorkflowDefinitionStatus)[keyof typeof WorkflowDefinitionStatus]
+
+
+export const WorkflowRunStatus = {
+  RUNNING: 'RUNNING',
+  WAITING: 'WAITING',
+  COMPLETED: 'COMPLETED',
+  FAILED: 'FAILED',
+  CANCELLED: 'CANCELLED',
+  DEAD_LETTER: 'DEAD_LETTER'
+} as const
+
+export type WorkflowRunStatus = (typeof WorkflowRunStatus)[keyof typeof WorkflowRunStatus]
+
+
+export const WorkflowActionType = {
+  SYSTEM: 'SYSTEM',
+  HUMAN_TASK: 'HUMAN_TASK',
+  APPROVAL: 'APPROVAL',
+  TIMER: 'TIMER'
+} as const
+
+export type WorkflowActionType = (typeof WorkflowActionType)[keyof typeof WorkflowActionType]
+
+
+export const WorkflowActionStatus = {
+  PENDING: 'PENDING',
+  READY: 'READY',
+  RUNNING: 'RUNNING',
+  WAITING: 'WAITING',
+  SUCCEEDED: 'SUCCEEDED',
+  FAILED: 'FAILED',
+  CANCELLED: 'CANCELLED',
+  DEAD_LETTER: 'DEAD_LETTER'
+} as const
+
+export type WorkflowActionStatus = (typeof WorkflowActionStatus)[keyof typeof WorkflowActionStatus]
+
+
+export const WorkPriority = {
+  LOW: 'LOW',
+  NORMAL: 'NORMAL',
+  HIGH: 'HIGH',
+  URGENT: 'URGENT'
+} as const
+
+export type WorkPriority = (typeof WorkPriority)[keyof typeof WorkPriority]
+
+
+export const SlaInstanceStatus = {
+  ACTIVE: 'ACTIVE',
+  AT_RISK: 'AT_RISK',
+  BREACHED: 'BREACHED',
+  SATISFIED: 'SATISFIED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type SlaInstanceStatus = (typeof SlaInstanceStatus)[keyof typeof SlaInstanceStatus]
+
+
+export const EscalationEventStatus = {
+  RECORDED: 'RECORDED',
+  ACKNOWLEDGED: 'ACKNOWLEDGED',
+  RESOLVED: 'RESOLVED'
+} as const
+
+export type EscalationEventStatus = (typeof EscalationEventStatus)[keyof typeof EscalationEventStatus]
+
+
+export const ApprovalRequestStatus = {
+  PENDING: 'PENDING',
+  APPROVED: 'APPROVED',
+  REJECTED: 'REJECTED',
+  EXPIRED: 'EXPIRED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type ApprovalRequestStatus = (typeof ApprovalRequestStatus)[keyof typeof ApprovalRequestStatus]
+
+
+export const ApprovalDecisionType = {
+  APPROVED: 'APPROVED',
+  REJECTED: 'REJECTED'
+} as const
+
+export type ApprovalDecisionType = (typeof ApprovalDecisionType)[keyof typeof ApprovalDecisionType]
+
+
+export const ApprovalRiskLevel = {
+  LOW: 'LOW',
+  MEDIUM: 'MEDIUM',
+  HIGH: 'HIGH',
+  CRITICAL: 'CRITICAL'
+} as const
+
+export type ApprovalRiskLevel = (typeof ApprovalRiskLevel)[keyof typeof ApprovalRiskLevel]
+
+
+export const BusinessCommunicationChannel = {
+  PORTAL: 'PORTAL',
+  EMAIL: 'EMAIL',
+  WHATSAPP: 'WHATSAPP'
+} as const
+
+export type BusinessCommunicationChannel = (typeof BusinessCommunicationChannel)[keyof typeof BusinessCommunicationChannel]
+
+
+export const CommunicationDirection = {
+  INBOUND: 'INBOUND',
+  OUTBOUND: 'OUTBOUND',
+  INTERNAL: 'INTERNAL'
+} as const
+
+export type CommunicationDirection = (typeof CommunicationDirection)[keyof typeof CommunicationDirection]
+
+
+export const CommunicationActorType = {
+  STAFF: 'STAFF',
+  CLIENT: 'CLIENT',
+  SYSTEM: 'SYSTEM',
+  AI_AGENT: 'AI_AGENT'
+} as const
+
+export type CommunicationActorType = (typeof CommunicationActorType)[keyof typeof CommunicationActorType]
+
+
+export const CommunicationConversationStatus = {
+  OPEN: 'OPEN',
+  WAITING_ON_CLIENT: 'WAITING_ON_CLIENT',
+  WAITING_ON_TEAM: 'WAITING_ON_TEAM',
+  RESOLVED: 'RESOLVED',
+  ARCHIVED: 'ARCHIVED'
+} as const
+
+export type CommunicationConversationStatus = (typeof CommunicationConversationStatus)[keyof typeof CommunicationConversationStatus]
+
+
+export const CommunicationMessageStatus = {
+  DRAFT: 'DRAFT',
+  PENDING_APPROVAL: 'PENDING_APPROVAL',
+  QUEUED: 'QUEUED',
+  SENDING: 'SENDING',
+  SENT: 'SENT',
+  DELIVERED: 'DELIVERED',
+  READ: 'READ',
+  FAILED: 'FAILED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type CommunicationMessageStatus = (typeof CommunicationMessageStatus)[keyof typeof CommunicationMessageStatus]
+
+
+export const CommunicationDeliveryEventType = {
+  QUEUED: 'QUEUED',
+  ACCEPTED: 'ACCEPTED',
+  DELIVERED: 'DELIVERED',
+  READ: 'READ',
+  BOUNCED: 'BOUNCED',
+  COMPLAINED: 'COMPLAINED',
+  FAILED: 'FAILED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type CommunicationDeliveryEventType = (typeof CommunicationDeliveryEventType)[keyof typeof CommunicationDeliveryEventType]
+
+
+export const CommunicationTemplateStatus = {
+  DRAFT: 'DRAFT',
+  ACTIVE: 'ACTIVE',
+  ARCHIVED: 'ARCHIVED'
+} as const
+
+export type CommunicationTemplateStatus = (typeof CommunicationTemplateStatus)[keyof typeof CommunicationTemplateStatus]
+
+
+export const CommunicationReminderStatus = {
+  SCHEDULED: 'SCHEDULED',
+  PROCESSING: 'PROCESSING',
+  SENT: 'SENT',
+  CANCELLED: 'CANCELLED',
+  FAILED: 'FAILED'
+} as const
+
+export type CommunicationReminderStatus = (typeof CommunicationReminderStatus)[keyof typeof CommunicationReminderStatus]
+
+
+export const PortalAccessStatus = {
+  ACTIVE: 'ACTIVE',
+  SUSPENDED: 'SUSPENDED',
+  REVOKED: 'REVOKED'
+} as const
+
+export type PortalAccessStatus = (typeof PortalAccessStatus)[keyof typeof PortalAccessStatus]
+
+
+export const PortalInvitationStatus = {
+  PENDING: 'PENDING',
+  ACCEPTED: 'ACCEPTED',
+  REVOKED: 'REVOKED',
+  EXPIRED: 'EXPIRED'
+} as const
+
+export type PortalInvitationStatus = (typeof PortalInvitationStatus)[keyof typeof PortalInvitationStatus]
+
+
 export const EnquiryStatus = {
   NEW: 'NEW',
   CONTACTED: 'CONTACTED',

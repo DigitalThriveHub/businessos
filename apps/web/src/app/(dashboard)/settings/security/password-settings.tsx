@@ -4,6 +4,7 @@ import {
   type FormEvent,
   useState,
 } from "react";
+import { useRouter } from "next/navigation";
 import {
   AlertCircle,
   Eye,
@@ -116,6 +117,8 @@ function resolveUpdateError(
 }
 
 export function PasswordSettings() {
+  const router = useRouter();
+
   const [
     currentPassword,
     setCurrentPassword,
@@ -235,7 +238,7 @@ export function PasswordSettings() {
         assurance.nextLevel ===
           "aal2"
       ) {
-        window.location.assign(
+        router.push(
           "/mfa/challenge?returnTo=%2Fsettings%2Fsecurity",
         );
         return;

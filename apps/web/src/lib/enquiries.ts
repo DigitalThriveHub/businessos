@@ -6,7 +6,7 @@ export const ENQUIRY_STATUSES = [
   "QUALIFIED",
   "CONSULTATION_BOOKED",
   "CONVERTED",
-  "LOST",
+  "CLOSED",
   "SPAM",
 ] as const;
 
@@ -29,7 +29,7 @@ export const ENQUIRY_STATUS_LABELS: Record<EnquiryStatus, string> = {
   QUALIFIED: "Qualified",
   CONSULTATION_BOOKED: "Consultation booked",
   CONVERTED: "Converted",
-  LOST: "Lost",
+  CLOSED: "Closed",
   SPAM: "Spam",
 };
 

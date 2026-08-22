@@ -1,6 +1,9 @@
 import { BadRequestException } from '@nestjs/common';
 import { EnquiryStatus } from '../generated/prisma/enums';
-import { assertValidEnquiryTransition } from './enquiry-workflow';
+import {
+  assertEnquiryCanConvert,
+  assertValidEnquiryTransition,
+} from './enquiry-workflow';
 
 describe('assertValidEnquiryTransition', () => {
   it('accepts a valid progression', () => {
@@ -32,6 +35,30 @@ describe('assertValidEnquiryTransition', () => {
         EnquiryStatus.CLOSED,
       ),
     ).toThrow(BadRequestException);
+  });
+
+  it('rejects ordinary PATCH conversion even after consultation booking', () => {
+    expect(() =>
+      assertValidEnquiryTransition(
+        EnquiryStatus.CONSULTATION_BOOKED,
+        EnquiryStatus.CONVERTED,
+      ),
+    ).toThrow(BadRequestException);
+  });
+
+  it('allows the dedicated conversion operation for qualified enquiries', () => {
+    expect(() =>
+      assertEnquiryCanConvert(EnquiryStatus.QUALIFIED),
+    ).not.toThrow();
+    expect(() =>
+      assertEnquiryCanConvert(EnquiryStatus.CONSULTATION_BOOKED),
+    ).not.toThrow();
+  });
+
+  it('rejects dedicated conversion for an unqualified enquiry', () => {
+    expect(() => assertEnquiryCanConvert(EnquiryStatus.NEW)).toThrow(
+      BadRequestException,
+    );
   });
 
   it('allows a closed enquiry to be reopened as contacted', () => {

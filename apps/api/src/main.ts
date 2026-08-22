@@ -5,7 +5,9 @@ import helmet from 'helmet';
 import { AppModule } from './app.module';
 
 async function bootstrap(): Promise<void> {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule, {
+    rawBody: true,
+  });
   const config = app.get(ConfigService);
 
   app.use(helmet());
@@ -21,10 +23,7 @@ async function bootstrap(): Promise<void> {
   app.setGlobalPrefix('api/v1');
   app.enableShutdownHooks();
 
-  await app.listen(
-    config.getOrThrow<number>('PORT'),
-    '0.0.0.0',
-  );
+  await app.listen(config.getOrThrow<number>('PORT'), '0.0.0.0');
 }
 
 void bootstrap();

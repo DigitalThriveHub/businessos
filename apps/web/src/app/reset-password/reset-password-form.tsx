@@ -2,8 +2,6 @@
 
 import {
   useActionState,
-  useEffect,
-  useRef,
   useState,
 } from "react";
 import Link from "next/link";
@@ -94,9 +92,6 @@ export function ResetPasswordForm() {
       INITIAL_STATE,
     );
 
-  const formRef =
-    useRef<HTMLFormElement>(null);
-
   const [
     showPassword,
     setShowPassword,
@@ -106,14 +101,6 @@ export function ResetPasswordForm() {
     showConfirmation,
     setShowConfirmation,
   ] = useState(false);
-
-  useEffect(() => {
-    if (state.status === "success") {
-      formRef.current?.reset();
-      setShowPassword(false);
-      setShowConfirmation(false);
-    }
-  }, [state.status]);
 
   const passwordErrors =
     state.fieldErrors?.password;
@@ -165,7 +152,6 @@ export function ResetPasswordForm() {
 
   return (
     <form
-      ref={formRef}
       action={formAction}
       noValidate
       className="space-y-5"
@@ -231,9 +217,7 @@ export function ResetPasswordForm() {
                 ? "Hide new password"
                 : "Show new password"
             }
-            aria-pressed={
-              showPassword
-            }
+            aria-pressed={showPassword}
             className="absolute inset-y-0 right-0 flex w-12 items-center justify-center rounded-r-xl text-slate-500 transition hover:text-slate-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-slate-950"
           >
             {showPassword ? (

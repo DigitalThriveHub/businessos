@@ -1,0 +1,1077 @@
+﻿===== DEFAULT ROLES =====
+import { RoleScope } from '../generated/prisma/enums';
+import type { DefaultPermissionKey } from './default-permissions';
+
+export interface DefaultRoleDefinition {
+  readonly key: string;
+  readonly name: string;
+  readonly description: string;
+  readonly scope: RoleScope;
+  readonly isAssignable: boolean;
+  readonly permissions: readonly DefaultPermissionKey[];
+}
+
+export const DEFAULT_ROLES = [
+  {
+    key: 'organisation_owner',
+    name: 'Organisation Owner',
+    description:
+      'Full organisation-level authority, including sensitive administrative operations.',
+    scope: RoleScope.ORGANISATION,
+    isAssignable: false,
+    permissions: [
+      'enquiries.create',
+      'enquiries.read',
+      'enquiries.read_all',
+      'enquiries.update',
+      'enquiries.assign',
+      'enquiries.convert',
+      'enquiries.close',
+      'enquiries.delete',
+    ],
+  },
+  {
+    key: 'system_administrator',
+    name: 'System Administrator',
+    description:
+      'Administers organisation systems, users, access and operational configuration.',
+    scope: RoleScope.ORGANISATION,
+    isAssignable: true,
+    permissions: [
+      'enquiries.create',
+      'enquiries.read',
+      'enquiries.read_all',
+      'enquiries.update',
+      'enquiries.assign',
+      'enquiries.convert',
+      'enquiries.close',
+      'enquiries.delete',
+    ],
+  },
+  {
+    key: 'compliance_manager',
+    name: 'Compliance Manager',
+    description:
+      'Reviews organisation enquiries for compliance, risk and governance purposes.',
+    scope: RoleScope.ORGANISATION,
+    isAssignable: true,
+    permissions: [
+      'enquiries.read',
+      'enquiries.read_all',
+      'enquiries.update',
+      'enquiries.close',
+    ],
+  },
+  {
+    key: 'solicitor',
+    name: 'Solicitor',
+    description:
+      'Manages assigned enquiries and progresses qualified clients.',
+    scope: RoleScope.ORGANISATION,
+    isAssignable: true,
+    permissions: [
+      'enquiries.create',
+      'enquiries.read',
+      'enquiries.update',
+      'enquiries.convert',
+      'enquiries.close',
+    ],
+  },
+  {
+    key: 'sales_manager',
+    name: 'Sales Manager',
+    description:
+      'Manages the organisation enquiry pipeline and team assignments.',
+    scope: RoleScope.ORGANISATION,
+    isAssignable: true,
+    permissions: [
+      'enquiries.create',
+      'enquiries.read',
+      'enquiries.read_all',
+      'enquiries.update',
+      'enquiries.assign',
+      'enquiries.convert',
+      'enquiries.close',
+    ],
+  },
+  {
+    key: 'sales_agent',
+    name: 'Sales Agent',
+    description:
+      'Creates and manages enquiries within the authorised individual scope.',
+    scope: RoleScope.ORGANISATION,
+    isAssignable: true,
+    permissions: [
+      'enquiries.create',
+      'enquiries.read',
+      'enquiries.update',
+      'enquiries.convert',
+      'enquiries.close',
+    ],
+  },
+  {
+    key: 'finance',
+    name: 'Finance',
+    description:
+      'Receives read-only organisation enquiry access for authorised financial work.',
+    scope: RoleScope.ORGANISATION,
+    isAssignable: true,
+    permissions: ['enquiries.read_all'],
+  },
+  {
+    key: 'read_only',
+    name: 'Read Only',
+    description:
+      'Provides read-only access to organisation enquiries.',
+    scope: RoleScope.ORGANISATION,
+    isAssignable: true,
+    permissions: ['enquiries.read_all'],
+  },
+] as const satisfies readonly DefaultRoleDefinition[];
+===== RBAC SERVICE =====
+import {
+  Injectable,
+  InternalServerErrorException,
+} from '@nestjs/common';
+import { PrismaService } from '../database/prisma.service';
+import { DEFAULT_PERMISSION_KEYS } from './default-permissions';
+import { DEFAULT_ROLES } from './default-roles';
+
+export interface ProvisionedRbacResult {
+  organisationId: string;
+  rolesProvisioned: number;
+  permissionsConnected: number;
+}
+
+@Injectable()
+export class RbacService {
+  constructor(private readonly prisma: PrismaService) {}
+
+  async provisionDefaultRoles(
+    organisationId: string,
+  ): Promise<ProvisionedRbacResult> {
+    return this.prisma.$transaction(async (transaction) => {
+      const organisation = await transaction.organisation.findFirst({
+        where: {
+          id: organisationId,
+          deletedAt: null,
+        },
+        select: {
+          id: true,
+        },
+      });
+
+      if (!organisation) {
+        throw new InternalServerErrorException(
+          'Cannot provision RBAC for an unavailable organisation.',
+        );
+      }
+
+      const permissions = await transaction.permission.findMany({
+        where: {
+          key: {
+            in: [...DEFAULT_PERMISSION_KEYS],
+          },
+          isActive: true,
+          deletedAt: null,
+        },
+        select: {
+          id: true,
+          key: true,
+        },
+      });
+
+      if (permissions.length !== DEFAULT_PERMISSION_KEYS.length) {
+        const availableKeys = new Set(
+          permissions.map((permission) => permission.key),
+        );
+
+        const missingKeys = DEFAULT_PERMISSION_KEYS.filter(
+          (key) => !availableKeys.has(key),
+        );
+
+        throw new InternalServerErrorException(
+          `RBAC permission catalogue is incomplete: ${missingKeys.join(', ')}`,
+        );
+      }
+
+      const permissionIdByKey = new Map(
+        permissions.map((permission) => [
+          permission.key,
+          permission.id,
+        ]),
+      );
+
+      let permissionsConnected = 0;
+
+      for (const definition of DEFAULT_ROLES) {
+        const role = await transaction.role.upsert({
+          where: {
+            organisationId_key: {
+              organisationId,
+              key: definition.key,
+            },
+          },
+          create: {
+            organisationId,
+            key: definition.key,
+            name: definition.name,
+            description: definition.description,
+            scope: definition.scope,
+            isSystem: true,
+            isAssignable: definition.isAssignable,
+          },
+          update: {
+            name: definition.name,
+            description: definition.description,
+            scope: definition.scope,
+            isSystem: true,
+            isAssignable: definition.isAssignable,
+            deletedAt: null,
+          },
+          select: {
+            id: true,
+          },
+        });
+
+        const requiredPermissionIds = definition.permissions.map((key) => {
+          const permissionId = permissionIdByKey.get(key);
+
+          if (!permissionId) {
+            throw new InternalServerErrorException(
+              `Missing required permission: ${key}`,
+            );
+          }
+
+          return permissionId;
+        });
+
+        // Keep system-role permissions exactly aligned with the
+        // version-controlled role definitions.
+        await transaction.rolePermission.deleteMany({
+          where: {
+            roleId: role.id,
+            permissionId: {
+              notIn: requiredPermissionIds,
+            },
+          },
+        });
+
+        for (const permissionId of requiredPermissionIds) {
+          await transaction.rolePermission.upsert({
+            where: {
+              roleId_permissionId: {
+                roleId: role.id,
+                permissionId,
+              },
+            },
+            create: {
+              roleId: role.id,
+              permissionId,
+            },
+            update: {},
+          });
+
+          permissionsConnected += 1;
+        }
+      }
+
+      return {
+        organisationId,
+        rolesProvisioned: DEFAULT_ROLES.length,
+        permissionsConnected,
+      };
+    });
+  }
+}
+===== BOOTSTRAP SERVICE =====
+import {
+  BadRequestException,
+  ConflictException,
+  ForbiddenException,
+  Injectable,
+  InternalServerErrorException,
+} from '@nestjs/common';
+import { Prisma } from '../generated/prisma/client';
+import { RlsTransactionService } from '../database/rls-transaction.service';
+import { BootstrapOrganisationDto } from './dto/bootstrap-organisation.dto';
+import {
+  BootstrapActor,
+  BootstrapOrganisationResult,
+} from './bootstrap.types';
+
+interface DatabaseBootstrapRow {
+  organisation_id: string;
+  organisation_slug: string;
+  membership_id: string;
+  owner_role_id: string;
+  owner_role_assignment_id: string;
+  status: string;
+}
+
+@Injectable()
+export class BootstrapService {
+  constructor(
+    private readonly rlsTransaction: RlsTransactionService,
+  ) {}
+
+  async bootstrapOrganisation(
+    actor: BootstrapActor,
+    dto: BootstrapOrganisationDto,
+  ): Promise<BootstrapOrganisationResult> {
+    const userId = actor.userId.trim();
+    const authenticatedEmail = actor.email.trim().toLowerCase();
+    const ownerEmail = dto.ownerEmail.trim().toLowerCase();
+
+    if (!userId || !authenticatedEmail) {
+      throw new ForbiddenException(
+        'A valid authenticated identity is required.',
+      );
+    }
+
+    if (ownerEmail !== authenticatedEmail) {
+      throw new ForbiddenException(
+        'Owner email must match the authenticated identity.',
+      );
+    }
+
+    try {
+      const rows = await this.rlsTransaction.run(
+        {
+          userId,
+          aal: 'AAL1',
+        },
+        async (transaction) =>
+          transaction.$queryRaw<DatabaseBootstrapRow[]>(
+            Prisma.sql`
+              SELECT *
+              FROM private.bootstrap_organisation(
+                ${dto.name.trim()},
+                ${dto.slug.trim()},
+                ${this.optionalText(dto.legalName)},
+                ${ownerEmail},
+                ${this.optionalText(dto.ownerDisplayName)},
+                ${this.optionalText(dto.ownerFirstName)},
+                ${this.optionalText(dto.ownerLastName)},
+                ${this.optionalText(dto.ownerJobTitle)},
+                ${dto.timezone?.trim() || 'Europe/London'},
+                ${dto.locale?.trim() || 'en-GB'},
+                ${dto.countryCode?.trim() || 'GB'}
+              )
+            `,
+          ),
+      );
+
+      const result = rows[0];
+
+      if (
+        rows.length !== 1 ||
+        !result ||
+        result.status !== 'ACTIVE'
+      ) {
+        throw new InternalServerErrorException(
+          'Organisation bootstrap returned an invalid result.',
+        );
+      }
+
+      return {
+        organisationId: result.organisation_id,
+        organisationSlug: result.organisation_slug,
+        membershipId: result.membership_id,
+        ownerRoleId: result.owner_role_id,
+        ownerRoleAssignmentId:
+          result.owner_role_assignment_id,
+        status: 'ACTIVE',
+      };
+    } catch (error: unknown) {
+      if (
+        error instanceof BadRequestException ||
+        error instanceof ConflictException ||
+        error instanceof ForbiddenException ||
+        error instanceof InternalServerErrorException
+      ) {
+        throw error;
+      }
+
+      const databaseCode = this.getDatabaseCode(error);
+      const databaseMessage = this.getDatabaseMessage(error);
+
+      if (
+        databaseCode === '23505' ||
+        databaseMessage.includes('already belongs') ||
+        databaseMessage.includes('already in use')
+      ) {
+        throw new ConflictException(
+          'The organisation cannot be created because the user or slug is already registered.',
+        );
+      }
+
+      if (
+        databaseCode === '42501' ||
+        databaseMessage.includes(
+          'owner email must match',
+        ) ||
+        databaseMessage.includes(
+          'authenticated user context is required',
+        )
+      ) {
+        throw new ForbiddenException(
+          'You are not authorised to bootstrap this organisation.',
+        );
+      }
+
+      if (
+        databaseCode === '23514' ||
+        databaseMessage.includes(
+          'invalid organisation slug',
+        ) ||
+        databaseMessage.includes(
+          'invalid iso country code',
+        ) ||
+        databaseMessage.includes(
+          'organisation name must',
+        )
+      ) {
+        throw new BadRequestException(
+          'The organisation details are invalid.',
+        );
+      }
+
+      throw new InternalServerErrorException(
+        'Organisation bootstrap failed.',
+      );
+    }
+  }
+
+  private optionalText(
+    value: string | undefined,
+  ): string | null {
+    const normalized = value?.trim();
+
+    return normalized ? normalized : null;
+  }
+
+  private getDatabaseCode(error: unknown): string {
+    if (
+      typeof error !== 'object' ||
+      error === null ||
+      !('meta' in error)
+    ) {
+      return '';
+    }
+
+    const meta = error.meta;
+
+    if (
+      typeof meta !== 'object' ||
+      meta === null ||
+      !('code' in meta)
+    ) {
+      return '';
+    }
+
+    return typeof meta.code === 'string' ? meta.code : '';
+  }
+
+  private getDatabaseMessage(error: unknown): string {
+    if (!(error instanceof Error)) {
+      return '';
+    }
+
+    return error.message.toLowerCase();
+  }
+}
+===== SECURE BOOTSTRAP MIGRATION =====
+-- Secure, atomic organisation bootstrap.
+-- RLS remains enabled and forced.
+-- The runtime role receives EXECUTE only, never direct INSERT on organisations.
+
+CREATE OR REPLACE FUNCTION private.bootstrap_organisation(
+  p_name text,
+  p_slug text,
+  p_legal_name text DEFAULT NULL,
+  p_owner_email text DEFAULT NULL,
+  p_owner_display_name text DEFAULT NULL,
+  p_owner_first_name text DEFAULT NULL,
+  p_owner_last_name text DEFAULT NULL,
+  p_owner_job_title text DEFAULT NULL,
+  p_timezone text DEFAULT 'Europe/London',
+  p_locale text DEFAULT 'en-GB',
+  p_country_code text DEFAULT 'GB'
+)
+RETURNS TABLE (
+  organisation_id uuid,
+  organisation_slug text,
+  membership_id uuid,
+  owner_role_id uuid,
+  owner_role_assignment_id uuid,
+  status text
+)
+LANGUAGE plpgsql
+SECURITY DEFINER
+SET search_path = pg_catalog
+AS $function$
+DECLARE
+  v_user_id uuid;
+  v_auth_email text;
+  v_organisation_id uuid;
+  v_membership_id uuid;
+  v_owner_role_id uuid;
+  v_owner_assignment_id uuid;
+  v_role record;
+  v_permission_key text;
+BEGIN
+  v_user_id := private.current_user_id();
+
+  IF v_user_id IS NULL THEN
+    RAISE EXCEPTION 'Authenticated user context is required'
+      USING ERRCODE = 'insufficient_privilege';
+  END IF;
+
+  -- Prevent concurrent duplicate bootstrap requests for the same identity.
+  PERFORM pg_catalog.pg_advisory_xact_lock(
+    pg_catalog.hashtextextended(v_user_id::text, 0)
+  );
+
+  SELECT lower(btrim(auth_user.email))
+  INTO v_auth_email
+  FROM auth.users AS auth_user
+  WHERE auth_user.id = v_user_id;
+
+  IF v_auth_email IS NULL THEN
+    RAISE EXCEPTION 'Authenticated identity does not exist'
+      USING ERRCODE = 'foreign_key_violation';
+  END IF;
+
+  IF p_owner_email IS NULL
+     OR lower(btrim(p_owner_email)) <> v_auth_email THEN
+    RAISE EXCEPTION 'Owner email must match the authenticated identity'
+      USING ERRCODE = 'insufficient_privilege';
+  END IF;
+
+  IF p_name IS NULL OR char_length(btrim(p_name)) NOT BETWEEN 2 AND 200 THEN
+    RAISE EXCEPTION 'Organisation name must contain 2 to 200 characters'
+      USING ERRCODE = 'check_violation';
+  END IF;
+
+  IF p_slug IS NULL
+     OR char_length(p_slug) NOT BETWEEN 2 AND 80
+     OR p_slug !~ '^[a-z0-9]+(?:-[a-z0-9]+)*$' THEN
+    RAISE EXCEPTION 'Invalid organisation slug'
+      USING ERRCODE = 'check_violation';
+  END IF;
+
+  IF p_country_code IS NULL OR p_country_code !~ '^[A-Z]{2}$' THEN
+    RAISE EXCEPTION 'Invalid ISO country code'
+      USING ERRCODE = 'check_violation';
+  END IF;
+
+  IF EXISTS (
+    SELECT 1
+    FROM public.organisation_memberships AS membership
+    WHERE membership.user_profile_id = v_user_id
+      AND membership.status = 'ACTIVE'
+      AND membership.deleted_at IS NULL
+  ) THEN
+    RAISE EXCEPTION 'This identity already belongs to an active organisation'
+      USING ERRCODE = 'unique_violation';
+  END IF;
+
+  IF EXISTS (
+    SELECT 1
+    FROM public.organisations AS organisation
+    WHERE organisation.slug = p_slug
+  ) THEN
+    RAISE EXCEPTION 'Organisation slug is already in use'
+      USING ERRCODE = 'unique_violation';
+  END IF;
+
+  -- The profile UUID must always equal auth.users.id.
+  INSERT INTO public.user_profiles (
+    id,
+    email,
+    display_name,
+    first_name,
+    last_name,
+    status,
+    locale,
+    timezone,
+    is_platform_user,
+    created_at,
+    updated_at
+  )
+  VALUES (
+    v_user_id,
+    v_auth_email,
+    nullif(btrim(p_owner_display_name), ''),
+    nullif(btrim(p_owner_first_name), ''),
+    nullif(btrim(p_owner_last_name), ''),
+    'ACTIVE',
+    coalesce(nullif(btrim(p_locale), ''), 'en-GB'),
+    coalesce(nullif(btrim(p_timezone), ''), 'Europe/London'),
+    false,
+    pg_catalog.now(),
+    pg_catalog.now()
+  )
+  ON CONFLICT (id) DO UPDATE SET
+    email = EXCLUDED.email,
+    display_name = coalesce(
+      EXCLUDED.display_name,
+      public.user_profiles.display_name
+    ),
+    first_name = coalesce(
+      EXCLUDED.first_name,
+      public.user_profiles.first_name
+    ),
+    last_name = coalesce(
+      EXCLUDED.last_name,
+      public.user_profiles.last_name
+    ),
+    status = 'ACTIVE',
+    deleted_at = NULL,
+    updated_at = pg_catalog.now();
+
+  INSERT INTO public.organisations (
+    id,
+    slug,
+    name,
+    legal_name,
+    status,
+    timezone,
+    locale,
+    country_code,
+    created_at,
+    updated_at
+  )
+  VALUES (
+    pg_catalog.gen_random_uuid(),
+    p_slug,
+    btrim(p_name),
+    nullif(btrim(p_legal_name), ''),
+    'ACTIVE',
+    coalesce(nullif(btrim(p_timezone), ''), 'Europe/London'),
+    coalesce(nullif(btrim(p_locale), ''), 'en-GB'),
+    p_country_code,
+    pg_catalog.now(),
+    pg_catalog.now()
+  )
+  RETURNING id INTO v_organisation_id;
+
+  INSERT INTO public.organisation_memberships (
+    id,
+    organisation_id,
+    user_profile_id,
+    status,
+    job_title,
+    joined_at,
+    created_at,
+    updated_at
+  )
+  VALUES (
+    pg_catalog.gen_random_uuid(),
+    v_organisation_id,
+    v_user_id,
+    'ACTIVE',
+    nullif(btrim(p_owner_job_title), ''),
+    pg_catalog.now(),
+    pg_catalog.now(),
+    pg_catalog.now()
+  )
+  RETURNING id INTO v_membership_id;
+
+  -- Provision the controlled organisation role catalogue.
+  FOR v_role IN
+    SELECT *
+    FROM (
+      VALUES
+        (
+          'organisation_owner',
+          'Organisation Owner',
+          'Full organisation-level authority.',
+          false,
+          ARRAY[
+            'enquiries.create',
+            'enquiries.read',
+            'enquiries.read_all',
+            'enquiries.update',
+            'enquiries.assign',
+            'enquiries.convert',
+            'enquiries.close',
+            'enquiries.delete'
+          ]::text[]
+        ),
+        (
+          'system_administrator',
+          'System Administrator',
+          'Administers organisation systems and operational access.',
+          true,
+          ARRAY[
+            'enquiries.create',
+            'enquiries.read',
+            'enquiries.read_all',
+            'enquiries.update',
+            'enquiries.assign',
+            'enquiries.convert',
+            'enquiries.close',
+            'enquiries.delete'
+          ]::text[]
+        ),
+        (
+          'compliance_manager',
+          'Compliance Manager',
+          'Reviews enquiries for compliance, risk and governance.',
+          true,
+          ARRAY[
+            'enquiries.read',
+            'enquiries.read_all',
+            'enquiries.update',
+            'enquiries.close'
+          ]::text[]
+        ),
+        (
+          'solicitor',
+          'Solicitor',
+          'Manages assigned enquiries and qualified clients.',
+          true,
+          ARRAY[
+            'enquiries.create',
+            'enquiries.read',
+            'enquiries.update',
+            'enquiries.convert',
+            'enquiries.close'
+          ]::text[]
+        ),
+        (
+          'sales_manager',
+          'Sales Manager',
+          'Manages the organisation enquiry pipeline.',
+          true,
+          ARRAY[
+            'enquiries.create',
+            'enquiries.read',
+            'enquiries.read_all',
+            'enquiries.update',
+            'enquiries.assign',
+            'enquiries.convert',
+            'enquiries.close'
+          ]::text[]
+        ),
+        (
+          'sales_agent',
+          'Sales Agent',
+          'Manages enquiries within individual authorised scope.',
+          true,
+          ARRAY[
+            'enquiries.create',
+            'enquiries.read',
+            'enquiries.update',
+            'enquiries.convert',
+            'enquiries.close'
+          ]::text[]
+        ),
+        (
+          'finance',
+          'Finance',
+          'Read-only organisation enquiry access for finance.',
+          true,
+          ARRAY['enquiries.read_all']::text[]
+        ),
+        (
+          'read_only',
+          'Read Only',
+          'Read-only organisation enquiry access.',
+          true,
+          ARRAY['enquiries.read_all']::text[]
+        )
+    ) AS role_definition(
+      role_key,
+      role_name,
+      role_description,
+      role_is_assignable,
+      permission_keys
+    )
+  LOOP
+    INSERT INTO public.roles (
+      id,
+      organisation_id,
+      key,
+      name,
+      description,
+      scope,
+      is_system,
+      is_assignable,
+      created_at,
+      updated_at
+    )
+    VALUES (
+      pg_catalog.gen_random_uuid(),
+      v_organisation_id,
+      v_role.role_key,
+      v_role.role_name,
+      v_role.role_description,
+      'ORGANISATION',
+      true,
+      -- Owner is temporarily assignable so the existing security trigger
+      -- can validate the initial owner assignment.
+      CASE
+        WHEN v_role.role_key = 'organisation_owner' THEN true
+        ELSE v_role.role_is_assignable
+      END,
+      pg_catalog.now(),
+      pg_catalog.now()
+    )
+    RETURNING id INTO v_owner_role_id;
+
+    FOREACH v_permission_key IN ARRAY v_role.permission_keys
+    LOOP
+      INSERT INTO public.role_permissions (
+        id,
+        role_id,
+        permission_id,
+        created_at
+      )
+      SELECT
+        pg_catalog.gen_random_uuid(),
+        v_owner_role_id,
+        permission.id,
+        pg_catalog.now()
+      FROM public.permissions AS permission
+      WHERE permission.key = v_permission_key
+        AND permission.is_active = true
+        AND permission.deleted_at IS NULL;
+
+      IF NOT FOUND THEN
+        RAISE EXCEPTION 'Required permission is missing: %',
+          v_permission_key
+          USING ERRCODE = 'foreign_key_violation';
+      END IF;
+    END LOOP;
+
+    IF v_role.role_key = 'organisation_owner' THEN
+      INSERT INTO public.role_assignments (
+        id,
+        role_id,
+        user_profile_id,
+        organisation_id,
+        organisation_membership_id,
+        scope,
+        valid_from,
+        reason,
+        granted_by_user_profile_id,
+        created_at,
+        updated_at
+      )
+      VALUES (
+        pg_catalog.gen_random_uuid(),
+        v_owner_role_id,
+        v_user_id,
+        v_organisation_id,
+        v_membership_id,
+        'ORGANISATION',
+        pg_catalog.now(),
+        'Initial organisation owner bootstrap',
+        v_user_id,
+        pg_catalog.now(),
+        pg_catalog.now()
+      )
+      RETURNING id INTO v_owner_assignment_id;
+
+      -- Prevent the owner role from being assigned through normal RBAC flows.
+      UPDATE public.roles
+      SET
+        is_assignable = false,
+        updated_at = pg_catalog.now()
+      WHERE id = v_owner_role_id;
+    END IF;
+  END LOOP;
+
+  RETURN QUERY
+  SELECT
+    v_organisation_id,
+    p_slug,
+    v_membership_id,
+    (
+      SELECT role_record.id
+      FROM public.roles AS role_record
+      WHERE role_record.organisation_id = v_organisation_id
+        AND role_record.key = 'organisation_owner'
+        AND role_record.deleted_at IS NULL
+    ),
+    v_owner_assignment_id,
+    'ACTIVE'::text;
+END;
+$function$;
+
+REVOKE ALL
+ON FUNCTION private.bootstrap_organisation(
+  text,
+  text,
+  text,
+  text,
+  text,
+  text,
+  text,
+  text,
+  text,
+  text,
+  text
+)
+FROM PUBLIC;
+
+GRANT EXECUTE
+ON FUNCTION private.bootstrap_organisation(
+  text,
+  text,
+  text,
+  text,
+  text,
+  text,
+  text,
+  text,
+  text,
+  text,
+  text
+)
+TO businessos_app;
+
+COMMENT ON FUNCTION private.bootstrap_organisation(
+  text,
+  text,
+  text,
+  text,
+  text,
+  text,
+  text,
+  text,
+  text,
+  text,
+  text
+) IS
+  'Atomically provisions one organisation, its owner membership, controlled system roles and initial owner assignment.';
+===== DATABASE TRIGGER =====
+FILE: F:\Projects\BusinessOS\supabase\migrations\20260803120000_sprint_0_security_foundation.sql
+LINE: 1204
+CREATE OR REPLACE FUNCTION private.enforce_immutable_columns()
+RETURNS trigger LANGUAGE plpgsql SECURITY DEFINER
+SET search_path = pg_catalog
+AS $function$
+DECLARE column_name text;
+BEGIN
+  FOREACH column_name IN ARRAY TG_ARGV LOOP
+    IF (pg_catalog.to_jsonb(OLD) -> column_name)
+       IS DISTINCT FROM (pg_catalog.to_jsonb(NEW) -> column_name) THEN
+      RAISE EXCEPTION 'security-boundary column %.% is immutable', TG_TABLE_NAME, column_name
+        USING ERRCODE = 'integrity_constraint_violation';
+    END IF;
+  END LOOP;
+  RETURN NEW;
+END
+$function$;
+
+CREATE OR REPLACE FUNCTION private.validate_role_assignment_boundary()
+RETURNS trigger LANGUAGE plpgsql SECURITY DEFINER
+SET search_path = pg_catalog
+AS $function$
+DECLARE role_scope_text text; role_organisation_id uuid;
+BEGIN
+  IF TG_OP = 'UPDATE' THEN RETURN NEW; END IF;
+
+  SELECT role_record.scope::text, role_record.organisation_id
+    INTO role_scope_text, role_organisation_id
+  FROM public.roles AS role_record
+  WHERE role_record.id = NEW.role_id
+    AND role_record.deleted_at IS NULL AND role_record.is_assignable = true;
+  IF NOT FOUND THEN RAISE EXCEPTION 'assignment requires an active assignable role'; END IF;
+  IF role_scope_text <> NEW.scope::text THEN RAISE EXCEPTION 'role scope must equal assignment scope'; END IF;
+
+  IF NEW.scope::text = 'PLATFORM' THEN
+    IF role_organisation_id IS NOT NULL OR NOT EXISTS (
+      SELECT 1 FROM public.user_profiles AS profile
+      WHERE profile.id = NEW.user_profile_id AND profile.is_platform_user = true
+        AND profile.status::text = 'ACTIVE' AND profile.deleted_at IS NULL
+    ) THEN RAISE EXCEPTION 'platform assignment requires an active platform identity'; END IF;
+  ELSE
+    IF role_organisation_id IS DISTINCT FROM NEW.organisation_id THEN
+      RAISE EXCEPTION 'role and assignment must belong to the same organisation';
+    END IF;
+    IF NOT EXISTS (
+      SELECT 1 FROM public.organisation_memberships AS membership
+      WHERE membership.id = NEW.organisation_membership_id
+        AND membership.organisation_id = NEW.organisation_id
+        AND membership.user_profile_id = NEW.user_profile_id
+        AND membership.status::text IN ('INVITED', 'ACTIVE')
+        AND membership.deleted_at IS NULL
+    ) THEN RAISE EXCEPTION 'assignment requires a matching current membership'; END IF;
+    IF NEW.scope::text = 'DEPARTMENT' AND NOT EXISTS (
+      SELECT 1 FROM public.department_memberships AS membership
+      WHERE membership.department_id = NEW.department_id
+        AND membership.organisation_membership_id = NEW.organisation_membership_id
+        AND membership.organisation_id = NEW.organisation_id
+        AND membership.deleted_at IS NULL
+        AND (membership.ends_at IS NULL OR membership.ends_at > pg_catalog.now())
+    ) THEN RAISE EXCEPTION 'department assignment requires matching membership'; END IF;
+    IF NEW.scope::text = 'TEAM' AND NOT EXISTS (
+      SELECT 1 FROM public.team_memberships AS membership
+FILE: F:\Projects\BusinessOS\apps\api\prisma\migrations\20260803120000_sprint_0_security_foundation\migration.sql
+LINE: 1204
+CREATE OR REPLACE FUNCTION private.enforce_immutable_columns()
+RETURNS trigger LANGUAGE plpgsql SECURITY DEFINER
+SET search_path = pg_catalog
+AS $function$
+DECLARE column_name text;
+BEGIN
+  FOREACH column_name IN ARRAY TG_ARGV LOOP
+    IF (pg_catalog.to_jsonb(OLD) -> column_name)
+       IS DISTINCT FROM (pg_catalog.to_jsonb(NEW) -> column_name) THEN
+      RAISE EXCEPTION 'security-boundary column %.% is immutable', TG_TABLE_NAME, column_name
+        USING ERRCODE = 'integrity_constraint_violation';
+    END IF;
+  END LOOP;
+  RETURN NEW;
+END
+$function$;
+
+CREATE OR REPLACE FUNCTION private.validate_role_assignment_boundary()
+RETURNS trigger LANGUAGE plpgsql SECURITY DEFINER
+SET search_path = pg_catalog
+AS $function$
+DECLARE role_scope_text text; role_organisation_id uuid;
+BEGIN
+  IF TG_OP = 'UPDATE' THEN RETURN NEW; END IF;
+
+  SELECT role_record.scope::text, role_record.organisation_id
+    INTO role_scope_text, role_organisation_id
+  FROM public.roles AS role_record
+  WHERE role_record.id = NEW.role_id
+    AND role_record.deleted_at IS NULL AND role_record.is_assignable = true;
+  IF NOT FOUND THEN RAISE EXCEPTION 'assignment requires an active assignable role'; END IF;
+  IF role_scope_text <> NEW.scope::text THEN RAISE EXCEPTION 'role scope must equal assignment scope'; END IF;
+
+  IF NEW.scope::text = 'PLATFORM' THEN
+    IF role_organisation_id IS NOT NULL OR NOT EXISTS (
+      SELECT 1 FROM public.user_profiles AS profile
+      WHERE profile.id = NEW.user_profile_id AND profile.is_platform_user = true
+        AND profile.status::text = 'ACTIVE' AND profile.deleted_at IS NULL
+    ) THEN RAISE EXCEPTION 'platform assignment requires an active platform identity'; END IF;
+  ELSE
+    IF role_organisation_id IS DISTINCT FROM NEW.organisation_id THEN
+      RAISE EXCEPTION 'role and assignment must belong to the same organisation';
+    END IF;
+    IF NOT EXISTS (
+      SELECT 1 FROM public.organisation_memberships AS membership
+      WHERE membership.id = NEW.organisation_membership_id
+        AND membership.organisation_id = NEW.organisation_id
+        AND membership.user_profile_id = NEW.user_profile_id
+        AND membership.status::text IN ('INVITED', 'ACTIVE')
+        AND membership.deleted_at IS NULL
+    ) THEN RAISE EXCEPTION 'assignment requires a matching current membership'; END IF;
+    IF NEW.scope::text = 'DEPARTMENT' AND NOT EXISTS (
+      SELECT 1 FROM public.department_memberships AS membership
+      WHERE membership.department_id = NEW.department_id
+        AND membership.organisation_membership_id = NEW.organisation_membership_id
+        AND membership.organisation_id = NEW.organisation_id
+        AND membership.deleted_at IS NULL
+        AND (membership.ends_at IS NULL OR membership.ends_at > pg_catalog.now())
+    ) THEN RAISE EXCEPTION 'department assignment requires matching membership'; END IF;
+    IF NEW.scope::text = 'TEAM' AND NOT EXISTS (
+      SELECT 1 FROM public.team_memberships AS membership

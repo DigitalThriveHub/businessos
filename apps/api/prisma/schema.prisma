@@ -139,6 +139,500 @@ enum SecurityEventStatus {
   @@map("security_event_status")
 }
 
+enum WorkforceAssignmentStatus {
+  ACTIVE
+  SUSPENDED
+  ENDED
+
+  @@map("workforce_assignment_status")
+}
+
+enum KpiValueType {
+  NUMBER
+  PERCENTAGE
+  CURRENCY
+  DURATION_SECONDS
+  RATING
+
+  @@map("kpi_value_type")
+}
+
+enum KpiDirection {
+  HIGHER_IS_BETTER
+  LOWER_IS_BETTER
+  TARGET_RANGE
+
+  @@map("kpi_direction")
+}
+
+enum KpiFrequency {
+  DAILY
+  WEEKLY
+  MONTHLY
+  QUARTERLY
+  ANNUALLY
+  CASE_BASED
+
+  @@map("kpi_frequency")
+}
+
+enum AgentAuthorityLevel {
+  DISABLED
+  READ
+  DRAFT
+  PROPOSE
+  EXECUTE_WITH_APPROVAL
+  EXECUTE_AUTOMATIC
+
+  @@map("agent_authority_level")
+}
+
+enum OnboardingPlanStatus {
+  PENDING
+  PROVISIONED
+  CANCELLED
+
+  @@map("onboarding_plan_status")
+}
+
+enum ClientKind {
+  INDIVIDUAL
+  ORGANISATION
+
+  @@map("client_kind")
+}
+
+enum ClientStatus {
+  ONBOARDING
+  ACTIVE
+  INACTIVE
+  ARCHIVED
+
+  @@map("client_status")
+}
+
+enum ClientRiskRating {
+  NOT_ASSESSED
+  LOW
+  MEDIUM
+  HIGH
+
+  @@map("client_risk_rating")
+}
+
+enum IdentityVerificationStatus {
+  NOT_STARTED
+  PENDING
+  VERIFIED
+  FAILED
+  EXPIRED
+
+  @@map("identity_verification_status")
+}
+
+enum ProcessingLawfulBasis {
+  CONTRACT
+  LEGAL_OBLIGATION
+  LEGITIMATE_INTEREST
+  CONSENT
+  VITAL_INTEREST
+  PUBLIC_TASK
+
+  @@map("processing_lawful_basis")
+}
+
+enum CommunicationChannel {
+  EMAIL
+  PHONE
+  SMS
+  WHATSAPP
+  POST
+  NONE
+
+  @@map("communication_channel")
+}
+
+enum MatterStatus {
+  INTAKE
+  CONFLICT_CHECK
+  CLIENT_CARE
+  AWAITING_DOCUMENTS
+  ACTIVE
+  SUBMITTED
+  DECISION_RECEIVED
+  ON_HOLD
+  CLOSED
+  CANCELLED
+  ARCHIVED
+
+  @@map("matter_status")
+}
+
+enum MatterPriority {
+  LOW
+  NORMAL
+  HIGH
+  URGENT
+
+  @@map("matter_priority")
+}
+
+enum MatterPartyRole {
+  PRIMARY_CLIENT
+  DEPENDANT
+  SPONSOR
+  EMPLOYER
+  REPRESENTATIVE
+  OTHER
+
+  @@map("matter_party_role")
+}
+
+enum ConflictCheckStatus {
+  NOT_STARTED
+  PENDING
+  CLEARED
+  FLAGGED
+  WAIVED
+
+  @@map("conflict_check_status")
+}
+
+enum AmlCheckStatus {
+  NOT_REQUIRED
+  NOT_STARTED
+  PENDING
+  VERIFIED
+  FAILED
+  EXPIRED
+
+  @@map("aml_check_status")
+}
+
+enum ClientCareStatus {
+  NOT_SENT
+  SENT
+  ACCEPTED
+  DECLINED
+
+  @@map("client_care_status")
+}
+
+enum CaseTaskStatus {
+  OPEN
+  IN_PROGRESS
+  BLOCKED
+  COMPLETED
+  CANCELLED
+
+  @@map("case_task_status")
+}
+
+enum CaseTaskPriority {
+  LOW
+  NORMAL
+  HIGH
+  URGENT
+
+  @@map("case_task_priority")
+}
+
+enum MatterDeadlineType {
+  INTERNAL
+  CLIENT
+  STATUTORY
+  COURT
+  TRIBUNAL
+  REGULATORY
+  OTHER
+
+  @@map("matter_deadline_type")
+}
+
+enum MatterDeadlineStatus {
+  OPEN
+  SATISFIED
+  MISSED
+  CANCELLED
+
+  @@map("matter_deadline_status")
+}
+
+enum DocumentCategory {
+  GENERAL
+  IDENTITY
+  FINANCIAL
+  LEGAL
+  EVIDENCE
+  CLIENT_CARE
+  SUBMISSION
+  DECISION
+  CORRESPONDENCE
+  OTHER
+
+  @@map("document_category")
+}
+
+enum DocumentSecurityClassification {
+  INTERNAL
+  CONFIDENTIAL
+  RESTRICTED
+  LEGALLY_PRIVILEGED
+
+  @@map("document_security_classification")
+}
+
+enum DocumentStatus {
+  PENDING_UPLOAD
+  PENDING_SCAN
+  AVAILABLE
+  QUARANTINED
+  SUPERSEDED
+  ARCHIVED
+
+  @@map("document_status")
+}
+
+enum DocumentScanStatus {
+  NOT_SCANNED
+  PENDING
+  CLEAN
+  INFECTED
+  ERROR
+
+  @@map("document_scan_status")
+}
+
+enum DocumentScanJobStatus {
+  QUEUED
+  LEASED
+  SUCCEEDED
+  FAILED
+  DEAD_LETTER
+
+  @@map("document_scan_job_status")
+}
+
+enum DocumentRequestStatus {
+  DRAFT
+  SENT
+  PARTIALLY_RECEIVED
+  COMPLETED
+  CANCELLED
+  EXPIRED
+
+  @@map("document_request_status")
+}
+
+enum DocumentRequestItemStatus {
+  REQUESTED
+  RECEIVED
+  ACCEPTED
+  REJECTED
+  WAIVED
+
+  @@map("document_request_item_status")
+}
+
+enum AutomationSubjectType {
+  ENQUIRY
+  CLIENT
+  MATTER
+
+  @@map("automation_subject_type")
+}
+
+enum WorkflowDefinitionStatus {
+  DRAFT
+  ACTIVE
+  RETIRED
+
+  @@map("workflow_definition_status")
+}
+
+enum WorkflowRunStatus {
+  RUNNING
+  WAITING
+  COMPLETED
+  FAILED
+  CANCELLED
+  DEAD_LETTER
+
+  @@map("workflow_run_status")
+}
+
+enum WorkflowActionType {
+  SYSTEM
+  HUMAN_TASK
+  APPROVAL
+  TIMER
+
+  @@map("workflow_action_type")
+}
+
+enum WorkflowActionStatus {
+  PENDING
+  READY
+  RUNNING
+  WAITING
+  SUCCEEDED
+  FAILED
+  CANCELLED
+  DEAD_LETTER
+
+  @@map("workflow_action_status")
+}
+
+enum WorkPriority {
+  LOW
+  NORMAL
+  HIGH
+  URGENT
+
+  @@map("work_priority")
+}
+
+enum SlaInstanceStatus {
+  ACTIVE
+  AT_RISK
+  BREACHED
+  SATISFIED
+  CANCELLED
+
+  @@map("sla_instance_status")
+}
+
+enum EscalationEventStatus {
+  RECORDED
+  ACKNOWLEDGED
+  RESOLVED
+
+  @@map("escalation_event_status")
+}
+
+enum ApprovalRequestStatus {
+  PENDING
+  APPROVED
+  REJECTED
+  EXPIRED
+  CANCELLED
+
+  @@map("approval_request_status")
+}
+
+enum ApprovalDecisionType {
+  APPROVED
+  REJECTED
+
+  @@map("approval_decision_type")
+}
+
+enum ApprovalRiskLevel {
+  LOW
+  MEDIUM
+  HIGH
+  CRITICAL
+
+  @@map("approval_risk_level")
+}
+
+enum BusinessCommunicationChannel {
+  PORTAL
+  EMAIL
+  WHATSAPP
+
+  @@map("business_communication_channel")
+}
+
+enum CommunicationDirection {
+  INBOUND
+  OUTBOUND
+  INTERNAL
+
+  @@map("communication_direction")
+}
+
+enum CommunicationActorType {
+  STAFF
+  CLIENT
+  SYSTEM
+  AI_AGENT
+
+  @@map("communication_actor_type")
+}
+
+enum CommunicationConversationStatus {
+  OPEN
+  WAITING_ON_CLIENT
+  WAITING_ON_TEAM
+  RESOLVED
+  ARCHIVED
+
+  @@map("communication_conversation_status")
+}
+
+enum CommunicationMessageStatus {
+  DRAFT
+  PENDING_APPROVAL
+  QUEUED
+  SENDING
+  SENT
+  DELIVERED
+  READ
+  FAILED
+  CANCELLED
+
+  @@map("communication_message_status")
+}
+
+enum CommunicationDeliveryEventType {
+  QUEUED
+  ACCEPTED
+  DELIVERED
+  READ
+  BOUNCED
+  COMPLAINED
+  FAILED
+  CANCELLED
+
+  @@map("communication_delivery_event_type")
+}
+
+enum CommunicationTemplateStatus {
+  DRAFT
+  ACTIVE
+  ARCHIVED
+
+  @@map("communication_template_status")
+}
+
+enum CommunicationReminderStatus {
+  SCHEDULED
+  PROCESSING
+  SENT
+  CANCELLED
+  FAILED
+
+  @@map("communication_reminder_status")
+}
+
+enum PortalAccessStatus {
+  ACTIVE
+  SUSPENDED
+  REVOKED
+
+  @@map("portal_access_status")
+}
+
+enum PortalInvitationStatus {
+  PENDING
+  ACCEPTED
+  REVOKED
+  EXPIRED
+
+  @@map("portal_invitation_status")
+}
+
 model Organisation {
   id          String             @id(map: "pk_organisations") @default(uuid()) @map("id") @db.Uuid
   slug        String             @unique(map: "uq_organisations_slug") @map("slug") @db.VarChar(80)
@@ -153,20 +647,55 @@ model Organisation {
   updatedAt   DateTime           @updatedAt @map("updated_at") @db.Timestamptz(6)
   deletedAt   DateTime?          @map("deleted_at") @db.Timestamptz(6)
 
-  settings              OrganisationSetting[]
-  memberships           OrganisationMembership[]
-  departments           Department[]
-  departmentMemberships DepartmentMembership[]
-  teams                 Team[]
-  teamMemberships       TeamMembership[]
-  roles                 Role[]
-  roleAssignments       RoleAssignment[]
-  invitations           Invitation[]
-  userSessions          UserSession[]
-  supportAccessGrants   SupportAccessGrant[]
-  auditEvents           AuditEvent[]
-  securityEvents        SecurityEvent[]
-  enquiries             Enquiry[]
+  settings                  OrganisationSetting[]
+  memberships               OrganisationMembership[]
+  departments               Department[]
+  departmentMemberships     DepartmentMembership[]
+  teams                     Team[]
+  teamMemberships           TeamMembership[]
+  roles                     Role[]
+  roleAssignments           RoleAssignment[]
+  invitations               Invitation[]
+  userSessions              UserSession[]
+  supportAccessGrants       SupportAccessGrant[]
+  auditEvents               AuditEvent[]
+  securityEvents            SecurityEvent[]
+  enquiries                 Enquiry[]
+  jobProfiles               JobProfile[]
+  jobProfileDuties          JobProfileDuty[]
+  kpiDefinitions            KpiDefinition[]
+  jobProfileKpis            JobProfileKpi[]
+  agentProfiles             AgentProfile[]
+  agentPolicies             AgentPolicy[]
+  workforceAssignments      WorkforceAssignment[]
+  workforceAssignmentKpis   WorkforceAssignmentKpi[]
+  invitationOnboardingPlans InvitationOnboardingPlan[]
+  invitationOnboardingRoles InvitationOnboardingRole[]
+  invitationOnboardingKpis  InvitationOnboardingKpi[]
+  numberSequences           OrganisationNumberSequence[]
+  clients                   Client[]
+  matters                   Matter[]
+  matterParties             MatterParty[]
+  matterComplianceRecords   MatterCompliance[]
+  matterStatusHistory       MatterStatusHistory[]
+  enquiryConversions        EnquiryConversion[]
+  matterTasks               MatterTask[]
+  matterDeadlines           MatterDeadline[]
+  documentRequests          DocumentRequest[]
+  documentRequestItems      DocumentRequestItem[]
+  matterDocuments           MatterDocument[]
+  matterDocumentVersions    MatterDocumentVersion[]
+  matterTimelineEvents      MatterTimelineEvent[]
+  workflowDefinitions       WorkflowDefinition[]
+  workflowVersions          WorkflowVersion[]
+  workflowRuns              WorkflowRun[]
+  workflowActions           WorkflowAction[]
+  slaPolicies               SlaPolicy[]
+  slaInstances              SlaInstance[]
+  escalationRules           EscalationRule[]
+  escalationEvents          EscalationEvent[]
+  approvalRequests          ApprovalRequest[]
+  approvalDecisions         ApprovalDecision[]
 
   @@index([status, deletedAt], map: "ix_organisations_status_deleted")
   @@index([createdAt], map: "ix_organisations_created_at")
@@ -211,28 +740,71 @@ model UserProfile {
   updatedAt      DateTime          @updatedAt @map("updated_at") @db.Timestamptz(6)
   deletedAt      DateTime?         @map("deleted_at") @db.Timestamptz(6)
 
-  organisationMemberships OrganisationMembership[]
-  roleAssignments         RoleAssignment[]
-  grantedRoleAssignments  RoleAssignment[]         @relation("RoleAssignmentGrantedBy")
-  revokedRoleAssignments  RoleAssignment[]         @relation("RoleAssignmentRevokedBy")
-  invitationsSent         Invitation[]             @relation("InvitationInvitedBy")
-  invitationsAccepted     Invitation[]             @relation("InvitationAcceptedBy")
-  invitationsRevoked      Invitation[]             @relation("InvitationRevokedBy")
-  userSessions            UserSession[]            @relation("SessionOwner")
-  revokedUserSessions     UserSession[]            @relation("SessionRevokedBy")
-  supportAccessAsGrantee  SupportAccessGrant[]     @relation("SupportAccessGrantee")
-  supportAccessRequested  SupportAccessGrant[]     @relation("SupportAccessRequestedBy")
-  supportAccessApproved   SupportAccessGrant[]     @relation("SupportAccessApprovedBy")
-  supportAccessRevoked    SupportAccessGrant[]     @relation("SupportAccessRevokedBy")
-  auditEventsAsActor      AuditEvent[]             @relation("AuditActorUser")
-  auditEventsAsSubject    AuditEvent[]             @relation("AuditSubjectUser")
-  securityEventsAsActor   SecurityEvent[]          @relation("SecurityActorUser")
-  securityEventsAsSubject SecurityEvent[]          @relation("SecuritySubjectUser")
-  securityAcknowledged    SecurityEvent[]          @relation("SecurityAcknowledgedBy")
-  securityResolved        SecurityEvent[]          @relation("SecurityResolvedBy")
-  assignedEnquiries       Enquiry[]                @relation("EnquiryAssignedTo")
-  createdEnquiries        Enquiry[]                @relation("EnquiryCreatedBy")
-  updatedEnquiries        Enquiry[]                @relation("EnquiryUpdatedBy")
+  organisationMemberships          OrganisationMembership[]
+  roleAssignments                  RoleAssignment[]
+  grantedRoleAssignments           RoleAssignment[]           @relation("RoleAssignmentGrantedBy")
+  revokedRoleAssignments           RoleAssignment[]           @relation("RoleAssignmentRevokedBy")
+  invitationsSent                  Invitation[]               @relation("InvitationInvitedBy")
+  invitationsAccepted              Invitation[]               @relation("InvitationAcceptedBy")
+  invitationsRevoked               Invitation[]               @relation("InvitationRevokedBy")
+  userSessions                     UserSession[]              @relation("SessionOwner")
+  revokedUserSessions              UserSession[]              @relation("SessionRevokedBy")
+  supportAccessAsGrantee           SupportAccessGrant[]       @relation("SupportAccessGrantee")
+  supportAccessRequested           SupportAccessGrant[]       @relation("SupportAccessRequestedBy")
+  supportAccessApproved            SupportAccessGrant[]       @relation("SupportAccessApprovedBy")
+  supportAccessRevoked             SupportAccessGrant[]       @relation("SupportAccessRevokedBy")
+  auditEventsAsActor               AuditEvent[]               @relation("AuditActorUser")
+  auditEventsAsSubject             AuditEvent[]               @relation("AuditSubjectUser")
+  securityEventsAsActor            SecurityEvent[]            @relation("SecurityActorUser")
+  securityEventsAsSubject          SecurityEvent[]            @relation("SecuritySubjectUser")
+  securityAcknowledged             SecurityEvent[]            @relation("SecurityAcknowledgedBy")
+  securityResolved                 SecurityEvent[]            @relation("SecurityResolvedBy")
+  assignedEnquiries                Enquiry[]                  @relation("EnquiryAssignedTo")
+  createdEnquiries                 Enquiry[]                  @relation("EnquiryCreatedBy")
+  updatedEnquiries                 Enquiry[]                  @relation("EnquiryUpdatedBy")
+  jobProfilesCreated               JobProfile[]               @relation("JobProfileCreatedBy")
+  jobProfilesUpdated               JobProfile[]               @relation("JobProfileUpdatedBy")
+  kpiDefinitionsCreated            KpiDefinition[]            @relation("KpiDefinitionCreatedBy")
+  kpiDefinitionsUpdated            KpiDefinition[]            @relation("KpiDefinitionUpdatedBy")
+  agentProfilesCreated             AgentProfile[]             @relation("AgentProfileCreatedBy")
+  agentProfilesUpdated             AgentProfile[]             @relation("AgentProfileUpdatedBy")
+  workforceAssignmentsCreated      WorkforceAssignment[]      @relation("WorkforceAssignmentCreatedBy")
+  workforceAssignmentsUpdated      WorkforceAssignment[]      @relation("WorkforceAssignmentUpdatedBy")
+  workforceAssignmentsEnded        WorkforceAssignment[]      @relation("WorkforceAssignmentEndedBy")
+  workforceAssignmentKpisCreated   WorkforceAssignmentKpi[]   @relation("WorkforceAssignmentKpiCreatedBy")
+  invitationOnboardingPlansCreated InvitationOnboardingPlan[] @relation("InvitationOnboardingPlanCreatedBy")
+  assignedClients                  Client[]                   @relation("ClientAssignedTo")
+  clientsCreated                   Client[]                   @relation("ClientCreatedBy")
+  clientsUpdated                   Client[]                   @relation("ClientUpdatedBy")
+  assignedMatters                  Matter[]                   @relation("MatterAssignedTo")
+  supervisedMatters                Matter[]                   @relation("MatterSupervisor")
+  mattersCreated                   Matter[]                   @relation("MatterCreatedBy")
+  mattersUpdated                   Matter[]                   @relation("MatterUpdatedBy")
+  matterComplianceCreated          MatterCompliance[]         @relation("MatterComplianceCreatedBy")
+  matterComplianceUpdated          MatterCompliance[]         @relation("MatterComplianceUpdatedBy")
+  conflictChecksCompleted          MatterCompliance[]         @relation("MatterConflictCheckedBy")
+  amlChecksCompleted               MatterCompliance[]         @relation("MatterAmlCheckedBy")
+  riskReviewsCompleted             MatterCompliance[]         @relation("MatterRiskReviewedBy")
+  matterStatusChanges              MatterStatusHistory[]      @relation("MatterStatusChangedBy")
+  enquiryConversions               EnquiryConversion[]        @relation("EnquiryConvertedBy")
+  assignedMatterTasks              MatterTask[]               @relation("MatterTaskAssignedTo")
+  completedMatterTasks             MatterTask[]               @relation("MatterTaskCompletedBy")
+  cancelledMatterTasks             MatterTask[]               @relation("MatterTaskCancelledBy")
+  matterTasksCreated               MatterTask[]               @relation("MatterTaskCreatedBy")
+  matterTasksUpdated               MatterTask[]               @relation("MatterTaskUpdatedBy")
+  ownedMatterDeadlines             MatterDeadline[]           @relation("MatterDeadlineOwner")
+  satisfiedMatterDeadlines         MatterDeadline[]           @relation("MatterDeadlineSatisfiedBy")
+  cancelledMatterDeadlines         MatterDeadline[]           @relation("MatterDeadlineCancelledBy")
+  matterDeadlinesCreated           MatterDeadline[]           @relation("MatterDeadlineCreatedBy")
+  matterDeadlinesUpdated           MatterDeadline[]           @relation("MatterDeadlineUpdatedBy")
+  documentRequestsSent             DocumentRequest[]          @relation("DocumentRequestSentBy")
+  documentRequestsCancelled        DocumentRequest[]          @relation("DocumentRequestCancelledBy")
+  documentRequestsCreated          DocumentRequest[]          @relation("DocumentRequestCreatedBy")
+  documentRequestsUpdated          DocumentRequest[]          @relation("DocumentRequestUpdatedBy")
+  matterDocumentsCreated           MatterDocument[]           @relation("MatterDocumentCreatedBy")
+  matterDocumentsUpdated           MatterDocument[]           @relation("MatterDocumentUpdatedBy")
+  matterDocumentVersionsUploaded   MatterDocumentVersion[]    @relation("MatterDocumentVersionUploadedBy")
+  matterTimelineEvents             MatterTimelineEvent[]      @relation("MatterTimelineActor")
 
   @@index([email], map: "ix_user_profiles_email")
   @@index([status, deletedAt], map: "ix_user_profiles_status_deleted")
@@ -256,13 +828,17 @@ model OrganisationMembership {
   updatedAt      DateTime         @updatedAt @map("updated_at") @db.Timestamptz(6)
   deletedAt      DateTime?        @map("deleted_at") @db.Timestamptz(6)
 
-  organisation          Organisation           @relation(fields: [organisationId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_org_memberships_organisation")
-  userProfile           UserProfile            @relation(fields: [userProfileId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_org_memberships_user")
-  departmentMemberships DepartmentMembership[]
-  teamMemberships       TeamMembership[]
-  roleAssignments       RoleAssignment[]
-  invitations           Invitation[]
-  userSessions          UserSession[]
+  organisation                Organisation               @relation(fields: [organisationId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_org_memberships_organisation")
+  userProfile                 UserProfile                @relation(fields: [userProfileId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_org_memberships_user")
+  departmentMemberships       DepartmentMembership[]
+  teamMemberships             TeamMembership[]
+  roleAssignments             RoleAssignment[]
+  invitations                 Invitation[]
+  userSessions                UserSession[]
+  workforceAssignments        WorkforceAssignment[]      @relation("WorkforceAssignmentMember")
+  managedWorkforceAssignments WorkforceAssignment[]      @relation("WorkforceAssignmentManager")
+  onboardingPlansAsManager    InvitationOnboardingPlan[] @relation("InvitationOnboardingPlanManager")
+  provisionedOnboardingPlans  InvitationOnboardingPlan[] @relation("InvitationOnboardingPlanProvisionedMember")
 
   @@unique([organisationId, userProfileId], map: "uq_org_memberships_org_user")
   @@unique([id, organisationId], map: "uq_org_memberships_id_org")
@@ -284,12 +860,19 @@ model Department {
   updatedAt      DateTime  @updatedAt @map("updated_at") @db.Timestamptz(6)
   deletedAt      DateTime? @map("deleted_at") @db.Timestamptz(6)
 
-  organisation    Organisation           @relation(fields: [organisationId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_departments_organisation")
-  parent          Department?            @relation("DepartmentHierarchy", fields: [parentId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_departments_parent")
-  children        Department[]           @relation("DepartmentHierarchy")
-  memberships     DepartmentMembership[]
-  teams           Team[]
-  roleAssignments RoleAssignment[]
+  organisation              Organisation               @relation(fields: [organisationId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_departments_organisation")
+  parent                    Department?                @relation("DepartmentHierarchy", fields: [parentId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_departments_parent")
+  children                  Department[]               @relation("DepartmentHierarchy")
+  memberships               DepartmentMembership[]
+  teams                     Team[]
+  roleAssignments           RoleAssignment[]
+  jobProfiles               JobProfile[]
+  kpiDefinitions            KpiDefinition[]
+  agentProfiles             AgentProfile[]
+  workforceAssignments      WorkforceAssignment[]
+  invitationOnboardingPlans InvitationOnboardingPlan[]
+  invitationOnboardingRoles InvitationOnboardingRole[]
+  matters                   Matter[]
 
   @@unique([id, organisationId], map: "uq_departments_id_org")
   @@unique([organisationId, name], map: "uq_departments_org_name")
@@ -333,10 +916,14 @@ model Team {
   updatedAt      DateTime  @updatedAt @map("updated_at") @db.Timestamptz(6)
   deletedAt      DateTime? @map("deleted_at") @db.Timestamptz(6)
 
-  organisation    Organisation     @relation(fields: [organisationId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_teams_organisation")
-  department      Department?      @relation(fields: [departmentId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_teams_department")
-  memberships     TeamMembership[]
-  roleAssignments RoleAssignment[]
+  organisation              Organisation               @relation(fields: [organisationId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_teams_organisation")
+  department                Department?                @relation(fields: [departmentId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_teams_department")
+  memberships               TeamMembership[]
+  roleAssignments           RoleAssignment[]
+  workforceAssignments      WorkforceAssignment[]
+  invitationOnboardingPlans InvitationOnboardingPlan[]
+  invitationOnboardingRoles InvitationOnboardingRole[]
+  matters                   Matter[]
 
   @@unique([id, organisationId], map: "uq_teams_id_org")
   @@unique([organisationId, name], map: "uq_teams_org_name")
@@ -380,10 +967,12 @@ model Role {
   updatedAt      DateTime  @updatedAt @map("updated_at") @db.Timestamptz(6)
   deletedAt      DateTime? @map("deleted_at") @db.Timestamptz(6)
 
-  organisation Organisation?    @relation(fields: [organisationId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_roles_organisation")
-  permissions  RolePermission[]
-  assignments  RoleAssignment[]
+  organisation    Organisation?              @relation(fields: [organisationId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_roles_organisation")
+  permissions     RolePermission[]
+  assignments     RoleAssignment[]
+  onboardingRoles InvitationOnboardingRole[]
 
+  @@unique([id, organisationId], map: "uq_roles_id_org")
   @@unique([organisationId, key], map: "uq_roles_org_key")
   @@index([organisationId, scope, deletedAt], map: "ix_roles_org_scope")
   @@index([isSystem, scope], map: "ix_roles_system_scope")
@@ -407,7 +996,8 @@ model Permission {
   updatedAt   DateTime             @updatedAt @map("updated_at") @db.Timestamptz(6)
   deletedAt   DateTime?            @map("deleted_at") @db.Timestamptz(6)
 
-  roles RolePermission[]
+  roles         RolePermission[]
+  agentPolicies AgentPolicy[]
 
   @@index([resource, action, dataScope, isActive], map: "ix_permissions_resource_action")
   @@index([resource, isActive, deletedAt], map: "ix_permissions_resource_active")
@@ -486,12 +1076,14 @@ model Invitation {
   updatedAt                DateTime         @updatedAt @map("updated_at") @db.Timestamptz(6)
   deletedAt                DateTime?        @map("deleted_at") @db.Timestamptz(6)
 
-  organisation           Organisation            @relation(fields: [organisationId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_invitations_organisation")
-  organisationMembership OrganisationMembership? @relation(fields: [organisationMembershipId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_invitations_org_member")
-  invitedBy              UserProfile             @relation("InvitationInvitedBy", fields: [invitedByUserProfileId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_invitations_invited_by")
-  acceptedBy             UserProfile?            @relation("InvitationAcceptedBy", fields: [acceptedByUserProfileId], references: [id], onDelete: SetNull, onUpdate: Cascade, map: "fk_invitations_accepted_by")
-  revokedBy              UserProfile?            @relation("InvitationRevokedBy", fields: [revokedByUserProfileId], references: [id], onDelete: SetNull, onUpdate: Cascade, map: "fk_invitations_revoked_by")
+  organisation           Organisation              @relation(fields: [organisationId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_invitations_organisation")
+  organisationMembership OrganisationMembership?   @relation(fields: [organisationMembershipId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_invitations_org_member")
+  invitedBy              UserProfile               @relation("InvitationInvitedBy", fields: [invitedByUserProfileId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_invitations_invited_by")
+  acceptedBy             UserProfile?              @relation("InvitationAcceptedBy", fields: [acceptedByUserProfileId], references: [id], onDelete: SetNull, onUpdate: Cascade, map: "fk_invitations_accepted_by")
+  revokedBy              UserProfile?              @relation("InvitationRevokedBy", fields: [revokedByUserProfileId], references: [id], onDelete: SetNull, onUpdate: Cascade, map: "fk_invitations_revoked_by")
+  onboardingPlan         InvitationOnboardingPlan?
 
+  @@unique([id, organisationId], map: "uq_invitations_id_org")
   @@index([organisationId, status, expiresAt], map: "ix_invitations_org_status_expiry")
   @@index([email, status], map: "ix_invitations_email_status")
   @@index([invitedByUserProfileId, createdAt], map: "ix_invitations_inviter_created")
@@ -655,6 +1247,346 @@ model SecurityEvent {
   @@map("security_events")
 }
 
+model JobProfile {
+  id                     String    @id(map: "pk_job_profiles") @default(uuid()) @map("id") @db.Uuid
+  organisationId         String    @map("organisation_id") @db.Uuid
+  departmentId           String?   @map("department_id") @db.Uuid
+  key                    String    @map("key") @db.VarChar(120)
+  name                   String    @map("name") @db.VarChar(160)
+  description            String?   @map("description") @db.Text
+  purpose                String?   @map("purpose") @db.Text
+  version                Int       @default(1) @map("version")
+  isManagerial           Boolean   @default(false) @map("is_managerial")
+  isActive               Boolean   @default(true) @map("is_active")
+  createdByUserProfileId String    @map("created_by_user_profile_id") @db.Uuid
+  updatedByUserProfileId String?   @map("updated_by_user_profile_id") @db.Uuid
+  createdAt              DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt              DateTime  @updatedAt @map("updated_at") @db.Timestamptz(6)
+  deletedAt              DateTime? @map("deleted_at") @db.Timestamptz(6)
+
+  organisation         Organisation               @relation(fields: [organisationId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_job_profiles_organisation")
+  department           Department?                @relation(fields: [departmentId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_job_profiles_department")
+  createdBy            UserProfile                @relation("JobProfileCreatedBy", fields: [createdByUserProfileId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_job_profiles_created_by")
+  updatedBy            UserProfile?               @relation("JobProfileUpdatedBy", fields: [updatedByUserProfileId], references: [id], onDelete: SetNull, onUpdate: Cascade, map: "fk_job_profiles_updated_by")
+  duties               JobProfileDuty[]
+  kpis                 JobProfileKpi[]
+  workforceAssignments WorkforceAssignment[]
+  onboardingPlans      InvitationOnboardingPlan[]
+
+  @@unique([id, organisationId], map: "uq_job_profiles_id_org")
+  @@unique([organisationId, key], map: "uq_job_profiles_org_key")
+  @@index([organisationId, isActive, deletedAt], map: "ix_job_profiles_org_active")
+  @@index([organisationId, departmentId, isActive, deletedAt], map: "ix_job_profiles_org_department")
+  @@map("job_profiles")
+}
+
+model JobProfileDuty {
+  id               String    @id(map: "pk_job_profile_duties") @default(uuid()) @map("id") @db.Uuid
+  organisationId   String    @map("organisation_id") @db.Uuid
+  jobProfileId     String    @map("job_profile_id") @db.Uuid
+  code             String    @map("code") @db.VarChar(120)
+  title            String    @map("title") @db.VarChar(200)
+  description      String    @map("description") @db.Text
+  position         Int       @default(1) @map("position") @db.SmallInt
+  isCritical       Boolean   @default(false) @map("is_critical")
+  requiresEvidence Boolean   @default(false) @map("requires_evidence")
+  isActive         Boolean   @default(true) @map("is_active")
+  createdAt        DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt        DateTime  @updatedAt @map("updated_at") @db.Timestamptz(6)
+  deletedAt        DateTime? @map("deleted_at") @db.Timestamptz(6)
+
+  organisation Organisation @relation(fields: [organisationId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_job_profile_duties_organisation")
+  jobProfile   JobProfile   @relation(fields: [jobProfileId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_job_profile_duties_profile")
+
+  @@unique([id, organisationId], map: "uq_job_profile_duties_id_org")
+  @@unique([jobProfileId, code], map: "uq_job_profile_duties_profile_code")
+  @@index([organisationId, jobProfileId, isActive, position, deletedAt], map: "ix_job_profile_duties_profile_active")
+  @@map("job_profile_duties")
+}
+
+model KpiDefinition {
+  id                     String       @id(map: "pk_kpi_definitions") @default(uuid()) @map("id") @db.Uuid
+  organisationId         String       @map("organisation_id") @db.Uuid
+  departmentId           String?      @map("department_id") @db.Uuid
+  key                    String       @map("key") @db.VarChar(120)
+  name                   String       @map("name") @db.VarChar(180)
+  description            String       @map("description") @db.Text
+  valueType              KpiValueType @map("value_type")
+  direction              KpiDirection @map("direction")
+  frequency              KpiFrequency @map("frequency")
+  unitLabel              String?      @map("unit_label") @db.VarChar(40)
+  currencyCode           String?      @map("currency_code") @db.Char(3)
+  measurementSource      String       @map("measurement_source") @db.VarChar(120)
+  isActive               Boolean      @default(true) @map("is_active")
+  createdByUserProfileId String       @map("created_by_user_profile_id") @db.Uuid
+  updatedByUserProfileId String?      @map("updated_by_user_profile_id") @db.Uuid
+  createdAt              DateTime     @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt              DateTime     @updatedAt @map("updated_at") @db.Timestamptz(6)
+  deletedAt              DateTime?    @map("deleted_at") @db.Timestamptz(6)
+
+  organisation            Organisation              @relation(fields: [organisationId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_kpi_definitions_organisation")
+  department              Department?               @relation(fields: [departmentId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_kpi_definitions_department")
+  createdBy               UserProfile               @relation("KpiDefinitionCreatedBy", fields: [createdByUserProfileId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_kpi_definitions_created_by")
+  updatedBy               UserProfile?              @relation("KpiDefinitionUpdatedBy", fields: [updatedByUserProfileId], references: [id], onDelete: SetNull, onUpdate: Cascade, map: "fk_kpi_definitions_updated_by")
+  jobProfileKpis          JobProfileKpi[]
+  workforceAssignmentKpis WorkforceAssignmentKpi[]
+  onboardingKpis          InvitationOnboardingKpi[]
+
+  @@unique([id, organisationId], map: "uq_kpi_definitions_id_org")
+  @@unique([organisationId, key], map: "uq_kpi_definitions_org_key")
+  @@index([organisationId, isActive, deletedAt], map: "ix_kpi_definitions_org_active")
+  @@index([organisationId, departmentId, isActive, deletedAt], map: "ix_kpi_definitions_org_department")
+  @@map("kpi_definitions")
+}
+
+model JobProfileKpi {
+  id              String    @id(map: "pk_job_profile_kpis") @default(uuid()) @map("id") @db.Uuid
+  organisationId  String    @map("organisation_id") @db.Uuid
+  jobProfileId    String    @map("job_profile_id") @db.Uuid
+  kpiDefinitionId String    @map("kpi_definition_id") @db.Uuid
+  targetValue     Decimal?  @map("target_value") @db.Decimal(18, 4)
+  minimumValue    Decimal?  @map("minimum_value") @db.Decimal(18, 4)
+  maximumValue    Decimal?  @map("maximum_value") @db.Decimal(18, 4)
+  weightPercent   Decimal   @default(0) @map("weight_percent") @db.Decimal(5, 2)
+  startsAt        DateTime  @default(now()) @map("starts_at") @db.Timestamptz(6)
+  endsAt          DateTime? @map("ends_at") @db.Timestamptz(6)
+  createdAt       DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt       DateTime  @updatedAt @map("updated_at") @db.Timestamptz(6)
+  deletedAt       DateTime? @map("deleted_at") @db.Timestamptz(6)
+
+  organisation            Organisation              @relation(fields: [organisationId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_job_profile_kpis_organisation")
+  jobProfile              JobProfile                @relation(fields: [jobProfileId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_job_profile_kpis_profile")
+  kpiDefinition           KpiDefinition             @relation(fields: [kpiDefinitionId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_job_profile_kpis_definition")
+  workforceAssignmentKpis WorkforceAssignmentKpi[]
+  onboardingKpis          InvitationOnboardingKpi[]
+
+  @@unique([id, organisationId], map: "uq_job_profile_kpis_id_org")
+  @@unique([jobProfileId, kpiDefinitionId, startsAt], map: "uq_job_profile_kpis_profile_definition")
+  @@index([organisationId, jobProfileId, startsAt, endsAt, deletedAt], map: "ix_job_profile_kpis_profile_effective")
+  @@map("job_profile_kpis")
+}
+
+model AgentProfile {
+  id                     String              @id(map: "pk_agent_profiles") @default(uuid()) @map("id") @db.Uuid
+  organisationId         String              @map("organisation_id") @db.Uuid
+  departmentId           String?             @map("department_id") @db.Uuid
+  key                    String              @map("key") @db.VarChar(120)
+  name                   String              @map("name") @db.VarChar(160)
+  description            String              @map("description") @db.Text
+  behaviourInstructions  String              @map("behaviour_instructions") @db.Text
+  authorityCeiling       AgentAuthorityLevel @default(PROPOSE) @map("authority_ceiling")
+  requiresHumanReview    Boolean             @default(true) @map("requires_human_review")
+  version                Int                 @default(1) @map("version")
+  isActive               Boolean             @default(true) @map("is_active")
+  createdByUserProfileId String              @map("created_by_user_profile_id") @db.Uuid
+  updatedByUserProfileId String?             @map("updated_by_user_profile_id") @db.Uuid
+  createdAt              DateTime            @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt              DateTime            @updatedAt @map("updated_at") @db.Timestamptz(6)
+  deletedAt              DateTime?           @map("deleted_at") @db.Timestamptz(6)
+
+  organisation         Organisation               @relation(fields: [organisationId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_agent_profiles_organisation")
+  department           Department?                @relation(fields: [departmentId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_agent_profiles_department")
+  createdBy            UserProfile                @relation("AgentProfileCreatedBy", fields: [createdByUserProfileId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_agent_profiles_created_by")
+  updatedBy            UserProfile?               @relation("AgentProfileUpdatedBy", fields: [updatedByUserProfileId], references: [id], onDelete: SetNull, onUpdate: Cascade, map: "fk_agent_profiles_updated_by")
+  policies             AgentPolicy[]
+  workforceAssignments WorkforceAssignment[]
+  onboardingPlans      InvitationOnboardingPlan[]
+
+  @@unique([id, organisationId], map: "uq_agent_profiles_id_org")
+  @@unique([organisationId, key], map: "uq_agent_profiles_org_key")
+  @@index([organisationId, isActive, deletedAt], map: "ix_agent_profiles_org_active")
+  @@index([organisationId, departmentId, isActive, deletedAt], map: "ix_agent_profiles_org_department")
+  @@map("agent_profiles")
+}
+
+model AgentPolicy {
+  id                    String              @id(map: "pk_agent_policies") @default(uuid()) @map("id") @db.Uuid
+  organisationId        String              @map("organisation_id") @db.Uuid
+  agentProfileId        String              @map("agent_profile_id") @db.Uuid
+  toolKey               String              @map("tool_key") @db.VarChar(160)
+  requiredPermissionKey String              @map("required_permission_key") @db.VarChar(180)
+  authorityLevel        AgentAuthorityLevel @map("authority_level")
+  maximumDataScope      PermissionDataScope @map("maximum_data_scope")
+  requiresApproval      Boolean             @default(true) @map("requires_approval")
+  requiresMfa           Boolean             @default(false) @map("requires_mfa")
+  maxActionsPerRun      Int                 @default(25) @map("max_actions_per_run")
+  configuration         Json                @default("{}") @map("configuration")
+  isActive              Boolean             @default(true) @map("is_active")
+  createdAt             DateTime            @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt             DateTime            @updatedAt @map("updated_at") @db.Timestamptz(6)
+  deletedAt             DateTime?           @map("deleted_at") @db.Timestamptz(6)
+
+  organisation       Organisation @relation(fields: [organisationId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_agent_policies_organisation")
+  agentProfile       AgentProfile @relation(fields: [agentProfileId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_agent_policies_profile")
+  requiredPermission Permission   @relation(fields: [requiredPermissionKey], references: [key], onDelete: Restrict, onUpdate: Cascade, map: "fk_agent_policies_permission")
+
+  @@unique([id, organisationId], map: "uq_agent_policies_id_org")
+  @@unique([agentProfileId, toolKey], map: "uq_agent_policies_profile_tool")
+  @@index([organisationId, agentProfileId, isActive, deletedAt], map: "ix_agent_policies_profile_active")
+  @@index([requiredPermissionKey, isActive, deletedAt], map: "ix_agent_policies_permission")
+  @@map("agent_policies")
+}
+
+model WorkforceAssignment {
+  id                              String                    @id(map: "pk_workforce_assignments") @default(uuid()) @map("id") @db.Uuid
+  organisationId                  String                    @map("organisation_id") @db.Uuid
+  organisationMembershipId        String                    @map("organisation_membership_id") @db.Uuid
+  jobProfileId                    String                    @map("job_profile_id") @db.Uuid
+  departmentId                    String?                   @map("department_id") @db.Uuid
+  teamId                          String?                   @map("team_id") @db.Uuid
+  managerOrganisationMembershipId String?                   @map("manager_organisation_membership_id") @db.Uuid
+  agentProfileId                  String?                   @map("agent_profile_id") @db.Uuid
+  jobTitle                        String                    @map("job_title") @db.VarChar(160)
+  status                          WorkforceAssignmentStatus @default(ACTIVE) @map("status")
+  isPrimary                       Boolean                   @default(true) @map("is_primary")
+  startsAt                        DateTime                  @default(now()) @map("starts_at") @db.Timestamptz(6)
+  endsAt                          DateTime?                 @map("ends_at") @db.Timestamptz(6)
+  endReason                       String?                   @map("end_reason") @db.Text
+  createdByUserProfileId          String                    @map("created_by_user_profile_id") @db.Uuid
+  updatedByUserProfileId          String?                   @map("updated_by_user_profile_id") @db.Uuid
+  endedByUserProfileId            String?                   @map("ended_by_user_profile_id") @db.Uuid
+  createdAt                       DateTime                  @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt                       DateTime                  @updatedAt @map("updated_at") @db.Timestamptz(6)
+  deletedAt                       DateTime?                 @map("deleted_at") @db.Timestamptz(6)
+
+  organisation               Organisation               @relation(fields: [organisationId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_workforce_assignments_organisation")
+  organisationMembership     OrganisationMembership     @relation("WorkforceAssignmentMember", fields: [organisationMembershipId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_workforce_assignments_membership")
+  jobProfile                 JobProfile                 @relation(fields: [jobProfileId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_workforce_assignments_profile")
+  department                 Department?                @relation(fields: [departmentId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_workforce_assignments_department")
+  team                       Team?                      @relation(fields: [teamId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_workforce_assignments_team")
+  manager                    OrganisationMembership?    @relation("WorkforceAssignmentManager", fields: [managerOrganisationMembershipId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_workforce_assignments_manager")
+  agentProfile               AgentProfile?              @relation(fields: [agentProfileId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_workforce_assignments_agent_profile")
+  createdBy                  UserProfile                @relation("WorkforceAssignmentCreatedBy", fields: [createdByUserProfileId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_workforce_assignments_created_by")
+  updatedBy                  UserProfile?               @relation("WorkforceAssignmentUpdatedBy", fields: [updatedByUserProfileId], references: [id], onDelete: SetNull, onUpdate: Cascade, map: "fk_workforce_assignments_updated_by")
+  endedBy                    UserProfile?               @relation("WorkforceAssignmentEndedBy", fields: [endedByUserProfileId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_workforce_assignments_ended_by")
+  kpis                       WorkforceAssignmentKpi[]
+  provisionedOnboardingPlans InvitationOnboardingPlan[] @relation("InvitationOnboardingPlanProvisionedAssignment")
+
+  @@unique([id, organisationId], map: "uq_workforce_assignments_id_org")
+  @@index([organisationId, organisationMembershipId, status, deletedAt], map: "ix_workforce_assignments_org_member_status")
+  @@index([organisationId, managerOrganisationMembershipId, status, deletedAt], map: "ix_workforce_assignments_org_manager")
+  @@index([organisationId, departmentId, teamId, status, deletedAt], map: "ix_workforce_assignments_org_structure")
+  @@map("workforce_assignments")
+}
+
+model WorkforceAssignmentKpi {
+  id                     String    @id(map: "pk_workforce_assignment_kpis") @default(uuid()) @map("id") @db.Uuid
+  organisationId         String    @map("organisation_id") @db.Uuid
+  workforceAssignmentId  String    @map("workforce_assignment_id") @db.Uuid
+  kpiDefinitionId        String    @map("kpi_definition_id") @db.Uuid
+  sourceJobProfileKpiId  String?   @map("source_job_profile_kpi_id") @db.Uuid
+  targetValue            Decimal?  @map("target_value") @db.Decimal(18, 4)
+  minimumValue           Decimal?  @map("minimum_value") @db.Decimal(18, 4)
+  maximumValue           Decimal?  @map("maximum_value") @db.Decimal(18, 4)
+  weightPercent          Decimal   @default(0) @map("weight_percent") @db.Decimal(5, 2)
+  effectiveFrom          DateTime  @default(now()) @map("effective_from") @db.Timestamptz(6)
+  effectiveUntil         DateTime? @map("effective_until") @db.Timestamptz(6)
+  isActive               Boolean   @default(true) @map("is_active")
+  createdByUserProfileId String    @map("created_by_user_profile_id") @db.Uuid
+  createdAt              DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt              DateTime  @updatedAt @map("updated_at") @db.Timestamptz(6)
+  deletedAt              DateTime? @map("deleted_at") @db.Timestamptz(6)
+
+  organisation        Organisation        @relation(fields: [organisationId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_workforce_assignment_kpis_organisation")
+  workforceAssignment WorkforceAssignment @relation(fields: [workforceAssignmentId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_workforce_assignment_kpis_assignment")
+  kpiDefinition       KpiDefinition       @relation(fields: [kpiDefinitionId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_workforce_assignment_kpis_definition")
+  sourceJobProfileKpi JobProfileKpi?      @relation(fields: [sourceJobProfileKpiId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_workforce_assignment_kpis_source")
+  createdBy           UserProfile         @relation("WorkforceAssignmentKpiCreatedBy", fields: [createdByUserProfileId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_workforce_assignment_kpis_created_by")
+
+  @@unique([id, organisationId], map: "uq_workforce_assignment_kpis_id_org")
+  @@index([organisationId, workforceAssignmentId, isActive, effectiveFrom, effectiveUntil, deletedAt], map: "ix_workforce_assignment_kpis_effective")
+  @@map("workforce_assignment_kpis")
+}
+
+model InvitationOnboardingPlan {
+  id                                  String               @id(map: "pk_invitation_onboarding_plans") @default(uuid()) @map("id") @db.Uuid
+  organisationId                      String               @map("organisation_id") @db.Uuid
+  invitationId                        String               @map("invitation_id") @db.Uuid
+  jobProfileId                        String               @map("job_profile_id") @db.Uuid
+  departmentId                        String?              @map("department_id") @db.Uuid
+  teamId                              String?              @map("team_id") @db.Uuid
+  managerOrganisationMembershipId     String?              @map("manager_organisation_membership_id") @db.Uuid
+  agentProfileId                      String?              @map("agent_profile_id") @db.Uuid
+  jobTitle                            String               @map("job_title") @db.VarChar(160)
+  isDepartmentManager                 Boolean              @default(false) @map("is_department_manager")
+  isTeamLead                          Boolean              @default(false) @map("is_team_lead")
+  startsAt                            DateTime             @default(now()) @map("starts_at") @db.Timestamptz(6)
+  status                              OnboardingPlanStatus @default(PENDING) @map("status")
+  version                             Int                  @default(1) @map("version")
+  createdByUserProfileId              String               @map("created_by_user_profile_id") @db.Uuid
+  provisionedOrganisationMembershipId String?              @map("provisioned_organisation_membership_id") @db.Uuid
+  provisionedWorkforceAssignmentId    String?              @map("provisioned_workforce_assignment_id") @db.Uuid
+  provisionedAt                       DateTime?            @map("provisioned_at") @db.Timestamptz(6)
+  cancelledAt                         DateTime?            @map("cancelled_at") @db.Timestamptz(6)
+  cancellationReason                  String?              @map("cancellation_reason") @db.Text
+  createdAt                           DateTime             @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt                           DateTime             @updatedAt @map("updated_at") @db.Timestamptz(6)
+  deletedAt                           DateTime?            @map("deleted_at") @db.Timestamptz(6)
+
+  organisation                   Organisation               @relation(fields: [organisationId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_invitation_onboarding_plans_organisation")
+  invitation                     Invitation                 @relation(fields: [invitationId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_invitation_onboarding_plans_invitation")
+  jobProfile                     JobProfile                 @relation(fields: [jobProfileId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_invitation_onboarding_plans_profile")
+  department                     Department?                @relation(fields: [departmentId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_invitation_onboarding_plans_department")
+  team                           Team?                      @relation(fields: [teamId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_invitation_onboarding_plans_team")
+  manager                        OrganisationMembership?    @relation("InvitationOnboardingPlanManager", fields: [managerOrganisationMembershipId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_invitation_onboarding_plans_manager")
+  agentProfile                   AgentProfile?              @relation(fields: [agentProfileId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_invitation_onboarding_plans_agent")
+  createdBy                      UserProfile                @relation("InvitationOnboardingPlanCreatedBy", fields: [createdByUserProfileId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_invitation_onboarding_plans_created_by")
+  provisionedMembership          OrganisationMembership?    @relation("InvitationOnboardingPlanProvisionedMember", fields: [provisionedOrganisationMembershipId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_invitation_onboarding_plans_provisioned_member")
+  provisionedWorkforceAssignment WorkforceAssignment?       @relation("InvitationOnboardingPlanProvisionedAssignment", fields: [provisionedWorkforceAssignmentId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_invitation_onboarding_plans_provisioned_assignment")
+  roles                          InvitationOnboardingRole[]
+  kpis                           InvitationOnboardingKpi[]
+
+  @@unique([id, organisationId], map: "uq_invitation_onboarding_plans_id_org")
+  @@unique([invitationId, organisationId], map: "uq_invitation_onboarding_plans_invitation")
+  @@index([organisationId, status, createdAt(sort: Desc)], map: "ix_invitation_onboarding_plans_org_status")
+  @@map("invitation_onboarding_plans")
+}
+
+model InvitationOnboardingRole {
+  id               String          @id(map: "pk_invitation_onboarding_roles") @default(uuid()) @map("id") @db.Uuid
+  organisationId   String          @map("organisation_id") @db.Uuid
+  onboardingPlanId String          @map("onboarding_plan_id") @db.Uuid
+  roleId           String          @map("role_id") @db.Uuid
+  scope            AssignmentScope @map("scope")
+  departmentId     String?         @map("department_id") @db.Uuid
+  teamId           String?         @map("team_id") @db.Uuid
+  createdAt        DateTime        @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  organisation   Organisation             @relation(fields: [organisationId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_invitation_onboarding_roles_organisation")
+  onboardingPlan InvitationOnboardingPlan @relation(fields: [onboardingPlanId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_invitation_onboarding_roles_plan")
+  role           Role                     @relation(fields: [roleId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_invitation_onboarding_roles_role")
+  department     Department?              @relation(fields: [departmentId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_invitation_onboarding_roles_department")
+  team           Team?                    @relation(fields: [teamId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_invitation_onboarding_roles_team")
+
+  @@unique([id, organisationId], map: "uq_invitation_onboarding_roles_id_org")
+  @@unique([onboardingPlanId, roleId], map: "uq_invitation_onboarding_roles_plan_role")
+  @@index([organisationId, onboardingPlanId], map: "ix_invitation_onboarding_roles_plan")
+  @@map("invitation_onboarding_roles")
+}
+
+model InvitationOnboardingKpi {
+  id                    String   @id(map: "pk_invitation_onboarding_kpis") @default(uuid()) @map("id") @db.Uuid
+  organisationId        String   @map("organisation_id") @db.Uuid
+  onboardingPlanId      String   @map("onboarding_plan_id") @db.Uuid
+  kpiDefinitionId       String   @map("kpi_definition_id") @db.Uuid
+  sourceJobProfileKpiId String?  @map("source_job_profile_kpi_id") @db.Uuid
+  targetValue           Decimal? @map("target_value") @db.Decimal(18, 4)
+  minimumValue          Decimal? @map("minimum_value") @db.Decimal(18, 4)
+  maximumValue          Decimal? @map("maximum_value") @db.Decimal(18, 4)
+  weightPercent         Decimal  @default(0) @map("weight_percent") @db.Decimal(5, 2)
+  createdAt             DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  organisation        Organisation             @relation(fields: [organisationId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_invitation_onboarding_kpis_organisation")
+  onboardingPlan      InvitationOnboardingPlan @relation(fields: [onboardingPlanId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_invitation_onboarding_kpis_plan")
+  kpiDefinition       KpiDefinition            @relation(fields: [kpiDefinitionId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_invitation_onboarding_kpis_definition")
+  sourceJobProfileKpi JobProfileKpi?           @relation(fields: [sourceJobProfileKpiId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_invitation_onboarding_kpis_source")
+
+  @@unique([id, organisationId], map: "uq_invitation_onboarding_kpis_id_org")
+  @@unique([onboardingPlanId, kpiDefinitionId], map: "uq_invitation_onboarding_kpis_plan_definition")
+  @@index([organisationId, onboardingPlanId], map: "ix_invitation_onboarding_kpis_plan")
+  @@map("invitation_onboarding_kpis")
+}
+
 enum EnquiryStatus {
   NEW
   CONTACTED
@@ -699,15 +1631,1101 @@ model Enquiry {
   updatedAt       DateTime  @updatedAt @map("updated_at") @db.Timestamptz(6)
   deletedAt       DateTime? @map("deleted_at") @db.Timestamptz(6)
 
-  organisation Organisation @relation(fields: [organisationId], references: [id], onDelete: Restrict)
-  assignedTo   UserProfile? @relation("EnquiryAssignedTo", fields: [assignedToUserId], references: [id], onDelete: SetNull)
-  createdBy    UserProfile? @relation("EnquiryCreatedBy", fields: [createdByUserId], references: [id], onDelete: SetNull)
-  updatedBy    UserProfile? @relation("EnquiryUpdatedBy", fields: [updatedByUserId], references: [id], onDelete: SetNull)
+  organisation Organisation       @relation(fields: [organisationId], references: [id], onDelete: Restrict)
+  assignedTo   UserProfile?       @relation("EnquiryAssignedTo", fields: [assignedToUserId], references: [id], onDelete: SetNull)
+  createdBy    UserProfile?       @relation("EnquiryCreatedBy", fields: [createdByUserId], references: [id], onDelete: SetNull)
+  updatedBy    UserProfile?       @relation("EnquiryUpdatedBy", fields: [updatedByUserId], references: [id], onDelete: SetNull)
+  sourceClient Client?            @relation("ClientSourceEnquiry")
+  sourceMatter Matter?            @relation("MatterSourceEnquiry")
+  conversion   EnquiryConversion? @relation("EnquiryConversionSource")
 
+  @@unique([id, organisationId], map: "uq_enquiries_id_org")
   @@index([organisationId, status, createdAt(sort: Desc)])
   @@index([organisationId, assignedToUserId, status])
   @@index([organisationId, email])
   @@index([organisationId, phone])
   @@index([organisationId, nextFollowUpAt])
   @@map("enquiries")
+}
+
+model OrganisationNumberSequence {
+  id             String   @id(map: "pk_organisation_number_sequences") @default(uuid()) @map("id") @db.Uuid
+  organisationId String   @map("organisation_id") @db.Uuid
+  key            String   @map("key") @db.VarChar(40)
+  nextValue      BigInt   @default(1) @map("next_value")
+  createdAt      DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt      DateTime @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  organisation Organisation @relation(fields: [organisationId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_org_number_sequences_organisation")
+
+  @@unique([organisationId, key], map: "uq_org_number_sequences_org_key")
+  @@map("organisation_number_sequences")
+}
+
+model Client {
+  id                            String                     @id(map: "pk_clients") @default(uuid()) @map("id") @db.Uuid
+  organisationId                String                     @map("organisation_id") @db.Uuid
+  clientNumber                  String                     @map("client_number") @db.VarChar(40)
+  sourceEnquiryId               String?                    @map("source_enquiry_id") @db.Uuid
+  kind                          ClientKind                 @map("kind")
+  status                        ClientStatus               @default(ONBOARDING) @map("status")
+  displayName                   String                     @map("display_name") @db.VarChar(240)
+  firstName                     String?                    @map("first_name") @db.VarChar(100)
+  lastName                      String?                    @map("last_name") @db.VarChar(100)
+  organisationName              String?                    @map("organisation_name") @db.VarChar(240)
+  email                         String?                    @map("email") @db.VarChar(320)
+  phone                         String?                    @map("phone") @db.VarChar(50)
+  dateOfBirth                   DateTime?                  @map("date_of_birth") @db.Date
+  nationality                   String?                    @map("nationality") @db.VarChar(100)
+  countryOfResidenceCode        String?                    @map("country_of_residence_code") @db.Char(2)
+  addressLine1                  String?                    @map("address_line_1") @db.VarChar(240)
+  addressLine2                  String?                    @map("address_line_2") @db.VarChar(240)
+  city                          String?                    @map("city") @db.VarChar(120)
+  region                        String?                    @map("region") @db.VarChar(120)
+  postalCode                    String?                    @map("postal_code") @db.VarChar(30)
+  addressCountryCode            String?                    @map("address_country_code") @db.Char(2)
+  preferredLanguage             String                     @default("en-GB") @map("preferred_language") @db.VarChar(16)
+  preferredCommunication        CommunicationChannel       @default(EMAIL) @map("preferred_communication")
+  processingLawfulBasis         ProcessingLawfulBasis      @default(CONTRACT) @map("processing_lawful_basis")
+  privacyNoticeVersion          String?                    @map("privacy_notice_version") @db.VarChar(40)
+  privacyNoticeAcknowledgedAt   DateTime?                  @map("privacy_notice_acknowledged_at") @db.Timestamptz(6)
+  marketingConsent              Boolean                    @default(false) @map("marketing_consent")
+  marketingConsentAt            DateTime?                  @map("marketing_consent_at") @db.Timestamptz(6)
+  marketingConsentSource        String?                    @map("marketing_consent_source") @db.VarChar(120)
+  riskRating                    ClientRiskRating           @default(NOT_ASSESSED) @map("risk_rating")
+  identityVerificationStatus    IdentityVerificationStatus @default(NOT_STARTED) @map("identity_verification_status")
+  identityVerifiedAt            DateTime?                  @map("identity_verified_at") @db.Timestamptz(6)
+  identityVerificationExpiresAt DateTime?                  @map("identity_verification_expires_at") @db.Timestamptz(6)
+  assignedToUserId              String?                    @map("assigned_to_user_id") @db.Uuid
+  lastContactedAt               DateTime?                  @map("last_contacted_at") @db.Timestamptz(6)
+  retentionReviewAt             DateTime?                  @map("retention_review_at") @db.Timestamptz(6)
+  archivedAt                    DateTime?                  @map("archived_at") @db.Timestamptz(6)
+  archiveReason                 String?                    @map("archive_reason") @db.Text
+  createdByUserId               String                     @map("created_by_user_id") @db.Uuid
+  updatedByUserId               String                     @map("updated_by_user_id") @db.Uuid
+  version                       Int                        @default(1) @map("version")
+  createdAt                     DateTime                   @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt                     DateTime                   @updatedAt @map("updated_at") @db.Timestamptz(6)
+  deletedAt                     DateTime?                  @map("deleted_at") @db.Timestamptz(6)
+
+  organisation     Organisation        @relation(fields: [organisationId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_clients_organisation")
+  sourceEnquiry    Enquiry?            @relation("ClientSourceEnquiry", fields: [sourceEnquiryId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_clients_source_enquiry")
+  assignedTo       UserProfile?        @relation("ClientAssignedTo", fields: [assignedToUserId], references: [id], onDelete: SetNull, onUpdate: Cascade, map: "fk_clients_assigned_to")
+  createdBy        UserProfile         @relation("ClientCreatedBy", fields: [createdByUserId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_clients_created_by")
+  updatedBy        UserProfile         @relation("ClientUpdatedBy", fields: [updatedByUserId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_clients_updated_by")
+  matterParties    MatterParty[]
+  conversions      EnquiryConversion[]
+  documentRequests DocumentRequest[]
+
+  @@unique([id, organisationId], map: "uq_clients_id_org")
+  @@unique([organisationId, clientNumber], map: "uq_clients_org_number")
+  @@unique([sourceEnquiryId, organisationId], map: "uq_clients_org_source_enquiry")
+  @@index([organisationId, status, createdAt(sort: Desc)], map: "ix_clients_org_status_created")
+  @@index([organisationId, assignedToUserId, status], map: "ix_clients_org_assigned_status")
+  @@index([organisationId, email], map: "ix_clients_org_email")
+  @@index([organisationId, phone], map: "ix_clients_org_phone")
+  @@index([organisationId, retentionReviewAt], map: "ix_clients_org_retention_review")
+  @@map("clients")
+}
+
+model Matter {
+  id                      String         @id(map: "pk_matters") @default(uuid()) @map("id") @db.Uuid
+  organisationId          String         @map("organisation_id") @db.Uuid
+  matterNumber            String         @map("matter_number") @db.VarChar(40)
+  sourceEnquiryId         String?        @map("source_enquiry_id") @db.Uuid
+  departmentId            String?        @map("department_id") @db.Uuid
+  teamId                  String?        @map("team_id") @db.Uuid
+  assignedToUserId        String?        @map("assigned_to_user_id") @db.Uuid
+  supervisorUserId        String?        @map("supervisor_user_id") @db.Uuid
+  title                   String         @map("title") @db.VarChar(240)
+  description             String?        @map("description") @db.Text
+  serviceType             String         @map("service_type") @db.VarChar(160)
+  jurisdictionCountryCode String?        @map("jurisdiction_country_code") @db.Char(2)
+  externalReference       String?        @map("external_reference") @db.VarChar(120)
+  status                  MatterStatus   @default(INTAKE) @map("status")
+  priority                MatterPriority @default(NORMAL) @map("priority")
+  nextActionSummary       String?        @map("next_action_summary") @db.VarChar(500)
+  nextActionAt            DateTime?      @map("next_action_at") @db.Timestamptz(6)
+  criticalDeadlineAt      DateTime?      @map("critical_deadline_at") @db.Timestamptz(6)
+  targetCompletionAt      DateTime?      @map("target_completion_at") @db.Timestamptz(6)
+  openedAt                DateTime       @default(now()) @map("opened_at") @db.Timestamptz(6)
+  closedAt                DateTime?      @map("closed_at") @db.Timestamptz(6)
+  closureReason           String?        @map("closure_reason") @db.Text
+  outcome                 String?        @map("outcome") @db.VarChar(500)
+  archivedAt              DateTime?      @map("archived_at") @db.Timestamptz(6)
+  archiveReason           String?        @map("archive_reason") @db.Text
+  createdByUserId         String         @map("created_by_user_id") @db.Uuid
+  updatedByUserId         String         @map("updated_by_user_id") @db.Uuid
+  version                 Int            @default(1) @map("version")
+  createdAt               DateTime       @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt               DateTime       @updatedAt @map("updated_at") @db.Timestamptz(6)
+  deletedAt               DateTime?      @map("deleted_at") @db.Timestamptz(6)
+
+  organisation     Organisation            @relation(fields: [organisationId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_matters_organisation")
+  sourceEnquiry    Enquiry?                @relation("MatterSourceEnquiry", fields: [sourceEnquiryId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_matters_source_enquiry")
+  department       Department?             @relation(fields: [departmentId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_matters_department")
+  team             Team?                   @relation(fields: [teamId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_matters_team")
+  assignedTo       UserProfile?            @relation("MatterAssignedTo", fields: [assignedToUserId], references: [id], onDelete: SetNull, onUpdate: Cascade, map: "fk_matters_assigned_to")
+  supervisor       UserProfile?            @relation("MatterSupervisor", fields: [supervisorUserId], references: [id], onDelete: SetNull, onUpdate: Cascade, map: "fk_matters_supervisor")
+  createdBy        UserProfile             @relation("MatterCreatedBy", fields: [createdByUserId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_matters_created_by")
+  updatedBy        UserProfile             @relation("MatterUpdatedBy", fields: [updatedByUserId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_matters_updated_by")
+  parties          MatterParty[]
+  compliance       MatterCompliance?
+  statusHistory    MatterStatusHistory[]
+  conversion       EnquiryConversion?
+  tasks            MatterTask[]
+  deadlines        MatterDeadline[]
+  documentRequests DocumentRequest[]
+  documents        MatterDocument[]
+  documentVersions MatterDocumentVersion[]
+  timelineEvents   MatterTimelineEvent[]
+
+  @@unique([id, organisationId], map: "uq_matters_id_org")
+  @@unique([organisationId, matterNumber], map: "uq_matters_org_number")
+  @@unique([sourceEnquiryId, organisationId], map: "uq_matters_org_source_enquiry")
+  @@index([organisationId, status, createdAt(sort: Desc)], map: "ix_matters_org_status_created")
+  @@index([organisationId, assignedToUserId, status], map: "ix_matters_org_assigned_status")
+  @@index([organisationId, departmentId, teamId, status], map: "ix_matters_org_workforce_status")
+  @@index([organisationId, criticalDeadlineAt], map: "ix_matters_org_critical_deadline")
+  @@index([organisationId, nextActionAt], map: "ix_matters_org_next_action")
+  @@map("matters")
+}
+
+model MatterParty {
+  id              String          @id(map: "pk_matter_parties") @default(uuid()) @map("id") @db.Uuid
+  organisationId  String          @map("organisation_id") @db.Uuid
+  matterId        String          @map("matter_id") @db.Uuid
+  clientId        String          @map("client_id") @db.Uuid
+  role            MatterPartyRole @map("role")
+  isPrimary       Boolean         @default(false) @map("is_primary")
+  roleDescription String?         @map("role_description") @db.VarChar(240)
+  createdAt       DateTime        @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt       DateTime        @updatedAt @map("updated_at") @db.Timestamptz(6)
+  deletedAt       DateTime?       @map("deleted_at") @db.Timestamptz(6)
+
+  organisation Organisation @relation(fields: [organisationId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_matter_parties_organisation")
+  matter       Matter       @relation(fields: [matterId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_matter_parties_matter")
+  client       Client       @relation(fields: [clientId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_matter_parties_client")
+
+  @@unique([id, organisationId], map: "uq_matter_parties_id_org")
+  @@unique([matterId, clientId, role], map: "uq_matter_parties_matter_client_role")
+  @@index([organisationId, clientId, deletedAt], map: "ix_matter_parties_org_client")
+  @@index([organisationId, matterId, isPrimary, deletedAt], map: "ix_matter_parties_org_matter_primary")
+  @@map("matter_parties")
+}
+
+model MatterCompliance {
+  id                      String              @id(map: "pk_matter_compliance") @default(uuid()) @map("id") @db.Uuid
+  organisationId          String              @map("organisation_id") @db.Uuid
+  matterId                String              @map("matter_id") @db.Uuid
+  conflictStatus          ConflictCheckStatus @default(NOT_STARTED) @map("conflict_status")
+  conflictReference       String?             @map("conflict_reference") @db.VarChar(160)
+  conflictCheckedAt       DateTime?           @map("conflict_checked_at") @db.Timestamptz(6)
+  conflictCheckedByUserId String?             @map("conflict_checked_by_user_id") @db.Uuid
+  amlStatus               AmlCheckStatus      @default(NOT_STARTED) @map("aml_status")
+  amlReference            String?             @map("aml_reference") @db.VarChar(160)
+  amlCheckedAt            DateTime?           @map("aml_checked_at") @db.Timestamptz(6)
+  amlCheckedByUserId      String?             @map("aml_checked_by_user_id") @db.Uuid
+  clientCareStatus        ClientCareStatus    @default(NOT_SENT) @map("client_care_status")
+  clientCareSentAt        DateTime?           @map("client_care_sent_at") @db.Timestamptz(6)
+  clientCareRespondedAt   DateTime?           @map("client_care_responded_at") @db.Timestamptz(6)
+  riskRating              ClientRiskRating    @default(NOT_ASSESSED) @map("risk_rating")
+  riskReason              String?             @map("risk_reason") @db.Text
+  riskReviewedAt          DateTime?           @map("risk_reviewed_at") @db.Timestamptz(6)
+  riskReviewedByUserId    String?             @map("risk_reviewed_by_user_id") @db.Uuid
+  createdByUserId         String              @map("created_by_user_id") @db.Uuid
+  updatedByUserId         String              @map("updated_by_user_id") @db.Uuid
+  version                 Int                 @default(1) @map("version")
+  createdAt               DateTime            @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt               DateTime            @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  organisation      Organisation @relation(fields: [organisationId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_matter_compliance_organisation")
+  matter            Matter       @relation(fields: [matterId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_matter_compliance_matter")
+  conflictCheckedBy UserProfile? @relation("MatterConflictCheckedBy", fields: [conflictCheckedByUserId], references: [id], onDelete: SetNull, onUpdate: Cascade, map: "fk_matter_compliance_conflict_checked_by")
+  amlCheckedBy      UserProfile? @relation("MatterAmlCheckedBy", fields: [amlCheckedByUserId], references: [id], onDelete: SetNull, onUpdate: Cascade, map: "fk_matter_compliance_aml_checked_by")
+  riskReviewedBy    UserProfile? @relation("MatterRiskReviewedBy", fields: [riskReviewedByUserId], references: [id], onDelete: SetNull, onUpdate: Cascade, map: "fk_matter_compliance_risk_reviewed_by")
+  createdBy         UserProfile  @relation("MatterComplianceCreatedBy", fields: [createdByUserId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_matter_compliance_created_by")
+  updatedBy         UserProfile  @relation("MatterComplianceUpdatedBy", fields: [updatedByUserId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_matter_compliance_updated_by")
+
+  @@unique([matterId, organisationId], map: "uq_matter_compliance_matter_org")
+  @@index([organisationId, conflictStatus, amlStatus], map: "ix_matter_compliance_org_checks")
+  @@index([organisationId, riskRating], map: "ix_matter_compliance_org_risk")
+  @@map("matter_compliance")
+}
+
+model MatterStatusHistory {
+  id              String        @id(map: "pk_matter_status_history") @default(uuid()) @map("id") @db.Uuid
+  organisationId  String        @map("organisation_id") @db.Uuid
+  matterId        String        @map("matter_id") @db.Uuid
+  fromStatus      MatterStatus? @map("from_status")
+  toStatus        MatterStatus  @map("to_status")
+  reason          String        @map("reason") @db.VarChar(1000)
+  changedByUserId String        @map("changed_by_user_id") @db.Uuid
+  occurredAt      DateTime      @default(now()) @map("occurred_at") @db.Timestamptz(6)
+
+  organisation Organisation @relation(fields: [organisationId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_matter_status_history_organisation")
+  matter       Matter       @relation(fields: [matterId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_matter_status_history_matter")
+  changedBy    UserProfile  @relation("MatterStatusChangedBy", fields: [changedByUserId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_matter_status_history_changed_by")
+
+  @@index([organisationId, matterId, occurredAt(sort: Desc)], map: "ix_matter_status_history_org_matter")
+  @@index([organisationId, toStatus, occurredAt(sort: Desc)], map: "ix_matter_status_history_org_status")
+  @@map("matter_status_history")
+}
+
+model EnquiryConversion {
+  id                String   @id(map: "pk_enquiry_conversions") @default(uuid()) @map("id") @db.Uuid
+  organisationId    String   @map("organisation_id") @db.Uuid
+  enquiryId         String   @map("enquiry_id") @db.Uuid
+  clientId          String   @map("client_id") @db.Uuid
+  matterId          String   @map("matter_id") @db.Uuid
+  idempotencyKey    String   @map("idempotency_key") @db.Uuid
+  convertedByUserId String   @map("converted_by_user_id") @db.Uuid
+  createdAt         DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  organisation Organisation @relation(fields: [organisationId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_enquiry_conversions_organisation")
+  enquiry      Enquiry      @relation("EnquiryConversionSource", fields: [enquiryId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_enquiry_conversions_enquiry")
+  client       Client       @relation(fields: [clientId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_enquiry_conversions_client")
+  matter       Matter       @relation(fields: [matterId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_enquiry_conversions_matter")
+  convertedBy  UserProfile  @relation("EnquiryConvertedBy", fields: [convertedByUserId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_enquiry_conversions_converted_by")
+
+  @@unique([enquiryId, organisationId], map: "uq_enquiry_conversions_enquiry_org")
+  @@unique([matterId, organisationId], map: "uq_enquiry_conversions_matter_org")
+  @@unique([organisationId, idempotencyKey], map: "uq_enquiry_conversions_org_idempotency")
+  @@index([organisationId, clientId, createdAt(sort: Desc)], map: "ix_enquiry_conversions_org_client")
+  @@map("enquiry_conversions")
+}
+
+model MatterTask {
+  id                 String           @id(map: "pk_matter_tasks") @default(uuid()) @db.Uuid
+  organisationId     String           @map("organisation_id") @db.Uuid
+  matterId           String           @map("matter_id") @db.Uuid
+  title              String           @db.VarChar(240)
+  description        String?          @db.Text
+  status             CaseTaskStatus   @default(OPEN)
+  priority           CaseTaskPriority @default(NORMAL)
+  assignedToUserId   String?          @map("assigned_to_user_id") @db.Uuid
+  dueAt              DateTime?        @map("due_at") @db.Timestamptz(6)
+  reminderAt         DateTime?        @map("reminder_at") @db.Timestamptz(6)
+  blockedReason      String?          @map("blocked_reason") @db.VarChar(1000)
+  completionNote     String?          @map("completion_note") @db.VarChar(2000)
+  completedAt        DateTime?        @map("completed_at") @db.Timestamptz(6)
+  completedByUserId  String?          @map("completed_by_user_id") @db.Uuid
+  cancelledAt        DateTime?        @map("cancelled_at") @db.Timestamptz(6)
+  cancelledByUserId  String?          @map("cancelled_by_user_id") @db.Uuid
+  cancellationReason String?          @map("cancellation_reason") @db.VarChar(1000)
+  createdByUserId    String           @map("created_by_user_id") @db.Uuid
+  updatedByUserId    String           @map("updated_by_user_id") @db.Uuid
+  version            Int              @default(1)
+  createdAt          DateTime         @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt          DateTime         @updatedAt @map("updated_at") @db.Timestamptz(6)
+  deletedAt          DateTime?        @map("deleted_at") @db.Timestamptz(6)
+
+  organisation Organisation @relation(fields: [organisationId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_matter_tasks_organisation")
+  matter       Matter       @relation(fields: [matterId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_matter_tasks_matter")
+  assignedTo   UserProfile? @relation("MatterTaskAssignedTo", fields: [assignedToUserId], references: [id], onDelete: SetNull, onUpdate: Cascade, map: "fk_matter_tasks_assigned_to")
+  completedBy  UserProfile? @relation("MatterTaskCompletedBy", fields: [completedByUserId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_matter_tasks_completed_by")
+  cancelledBy  UserProfile? @relation("MatterTaskCancelledBy", fields: [cancelledByUserId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_matter_tasks_cancelled_by")
+  createdBy    UserProfile  @relation("MatterTaskCreatedBy", fields: [createdByUserId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_matter_tasks_created_by")
+  updatedBy    UserProfile  @relation("MatterTaskUpdatedBy", fields: [updatedByUserId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_matter_tasks_updated_by")
+
+  @@unique([id, organisationId], map: "uq_matter_tasks_id_org")
+  @@index([organisationId, matterId, status, dueAt], map: "ix_matter_tasks_org_matter_status_due")
+  @@index([organisationId, assignedToUserId, status, dueAt], map: "ix_matter_tasks_org_assignee_status_due")
+  @@map("matter_tasks")
+}
+
+model MatterDeadline {
+  id                 String               @id(map: "pk_matter_deadlines") @default(uuid()) @db.Uuid
+  organisationId     String               @map("organisation_id") @db.Uuid
+  matterId           String               @map("matter_id") @db.Uuid
+  title              String               @db.VarChar(240)
+  description        String?              @db.Text
+  deadlineType       MatterDeadlineType   @map("deadline_type")
+  status             MatterDeadlineStatus @default(OPEN)
+  dueAt              DateTime             @map("due_at") @db.Timestamptz(6)
+  timezone           String               @default("Europe/London") @db.VarChar(64)
+  isCritical         Boolean              @default(false) @map("is_critical")
+  ownerUserId        String?              @map("owner_user_id") @db.Uuid
+  sourceReference    String?              @map("source_reference") @db.VarChar(240)
+  satisfiedAt        DateTime?            @map("satisfied_at") @db.Timestamptz(6)
+  satisfiedByUserId  String?              @map("satisfied_by_user_id") @db.Uuid
+  satisfactionNote   String?              @map("satisfaction_note") @db.VarChar(2000)
+  missedAt           DateTime?            @map("missed_at") @db.Timestamptz(6)
+  missedReason       String?              @map("missed_reason") @db.VarChar(1000)
+  cancelledAt        DateTime?            @map("cancelled_at") @db.Timestamptz(6)
+  cancelledByUserId  String?              @map("cancelled_by_user_id") @db.Uuid
+  cancellationReason String?              @map("cancellation_reason") @db.VarChar(1000)
+  createdByUserId    String               @map("created_by_user_id") @db.Uuid
+  updatedByUserId    String               @map("updated_by_user_id") @db.Uuid
+  version            Int                  @default(1)
+  createdAt          DateTime             @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt          DateTime             @updatedAt @map("updated_at") @db.Timestamptz(6)
+  deletedAt          DateTime?            @map("deleted_at") @db.Timestamptz(6)
+
+  organisation Organisation @relation(fields: [organisationId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_matter_deadlines_organisation")
+  matter       Matter       @relation(fields: [matterId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_matter_deadlines_matter")
+  owner        UserProfile? @relation("MatterDeadlineOwner", fields: [ownerUserId], references: [id], onDelete: SetNull, onUpdate: Cascade, map: "fk_matter_deadlines_owner")
+  satisfiedBy  UserProfile? @relation("MatterDeadlineSatisfiedBy", fields: [satisfiedByUserId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_matter_deadlines_satisfied_by")
+  cancelledBy  UserProfile? @relation("MatterDeadlineCancelledBy", fields: [cancelledByUserId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_matter_deadlines_cancelled_by")
+  createdBy    UserProfile  @relation("MatterDeadlineCreatedBy", fields: [createdByUserId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_matter_deadlines_created_by")
+  updatedBy    UserProfile  @relation("MatterDeadlineUpdatedBy", fields: [updatedByUserId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_matter_deadlines_updated_by")
+
+  @@unique([id, organisationId], map: "uq_matter_deadlines_id_org")
+  @@index([organisationId, matterId, status, dueAt], map: "ix_matter_deadlines_org_matter_status_due")
+  @@index([organisationId, dueAt], map: "ix_matter_deadlines_org_open_due")
+  @@map("matter_deadlines")
+}
+
+model DocumentRequest {
+  id                String                @id(map: "pk_document_requests") @default(uuid()) @db.Uuid
+  organisationId    String                @map("organisation_id") @db.Uuid
+  matterId          String                @map("matter_id") @db.Uuid
+  recipientClientId String?               @map("recipient_client_id") @db.Uuid
+  title             String                @db.VarChar(240)
+  message           String?               @db.Text
+  status            DocumentRequestStatus @default(DRAFT)
+  dueAt             DateTime?             @map("due_at") @db.Timestamptz(6)
+  sentAt            DateTime?             @map("sent_at") @db.Timestamptz(6)
+  sentByUserId      String?               @map("sent_by_user_id") @db.Uuid
+  completedAt       DateTime?             @map("completed_at") @db.Timestamptz(6)
+  cancelledAt       DateTime?             @map("cancelled_at") @db.Timestamptz(6)
+  cancelledByUserId String?               @map("cancelled_by_user_id") @db.Uuid
+  statusReason      String?               @map("status_reason") @db.VarChar(1000)
+  createdByUserId   String                @map("created_by_user_id") @db.Uuid
+  updatedByUserId   String                @map("updated_by_user_id") @db.Uuid
+  version           Int                   @default(1)
+  createdAt         DateTime              @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt         DateTime              @updatedAt @map("updated_at") @db.Timestamptz(6)
+  deletedAt         DateTime?             @map("deleted_at") @db.Timestamptz(6)
+
+  organisation    Organisation          @relation(fields: [organisationId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_document_requests_organisation")
+  matter          Matter                @relation(fields: [matterId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_document_requests_matter")
+  recipientClient Client?               @relation(fields: [recipientClientId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_document_requests_client")
+  sentBy          UserProfile?          @relation("DocumentRequestSentBy", fields: [sentByUserId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_document_requests_sent_by")
+  cancelledBy     UserProfile?          @relation("DocumentRequestCancelledBy", fields: [cancelledByUserId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_document_requests_cancelled_by")
+  createdBy       UserProfile           @relation("DocumentRequestCreatedBy", fields: [createdByUserId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_document_requests_created_by")
+  updatedBy       UserProfile           @relation("DocumentRequestUpdatedBy", fields: [updatedByUserId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_document_requests_updated_by")
+  items           DocumentRequestItem[]
+
+  @@unique([id, organisationId], map: "uq_document_requests_id_org")
+  @@index([organisationId, matterId, status, dueAt], map: "ix_document_requests_org_matter_status_due")
+  @@map("document_requests")
+}
+
+model DocumentRequestItem {
+  id             String                    @id(map: "pk_document_request_items") @default(uuid()) @db.Uuid
+  organisationId String                    @map("organisation_id") @db.Uuid
+  requestId      String                    @map("request_id") @db.Uuid
+  category       DocumentCategory
+  title          String                    @db.VarChar(240)
+  description    String?                   @db.Text
+  isRequired     Boolean                   @default(true) @map("is_required")
+  status         DocumentRequestItemStatus @default(REQUESTED)
+  statusReason   String?                   @map("status_reason") @db.VarChar(1000)
+  createdAt      DateTime                  @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt      DateTime                  @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  organisation Organisation     @relation(fields: [organisationId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_document_request_items_organisation")
+  request      DocumentRequest  @relation(fields: [requestId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_document_request_items_request")
+  documents    MatterDocument[]
+
+  @@unique([id, organisationId], map: "uq_document_request_items_id_org")
+  @@index([organisationId, requestId, status], map: "ix_document_request_items_org_request_status")
+  @@map("document_request_items")
+}
+
+model MatterDocument {
+  id                     String                         @id(map: "pk_matter_documents") @default(uuid()) @db.Uuid
+  organisationId         String                         @map("organisation_id") @db.Uuid
+  matterId               String                         @map("matter_id") @db.Uuid
+  requestItemId          String?                        @map("request_item_id") @db.Uuid
+  title                  String                         @db.VarChar(240)
+  category               DocumentCategory
+  securityClassification DocumentSecurityClassification @default(CONFIDENTIAL) @map("security_classification")
+  status                 DocumentStatus                 @default(PENDING_UPLOAD)
+  clientVisible          Boolean                        @default(false) @map("client_visible")
+  currentVersionId       String?                        @map("current_version_id") @db.Uuid
+  retentionReviewAt      DateTime?                      @map("retention_review_at") @db.Timestamptz(6)
+  archivedAt             DateTime?                      @map("archived_at") @db.Timestamptz(6)
+  archiveReason          String?                        @map("archive_reason") @db.VarChar(1000)
+  createdByUserId        String                         @map("created_by_user_id") @db.Uuid
+  updatedByUserId        String                         @map("updated_by_user_id") @db.Uuid
+  version                Int                            @default(1)
+  createdAt              DateTime                       @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt              DateTime                       @updatedAt @map("updated_at") @db.Timestamptz(6)
+  deletedAt              DateTime?                      @map("deleted_at") @db.Timestamptz(6)
+
+  organisation   Organisation            @relation(fields: [organisationId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_matter_documents_organisation")
+  matter         Matter                  @relation(fields: [matterId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_matter_documents_matter")
+  requestItem    DocumentRequestItem?    @relation(fields: [requestItemId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_matter_documents_request_item")
+  currentVersion MatterDocumentVersion?  @relation("CurrentDocumentVersion", fields: [currentVersionId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_matter_documents_current_version")
+  createdBy      UserProfile             @relation("MatterDocumentCreatedBy", fields: [createdByUserId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_matter_documents_created_by")
+  updatedBy      UserProfile             @relation("MatterDocumentUpdatedBy", fields: [updatedByUserId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_matter_documents_updated_by")
+  versions       MatterDocumentVersion[] @relation("DocumentVersions")
+
+  @@unique([id, organisationId], map: "uq_matter_documents_id_org")
+  @@unique([currentVersionId, organisationId], map: "uq_matter_documents_current_version_org")
+  @@index([organisationId, matterId, status, createdAt(sort: Desc)], map: "ix_matter_documents_org_matter_status_created")
+  @@index([organisationId, requestItemId], map: "ix_matter_documents_org_request_item")
+  @@map("matter_documents")
+}
+
+model MatterDocumentVersion {
+  id                    String             @id(map: "pk_matter_document_versions") @default(uuid()) @db.Uuid
+  organisationId        String             @map("organisation_id") @db.Uuid
+  matterId              String             @map("matter_id") @db.Uuid
+  documentId            String             @map("document_id") @db.Uuid
+  versionNumber         Int                @map("version_number")
+  originalFileName      String             @map("original_file_name") @db.VarChar(255)
+  contentType           String             @map("content_type") @db.VarChar(160)
+  sizeBytes             BigInt             @map("size_bytes")
+  sha256Hex             String             @map("sha256_hex") @db.Char(64)
+  storageBucket         String             @default("businessos-documents") @map("storage_bucket") @db.VarChar(100)
+  storagePath           String             @map("storage_path") @db.VarChar(800)
+  status                DocumentStatus     @default(PENDING_UPLOAD)
+  scanStatus            DocumentScanStatus @default(NOT_SCANNED) @map("scan_status")
+  scanProvider          String?            @map("scan_provider") @db.VarChar(120)
+  scanReference         String?            @map("scan_reference") @db.VarChar(240)
+  scanObservedSha256Hex String?            @map("scan_observed_sha256_hex") @db.Char(64)
+  scanEngineVersion     String?            @map("scan_engine_version") @db.VarChar(240)
+  scanSignature         String?            @map("scan_signature") @db.VarChar(240)
+  scanCompletedAt       DateTime?          @map("scan_completed_at") @db.Timestamptz(6)
+  uploadedByUserId      String             @map("uploaded_by_user_id") @db.Uuid
+  uploadedAt            DateTime?          @map("uploaded_at") @db.Timestamptz(6)
+  supersededAt          DateTime?          @map("superseded_at") @db.Timestamptz(6)
+  createdAt             DateTime           @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt             DateTime           @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  organisation       Organisation    @relation(fields: [organisationId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_matter_document_versions_organisation")
+  matter             Matter          @relation(fields: [matterId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_matter_document_versions_matter")
+  document           MatterDocument  @relation("DocumentVersions", fields: [documentId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_matter_document_versions_document")
+  currentForDocument MatterDocument? @relation("CurrentDocumentVersion")
+  uploadedBy         UserProfile     @relation("MatterDocumentVersionUploadedBy", fields: [uploadedByUserId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_matter_document_versions_uploaded_by")
+
+  @@unique([id, organisationId], map: "uq_matter_document_versions_id_org")
+  @@unique([documentId, versionNumber], map: "uq_matter_document_versions_document_version")
+  @@unique([storageBucket, storagePath], map: "uq_matter_document_versions_bucket_path")
+  @@index([organisationId, documentId, versionNumber(sort: Desc)], map: "ix_matter_document_versions_org_document_created")
+  @@index([organisationId, createdAt], map: "ix_matter_document_versions_pending_scan")
+  @@map("matter_document_versions")
+}
+
+model MatterTimelineEvent {
+  id              String         @id(map: "pk_matter_timeline_events") @default(uuid()) @db.Uuid
+  organisationId  String         @map("organisation_id") @db.Uuid
+  matterId        String         @map("matter_id") @db.Uuid
+  eventType       String         @map("event_type") @db.VarChar(80)
+  sourceType      String         @map("source_type") @db.VarChar(80)
+  sourceId        String?        @map("source_id") @db.Uuid
+  summary         String         @db.VarChar(500)
+  details         Json?
+  actorUserId     String?        @map("actor_user_id") @db.Uuid
+  actorType       AuditActorType @default(USER) @map("actor_type")
+  actorIdentifier String?        @map("actor_identifier") @db.VarChar(200)
+  occurredAt      DateTime       @default(now()) @map("occurred_at") @db.Timestamptz(6)
+  createdAt       DateTime       @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  organisation Organisation @relation(fields: [organisationId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_matter_timeline_organisation")
+  matter       Matter       @relation(fields: [matterId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_matter_timeline_matter")
+  actor        UserProfile? @relation("MatterTimelineActor", fields: [actorUserId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_matter_timeline_actor")
+
+  @@index([organisationId, matterId, occurredAt(sort: Desc), id(sort: Desc)], map: "ix_matter_timeline_org_matter_occurred")
+  @@map("matter_timeline_events")
+}
+
+model WorkflowDefinition {
+  id                     String                   @id(map: "pk_workflow_definitions") @default(uuid()) @map("id") @db.Uuid
+  organisationId         String                   @map("organisation_id") @db.Uuid
+  key                    String                   @map("key") @db.VarChar(120)
+  name                   String                   @map("name") @db.VarChar(180)
+  description            String                   @map("description") @db.Text
+  subjectType            AutomationSubjectType    @map("subject_type")
+  triggerEvent           String                   @map("trigger_event") @db.VarChar(160)
+  status                 WorkflowDefinitionStatus @default(DRAFT) @map("status")
+  createdByUserProfileId String?                  @map("created_by_user_profile_id") @db.Uuid
+  updatedByUserProfileId String?                  @map("updated_by_user_profile_id") @db.Uuid
+  createdAt              DateTime                 @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt              DateTime                 @updatedAt @map("updated_at") @db.Timestamptz(6)
+  deletedAt              DateTime?                @map("deleted_at") @db.Timestamptz(6)
+
+  organisation Organisation      @relation(fields: [organisationId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_workflow_definitions_organisation")
+  versions     WorkflowVersion[]
+  runs         WorkflowRun[]
+
+  @@unique([id, organisationId], map: "uq_workflow_definitions_id_org")
+  @@unique([organisationId, key], map: "uq_workflow_definitions_org_key")
+  @@index([organisationId, status, triggerEvent, deletedAt], map: "ix_workflow_definitions_org_trigger")
+  @@map("workflow_definitions")
+}
+
+model WorkflowVersion {
+  id                       String   @id(map: "pk_workflow_versions") @default(uuid()) @map("id") @db.Uuid
+  organisationId           String   @map("organisation_id") @db.Uuid
+  workflowDefinitionId     String   @map("workflow_definition_id") @db.Uuid
+  version                  Int      @map("version")
+  configuration            Json     @map("configuration")
+  checksumSha256           String   @map("checksum_sha256") @db.Char(64)
+  publishedAt              DateTime @map("published_at") @db.Timestamptz(6)
+  publishedByUserProfileId String?  @map("published_by_user_profile_id") @db.Uuid
+  createdAt                DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  organisation       Organisation       @relation(fields: [organisationId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_workflow_versions_organisation")
+  workflowDefinition WorkflowDefinition @relation(fields: [workflowDefinitionId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_workflow_versions_definition")
+  runs               WorkflowRun[]
+
+  @@unique([id, organisationId], map: "uq_workflow_versions_id_org")
+  @@unique([id, workflowDefinitionId, organisationId], map: "uq_workflow_versions_id_definition_org")
+  @@unique([workflowDefinitionId, version], map: "uq_workflow_versions_definition_version")
+  @@index([organisationId, workflowDefinitionId, version(sort: Desc)], map: "ix_workflow_versions_org_definition")
+  @@map("workflow_versions")
+}
+
+model WorkflowRun {
+  id                     String                @id(map: "pk_workflow_runs") @default(uuid()) @map("id") @db.Uuid
+  organisationId         String                @map("organisation_id") @db.Uuid
+  workflowDefinitionId   String                @map("workflow_definition_id") @db.Uuid
+  workflowVersionId      String                @map("workflow_version_id") @db.Uuid
+  subjectType            AutomationSubjectType @map("subject_type")
+  subjectId              String                @map("subject_id") @db.Uuid
+  triggerEvent           String                @map("trigger_event") @db.VarChar(160)
+  idempotencyKey         String                @map("idempotency_key") @db.VarChar(180)
+  status                 WorkflowRunStatus     @default(RUNNING) @map("status")
+  currentStepKey         String?               @map("current_step_key") @db.VarChar(120)
+  ownerUserId            String?               @map("owner_user_id") @db.Uuid
+  ownerTeamId            String?               @map("owner_team_id") @db.Uuid
+  nextActionSummary      String?               @map("next_action_summary") @db.VarChar(500)
+  nextActionAt           DateTime?             @map("next_action_at") @db.Timestamptz(6)
+  attemptCount           Int                   @default(0) @map("attempt_count")
+  maxAttempts            Int                   @default(5) @map("max_attempts")
+  lastErrorCode          String?               @map("last_error_code") @db.VarChar(120)
+  lastErrorDetail        String?               @map("last_error_detail") @db.VarChar(1000)
+  startedByActorType     AuditActorType        @default(SYSTEM) @map("started_by_actor_type")
+  startedByUserProfileId String?               @map("started_by_user_profile_id") @db.Uuid
+  startedAt              DateTime              @default(now()) @map("started_at") @db.Timestamptz(6)
+  completedAt            DateTime?             @map("completed_at") @db.Timestamptz(6)
+  failedAt               DateTime?             @map("failed_at") @db.Timestamptz(6)
+  createdAt              DateTime              @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt              DateTime              @updatedAt @map("updated_at") @db.Timestamptz(6)
+  version                Int                   @default(1) @map("version")
+
+  organisation       Organisation       @relation(fields: [organisationId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_workflow_runs_organisation")
+  workflowDefinition WorkflowDefinition @relation(fields: [workflowDefinitionId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_workflow_runs_definition")
+  workflowVersion    WorkflowVersion    @relation(fields: [workflowVersionId, workflowDefinitionId, organisationId], references: [id, workflowDefinitionId, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_workflow_runs_version")
+  actions            WorkflowAction[]
+  slaInstances       SlaInstance[]
+  approvalRequests   ApprovalRequest[]
+
+  @@unique([id, organisationId], map: "uq_workflow_runs_id_org")
+  @@unique([organisationId, idempotencyKey], map: "uq_workflow_runs_org_idempotency")
+  @@index([organisationId, subjectType, subjectId, createdAt(sort: Desc)], map: "ix_workflow_runs_org_subject")
+  @@index([organisationId, status, nextActionAt], map: "ix_workflow_runs_org_status_next")
+  @@map("workflow_runs")
+}
+
+model WorkflowAction {
+  id               String               @id(map: "pk_workflow_actions") @default(uuid()) @map("id") @db.Uuid
+  organisationId   String               @map("organisation_id") @db.Uuid
+  workflowRunId    String               @map("workflow_run_id") @db.Uuid
+  stepKey          String               @map("step_key") @db.VarChar(120)
+  actionType       WorkflowActionType   @map("action_type")
+  actionKey        String               @map("action_key") @db.VarChar(160)
+  title            String               @map("title") @db.VarChar(240)
+  description      String?              @map("description") @db.Text
+  status           WorkflowActionStatus @default(PENDING) @map("status")
+  priority         WorkPriority         @default(NORMAL) @map("priority")
+  ownerUserId      String?              @map("owner_user_id") @db.Uuid
+  ownerTeamId      String?              @map("owner_team_id") @db.Uuid
+  dueAt            DateTime?            @map("due_at") @db.Timestamptz(6)
+  input            Json                 @default("{}") @map("input")
+  output           Json?                @map("output")
+  idempotencyKey   String               @map("idempotency_key") @db.VarChar(180)
+  requiresApproval Boolean              @default(false) @map("requires_approval")
+  attemptCount     Int                  @default(0) @map("attempt_count")
+  maxAttempts      Int                  @default(5) @map("max_attempts")
+  nextAttemptAt    DateTime?            @map("next_attempt_at") @db.Timestamptz(6)
+  lastErrorCode    String?              @map("last_error_code") @db.VarChar(120)
+  lastErrorDetail  String?              @map("last_error_detail") @db.VarChar(1000)
+  startedAt        DateTime?            @map("started_at") @db.Timestamptz(6)
+  completedAt      DateTime?            @map("completed_at") @db.Timestamptz(6)
+  createdAt        DateTime             @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt        DateTime             @updatedAt @map("updated_at") @db.Timestamptz(6)
+  version          Int                  @default(1) @map("version")
+
+  organisation     Organisation      @relation(fields: [organisationId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_workflow_actions_organisation")
+  workflowRun      WorkflowRun       @relation(fields: [workflowRunId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_workflow_actions_run")
+  slaInstances     SlaInstance[]
+  approvalRequests ApprovalRequest[]
+
+  @@unique([id, organisationId], map: "uq_workflow_actions_id_org")
+  @@unique([workflowRunId, stepKey], map: "uq_workflow_actions_run_step")
+  @@unique([organisationId, idempotencyKey], map: "uq_workflow_actions_org_idempotency")
+  @@index([organisationId, status, dueAt], map: "ix_workflow_actions_org_status_due")
+  @@index([organisationId, ownerUserId, status, dueAt], map: "ix_workflow_actions_org_owner_due")
+  @@map("workflow_actions")
+}
+
+model SlaPolicy {
+  id                     String                @id(map: "pk_sla_policies") @default(uuid()) @map("id") @db.Uuid
+  organisationId         String                @map("organisation_id") @db.Uuid
+  key                    String                @map("key") @db.VarChar(120)
+  name                   String                @map("name") @db.VarChar(180)
+  description            String                @map("description") @db.Text
+  subjectType            AutomationSubjectType @map("subject_type")
+  startEvent             String                @map("start_event") @db.VarChar(160)
+  stopEvent              String                @map("stop_event") @db.VarChar(160)
+  targetSeconds          Int                   @map("target_seconds")
+  warningSeconds         Int                   @map("warning_seconds")
+  timezone               String                @default("Europe/London") @map("timezone") @db.VarChar(64)
+  calendarConfiguration  Json                  @default("{}") @map("calendar_configuration")
+  isActive               Boolean               @default(true) @map("is_active")
+  createdByUserProfileId String?               @map("created_by_user_profile_id") @db.Uuid
+  updatedByUserProfileId String?               @map("updated_by_user_profile_id") @db.Uuid
+  createdAt              DateTime              @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt              DateTime              @updatedAt @map("updated_at") @db.Timestamptz(6)
+  deletedAt              DateTime?             @map("deleted_at") @db.Timestamptz(6)
+  version                Int                   @default(1) @map("version")
+
+  organisation Organisation     @relation(fields: [organisationId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_sla_policies_organisation")
+  instances    SlaInstance[]
+  rules        EscalationRule[]
+
+  @@unique([id, organisationId], map: "uq_sla_policies_id_org")
+  @@unique([organisationId, key], map: "uq_sla_policies_org_key")
+  @@index([organisationId, subjectType, isActive, deletedAt], map: "ix_sla_policies_org_subject")
+  @@map("sla_policies")
+}
+
+model SlaInstance {
+  id                 String                @id(map: "pk_sla_instances") @default(uuid()) @map("id") @db.Uuid
+  organisationId     String                @map("organisation_id") @db.Uuid
+  slaPolicyId        String                @map("sla_policy_id") @db.Uuid
+  workflowRunId      String?               @map("workflow_run_id") @db.Uuid
+  workflowActionId   String?               @map("workflow_action_id") @db.Uuid
+  subjectType        AutomationSubjectType @map("subject_type")
+  subjectId          String                @map("subject_id") @db.Uuid
+  idempotencyKey     String                @map("idempotency_key") @db.VarChar(180)
+  status             SlaInstanceStatus     @default(ACTIVE) @map("status")
+  ownerUserId        String?               @map("owner_user_id") @db.Uuid
+  ownerTeamId        String?               @map("owner_team_id") @db.Uuid
+  startedAt          DateTime              @default(now()) @map("started_at") @db.Timestamptz(6)
+  warningAt          DateTime              @map("warning_at") @db.Timestamptz(6)
+  dueAt              DateTime              @map("due_at") @db.Timestamptz(6)
+  atRiskAt           DateTime?             @map("at_risk_at") @db.Timestamptz(6)
+  breachedAt         DateTime?             @map("breached_at") @db.Timestamptz(6)
+  satisfiedAt        DateTime?             @map("satisfied_at") @db.Timestamptz(6)
+  cancelledAt        DateTime?             @map("cancelled_at") @db.Timestamptz(6)
+  cancellationReason String?               @map("cancellation_reason") @db.VarChar(1000)
+  createdAt          DateTime              @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt          DateTime              @updatedAt @map("updated_at") @db.Timestamptz(6)
+  version            Int                   @default(1) @map("version")
+
+  organisation     Organisation      @relation(fields: [organisationId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_sla_instances_organisation")
+  slaPolicy        SlaPolicy         @relation(fields: [slaPolicyId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_sla_instances_policy")
+  workflowRun      WorkflowRun?      @relation(fields: [workflowRunId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_sla_instances_run")
+  workflowAction   WorkflowAction?   @relation(fields: [workflowActionId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_sla_instances_action")
+  escalationEvents EscalationEvent[]
+
+  @@unique([id, organisationId], map: "uq_sla_instances_id_org")
+  @@unique([organisationId, idempotencyKey], map: "uq_sla_instances_org_idempotency")
+  @@index([organisationId, status, warningAt, dueAt], map: "ix_sla_instances_org_status_due")
+  @@index([organisationId, subjectType, subjectId, createdAt(sort: Desc)], map: "ix_sla_instances_org_subject")
+  @@map("sla_instances")
+}
+
+model EscalationRule {
+  id                 String    @id(map: "pk_escalation_rules") @default(uuid()) @map("id") @db.Uuid
+  organisationId     String    @map("organisation_id") @db.Uuid
+  slaPolicyId        String    @map("sla_policy_id") @db.Uuid
+  level              Int       @map("level") @db.SmallInt
+  name               String    @map("name") @db.VarChar(180)
+  afterBreachSeconds Int       @map("after_breach_seconds")
+  actionKey          String    @map("action_key") @db.VarChar(160)
+  configuration      Json      @default("{}") @map("configuration")
+  isActive           Boolean   @default(true) @map("is_active")
+  createdAt          DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt          DateTime  @updatedAt @map("updated_at") @db.Timestamptz(6)
+  deletedAt          DateTime? @map("deleted_at") @db.Timestamptz(6)
+
+  organisation Organisation      @relation(fields: [organisationId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_escalation_rules_organisation")
+  slaPolicy    SlaPolicy         @relation(fields: [slaPolicyId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_escalation_rules_policy")
+  events       EscalationEvent[]
+
+  @@unique([id, organisationId], map: "uq_escalation_rules_id_org")
+  @@unique([slaPolicyId, level], map: "uq_escalation_rules_policy_level")
+  @@index([organisationId, slaPolicyId, isActive, afterBreachSeconds], map: "ix_escalation_rules_org_policy")
+  @@map("escalation_rules")
+}
+
+model EscalationEvent {
+  id                          String                @id(map: "pk_escalation_events") @default(uuid()) @map("id") @db.Uuid
+  organisationId              String                @map("organisation_id") @db.Uuid
+  slaInstanceId               String                @map("sla_instance_id") @db.Uuid
+  escalationRuleId            String                @map("escalation_rule_id") @db.Uuid
+  level                       Int                   @map("level") @db.SmallInt
+  actionKey                   String                @map("action_key") @db.VarChar(160)
+  status                      EscalationEventStatus @default(RECORDED) @map("status")
+  details                     Json                  @default("{}") @map("details")
+  occurredAt                  DateTime              @default(now()) @map("occurred_at") @db.Timestamptz(6)
+  acknowledgedAt              DateTime?             @map("acknowledged_at") @db.Timestamptz(6)
+  acknowledgedByUserProfileId String?               @map("acknowledged_by_user_profile_id") @db.Uuid
+  resolvedAt                  DateTime?             @map("resolved_at") @db.Timestamptz(6)
+  resolvedByUserProfileId     String?               @map("resolved_by_user_profile_id") @db.Uuid
+  resolution                  String?               @map("resolution") @db.VarChar(1000)
+  createdAt                   DateTime              @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt                   DateTime              @updatedAt @map("updated_at") @db.Timestamptz(6)
+  version                     Int                   @default(1) @map("version")
+
+  organisation   Organisation   @relation(fields: [organisationId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_escalation_events_organisation")
+  slaInstance    SlaInstance    @relation(fields: [slaInstanceId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_escalation_events_instance")
+  escalationRule EscalationRule @relation(fields: [escalationRuleId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_escalation_events_rule")
+
+  @@unique([id, organisationId], map: "uq_escalation_events_id_org")
+  @@unique([slaInstanceId, escalationRuleId], map: "uq_escalation_events_instance_rule")
+  @@index([organisationId, status, occurredAt(sort: Desc)], map: "ix_escalation_events_org_status")
+  @@map("escalation_events")
+}
+
+model ApprovalRequest {
+  id                       String                @id(map: "pk_approval_requests") @default(uuid()) @map("id") @db.Uuid
+  organisationId           String                @map("organisation_id") @db.Uuid
+  workflowRunId            String?               @map("workflow_run_id") @db.Uuid
+  workflowActionId         String?               @map("workflow_action_id") @db.Uuid
+  subjectType              AutomationSubjectType @map("subject_type")
+  subjectId                String                @map("subject_id") @db.Uuid
+  title                    String                @map("title") @db.VarChar(240)
+  summary                  String                @map("summary") @db.Text
+  actionKey                String                @map("action_key") @db.VarChar(160)
+  riskLevel                ApprovalRiskLevel     @default(MEDIUM) @map("risk_level")
+  proposedPayload          Json                  @default("{}") @map("proposed_payload")
+  status                   ApprovalRequestStatus @default(PENDING) @map("status")
+  requestedByActorType     AuditActorType        @default(USER) @map("requested_by_actor_type")
+  requestedByUserProfileId String?               @map("requested_by_user_profile_id") @db.Uuid
+  approverUserId           String?               @map("approver_user_id") @db.Uuid
+  approverTeamId           String?               @map("approver_team_id") @db.Uuid
+  allowSelfApproval        Boolean               @default(false) @map("allow_self_approval")
+  expiresAt                DateTime              @map("expires_at") @db.Timestamptz(6)
+  decidedAt                DateTime?             @map("decided_at") @db.Timestamptz(6)
+  cancelledAt              DateTime?             @map("cancelled_at") @db.Timestamptz(6)
+  cancellationReason       String?               @map("cancellation_reason") @db.VarChar(1000)
+  createdAt                DateTime              @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt                DateTime              @updatedAt @map("updated_at") @db.Timestamptz(6)
+  version                  Int                   @default(1) @map("version")
+
+  organisation   Organisation      @relation(fields: [organisationId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_approval_requests_organisation")
+  workflowRun    WorkflowRun?      @relation(fields: [workflowRunId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_approval_requests_run")
+  workflowAction WorkflowAction?   @relation(fields: [workflowActionId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_approval_requests_action")
+  decision       ApprovalDecision?
+
+  @@unique([id, organisationId], map: "uq_approval_requests_id_org")
+  @@index([organisationId, status, expiresAt], map: "ix_approval_requests_org_status_expiry")
+  @@index([organisationId, subjectType, subjectId, createdAt(sort: Desc)], map: "ix_approval_requests_org_subject")
+  @@map("approval_requests")
+}
+
+model ApprovalDecision {
+  id                     String               @id(map: "pk_approval_decisions") @default(uuid()) @map("id") @db.Uuid
+  organisationId         String               @map("organisation_id") @db.Uuid
+  approvalRequestId      String               @map("approval_request_id") @db.Uuid
+  decision               ApprovalDecisionType @map("decision")
+  reason                 String               @map("reason") @db.VarChar(2000)
+  evidence               Json                 @default("{}") @map("evidence")
+  decidedByUserProfileId String               @map("decided_by_user_profile_id") @db.Uuid
+  occurredAt             DateTime             @default(now()) @map("occurred_at") @db.Timestamptz(6)
+
+  organisation    Organisation    @relation(fields: [organisationId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_approval_decisions_organisation")
+  approvalRequest ApprovalRequest @relation(fields: [approvalRequestId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_approval_decisions_request")
+
+  @@unique([id, organisationId], map: "uq_approval_decisions_id_org")
+  @@unique([approvalRequestId, organisationId], map: "uq_approval_decisions_request")
+  @@index([organisationId, approvalRequestId, occurredAt(sort: Desc)], map: "ix_approval_decisions_org_request")
+  @@map("approval_decisions")
+}
+
+model ClientPortalAccessGrant {
+  id                String             @id(map: "pk_client_portal_access_grants") @default(uuid()) @db.Uuid
+  organisationId    String             @map("organisation_id") @db.Uuid
+  clientId          String             @map("client_id") @db.Uuid
+  userProfileId     String             @map("user_profile_id") @db.Uuid
+  status            PortalAccessStatus @default(ACTIVE)
+  scopes            String[]           @db.VarChar(80)
+  startsAt          DateTime           @default(now()) @map("starts_at") @db.Timestamptz(6)
+  expiresAt         DateTime?          @map("expires_at") @db.Timestamptz(6)
+  grantedByUserId   String             @map("granted_by_user_id") @db.Uuid
+  grantReason       String             @map("grant_reason") @db.VarChar(1000)
+  suspendedAt       DateTime?          @map("suspended_at") @db.Timestamptz(6)
+  suspendedByUserId String?            @map("suspended_by_user_id") @db.Uuid
+  suspensionReason  String?            @map("suspension_reason") @db.VarChar(1000)
+  revokedAt         DateTime?          @map("revoked_at") @db.Timestamptz(6)
+  revokedByUserId   String?            @map("revoked_by_user_id") @db.Uuid
+  revocationReason  String?            @map("revocation_reason") @db.VarChar(1000)
+  lastAccessedAt    DateTime?          @map("last_accessed_at") @db.Timestamptz(6)
+  version           Int                @default(1)
+  createdAt         DateTime           @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt         DateTime           @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@unique([id, organisationId], map: "uq_portal_access_id_org")
+  @@index([userProfileId, status, expiresAt], map: "ix_portal_access_user_status")
+  @@index([organisationId, clientId, status], map: "ix_portal_access_org_client_status")
+  @@map("client_portal_access_grants")
+}
+
+model ClientPortalMatterGrant {
+  id             String   @id(map: "pk_client_portal_matter_grants") @default(uuid()) @db.Uuid
+  organisationId String   @map("organisation_id") @db.Uuid
+  accessGrantId  String   @map("access_grant_id") @db.Uuid
+  matterId       String   @map("matter_id") @db.Uuid
+  createdAt      DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  @@unique([accessGrantId, matterId], map: "uq_portal_matter_grant")
+  @@unique([id, organisationId], map: "uq_portal_matter_grant_id_org")
+  @@index([organisationId, matterId], map: "ix_portal_matter_grants_org_matter")
+  @@map("client_portal_matter_grants")
+}
+
+model ClientPortalInvitation {
+  id                  String                 @id(map: "pk_client_portal_invitations") @default(uuid()) @db.Uuid
+  organisationId      String                 @map("organisation_id") @db.Uuid
+  clientId            String                 @map("client_id") @db.Uuid
+  email               String                 @db.VarChar(320)
+  matterIds           String[]               @map("matter_ids") @db.Uuid
+  scopes              String[]               @db.VarChar(80)
+  tokenHash           String                 @unique(map: "uq_portal_invitation_token_hash") @map("token_hash") @db.Char(64)
+  status              PortalInvitationStatus @default(PENDING)
+  expiresAt           DateTime               @map("expires_at") @db.Timestamptz(6)
+  invitedByUserId     String                 @map("invited_by_user_id") @db.Uuid
+  acceptedAt          DateTime?              @map("accepted_at") @db.Timestamptz(6)
+  acceptedByUserId    String?                @map("accepted_by_user_id") @db.Uuid
+  accessGrantId       String?                @map("access_grant_id") @db.Uuid
+  revokedAt           DateTime?              @map("revoked_at") @db.Timestamptz(6)
+  revokedByUserId     String?                @map("revoked_by_user_id") @db.Uuid
+  revocationReason    String?                @map("revocation_reason") @db.VarChar(1000)
+  deliveryProvider    String?                @map("delivery_provider") @db.VarChar(80)
+  deliveryMessageId   String?                @map("delivery_message_id") @db.VarChar(240)
+  deliveredAt         DateTime?              @map("delivered_at") @db.Timestamptz(6)
+  deliveryErrorCode   String?                @map("delivery_error_code") @db.VarChar(120)
+  deliveryErrorDetail String?                @map("delivery_error_detail") @db.VarChar(1000)
+  createdAt           DateTime               @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt           DateTime               @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@unique([id, organisationId], map: "uq_portal_invitation_id_org")
+  @@index([organisationId, status, expiresAt], map: "ix_portal_invitations_org_status_expiry")
+  @@map("client_portal_invitations")
+}
+
+model PortalMatterUpdate {
+  id                 String    @id(map: "pk_portal_matter_updates") @default(uuid()) @db.Uuid
+  organisationId     String    @map("organisation_id") @db.Uuid
+  matterId           String    @map("matter_id") @db.Uuid
+  title              String    @db.VarChar(240)
+  summary            String    @db.Text
+  stageKey           String?   @map("stage_key") @db.VarChar(120)
+  progressPercent    Int?      @map("progress_percent") @db.SmallInt
+  publishedAt        DateTime  @default(now()) @map("published_at") @db.Timestamptz(6)
+  publishedByUserId  String    @map("published_by_user_id") @db.Uuid
+  supersededAt       DateTime? @map("superseded_at") @db.Timestamptz(6)
+  supersededByUserId String?   @map("superseded_by_user_id") @db.Uuid
+  createdAt          DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  @@unique([id, organisationId], map: "uq_portal_update_id_org")
+  @@index([organisationId, matterId, publishedAt(sort: Desc)], map: "ix_portal_updates_org_matter_published")
+  @@map("portal_matter_updates")
+}
+
+model CommunicationConversation {
+  id               String                          @id(map: "pk_communication_conversations") @default(uuid()) @db.Uuid
+  organisationId   String                          @map("organisation_id") @db.Uuid
+  matterId         String?                         @map("matter_id") @db.Uuid
+  clientId         String?                         @map("client_id") @db.Uuid
+  channel          BusinessCommunicationChannel
+  subject          String                          @db.VarChar(240)
+  status           CommunicationConversationStatus @default(OPEN)
+  externalThreadId String?                         @map("external_thread_id") @db.VarChar(240)
+  assignedToUserId String?                         @map("assigned_to_user_id") @db.Uuid
+  createdByUserId  String?                         @map("created_by_user_id") @db.Uuid
+  lastMessageAt    DateTime?                       @map("last_message_at") @db.Timestamptz(6)
+  resolvedAt       DateTime?                       @map("resolved_at") @db.Timestamptz(6)
+  archivedAt       DateTime?                       @map("archived_at") @db.Timestamptz(6)
+  version          Int                             @default(1)
+  createdAt        DateTime                        @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt        DateTime                        @updatedAt @map("updated_at") @db.Timestamptz(6)
+  deletedAt        DateTime?                       @map("deleted_at") @db.Timestamptz(6)
+
+  @@unique([id, organisationId], map: "uq_conversation_id_org")
+  @@index([organisationId, status, lastMessageAt(sort: Desc), createdAt(sort: Desc)], map: "ix_conversations_org_status_last")
+  @@index([organisationId, matterId, createdAt(sort: Desc)], map: "ix_conversations_org_matter")
+  @@map("communication_conversations")
+}
+
+model CommunicationMessage {
+  id                  String                       @id(map: "pk_communication_messages") @default(uuid()) @db.Uuid
+  organisationId      String                       @map("organisation_id") @db.Uuid
+  conversationId      String                       @map("conversation_id") @db.Uuid
+  matterId            String?                      @map("matter_id") @db.Uuid
+  clientId            String?                      @map("client_id") @db.Uuid
+  channel             BusinessCommunicationChannel
+  direction           CommunicationDirection
+  actorType           CommunicationActorType       @map("actor_type")
+  authorUserProfileId String?                      @map("author_user_profile_id") @db.Uuid
+  senderAddress       String?                      @map("sender_address") @db.VarChar(320)
+  recipientAddresses  String[]                     @default([]) @map("recipient_addresses") @db.VarChar(320)
+  subject             String?                      @db.VarChar(500)
+  bodyText            String                       @map("body_text") @db.Text
+  status              CommunicationMessageStatus
+  clientVisible       Boolean                      @default(true) @map("client_visible")
+  approvalRequestId   String?                      @map("approval_request_id") @db.Uuid
+  idempotencyKey      String                       @map("idempotency_key") @db.VarChar(180)
+  provider            String?                      @db.VarChar(80)
+  providerMessageId   String?                      @map("provider_message_id") @db.VarChar(240)
+  scheduledAt         DateTime?                    @map("scheduled_at") @db.Timestamptz(6)
+  queuedAt            DateTime?                    @map("queued_at") @db.Timestamptz(6)
+  sentAt              DateTime?                    @map("sent_at") @db.Timestamptz(6)
+  deliveredAt         DateTime?                    @map("delivered_at") @db.Timestamptz(6)
+  readAt              DateTime?                    @map("read_at") @db.Timestamptz(6)
+  failedAt            DateTime?                    @map("failed_at") @db.Timestamptz(6)
+  failureCode         String?                      @map("failure_code") @db.VarChar(120)
+  failureDetail       String?                      @map("failure_detail") @db.VarChar(1000)
+  attempts            Int                          @default(0)
+  maxAttempts         Int                          @default(5) @map("max_attempts")
+  nextAttemptAt       DateTime                     @default(now()) @map("next_attempt_at") @db.Timestamptz(6)
+  leaseOwner          String?                      @map("lease_owner") @db.VarChar(160)
+  leaseExpiresAt      DateTime?                    @map("lease_expires_at") @db.Timestamptz(6)
+  createdAt           DateTime                     @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt           DateTime                     @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@unique([id, organisationId], map: "uq_message_id_org")
+  @@unique([organisationId, idempotencyKey], map: "uq_message_org_idempotency")
+  @@unique([provider, providerMessageId], map: "uq_message_provider_id")
+  @@index([organisationId, conversationId, createdAt(sort: Desc)], map: "ix_messages_org_conversation_created")
+  @@index([provider, providerMessageId], map: "ix_messages_provider_id")
+  @@map("communication_messages")
+}
+
+model CommunicationAttachment {
+  id                String   @id(map: "pk_communication_attachments") @default(uuid()) @db.Uuid
+  organisationId    String   @map("organisation_id") @db.Uuid
+  messageId         String   @map("message_id") @db.Uuid
+  documentId        String   @map("document_id") @db.Uuid
+  documentVersionId String   @map("document_version_id") @db.Uuid
+  clientVisible     Boolean  @default(false) @map("client_visible")
+  createdAt         DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  @@unique([messageId, documentVersionId], map: "uq_attachment_message_version")
+  @@unique([id, organisationId], map: "uq_attachment_id_org")
+  @@map("communication_attachments")
+}
+
+model CommunicationDeliveryEvent {
+  id              String                         @id(map: "pk_communication_delivery_events") @default(uuid()) @db.Uuid
+  organisationId  String                         @map("organisation_id") @db.Uuid
+  messageId       String                         @map("message_id") @db.Uuid
+  eventType       CommunicationDeliveryEventType @map("event_type")
+  provider        String?                        @db.VarChar(80)
+  providerEventId String?                        @map("provider_event_id") @db.VarChar(240)
+  occurredAt      DateTime                       @default(now()) @map("occurred_at") @db.Timestamptz(6)
+  payload         Json                           @default("{}")
+  createdAt       DateTime                       @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  @@unique([provider, providerEventId], map: "uq_delivery_event_provider")
+  @@index([organisationId, messageId, occurredAt(sort: Desc)], map: "ix_delivery_events_org_message_occurred")
+  @@map("communication_delivery_events")
+}
+
+model CommunicationTemplate {
+  id               String                       @id(map: "pk_communication_templates") @default(uuid()) @db.Uuid
+  organisationId   String                       @map("organisation_id") @db.Uuid
+  key              String                       @db.VarChar(120)
+  name             String                       @db.VarChar(180)
+  description      String?                      @db.VarChar(1000)
+  channel          BusinessCommunicationChannel
+  subjectTemplate  String?                      @map("subject_template") @db.VarChar(500)
+  bodyTemplate     String                       @map("body_template") @db.Text
+  allowedVariables String[]                     @default([]) @map("allowed_variables") @db.VarChar(120)
+  status           CommunicationTemplateStatus  @default(DRAFT)
+  version          Int                          @default(1)
+  createdByUserId  String                       @map("created_by_user_id") @db.Uuid
+  updatedByUserId  String                       @map("updated_by_user_id") @db.Uuid
+  createdAt        DateTime                     @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt        DateTime                     @updatedAt @map("updated_at") @db.Timestamptz(6)
+  deletedAt        DateTime?                    @map("deleted_at") @db.Timestamptz(6)
+
+  @@unique([id, organisationId], map: "uq_template_id_org")
+  @@unique([organisationId, key, version], map: "uq_template_org_key_version")
+  @@index([organisationId, status, channel, name], map: "ix_templates_org_status_channel")
+  @@map("communication_templates")
+}
+
+model CommunicationReminder {
+  id                 String                       @id(map: "pk_communication_reminders") @default(uuid()) @db.Uuid
+  organisationId     String                       @map("organisation_id") @db.Uuid
+  conversationId     String                       @map("conversation_id") @db.Uuid
+  matterId           String?                      @map("matter_id") @db.Uuid
+  clientId           String?                      @map("client_id") @db.Uuid
+  channel            BusinessCommunicationChannel
+  recipientAddress   String?                      @map("recipient_address") @db.VarChar(320)
+  subject            String?                      @db.VarChar(500)
+  bodyText           String                       @map("body_text") @db.Text
+  scheduledFor       DateTime                     @map("scheduled_for") @db.Timestamptz(6)
+  status             CommunicationReminderStatus  @default(SCHEDULED)
+  idempotencyKey     String                       @map("idempotency_key") @db.VarChar(180)
+  messageId          String?                      @map("message_id") @db.Uuid
+  createdByUserId    String                       @map("created_by_user_id") @db.Uuid
+  cancelledAt        DateTime?                    @map("cancelled_at") @db.Timestamptz(6)
+  cancelledByUserId  String?                      @map("cancelled_by_user_id") @db.Uuid
+  cancellationReason String?                      @map("cancellation_reason") @db.VarChar(1000)
+  failureCode        String?                      @map("failure_code") @db.VarChar(120)
+  failureDetail      String?                      @map("failure_detail") @db.VarChar(1000)
+  createdAt          DateTime                     @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt          DateTime                     @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@unique([id, organisationId], map: "uq_reminder_id_org")
+  @@unique([organisationId, idempotencyKey], map: "uq_reminder_org_idempotency")
+  @@index([status, scheduledFor], map: "ix_reminders_due")
+  @@index([organisationId, conversationId, scheduledFor(sort: Desc)], map: "ix_reminders_org_conversation")
+  @@map("communication_reminders")
+}
+
+model ClientNotification {
+  id               String    @id(map: "pk_client_notifications") @default(uuid()) @db.Uuid
+  organisationId   String    @map("organisation_id") @db.Uuid
+  accessGrantId    String    @map("access_grant_id") @db.Uuid
+  userProfileId    String    @map("user_profile_id") @db.Uuid
+  matterId         String?   @map("matter_id") @db.Uuid
+  notificationType String    @map("notification_type") @db.VarChar(120)
+  title            String    @db.VarChar(240)
+  body             String    @db.VarChar(2000)
+  sourceType       String?   @map("source_type") @db.VarChar(120)
+  sourceId         String?   @map("source_id") @db.Uuid
+  readAt           DateTime? @map("read_at") @db.Timestamptz(6)
+  createdAt        DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  @@unique([id, organisationId], map: "uq_notification_id_org")
+  @@index([userProfileId, readAt, createdAt(sort: Desc)], map: "ix_notifications_user_read_created")
+  @@map("client_notifications")
+}
+
+/// Service-owned durable queue. Application code must use the narrowly granted
+/// private claim/complete/fail functions rather than direct Prisma operations.
+model DocumentScanJob {
+  id              String                @id(map: "pk_document_scan_jobs") @default(uuid()) @db.Uuid
+  organisationId  String                @map("organisation_id") @db.Uuid
+  matterId        String                @map("matter_id") @db.Uuid
+  documentId      String                @map("document_id") @db.Uuid
+  versionId       String                @unique(map: "uq_document_scan_jobs_version") @map("version_id") @db.Uuid
+  status          DocumentScanJobStatus @default(QUEUED)
+  attempts        Int                   @default(0)
+  maxAttempts     Int                   @default(5) @map("max_attempts")
+  leaseCount      Int                   @default(0) @map("lease_count")
+  nextAttemptAt   DateTime              @default(now()) @map("next_attempt_at") @db.Timestamptz(6)
+  leaseOwner      String?               @map("lease_owner") @db.VarChar(160)
+  leaseExpiresAt  DateTime?             @map("lease_expires_at") @db.Timestamptz(6)
+  lastErrorCode   String?               @map("last_error_code") @db.VarChar(120)
+  lastErrorDetail String?               @map("last_error_detail") @db.VarChar(1000)
+  completedAt     DateTime?             @map("completed_at") @db.Timestamptz(6)
+  createdAt       DateTime              @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt       DateTime              @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@index([status, nextAttemptAt, createdAt], map: "ix_document_scan_jobs_claim")
+  @@index([organisationId, status, updatedAt(sort: Desc)], map: "ix_document_scan_jobs_org_status")
+  @@map("document_scan_jobs")
+  @@ignore
 }

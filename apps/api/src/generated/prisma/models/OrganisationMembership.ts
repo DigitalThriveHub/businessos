@@ -261,6 +261,10 @@ export type OrganisationMembershipWhereInput = {
   roleAssignments?: Prisma.RoleAssignmentListRelationFilter
   invitations?: Prisma.InvitationListRelationFilter
   userSessions?: Prisma.UserSessionListRelationFilter
+  workforceAssignments?: Prisma.WorkforceAssignmentListRelationFilter
+  managedWorkforceAssignments?: Prisma.WorkforceAssignmentListRelationFilter
+  onboardingPlansAsManager?: Prisma.InvitationOnboardingPlanListRelationFilter
+  provisionedOnboardingPlans?: Prisma.InvitationOnboardingPlanListRelationFilter
 }
 
 export type OrganisationMembershipOrderByWithRelationInput = {
@@ -285,6 +289,10 @@ export type OrganisationMembershipOrderByWithRelationInput = {
   roleAssignments?: Prisma.RoleAssignmentOrderByRelationAggregateInput
   invitations?: Prisma.InvitationOrderByRelationAggregateInput
   userSessions?: Prisma.UserSessionOrderByRelationAggregateInput
+  workforceAssignments?: Prisma.WorkforceAssignmentOrderByRelationAggregateInput
+  managedWorkforceAssignments?: Prisma.WorkforceAssignmentOrderByRelationAggregateInput
+  onboardingPlansAsManager?: Prisma.InvitationOnboardingPlanOrderByRelationAggregateInput
+  provisionedOnboardingPlans?: Prisma.InvitationOnboardingPlanOrderByRelationAggregateInput
 }
 
 export type OrganisationMembershipWhereUniqueInput = Prisma.AtLeast<{
@@ -315,6 +323,10 @@ export type OrganisationMembershipWhereUniqueInput = Prisma.AtLeast<{
   roleAssignments?: Prisma.RoleAssignmentListRelationFilter
   invitations?: Prisma.InvitationListRelationFilter
   userSessions?: Prisma.UserSessionListRelationFilter
+  workforceAssignments?: Prisma.WorkforceAssignmentListRelationFilter
+  managedWorkforceAssignments?: Prisma.WorkforceAssignmentListRelationFilter
+  onboardingPlansAsManager?: Prisma.InvitationOnboardingPlanListRelationFilter
+  provisionedOnboardingPlans?: Prisma.InvitationOnboardingPlanListRelationFilter
 }, "id" | "organisationId_userProfileId" | "id_organisationId" | "id_organisationId_userProfileId">
 
 export type OrganisationMembershipOrderByWithAggregationInput = {
@@ -377,6 +389,10 @@ export type OrganisationMembershipCreateInput = {
   roleAssignments?: Prisma.RoleAssignmentCreateNestedManyWithoutOrganisationMembershipInput
   invitations?: Prisma.InvitationCreateNestedManyWithoutOrganisationMembershipInput
   userSessions?: Prisma.UserSessionCreateNestedManyWithoutActiveOrganisationMembershipInput
+  workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationMembershipInput
+  managedWorkforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutManagerInput
+  onboardingPlansAsManager?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutManagerInput
+  provisionedOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutProvisionedMembershipInput
 }
 
 export type OrganisationMembershipUncheckedCreateInput = {
@@ -399,6 +415,10 @@ export type OrganisationMembershipUncheckedCreateInput = {
   roleAssignments?: Prisma.RoleAssignmentUncheckedCreateNestedManyWithoutOrganisationMembershipInput
   invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutOrganisationMembershipInput
   userSessions?: Prisma.UserSessionUncheckedCreateNestedManyWithoutActiveOrganisationMembershipInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationMembershipInput
+  managedWorkforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutManagerInput
+  onboardingPlansAsManager?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutManagerInput
+  provisionedOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutProvisionedMembershipInput
 }
 
 export type OrganisationMembershipUpdateInput = {
@@ -421,6 +441,10 @@ export type OrganisationMembershipUpdateInput = {
   roleAssignments?: Prisma.RoleAssignmentUpdateManyWithoutOrganisationMembershipNestedInput
   invitations?: Prisma.InvitationUpdateManyWithoutOrganisationMembershipNestedInput
   userSessions?: Prisma.UserSessionUpdateManyWithoutActiveOrganisationMembershipNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationMembershipNestedInput
+  managedWorkforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutManagerNestedInput
+  onboardingPlansAsManager?: Prisma.InvitationOnboardingPlanUpdateManyWithoutManagerNestedInput
+  provisionedOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutProvisionedMembershipNestedInput
 }
 
 export type OrganisationMembershipUncheckedUpdateInput = {
@@ -443,6 +467,10 @@ export type OrganisationMembershipUncheckedUpdateInput = {
   roleAssignments?: Prisma.RoleAssignmentUncheckedUpdateManyWithoutOrganisationMembershipNestedInput
   invitations?: Prisma.InvitationUncheckedUpdateManyWithoutOrganisationMembershipNestedInput
   userSessions?: Prisma.UserSessionUncheckedUpdateManyWithoutActiveOrganisationMembershipNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationMembershipNestedInput
+  managedWorkforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutManagerNestedInput
+  onboardingPlansAsManager?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutManagerNestedInput
+  provisionedOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutProvisionedMembershipNestedInput
 }
 
 export type OrganisationMembershipCreateManyInput = {
@@ -745,6 +773,68 @@ export type OrganisationMembershipUpdateOneWithoutUserSessionsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.OrganisationMembershipUpdateToOneWithWhereWithoutUserSessionsInput, Prisma.OrganisationMembershipUpdateWithoutUserSessionsInput>, Prisma.OrganisationMembershipUncheckedUpdateWithoutUserSessionsInput>
 }
 
+export type OrganisationMembershipCreateNestedOneWithoutWorkforceAssignmentsInput = {
+  create?: Prisma.XOR<Prisma.OrganisationMembershipCreateWithoutWorkforceAssignmentsInput, Prisma.OrganisationMembershipUncheckedCreateWithoutWorkforceAssignmentsInput>
+  connectOrCreate?: Prisma.OrganisationMembershipCreateOrConnectWithoutWorkforceAssignmentsInput
+  connect?: Prisma.OrganisationMembershipWhereUniqueInput
+}
+
+export type OrganisationMembershipCreateNestedOneWithoutManagedWorkforceAssignmentsInput = {
+  create?: Prisma.XOR<Prisma.OrganisationMembershipCreateWithoutManagedWorkforceAssignmentsInput, Prisma.OrganisationMembershipUncheckedCreateWithoutManagedWorkforceAssignmentsInput>
+  connectOrCreate?: Prisma.OrganisationMembershipCreateOrConnectWithoutManagedWorkforceAssignmentsInput
+  connect?: Prisma.OrganisationMembershipWhereUniqueInput
+}
+
+export type OrganisationMembershipUpdateOneRequiredWithoutWorkforceAssignmentsNestedInput = {
+  create?: Prisma.XOR<Prisma.OrganisationMembershipCreateWithoutWorkforceAssignmentsInput, Prisma.OrganisationMembershipUncheckedCreateWithoutWorkforceAssignmentsInput>
+  connectOrCreate?: Prisma.OrganisationMembershipCreateOrConnectWithoutWorkforceAssignmentsInput
+  upsert?: Prisma.OrganisationMembershipUpsertWithoutWorkforceAssignmentsInput
+  connect?: Prisma.OrganisationMembershipWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.OrganisationMembershipUpdateToOneWithWhereWithoutWorkforceAssignmentsInput, Prisma.OrganisationMembershipUpdateWithoutWorkforceAssignmentsInput>, Prisma.OrganisationMembershipUncheckedUpdateWithoutWorkforceAssignmentsInput>
+}
+
+export type OrganisationMembershipUpdateOneWithoutManagedWorkforceAssignmentsNestedInput = {
+  create?: Prisma.XOR<Prisma.OrganisationMembershipCreateWithoutManagedWorkforceAssignmentsInput, Prisma.OrganisationMembershipUncheckedCreateWithoutManagedWorkforceAssignmentsInput>
+  connectOrCreate?: Prisma.OrganisationMembershipCreateOrConnectWithoutManagedWorkforceAssignmentsInput
+  upsert?: Prisma.OrganisationMembershipUpsertWithoutManagedWorkforceAssignmentsInput
+  disconnect?: Prisma.OrganisationMembershipWhereInput | boolean
+  delete?: Prisma.OrganisationMembershipWhereInput | boolean
+  connect?: Prisma.OrganisationMembershipWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.OrganisationMembershipUpdateToOneWithWhereWithoutManagedWorkforceAssignmentsInput, Prisma.OrganisationMembershipUpdateWithoutManagedWorkforceAssignmentsInput>, Prisma.OrganisationMembershipUncheckedUpdateWithoutManagedWorkforceAssignmentsInput>
+}
+
+export type OrganisationMembershipCreateNestedOneWithoutOnboardingPlansAsManagerInput = {
+  create?: Prisma.XOR<Prisma.OrganisationMembershipCreateWithoutOnboardingPlansAsManagerInput, Prisma.OrganisationMembershipUncheckedCreateWithoutOnboardingPlansAsManagerInput>
+  connectOrCreate?: Prisma.OrganisationMembershipCreateOrConnectWithoutOnboardingPlansAsManagerInput
+  connect?: Prisma.OrganisationMembershipWhereUniqueInput
+}
+
+export type OrganisationMembershipCreateNestedOneWithoutProvisionedOnboardingPlansInput = {
+  create?: Prisma.XOR<Prisma.OrganisationMembershipCreateWithoutProvisionedOnboardingPlansInput, Prisma.OrganisationMembershipUncheckedCreateWithoutProvisionedOnboardingPlansInput>
+  connectOrCreate?: Prisma.OrganisationMembershipCreateOrConnectWithoutProvisionedOnboardingPlansInput
+  connect?: Prisma.OrganisationMembershipWhereUniqueInput
+}
+
+export type OrganisationMembershipUpdateOneWithoutOnboardingPlansAsManagerNestedInput = {
+  create?: Prisma.XOR<Prisma.OrganisationMembershipCreateWithoutOnboardingPlansAsManagerInput, Prisma.OrganisationMembershipUncheckedCreateWithoutOnboardingPlansAsManagerInput>
+  connectOrCreate?: Prisma.OrganisationMembershipCreateOrConnectWithoutOnboardingPlansAsManagerInput
+  upsert?: Prisma.OrganisationMembershipUpsertWithoutOnboardingPlansAsManagerInput
+  disconnect?: Prisma.OrganisationMembershipWhereInput | boolean
+  delete?: Prisma.OrganisationMembershipWhereInput | boolean
+  connect?: Prisma.OrganisationMembershipWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.OrganisationMembershipUpdateToOneWithWhereWithoutOnboardingPlansAsManagerInput, Prisma.OrganisationMembershipUpdateWithoutOnboardingPlansAsManagerInput>, Prisma.OrganisationMembershipUncheckedUpdateWithoutOnboardingPlansAsManagerInput>
+}
+
+export type OrganisationMembershipUpdateOneWithoutProvisionedOnboardingPlansNestedInput = {
+  create?: Prisma.XOR<Prisma.OrganisationMembershipCreateWithoutProvisionedOnboardingPlansInput, Prisma.OrganisationMembershipUncheckedCreateWithoutProvisionedOnboardingPlansInput>
+  connectOrCreate?: Prisma.OrganisationMembershipCreateOrConnectWithoutProvisionedOnboardingPlansInput
+  upsert?: Prisma.OrganisationMembershipUpsertWithoutProvisionedOnboardingPlansInput
+  disconnect?: Prisma.OrganisationMembershipWhereInput | boolean
+  delete?: Prisma.OrganisationMembershipWhereInput | boolean
+  connect?: Prisma.OrganisationMembershipWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.OrganisationMembershipUpdateToOneWithWhereWithoutProvisionedOnboardingPlansInput, Prisma.OrganisationMembershipUpdateWithoutProvisionedOnboardingPlansInput>, Prisma.OrganisationMembershipUncheckedUpdateWithoutProvisionedOnboardingPlansInput>
+}
+
 export type OrganisationMembershipCreateWithoutOrganisationInput = {
   id?: string
   status?: $Enums.MembershipStatus
@@ -764,6 +854,10 @@ export type OrganisationMembershipCreateWithoutOrganisationInput = {
   roleAssignments?: Prisma.RoleAssignmentCreateNestedManyWithoutOrganisationMembershipInput
   invitations?: Prisma.InvitationCreateNestedManyWithoutOrganisationMembershipInput
   userSessions?: Prisma.UserSessionCreateNestedManyWithoutActiveOrganisationMembershipInput
+  workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationMembershipInput
+  managedWorkforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutManagerInput
+  onboardingPlansAsManager?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutManagerInput
+  provisionedOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutProvisionedMembershipInput
 }
 
 export type OrganisationMembershipUncheckedCreateWithoutOrganisationInput = {
@@ -785,6 +879,10 @@ export type OrganisationMembershipUncheckedCreateWithoutOrganisationInput = {
   roleAssignments?: Prisma.RoleAssignmentUncheckedCreateNestedManyWithoutOrganisationMembershipInput
   invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutOrganisationMembershipInput
   userSessions?: Prisma.UserSessionUncheckedCreateNestedManyWithoutActiveOrganisationMembershipInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationMembershipInput
+  managedWorkforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutManagerInput
+  onboardingPlansAsManager?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutManagerInput
+  provisionedOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutProvisionedMembershipInput
 }
 
 export type OrganisationMembershipCreateOrConnectWithoutOrganisationInput = {
@@ -852,6 +950,10 @@ export type OrganisationMembershipCreateWithoutUserProfileInput = {
   roleAssignments?: Prisma.RoleAssignmentCreateNestedManyWithoutOrganisationMembershipInput
   invitations?: Prisma.InvitationCreateNestedManyWithoutOrganisationMembershipInput
   userSessions?: Prisma.UserSessionCreateNestedManyWithoutActiveOrganisationMembershipInput
+  workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationMembershipInput
+  managedWorkforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutManagerInput
+  onboardingPlansAsManager?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutManagerInput
+  provisionedOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutProvisionedMembershipInput
 }
 
 export type OrganisationMembershipUncheckedCreateWithoutUserProfileInput = {
@@ -873,6 +975,10 @@ export type OrganisationMembershipUncheckedCreateWithoutUserProfileInput = {
   roleAssignments?: Prisma.RoleAssignmentUncheckedCreateNestedManyWithoutOrganisationMembershipInput
   invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutOrganisationMembershipInput
   userSessions?: Prisma.UserSessionUncheckedCreateNestedManyWithoutActiveOrganisationMembershipInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationMembershipInput
+  managedWorkforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutManagerInput
+  onboardingPlansAsManager?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutManagerInput
+  provisionedOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutProvisionedMembershipInput
 }
 
 export type OrganisationMembershipCreateOrConnectWithoutUserProfileInput = {
@@ -920,6 +1026,10 @@ export type OrganisationMembershipCreateWithoutDepartmentMembershipsInput = {
   roleAssignments?: Prisma.RoleAssignmentCreateNestedManyWithoutOrganisationMembershipInput
   invitations?: Prisma.InvitationCreateNestedManyWithoutOrganisationMembershipInput
   userSessions?: Prisma.UserSessionCreateNestedManyWithoutActiveOrganisationMembershipInput
+  workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationMembershipInput
+  managedWorkforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutManagerInput
+  onboardingPlansAsManager?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutManagerInput
+  provisionedOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutProvisionedMembershipInput
 }
 
 export type OrganisationMembershipUncheckedCreateWithoutDepartmentMembershipsInput = {
@@ -941,6 +1051,10 @@ export type OrganisationMembershipUncheckedCreateWithoutDepartmentMembershipsInp
   roleAssignments?: Prisma.RoleAssignmentUncheckedCreateNestedManyWithoutOrganisationMembershipInput
   invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutOrganisationMembershipInput
   userSessions?: Prisma.UserSessionUncheckedCreateNestedManyWithoutActiveOrganisationMembershipInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationMembershipInput
+  managedWorkforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutManagerInput
+  onboardingPlansAsManager?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutManagerInput
+  provisionedOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutProvisionedMembershipInput
 }
 
 export type OrganisationMembershipCreateOrConnectWithoutDepartmentMembershipsInput = {
@@ -978,6 +1092,10 @@ export type OrganisationMembershipUpdateWithoutDepartmentMembershipsInput = {
   roleAssignments?: Prisma.RoleAssignmentUpdateManyWithoutOrganisationMembershipNestedInput
   invitations?: Prisma.InvitationUpdateManyWithoutOrganisationMembershipNestedInput
   userSessions?: Prisma.UserSessionUpdateManyWithoutActiveOrganisationMembershipNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationMembershipNestedInput
+  managedWorkforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutManagerNestedInput
+  onboardingPlansAsManager?: Prisma.InvitationOnboardingPlanUpdateManyWithoutManagerNestedInput
+  provisionedOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutProvisionedMembershipNestedInput
 }
 
 export type OrganisationMembershipUncheckedUpdateWithoutDepartmentMembershipsInput = {
@@ -999,6 +1117,10 @@ export type OrganisationMembershipUncheckedUpdateWithoutDepartmentMembershipsInp
   roleAssignments?: Prisma.RoleAssignmentUncheckedUpdateManyWithoutOrganisationMembershipNestedInput
   invitations?: Prisma.InvitationUncheckedUpdateManyWithoutOrganisationMembershipNestedInput
   userSessions?: Prisma.UserSessionUncheckedUpdateManyWithoutActiveOrganisationMembershipNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationMembershipNestedInput
+  managedWorkforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutManagerNestedInput
+  onboardingPlansAsManager?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutManagerNestedInput
+  provisionedOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutProvisionedMembershipNestedInput
 }
 
 export type OrganisationMembershipCreateWithoutTeamMembershipsInput = {
@@ -1020,6 +1142,10 @@ export type OrganisationMembershipCreateWithoutTeamMembershipsInput = {
   roleAssignments?: Prisma.RoleAssignmentCreateNestedManyWithoutOrganisationMembershipInput
   invitations?: Prisma.InvitationCreateNestedManyWithoutOrganisationMembershipInput
   userSessions?: Prisma.UserSessionCreateNestedManyWithoutActiveOrganisationMembershipInput
+  workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationMembershipInput
+  managedWorkforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutManagerInput
+  onboardingPlansAsManager?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutManagerInput
+  provisionedOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutProvisionedMembershipInput
 }
 
 export type OrganisationMembershipUncheckedCreateWithoutTeamMembershipsInput = {
@@ -1041,6 +1167,10 @@ export type OrganisationMembershipUncheckedCreateWithoutTeamMembershipsInput = {
   roleAssignments?: Prisma.RoleAssignmentUncheckedCreateNestedManyWithoutOrganisationMembershipInput
   invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutOrganisationMembershipInput
   userSessions?: Prisma.UserSessionUncheckedCreateNestedManyWithoutActiveOrganisationMembershipInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationMembershipInput
+  managedWorkforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutManagerInput
+  onboardingPlansAsManager?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutManagerInput
+  provisionedOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutProvisionedMembershipInput
 }
 
 export type OrganisationMembershipCreateOrConnectWithoutTeamMembershipsInput = {
@@ -1078,6 +1208,10 @@ export type OrganisationMembershipUpdateWithoutTeamMembershipsInput = {
   roleAssignments?: Prisma.RoleAssignmentUpdateManyWithoutOrganisationMembershipNestedInput
   invitations?: Prisma.InvitationUpdateManyWithoutOrganisationMembershipNestedInput
   userSessions?: Prisma.UserSessionUpdateManyWithoutActiveOrganisationMembershipNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationMembershipNestedInput
+  managedWorkforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutManagerNestedInput
+  onboardingPlansAsManager?: Prisma.InvitationOnboardingPlanUpdateManyWithoutManagerNestedInput
+  provisionedOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutProvisionedMembershipNestedInput
 }
 
 export type OrganisationMembershipUncheckedUpdateWithoutTeamMembershipsInput = {
@@ -1099,6 +1233,10 @@ export type OrganisationMembershipUncheckedUpdateWithoutTeamMembershipsInput = {
   roleAssignments?: Prisma.RoleAssignmentUncheckedUpdateManyWithoutOrganisationMembershipNestedInput
   invitations?: Prisma.InvitationUncheckedUpdateManyWithoutOrganisationMembershipNestedInput
   userSessions?: Prisma.UserSessionUncheckedUpdateManyWithoutActiveOrganisationMembershipNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationMembershipNestedInput
+  managedWorkforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutManagerNestedInput
+  onboardingPlansAsManager?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutManagerNestedInput
+  provisionedOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutProvisionedMembershipNestedInput
 }
 
 export type OrganisationMembershipCreateWithoutRoleAssignmentsInput = {
@@ -1120,6 +1258,10 @@ export type OrganisationMembershipCreateWithoutRoleAssignmentsInput = {
   teamMemberships?: Prisma.TeamMembershipCreateNestedManyWithoutOrganisationMembershipInput
   invitations?: Prisma.InvitationCreateNestedManyWithoutOrganisationMembershipInput
   userSessions?: Prisma.UserSessionCreateNestedManyWithoutActiveOrganisationMembershipInput
+  workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationMembershipInput
+  managedWorkforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutManagerInput
+  onboardingPlansAsManager?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutManagerInput
+  provisionedOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutProvisionedMembershipInput
 }
 
 export type OrganisationMembershipUncheckedCreateWithoutRoleAssignmentsInput = {
@@ -1141,6 +1283,10 @@ export type OrganisationMembershipUncheckedCreateWithoutRoleAssignmentsInput = {
   teamMemberships?: Prisma.TeamMembershipUncheckedCreateNestedManyWithoutOrganisationMembershipInput
   invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutOrganisationMembershipInput
   userSessions?: Prisma.UserSessionUncheckedCreateNestedManyWithoutActiveOrganisationMembershipInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationMembershipInput
+  managedWorkforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutManagerInput
+  onboardingPlansAsManager?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutManagerInput
+  provisionedOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutProvisionedMembershipInput
 }
 
 export type OrganisationMembershipCreateOrConnectWithoutRoleAssignmentsInput = {
@@ -1178,6 +1324,10 @@ export type OrganisationMembershipUpdateWithoutRoleAssignmentsInput = {
   teamMemberships?: Prisma.TeamMembershipUpdateManyWithoutOrganisationMembershipNestedInput
   invitations?: Prisma.InvitationUpdateManyWithoutOrganisationMembershipNestedInput
   userSessions?: Prisma.UserSessionUpdateManyWithoutActiveOrganisationMembershipNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationMembershipNestedInput
+  managedWorkforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutManagerNestedInput
+  onboardingPlansAsManager?: Prisma.InvitationOnboardingPlanUpdateManyWithoutManagerNestedInput
+  provisionedOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutProvisionedMembershipNestedInput
 }
 
 export type OrganisationMembershipUncheckedUpdateWithoutRoleAssignmentsInput = {
@@ -1199,6 +1349,10 @@ export type OrganisationMembershipUncheckedUpdateWithoutRoleAssignmentsInput = {
   teamMemberships?: Prisma.TeamMembershipUncheckedUpdateManyWithoutOrganisationMembershipNestedInput
   invitations?: Prisma.InvitationUncheckedUpdateManyWithoutOrganisationMembershipNestedInput
   userSessions?: Prisma.UserSessionUncheckedUpdateManyWithoutActiveOrganisationMembershipNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationMembershipNestedInput
+  managedWorkforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutManagerNestedInput
+  onboardingPlansAsManager?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutManagerNestedInput
+  provisionedOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutProvisionedMembershipNestedInput
 }
 
 export type OrganisationMembershipCreateWithoutInvitationsInput = {
@@ -1220,6 +1374,10 @@ export type OrganisationMembershipCreateWithoutInvitationsInput = {
   teamMemberships?: Prisma.TeamMembershipCreateNestedManyWithoutOrganisationMembershipInput
   roleAssignments?: Prisma.RoleAssignmentCreateNestedManyWithoutOrganisationMembershipInput
   userSessions?: Prisma.UserSessionCreateNestedManyWithoutActiveOrganisationMembershipInput
+  workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationMembershipInput
+  managedWorkforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutManagerInput
+  onboardingPlansAsManager?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutManagerInput
+  provisionedOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutProvisionedMembershipInput
 }
 
 export type OrganisationMembershipUncheckedCreateWithoutInvitationsInput = {
@@ -1241,6 +1399,10 @@ export type OrganisationMembershipUncheckedCreateWithoutInvitationsInput = {
   teamMemberships?: Prisma.TeamMembershipUncheckedCreateNestedManyWithoutOrganisationMembershipInput
   roleAssignments?: Prisma.RoleAssignmentUncheckedCreateNestedManyWithoutOrganisationMembershipInput
   userSessions?: Prisma.UserSessionUncheckedCreateNestedManyWithoutActiveOrganisationMembershipInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationMembershipInput
+  managedWorkforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutManagerInput
+  onboardingPlansAsManager?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutManagerInput
+  provisionedOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutProvisionedMembershipInput
 }
 
 export type OrganisationMembershipCreateOrConnectWithoutInvitationsInput = {
@@ -1278,6 +1440,10 @@ export type OrganisationMembershipUpdateWithoutInvitationsInput = {
   teamMemberships?: Prisma.TeamMembershipUpdateManyWithoutOrganisationMembershipNestedInput
   roleAssignments?: Prisma.RoleAssignmentUpdateManyWithoutOrganisationMembershipNestedInput
   userSessions?: Prisma.UserSessionUpdateManyWithoutActiveOrganisationMembershipNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationMembershipNestedInput
+  managedWorkforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutManagerNestedInput
+  onboardingPlansAsManager?: Prisma.InvitationOnboardingPlanUpdateManyWithoutManagerNestedInput
+  provisionedOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutProvisionedMembershipNestedInput
 }
 
 export type OrganisationMembershipUncheckedUpdateWithoutInvitationsInput = {
@@ -1299,6 +1465,10 @@ export type OrganisationMembershipUncheckedUpdateWithoutInvitationsInput = {
   teamMemberships?: Prisma.TeamMembershipUncheckedUpdateManyWithoutOrganisationMembershipNestedInput
   roleAssignments?: Prisma.RoleAssignmentUncheckedUpdateManyWithoutOrganisationMembershipNestedInput
   userSessions?: Prisma.UserSessionUncheckedUpdateManyWithoutActiveOrganisationMembershipNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationMembershipNestedInput
+  managedWorkforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutManagerNestedInput
+  onboardingPlansAsManager?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutManagerNestedInput
+  provisionedOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutProvisionedMembershipNestedInput
 }
 
 export type OrganisationMembershipCreateWithoutUserSessionsInput = {
@@ -1320,6 +1490,10 @@ export type OrganisationMembershipCreateWithoutUserSessionsInput = {
   teamMemberships?: Prisma.TeamMembershipCreateNestedManyWithoutOrganisationMembershipInput
   roleAssignments?: Prisma.RoleAssignmentCreateNestedManyWithoutOrganisationMembershipInput
   invitations?: Prisma.InvitationCreateNestedManyWithoutOrganisationMembershipInput
+  workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationMembershipInput
+  managedWorkforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutManagerInput
+  onboardingPlansAsManager?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutManagerInput
+  provisionedOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutProvisionedMembershipInput
 }
 
 export type OrganisationMembershipUncheckedCreateWithoutUserSessionsInput = {
@@ -1341,6 +1515,10 @@ export type OrganisationMembershipUncheckedCreateWithoutUserSessionsInput = {
   teamMemberships?: Prisma.TeamMembershipUncheckedCreateNestedManyWithoutOrganisationMembershipInput
   roleAssignments?: Prisma.RoleAssignmentUncheckedCreateNestedManyWithoutOrganisationMembershipInput
   invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutOrganisationMembershipInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationMembershipInput
+  managedWorkforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutManagerInput
+  onboardingPlansAsManager?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutManagerInput
+  provisionedOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutProvisionedMembershipInput
 }
 
 export type OrganisationMembershipCreateOrConnectWithoutUserSessionsInput = {
@@ -1378,6 +1556,10 @@ export type OrganisationMembershipUpdateWithoutUserSessionsInput = {
   teamMemberships?: Prisma.TeamMembershipUpdateManyWithoutOrganisationMembershipNestedInput
   roleAssignments?: Prisma.RoleAssignmentUpdateManyWithoutOrganisationMembershipNestedInput
   invitations?: Prisma.InvitationUpdateManyWithoutOrganisationMembershipNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationMembershipNestedInput
+  managedWorkforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutManagerNestedInput
+  onboardingPlansAsManager?: Prisma.InvitationOnboardingPlanUpdateManyWithoutManagerNestedInput
+  provisionedOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutProvisionedMembershipNestedInput
 }
 
 export type OrganisationMembershipUncheckedUpdateWithoutUserSessionsInput = {
@@ -1399,6 +1581,474 @@ export type OrganisationMembershipUncheckedUpdateWithoutUserSessionsInput = {
   teamMemberships?: Prisma.TeamMembershipUncheckedUpdateManyWithoutOrganisationMembershipNestedInput
   roleAssignments?: Prisma.RoleAssignmentUncheckedUpdateManyWithoutOrganisationMembershipNestedInput
   invitations?: Prisma.InvitationUncheckedUpdateManyWithoutOrganisationMembershipNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationMembershipNestedInput
+  managedWorkforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutManagerNestedInput
+  onboardingPlansAsManager?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutManagerNestedInput
+  provisionedOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutProvisionedMembershipNestedInput
+}
+
+export type OrganisationMembershipCreateWithoutWorkforceAssignmentsInput = {
+  id?: string
+  status?: $Enums.MembershipStatus
+  jobTitle?: string | null
+  employeeRef?: string | null
+  invitedAt?: Date | string | null
+  joinedAt?: Date | string | null
+  suspendedAt?: Date | string | null
+  suspensionNote?: string | null
+  leftAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  organisation: Prisma.OrganisationCreateNestedOneWithoutMembershipsInput
+  userProfile: Prisma.UserProfileCreateNestedOneWithoutOrganisationMembershipsInput
+  departmentMemberships?: Prisma.DepartmentMembershipCreateNestedManyWithoutOrganisationMembershipInput
+  teamMemberships?: Prisma.TeamMembershipCreateNestedManyWithoutOrganisationMembershipInput
+  roleAssignments?: Prisma.RoleAssignmentCreateNestedManyWithoutOrganisationMembershipInput
+  invitations?: Prisma.InvitationCreateNestedManyWithoutOrganisationMembershipInput
+  userSessions?: Prisma.UserSessionCreateNestedManyWithoutActiveOrganisationMembershipInput
+  managedWorkforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutManagerInput
+  onboardingPlansAsManager?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutManagerInput
+  provisionedOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutProvisionedMembershipInput
+}
+
+export type OrganisationMembershipUncheckedCreateWithoutWorkforceAssignmentsInput = {
+  id?: string
+  organisationId: string
+  userProfileId: string
+  status?: $Enums.MembershipStatus
+  jobTitle?: string | null
+  employeeRef?: string | null
+  invitedAt?: Date | string | null
+  joinedAt?: Date | string | null
+  suspendedAt?: Date | string | null
+  suspensionNote?: string | null
+  leftAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  departmentMemberships?: Prisma.DepartmentMembershipUncheckedCreateNestedManyWithoutOrganisationMembershipInput
+  teamMemberships?: Prisma.TeamMembershipUncheckedCreateNestedManyWithoutOrganisationMembershipInput
+  roleAssignments?: Prisma.RoleAssignmentUncheckedCreateNestedManyWithoutOrganisationMembershipInput
+  invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutOrganisationMembershipInput
+  userSessions?: Prisma.UserSessionUncheckedCreateNestedManyWithoutActiveOrganisationMembershipInput
+  managedWorkforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutManagerInput
+  onboardingPlansAsManager?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutManagerInput
+  provisionedOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutProvisionedMembershipInput
+}
+
+export type OrganisationMembershipCreateOrConnectWithoutWorkforceAssignmentsInput = {
+  where: Prisma.OrganisationMembershipWhereUniqueInput
+  create: Prisma.XOR<Prisma.OrganisationMembershipCreateWithoutWorkforceAssignmentsInput, Prisma.OrganisationMembershipUncheckedCreateWithoutWorkforceAssignmentsInput>
+}
+
+export type OrganisationMembershipCreateWithoutManagedWorkforceAssignmentsInput = {
+  id?: string
+  status?: $Enums.MembershipStatus
+  jobTitle?: string | null
+  employeeRef?: string | null
+  invitedAt?: Date | string | null
+  joinedAt?: Date | string | null
+  suspendedAt?: Date | string | null
+  suspensionNote?: string | null
+  leftAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  organisation: Prisma.OrganisationCreateNestedOneWithoutMembershipsInput
+  userProfile: Prisma.UserProfileCreateNestedOneWithoutOrganisationMembershipsInput
+  departmentMemberships?: Prisma.DepartmentMembershipCreateNestedManyWithoutOrganisationMembershipInput
+  teamMemberships?: Prisma.TeamMembershipCreateNestedManyWithoutOrganisationMembershipInput
+  roleAssignments?: Prisma.RoleAssignmentCreateNestedManyWithoutOrganisationMembershipInput
+  invitations?: Prisma.InvitationCreateNestedManyWithoutOrganisationMembershipInput
+  userSessions?: Prisma.UserSessionCreateNestedManyWithoutActiveOrganisationMembershipInput
+  workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationMembershipInput
+  onboardingPlansAsManager?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutManagerInput
+  provisionedOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutProvisionedMembershipInput
+}
+
+export type OrganisationMembershipUncheckedCreateWithoutManagedWorkforceAssignmentsInput = {
+  id?: string
+  organisationId: string
+  userProfileId: string
+  status?: $Enums.MembershipStatus
+  jobTitle?: string | null
+  employeeRef?: string | null
+  invitedAt?: Date | string | null
+  joinedAt?: Date | string | null
+  suspendedAt?: Date | string | null
+  suspensionNote?: string | null
+  leftAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  departmentMemberships?: Prisma.DepartmentMembershipUncheckedCreateNestedManyWithoutOrganisationMembershipInput
+  teamMemberships?: Prisma.TeamMembershipUncheckedCreateNestedManyWithoutOrganisationMembershipInput
+  roleAssignments?: Prisma.RoleAssignmentUncheckedCreateNestedManyWithoutOrganisationMembershipInput
+  invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutOrganisationMembershipInput
+  userSessions?: Prisma.UserSessionUncheckedCreateNestedManyWithoutActiveOrganisationMembershipInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationMembershipInput
+  onboardingPlansAsManager?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutManagerInput
+  provisionedOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutProvisionedMembershipInput
+}
+
+export type OrganisationMembershipCreateOrConnectWithoutManagedWorkforceAssignmentsInput = {
+  where: Prisma.OrganisationMembershipWhereUniqueInput
+  create: Prisma.XOR<Prisma.OrganisationMembershipCreateWithoutManagedWorkforceAssignmentsInput, Prisma.OrganisationMembershipUncheckedCreateWithoutManagedWorkforceAssignmentsInput>
+}
+
+export type OrganisationMembershipUpsertWithoutWorkforceAssignmentsInput = {
+  update: Prisma.XOR<Prisma.OrganisationMembershipUpdateWithoutWorkforceAssignmentsInput, Prisma.OrganisationMembershipUncheckedUpdateWithoutWorkforceAssignmentsInput>
+  create: Prisma.XOR<Prisma.OrganisationMembershipCreateWithoutWorkforceAssignmentsInput, Prisma.OrganisationMembershipUncheckedCreateWithoutWorkforceAssignmentsInput>
+  where?: Prisma.OrganisationMembershipWhereInput
+}
+
+export type OrganisationMembershipUpdateToOneWithWhereWithoutWorkforceAssignmentsInput = {
+  where?: Prisma.OrganisationMembershipWhereInput
+  data: Prisma.XOR<Prisma.OrganisationMembershipUpdateWithoutWorkforceAssignmentsInput, Prisma.OrganisationMembershipUncheckedUpdateWithoutWorkforceAssignmentsInput>
+}
+
+export type OrganisationMembershipUpdateWithoutWorkforceAssignmentsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumMembershipStatusFieldUpdateOperationsInput | $Enums.MembershipStatus
+  jobTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  employeeRef?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  invitedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  joinedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  suspendedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  suspensionNote?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  leftAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  organisation?: Prisma.OrganisationUpdateOneRequiredWithoutMembershipsNestedInput
+  userProfile?: Prisma.UserProfileUpdateOneRequiredWithoutOrganisationMembershipsNestedInput
+  departmentMemberships?: Prisma.DepartmentMembershipUpdateManyWithoutOrganisationMembershipNestedInput
+  teamMemberships?: Prisma.TeamMembershipUpdateManyWithoutOrganisationMembershipNestedInput
+  roleAssignments?: Prisma.RoleAssignmentUpdateManyWithoutOrganisationMembershipNestedInput
+  invitations?: Prisma.InvitationUpdateManyWithoutOrganisationMembershipNestedInput
+  userSessions?: Prisma.UserSessionUpdateManyWithoutActiveOrganisationMembershipNestedInput
+  managedWorkforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutManagerNestedInput
+  onboardingPlansAsManager?: Prisma.InvitationOnboardingPlanUpdateManyWithoutManagerNestedInput
+  provisionedOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutProvisionedMembershipNestedInput
+}
+
+export type OrganisationMembershipUncheckedUpdateWithoutWorkforceAssignmentsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  organisationId?: Prisma.StringFieldUpdateOperationsInput | string
+  userProfileId?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumMembershipStatusFieldUpdateOperationsInput | $Enums.MembershipStatus
+  jobTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  employeeRef?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  invitedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  joinedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  suspendedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  suspensionNote?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  leftAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  departmentMemberships?: Prisma.DepartmentMembershipUncheckedUpdateManyWithoutOrganisationMembershipNestedInput
+  teamMemberships?: Prisma.TeamMembershipUncheckedUpdateManyWithoutOrganisationMembershipNestedInput
+  roleAssignments?: Prisma.RoleAssignmentUncheckedUpdateManyWithoutOrganisationMembershipNestedInput
+  invitations?: Prisma.InvitationUncheckedUpdateManyWithoutOrganisationMembershipNestedInput
+  userSessions?: Prisma.UserSessionUncheckedUpdateManyWithoutActiveOrganisationMembershipNestedInput
+  managedWorkforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutManagerNestedInput
+  onboardingPlansAsManager?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutManagerNestedInput
+  provisionedOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutProvisionedMembershipNestedInput
+}
+
+export type OrganisationMembershipUpsertWithoutManagedWorkforceAssignmentsInput = {
+  update: Prisma.XOR<Prisma.OrganisationMembershipUpdateWithoutManagedWorkforceAssignmentsInput, Prisma.OrganisationMembershipUncheckedUpdateWithoutManagedWorkforceAssignmentsInput>
+  create: Prisma.XOR<Prisma.OrganisationMembershipCreateWithoutManagedWorkforceAssignmentsInput, Prisma.OrganisationMembershipUncheckedCreateWithoutManagedWorkforceAssignmentsInput>
+  where?: Prisma.OrganisationMembershipWhereInput
+}
+
+export type OrganisationMembershipUpdateToOneWithWhereWithoutManagedWorkforceAssignmentsInput = {
+  where?: Prisma.OrganisationMembershipWhereInput
+  data: Prisma.XOR<Prisma.OrganisationMembershipUpdateWithoutManagedWorkforceAssignmentsInput, Prisma.OrganisationMembershipUncheckedUpdateWithoutManagedWorkforceAssignmentsInput>
+}
+
+export type OrganisationMembershipUpdateWithoutManagedWorkforceAssignmentsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumMembershipStatusFieldUpdateOperationsInput | $Enums.MembershipStatus
+  jobTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  employeeRef?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  invitedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  joinedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  suspendedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  suspensionNote?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  leftAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  organisation?: Prisma.OrganisationUpdateOneRequiredWithoutMembershipsNestedInput
+  userProfile?: Prisma.UserProfileUpdateOneRequiredWithoutOrganisationMembershipsNestedInput
+  departmentMemberships?: Prisma.DepartmentMembershipUpdateManyWithoutOrganisationMembershipNestedInput
+  teamMemberships?: Prisma.TeamMembershipUpdateManyWithoutOrganisationMembershipNestedInput
+  roleAssignments?: Prisma.RoleAssignmentUpdateManyWithoutOrganisationMembershipNestedInput
+  invitations?: Prisma.InvitationUpdateManyWithoutOrganisationMembershipNestedInput
+  userSessions?: Prisma.UserSessionUpdateManyWithoutActiveOrganisationMembershipNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationMembershipNestedInput
+  onboardingPlansAsManager?: Prisma.InvitationOnboardingPlanUpdateManyWithoutManagerNestedInput
+  provisionedOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutProvisionedMembershipNestedInput
+}
+
+export type OrganisationMembershipUncheckedUpdateWithoutManagedWorkforceAssignmentsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  organisationId?: Prisma.StringFieldUpdateOperationsInput | string
+  userProfileId?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumMembershipStatusFieldUpdateOperationsInput | $Enums.MembershipStatus
+  jobTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  employeeRef?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  invitedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  joinedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  suspendedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  suspensionNote?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  leftAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  departmentMemberships?: Prisma.DepartmentMembershipUncheckedUpdateManyWithoutOrganisationMembershipNestedInput
+  teamMemberships?: Prisma.TeamMembershipUncheckedUpdateManyWithoutOrganisationMembershipNestedInput
+  roleAssignments?: Prisma.RoleAssignmentUncheckedUpdateManyWithoutOrganisationMembershipNestedInput
+  invitations?: Prisma.InvitationUncheckedUpdateManyWithoutOrganisationMembershipNestedInput
+  userSessions?: Prisma.UserSessionUncheckedUpdateManyWithoutActiveOrganisationMembershipNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationMembershipNestedInput
+  onboardingPlansAsManager?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutManagerNestedInput
+  provisionedOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutProvisionedMembershipNestedInput
+}
+
+export type OrganisationMembershipCreateWithoutOnboardingPlansAsManagerInput = {
+  id?: string
+  status?: $Enums.MembershipStatus
+  jobTitle?: string | null
+  employeeRef?: string | null
+  invitedAt?: Date | string | null
+  joinedAt?: Date | string | null
+  suspendedAt?: Date | string | null
+  suspensionNote?: string | null
+  leftAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  organisation: Prisma.OrganisationCreateNestedOneWithoutMembershipsInput
+  userProfile: Prisma.UserProfileCreateNestedOneWithoutOrganisationMembershipsInput
+  departmentMemberships?: Prisma.DepartmentMembershipCreateNestedManyWithoutOrganisationMembershipInput
+  teamMemberships?: Prisma.TeamMembershipCreateNestedManyWithoutOrganisationMembershipInput
+  roleAssignments?: Prisma.RoleAssignmentCreateNestedManyWithoutOrganisationMembershipInput
+  invitations?: Prisma.InvitationCreateNestedManyWithoutOrganisationMembershipInput
+  userSessions?: Prisma.UserSessionCreateNestedManyWithoutActiveOrganisationMembershipInput
+  workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationMembershipInput
+  managedWorkforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutManagerInput
+  provisionedOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutProvisionedMembershipInput
+}
+
+export type OrganisationMembershipUncheckedCreateWithoutOnboardingPlansAsManagerInput = {
+  id?: string
+  organisationId: string
+  userProfileId: string
+  status?: $Enums.MembershipStatus
+  jobTitle?: string | null
+  employeeRef?: string | null
+  invitedAt?: Date | string | null
+  joinedAt?: Date | string | null
+  suspendedAt?: Date | string | null
+  suspensionNote?: string | null
+  leftAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  departmentMemberships?: Prisma.DepartmentMembershipUncheckedCreateNestedManyWithoutOrganisationMembershipInput
+  teamMemberships?: Prisma.TeamMembershipUncheckedCreateNestedManyWithoutOrganisationMembershipInput
+  roleAssignments?: Prisma.RoleAssignmentUncheckedCreateNestedManyWithoutOrganisationMembershipInput
+  invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutOrganisationMembershipInput
+  userSessions?: Prisma.UserSessionUncheckedCreateNestedManyWithoutActiveOrganisationMembershipInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationMembershipInput
+  managedWorkforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutManagerInput
+  provisionedOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutProvisionedMembershipInput
+}
+
+export type OrganisationMembershipCreateOrConnectWithoutOnboardingPlansAsManagerInput = {
+  where: Prisma.OrganisationMembershipWhereUniqueInput
+  create: Prisma.XOR<Prisma.OrganisationMembershipCreateWithoutOnboardingPlansAsManagerInput, Prisma.OrganisationMembershipUncheckedCreateWithoutOnboardingPlansAsManagerInput>
+}
+
+export type OrganisationMembershipCreateWithoutProvisionedOnboardingPlansInput = {
+  id?: string
+  status?: $Enums.MembershipStatus
+  jobTitle?: string | null
+  employeeRef?: string | null
+  invitedAt?: Date | string | null
+  joinedAt?: Date | string | null
+  suspendedAt?: Date | string | null
+  suspensionNote?: string | null
+  leftAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  organisation: Prisma.OrganisationCreateNestedOneWithoutMembershipsInput
+  userProfile: Prisma.UserProfileCreateNestedOneWithoutOrganisationMembershipsInput
+  departmentMemberships?: Prisma.DepartmentMembershipCreateNestedManyWithoutOrganisationMembershipInput
+  teamMemberships?: Prisma.TeamMembershipCreateNestedManyWithoutOrganisationMembershipInput
+  roleAssignments?: Prisma.RoleAssignmentCreateNestedManyWithoutOrganisationMembershipInput
+  invitations?: Prisma.InvitationCreateNestedManyWithoutOrganisationMembershipInput
+  userSessions?: Prisma.UserSessionCreateNestedManyWithoutActiveOrganisationMembershipInput
+  workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationMembershipInput
+  managedWorkforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutManagerInput
+  onboardingPlansAsManager?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutManagerInput
+}
+
+export type OrganisationMembershipUncheckedCreateWithoutProvisionedOnboardingPlansInput = {
+  id?: string
+  organisationId: string
+  userProfileId: string
+  status?: $Enums.MembershipStatus
+  jobTitle?: string | null
+  employeeRef?: string | null
+  invitedAt?: Date | string | null
+  joinedAt?: Date | string | null
+  suspendedAt?: Date | string | null
+  suspensionNote?: string | null
+  leftAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  departmentMemberships?: Prisma.DepartmentMembershipUncheckedCreateNestedManyWithoutOrganisationMembershipInput
+  teamMemberships?: Prisma.TeamMembershipUncheckedCreateNestedManyWithoutOrganisationMembershipInput
+  roleAssignments?: Prisma.RoleAssignmentUncheckedCreateNestedManyWithoutOrganisationMembershipInput
+  invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutOrganisationMembershipInput
+  userSessions?: Prisma.UserSessionUncheckedCreateNestedManyWithoutActiveOrganisationMembershipInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationMembershipInput
+  managedWorkforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutManagerInput
+  onboardingPlansAsManager?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutManagerInput
+}
+
+export type OrganisationMembershipCreateOrConnectWithoutProvisionedOnboardingPlansInput = {
+  where: Prisma.OrganisationMembershipWhereUniqueInput
+  create: Prisma.XOR<Prisma.OrganisationMembershipCreateWithoutProvisionedOnboardingPlansInput, Prisma.OrganisationMembershipUncheckedCreateWithoutProvisionedOnboardingPlansInput>
+}
+
+export type OrganisationMembershipUpsertWithoutOnboardingPlansAsManagerInput = {
+  update: Prisma.XOR<Prisma.OrganisationMembershipUpdateWithoutOnboardingPlansAsManagerInput, Prisma.OrganisationMembershipUncheckedUpdateWithoutOnboardingPlansAsManagerInput>
+  create: Prisma.XOR<Prisma.OrganisationMembershipCreateWithoutOnboardingPlansAsManagerInput, Prisma.OrganisationMembershipUncheckedCreateWithoutOnboardingPlansAsManagerInput>
+  where?: Prisma.OrganisationMembershipWhereInput
+}
+
+export type OrganisationMembershipUpdateToOneWithWhereWithoutOnboardingPlansAsManagerInput = {
+  where?: Prisma.OrganisationMembershipWhereInput
+  data: Prisma.XOR<Prisma.OrganisationMembershipUpdateWithoutOnboardingPlansAsManagerInput, Prisma.OrganisationMembershipUncheckedUpdateWithoutOnboardingPlansAsManagerInput>
+}
+
+export type OrganisationMembershipUpdateWithoutOnboardingPlansAsManagerInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumMembershipStatusFieldUpdateOperationsInput | $Enums.MembershipStatus
+  jobTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  employeeRef?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  invitedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  joinedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  suspendedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  suspensionNote?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  leftAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  organisation?: Prisma.OrganisationUpdateOneRequiredWithoutMembershipsNestedInput
+  userProfile?: Prisma.UserProfileUpdateOneRequiredWithoutOrganisationMembershipsNestedInput
+  departmentMemberships?: Prisma.DepartmentMembershipUpdateManyWithoutOrganisationMembershipNestedInput
+  teamMemberships?: Prisma.TeamMembershipUpdateManyWithoutOrganisationMembershipNestedInput
+  roleAssignments?: Prisma.RoleAssignmentUpdateManyWithoutOrganisationMembershipNestedInput
+  invitations?: Prisma.InvitationUpdateManyWithoutOrganisationMembershipNestedInput
+  userSessions?: Prisma.UserSessionUpdateManyWithoutActiveOrganisationMembershipNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationMembershipNestedInput
+  managedWorkforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutManagerNestedInput
+  provisionedOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutProvisionedMembershipNestedInput
+}
+
+export type OrganisationMembershipUncheckedUpdateWithoutOnboardingPlansAsManagerInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  organisationId?: Prisma.StringFieldUpdateOperationsInput | string
+  userProfileId?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumMembershipStatusFieldUpdateOperationsInput | $Enums.MembershipStatus
+  jobTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  employeeRef?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  invitedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  joinedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  suspendedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  suspensionNote?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  leftAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  departmentMemberships?: Prisma.DepartmentMembershipUncheckedUpdateManyWithoutOrganisationMembershipNestedInput
+  teamMemberships?: Prisma.TeamMembershipUncheckedUpdateManyWithoutOrganisationMembershipNestedInput
+  roleAssignments?: Prisma.RoleAssignmentUncheckedUpdateManyWithoutOrganisationMembershipNestedInput
+  invitations?: Prisma.InvitationUncheckedUpdateManyWithoutOrganisationMembershipNestedInput
+  userSessions?: Prisma.UserSessionUncheckedUpdateManyWithoutActiveOrganisationMembershipNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationMembershipNestedInput
+  managedWorkforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutManagerNestedInput
+  provisionedOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutProvisionedMembershipNestedInput
+}
+
+export type OrganisationMembershipUpsertWithoutProvisionedOnboardingPlansInput = {
+  update: Prisma.XOR<Prisma.OrganisationMembershipUpdateWithoutProvisionedOnboardingPlansInput, Prisma.OrganisationMembershipUncheckedUpdateWithoutProvisionedOnboardingPlansInput>
+  create: Prisma.XOR<Prisma.OrganisationMembershipCreateWithoutProvisionedOnboardingPlansInput, Prisma.OrganisationMembershipUncheckedCreateWithoutProvisionedOnboardingPlansInput>
+  where?: Prisma.OrganisationMembershipWhereInput
+}
+
+export type OrganisationMembershipUpdateToOneWithWhereWithoutProvisionedOnboardingPlansInput = {
+  where?: Prisma.OrganisationMembershipWhereInput
+  data: Prisma.XOR<Prisma.OrganisationMembershipUpdateWithoutProvisionedOnboardingPlansInput, Prisma.OrganisationMembershipUncheckedUpdateWithoutProvisionedOnboardingPlansInput>
+}
+
+export type OrganisationMembershipUpdateWithoutProvisionedOnboardingPlansInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumMembershipStatusFieldUpdateOperationsInput | $Enums.MembershipStatus
+  jobTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  employeeRef?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  invitedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  joinedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  suspendedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  suspensionNote?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  leftAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  organisation?: Prisma.OrganisationUpdateOneRequiredWithoutMembershipsNestedInput
+  userProfile?: Prisma.UserProfileUpdateOneRequiredWithoutOrganisationMembershipsNestedInput
+  departmentMemberships?: Prisma.DepartmentMembershipUpdateManyWithoutOrganisationMembershipNestedInput
+  teamMemberships?: Prisma.TeamMembershipUpdateManyWithoutOrganisationMembershipNestedInput
+  roleAssignments?: Prisma.RoleAssignmentUpdateManyWithoutOrganisationMembershipNestedInput
+  invitations?: Prisma.InvitationUpdateManyWithoutOrganisationMembershipNestedInput
+  userSessions?: Prisma.UserSessionUpdateManyWithoutActiveOrganisationMembershipNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationMembershipNestedInput
+  managedWorkforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutManagerNestedInput
+  onboardingPlansAsManager?: Prisma.InvitationOnboardingPlanUpdateManyWithoutManagerNestedInput
+}
+
+export type OrganisationMembershipUncheckedUpdateWithoutProvisionedOnboardingPlansInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  organisationId?: Prisma.StringFieldUpdateOperationsInput | string
+  userProfileId?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumMembershipStatusFieldUpdateOperationsInput | $Enums.MembershipStatus
+  jobTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  employeeRef?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  invitedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  joinedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  suspendedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  suspensionNote?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  leftAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  departmentMemberships?: Prisma.DepartmentMembershipUncheckedUpdateManyWithoutOrganisationMembershipNestedInput
+  teamMemberships?: Prisma.TeamMembershipUncheckedUpdateManyWithoutOrganisationMembershipNestedInput
+  roleAssignments?: Prisma.RoleAssignmentUncheckedUpdateManyWithoutOrganisationMembershipNestedInput
+  invitations?: Prisma.InvitationUncheckedUpdateManyWithoutOrganisationMembershipNestedInput
+  userSessions?: Prisma.UserSessionUncheckedUpdateManyWithoutActiveOrganisationMembershipNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationMembershipNestedInput
+  managedWorkforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutManagerNestedInput
+  onboardingPlansAsManager?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutManagerNestedInput
 }
 
 export type OrganisationMembershipCreateManyOrganisationInput = {
@@ -1436,6 +2086,10 @@ export type OrganisationMembershipUpdateWithoutOrganisationInput = {
   roleAssignments?: Prisma.RoleAssignmentUpdateManyWithoutOrganisationMembershipNestedInput
   invitations?: Prisma.InvitationUpdateManyWithoutOrganisationMembershipNestedInput
   userSessions?: Prisma.UserSessionUpdateManyWithoutActiveOrganisationMembershipNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationMembershipNestedInput
+  managedWorkforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutManagerNestedInput
+  onboardingPlansAsManager?: Prisma.InvitationOnboardingPlanUpdateManyWithoutManagerNestedInput
+  provisionedOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutProvisionedMembershipNestedInput
 }
 
 export type OrganisationMembershipUncheckedUpdateWithoutOrganisationInput = {
@@ -1457,6 +2111,10 @@ export type OrganisationMembershipUncheckedUpdateWithoutOrganisationInput = {
   roleAssignments?: Prisma.RoleAssignmentUncheckedUpdateManyWithoutOrganisationMembershipNestedInput
   invitations?: Prisma.InvitationUncheckedUpdateManyWithoutOrganisationMembershipNestedInput
   userSessions?: Prisma.UserSessionUncheckedUpdateManyWithoutActiveOrganisationMembershipNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationMembershipNestedInput
+  managedWorkforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutManagerNestedInput
+  onboardingPlansAsManager?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutManagerNestedInput
+  provisionedOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutProvisionedMembershipNestedInput
 }
 
 export type OrganisationMembershipUncheckedUpdateManyWithoutOrganisationInput = {
@@ -1510,6 +2168,10 @@ export type OrganisationMembershipUpdateWithoutUserProfileInput = {
   roleAssignments?: Prisma.RoleAssignmentUpdateManyWithoutOrganisationMembershipNestedInput
   invitations?: Prisma.InvitationUpdateManyWithoutOrganisationMembershipNestedInput
   userSessions?: Prisma.UserSessionUpdateManyWithoutActiveOrganisationMembershipNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationMembershipNestedInput
+  managedWorkforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutManagerNestedInput
+  onboardingPlansAsManager?: Prisma.InvitationOnboardingPlanUpdateManyWithoutManagerNestedInput
+  provisionedOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutProvisionedMembershipNestedInput
 }
 
 export type OrganisationMembershipUncheckedUpdateWithoutUserProfileInput = {
@@ -1531,6 +2193,10 @@ export type OrganisationMembershipUncheckedUpdateWithoutUserProfileInput = {
   roleAssignments?: Prisma.RoleAssignmentUncheckedUpdateManyWithoutOrganisationMembershipNestedInput
   invitations?: Prisma.InvitationUncheckedUpdateManyWithoutOrganisationMembershipNestedInput
   userSessions?: Prisma.UserSessionUncheckedUpdateManyWithoutActiveOrganisationMembershipNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationMembershipNestedInput
+  managedWorkforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutManagerNestedInput
+  onboardingPlansAsManager?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutManagerNestedInput
+  provisionedOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutProvisionedMembershipNestedInput
 }
 
 export type OrganisationMembershipUncheckedUpdateManyWithoutUserProfileInput = {
@@ -1560,6 +2226,10 @@ export type OrganisationMembershipCountOutputType = {
   roleAssignments: number
   invitations: number
   userSessions: number
+  workforceAssignments: number
+  managedWorkforceAssignments: number
+  onboardingPlansAsManager: number
+  provisionedOnboardingPlans: number
 }
 
 export type OrganisationMembershipCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1568,6 +2238,10 @@ export type OrganisationMembershipCountOutputTypeSelect<ExtArgs extends runtime.
   roleAssignments?: boolean | OrganisationMembershipCountOutputTypeCountRoleAssignmentsArgs
   invitations?: boolean | OrganisationMembershipCountOutputTypeCountInvitationsArgs
   userSessions?: boolean | OrganisationMembershipCountOutputTypeCountUserSessionsArgs
+  workforceAssignments?: boolean | OrganisationMembershipCountOutputTypeCountWorkforceAssignmentsArgs
+  managedWorkforceAssignments?: boolean | OrganisationMembershipCountOutputTypeCountManagedWorkforceAssignmentsArgs
+  onboardingPlansAsManager?: boolean | OrganisationMembershipCountOutputTypeCountOnboardingPlansAsManagerArgs
+  provisionedOnboardingPlans?: boolean | OrganisationMembershipCountOutputTypeCountProvisionedOnboardingPlansArgs
 }
 
 /**
@@ -1615,6 +2289,34 @@ export type OrganisationMembershipCountOutputTypeCountUserSessionsArgs<ExtArgs e
   where?: Prisma.UserSessionWhereInput
 }
 
+/**
+ * OrganisationMembershipCountOutputType without action
+ */
+export type OrganisationMembershipCountOutputTypeCountWorkforceAssignmentsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.WorkforceAssignmentWhereInput
+}
+
+/**
+ * OrganisationMembershipCountOutputType without action
+ */
+export type OrganisationMembershipCountOutputTypeCountManagedWorkforceAssignmentsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.WorkforceAssignmentWhereInput
+}
+
+/**
+ * OrganisationMembershipCountOutputType without action
+ */
+export type OrganisationMembershipCountOutputTypeCountOnboardingPlansAsManagerArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.InvitationOnboardingPlanWhereInput
+}
+
+/**
+ * OrganisationMembershipCountOutputType without action
+ */
+export type OrganisationMembershipCountOutputTypeCountProvisionedOnboardingPlansArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.InvitationOnboardingPlanWhereInput
+}
+
 
 export type OrganisationMembershipSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -1638,6 +2340,10 @@ export type OrganisationMembershipSelect<ExtArgs extends runtime.Types.Extension
   roleAssignments?: boolean | Prisma.OrganisationMembership$roleAssignmentsArgs<ExtArgs>
   invitations?: boolean | Prisma.OrganisationMembership$invitationsArgs<ExtArgs>
   userSessions?: boolean | Prisma.OrganisationMembership$userSessionsArgs<ExtArgs>
+  workforceAssignments?: boolean | Prisma.OrganisationMembership$workforceAssignmentsArgs<ExtArgs>
+  managedWorkforceAssignments?: boolean | Prisma.OrganisationMembership$managedWorkforceAssignmentsArgs<ExtArgs>
+  onboardingPlansAsManager?: boolean | Prisma.OrganisationMembership$onboardingPlansAsManagerArgs<ExtArgs>
+  provisionedOnboardingPlans?: boolean | Prisma.OrganisationMembership$provisionedOnboardingPlansArgs<ExtArgs>
   _count?: boolean | Prisma.OrganisationMembershipCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["organisationMembership"]>
 
@@ -1705,6 +2411,10 @@ export type OrganisationMembershipInclude<ExtArgs extends runtime.Types.Extensio
   roleAssignments?: boolean | Prisma.OrganisationMembership$roleAssignmentsArgs<ExtArgs>
   invitations?: boolean | Prisma.OrganisationMembership$invitationsArgs<ExtArgs>
   userSessions?: boolean | Prisma.OrganisationMembership$userSessionsArgs<ExtArgs>
+  workforceAssignments?: boolean | Prisma.OrganisationMembership$workforceAssignmentsArgs<ExtArgs>
+  managedWorkforceAssignments?: boolean | Prisma.OrganisationMembership$managedWorkforceAssignmentsArgs<ExtArgs>
+  onboardingPlansAsManager?: boolean | Prisma.OrganisationMembership$onboardingPlansAsManagerArgs<ExtArgs>
+  provisionedOnboardingPlans?: boolean | Prisma.OrganisationMembership$provisionedOnboardingPlansArgs<ExtArgs>
   _count?: boolean | Prisma.OrganisationMembershipCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type OrganisationMembershipIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1726,6 +2436,10 @@ export type $OrganisationMembershipPayload<ExtArgs extends runtime.Types.Extensi
     roleAssignments: Prisma.$RoleAssignmentPayload<ExtArgs>[]
     invitations: Prisma.$InvitationPayload<ExtArgs>[]
     userSessions: Prisma.$UserSessionPayload<ExtArgs>[]
+    workforceAssignments: Prisma.$WorkforceAssignmentPayload<ExtArgs>[]
+    managedWorkforceAssignments: Prisma.$WorkforceAssignmentPayload<ExtArgs>[]
+    onboardingPlansAsManager: Prisma.$InvitationOnboardingPlanPayload<ExtArgs>[]
+    provisionedOnboardingPlans: Prisma.$InvitationOnboardingPlanPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -2143,6 +2857,10 @@ export interface Prisma__OrganisationMembershipClient<T, Null = never, ExtArgs e
   roleAssignments<T extends Prisma.OrganisationMembership$roleAssignmentsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.OrganisationMembership$roleAssignmentsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$RoleAssignmentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   invitations<T extends Prisma.OrganisationMembership$invitationsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.OrganisationMembership$invitationsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$InvitationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   userSessions<T extends Prisma.OrganisationMembership$userSessionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.OrganisationMembership$userSessionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$UserSessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  workforceAssignments<T extends Prisma.OrganisationMembership$workforceAssignmentsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.OrganisationMembership$workforceAssignmentsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$WorkforceAssignmentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  managedWorkforceAssignments<T extends Prisma.OrganisationMembership$managedWorkforceAssignmentsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.OrganisationMembership$managedWorkforceAssignmentsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$WorkforceAssignmentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  onboardingPlansAsManager<T extends Prisma.OrganisationMembership$onboardingPlansAsManagerArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.OrganisationMembership$onboardingPlansAsManagerArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$InvitationOnboardingPlanPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  provisionedOnboardingPlans<T extends Prisma.OrganisationMembership$provisionedOnboardingPlansArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.OrganisationMembership$provisionedOnboardingPlansArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$InvitationOnboardingPlanPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2704,6 +3422,102 @@ export type OrganisationMembership$userSessionsArgs<ExtArgs extends runtime.Type
   take?: number
   skip?: number
   distinct?: Prisma.UserSessionScalarFieldEnum | Prisma.UserSessionScalarFieldEnum[]
+}
+
+/**
+ * OrganisationMembership.workforceAssignments
+ */
+export type OrganisationMembership$workforceAssignmentsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the WorkforceAssignment
+   */
+  select?: Prisma.WorkforceAssignmentSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the WorkforceAssignment
+   */
+  omit?: Prisma.WorkforceAssignmentOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.WorkforceAssignmentInclude<ExtArgs> | null
+  where?: Prisma.WorkforceAssignmentWhereInput
+  orderBy?: Prisma.WorkforceAssignmentOrderByWithRelationInput | Prisma.WorkforceAssignmentOrderByWithRelationInput[]
+  cursor?: Prisma.WorkforceAssignmentWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.WorkforceAssignmentScalarFieldEnum | Prisma.WorkforceAssignmentScalarFieldEnum[]
+}
+
+/**
+ * OrganisationMembership.managedWorkforceAssignments
+ */
+export type OrganisationMembership$managedWorkforceAssignmentsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the WorkforceAssignment
+   */
+  select?: Prisma.WorkforceAssignmentSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the WorkforceAssignment
+   */
+  omit?: Prisma.WorkforceAssignmentOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.WorkforceAssignmentInclude<ExtArgs> | null
+  where?: Prisma.WorkforceAssignmentWhereInput
+  orderBy?: Prisma.WorkforceAssignmentOrderByWithRelationInput | Prisma.WorkforceAssignmentOrderByWithRelationInput[]
+  cursor?: Prisma.WorkforceAssignmentWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.WorkforceAssignmentScalarFieldEnum | Prisma.WorkforceAssignmentScalarFieldEnum[]
+}
+
+/**
+ * OrganisationMembership.onboardingPlansAsManager
+ */
+export type OrganisationMembership$onboardingPlansAsManagerArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the InvitationOnboardingPlan
+   */
+  select?: Prisma.InvitationOnboardingPlanSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the InvitationOnboardingPlan
+   */
+  omit?: Prisma.InvitationOnboardingPlanOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.InvitationOnboardingPlanInclude<ExtArgs> | null
+  where?: Prisma.InvitationOnboardingPlanWhereInput
+  orderBy?: Prisma.InvitationOnboardingPlanOrderByWithRelationInput | Prisma.InvitationOnboardingPlanOrderByWithRelationInput[]
+  cursor?: Prisma.InvitationOnboardingPlanWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.InvitationOnboardingPlanScalarFieldEnum | Prisma.InvitationOnboardingPlanScalarFieldEnum[]
+}
+
+/**
+ * OrganisationMembership.provisionedOnboardingPlans
+ */
+export type OrganisationMembership$provisionedOnboardingPlansArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the InvitationOnboardingPlan
+   */
+  select?: Prisma.InvitationOnboardingPlanSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the InvitationOnboardingPlan
+   */
+  omit?: Prisma.InvitationOnboardingPlanOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.InvitationOnboardingPlanInclude<ExtArgs> | null
+  where?: Prisma.InvitationOnboardingPlanWhereInput
+  orderBy?: Prisma.InvitationOnboardingPlanOrderByWithRelationInput | Prisma.InvitationOnboardingPlanOrderByWithRelationInput[]
+  cursor?: Prisma.InvitationOnboardingPlanWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.InvitationOnboardingPlanScalarFieldEnum | Prisma.InvitationOnboardingPlanScalarFieldEnum[]
 }
 
 /**

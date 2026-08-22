@@ -9,11 +9,11 @@
 "use client";
 
 import {
+  Suspense,
   useActionState,
-  useEffect,
-  useState,
 } from "react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { useFormStatus } from "react-dom";
 import { ArrowRight } from "lucide-react";
 
@@ -78,7 +78,12 @@ function FieldError({
   );
 }
 
-export default function LoginPage() {
+function LoginContent() {
+  const searchParams = useSearchParams();
+
+  const returnTo =
+    searchParams.get("returnTo") ?? "";
+
   const [state, formAction] =
     useActionState<
       LoginActionState,
@@ -87,18 +92,6 @@ export default function LoginPage() {
       login,
       initialLoginState,
     );
-
-  const [returnTo, setReturnTo] =
-    useState("");
-
-  useEffect(() => {
-    const value =
-      new URLSearchParams(
-        window.location.search,
-      ).get("returnTo");
-
-    setReturnTo(value ?? "");
-  }, []);
 
   const emailErrorId =
     state.fieldErrors?.email?.length
@@ -227,5 +220,35 @@ export default function LoginPage() {
         <SubmitButton />
       </form>
     </AuthShell>
+  );
+}
+
+function LoginFallback() {
+  return (
+    <AuthShell
+      title="Welcome back"
+      description={
+        <p>
+          Preparing secure sign-in…
+        </p>
+      }
+    >
+      <div
+        role="status"
+        className="rounded-xl bg-slate-50 p-4 text-sm text-slate-600"
+      >
+        Loading secure authentication…
+      </div>
+    </AuthShell>
+  );
+}
+
+export default function LoginPage() {
+  return (
+    <Suspense
+      fallback={<LoginFallback />}
+    >
+      <LoginContent />
+    </Suspense>
   );
 }

@@ -125,7 +125,237 @@ export type AuditEvent = Prisma.AuditEventModel
  */
 export type SecurityEvent = Prisma.SecurityEventModel
 /**
+ * Model JobProfile
+ * 
+ */
+export type JobProfile = Prisma.JobProfileModel
+/**
+ * Model JobProfileDuty
+ * 
+ */
+export type JobProfileDuty = Prisma.JobProfileDutyModel
+/**
+ * Model KpiDefinition
+ * 
+ */
+export type KpiDefinition = Prisma.KpiDefinitionModel
+/**
+ * Model JobProfileKpi
+ * 
+ */
+export type JobProfileKpi = Prisma.JobProfileKpiModel
+/**
+ * Model AgentProfile
+ * 
+ */
+export type AgentProfile = Prisma.AgentProfileModel
+/**
+ * Model AgentPolicy
+ * 
+ */
+export type AgentPolicy = Prisma.AgentPolicyModel
+/**
+ * Model WorkforceAssignment
+ * 
+ */
+export type WorkforceAssignment = Prisma.WorkforceAssignmentModel
+/**
+ * Model WorkforceAssignmentKpi
+ * 
+ */
+export type WorkforceAssignmentKpi = Prisma.WorkforceAssignmentKpiModel
+/**
+ * Model InvitationOnboardingPlan
+ * 
+ */
+export type InvitationOnboardingPlan = Prisma.InvitationOnboardingPlanModel
+/**
+ * Model InvitationOnboardingRole
+ * 
+ */
+export type InvitationOnboardingRole = Prisma.InvitationOnboardingRoleModel
+/**
+ * Model InvitationOnboardingKpi
+ * 
+ */
+export type InvitationOnboardingKpi = Prisma.InvitationOnboardingKpiModel
+/**
  * Model Enquiry
  * 
  */
 export type Enquiry = Prisma.EnquiryModel
+/**
+ * Model OrganisationNumberSequence
+ * 
+ */
+export type OrganisationNumberSequence = Prisma.OrganisationNumberSequenceModel
+/**
+ * Model Client
+ * 
+ */
+export type Client = Prisma.ClientModel
+/**
+ * Model Matter
+ * 
+ */
+export type Matter = Prisma.MatterModel
+/**
+ * Model MatterParty
+ * 
+ */
+export type MatterParty = Prisma.MatterPartyModel
+/**
+ * Model MatterCompliance
+ * 
+ */
+export type MatterCompliance = Prisma.MatterComplianceModel
+/**
+ * Model MatterStatusHistory
+ * 
+ */
+export type MatterStatusHistory = Prisma.MatterStatusHistoryModel
+/**
+ * Model EnquiryConversion
+ * 
+ */
+export type EnquiryConversion = Prisma.EnquiryConversionModel
+/**
+ * Model MatterTask
+ * 
+ */
+export type MatterTask = Prisma.MatterTaskModel
+/**
+ * Model MatterDeadline
+ * 
+ */
+export type MatterDeadline = Prisma.MatterDeadlineModel
+/**
+ * Model DocumentRequest
+ * 
+ */
+export type DocumentRequest = Prisma.DocumentRequestModel
+/**
+ * Model DocumentRequestItem
+ * 
+ */
+export type DocumentRequestItem = Prisma.DocumentRequestItemModel
+/**
+ * Model MatterDocument
+ * 
+ */
+export type MatterDocument = Prisma.MatterDocumentModel
+/**
+ * Model MatterDocumentVersion
+ * 
+ */
+export type MatterDocumentVersion = Prisma.MatterDocumentVersionModel
+/**
+ * Model MatterTimelineEvent
+ * 
+ */
+export type MatterTimelineEvent = Prisma.MatterTimelineEventModel
+/**
+ * Model WorkflowDefinition
+ * 
+ */
+export type WorkflowDefinition = Prisma.WorkflowDefinitionModel
+/**
+ * Model WorkflowVersion
+ * 
+ */
+export type WorkflowVersion = Prisma.WorkflowVersionModel
+/**
+ * Model WorkflowRun
+ * 
+ */
+export type WorkflowRun = Prisma.WorkflowRunModel
+/**
+ * Model WorkflowAction
+ * 
+ */
+export type WorkflowAction = Prisma.WorkflowActionModel
+/**
+ * Model SlaPolicy
+ * 
+ */
+export type SlaPolicy = Prisma.SlaPolicyModel
+/**
+ * Model SlaInstance
+ * 
+ */
+export type SlaInstance = Prisma.SlaInstanceModel
+/**
+ * Model EscalationRule
+ * 
+ */
+export type EscalationRule = Prisma.EscalationRuleModel
+/**
+ * Model EscalationEvent
+ * 
+ */
+export type EscalationEvent = Prisma.EscalationEventModel
+/**
+ * Model ApprovalRequest
+ * 
+ */
+export type ApprovalRequest = Prisma.ApprovalRequestModel
+/**
+ * Model ApprovalDecision
+ * 
+ */
+export type ApprovalDecision = Prisma.ApprovalDecisionModel
+/**
+ * Model ClientPortalAccessGrant
+ * 
+ */
+export type ClientPortalAccessGrant = Prisma.ClientPortalAccessGrantModel
+/**
+ * Model ClientPortalMatterGrant
+ * 
+ */
+export type ClientPortalMatterGrant = Prisma.ClientPortalMatterGrantModel
+/**
+ * Model ClientPortalInvitation
+ * 
+ */
+export type ClientPortalInvitation = Prisma.ClientPortalInvitationModel
+/**
+ * Model PortalMatterUpdate
+ * 
+ */
+export type PortalMatterUpdate = Prisma.PortalMatterUpdateModel
+/**
+ * Model CommunicationConversation
+ * 
+ */
+export type CommunicationConversation = Prisma.CommunicationConversationModel
+/**
+ * Model CommunicationMessage
+ * 
+ */
+export type CommunicationMessage = Prisma.CommunicationMessageModel
+/**
+ * Model CommunicationAttachment
+ * 
+ */
+export type CommunicationAttachment = Prisma.CommunicationAttachmentModel
+/**
+ * Model CommunicationDeliveryEvent
+ * 
+ */
+export type CommunicationDeliveryEvent = Prisma.CommunicationDeliveryEventModel
+/**
+ * Model CommunicationTemplate
+ * 
+ */
+export type CommunicationTemplate = Prisma.CommunicationTemplateModel
+/**
+ * Model CommunicationReminder
+ * 
+ */
+export type CommunicationReminder = Prisma.CommunicationReminderModel
+/**
+ * Model ClientNotification
+ * 
+ */
+export type ClientNotification = Prisma.ClientNotificationModel

@@ -7,11 +7,18 @@ const ALLOWED_TRANSITIONS: Readonly<
   NEW: ['CONTACTED', 'SPAM', 'CLOSED'],
   CONTACTED: ['QUALIFIED', 'CLOSED', 'SPAM'],
   QUALIFIED: ['CONSULTATION_BOOKED', 'CLOSED'],
-  CONSULTATION_BOOKED: ['CONVERTED', 'CLOSED'],
+  // Conversion is deliberately excluded. It is an atomic client-and-matter
+  // provisioning operation, not an ordinary enquiry field update.
+  CONSULTATION_BOOKED: ['CLOSED'],
   CONVERTED: [],
   CLOSED: ['CONTACTED'],
   SPAM: ['NEW'],
 };
+
+const CONVERTIBLE_STATUSES: readonly EnquiryStatus[] = [
+  EnquiryStatus.QUALIFIED,
+  EnquiryStatus.CONSULTATION_BOOKED,
+];
 
 export function assertValidEnquiryTransition(
   current: EnquiryStatus,
@@ -24,6 +31,14 @@ export function assertValidEnquiryTransition(
   if (!ALLOWED_TRANSITIONS[current].includes(next)) {
     throw new BadRequestException(
       `Enquiry status cannot change from ${current} to ${next}`,
+    );
+  }
+}
+
+export function assertEnquiryCanConvert(status: EnquiryStatus): void {
+  if (!CONVERTIBLE_STATUSES.includes(status)) {
+    throw new BadRequestException(
+      'Only qualified enquiries or booked consultations can be converted',
     );
   }
 }
