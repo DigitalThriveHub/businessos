@@ -715,6 +715,47 @@ enum FinanceJournalSource {
   @@map("finance_journal_source")
 }
 
+enum IntegrationProvider {
+  WORDPRESS
+  STRIPE
+  GENERIC
+
+  @@map("integration_provider")
+}
+
+enum IntegrationConnectionStatus {
+  ACTIVE
+  DISABLED
+
+  @@map("integration_connection_status")
+}
+
+enum IntegrationDirection {
+  INBOUND
+  OUTBOUND
+
+  @@map("integration_direction")
+}
+
+enum IntegrationEventStatus {
+  RECEIVED
+  PROCESSED
+  FAILED
+  IGNORED
+
+  @@map("integration_event_status")
+}
+
+enum PaymentCheckoutStatus {
+  PENDING_PROVIDER
+  OPEN
+  COMPLETED
+  EXPIRED
+  FAILED
+
+  @@map("payment_checkout_status")
+}
+
 model Organisation {
   id          String             @id(map: "pk_organisations") @default(uuid()) @map("id") @db.Uuid
   slug        String             @unique(map: "uq_organisations_slug") @map("slug") @db.VarChar(80)
@@ -2996,4 +3037,87 @@ model FinanceJournalLine {
   @@unique([id, organisationId], map: "uq_finance_journal_lines_id_org")
   @@index([organisationId, accountId, createdAt], map: "ix_finance_journal_lines_org_account")
   @@map("finance_journal_lines")
+}
+
+model IntegrationConnection {
+  id                       String                      @id(map: "pk_integration_connections") @default(uuid()) @db.Uuid
+  organisationId           String                      @map("organisation_id") @db.Uuid
+  provider                 IntegrationProvider
+  displayName              String                      @map("display_name") @db.VarChar(160)
+  status                   IntegrationConnectionStatus @default(ACTIVE)
+  externalAccountReference String?                     @map("external_account_reference") @db.VarChar(240)
+  secretVersion            Int                         @default(1) @map("secret_version")
+  createdByUserId          String                      @map("created_by_user_id") @db.Uuid
+  updatedByUserId          String                      @map("updated_by_user_id") @db.Uuid
+  version                  Int                         @default(1)
+  createdAt                DateTime                    @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt                DateTime                    @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  events    IntegrationEvent[]
+  checkouts PaymentCheckoutSession[]
+
+  @@unique([id, organisationId], map: "uq_integration_connections_id_org")
+  @@unique([organisationId, provider, displayName], map: "uq_integration_connections_org_provider_name")
+  @@index([organisationId, provider, status], map: "ix_integration_connections_org_provider_status")
+  @@map("integration_connections")
+}
+
+model IntegrationEvent {
+  id              String                 @id(map: "pk_integration_events") @default(uuid()) @db.Uuid
+  organisationId  String                 @map("organisation_id") @db.Uuid
+  connectionId    String                 @map("connection_id") @db.Uuid
+  provider        IntegrationProvider
+  direction       IntegrationDirection
+  externalEventId String                 @map("external_event_id") @db.VarChar(240)
+  eventType       String                 @map("event_type") @db.VarChar(160)
+  status          IntegrationEventStatus @default(RECEIVED)
+  payloadSha256   String                 @map("payload_sha256") @db.Char(64)
+  correlationId   String                 @map("correlation_id") @db.Uuid
+  subjectType     String?                @map("subject_type") @db.VarChar(80)
+  subjectId       String?                @map("subject_id") @db.Uuid
+  errorCode       String?                @map("error_code") @db.VarChar(120)
+  occurredAt      DateTime               @map("occurred_at") @db.Timestamptz(6)
+  receivedAt      DateTime               @default(now()) @map("received_at") @db.Timestamptz(6)
+  processedAt     DateTime?              @map("processed_at") @db.Timestamptz(6)
+  createdAt       DateTime               @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  connection IntegrationConnection @relation(fields: [connectionId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_integration_events_connection")
+
+  @@unique([connectionId, externalEventId], map: "uq_integration_events_connection_external")
+  @@unique([id, organisationId], map: "uq_integration_events_id_org")
+  @@index([organisationId, status, receivedAt(sort: Desc)], map: "ix_integration_events_org_status_received")
+  @@index([organisationId, correlationId], map: "ix_integration_events_org_correlation")
+  @@map("integration_events")
+}
+
+model PaymentCheckoutSession {
+  id                      String                @id(map: "pk_payment_checkout_sessions") @default(uuid()) @db.Uuid
+  organisationId          String                @map("organisation_id") @db.Uuid
+  connectionId            String                @map("connection_id") @db.Uuid
+  invoiceId               String                @map("invoice_id") @db.Uuid
+  clientId                String                @map("client_id") @db.Uuid
+  createdByUserId         String                @map("created_by_user_id") @db.Uuid
+  status                  PaymentCheckoutStatus @default(PENDING_PROVIDER)
+  amountMinor             BigInt                @map("amount_minor")
+  currencyCode            String                @map("currency_code") @db.Char(3)
+  idempotencyKey          String                @map("idempotency_key") @db.VarChar(180)
+  providerSessionId       String?               @map("provider_session_id") @db.VarChar(240)
+  providerPaymentIntentId String?               @map("provider_payment_intent_id") @db.VarChar(240)
+  checkoutUrl             String?               @map("checkout_url") @db.VarChar(2048)
+  expiresAt               DateTime?             @map("expires_at") @db.Timestamptz(6)
+  completedAt             DateTime?             @map("completed_at") @db.Timestamptz(6)
+  failedAt                DateTime?             @map("failed_at") @db.Timestamptz(6)
+  failureCode             String?               @map("failure_code") @db.VarChar(120)
+  version                 Int                   @default(1)
+  createdAt               DateTime              @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt               DateTime              @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  connection IntegrationConnection @relation(fields: [connectionId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_payment_checkouts_connection")
+
+  @@unique([id, organisationId], map: "uq_payment_checkouts_id_org")
+  @@unique([organisationId, idempotencyKey], map: "uq_payment_checkouts_org_idempotency")
+  @@unique([providerSessionId], map: "uq_payment_checkouts_provider_session")
+  @@index([organisationId, invoiceId, createdAt(sort: Desc)], map: "ix_payment_checkouts_org_invoice_created")
+  @@index([status, expiresAt], map: "ix_payment_checkouts_status_expiry")
+  @@map("payment_checkout_sessions")
 }

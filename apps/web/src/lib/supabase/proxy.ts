@@ -11,20 +11,19 @@
  */
 
 import { createServerClient } from "@supabase/ssr";
-import {
-  NextResponse,
-  type NextRequest,
-} from "next/server";
+import { NextResponse, type NextRequest } from "next/server";
 
 import { getSafePostAuthenticationPath } from "@/lib/security/safe-return-path";
 
 const PROTECTED_ROUTES = [
   "/mfa",
   "/dashboard",
+  "/command-centre",
   "/enquiries",
   "/clients",
   "/matters",
   "/communications",
+  "/integrations",
   "/operations",
   "/portal",
   "/tasks",
@@ -33,20 +32,11 @@ const PROTECTED_ROUTES = [
   "/admin",
 ] as const;
 
-const PUBLIC_AUTH_ROUTES = [
-  "/login",
-  "/signup",
-  "/forgot-password",
-] as const;
+const PUBLIC_AUTH_ROUTES = ["/login", "/signup", "/forgot-password"] as const;
 
-function isMatchingRoute(
-  pathname: string,
-  routes: readonly string[],
-): boolean {
+function isMatchingRoute(pathname: string, routes: readonly string[]): boolean {
   return routes.some(
-    (route) =>
-      pathname === route ||
-      pathname.startsWith(`${route}/`),
+    (route) => pathname === route || pathname.startsWith(`${route}/`),
   );
 }
 
@@ -54,18 +44,14 @@ function getSupabaseConfiguration(): {
   url: string;
   publishableKey: string;
 } {
-  const url =
-    process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
 
   const publishableKey =
-    process.env
-      .NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY ??
+    process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY ??
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
   if (!url || !publishableKey) {
-    throw new Error(
-      "Missing required Supabase frontend configuration.",
-    );
+    throw new Error("Missing required Supabase frontend configuration.");
   }
 
   return {
@@ -89,8 +75,7 @@ function createLoginRedirect(
 ): NextResponse {
   const loginUrl = request.nextUrl.clone();
 
-  const returnTo =
-    `${request.nextUrl.pathname}${request.nextUrl.search}`;
+  const returnTo = `${request.nextUrl.pathname}${request.nextUrl.search}`;
 
   loginUrl.pathname = "/login";
   loginUrl.search = "";
@@ -101,38 +86,24 @@ function createLoginRedirect(
     !returnTo.includes("\\") &&
     !/[\r\n]/.test(returnTo)
   ) {
-    loginUrl.searchParams.set(
-      "returnTo",
-      returnTo,
-    );
+    loginUrl.searchParams.set("returnTo", returnTo);
   }
 
-  const redirectResponse =
-    NextResponse.redirect(loginUrl);
+  const redirectResponse = NextResponse.redirect(loginUrl);
 
-  copyResponseCookies(
-    response,
-    redirectResponse,
-  );
+  copyResponseCookies(response, redirectResponse);
 
   return redirectResponse;
 }
 
-function authenticatedDestination(
-  request: NextRequest,
-): string {
-  const returnToValues =
-    request.nextUrl.searchParams.getAll(
-      "returnTo",
-    );
+function authenticatedDestination(request: NextRequest): string {
+  const returnToValues = request.nextUrl.searchParams.getAll("returnTo");
 
   if (returnToValues.length !== 1) {
     return "/dashboard";
   }
 
-  return getSafePostAuthenticationPath(
-    returnToValues[0],
-  );
+  return getSafePostAuthenticationPath(returnToValues[0]);
 }
 
 function createAuthenticatedRedirect(
@@ -144,13 +115,9 @@ function createAuthenticatedRedirect(
     request.nextUrl.origin,
   );
 
-  const redirectResponse =
-    NextResponse.redirect(destinationUrl);
+  const redirectResponse = NextResponse.redirect(destinationUrl);
 
-  copyResponseCookies(
-    response,
-    redirectResponse,
-  );
+  copyResponseCookies(response, redirectResponse);
 
   return redirectResponse;
 }
@@ -158,106 +125,61 @@ function createAuthenticatedRedirect(
 export async function updateSession(
   request: NextRequest,
 ): Promise<NextResponse> {
-  const { url, publishableKey } =
-    getSupabaseConfiguration();
+  const { url, publishableKey } = getSupabaseConfiguration();
 
   let response = NextResponse.next({
     request,
   });
 
-  const supabase = createServerClient(
-    url,
-    publishableKey,
-    {
-      cookies: {
-        getAll() {
-          return request.cookies.getAll();
-        },
+  const supabase = createServerClient(url, publishableKey, {
+    cookies: {
+      getAll() {
+        return request.cookies.getAll();
+      },
 
-        setAll(cookiesToSet) {
-          cookiesToSet.forEach(
-            ({ name, value }) => {
-              request.cookies.set(
-                name,
-                value,
-              );
-            },
-          );
+      setAll(cookiesToSet) {
+        cookiesToSet.forEach(({ name, value }) => {
+          request.cookies.set(name, value);
+        });
 
-          response = NextResponse.next({
-            request,
+        response = NextResponse.next({
+          request,
+        });
+
+        cookiesToSet.forEach(({ name, value, options }) => {
+          response.cookies.set(name, value, {
+            ...options,
+            secure: process.env.NODE_ENV === "production",
+            sameSite: options?.sameSite ?? "lax",
+            path: options?.path ?? "/",
           });
-
-          cookiesToSet.forEach(
-            ({
-              name,
-              value,
-              options,
-            }) => {
-              response.cookies.set(
-                name,
-                value,
-                {
-                  ...options,
-                  secure:
-                    process.env.NODE_ENV ===
-                    "production",
-                  sameSite:
-                    options?.sameSite ??
-                    "lax",
-                  path:
-                    options?.path ?? "/",
-                },
-              );
-            },
-          );
-        },
+        });
       },
     },
-  );
+  });
 
   /*
    * Keep session validation immediately after client creation.
    * getClaims() validates the JWT and refreshes cookies when needed.
    */
-  const { data, error } =
-    await supabase.auth.getClaims();
+  const { data, error } = await supabase.auth.getClaims();
 
-  const isAuthenticated =
-    Boolean(data?.claims?.sub) &&
-    !error;
+  const isAuthenticated = Boolean(data?.claims?.sub) && !error;
 
-  const pathname =
-    request.nextUrl.pathname;
+  const pathname = request.nextUrl.pathname;
 
-  const isPublicPortalInvitation =
-    pathname === "/portal/invitations/accept";
+  const isPublicPortalInvitation = pathname === "/portal/invitations/accept";
 
   if (
     !isAuthenticated &&
     !isPublicPortalInvitation &&
-    isMatchingRoute(
-      pathname,
-      PROTECTED_ROUTES,
-    )
+    isMatchingRoute(pathname, PROTECTED_ROUTES)
   ) {
-    return createLoginRedirect(
-      request,
-      response,
-    );
+    return createLoginRedirect(request, response);
   }
 
-  if (
-    isAuthenticated &&
-    isMatchingRoute(
-      pathname,
-      PUBLIC_AUTH_ROUTES,
-    )
-  ) {
-    return createAuthenticatedRedirect(
-      request,
-      response,
-    );
+  if (isAuthenticated && isMatchingRoute(pathname, PUBLIC_AUTH_ROUTES)) {
+    return createAuthenticatedRedirect(request, response);
   }
 
   /*

@@ -34,13 +34,20 @@ export function PortalInvitationAcceptance({
         portalInvitationAcceptanceSchema,
         {
           method: "POST",
-          body: JSON.stringify({ operation: "invitation.accept", payload: { token } }),
+          body: JSON.stringify({
+            operation: "invitation.accept",
+            payload: { token },
+          }),
         },
       );
       router.replace("/portal");
       router.refresh();
     } catch (acceptError) {
-      setError(acceptError instanceof Error ? acceptError.message : "The invitation could not be accepted.");
+      setError(
+        acceptError instanceof Error
+          ? acceptError.message
+          : "The invitation could not be accepted.",
+      );
     } finally {
       setBusy(false);
     }
@@ -49,11 +56,34 @@ export function PortalInvitationAcceptance({
   return (
     <main className="flex min-h-screen items-center justify-center bg-slate-50 px-4 py-12">
       <section className="w-full max-w-lg rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
-        <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-950 text-white"><ShieldCheck className="h-6 w-6" /></span>
-        <h1 className="mt-6 text-2xl font-bold tracking-tight">Activate secure client access</h1>
-        <p className="mt-3 text-sm leading-6 text-slate-600">Your signed-in account must use the exact verified email address named in the invitation. Access is limited to the authorised client and matters.</p>
-        {!validToken ? <p role="alert" className="mt-5 rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-800">This invitation link is incomplete or invalid. Ask your case team to issue a new link.</p> : null}
-        {error ? <p role="alert" className="mt-5 rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-800">{error}</p> : null}
+        <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-950 text-white">
+          <ShieldCheck className="h-6 w-6" />
+        </span>
+        <h1 className="mt-6 text-2xl font-bold tracking-tight">
+          Activate secure client access
+        </h1>
+        <p className="mt-3 text-sm leading-6 text-slate-600">
+          Your signed-in account must use the exact verified email address named
+          in the invitation. Access is limited to the authorised client and
+          matters.
+        </p>
+        {!validToken ? (
+          <p
+            role="alert"
+            className="mt-5 rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-800"
+          >
+            This invitation link is incomplete or invalid. Ask your case team to
+            issue a new link.
+          </p>
+        ) : null}
+        {error ? (
+          <p
+            role="alert"
+            className="mt-5 rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-800"
+          >
+            {error}
+          </p>
+        ) : null}
         <div className="mt-6 flex flex-col gap-3">
           {authenticated ? (
             <>
@@ -63,17 +93,11 @@ export function PortalInvitationAcceptance({
                 disabled={!validToken || busy}
                 className="h-11 rounded-xl bg-slate-950 px-5 text-sm font-semibold text-white disabled:opacity-50"
               >
-                {busy
-                  ? "Activating…"
-                  : "Accept secure invitation"}
+                {busy ? "Activating…" : "Accept secure invitation"}
               </button>
 
               <form action={portalInvitationLogout}>
-                <input
-                  type="hidden"
-                  name="returnTo"
-                  value={returnTo}
-                />
+                <input type="hidden" name="returnTo" value={returnTo} />
 
                 <button
                   type="submit"

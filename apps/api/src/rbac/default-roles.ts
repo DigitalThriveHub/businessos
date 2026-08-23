@@ -79,6 +79,8 @@ export const DEFAULT_ROLES = [
       'portal_access.read',
       'finance.read',
       'ledger.read',
+      'integrations.read',
+      'command_centre.read',
     ],
   },
   {
@@ -143,6 +145,7 @@ export const DEFAULT_ROLES = [
       'portal_updates.publish',
       'finance.read',
       'invoices.create',
+      'command_centre.read',
     ],
   },
   {
@@ -188,6 +191,8 @@ export const DEFAULT_ROLES = [
       'communications.send',
       'communications.manage',
       'communication_templates.read',
+      'integrations.read',
+      'command_centre.read',
     ],
   },
   {
@@ -245,6 +250,8 @@ export const DEFAULT_ROLES = [
       'payments.record',
       'payments.refund',
       'ledger.read',
+      'integrations.read',
+      'command_centre.read',
     ],
   },
   {
@@ -346,6 +353,8 @@ export const DEFAULT_ROLES = [
       'portal_updates.publish',
       'finance.read',
       'invoices.create',
+      'integrations.read',
+      'command_centre.read',
     ],
   },
   {

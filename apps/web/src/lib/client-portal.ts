@@ -205,6 +205,13 @@ export const clientPortalMutationSchema = z.discriminatedUnion("operation", [
     notificationId: uuid,
     payload: z.object({}),
   }),
+  z.object({
+    operation: z.literal("payment.checkout"),
+    invoiceId: uuid,
+    payload: z.object({
+      idempotencyKey: idempotency,
+    }),
+  }),
 ]);
 export type ClientPortalMutation = z.infer<typeof clientPortalMutationSchema>;
 
@@ -246,4 +253,10 @@ export const portalUploadFinalisationSchema = z.object({
 export const portalNotificationReadSchema = z.object({
   notificationId: uuid,
   readAt: dateTime,
+});
+
+export const portalPaymentCheckoutSchema = z.object({
+  checkoutUrl: z.string().url(),
+  expiresAt: dateTime,
+  status: z.literal("OPEN"),
 });

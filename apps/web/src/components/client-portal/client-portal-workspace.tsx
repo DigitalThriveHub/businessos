@@ -4,6 +4,7 @@ import { type FormEvent, useCallback, useEffect, useState } from "react";
 import {
   Bell,
   CheckCircle2,
+  CreditCard,
   Download,
   FileUp,
   FolderLock,
@@ -25,12 +26,14 @@ import {
   clientPortalDashboardSchema,
   portalMessageResultSchema,
   portalNotificationReadSchema,
+  portalPaymentCheckoutSchema,
   portalUploadFinalisationSchema,
   portalUploadRegistrationSchema,
   type ClientPortalDashboard,
 } from "@/lib/client-portal";
 
 type View = "progress" | "messages" | "documents" | "billing";
+type PaymentResult = "success" | "cancelled" | null;
 
 function formatDateTime(value: string | null): string {
   if (!value) return "—";
@@ -61,15 +64,29 @@ function formatMoney(value: string, currency: string): string {
   }).format(minor / 100);
 }
 
-export function ClientPortalWorkspace() {
-  const [view, setView] = useState<View>("progress");
+export function ClientPortalWorkspace({
+  paymentResult = null,
+}: {
+  paymentResult?: PaymentResult;
+}) {
+  const [view, setView] = useState<View>(
+    paymentResult === null ? "progress" : "billing",
+  );
   const [dashboard, setDashboard] = useState<ClientPortalDashboard | null>(
     null,
   );
   const [loading, setLoading] = useState(true);
   const [busy, setBusy] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [notice, setNotice] = useState<string | null>(null);
+  const [notice, setNotice] = useState<string | null>(() => {
+    if (paymentResult === "success") {
+      return "Payment was submitted securely. The balance will update after verified provider reconciliation.";
+    }
+    if (paymentResult === "cancelled") {
+      return "Payment was cancelled. No payment was recorded.";
+    }
+    return null;
+  });
   const [conversationId, setConversationId] = useState("");
   const [reply, setReply] = useState("");
 
@@ -143,6 +160,34 @@ export function ClientPortalWorkspace() {
     } catch (readError) {
       setError(errorMessage(readError));
     } finally {
+      setBusy(null);
+    }
+  }
+
+  async function startPayment(invoiceId: string) {
+    setBusy(`payment:${invoiceId}`);
+    setError(null);
+    setNotice(null);
+
+    try {
+      const checkout = await clientPortalRequest(
+        "/api/client-portal/mutations",
+        portalPaymentCheckoutSchema,
+        {
+          method: "POST",
+          body: JSON.stringify({
+            operation: "payment.checkout",
+            invoiceId,
+            payload: {
+              idempotencyKey: `portal-checkout/${invoiceId}/${crypto.randomUUID()}`,
+            },
+          }),
+        },
+      );
+
+      window.location.assign(checkout.checkoutUrl);
+    } catch (paymentError) {
+      setError(errorMessage(paymentError));
       setBusy(null);
     }
   }
@@ -704,6 +749,20 @@ export function ClientPortalWorkspace() {
                             {invoice.paymentInstructions}
                           </p>
                         </div>
+                      ) : null}
+                      {invoice.documentType === "INVOICE" &&
+                      invoice.balanceMinor !== "0" ? (
+                        <button
+                          type="button"
+                          onClick={() => void startPayment(invoice.id)}
+                          disabled={busy !== null}
+                          className="mt-4 inline-flex h-11 items-center gap-2 rounded-xl bg-slate-950 px-4 text-sm font-semibold text-white disabled:cursor-not-allowed disabled:opacity-50"
+                        >
+                          <CreditCard className="h-4 w-4" />
+                          {busy === `payment:${invoice.id}`
+                            ? "Opening secure checkout…"
+                            : "Pay securely by card"}
+                        </button>
                       ) : null}
                     </article>
                   ))

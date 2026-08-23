@@ -113,6 +113,11 @@ export const DEFAULT_PERMISSION_KEYS = [
   'payments.record',
   'payments.refund',
   'ledger.read',
+
+  // External integrations and organisation-wide operational command centre
+  'integrations.read',
+  'integrations.manage',
+  'command_centre.read',
 ] as const;
 
 export type DefaultPermissionKey = (typeof DEFAULT_PERMISSION_KEYS)[number];

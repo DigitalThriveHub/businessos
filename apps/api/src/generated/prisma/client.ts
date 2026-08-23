@@ -399,3 +399,18 @@ export type FinanceJournalEntry = Prisma.FinanceJournalEntryModel
  * 
  */
 export type FinanceJournalLine = Prisma.FinanceJournalLineModel
+/**
+ * Model IntegrationConnection
+ * 
+ */
+export type IntegrationConnection = Prisma.IntegrationConnectionModel
+/**
+ * Model IntegrationEvent
+ * 
+ */
+export type IntegrationEvent = Prisma.IntegrationEventModel
+/**
+ * Model PaymentCheckoutSession
+ * 
+ */
+export type PaymentCheckoutSession = Prisma.PaymentCheckoutSessionModel

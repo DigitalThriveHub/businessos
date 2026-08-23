@@ -8,6 +8,7 @@ import {
   portalInvitationAcceptanceSchema,
   portalMessageResultSchema,
   portalNotificationReadSchema,
+  portalPaymentCheckoutSchema,
   portalUploadFinalisationSchema,
   portalUploadRegistrationSchema,
 } from "@/lib/client-portal";
@@ -68,6 +69,15 @@ function upstreamMutation(input: ClientPortalMutation): UpstreamMutation {
         body: input.payload,
         created: false,
         schema: portalNotificationReadSchema,
+      };
+    case "payment.checkout":
+      return {
+        path: `/api/v1/client-portal/invoices/${encodeURIComponent(
+          input.invoiceId,
+        )}/checkout`,
+        body: input.payload,
+        created: true,
+        schema: portalPaymentCheckoutSchema,
       };
   }
 }

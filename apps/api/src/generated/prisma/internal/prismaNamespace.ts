@@ -468,7 +468,10 @@ export const ModelName = {
   FinancePayment: 'FinancePayment',
   FinancePaymentAllocation: 'FinancePaymentAllocation',
   FinanceJournalEntry: 'FinanceJournalEntry',
-  FinanceJournalLine: 'FinanceJournalLine'
+  FinanceJournalLine: 'FinanceJournalLine',
+  IntegrationConnection: 'IntegrationConnection',
+  IntegrationEvent: 'IntegrationEvent',
+  PaymentCheckoutSession: 'PaymentCheckoutSession'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -484,7 +487,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "organisation" | "organisationSetting" | "userProfile" | "organisationMembership" | "department" | "departmentMembership" | "team" | "teamMembership" | "role" | "permission" | "rolePermission" | "roleAssignment" | "invitation" | "userSession" | "supportAccessGrant" | "auditEvent" | "securityEvent" | "jobProfile" | "jobProfileDuty" | "kpiDefinition" | "jobProfileKpi" | "agentProfile" | "agentPolicy" | "workforceAssignment" | "workforceAssignmentKpi" | "invitationOnboardingPlan" | "invitationOnboardingRole" | "invitationOnboardingKpi" | "enquiry" | "organisationNumberSequence" | "client" | "matter" | "matterParty" | "matterCompliance" | "matterStatusHistory" | "enquiryConversion" | "matterTask" | "matterDeadline" | "documentRequest" | "documentRequestItem" | "matterDocument" | "matterDocumentVersion" | "matterTimelineEvent" | "workflowDefinition" | "workflowVersion" | "workflowRun" | "workflowAction" | "slaPolicy" | "slaInstance" | "escalationRule" | "escalationEvent" | "approvalRequest" | "approvalDecision" | "clientPortalAccessGrant" | "clientPortalMatterGrant" | "clientPortalInvitation" | "portalMatterUpdate" | "communicationConversation" | "communicationMessage" | "communicationAttachment" | "communicationDeliveryEvent" | "communicationTemplate" | "communicationReminder" | "clientNotification" | "financeSettings" | "financeLedgerAccount" | "financeDocument" | "financeDocumentLine" | "financePayment" | "financePaymentAllocation" | "financeJournalEntry" | "financeJournalLine"
+    modelProps: "organisation" | "organisationSetting" | "userProfile" | "organisationMembership" | "department" | "departmentMembership" | "team" | "teamMembership" | "role" | "permission" | "rolePermission" | "roleAssignment" | "invitation" | "userSession" | "supportAccessGrant" | "auditEvent" | "securityEvent" | "jobProfile" | "jobProfileDuty" | "kpiDefinition" | "jobProfileKpi" | "agentProfile" | "agentPolicy" | "workforceAssignment" | "workforceAssignmentKpi" | "invitationOnboardingPlan" | "invitationOnboardingRole" | "invitationOnboardingKpi" | "enquiry" | "organisationNumberSequence" | "client" | "matter" | "matterParty" | "matterCompliance" | "matterStatusHistory" | "enquiryConversion" | "matterTask" | "matterDeadline" | "documentRequest" | "documentRequestItem" | "matterDocument" | "matterDocumentVersion" | "matterTimelineEvent" | "workflowDefinition" | "workflowVersion" | "workflowRun" | "workflowAction" | "slaPolicy" | "slaInstance" | "escalationRule" | "escalationEvent" | "approvalRequest" | "approvalDecision" | "clientPortalAccessGrant" | "clientPortalMatterGrant" | "clientPortalInvitation" | "portalMatterUpdate" | "communicationConversation" | "communicationMessage" | "communicationAttachment" | "communicationDeliveryEvent" | "communicationTemplate" | "communicationReminder" | "clientNotification" | "financeSettings" | "financeLedgerAccount" | "financeDocument" | "financeDocumentLine" | "financePayment" | "financePaymentAllocation" | "financeJournalEntry" | "financeJournalLine" | "integrationConnection" | "integrationEvent" | "paymentCheckoutSession"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -5816,6 +5819,228 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    IntegrationConnection: {
+      payload: Prisma.$IntegrationConnectionPayload<ExtArgs>
+      fields: Prisma.IntegrationConnectionFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.IntegrationConnectionFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IntegrationConnectionPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.IntegrationConnectionFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IntegrationConnectionPayload>
+        }
+        findFirst: {
+          args: Prisma.IntegrationConnectionFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IntegrationConnectionPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.IntegrationConnectionFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IntegrationConnectionPayload>
+        }
+        findMany: {
+          args: Prisma.IntegrationConnectionFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IntegrationConnectionPayload>[]
+        }
+        create: {
+          args: Prisma.IntegrationConnectionCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IntegrationConnectionPayload>
+        }
+        createMany: {
+          args: Prisma.IntegrationConnectionCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.IntegrationConnectionCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IntegrationConnectionPayload>[]
+        }
+        delete: {
+          args: Prisma.IntegrationConnectionDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IntegrationConnectionPayload>
+        }
+        update: {
+          args: Prisma.IntegrationConnectionUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IntegrationConnectionPayload>
+        }
+        deleteMany: {
+          args: Prisma.IntegrationConnectionDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.IntegrationConnectionUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.IntegrationConnectionUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IntegrationConnectionPayload>[]
+        }
+        upsert: {
+          args: Prisma.IntegrationConnectionUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IntegrationConnectionPayload>
+        }
+        aggregate: {
+          args: Prisma.IntegrationConnectionAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateIntegrationConnection>
+        }
+        groupBy: {
+          args: Prisma.IntegrationConnectionGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.IntegrationConnectionGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.IntegrationConnectionCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.IntegrationConnectionCountAggregateOutputType> | number
+        }
+      }
+    }
+    IntegrationEvent: {
+      payload: Prisma.$IntegrationEventPayload<ExtArgs>
+      fields: Prisma.IntegrationEventFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.IntegrationEventFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IntegrationEventPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.IntegrationEventFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IntegrationEventPayload>
+        }
+        findFirst: {
+          args: Prisma.IntegrationEventFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IntegrationEventPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.IntegrationEventFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IntegrationEventPayload>
+        }
+        findMany: {
+          args: Prisma.IntegrationEventFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IntegrationEventPayload>[]
+        }
+        create: {
+          args: Prisma.IntegrationEventCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IntegrationEventPayload>
+        }
+        createMany: {
+          args: Prisma.IntegrationEventCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.IntegrationEventCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IntegrationEventPayload>[]
+        }
+        delete: {
+          args: Prisma.IntegrationEventDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IntegrationEventPayload>
+        }
+        update: {
+          args: Prisma.IntegrationEventUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IntegrationEventPayload>
+        }
+        deleteMany: {
+          args: Prisma.IntegrationEventDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.IntegrationEventUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.IntegrationEventUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IntegrationEventPayload>[]
+        }
+        upsert: {
+          args: Prisma.IntegrationEventUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IntegrationEventPayload>
+        }
+        aggregate: {
+          args: Prisma.IntegrationEventAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateIntegrationEvent>
+        }
+        groupBy: {
+          args: Prisma.IntegrationEventGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.IntegrationEventGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.IntegrationEventCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.IntegrationEventCountAggregateOutputType> | number
+        }
+      }
+    }
+    PaymentCheckoutSession: {
+      payload: Prisma.$PaymentCheckoutSessionPayload<ExtArgs>
+      fields: Prisma.PaymentCheckoutSessionFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.PaymentCheckoutSessionFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PaymentCheckoutSessionPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.PaymentCheckoutSessionFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PaymentCheckoutSessionPayload>
+        }
+        findFirst: {
+          args: Prisma.PaymentCheckoutSessionFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PaymentCheckoutSessionPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.PaymentCheckoutSessionFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PaymentCheckoutSessionPayload>
+        }
+        findMany: {
+          args: Prisma.PaymentCheckoutSessionFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PaymentCheckoutSessionPayload>[]
+        }
+        create: {
+          args: Prisma.PaymentCheckoutSessionCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PaymentCheckoutSessionPayload>
+        }
+        createMany: {
+          args: Prisma.PaymentCheckoutSessionCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.PaymentCheckoutSessionCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PaymentCheckoutSessionPayload>[]
+        }
+        delete: {
+          args: Prisma.PaymentCheckoutSessionDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PaymentCheckoutSessionPayload>
+        }
+        update: {
+          args: Prisma.PaymentCheckoutSessionUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PaymentCheckoutSessionPayload>
+        }
+        deleteMany: {
+          args: Prisma.PaymentCheckoutSessionDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.PaymentCheckoutSessionUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.PaymentCheckoutSessionUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PaymentCheckoutSessionPayload>[]
+        }
+        upsert: {
+          args: Prisma.PaymentCheckoutSessionUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PaymentCheckoutSessionPayload>
+        }
+        aggregate: {
+          args: Prisma.PaymentCheckoutSessionAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregatePaymentCheckoutSession>
+        }
+        groupBy: {
+          args: Prisma.PaymentCheckoutSessionGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PaymentCheckoutSessionGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.PaymentCheckoutSessionCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PaymentCheckoutSessionCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -7461,6 +7686,73 @@ export const FinanceJournalLineScalarFieldEnum = {
 export type FinanceJournalLineScalarFieldEnum = (typeof FinanceJournalLineScalarFieldEnum)[keyof typeof FinanceJournalLineScalarFieldEnum]
 
 
+export const IntegrationConnectionScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  provider: 'provider',
+  displayName: 'displayName',
+  status: 'status',
+  externalAccountReference: 'externalAccountReference',
+  secretVersion: 'secretVersion',
+  createdByUserId: 'createdByUserId',
+  updatedByUserId: 'updatedByUserId',
+  version: 'version',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type IntegrationConnectionScalarFieldEnum = (typeof IntegrationConnectionScalarFieldEnum)[keyof typeof IntegrationConnectionScalarFieldEnum]
+
+
+export const IntegrationEventScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  connectionId: 'connectionId',
+  provider: 'provider',
+  direction: 'direction',
+  externalEventId: 'externalEventId',
+  eventType: 'eventType',
+  status: 'status',
+  payloadSha256: 'payloadSha256',
+  correlationId: 'correlationId',
+  subjectType: 'subjectType',
+  subjectId: 'subjectId',
+  errorCode: 'errorCode',
+  occurredAt: 'occurredAt',
+  receivedAt: 'receivedAt',
+  processedAt: 'processedAt',
+  createdAt: 'createdAt'
+} as const
+
+export type IntegrationEventScalarFieldEnum = (typeof IntegrationEventScalarFieldEnum)[keyof typeof IntegrationEventScalarFieldEnum]
+
+
+export const PaymentCheckoutSessionScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  connectionId: 'connectionId',
+  invoiceId: 'invoiceId',
+  clientId: 'clientId',
+  createdByUserId: 'createdByUserId',
+  status: 'status',
+  amountMinor: 'amountMinor',
+  currencyCode: 'currencyCode',
+  idempotencyKey: 'idempotencyKey',
+  providerSessionId: 'providerSessionId',
+  providerPaymentIntentId: 'providerPaymentIntentId',
+  checkoutUrl: 'checkoutUrl',
+  expiresAt: 'expiresAt',
+  completedAt: 'completedAt',
+  failedAt: 'failedAt',
+  failureCode: 'failureCode',
+  version: 'version',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type PaymentCheckoutSessionScalarFieldEnum = (typeof PaymentCheckoutSessionScalarFieldEnum)[keyof typeof PaymentCheckoutSessionScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -8643,6 +8935,76 @@ export type ListEnumFinanceJournalSourceFieldRefInput<$PrismaModel> = FieldRefIn
 
 
 /**
+ * Reference to a field of type 'IntegrationProvider'
+ */
+export type EnumIntegrationProviderFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'IntegrationProvider'>
+    
+
+
+/**
+ * Reference to a field of type 'IntegrationProvider[]'
+ */
+export type ListEnumIntegrationProviderFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'IntegrationProvider[]'>
+    
+
+
+/**
+ * Reference to a field of type 'IntegrationConnectionStatus'
+ */
+export type EnumIntegrationConnectionStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'IntegrationConnectionStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'IntegrationConnectionStatus[]'
+ */
+export type ListEnumIntegrationConnectionStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'IntegrationConnectionStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'IntegrationDirection'
+ */
+export type EnumIntegrationDirectionFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'IntegrationDirection'>
+    
+
+
+/**
+ * Reference to a field of type 'IntegrationDirection[]'
+ */
+export type ListEnumIntegrationDirectionFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'IntegrationDirection[]'>
+    
+
+
+/**
+ * Reference to a field of type 'IntegrationEventStatus'
+ */
+export type EnumIntegrationEventStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'IntegrationEventStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'IntegrationEventStatus[]'
+ */
+export type ListEnumIntegrationEventStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'IntegrationEventStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'PaymentCheckoutStatus'
+ */
+export type EnumPaymentCheckoutStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PaymentCheckoutStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'PaymentCheckoutStatus[]'
+ */
+export type ListEnumPaymentCheckoutStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PaymentCheckoutStatus[]'>
+    
+
+
+/**
  * Reference to a field of type 'Float'
  */
 export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -8878,6 +9240,9 @@ export type GlobalOmitConfig = {
   financePaymentAllocation?: Prisma.FinancePaymentAllocationOmit
   financeJournalEntry?: Prisma.FinanceJournalEntryOmit
   financeJournalLine?: Prisma.FinanceJournalLineOmit
+  integrationConnection?: Prisma.IntegrationConnectionOmit
+  integrationEvent?: Prisma.IntegrationEventOmit
+  paymentCheckoutSession?: Prisma.PaymentCheckoutSessionOmit
 }
 
 /* Types for Logging */

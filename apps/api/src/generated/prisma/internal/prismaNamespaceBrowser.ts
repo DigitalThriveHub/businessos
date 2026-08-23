@@ -122,7 +122,10 @@ export const ModelName = {
   FinancePayment: 'FinancePayment',
   FinancePaymentAllocation: 'FinancePaymentAllocation',
   FinanceJournalEntry: 'FinanceJournalEntry',
-  FinanceJournalLine: 'FinanceJournalLine'
+  FinanceJournalLine: 'FinanceJournalLine',
+  IntegrationConnection: 'IntegrationConnection',
+  IntegrationEvent: 'IntegrationEvent',
+  PaymentCheckoutSession: 'PaymentCheckoutSession'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -1745,6 +1748,73 @@ export const FinanceJournalLineScalarFieldEnum = {
 } as const
 
 export type FinanceJournalLineScalarFieldEnum = (typeof FinanceJournalLineScalarFieldEnum)[keyof typeof FinanceJournalLineScalarFieldEnum]
+
+
+export const IntegrationConnectionScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  provider: 'provider',
+  displayName: 'displayName',
+  status: 'status',
+  externalAccountReference: 'externalAccountReference',
+  secretVersion: 'secretVersion',
+  createdByUserId: 'createdByUserId',
+  updatedByUserId: 'updatedByUserId',
+  version: 'version',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type IntegrationConnectionScalarFieldEnum = (typeof IntegrationConnectionScalarFieldEnum)[keyof typeof IntegrationConnectionScalarFieldEnum]
+
+
+export const IntegrationEventScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  connectionId: 'connectionId',
+  provider: 'provider',
+  direction: 'direction',
+  externalEventId: 'externalEventId',
+  eventType: 'eventType',
+  status: 'status',
+  payloadSha256: 'payloadSha256',
+  correlationId: 'correlationId',
+  subjectType: 'subjectType',
+  subjectId: 'subjectId',
+  errorCode: 'errorCode',
+  occurredAt: 'occurredAt',
+  receivedAt: 'receivedAt',
+  processedAt: 'processedAt',
+  createdAt: 'createdAt'
+} as const
+
+export type IntegrationEventScalarFieldEnum = (typeof IntegrationEventScalarFieldEnum)[keyof typeof IntegrationEventScalarFieldEnum]
+
+
+export const PaymentCheckoutSessionScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  connectionId: 'connectionId',
+  invoiceId: 'invoiceId',
+  clientId: 'clientId',
+  createdByUserId: 'createdByUserId',
+  status: 'status',
+  amountMinor: 'amountMinor',
+  currencyCode: 'currencyCode',
+  idempotencyKey: 'idempotencyKey',
+  providerSessionId: 'providerSessionId',
+  providerPaymentIntentId: 'providerPaymentIntentId',
+  checkoutUrl: 'checkoutUrl',
+  expiresAt: 'expiresAt',
+  completedAt: 'completedAt',
+  failedAt: 'failedAt',
+  failureCode: 'failureCode',
+  version: 'version',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type PaymentCheckoutSessionScalarFieldEnum = (typeof PaymentCheckoutSessionScalarFieldEnum)[keyof typeof PaymentCheckoutSessionScalarFieldEnum]
 
 
 export const SortOrder = {

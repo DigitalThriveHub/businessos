@@ -789,6 +789,52 @@ export const FinanceJournalSource = {
 export type FinanceJournalSource = (typeof FinanceJournalSource)[keyof typeof FinanceJournalSource]
 
 
+export const IntegrationProvider = {
+  WORDPRESS: 'WORDPRESS',
+  STRIPE: 'STRIPE',
+  GENERIC: 'GENERIC'
+} as const
+
+export type IntegrationProvider = (typeof IntegrationProvider)[keyof typeof IntegrationProvider]
+
+
+export const IntegrationConnectionStatus = {
+  ACTIVE: 'ACTIVE',
+  DISABLED: 'DISABLED'
+} as const
+
+export type IntegrationConnectionStatus = (typeof IntegrationConnectionStatus)[keyof typeof IntegrationConnectionStatus]
+
+
+export const IntegrationDirection = {
+  INBOUND: 'INBOUND',
+  OUTBOUND: 'OUTBOUND'
+} as const
+
+export type IntegrationDirection = (typeof IntegrationDirection)[keyof typeof IntegrationDirection]
+
+
+export const IntegrationEventStatus = {
+  RECEIVED: 'RECEIVED',
+  PROCESSED: 'PROCESSED',
+  FAILED: 'FAILED',
+  IGNORED: 'IGNORED'
+} as const
+
+export type IntegrationEventStatus = (typeof IntegrationEventStatus)[keyof typeof IntegrationEventStatus]
+
+
+export const PaymentCheckoutStatus = {
+  PENDING_PROVIDER: 'PENDING_PROVIDER',
+  OPEN: 'OPEN',
+  COMPLETED: 'COMPLETED',
+  EXPIRED: 'EXPIRED',
+  FAILED: 'FAILED'
+} as const
+
+export type PaymentCheckoutStatus = (typeof PaymentCheckoutStatus)[keyof typeof PaymentCheckoutStatus]
+
+
 export const EnquiryStatus = {
   NEW: 'NEW',
   CONTACTED: 'CONTACTED',

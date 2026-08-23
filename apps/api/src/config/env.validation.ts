@@ -74,6 +74,8 @@ const environmentSchema = z
 
     PORT: z.coerce.number().int().min(1).max(65535).default(4000),
 
+    TRUST_PROXY_HOPS: z.coerce.number().int().min(0).max(5).default(0),
+
     DATABASE_URL: runtimeDatabaseUrl,
 
     DATABASE_POOL_MAX: z.coerce.number().int().min(1).max(20).default(5),
@@ -130,6 +132,39 @@ const environmentSchema = z
       .min(1)
       .max(336)
       .default(168),
+
+    INTEGRATION_SIGNING_MASTER_SECRET: z.string().min(32).max(512).optional(),
+
+    INTEGRATION_WEBHOOK_TOLERANCE_SECONDS: z.coerce
+      .number()
+      .int()
+      .min(60)
+      .max(900)
+      .default(300),
+
+    STRIPE_SECRET_KEY: z
+      .string()
+      .trim()
+      .regex(/^sk_(test|live)_[A-Za-z0-9_]{16,}$/)
+      .optional(),
+
+    STRIPE_WEBHOOK_SECRET: z
+      .string()
+      .trim()
+      .regex(/^whsec_[A-Za-z0-9_]{16,}$/)
+      .optional(),
+
+    STRIPE_PLATFORM_ACCOUNT_ID: z
+      .string()
+      .trim()
+      .regex(/^acct_[A-Za-z0-9]{8,}$/)
+      .optional(),
+
+    STRIPE_API_VERSION: z
+      .string()
+      .trim()
+      .regex(/^\d{4}-\d{2}-\d{2}(\.[A-Za-z0-9_-]+)?$/)
+      .optional(),
   })
   .superRefine((environment, ctx) => {
     if (environment.NODE_ENV === 'production') {
@@ -143,6 +178,28 @@ const environmentSchema = z
         });
       }
 
+      if (environment.TRUST_PROXY_HOPS < 1) {
+        ctx.addIssue({
+          code: 'custom',
+          path: ['TRUST_PROXY_HOPS'],
+          message:
+            'TRUST_PROXY_HOPS must identify the reviewed proxy chain in production',
+        });
+      }
+
+      const databaseUrl = new URL(environment.DATABASE_URL);
+      if (
+        !['require', 'verify-ca', 'verify-full'].includes(
+          databaseUrl.searchParams.get('sslmode') ?? '',
+        )
+      ) {
+        ctx.addIssue({
+          code: 'custom',
+          path: ['DATABASE_URL'],
+          message: 'DATABASE_URL must require TLS in production',
+        });
+      }
+
       const requiredProductionValues = [
         ['RESEND_API_KEY', environment.RESEND_API_KEY],
         ['EMAIL_FROM_ADDRESS', environment.EMAIL_FROM_ADDRESS],
@@ -152,6 +209,14 @@ const environmentSchema = z
           environment.PORTAL_INVITATION_TOKEN_SECRET,
         ],
         ['RESEND_WEBHOOK_SECRET', environment.RESEND_WEBHOOK_SECRET],
+        [
+          'INTEGRATION_SIGNING_MASTER_SECRET',
+          environment.INTEGRATION_SIGNING_MASTER_SECRET,
+        ],
+        ['STRIPE_SECRET_KEY', environment.STRIPE_SECRET_KEY],
+        ['STRIPE_WEBHOOK_SECRET', environment.STRIPE_WEBHOOK_SECRET],
+        ['STRIPE_PLATFORM_ACCOUNT_ID', environment.STRIPE_PLATFORM_ACCOUNT_ID],
+        ['STRIPE_API_VERSION', environment.STRIPE_API_VERSION],
       ] as const;
 
       for (const [
@@ -166,6 +231,17 @@ const environmentSchema = z
           });
         }
       }
+
+      if (
+        environment.STRIPE_SECRET_KEY &&
+        !environment.STRIPE_SECRET_KEY.startsWith('sk_live_')
+      ) {
+        ctx.addIssue({
+          code: 'custom',
+          path: ['STRIPE_SECRET_KEY'],
+          message: 'STRIPE_SECRET_KEY must be a live key in production',
+        });
+      }
     }
 
     if (
@@ -179,6 +255,22 @@ const environmentSchema = z
         path: ['PORTAL_INVITATION_TOKEN_SECRET'],
         message:
           'Portal and workforce invitation token secrets must be different',
+      });
+    }
+
+    if (
+      environment.INTEGRATION_SIGNING_MASTER_SECRET &&
+      [
+        environment.INVITATION_TOKEN_SECRET,
+        environment.PORTAL_INVITATION_TOKEN_SECRET,
+        environment.RESEND_WEBHOOK_SECRET,
+        environment.STRIPE_WEBHOOK_SECRET,
+      ].includes(environment.INTEGRATION_SIGNING_MASTER_SECRET)
+    ) {
+      ctx.addIssue({
+        code: 'custom',
+        path: ['INTEGRATION_SIGNING_MASTER_SECRET'],
+        message: 'The integration signing master secret must be independent',
       });
     }
   });

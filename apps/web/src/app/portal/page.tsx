@@ -10,6 +10,14 @@ export const metadata: Metadata = {
 
 export const dynamic = "force-dynamic";
 
-export default function ClientPortalPage() {
-  return <ClientPortalWorkspace />;
+export default async function ClientPortalPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ payment?: string | string[] }>;
+}) {
+  const payment = (await searchParams).payment;
+  const paymentResult =
+    payment === "success" || payment === "cancelled" ? payment : null;
+
+  return <ClientPortalWorkspace paymentResult={paymentResult} />;
 }
