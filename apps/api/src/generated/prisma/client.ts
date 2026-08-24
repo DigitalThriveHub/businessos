@@ -414,3 +414,23 @@ export type IntegrationEvent = Prisma.IntegrationEventModel
  * 
  */
 export type PaymentCheckoutSession = Prisma.PaymentCheckoutSessionModel
+/**
+ * Model ServiceEngagement
+ * 
+ */
+export type ServiceEngagement = Prisma.ServiceEngagementModel
+/**
+ * Model EngagementInstalment
+ * 
+ */
+export type EngagementInstalment = Prisma.EngagementInstalmentModel
+/**
+ * Model LifecycleGateOverride
+ * 
+ */
+export type LifecycleGateOverride = Prisma.LifecycleGateOverrideModel
+/**
+ * Model LifecycleException
+ * 
+ */
+export type LifecycleException = Prisma.LifecycleExceptionModel

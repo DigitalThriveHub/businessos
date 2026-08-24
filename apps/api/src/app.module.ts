@@ -20,7 +20,9 @@ import { FinanceModule } from './finance/finance.module';
 import { IntegrationsModule } from './integrations/integrations.module';
 import { InvitationsModule } from './invitations/invitations.module';
 import { OrganisationsModule } from './organisations/organisations.module';
+import { OperationalReadinessModule } from './operational-readiness/operational-readiness.module';
 import { PaymentsModule } from './payments/payments.module';
+import { ServiceLifecycleModule } from './service-lifecycle/service-lifecycle.module';
 import { WorkforceConfigurationModule } from './workforce-configuration/workforce-configuration.module';
 
 @Module({
@@ -47,7 +49,9 @@ import { WorkforceConfigurationModule } from './workforce-configuration/workforc
     IntegrationsModule,
     InvitationsModule,
     OrganisationsModule,
+    OperationalReadinessModule,
     PaymentsModule,
+    ServiceLifecycleModule,
     WorkforceConfigurationModule,
   ],
   controllers: [AppController],

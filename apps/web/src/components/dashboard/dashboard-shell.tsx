@@ -10,6 +10,7 @@ import {
   FileText,
   Gauge,
   Landmark,
+  Route,
   LayoutDashboard,
   LogOut,
   MessagesSquare,
@@ -132,6 +133,12 @@ const navigationItems: NavigationItem[] = [
     href: "/finance",
     icon: Landmark,
     permissions: ["finance.read"],
+  },
+  {
+    label: "Service Lifecycle",
+    href: "/service-lifecycle",
+    icon: Route,
+    permissions: ["engagements.read"],
   },
   {
     label: "Integrations",

@@ -835,6 +835,39 @@ export const PaymentCheckoutStatus = {
 export type PaymentCheckoutStatus = (typeof PaymentCheckoutStatus)[keyof typeof PaymentCheckoutStatus]
 
 
+export const EngagementStatus = {
+  DRAFT: 'DRAFT',
+  SENT: 'SENT',
+  ACCEPTED: 'ACCEPTED',
+  PAYMENT_PENDING: 'PAYMENT_PENDING',
+  ACTIVE: 'ACTIVE',
+  ON_HOLD: 'ON_HOLD',
+  COMPLETED: 'COMPLETED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type EngagementStatus = (typeof EngagementStatus)[keyof typeof EngagementStatus]
+
+
+export const LifecycleGate = {
+  LEGAL_WORK: 'LEGAL_WORK',
+  SUBMISSION: 'SUBMISSION',
+  CLOSURE: 'CLOSURE'
+} as const
+
+export type LifecycleGate = (typeof LifecycleGate)[keyof typeof LifecycleGate]
+
+
+export const LifecycleExceptionStatus = {
+  OPEN: 'OPEN',
+  ASSIGNED: 'ASSIGNED',
+  RESOLVED: 'RESOLVED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type LifecycleExceptionStatus = (typeof LifecycleExceptionStatus)[keyof typeof LifecycleExceptionStatus]
+
+
 export const EnquiryStatus = {
   NEW: 'NEW',
   CONTACTED: 'CONTACTED',

@@ -22,6 +22,10 @@ const productionEnvironment = {
   STRIPE_WEBHOOK_SECRET: 'whsec_stripe_signature_secret_123456',
   STRIPE_PLATFORM_ACCOUNT_ID: 'acct_platform123',
   STRIPE_API_VERSION: '2026-08-15.stable',
+  RELEASE_SHA: 'abcdef1234567890',
+  SENTRY_DSN: 'https://public@example.ingest.sentry.io/12345',
+  AXIOM_TOKEN: 'xaat-businessos-production-token-123456',
+  BACKUP_RESTORE_EVIDENCE_AT: new Date().toISOString(),
 };
 
 describe('validateEnvironment Gate F controls', () => {
@@ -68,5 +72,14 @@ describe('validateEnvironment Gate F controls', () => {
         TRUST_PROXY_HOPS: 0,
       }),
     ).toThrow('TRUST_PROXY_HOPS must identify the reviewed proxy chain');
+  });
+
+  it('rejects stale backup restore evidence', () => {
+    expect(() =>
+      validateEnvironment({
+        ...productionEnvironment,
+        BACKUP_RESTORE_EVIDENCE_AT: '2025-01-01T00:00:00.000Z',
+      }),
+    ).toThrow('A successful backup restore exercise is required every 92 days');
   });
 });

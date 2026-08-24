@@ -10,12 +10,7 @@ export const ENQUIRY_STATUSES = [
   "SPAM",
 ] as const;
 
-export const ENQUIRY_PRIORITIES = [
-  "LOW",
-  "NORMAL",
-  "HIGH",
-  "URGENT",
-] as const;
+export const ENQUIRY_PRIORITIES = ["LOW", "NORMAL", "HIGH", "URGENT"] as const;
 
 export const enquiryStatusSchema = z.enum(ENQUIRY_STATUSES);
 export const enquiryPrioritySchema = z.enum(ENQUIRY_PRIORITIES);
@@ -87,9 +82,7 @@ export const enquiryListResponseSchema = z.object({
   }),
 });
 
-export type EnquiryListResponse = z.infer<
-  typeof enquiryListResponseSchema
->;
+export type EnquiryListResponse = z.infer<typeof enquiryListResponseSchema>;
 
 export const enquiryQuerySchema = z.object({
   organisationId: z.string().uuid(),
@@ -139,9 +132,7 @@ export const createEnquirySchema = z.object({
   nextFollowUpAt: z.string().datetime().optional(),
 });
 
-export type CreateEnquiryInput = z.infer<
-  typeof createEnquirySchema
->;
+export type CreateEnquiryInput = z.infer<typeof createEnquirySchema>;
 
 export const updateEnquirySchema = z
   .object({
@@ -150,11 +141,7 @@ export const updateEnquirySchema = z
     lastName: nullableText(100).optional(),
 
     email: z
-      .union([
-        z.string().trim().email().max(320),
-        z.literal(""),
-        z.null(),
-      ])
+      .union([z.string().trim().email().max(320), z.literal(""), z.null()])
       .optional(),
 
     phone: nullableText(50).optional(),
@@ -168,9 +155,9 @@ export const updateEnquirySchema = z
     priority: enquiryPrioritySchema.optional(),
 
     nextFollowUpAt: z.string().datetime().nullable().optional(),
+    assignedToUserId: z.string().uuid().optional(),
+    lastContactedAt: z.string().datetime().optional(),
   })
   .strict();
 
-export type UpdateEnquiryInput = z.infer<
-  typeof updateEnquirySchema
->;
+export type UpdateEnquiryInput = z.infer<typeof updateEnquirySchema>;

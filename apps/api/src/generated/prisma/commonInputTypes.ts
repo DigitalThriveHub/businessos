@@ -1816,6 +1816,57 @@ export type EnumPaymentCheckoutStatusWithAggregatesFilter<$PrismaModel = never> 
   _max?: Prisma.NestedEnumPaymentCheckoutStatusFilter<$PrismaModel>
 }
 
+export type EnumEngagementStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.EngagementStatus | Prisma.EnumEngagementStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.EngagementStatus[] | Prisma.ListEnumEngagementStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.EngagementStatus[] | Prisma.ListEnumEngagementStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumEngagementStatusFilter<$PrismaModel> | $Enums.EngagementStatus
+}
+
+export type EnumEngagementStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.EngagementStatus | Prisma.EnumEngagementStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.EngagementStatus[] | Prisma.ListEnumEngagementStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.EngagementStatus[] | Prisma.ListEnumEngagementStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumEngagementStatusWithAggregatesFilter<$PrismaModel> | $Enums.EngagementStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumEngagementStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumEngagementStatusFilter<$PrismaModel>
+}
+
+export type EnumLifecycleGateFilter<$PrismaModel = never> = {
+  equals?: $Enums.LifecycleGate | Prisma.EnumLifecycleGateFieldRefInput<$PrismaModel>
+  in?: $Enums.LifecycleGate[] | Prisma.ListEnumLifecycleGateFieldRefInput<$PrismaModel>
+  notIn?: $Enums.LifecycleGate[] | Prisma.ListEnumLifecycleGateFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumLifecycleGateFilter<$PrismaModel> | $Enums.LifecycleGate
+}
+
+export type EnumLifecycleGateWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.LifecycleGate | Prisma.EnumLifecycleGateFieldRefInput<$PrismaModel>
+  in?: $Enums.LifecycleGate[] | Prisma.ListEnumLifecycleGateFieldRefInput<$PrismaModel>
+  notIn?: $Enums.LifecycleGate[] | Prisma.ListEnumLifecycleGateFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumLifecycleGateWithAggregatesFilter<$PrismaModel> | $Enums.LifecycleGate
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumLifecycleGateFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumLifecycleGateFilter<$PrismaModel>
+}
+
+export type EnumLifecycleExceptionStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.LifecycleExceptionStatus | Prisma.EnumLifecycleExceptionStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.LifecycleExceptionStatus[] | Prisma.ListEnumLifecycleExceptionStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.LifecycleExceptionStatus[] | Prisma.ListEnumLifecycleExceptionStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumLifecycleExceptionStatusFilter<$PrismaModel> | $Enums.LifecycleExceptionStatus
+}
+
+export type EnumLifecycleExceptionStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.LifecycleExceptionStatus | Prisma.EnumLifecycleExceptionStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.LifecycleExceptionStatus[] | Prisma.ListEnumLifecycleExceptionStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.LifecycleExceptionStatus[] | Prisma.ListEnumLifecycleExceptionStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumLifecycleExceptionStatusWithAggregatesFilter<$PrismaModel> | $Enums.LifecycleExceptionStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumLifecycleExceptionStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumLifecycleExceptionStatusFilter<$PrismaModel>
+}
+
 export type NestedUuidFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel>
   in?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
@@ -3571,6 +3622,57 @@ export type NestedEnumPaymentCheckoutStatusWithAggregatesFilter<$PrismaModel = n
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumPaymentCheckoutStatusFilter<$PrismaModel>
   _max?: Prisma.NestedEnumPaymentCheckoutStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumEngagementStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.EngagementStatus | Prisma.EnumEngagementStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.EngagementStatus[] | Prisma.ListEnumEngagementStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.EngagementStatus[] | Prisma.ListEnumEngagementStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumEngagementStatusFilter<$PrismaModel> | $Enums.EngagementStatus
+}
+
+export type NestedEnumEngagementStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.EngagementStatus | Prisma.EnumEngagementStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.EngagementStatus[] | Prisma.ListEnumEngagementStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.EngagementStatus[] | Prisma.ListEnumEngagementStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumEngagementStatusWithAggregatesFilter<$PrismaModel> | $Enums.EngagementStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumEngagementStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumEngagementStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumLifecycleGateFilter<$PrismaModel = never> = {
+  equals?: $Enums.LifecycleGate | Prisma.EnumLifecycleGateFieldRefInput<$PrismaModel>
+  in?: $Enums.LifecycleGate[] | Prisma.ListEnumLifecycleGateFieldRefInput<$PrismaModel>
+  notIn?: $Enums.LifecycleGate[] | Prisma.ListEnumLifecycleGateFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumLifecycleGateFilter<$PrismaModel> | $Enums.LifecycleGate
+}
+
+export type NestedEnumLifecycleGateWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.LifecycleGate | Prisma.EnumLifecycleGateFieldRefInput<$PrismaModel>
+  in?: $Enums.LifecycleGate[] | Prisma.ListEnumLifecycleGateFieldRefInput<$PrismaModel>
+  notIn?: $Enums.LifecycleGate[] | Prisma.ListEnumLifecycleGateFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumLifecycleGateWithAggregatesFilter<$PrismaModel> | $Enums.LifecycleGate
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumLifecycleGateFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumLifecycleGateFilter<$PrismaModel>
+}
+
+export type NestedEnumLifecycleExceptionStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.LifecycleExceptionStatus | Prisma.EnumLifecycleExceptionStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.LifecycleExceptionStatus[] | Prisma.ListEnumLifecycleExceptionStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.LifecycleExceptionStatus[] | Prisma.ListEnumLifecycleExceptionStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumLifecycleExceptionStatusFilter<$PrismaModel> | $Enums.LifecycleExceptionStatus
+}
+
+export type NestedEnumLifecycleExceptionStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.LifecycleExceptionStatus | Prisma.EnumLifecycleExceptionStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.LifecycleExceptionStatus[] | Prisma.ListEnumLifecycleExceptionStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.LifecycleExceptionStatus[] | Prisma.ListEnumLifecycleExceptionStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumLifecycleExceptionStatusWithAggregatesFilter<$PrismaModel> | $Enums.LifecycleExceptionStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumLifecycleExceptionStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumLifecycleExceptionStatusFilter<$PrismaModel>
 }
 
 

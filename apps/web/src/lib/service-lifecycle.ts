@@ -1,0 +1,130 @@
+import { z } from "zod";
+export const lifecycleDashboardSchema = z.object({
+  summary: z.object({
+    paymentPending: z.number(),
+    activeEngagements: z.number(),
+    overdueInstalments: z.number(),
+    submissionBlocked: z.number(),
+    openExceptions: z.number(),
+    professionalFeesMinor: z.string(),
+    cashCollectedMinor: z.string(),
+    governmentFeesMinor: z.string(),
+    outstandingProfessionalFeesMinor: z.string(),
+  }),
+  workQueue: z.array(
+    z.object({
+      engagementId: z.string().uuid(),
+      matterId: z.string().uuid(),
+      matterNumber: z.string(),
+      title: z.string(),
+      status: z.string(),
+      matterStatus: z.string(),
+      paidMinor: z.string(),
+      requiredBeforeWorkMinor: z.string(),
+      requiredBeforeSubmissionMinor: z.string(),
+      professionalFeeMinor: z.string(),
+      nextInstalmentAt: z.string().nullable(),
+      readiness: z.object({
+        ownerAssigned: z.boolean(),
+        supervisorAssigned: z.boolean(),
+        conflictCleared: z.boolean(),
+        amlCleared: z.boolean(),
+        clientCareAccepted: z.boolean(),
+        engagementAccepted: z.boolean(),
+        legalWorkCleared: z.boolean(),
+        submissionPaymentCleared: z.boolean(),
+        submissionApproved: z.boolean(),
+        completionPaymentCleared: z.boolean(),
+        completionApproved: z.boolean(),
+        openTasks: z.number(),
+        openExceptions: z.number(),
+        outcomeRecorded: z.boolean(),
+      }),
+    }),
+  ),
+  exceptions: z.array(
+    z.object({
+      id: z.string().uuid(),
+      matterId: z.string().uuid().nullable(),
+      category: z.string(),
+      severity: z.enum(["LOW", "MEDIUM", "HIGH", "CRITICAL"]),
+      status: z.string(),
+      title: z.string(),
+      ownerUserId: z.string().uuid().nullable(),
+      dueAt: z.string().nullable(),
+      createdAt: z.string(),
+    }),
+  ),
+});
+export type LifecycleDashboard = z.infer<typeof lifecycleDashboardSchema>;
+
+const uuid = z.string().uuid();
+export const lifecycleReadinessSchema = z.object({
+  matterId: uuid,
+  matterStatus: z.string(),
+  ownerAssigned: z.boolean(),
+  supervisorAssigned: z.boolean(),
+  conflictCleared: z.boolean(),
+  amlCleared: z.boolean(),
+  clientCareAccepted: z.boolean(),
+  engagementAccepted: z.boolean(),
+  paidMinor: z.string(),
+  initialPaymentMinor: z.string(),
+  submissionClearanceMinor: z.string(),
+  completionClearanceMinor: z.string(),
+  legalWorkCleared: z.boolean(),
+  submissionPaymentCleared: z.boolean(),
+  submissionApproved: z.boolean(),
+  completionPaymentCleared: z.boolean(),
+  completionApproved: z.boolean(),
+  openTasks: z.number(),
+  openExceptions: z.number(),
+  outcomeRecorded: z.boolean(),
+});
+
+export const lifecycleMutationSchema = z.discriminatedUnion("operation", [
+  z.object({
+    operation: z.literal("engagement.create"),
+    organisationId: uuid,
+    payload: z.object({
+      matterId: uuid,
+      professionalFeeMinor: z.number().int().nonnegative(),
+      governmentFeeMinor: z.number().int().nonnegative(),
+      initialPaymentMinor: z.number().int().nonnegative(),
+      submissionClearanceMinor: z.number().int().nonnegative(),
+      termsVersion: z.string().min(1).max(80),
+      instalments: z.array(
+        z.object({
+          sequence: z.number().int().positive(),
+          amountMinor: z.number().int().positive(),
+          dueAt: z.string().datetime(),
+          description: z.string().min(1).max(240),
+        }),
+      ),
+    }),
+  }),
+  z.object({
+    operation: z.literal("engagement.accept"),
+    organisationId: uuid,
+    engagementId: uuid,
+  }),
+  z.object({
+    operation: z.literal("exception.create"),
+    organisationId: uuid,
+    payload: z.object({
+      matterId: uuid,
+      category: z.string().min(2).max(80),
+      severity: z.enum(["LOW", "MEDIUM", "HIGH", "CRITICAL"]),
+      title: z.string().min(3).max(240),
+      detail: z.string().min(10).max(4000),
+      ownerUserId: uuid,
+      dueAt: z.string().datetime(),
+    }),
+  }),
+  z.object({
+    operation: z.literal("exception.resolve"),
+    organisationId: uuid,
+    exceptionId: uuid,
+    resolution: z.string().min(20).max(4000),
+  }),
+]);

@@ -125,7 +125,11 @@ export const ModelName = {
   FinanceJournalLine: 'FinanceJournalLine',
   IntegrationConnection: 'IntegrationConnection',
   IntegrationEvent: 'IntegrationEvent',
-  PaymentCheckoutSession: 'PaymentCheckoutSession'
+  PaymentCheckoutSession: 'PaymentCheckoutSession',
+  ServiceEngagement: 'ServiceEngagement',
+  EngagementInstalment: 'EngagementInstalment',
+  LifecycleGateOverride: 'LifecycleGateOverride',
+  LifecycleException: 'LifecycleException'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -1815,6 +1819,81 @@ export const PaymentCheckoutSessionScalarFieldEnum = {
 } as const
 
 export type PaymentCheckoutSessionScalarFieldEnum = (typeof PaymentCheckoutSessionScalarFieldEnum)[keyof typeof PaymentCheckoutSessionScalarFieldEnum]
+
+
+export const ServiceEngagementScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  matterId: 'matterId',
+  clientId: 'clientId',
+  status: 'status',
+  currencyCode: 'currencyCode',
+  professionalFeeMinor: 'professionalFeeMinor',
+  governmentFeeMinor: 'governmentFeeMinor',
+  initialPaymentMinor: 'initialPaymentMinor',
+  submissionClearanceMinor: 'submissionClearanceMinor',
+  engagementTermsVersion: 'engagementTermsVersion',
+  acceptedAt: 'acceptedAt',
+  acceptedByClientUserId: 'acceptedByClientUserId',
+  createdByUserId: 'createdByUserId',
+  updatedByUserId: 'updatedByUserId',
+  version: 'version',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ServiceEngagementScalarFieldEnum = (typeof ServiceEngagementScalarFieldEnum)[keyof typeof ServiceEngagementScalarFieldEnum]
+
+
+export const EngagementInstalmentScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  engagementId: 'engagementId',
+  sequence: 'sequence',
+  amountMinor: 'amountMinor',
+  dueAt: 'dueAt',
+  description: 'description',
+  createdAt: 'createdAt'
+} as const
+
+export type EngagementInstalmentScalarFieldEnum = (typeof EngagementInstalmentScalarFieldEnum)[keyof typeof EngagementInstalmentScalarFieldEnum]
+
+
+export const LifecycleGateOverrideScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  engagementId: 'engagementId',
+  gate: 'gate',
+  reason: 'reason',
+  approvedByUserId: 'approvedByUserId',
+  expiresAt: 'expiresAt',
+  revokedAt: 'revokedAt',
+  createdAt: 'createdAt'
+} as const
+
+export type LifecycleGateOverrideScalarFieldEnum = (typeof LifecycleGateOverrideScalarFieldEnum)[keyof typeof LifecycleGateOverrideScalarFieldEnum]
+
+
+export const LifecycleExceptionScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  matterId: 'matterId',
+  category: 'category',
+  severity: 'severity',
+  status: 'status',
+  title: 'title',
+  detail: 'detail',
+  ownerUserId: 'ownerUserId',
+  dueAt: 'dueAt',
+  resolution: 'resolution',
+  resolvedAt: 'resolvedAt',
+  resolvedByUserId: 'resolvedByUserId',
+  createdByUserId: 'createdByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type LifecycleExceptionScalarFieldEnum = (typeof LifecycleExceptionScalarFieldEnum)[keyof typeof LifecycleExceptionScalarFieldEnum]
 
 
 export const SortOrder = {

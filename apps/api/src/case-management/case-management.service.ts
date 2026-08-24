@@ -192,7 +192,9 @@ interface EnquiryForConversionRow {
   assignedToUserId: string | null;
 }
 
-const MATTER_TRANSITIONS: Readonly<Record<MatterStatus, readonly MatterStatus[]>> = {
+const MATTER_TRANSITIONS: Readonly<
+  Record<MatterStatus, readonly MatterStatus[]>
+> = {
   INTAKE: ['CONFLICT_CHECK', 'ON_HOLD', 'CANCELLED'],
   CONFLICT_CHECK: ['CLIENT_CARE', 'ON_HOLD', 'CANCELLED'],
   CLIENT_CARE: ['AWAITING_DOCUMENTS', 'ACTIVE', 'ON_HOLD', 'CANCELLED'],
@@ -223,11 +225,52 @@ function databaseCode(error: unknown): string | null {
     return null;
   }
 
-  return typeof error.code === 'string' ? error.code : null;
+  const meta = isRecord(error.meta) ? error.meta : null;
+  const driverAdapterError =
+    meta && isRecord(meta.driverAdapterError)
+      ? meta.driverAdapterError
+      : null;
+  const cause =
+    driverAdapterError && isRecord(driverAdapterError.cause)
+      ? driverAdapterError.cause
+      : null;
+
+  for (const candidate of [
+    meta?.code,
+    meta?.database_error_code,
+    cause?.code,
+    cause?.originalCode,
+  ]) {
+    if (
+      typeof candidate === 'string' &&
+      candidate.length > 0 &&
+      candidate !== 'N/A'
+    ) {
+      return candidate;
+    }
+  }
+
+  if (typeof error.message === 'string') {
+    const rawQueryCode = error.message.match(
+      /Raw query failed\. Code: `([0-9A-Z]{5})`/,
+    )?.[1];
+
+    if (rawQueryCode) {
+      return rawQueryCode;
+    }
+  }
+
+  if (typeof error.code === 'string' && error.code.length > 0) {
+    return error.code;
+  }
+
+  return null;
 }
 
 function iso(value: DatabaseDate): string {
-  return value instanceof Date ? value.toISOString() : new Date(value).toISOString();
+  return value instanceof Date
+    ? value.toISOString()
+    : new Date(value).toISOString();
 }
 
 function nullableIso(value: NullableDatabaseDate): string | null {
@@ -266,7 +309,9 @@ function clientView(row: ClientRow): ClientView {
     privacyNoticeAcknowledgedAt: nullableIso(row.privacyNoticeAcknowledgedAt),
     marketingConsentAt: nullableIso(row.marketingConsentAt),
     identityVerifiedAt: nullableIso(row.identityVerifiedAt),
-    identityVerificationExpiresAt: nullableIso(row.identityVerificationExpiresAt),
+    identityVerificationExpiresAt: nullableIso(
+      row.identityVerificationExpiresAt,
+    ),
     lastContactedAt: nullableIso(row.lastContactedAt),
     retentionReviewAt: nullableIso(row.retentionReviewAt),
     archivedAt: nullableIso(row.archivedAt),
@@ -324,7 +369,7 @@ export class CaseManagementService {
       this.rls.run(this.rlsContext(context), async (transaction) => {
         const [departments, teams, members, clients, convertibleEnquiries] =
           await Promise.all([
-          transaction.$queryRaw<Array<{ id: string; label: string }>>`
+            transaction.$queryRaw<Array<{ id: string; label: string }>>`
             SELECT department.id, department.name AS label
             FROM public.departments AS department
             WHERE department.organisation_id = ${context.organisationId}::uuid
@@ -332,9 +377,9 @@ export class CaseManagementService {
               AND department.deleted_at IS NULL
             ORDER BY department.name ASC
           `,
-          transaction.$queryRaw<
-            Array<{ id: string; label: string; departmentId: string | null }>
-          >`
+            transaction.$queryRaw<
+              Array<{ id: string; label: string; departmentId: string | null }>
+            >`
             SELECT
               team.id,
               team.name AS label,
@@ -345,7 +390,7 @@ export class CaseManagementService {
               AND team.deleted_at IS NULL
             ORDER BY team.name ASC
           `,
-          transaction.$queryRaw<Array<{ id: string; label: string }>>`
+            transaction.$queryRaw<Array<{ id: string; label: string }>>`
             SELECT
               profile.id,
               COALESCE(
@@ -363,9 +408,9 @@ export class CaseManagementService {
               AND profile.deleted_at IS NULL
             ORDER BY label ASC
           `,
-          transaction.$queryRaw<
-            Array<{ id: string; label: string; clientNumber: string }>
-          >`
+            transaction.$queryRaw<
+              Array<{ id: string; label: string; clientNumber: string }>
+            >`
             SELECT
               client.id,
               client.display_name AS label,
@@ -380,14 +425,14 @@ export class CaseManagementService {
             ORDER BY client.display_name ASC, client.client_number ASC
             LIMIT 500
           `,
-          transaction.$queryRaw<
-            Array<{
-              id: string;
-              label: string;
-              status: 'QUALIFIED' | 'CONSULTATION_BOOKED';
-              serviceType: string | null;
-            }>
-          >`
+            transaction.$queryRaw<
+              Array<{
+                id: string;
+                label: string;
+                status: 'QUALIFIED' | 'CONSULTATION_BOOKED';
+                serviceType: string | null;
+              }>
+            >`
             SELECT
               enquiry.id,
               concat_ws(
@@ -408,7 +453,7 @@ export class CaseManagementService {
             ORDER BY enquiry.created_at ASC, enquiry.id ASC
             LIMIT 200
           `,
-        ]);
+          ]);
 
         return {
           departments,
@@ -561,9 +606,9 @@ export class CaseManagementService {
             pg_catalog.gen_random_uuid(), ${context.organisationId}::uuid,
             ${clientNumber}, ${dto.kind}::public.client_kind,
             'ONBOARDING'::public.client_status, ${name},
-            ${dto.kind === 'INDIVIDUAL' ? dto.firstName ?? null : null},
-            ${dto.kind === 'INDIVIDUAL' ? dto.lastName ?? null : null},
-            ${dto.kind === 'ORGANISATION' ? dto.organisationName ?? null : null},
+            ${dto.kind === 'INDIVIDUAL' ? (dto.firstName ?? null) : null},
+            ${dto.kind === 'INDIVIDUAL' ? (dto.lastName ?? null) : null},
+            ${dto.kind === 'ORGANISATION' ? (dto.organisationName ?? null) : null},
             ${dto.email ?? null}, ${dto.phone ?? null}, ${dto.dateOfBirth ?? null}::date,
             ${dto.nationality ?? null}, ${dto.countryOfResidenceCode ?? null},
             ${dto.addressLine1 ?? null}, ${dto.addressLine2 ?? null},
@@ -587,7 +632,9 @@ export class CaseManagementService {
         `;
 
         if (!created) {
-          throw new InternalServerErrorException('The client could not be created.');
+          throw new InternalServerErrorException(
+            'The client could not be created.',
+          );
         }
 
         await this.writeAudit(
@@ -942,7 +989,9 @@ export class CaseManagementService {
         `;
 
         if (!created) {
-          throw new InternalServerErrorException('The matter could not be created.');
+          throw new InternalServerErrorException(
+            'The matter could not be created.',
+          );
         }
 
         await transaction.$executeRaw`
@@ -1082,7 +1131,8 @@ export class CaseManagementService {
         );
         this.assertComplianceGate(dto.toStatus, compliance);
 
-        const closing = dto.toStatus === 'CLOSED' || dto.toStatus === 'CANCELLED';
+        const closing =
+          dto.toStatus === 'CLOSED' || dto.toStatus === 'CANCELLED';
         const archiving = dto.toStatus === 'ARCHIVED';
         const rows = await transaction.$queryRaw<Array<{ id: string }>>`
           UPDATE public.matters
@@ -1162,7 +1212,9 @@ export class CaseManagementService {
         this.assertVersion(current.version, dto.expectedVersion);
 
         if (matter.status === 'ARCHIVED') {
-          throw new ConflictException('Archived matter compliance is immutable.');
+          throw new ConflictException(
+            'Archived matter compliance is immutable.',
+          );
         }
 
         if (dto.riskRating === 'HIGH' && !dto.riskReason?.trim()) {
@@ -1325,7 +1377,9 @@ export class CaseManagementService {
         `;
 
         if (!party) {
-          throw new InternalServerErrorException('The matter party could not be added.');
+          throw new InternalServerErrorException(
+            'The matter party could not be added.',
+          );
         }
 
         await this.writeAudit(
@@ -1362,7 +1416,12 @@ export class CaseManagementService {
         }
 
         const [party] = await transaction.$queryRaw<
-          Array<{ id: string; clientId: string; role: string; isPrimary: boolean }>
+          Array<{
+            id: string;
+            clientId: string;
+            role: string;
+            isPrimary: boolean;
+          }>
         >`
           SELECT
             party.id,
@@ -1440,7 +1499,9 @@ export class CaseManagementService {
           return this.conversionResult(priorByKey, true);
         }
 
-        const [enquiry] = await transaction.$queryRaw<EnquiryForConversionRow[]>`
+        const [enquiry] = await transaction.$queryRaw<
+          EnquiryForConversionRow[]
+        >`
           SELECT
             enquiry.id,
             enquiry.first_name AS "firstName",
@@ -1502,7 +1563,9 @@ export class CaseManagementService {
             );
           }
 
-          const [duplicate] = await transaction.$queryRaw<Array<{ id: string }>>`
+          const [duplicate] = await transaction.$queryRaw<
+            Array<{ id: string }>
+          >`
             SELECT client.id
             FROM public.clients AS client
             WHERE client.organisation_id = ${context.organisationId}::uuid
@@ -1541,7 +1604,9 @@ export class CaseManagementService {
             lastName: enquiry.lastName,
             organisationName,
           });
-          const [createdClient] = await transaction.$queryRaw<Array<{ id: string }>>`
+          const [createdClient] = await transaction.$queryRaw<
+            Array<{ id: string }>
+          >`
             INSERT INTO public.clients (
               id, organisation_id, client_number, source_enquiry_id,
               kind, status, display_name, first_name, last_name,
@@ -1572,7 +1637,9 @@ export class CaseManagementService {
           `;
 
           if (!createdClient) {
-            throw new InternalServerErrorException('The client could not be created.');
+            throw new InternalServerErrorException(
+              'The client could not be created.',
+            );
           }
 
           clientId = createdClient.id;
@@ -1584,7 +1651,9 @@ export class CaseManagementService {
           'MATTER',
           'MAT',
         );
-        const [createdMatter] = await transaction.$queryRaw<Array<{ id: string }>>`
+        const [createdMatter] = await transaction.$queryRaw<
+          Array<{ id: string }>
+        >`
           INSERT INTO public.matters (
             id, organisation_id, matter_number, source_enquiry_id,
             department_id, team_id, assigned_to_user_id, supervisor_user_id,
@@ -1613,7 +1682,9 @@ export class CaseManagementService {
         `;
 
         if (!createdMatter) {
-          throw new InternalServerErrorException('The matter could not be created.');
+          throw new InternalServerErrorException(
+            'The matter could not be created.',
+          );
         }
 
         await transaction.$executeRaw`
@@ -1774,7 +1845,11 @@ export class CaseManagementService {
     organisationId: string,
     matterId: string,
   ): Promise<MatterView> {
-    const matter = await this.findMatterRow(transaction, organisationId, matterId);
+    const matter = await this.findMatterRow(
+      transaction,
+      organisationId,
+      matterId,
+    );
     const [compliance, parties, history] = await Promise.all([
       this.findCompliance(transaction, organisationId, matterId),
       transaction.$queryRaw<PartyRow[]>`
@@ -2003,7 +2078,9 @@ export class CaseManagementService {
     key: 'CLIENT' | 'MATTER',
     prefix: 'CLI' | 'MAT',
   ): Promise<string> {
-    const [row] = await transaction.$queryRaw<Array<{ value: bigint | number }>>`
+    const [row] = await transaction.$queryRaw<
+      Array<{ value: bigint | number }>
+    >`
       INSERT INTO public.organisation_number_sequences (
         id, organisation_id, key, next_value
       )
@@ -2120,7 +2197,9 @@ export class CaseManagementService {
     }
 
     if (kind === 'INDIVIDUAL' && !value.firstName?.trim()) {
-      throw new BadRequestException('An individual client requires a first name.');
+      throw new BadRequestException(
+        'An individual client requires a first name.',
+      );
     }
 
     if (kind === 'ORGANISATION') {
@@ -2331,9 +2410,11 @@ export class CaseManagementService {
         );
       }
 
-      if (code === '40001' || code === 'P2034') {
+      if (code === '40001' || code === 'P2034' || code === '55000') {
         throw new ConflictException(
-          'The record changed during this operation. Refresh and retry.',
+          code === '55000'
+            ? 'The matter has not satisfied its lifecycle controls.'
+            : 'The record changed during this operation. Refresh and retry.',
         );
       }
 

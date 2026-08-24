@@ -196,9 +196,12 @@ test.describe("Gate F integrations and command centre", () => {
       await expect(
         page.getByRole("heading", { name: "Integrations", exact: true }),
       ).toBeVisible();
-      await expect(page.getByText(eventType, { exact: true })).toBeVisible({
-        timeout: 20_000,
-      });
+      // Repeated acceptance runs can legitimately leave more than one event
+      // row with the same type. Assert that at least one matching row is
+      // visible instead of requiring the text locator to be globally unique.
+      await expect(
+        page.getByText(eventType, { exact: true }).first(),
+      ).toBeVisible({ timeout: 20_000 });
 
       await page.goto("/command-centre");
       await expect(

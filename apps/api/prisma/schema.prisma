@@ -756,6 +756,36 @@ enum PaymentCheckoutStatus {
   @@map("payment_checkout_status")
 }
 
+enum EngagementStatus {
+  DRAFT
+  SENT
+  ACCEPTED
+  PAYMENT_PENDING
+  ACTIVE
+  ON_HOLD
+  COMPLETED
+  CANCELLED
+
+  @@map("engagement_status")
+}
+
+enum LifecycleGate {
+  LEGAL_WORK
+  SUBMISSION
+  CLOSURE
+
+  @@map("lifecycle_gate")
+}
+
+enum LifecycleExceptionStatus {
+  OPEN
+  ASSIGNED
+  RESOLVED
+  CANCELLED
+
+  @@map("lifecycle_exception_status")
+}
+
 model Organisation {
   id          String             @id(map: "pk_organisations") @default(uuid()) @map("id") @db.Uuid
   slug        String             @unique(map: "uq_organisations_slug") @map("slug") @db.VarChar(80)
@@ -3120,4 +3150,82 @@ model PaymentCheckoutSession {
   @@index([organisationId, invoiceId, createdAt(sort: Desc)], map: "ix_payment_checkouts_org_invoice_created")
   @@index([status, expiresAt], map: "ix_payment_checkouts_status_expiry")
   @@map("payment_checkout_sessions")
+}
+
+model ServiceEngagement {
+  id                       String           @id @default(uuid()) @db.Uuid
+  organisationId           String           @map("organisation_id") @db.Uuid
+  matterId                 String           @map("matter_id") @db.Uuid
+  clientId                 String           @map("client_id") @db.Uuid
+  status                   EngagementStatus @default(DRAFT)
+  currencyCode             String           @default("GBP") @map("currency_code") @db.Char(3)
+  professionalFeeMinor     BigInt           @map("professional_fee_minor")
+  governmentFeeMinor       BigInt           @default(0) @map("government_fee_minor")
+  initialPaymentMinor      BigInt           @map("initial_payment_minor")
+  submissionClearanceMinor BigInt           @map("submission_clearance_minor")
+  engagementTermsVersion   String           @map("engagement_terms_version") @db.VarChar(80)
+  acceptedAt               DateTime?        @map("accepted_at") @db.Timestamptz(6)
+  acceptedByClientUserId   String?          @map("accepted_by_client_user_id") @db.Uuid
+  createdByUserId          String           @map("created_by_user_id") @db.Uuid
+  updatedByUserId          String           @map("updated_by_user_id") @db.Uuid
+  version                  Int              @default(1)
+  createdAt                DateTime         @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt                DateTime         @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@unique([matterId, organisationId], map: "uq_service_engagement_matter")
+  @@unique([id, organisationId])
+  @@index([organisationId, status], map: "ix_engagements_org_status")
+  @@map("service_engagements")
+}
+
+model EngagementInstalment {
+  id             String   @id @default(uuid()) @db.Uuid
+  organisationId String   @map("organisation_id") @db.Uuid
+  engagementId   String   @map("engagement_id") @db.Uuid
+  sequence       Int
+  amountMinor    BigInt   @map("amount_minor")
+  dueAt          DateTime @map("due_at") @db.Timestamptz(6)
+  description    String   @db.VarChar(240)
+  createdAt      DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  @@unique([engagementId, sequence], map: "uq_engagement_instalment_sequence")
+  @@index([organisationId, dueAt], map: "ix_instalments_org_due")
+  @@map("engagement_instalments")
+}
+
+model LifecycleGateOverride {
+  id               String        @id @default(uuid()) @db.Uuid
+  organisationId   String        @map("organisation_id") @db.Uuid
+  engagementId     String        @map("engagement_id") @db.Uuid
+  gate             LifecycleGate
+  reason           String        @db.VarChar(1000)
+  approvedByUserId String        @map("approved_by_user_id") @db.Uuid
+  expiresAt        DateTime      @map("expires_at") @db.Timestamptz(6)
+  revokedAt        DateTime?     @map("revoked_at") @db.Timestamptz(6)
+  createdAt        DateTime      @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  @@index([engagementId, gate, expiresAt], map: "ix_overrides_engagement_gate")
+  @@map("lifecycle_gate_overrides")
+}
+
+model LifecycleException {
+  id               String                   @id @default(uuid()) @db.Uuid
+  organisationId   String                   @map("organisation_id") @db.Uuid
+  matterId         String?                  @map("matter_id") @db.Uuid
+  category         String                   @db.VarChar(80)
+  severity         String                   @db.VarChar(20)
+  status           LifecycleExceptionStatus @default(OPEN)
+  title            String                   @db.VarChar(240)
+  detail           String                   @db.Text
+  ownerUserId      String?                  @map("owner_user_id") @db.Uuid
+  dueAt            DateTime?                @map("due_at") @db.Timestamptz(6)
+  resolution       String?                  @db.Text
+  resolvedAt       DateTime?                @map("resolved_at") @db.Timestamptz(6)
+  resolvedByUserId String?                  @map("resolved_by_user_id") @db.Uuid
+  createdByUserId  String                   @map("created_by_user_id") @db.Uuid
+  createdAt        DateTime                 @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt        DateTime                 @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@index([organisationId, status, dueAt], map: "ix_exceptions_org_status_due")
+  @@map("lifecycle_exceptions")
 }

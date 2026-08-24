@@ -165,6 +165,14 @@ const environmentSchema = z
       .trim()
       .regex(/^\d{4}-\d{2}-\d{2}(\.[A-Za-z0-9_-]+)?$/)
       .optional(),
+
+    RELEASE_SHA: z.string().trim().min(7).max(64).optional(),
+
+    SENTRY_DSN: z.string().url().optional(),
+
+    AXIOM_TOKEN: z.string().trim().min(20).max(512).optional(),
+
+    BACKUP_RESTORE_EVIDENCE_AT: z.string().datetime().optional(),
   })
   .superRefine((environment, ctx) => {
     if (environment.NODE_ENV === 'production') {
@@ -217,6 +225,10 @@ const environmentSchema = z
         ['STRIPE_WEBHOOK_SECRET', environment.STRIPE_WEBHOOK_SECRET],
         ['STRIPE_PLATFORM_ACCOUNT_ID', environment.STRIPE_PLATFORM_ACCOUNT_ID],
         ['STRIPE_API_VERSION', environment.STRIPE_API_VERSION],
+        ['RELEASE_SHA', environment.RELEASE_SHA],
+        ['SENTRY_DSN', environment.SENTRY_DSN],
+        ['AXIOM_TOKEN', environment.AXIOM_TOKEN],
+        ['BACKUP_RESTORE_EVIDENCE_AT', environment.BACKUP_RESTORE_EVIDENCE_AT],
       ] as const;
 
       for (const [
@@ -230,6 +242,20 @@ const environmentSchema = z
             message: `${environmentName} is required in production`,
           });
         }
+      }
+
+      if (
+        environment.BACKUP_RESTORE_EVIDENCE_AT &&
+        Date.now() -
+          new Date(environment.BACKUP_RESTORE_EVIDENCE_AT).getTime() >
+          92 * 24 * 60 * 60 * 1_000
+      ) {
+        ctx.addIssue({
+          code: 'custom',
+          path: ['BACKUP_RESTORE_EVIDENCE_AT'],
+          message:
+            'A successful backup restore exercise is required every 92 days',
+        });
       }
 
       if (

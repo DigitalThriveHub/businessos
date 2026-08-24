@@ -471,7 +471,11 @@ export const ModelName = {
   FinanceJournalLine: 'FinanceJournalLine',
   IntegrationConnection: 'IntegrationConnection',
   IntegrationEvent: 'IntegrationEvent',
-  PaymentCheckoutSession: 'PaymentCheckoutSession'
+  PaymentCheckoutSession: 'PaymentCheckoutSession',
+  ServiceEngagement: 'ServiceEngagement',
+  EngagementInstalment: 'EngagementInstalment',
+  LifecycleGateOverride: 'LifecycleGateOverride',
+  LifecycleException: 'LifecycleException'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -487,7 +491,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "organisation" | "organisationSetting" | "userProfile" | "organisationMembership" | "department" | "departmentMembership" | "team" | "teamMembership" | "role" | "permission" | "rolePermission" | "roleAssignment" | "invitation" | "userSession" | "supportAccessGrant" | "auditEvent" | "securityEvent" | "jobProfile" | "jobProfileDuty" | "kpiDefinition" | "jobProfileKpi" | "agentProfile" | "agentPolicy" | "workforceAssignment" | "workforceAssignmentKpi" | "invitationOnboardingPlan" | "invitationOnboardingRole" | "invitationOnboardingKpi" | "enquiry" | "organisationNumberSequence" | "client" | "matter" | "matterParty" | "matterCompliance" | "matterStatusHistory" | "enquiryConversion" | "matterTask" | "matterDeadline" | "documentRequest" | "documentRequestItem" | "matterDocument" | "matterDocumentVersion" | "matterTimelineEvent" | "workflowDefinition" | "workflowVersion" | "workflowRun" | "workflowAction" | "slaPolicy" | "slaInstance" | "escalationRule" | "escalationEvent" | "approvalRequest" | "approvalDecision" | "clientPortalAccessGrant" | "clientPortalMatterGrant" | "clientPortalInvitation" | "portalMatterUpdate" | "communicationConversation" | "communicationMessage" | "communicationAttachment" | "communicationDeliveryEvent" | "communicationTemplate" | "communicationReminder" | "clientNotification" | "financeSettings" | "financeLedgerAccount" | "financeDocument" | "financeDocumentLine" | "financePayment" | "financePaymentAllocation" | "financeJournalEntry" | "financeJournalLine" | "integrationConnection" | "integrationEvent" | "paymentCheckoutSession"
+    modelProps: "organisation" | "organisationSetting" | "userProfile" | "organisationMembership" | "department" | "departmentMembership" | "team" | "teamMembership" | "role" | "permission" | "rolePermission" | "roleAssignment" | "invitation" | "userSession" | "supportAccessGrant" | "auditEvent" | "securityEvent" | "jobProfile" | "jobProfileDuty" | "kpiDefinition" | "jobProfileKpi" | "agentProfile" | "agentPolicy" | "workforceAssignment" | "workforceAssignmentKpi" | "invitationOnboardingPlan" | "invitationOnboardingRole" | "invitationOnboardingKpi" | "enquiry" | "organisationNumberSequence" | "client" | "matter" | "matterParty" | "matterCompliance" | "matterStatusHistory" | "enquiryConversion" | "matterTask" | "matterDeadline" | "documentRequest" | "documentRequestItem" | "matterDocument" | "matterDocumentVersion" | "matterTimelineEvent" | "workflowDefinition" | "workflowVersion" | "workflowRun" | "workflowAction" | "slaPolicy" | "slaInstance" | "escalationRule" | "escalationEvent" | "approvalRequest" | "approvalDecision" | "clientPortalAccessGrant" | "clientPortalMatterGrant" | "clientPortalInvitation" | "portalMatterUpdate" | "communicationConversation" | "communicationMessage" | "communicationAttachment" | "communicationDeliveryEvent" | "communicationTemplate" | "communicationReminder" | "clientNotification" | "financeSettings" | "financeLedgerAccount" | "financeDocument" | "financeDocumentLine" | "financePayment" | "financePaymentAllocation" | "financeJournalEntry" | "financeJournalLine" | "integrationConnection" | "integrationEvent" | "paymentCheckoutSession" | "serviceEngagement" | "engagementInstalment" | "lifecycleGateOverride" | "lifecycleException"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -6041,6 +6045,302 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    ServiceEngagement: {
+      payload: Prisma.$ServiceEngagementPayload<ExtArgs>
+      fields: Prisma.ServiceEngagementFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ServiceEngagementFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ServiceEngagementPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ServiceEngagementFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ServiceEngagementPayload>
+        }
+        findFirst: {
+          args: Prisma.ServiceEngagementFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ServiceEngagementPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ServiceEngagementFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ServiceEngagementPayload>
+        }
+        findMany: {
+          args: Prisma.ServiceEngagementFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ServiceEngagementPayload>[]
+        }
+        create: {
+          args: Prisma.ServiceEngagementCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ServiceEngagementPayload>
+        }
+        createMany: {
+          args: Prisma.ServiceEngagementCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ServiceEngagementCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ServiceEngagementPayload>[]
+        }
+        delete: {
+          args: Prisma.ServiceEngagementDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ServiceEngagementPayload>
+        }
+        update: {
+          args: Prisma.ServiceEngagementUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ServiceEngagementPayload>
+        }
+        deleteMany: {
+          args: Prisma.ServiceEngagementDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ServiceEngagementUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ServiceEngagementUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ServiceEngagementPayload>[]
+        }
+        upsert: {
+          args: Prisma.ServiceEngagementUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ServiceEngagementPayload>
+        }
+        aggregate: {
+          args: Prisma.ServiceEngagementAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateServiceEngagement>
+        }
+        groupBy: {
+          args: Prisma.ServiceEngagementGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ServiceEngagementGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ServiceEngagementCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ServiceEngagementCountAggregateOutputType> | number
+        }
+      }
+    }
+    EngagementInstalment: {
+      payload: Prisma.$EngagementInstalmentPayload<ExtArgs>
+      fields: Prisma.EngagementInstalmentFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.EngagementInstalmentFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EngagementInstalmentPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.EngagementInstalmentFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EngagementInstalmentPayload>
+        }
+        findFirst: {
+          args: Prisma.EngagementInstalmentFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EngagementInstalmentPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.EngagementInstalmentFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EngagementInstalmentPayload>
+        }
+        findMany: {
+          args: Prisma.EngagementInstalmentFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EngagementInstalmentPayload>[]
+        }
+        create: {
+          args: Prisma.EngagementInstalmentCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EngagementInstalmentPayload>
+        }
+        createMany: {
+          args: Prisma.EngagementInstalmentCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.EngagementInstalmentCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EngagementInstalmentPayload>[]
+        }
+        delete: {
+          args: Prisma.EngagementInstalmentDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EngagementInstalmentPayload>
+        }
+        update: {
+          args: Prisma.EngagementInstalmentUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EngagementInstalmentPayload>
+        }
+        deleteMany: {
+          args: Prisma.EngagementInstalmentDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.EngagementInstalmentUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.EngagementInstalmentUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EngagementInstalmentPayload>[]
+        }
+        upsert: {
+          args: Prisma.EngagementInstalmentUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EngagementInstalmentPayload>
+        }
+        aggregate: {
+          args: Prisma.EngagementInstalmentAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateEngagementInstalment>
+        }
+        groupBy: {
+          args: Prisma.EngagementInstalmentGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EngagementInstalmentGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.EngagementInstalmentCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EngagementInstalmentCountAggregateOutputType> | number
+        }
+      }
+    }
+    LifecycleGateOverride: {
+      payload: Prisma.$LifecycleGateOverridePayload<ExtArgs>
+      fields: Prisma.LifecycleGateOverrideFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.LifecycleGateOverrideFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LifecycleGateOverridePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.LifecycleGateOverrideFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LifecycleGateOverridePayload>
+        }
+        findFirst: {
+          args: Prisma.LifecycleGateOverrideFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LifecycleGateOverridePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.LifecycleGateOverrideFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LifecycleGateOverridePayload>
+        }
+        findMany: {
+          args: Prisma.LifecycleGateOverrideFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LifecycleGateOverridePayload>[]
+        }
+        create: {
+          args: Prisma.LifecycleGateOverrideCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LifecycleGateOverridePayload>
+        }
+        createMany: {
+          args: Prisma.LifecycleGateOverrideCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.LifecycleGateOverrideCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LifecycleGateOverridePayload>[]
+        }
+        delete: {
+          args: Prisma.LifecycleGateOverrideDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LifecycleGateOverridePayload>
+        }
+        update: {
+          args: Prisma.LifecycleGateOverrideUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LifecycleGateOverridePayload>
+        }
+        deleteMany: {
+          args: Prisma.LifecycleGateOverrideDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.LifecycleGateOverrideUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.LifecycleGateOverrideUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LifecycleGateOverridePayload>[]
+        }
+        upsert: {
+          args: Prisma.LifecycleGateOverrideUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LifecycleGateOverridePayload>
+        }
+        aggregate: {
+          args: Prisma.LifecycleGateOverrideAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateLifecycleGateOverride>
+        }
+        groupBy: {
+          args: Prisma.LifecycleGateOverrideGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.LifecycleGateOverrideGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.LifecycleGateOverrideCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.LifecycleGateOverrideCountAggregateOutputType> | number
+        }
+      }
+    }
+    LifecycleException: {
+      payload: Prisma.$LifecycleExceptionPayload<ExtArgs>
+      fields: Prisma.LifecycleExceptionFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.LifecycleExceptionFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LifecycleExceptionPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.LifecycleExceptionFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LifecycleExceptionPayload>
+        }
+        findFirst: {
+          args: Prisma.LifecycleExceptionFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LifecycleExceptionPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.LifecycleExceptionFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LifecycleExceptionPayload>
+        }
+        findMany: {
+          args: Prisma.LifecycleExceptionFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LifecycleExceptionPayload>[]
+        }
+        create: {
+          args: Prisma.LifecycleExceptionCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LifecycleExceptionPayload>
+        }
+        createMany: {
+          args: Prisma.LifecycleExceptionCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.LifecycleExceptionCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LifecycleExceptionPayload>[]
+        }
+        delete: {
+          args: Prisma.LifecycleExceptionDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LifecycleExceptionPayload>
+        }
+        update: {
+          args: Prisma.LifecycleExceptionUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LifecycleExceptionPayload>
+        }
+        deleteMany: {
+          args: Prisma.LifecycleExceptionDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.LifecycleExceptionUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.LifecycleExceptionUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LifecycleExceptionPayload>[]
+        }
+        upsert: {
+          args: Prisma.LifecycleExceptionUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LifecycleExceptionPayload>
+        }
+        aggregate: {
+          args: Prisma.LifecycleExceptionAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateLifecycleException>
+        }
+        groupBy: {
+          args: Prisma.LifecycleExceptionGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.LifecycleExceptionGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.LifecycleExceptionCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.LifecycleExceptionCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -7753,6 +8053,81 @@ export const PaymentCheckoutSessionScalarFieldEnum = {
 export type PaymentCheckoutSessionScalarFieldEnum = (typeof PaymentCheckoutSessionScalarFieldEnum)[keyof typeof PaymentCheckoutSessionScalarFieldEnum]
 
 
+export const ServiceEngagementScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  matterId: 'matterId',
+  clientId: 'clientId',
+  status: 'status',
+  currencyCode: 'currencyCode',
+  professionalFeeMinor: 'professionalFeeMinor',
+  governmentFeeMinor: 'governmentFeeMinor',
+  initialPaymentMinor: 'initialPaymentMinor',
+  submissionClearanceMinor: 'submissionClearanceMinor',
+  engagementTermsVersion: 'engagementTermsVersion',
+  acceptedAt: 'acceptedAt',
+  acceptedByClientUserId: 'acceptedByClientUserId',
+  createdByUserId: 'createdByUserId',
+  updatedByUserId: 'updatedByUserId',
+  version: 'version',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ServiceEngagementScalarFieldEnum = (typeof ServiceEngagementScalarFieldEnum)[keyof typeof ServiceEngagementScalarFieldEnum]
+
+
+export const EngagementInstalmentScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  engagementId: 'engagementId',
+  sequence: 'sequence',
+  amountMinor: 'amountMinor',
+  dueAt: 'dueAt',
+  description: 'description',
+  createdAt: 'createdAt'
+} as const
+
+export type EngagementInstalmentScalarFieldEnum = (typeof EngagementInstalmentScalarFieldEnum)[keyof typeof EngagementInstalmentScalarFieldEnum]
+
+
+export const LifecycleGateOverrideScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  engagementId: 'engagementId',
+  gate: 'gate',
+  reason: 'reason',
+  approvedByUserId: 'approvedByUserId',
+  expiresAt: 'expiresAt',
+  revokedAt: 'revokedAt',
+  createdAt: 'createdAt'
+} as const
+
+export type LifecycleGateOverrideScalarFieldEnum = (typeof LifecycleGateOverrideScalarFieldEnum)[keyof typeof LifecycleGateOverrideScalarFieldEnum]
+
+
+export const LifecycleExceptionScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  matterId: 'matterId',
+  category: 'category',
+  severity: 'severity',
+  status: 'status',
+  title: 'title',
+  detail: 'detail',
+  ownerUserId: 'ownerUserId',
+  dueAt: 'dueAt',
+  resolution: 'resolution',
+  resolvedAt: 'resolvedAt',
+  resolvedByUserId: 'resolvedByUserId',
+  createdByUserId: 'createdByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type LifecycleExceptionScalarFieldEnum = (typeof LifecycleExceptionScalarFieldEnum)[keyof typeof LifecycleExceptionScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -9005,6 +9380,48 @@ export type ListEnumPaymentCheckoutStatusFieldRefInput<$PrismaModel> = FieldRefI
 
 
 /**
+ * Reference to a field of type 'EngagementStatus'
+ */
+export type EnumEngagementStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'EngagementStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'EngagementStatus[]'
+ */
+export type ListEnumEngagementStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'EngagementStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'LifecycleGate'
+ */
+export type EnumLifecycleGateFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'LifecycleGate'>
+    
+
+
+/**
+ * Reference to a field of type 'LifecycleGate[]'
+ */
+export type ListEnumLifecycleGateFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'LifecycleGate[]'>
+    
+
+
+/**
+ * Reference to a field of type 'LifecycleExceptionStatus'
+ */
+export type EnumLifecycleExceptionStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'LifecycleExceptionStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'LifecycleExceptionStatus[]'
+ */
+export type ListEnumLifecycleExceptionStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'LifecycleExceptionStatus[]'>
+    
+
+
+/**
  * Reference to a field of type 'Float'
  */
 export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -9243,6 +9660,10 @@ export type GlobalOmitConfig = {
   integrationConnection?: Prisma.IntegrationConnectionOmit
   integrationEvent?: Prisma.IntegrationEventOmit
   paymentCheckoutSession?: Prisma.PaymentCheckoutSessionOmit
+  serviceEngagement?: Prisma.ServiceEngagementOmit
+  engagementInstalment?: Prisma.EngagementInstalmentOmit
+  lifecycleGateOverride?: Prisma.LifecycleGateOverrideOmit
+  lifecycleException?: Prisma.LifecycleExceptionOmit
 }
 
 /* Types for Logging */

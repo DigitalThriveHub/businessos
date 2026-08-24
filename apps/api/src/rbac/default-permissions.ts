@@ -118,6 +118,9 @@ export const DEFAULT_PERMISSION_KEYS = [
   'integrations.read',
   'integrations.manage',
   'command_centre.read',
+  'engagements.read',
+  'engagements.manage',
+  'engagements.override',
 ] as const;
 
 export type DefaultPermissionKey = (typeof DEFAULT_PERMISSION_KEYS)[number];

@@ -6,7 +6,6 @@ import {
   caseManagementMutationSchema,
   clientSchema,
   conversionResultSchema,
-  matterComplianceSchema,
   matterPartySchema,
   matterSchema,
 } from "@/lib/case-management";
@@ -96,7 +95,7 @@ function upstreamMutation(input: CaseManagementMutation): UpstreamMutation {
         )}/compliance`,
         body: input.payload,
         created: false,
-        parse: (value) => matterComplianceSchema.parse(value),
+        parse: (value) => matterSchema.parse(value),
       };
 
     case "matter.party.add":

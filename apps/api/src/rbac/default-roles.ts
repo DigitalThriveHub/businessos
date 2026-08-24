@@ -81,6 +81,8 @@ export const DEFAULT_ROLES = [
       'ledger.read',
       'integrations.read',
       'command_centre.read',
+      'engagements.read',
+      'engagements.manage',
     ],
   },
   {
@@ -146,6 +148,8 @@ export const DEFAULT_ROLES = [
       'finance.read',
       'invoices.create',
       'command_centre.read',
+      'engagements.read',
+      'engagements.manage',
     ],
   },
   {
@@ -193,6 +197,8 @@ export const DEFAULT_ROLES = [
       'communication_templates.read',
       'integrations.read',
       'command_centre.read',
+      'engagements.read',
+      'engagements.manage',
     ],
   },
   {
@@ -252,6 +258,8 @@ export const DEFAULT_ROLES = [
       'ledger.read',
       'integrations.read',
       'command_centre.read',
+      'engagements.read',
+      'engagements.manage',
     ],
   },
   {
@@ -355,6 +363,8 @@ export const DEFAULT_ROLES = [
       'invoices.create',
       'integrations.read',
       'command_centre.read',
+      'engagements.read',
+      'engagements.manage',
     ],
   },
   {
@@ -402,6 +412,7 @@ export const DEFAULT_ROLES = [
       'communication_templates.read',
       'portal_access.read',
       'portal_updates.publish',
+      'engagements.read',
     ],
   },
 ] as const satisfies readonly DefaultRoleDefinition[];
