@@ -41,7 +41,7 @@ type Props = {
   canManageReminders: boolean;
 };
 
-type View = "inbox" | "portal" | "templates" | "reminders";
+type View = "inbox" | "matching" | "portal" | "templates" | "reminders";
 
 const EMPTY_OPTIONS: CaseManagementOptions = {
   departments: [],
@@ -99,6 +99,7 @@ export function CommunicationsWorkspace({
   const [notice, setNotice] = useState<string | null>(null);
   const [selectedConversationId, setSelectedConversationId] = useState("");
   const [reply, setReply] = useState("");
+  const [match, setMatch] = useState({ clientId: "", matterId: "" });
 
   const [compose, setCompose] = useState({
     clientId: "",
@@ -212,6 +213,42 @@ export function CommunicationsWorkspace({
       throw mutationError;
     } finally {
       setBusy(null);
+    }
+  }
+
+  async function decideMatch(
+    queueId: string,
+    version: number,
+    action: "MATCH" | "DISMISS",
+  ) {
+    try {
+      await mutate(
+        {
+          operation: "matching.resolve",
+          organisationId,
+          queueId,
+          payload: {
+            action,
+            ...(action === "MATCH"
+              ? {
+                  clientId: match.clientId,
+                  ...(match.matterId ? { matterId: match.matterId } : {}),
+                }
+              : {}),
+            reason:
+              action === "MATCH"
+                ? "Confirmed by authorised staff after identity review."
+                : "Reviewed and intentionally left unlinked.",
+            expectedVersion: version,
+          },
+        },
+        action === "MATCH"
+          ? "The inbound message was linked."
+          : "The matching item was dismissed.",
+      );
+      setMatch({ clientId: "", matterId: "" });
+    } catch {
+      /* Error already displayed. */
     }
   }
 
@@ -485,22 +522,22 @@ export function CommunicationsWorkspace({
         aria-label="Communications sections"
         className="flex gap-2 overflow-x-auto"
       >
-        {(["inbox", "portal", "templates", "reminders"] as const).map(
-          (item) => (
-            <button
-              key={item}
-              type="button"
-              onClick={() => setView(item)}
-              className={
-                view === item
-                  ? "rounded-xl bg-slate-950 px-4 py-2.5 text-sm font-semibold capitalize text-white"
-                  : "rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm font-semibold capitalize text-slate-700"
-              }
-            >
-              {item}
-            </button>
-          ),
-        )}
+        {(
+          ["inbox", "matching", "portal", "templates", "reminders"] as const
+        ).map((item) => (
+          <button
+            key={item}
+            type="button"
+            onClick={() => setView(item)}
+            className={
+              view === item
+                ? "rounded-xl bg-slate-950 px-4 py-2.5 text-sm font-semibold capitalize text-white"
+                : "rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm font-semibold capitalize text-slate-700"
+            }
+          >
+            {item}
+          </button>
+        ))}
       </nav>
 
       {loading || !dashboard ? (
@@ -722,6 +759,106 @@ export function CommunicationsWorkspace({
             ) : null}
           </div>
         </div>
+      ) : null}
+
+      {!loading && dashboard && view === "matching" ? (
+        <section className="space-y-4 rounded-2xl border border-slate-200 bg-white p-5">
+          <div>
+            <h2 className="font-semibold">Unlinked communications queue</h2>
+            <p className="mt-1 text-sm text-slate-600">
+              BusinessOS never silently attaches sensitive inbound messages when
+              identity confidence is insufficient. An authorised person must
+              confirm the client and optional matter.
+            </p>
+          </div>
+          {dashboard.matchQueue.length === 0 ? (
+            <p className="rounded-xl border border-dashed p-5 text-sm text-slate-600">
+              No communications require matching.
+            </p>
+          ) : (
+            dashboard.matchQueue.map((item) => (
+              <article
+                key={item.id}
+                className="rounded-xl border border-slate-200 p-4"
+              >
+                <div className="flex flex-wrap justify-between gap-3">
+                  <div>
+                    <p className="font-semibold">
+                      {item.subject ?? `Inbound ${item.channel.toLowerCase()}`}
+                    </p>
+                    <p className="mt-1 text-sm text-slate-600">
+                      From {item.senderIdentifier ?? "unavailable"}
+                    </p>
+                  </div>
+                  <Badge>{item.status}</Badge>
+                </div>
+                <p className="mt-3 line-clamp-3 whitespace-pre-wrap text-sm text-slate-700">
+                  {item.bodyText}
+                </p>
+                {canSend ? (
+                  <div className="mt-4 grid gap-3 md:grid-cols-[1fr_1fr_auto_auto]">
+                    <select
+                      value={match.clientId}
+                      onChange={(event) =>
+                        setMatch({ clientId: event.target.value, matterId: "" })
+                      }
+                      className="h-10 rounded-xl border px-3 text-sm"
+                    >
+                      <option value="">Select client</option>
+                      {options.clients.map((client) => (
+                        <option key={client.id} value={client.id}>
+                          {client.label} · {client.clientNumber}
+                        </option>
+                      ))}
+                    </select>
+                    <select
+                      value={match.matterId}
+                      onChange={(event) =>
+                        setMatch((current) => ({
+                          ...current,
+                          matterId: event.target.value,
+                        }))
+                      }
+                      disabled={!match.clientId}
+                      className="h-10 rounded-xl border px-3 text-sm disabled:opacity-50"
+                    >
+                      <option value="">No matter</option>
+                      {matters
+                        .filter(
+                          (matter) => matter.primaryClientId === match.clientId,
+                        )
+                        .map((matter) => (
+                          <option key={matter.id} value={matter.id}>
+                            {matter.matterNumber} · {matter.title}
+                          </option>
+                        ))}
+                    </select>
+                    <button
+                      type="button"
+                      disabled={!match.clientId || busy !== null}
+                      onClick={() =>
+                        void decideMatch(item.id, item.version, "MATCH")
+                      }
+                      className="rounded-xl bg-slate-950 px-4 text-sm font-semibold text-white disabled:opacity-50"
+                    >
+                      Confirm link
+                    </button>
+                    <button
+                      type="button"
+                      disabled={busy !== null}
+                      onClick={() =>
+                        void decideMatch(item.id, item.version, "DISMISS")
+                      }
+                      className="rounded-xl border px-4 text-sm font-semibold"
+                    >
+                      Dismiss
+                    </button>
+                  </div>
+                ) : null}
+              </article>
+            ))
+          )}
+        </section>
       ) : null}
 
       {!loading && dashboard && view === "portal" ? (

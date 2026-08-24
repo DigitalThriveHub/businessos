@@ -124,6 +124,9 @@ export const ModelName = {
   FinanceJournalEntry: 'FinanceJournalEntry',
   FinanceJournalLine: 'FinanceJournalLine',
   IntegrationConnection: 'IntegrationConnection',
+  IntakeForm: 'IntakeForm',
+  IntakeSubmission: 'IntakeSubmission',
+  CommunicationMatchQueue: 'CommunicationMatchQueue',
   IntegrationEvent: 'IntegrationEvent',
   PaymentCheckoutSession: 'PaymentCheckoutSession',
   ServiceEngagement: 'ServiceEngagement',
@@ -1770,6 +1773,74 @@ export const IntegrationConnectionScalarFieldEnum = {
 } as const
 
 export type IntegrationConnectionScalarFieldEnum = (typeof IntegrationConnectionScalarFieldEnum)[keyof typeof IntegrationConnectionScalarFieldEnum]
+
+
+export const IntakeFormScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  connectionId: 'connectionId',
+  publicId: 'publicId',
+  key: 'key',
+  name: 'name',
+  description: 'description',
+  status: 'status',
+  formSchema: 'formSchema',
+  privacyNoticeUrl: 'privacyNoticeUrl',
+  privacyNoticeVersion: 'privacyNoticeVersion',
+  allowedOrigins: 'allowedOrigins',
+  successMessage: 'successMessage',
+  submitButtonLabel: 'submitButtonLabel',
+  honeypotField: 'honeypotField',
+  createdByUserId: 'createdByUserId',
+  updatedByUserId: 'updatedByUserId',
+  version: 'version',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type IntakeFormScalarFieldEnum = (typeof IntakeFormScalarFieldEnum)[keyof typeof IntakeFormScalarFieldEnum]
+
+
+export const IntakeSubmissionScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  formId: 'formId',
+  connectionId: 'connectionId',
+  externalEventId: 'externalEventId',
+  payloadSha256: 'payloadSha256',
+  status: 'status',
+  enquiryId: 'enquiryId',
+  rejectionCode: 'rejectionCode',
+  riskSignals: 'riskSignals',
+  receivedAt: 'receivedAt',
+  processedAt: 'processedAt',
+  createdAt: 'createdAt'
+} as const
+
+export type IntakeSubmissionScalarFieldEnum = (typeof IntakeSubmissionScalarFieldEnum)[keyof typeof IntakeSubmissionScalarFieldEnum]
+
+
+export const CommunicationMatchQueueScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  messageId: 'messageId',
+  status: 'status',
+  senderIdentifier: 'senderIdentifier',
+  providerThreadId: 'providerThreadId',
+  suggestedClientId: 'suggestedClientId',
+  suggestedMatterId: 'suggestedMatterId',
+  confidence: 'confidence',
+  matchedClientId: 'matchedClientId',
+  matchedMatterId: 'matchedMatterId',
+  reviewedByUserId: 'reviewedByUserId',
+  reviewReason: 'reviewReason',
+  reviewedAt: 'reviewedAt',
+  version: 'version',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type CommunicationMatchQueueScalarFieldEnum = (typeof CommunicationMatchQueueScalarFieldEnum)[keyof typeof CommunicationMatchQueueScalarFieldEnum]
 
 
 export const IntegrationEventScalarFieldEnum = {

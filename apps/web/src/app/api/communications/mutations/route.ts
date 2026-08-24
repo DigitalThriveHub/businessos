@@ -29,7 +29,11 @@ function upstreamMutation(input: CommunicationsMutation): UpstreamMutation {
 
   switch (input.operation) {
     case "conversation.create":
-      return { path: `${base}/conversations`, body: input.payload, created: true };
+      return {
+        path: `${base}/conversations`,
+        body: input.payload,
+        created: true,
+      };
     case "message.send":
       return {
         path: `${base}/conversations/${encodeURIComponent(
@@ -63,7 +67,11 @@ function upstreamMutation(input: CommunicationsMutation): UpstreamMutation {
         created: false,
       };
     case "portal-update.publish":
-      return { path: `${base}/portal-updates`, body: input.payload, created: true };
+      return {
+        path: `${base}/portal-updates`,
+        body: input.payload,
+        created: true,
+      };
     case "reminder.schedule":
       return { path: `${base}/reminders`, body: input.payload, created: true };
     case "reminder.cancel":
@@ -71,6 +79,12 @@ function upstreamMutation(input: CommunicationsMutation): UpstreamMutation {
         path: `${base}/reminders/${encodeURIComponent(
           input.reminderId,
         )}/cancel`,
+        body: input.payload,
+        created: false,
+      };
+    case "matching.resolve":
+      return {
+        path: `${base}/matching/${encodeURIComponent(input.queueId)}/decision`,
         body: input.payload,
         created: false,
       };

@@ -49,7 +49,68 @@ export const integrationsDashboardSchema = z.object({
 });
 export type IntegrationsDashboard = z.infer<typeof integrationsDashboardSchema>;
 
-export const integrationsReadQuerySchema = z.object({ organisationId: uuid });
+export const intakeFormSchema = z.object({
+  id: uuid,
+  organisationId: uuid.optional(),
+  connectionId: uuid,
+  publicId: uuid,
+  key: z.string(),
+  name: z.string(),
+  description: z.string().nullable(),
+  status: z.enum(["DRAFT", "ACTIVE", "DISABLED"]),
+  formSchema: z.object({
+    fields: z.array(
+      z.object({
+        name: z.enum([
+          "firstName",
+          "lastName",
+          "email",
+          "phone",
+          "country",
+          "serviceType",
+          "message",
+          "marketingConsent",
+        ]),
+        label: z.string(),
+        type: z.enum([
+          "text",
+          "email",
+          "tel",
+          "textarea",
+          "checkbox",
+          "select",
+        ]),
+        required: z.boolean().optional(),
+        placeholder: z.string().optional(),
+        options: z.array(z.string()).optional(),
+      }),
+    ),
+  }),
+  privacyNoticeUrl: z.string().url(),
+  privacyNoticeVersion: z.string(),
+  allowedOrigins: z.array(z.string()),
+  version: z.number().int().positive(),
+  createdAt: dateTime,
+  updatedAt: dateTime,
+});
+export type IntakeForm = z.infer<typeof intakeFormSchema>;
+
+export const gateHDashboardSchema = z.object({
+  generatedAt: dateTime,
+  forms: z.array(intakeFormSchema),
+  submissionCounts: z.object({
+    accepted24Hours: z.number().int().nonnegative(),
+    quarantined: z.number().int().nonnegative(),
+  }),
+  unlinkedCommunications: z.number().int().nonnegative(),
+  failedDeliveries: z.number().int().nonnegative(),
+});
+export type GateHDashboard = z.infer<typeof gateHDashboardSchema>;
+
+export const integrationsReadQuerySchema = z.object({
+  organisationId: uuid,
+  view: z.enum(["connections", "gate-h"]).optional().default("connections"),
+});
 
 export const integrationMutationSchema = z.discriminatedUnion("operation", [
   z.object({
@@ -79,6 +140,60 @@ export const integrationMutationSchema = z.discriminatedUnion("operation", [
     organisationId: uuid,
     connectionId: uuid,
     payload: z.object({ expectedVersion: z.number().int().positive() }),
+  }),
+  z.object({
+    operation: z.literal("form.create"),
+    organisationId: uuid,
+    payload: z.object({
+      connectionId: uuid,
+      key: z
+        .string()
+        .trim()
+        .regex(/^[a-z0-9]+(?:[._-][a-z0-9]+)*$/),
+      name: z.string().trim().min(2).max(180),
+      description: z.string().trim().max(1000).optional(),
+      privacyNoticeUrl: z.string().url(),
+      privacyNoticeVersion: z.string().trim().min(1).max(80),
+      allowedOrigins: z.array(z.string().url()).min(1).max(50),
+      formSchema: z.object({
+        fields: z
+          .array(
+            z.object({
+              name: z.enum([
+                "firstName",
+                "lastName",
+                "email",
+                "phone",
+                "country",
+                "serviceType",
+                "message",
+                "marketingConsent",
+              ]),
+              label: z.string().min(1).max(120),
+              type: z.enum([
+                "text",
+                "email",
+                "tel",
+                "textarea",
+                "checkbox",
+                "select",
+              ]),
+              required: z.boolean().optional(),
+            }),
+          )
+          .min(1)
+          .max(50),
+      }),
+    }),
+  }),
+  z.object({
+    operation: z.literal("form.status"),
+    organisationId: uuid,
+    formId: uuid,
+    payload: z.object({
+      status: z.enum(["DRAFT", "ACTIVE", "DISABLED"]),
+      expectedVersion: z.number().int().positive(),
+    }),
   }),
 ]);
 export type IntegrationMutation = z.infer<typeof integrationMutationSchema>;

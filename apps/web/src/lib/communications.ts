@@ -146,6 +146,23 @@ export const communicationsDashboardSchema = z.object({
       occurredAt: dateTime,
     }),
   ),
+  matchQueue: z.array(
+    z.object({
+      id: uuid,
+      messageId: uuid,
+      status: z.enum(["UNMATCHED", "SUGGESTED"]),
+      senderIdentifier: nullableText,
+      providerThreadId: nullableText,
+      suggestedClientId: nullableUuid,
+      suggestedMatterId: nullableUuid,
+      confidence: nullableText,
+      channel,
+      subject: nullableText,
+      bodyText: z.string(),
+      createdAt: dateTime,
+      version: z.number().int().positive(),
+    }),
+  ),
 });
 export type CommunicationsDashboard = z.infer<
   typeof communicationsDashboardSchema
@@ -271,6 +288,19 @@ const reminderSchedule = z.object({
   }),
 });
 
+const matchResolve = z.object({
+  operation: z.literal("matching.resolve"),
+  organisationId: uuid,
+  queueId: uuid,
+  payload: z.object({
+    action: z.enum(["MATCH", "DISMISS"]),
+    clientId: uuid.optional(),
+    matterId: uuid.optional(),
+    reason: z.string().trim().min(3).max(1000),
+    expectedVersion: z.number().int().positive(),
+  }),
+});
+
 export const communicationsMutationSchema = z.discriminatedUnion("operation", [
   conversationCreate,
   messageSend,
@@ -281,6 +311,7 @@ export const communicationsMutationSchema = z.discriminatedUnion("operation", [
   portalUpdatePublish,
   reminderSchedule,
   reminderCancel,
+  matchResolve,
 ]);
 export type CommunicationsMutation = z.infer<
   typeof communicationsMutationSchema

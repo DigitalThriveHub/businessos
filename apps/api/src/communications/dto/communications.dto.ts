@@ -263,3 +263,27 @@ export class ScheduleCommunicationReminderDto {
   @Matches(IDEMPOTENCY_PATTERN)
   idempotencyKey!: string;
 }
+
+export class ResolveCommunicationMatchDto {
+  @IsIn(['MATCH', 'DISMISS'])
+  action!: 'MATCH' | 'DISMISS';
+
+  @IsUUID('4')
+  @ValidateIf((value: ResolveCommunicationMatchDto) => value.action === 'MATCH')
+  clientId?: string;
+
+  @IsUUID('4')
+  @IsOptional()
+  matterId?: string;
+
+  @Transform(trim)
+  @IsString()
+  @MinLength(3)
+  @MaxLength(1000)
+  reason!: string;
+
+  @Type(() => Number)
+  @IsInt()
+  @Min(1)
+  expectedVersion!: number;
+}

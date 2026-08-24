@@ -5,6 +5,7 @@ import {
   Controller,
   Get,
   Header,
+  Headers,
   HttpCode,
   HttpStatus,
   Param,
@@ -28,8 +29,12 @@ import {
 } from '../auth/request-security-context';
 import {
   CreateIntegrationConnectionDto,
+  CreateIntakeFormDto,
+  ExternalCommunicationIntakeDto,
   ExternalEnquiryIntakeDto,
+  PublicIntakeSubmissionDto,
   RotateIntegrationSecretDto,
+  SetIntakeFormStatusDto,
   SetIntegrationConnectionStatusDto,
 } from './dto/integrations.dto';
 import { IntegrationsService } from './integrations.service';
@@ -120,6 +125,81 @@ export class IntegrationsController {
       requireOrganisationAccessContext(request),
     );
   }
+
+  @Get('gate-h')
+  @SecureResponse()
+  @RequirePermissions('integrations.read')
+  getGateHDashboard(
+    @Param('organisationId', new ParseUUIDPipe({ version: '4' }))
+    _organisationId: string,
+    @Req() request: OrganisationScopedRequest,
+  ) {
+    return this.integrations.getGateHDashboard(
+      requireOrganisationAccessContext(request),
+    );
+  }
+
+  @Post('forms')
+  @HttpCode(HttpStatus.CREATED)
+  @SecureResponse()
+  @RequirePermissions('integrations.manage')
+  createIntakeForm(
+    @Body() dto: CreateIntakeFormDto,
+    @Req() request: OrganisationScopedRequest,
+  ) {
+    return this.integrations.createIntakeForm(
+      dto,
+      requireOrganisationAccessContext(request),
+    );
+  }
+
+  @Patch('forms/:formId/status')
+  @SecureResponse()
+  @RequirePermissions('integrations.manage')
+  setIntakeFormStatus(
+    @Param('formId', new ParseUUIDPipe({ version: '4' })) formId: string,
+    @Body() dto: SetIntakeFormStatusDto,
+    @Req() request: OrganisationScopedRequest,
+  ) {
+    return this.integrations.setIntakeFormStatus(
+      formId,
+      dto,
+      requireOrganisationAccessContext(request),
+    );
+  }
+}
+
+@Controller('public/intake/forms')
+export class PublicIntakeFormsController {
+  constructor(private readonly integrations: IntegrationsService) {}
+
+  @Get(':publicId')
+  @SecureResponse()
+  @Throttle({ default: { limit: 120, ttl: 60_000 } })
+  getForm(
+    @Param('publicId', new ParseUUIDPipe({ version: '4' })) publicId: string,
+    @Headers('origin') origin: string | undefined,
+  ) {
+    return this.integrations.getPublicIntakeForm(publicId, origin);
+  }
+
+  @Post(':publicId/submissions')
+  @HttpCode(HttpStatus.ACCEPTED)
+  @SecureResponse()
+  @Throttle({ default: { limit: 10, ttl: 60_000 } })
+  submit(
+    @Param('publicId', new ParseUUIDPipe({ version: '4' })) publicId: string,
+    @Headers('origin') origin: string | undefined,
+    @Body() dto: PublicIntakeSubmissionDto,
+    @Req() request: RawBodyRequest<Request>,
+  ) {
+    return this.integrations.submitPublicIntakeForm({
+      publicId,
+      origin,
+      rawBody: request.rawBody,
+      dto,
+    });
+  }
 }
 
 @Controller('webhooks/intake')
@@ -148,6 +228,39 @@ export class ExternalIntakeWebhookController {
         request.headers['x-businessos-event-type'],
         'x-businessos-event-type',
         160,
+      ),
+      timestamp: requiredHeader(
+        request.headers['x-businessos-timestamp'],
+        'x-businessos-timestamp',
+        20,
+      ),
+      signature: requiredHeader(
+        request.headers['x-businessos-signature'],
+        'x-businessos-signature',
+        80,
+      ),
+      rawBody: request.rawBody,
+      dto,
+    });
+  }
+
+  @Post(':connectionId/communications')
+  @HttpCode(HttpStatus.ACCEPTED)
+  @Header('Cache-Control', 'no-store')
+  @Header('X-Content-Type-Options', 'nosniff')
+  @Throttle({ default: { limit: 60, ttl: 60_000 } })
+  receiveCommunication(
+    @Param('connectionId', new ParseUUIDPipe({ version: '4' }))
+    connectionId: string,
+    @Body() dto: ExternalCommunicationIntakeDto,
+    @Req() request: RawBodyRequest<Request>,
+  ) {
+    return this.integrations.receiveExternalCommunication({
+      connectionId,
+      eventId: requiredHeader(
+        request.headers['x-businessos-event-id'],
+        'x-businessos-event-id',
+        240,
       ),
       timestamp: requiredHeader(
         request.headers['x-businessos-timestamp'],

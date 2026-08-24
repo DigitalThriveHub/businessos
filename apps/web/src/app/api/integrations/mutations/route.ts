@@ -5,6 +5,7 @@ import {
   type IntegrationMutation,
   integrationConnectionSchema,
   integrationMutationSchema,
+  intakeFormSchema,
 } from "@/lib/integrations";
 import {
   authenticationRequiredResponse,
@@ -52,6 +53,20 @@ function upstream(input: IntegrationMutation): {
         created: false,
         body: input.payload,
       };
+    case "form.create":
+      return {
+        path: `${base}/forms`,
+        method: "POST",
+        created: true,
+        body: input.payload,
+      };
+    case "form.status":
+      return {
+        path: `${base}/forms/${encodeURIComponent(input.formId)}/status`,
+        method: "PATCH",
+        created: false,
+        body: input.payload,
+      };
   }
 }
 
@@ -71,7 +86,9 @@ export async function POST(request: NextRequest) {
     });
 
     return secureJson(
-      integrationConnectionSchema.parse(response),
+      input.operation.startsWith("form.")
+        ? intakeFormSchema.parse(response)
+        : integrationConnectionSchema.parse(response),
       target.created ? 201 : 200,
     );
   } catch (error) {

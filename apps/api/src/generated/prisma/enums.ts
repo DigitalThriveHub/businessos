@@ -824,6 +824,36 @@ export const IntegrationEventStatus = {
 export type IntegrationEventStatus = (typeof IntegrationEventStatus)[keyof typeof IntegrationEventStatus]
 
 
+export const IntakeFormStatus = {
+  DRAFT: 'DRAFT',
+  ACTIVE: 'ACTIVE',
+  DISABLED: 'DISABLED'
+} as const
+
+export type IntakeFormStatus = (typeof IntakeFormStatus)[keyof typeof IntakeFormStatus]
+
+
+export const IntakeSubmissionStatus = {
+  RECEIVED: 'RECEIVED',
+  ACCEPTED: 'ACCEPTED',
+  DUPLICATE: 'DUPLICATE',
+  QUARANTINED: 'QUARANTINED',
+  REJECTED: 'REJECTED'
+} as const
+
+export type IntakeSubmissionStatus = (typeof IntakeSubmissionStatus)[keyof typeof IntakeSubmissionStatus]
+
+
+export const CommunicationMatchStatus = {
+  UNMATCHED: 'UNMATCHED',
+  SUGGESTED: 'SUGGESTED',
+  MATCHED: 'MATCHED',
+  DISMISSED: 'DISMISSED'
+} as const
+
+export type CommunicationMatchStatus = (typeof CommunicationMatchStatus)[keyof typeof CommunicationMatchStatus]
+
+
 export const PaymentCheckoutStatus = {
   PENDING_PROVIDER: 'PENDING_PROVIDER',
   OPEN: 'OPEN',

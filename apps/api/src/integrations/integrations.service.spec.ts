@@ -145,6 +145,116 @@ describe('IntegrationsService', () => {
     expect(database.$queryRaw).not.toHaveBeenCalled();
   });
 
+  it('records a validated hosted-form submission without storing raw payloads', async () => {
+    const previousWebAppUrl = process.env.WEB_APP_URL;
+    process.env.WEB_APP_URL = 'https://app.example.test';
+    database.$queryRaw
+      .mockResolvedValueOnce([
+        {
+          id: '55555555-5555-4555-8555-555555555555',
+          organisationId: CONTEXT.organisationId,
+          connectionId: '66666666-6666-4666-8666-666666666666',
+          publicId: '77777777-7777-4777-8777-777777777777',
+          name: 'Website enquiry',
+          description: null,
+          formSchema: {
+            fields: [
+              { name: 'firstName', label: 'First name', required: true },
+              { name: 'email', label: 'Email', required: true },
+            ],
+          },
+          privacyNoticeUrl: 'https://example.test/privacy',
+          privacyNoticeVersion: '2026-08',
+          allowedOrigins: ['https://website.example.test'],
+          successMessage: 'Received.',
+          submitButtonLabel: 'Submit',
+          honeypotField: 'company_website',
+        },
+      ])
+      .mockResolvedValueOnce([
+        {
+          submissionId: '88888888-8888-4888-8888-888888888888',
+          enquiryId: '99999999-9999-4999-8999-999999999999',
+          duplicate: false,
+          correlationId: 'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa',
+        },
+      ]);
+
+    try {
+      await expect(
+        service.submitPublicIntakeForm({
+          publicId: '77777777-7777-4777-8777-777777777777',
+          origin: 'https://website.example.test',
+          rawBody: Buffer.from('{"firstName":"Ada"}'),
+          dto: {
+            submissionId: 'website-submission-100',
+            formStartedAt: new Date(Date.now() - 2_000).toISOString(),
+            firstName: 'Ada',
+            email: 'ada@example.test',
+            lawfulBasis: 'CONSENT',
+            privacyNoticeAcknowledged: true,
+            privacyNoticeVersion: '2026-08',
+          },
+        }),
+      ).resolves.toMatchObject({ accepted: true, duplicate: false });
+      expect(database.$queryRaw).toHaveBeenCalledTimes(2);
+    } finally {
+      if (previousWebAppUrl === undefined) delete process.env.WEB_APP_URL;
+      else process.env.WEB_APP_URL = previousWebAppUrl;
+    }
+  });
+
+  it('quarantines automated hosted-form abuse with a non-enumerating response', async () => {
+    database.$queryRaw
+      .mockResolvedValueOnce([
+        {
+          id: '55555555-5555-4555-8555-555555555555',
+          organisationId: CONTEXT.organisationId,
+          connectionId: '66666666-6666-4666-8666-666666666666',
+          publicId: '77777777-7777-4777-8777-777777777777',
+          name: 'Website enquiry',
+          description: null,
+          formSchema: {
+            fields: [
+              { name: 'firstName', label: 'First name', required: true },
+              { name: 'email', label: 'Email', required: true },
+            ],
+          },
+          privacyNoticeUrl: 'https://example.test/privacy',
+          privacyNoticeVersion: '2026-08',
+          allowedOrigins: [],
+          successMessage: 'Received.',
+          submitButtonLabel: 'Submit',
+          honeypotField: 'company_website',
+        },
+      ])
+      .mockResolvedValueOnce([
+        { submissionId: '88888888-8888-4888-8888-888888888888' },
+      ]);
+
+    await expect(
+      service.submitPublicIntakeForm({
+        publicId: '77777777-7777-4777-8777-777777777777',
+        origin: undefined,
+        rawBody: Buffer.from('{"companyWebsite":"spam"}'),
+        dto: {
+          submissionId: 'website-submission-spam',
+          formStartedAt: new Date(Date.now() - 2_000).toISOString(),
+          firstName: 'Bot',
+          email: 'bot@example.test',
+          lawfulBasis: 'CONSENT',
+          privacyNoticeAcknowledged: true,
+          privacyNoticeVersion: '2026-08',
+          companyWebsite: 'https://spam.example',
+        },
+      }),
+    ).resolves.toEqual({
+      accepted: true,
+      duplicate: false,
+      submissionId: '88888888-8888-4888-8888-888888888888',
+    });
+  });
+
   it('does not leak database permission details', async () => {
     transaction.$queryRaw.mockRejectedValue({ originalCode: '42501' });
     await expect(service.getDashboard(CONTEXT)).rejects.toBeInstanceOf(

@@ -746,6 +746,33 @@ enum IntegrationEventStatus {
   @@map("integration_event_status")
 }
 
+enum IntakeFormStatus {
+  DRAFT
+  ACTIVE
+  DISABLED
+
+  @@map("intake_form_status")
+}
+
+enum IntakeSubmissionStatus {
+  RECEIVED
+  ACCEPTED
+  DUPLICATE
+  QUARANTINED
+  REJECTED
+
+  @@map("intake_submission_status")
+}
+
+enum CommunicationMatchStatus {
+  UNMATCHED
+  SUGGESTED
+  MATCHED
+  DISMISSED
+
+  @@map("communication_match_status")
+}
+
 enum PaymentCheckoutStatus {
   PENDING_PROVIDER
   OPEN
@@ -3083,13 +3110,92 @@ model IntegrationConnection {
   createdAt                DateTime                    @default(now()) @map("created_at") @db.Timestamptz(6)
   updatedAt                DateTime                    @updatedAt @map("updated_at") @db.Timestamptz(6)
 
-  events    IntegrationEvent[]
-  checkouts PaymentCheckoutSession[]
+  events      IntegrationEvent[]
+  checkouts   PaymentCheckoutSession[]
+  intakeForms IntakeForm[]
 
   @@unique([id, organisationId], map: "uq_integration_connections_id_org")
   @@unique([organisationId, provider, displayName], map: "uq_integration_connections_org_provider_name")
   @@index([organisationId, provider, status], map: "ix_integration_connections_org_provider_status")
   @@map("integration_connections")
+}
+
+model IntakeForm {
+  id                   String           @id(map: "pk_intake_forms") @default(uuid()) @db.Uuid
+  organisationId       String           @map("organisation_id") @db.Uuid
+  connectionId         String           @map("connection_id") @db.Uuid
+  publicId             String           @unique(map: "uq_intake_forms_public_id") @default(uuid()) @map("public_id") @db.Uuid
+  key                  String           @db.VarChar(120)
+  name                 String           @db.VarChar(180)
+  description          String?          @db.VarChar(1000)
+  status               IntakeFormStatus @default(DRAFT)
+  formSchema           Json             @map("form_schema")
+  privacyNoticeUrl     String           @map("privacy_notice_url") @db.VarChar(2048)
+  privacyNoticeVersion String           @map("privacy_notice_version") @db.VarChar(80)
+  allowedOrigins       String[]         @map("allowed_origins")
+  successMessage       String           @default("Thank you. Your information has been received securely.") @map("success_message") @db.VarChar(500)
+  submitButtonLabel    String           @default("Submit securely") @map("submit_button_label") @db.VarChar(80)
+  honeypotField        String           @default("company_website") @map("honeypot_field") @db.VarChar(80)
+  createdByUserId      String           @map("created_by_user_id") @db.Uuid
+  updatedByUserId      String           @map("updated_by_user_id") @db.Uuid
+  version              Int              @default(1)
+  createdAt            DateTime         @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt            DateTime         @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  connection  IntegrationConnection @relation(fields: [connectionId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_intake_forms_connection")
+  submissions IntakeSubmission[]
+
+  @@unique([id, organisationId], map: "uq_intake_forms_id_org")
+  @@unique([organisationId, key], map: "uq_intake_forms_org_key")
+  @@index([organisationId, status, name], map: "ix_intake_forms_org_status")
+  @@map("intake_forms")
+}
+
+model IntakeSubmission {
+  id              String                 @id(map: "pk_intake_submissions") @default(uuid()) @db.Uuid
+  organisationId  String                 @map("organisation_id") @db.Uuid
+  formId          String                 @map("form_id") @db.Uuid
+  connectionId    String                 @map("connection_id") @db.Uuid
+  externalEventId String                 @map("external_event_id") @db.VarChar(240)
+  payloadSha256   String                 @map("payload_sha256") @db.Char(64)
+  status          IntakeSubmissionStatus @default(RECEIVED)
+  enquiryId       String?                @map("enquiry_id") @db.Uuid
+  rejectionCode   String?                @map("rejection_code") @db.VarChar(120)
+  riskSignals     Json                   @default("[]") @map("risk_signals")
+  receivedAt      DateTime               @default(now()) @map("received_at") @db.Timestamptz(6)
+  processedAt     DateTime?              @map("processed_at") @db.Timestamptz(6)
+  createdAt       DateTime               @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  form IntakeForm @relation(fields: [formId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_intake_submissions_form")
+
+  @@unique([id, organisationId], map: "uq_intake_submissions_id_org")
+  @@unique([formId, externalEventId], map: "uq_intake_submissions_form_event")
+  @@index([organisationId, status, receivedAt(sort: Desc)], map: "ix_intake_submissions_org_status")
+  @@map("intake_submissions")
+}
+
+model CommunicationMatchQueue {
+  id                String                   @id(map: "pk_communication_match_queue") @default(uuid()) @db.Uuid
+  organisationId    String                   @map("organisation_id") @db.Uuid
+  messageId         String                   @unique(map: "uq_match_queue_message") @map("message_id") @db.Uuid
+  status            CommunicationMatchStatus @default(UNMATCHED)
+  senderIdentifier  String?                  @map("sender_identifier") @db.VarChar(320)
+  providerThreadId  String?                  @map("provider_thread_id") @db.VarChar(240)
+  suggestedClientId String?                  @map("suggested_client_id") @db.Uuid
+  suggestedMatterId String?                  @map("suggested_matter_id") @db.Uuid
+  confidence        Decimal?                 @db.Decimal(5, 4)
+  matchedClientId   String?                  @map("matched_client_id") @db.Uuid
+  matchedMatterId   String?                  @map("matched_matter_id") @db.Uuid
+  reviewedByUserId  String?                  @map("reviewed_by_user_id") @db.Uuid
+  reviewReason      String?                  @map("review_reason") @db.VarChar(1000)
+  reviewedAt        DateTime?                @map("reviewed_at") @db.Timestamptz(6)
+  version           Int                      @default(1)
+  createdAt         DateTime                 @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt         DateTime                 @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@unique([id, organisationId], map: "uq_match_queue_id_org")
+  @@index([organisationId, status, createdAt(sort: Desc)], map: "ix_match_queue_org_status")
+  @@map("communication_match_queue")
 }
 
 model IntegrationEvent {

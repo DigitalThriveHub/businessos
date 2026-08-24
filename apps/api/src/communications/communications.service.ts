@@ -23,6 +23,7 @@ import {
   CreateCommunicationTemplateDto,
   PublishClientPortalUpdateDto,
   RevokeClientPortalAccessDto,
+  ResolveCommunicationMatchDto,
   ScheduleCommunicationReminderDto,
   SendCommunicationMessageDto,
 } from './dto/communications.dto';
@@ -293,6 +294,26 @@ export class CommunicationsService {
           LIMIT 200
         `;
 
+        const matchQueue = await transaction.$queryRaw<RecordValue[]>`
+          SELECT queue_record.id, queue_record.message_id AS "messageId",
+            queue_record.status::text AS status,
+            queue_record.sender_identifier AS "senderIdentifier",
+            queue_record.provider_thread_id AS "providerThreadId",
+            queue_record.suggested_client_id AS "suggestedClientId",
+            queue_record.suggested_matter_id AS "suggestedMatterId",
+            queue_record.confidence::text AS confidence,
+            message_record.channel::text AS channel,
+            message_record.subject, message_record.body_text AS "bodyText",
+            message_record.created_at AS "createdAt", queue_record.version
+          FROM public.communication_match_queue AS queue_record
+          JOIN public.communication_messages AS message_record
+            ON message_record.id = queue_record.message_id
+           AND message_record.organisation_id = queue_record.organisation_id
+          WHERE queue_record.organisation_id = ${context.organisationId}::uuid
+            AND queue_record.status IN ('UNMATCHED','SUGGESTED')
+          ORDER BY queue_record.created_at DESC LIMIT 100
+        `;
+
         return {
           conversations,
           templates,
@@ -300,6 +321,7 @@ export class CommunicationsService {
           accessGrants,
           reminders,
           deliveryEvents,
+          matchQueue,
         };
       }),
     );
@@ -770,6 +792,33 @@ export class CommunicationsService {
       );
 
       return this.requireOne(rows, 'scheduled reminder');
+    });
+  }
+
+  resolveMatch(
+    queueId: string,
+    dto: ResolveCommunicationMatchDto,
+    context: Readonly<OrganisationAccessContext>,
+  ): Promise<RecordValue> {
+    return this.runSafely('matching.resolve', async () => {
+      const rows = await this.rls.run(
+        this.rlsContext(context),
+        (transaction) => transaction.$queryRaw<RecordValue[]>`
+          SELECT id, organisation_id AS "organisationId",
+            message_id AS "messageId", status::text AS status,
+            matched_client_id AS "matchedClientId",
+            matched_matter_id AS "matchedMatterId",
+            reviewed_by_user_id AS "reviewedByUserId",
+            review_reason AS "reviewReason", reviewed_at AS "reviewedAt", version
+          FROM private.resolve_communication_match(
+            ${queueId}::uuid, ${dto.action}, ${dto.clientId ?? null}::uuid,
+            ${dto.matterId ?? null}::uuid, ${dto.reason}, ${dto.expectedVersion}
+          )
+        `,
+      );
+      if (!rows[0])
+        throw new NotFoundException('The matching item was not found.');
+      return rows[0];
     });
   }
 

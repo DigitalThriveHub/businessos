@@ -3,6 +3,8 @@
 import { type FormEvent, useCallback, useEffect, useState } from "react";
 import {
   Copy,
+  FilePlus2,
+  Globe2,
   KeyRound,
   Plug,
   RefreshCw,
@@ -14,7 +16,11 @@ import {
 import { integrationRequest } from "@/components/integrations/integration-client";
 import {
   integrationConnectionSchema,
+  gateHDashboardSchema,
+  intakeFormSchema,
   integrationsDashboardSchema,
+  type GateHDashboard,
+  type IntakeForm,
   type IntegrationConnection,
   type IntegrationsDashboard,
 } from "@/lib/integrations";
@@ -48,6 +54,7 @@ export function IntegrationsWorkspace({ organisationId, canManage }: Props) {
   const [dashboard, setDashboard] = useState<IntegrationsDashboard | null>(
     null,
   );
+  const [gateH, setGateH] = useState<GateHDashboard | null>(null);
   const [loading, setLoading] = useState(true);
   const [busy, setBusy] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -61,16 +68,42 @@ export function IntegrationsWorkspace({ organisationId, canManage }: Props) {
     displayName: "WordPress lead intake",
     externalAccountReference: "",
   });
+  const [intakeForm, setIntakeForm] = useState({
+    connectionId: "",
+    key: "website_enquiry",
+    name: "Website enquiry",
+    description: "Tell us how we can help and our team will respond.",
+    privacyNoticeUrl: "https://example.com/privacy-policy",
+    privacyNoticeVersion: "2026-08",
+    allowedOrigin: "",
+  });
 
   const refresh = useCallback(
     async (success?: string) => {
       try {
         const query = new URLSearchParams({ organisationId });
-        const result = await integrationRequest(
-          `/api/integrations?${query.toString()}`,
-          integrationsDashboardSchema,
-        );
+        const [result, intake] = await Promise.all([
+          integrationRequest(
+            `/api/integrations?${query.toString()}`,
+            integrationsDashboardSchema,
+          ),
+          integrationRequest(
+            `/api/integrations?${new URLSearchParams({ organisationId, view: "gate-h" }).toString()}`,
+            gateHDashboardSchema,
+          ),
+        ]);
         setDashboard(result);
+        setGateH(intake);
+        const connection = result.connections.find(
+          (entry) => entry.status === "ACTIVE" && entry.provider !== "STRIPE",
+        );
+        if (connection) {
+          setIntakeForm((current) =>
+            current.connectionId
+              ? current
+              : { ...current, connectionId: connection.id },
+          );
+        }
         setError(null);
         if (success) setNotice(success);
       } catch (refreshError) {
@@ -122,6 +155,109 @@ export function IntegrationsWorkspace({ organisationId, canManage }: Props) {
       await refresh("The integration connection was created securely.");
     } catch (createError) {
       setError(message(createError));
+    } finally {
+      setBusy(null);
+    }
+  }
+
+  async function createPublicForm(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setBusy("form:create");
+    setError(null);
+    setNotice(null);
+    try {
+      await integrationRequest(
+        "/api/integrations/mutations",
+        intakeFormSchema,
+        {
+          method: "POST",
+          body: JSON.stringify({
+            operation: "form.create",
+            organisationId,
+            payload: {
+              connectionId: intakeForm.connectionId,
+              key: intakeForm.key,
+              name: intakeForm.name,
+              description: intakeForm.description,
+              privacyNoticeUrl: intakeForm.privacyNoticeUrl,
+              privacyNoticeVersion: intakeForm.privacyNoticeVersion,
+              allowedOrigins: [
+                intakeForm.allowedOrigin || window.location.origin,
+              ],
+              formSchema: {
+                fields: [
+                  {
+                    name: "firstName",
+                    label: "First name",
+                    type: "text",
+                    required: true,
+                  },
+                  { name: "lastName", label: "Last name", type: "text" },
+                  {
+                    name: "email",
+                    label: "Email",
+                    type: "email",
+                    required: true,
+                  },
+                  { name: "phone", label: "Phone", type: "tel" },
+                  {
+                    name: "serviceType",
+                    label: "Service required",
+                    type: "text",
+                  },
+                  {
+                    name: "message",
+                    label: "How can we help?",
+                    type: "textarea",
+                    required: true,
+                  },
+                  {
+                    name: "marketingConsent",
+                    label: "I would like relevant updates",
+                    type: "checkbox",
+                  },
+                ],
+              },
+            },
+          }),
+        },
+      );
+      await refresh("The secure public form was created as a draft.");
+    } catch (formError) {
+      setError(message(formError));
+    } finally {
+      setBusy(null);
+    }
+  }
+
+  async function changeFormStatus(intake: IntakeForm) {
+    setBusy(`form:${intake.id}`);
+    setError(null);
+    setNotice(null);
+    try {
+      await integrationRequest(
+        "/api/integrations/mutations",
+        intakeFormSchema,
+        {
+          method: "POST",
+          body: JSON.stringify({
+            operation: "form.status",
+            organisationId,
+            formId: intake.id,
+            payload: {
+              status: intake.status === "ACTIVE" ? "DISABLED" : "ACTIVE",
+              expectedVersion: intake.version,
+            },
+          }),
+        },
+      );
+      await refresh(
+        intake.status === "ACTIVE"
+          ? "The form was disabled."
+          : "The form is live.",
+      );
+    } catch (formError) {
+      setError(message(formError));
     } finally {
       setBusy(null);
     }
@@ -475,6 +611,172 @@ export function IntegrationsWorkspace({ organisationId, canManage }: Props) {
               )}
             </tbody>
           </table>
+        </div>
+      </section>
+
+      <section className="space-y-5 rounded-3xl border border-slate-200 bg-slate-50 p-5">
+        <div className="flex items-center gap-2">
+          <Globe2 className="h-5 w-5" />
+          <h2 className="text-xl font-semibold">
+            Universal intake and owned forms
+          </h2>
+        </div>
+        <p className="max-w-4xl text-sm leading-6 text-slate-600">
+          Use the signed webhook with WordPress, Elementor, PHP, JavaScript,
+          Google Forms Apps Script, Meta Lead Ads, CRMs and custom applications.
+          BusinessOS-owned forms can also be embedded as an iframe or linked
+          directly.
+        </p>
+        <div className="grid gap-3 sm:grid-cols-4">
+          <div className="rounded-xl bg-white p-3 text-sm">
+            <span className="text-slate-500">Accepted (24h)</span>
+            <strong className="mt-1 block text-lg">
+              {gateH?.submissionCounts.accepted24Hours ?? 0}
+            </strong>
+          </div>
+          <div className="rounded-xl bg-white p-3 text-sm">
+            <span className="text-slate-500">Quarantined</span>
+            <strong className="mt-1 block text-lg">
+              {gateH?.submissionCounts.quarantined ?? 0}
+            </strong>
+          </div>
+          <div className="rounded-xl bg-white p-3 text-sm">
+            <span className="text-slate-500">Unlinked messages</span>
+            <strong className="mt-1 block text-lg">
+              {gateH?.unlinkedCommunications ?? 0}
+            </strong>
+          </div>
+          <div className="rounded-xl bg-white p-3 text-sm">
+            <span className="text-slate-500">Failed deliveries</span>
+            <strong className="mt-1 block text-lg">
+              {gateH?.failedDeliveries ?? 0}
+            </strong>
+          </div>
+        </div>
+        {canManage ? (
+          <form
+            onSubmit={createPublicForm}
+            className="grid gap-4 rounded-2xl bg-white p-5 md:grid-cols-2"
+          >
+            <div className="md:col-span-2 flex items-center gap-2">
+              <FilePlus2 className="h-5 w-5" />
+              <h3 className="font-semibold">Create BusinessOS form</h3>
+            </div>
+            <label className="text-sm font-medium">
+              Connection
+              <select
+                required
+                value={intakeForm.connectionId}
+                onChange={(event) =>
+                  setIntakeForm((current) => ({
+                    ...current,
+                    connectionId: event.target.value,
+                  }))
+                }
+                className="mt-2 h-11 w-full rounded-xl border px-3"
+              >
+                <option value="">Select</option>
+                {dashboard?.connections
+                  .filter(
+                    (entry) =>
+                      entry.status === "ACTIVE" && entry.provider !== "STRIPE",
+                  )
+                  .map((entry) => (
+                    <option key={entry.id} value={entry.id}>
+                      {entry.displayName}
+                    </option>
+                  ))}
+              </select>
+            </label>
+            <label className="text-sm font-medium">
+              Protected key
+              <input
+                required
+                value={intakeForm.key}
+                onChange={(event) =>
+                  setIntakeForm((current) => ({
+                    ...current,
+                    key: event.target.value,
+                  }))
+                }
+                className="mt-2 h-11 w-full rounded-xl border px-3"
+              />
+            </label>
+            <label className="text-sm font-medium">
+              Form name
+              <input
+                required
+                value={intakeForm.name}
+                onChange={(event) =>
+                  setIntakeForm((current) => ({
+                    ...current,
+                    name: event.target.value,
+                  }))
+                }
+                className="mt-2 h-11 w-full rounded-xl border px-3"
+              />
+            </label>
+            <label className="text-sm font-medium">
+              Allowed website origin (optional)
+              <input
+                placeholder="https://www.example.com"
+                value={intakeForm.allowedOrigin}
+                onChange={(event) =>
+                  setIntakeForm((current) => ({
+                    ...current,
+                    allowedOrigin: event.target.value,
+                  }))
+                }
+                className="mt-2 h-11 w-full rounded-xl border px-3"
+              />
+            </label>
+            <label className="text-sm font-medium md:col-span-2">
+              Privacy notice URL
+              <input
+                required
+                type="url"
+                value={intakeForm.privacyNoticeUrl}
+                onChange={(event) =>
+                  setIntakeForm((current) => ({
+                    ...current,
+                    privacyNoticeUrl: event.target.value,
+                  }))
+                }
+                className="mt-2 h-11 w-full rounded-xl border px-3"
+              />
+            </label>
+            <button
+              disabled={busy !== null}
+              className="h-11 w-fit rounded-xl bg-slate-950 px-4 text-sm font-semibold text-white disabled:opacity-50"
+            >
+              Create draft form
+            </button>
+          </form>
+        ) : null}
+        <div className="grid gap-4 lg:grid-cols-2">
+          {gateH?.forms.map((intake) => (
+            <article key={intake.id} className="rounded-2xl bg-white p-5">
+              <div className="flex justify-between gap-4">
+                <div>
+                  <h3 className="font-semibold">{intake.name}</h3>
+                  <p className="mt-1 text-xs text-slate-500">
+                    {intake.status} · {intake.key}
+                  </p>
+                </div>
+                {canManage ? (
+                  <button
+                    type="button"
+                    onClick={() => void changeFormStatus(intake)}
+                    disabled={busy !== null}
+                    className="rounded-xl border px-3 py-2 text-sm font-semibold"
+                  >
+                    {intake.status === "ACTIVE" ? "Disable" : "Publish"}
+                  </button>
+                ) : null}
+              </div>
+              <code className="mt-4 block overflow-x-auto rounded-xl bg-slate-950 p-3 text-xs text-white">{`/forms/${intake.publicId}`}</code>
+            </article>
+          ))}
         </div>
       </section>
     </div>

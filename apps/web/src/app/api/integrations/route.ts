@@ -3,6 +3,7 @@ import type { NextRequest } from "next/server";
 import { apiFetch } from "@/lib/api";
 import {
   integrationsDashboardSchema,
+  gateHDashboardSchema,
   integrationsReadQuerySchema,
 } from "@/lib/integrations";
 import {
@@ -25,11 +26,15 @@ export async function GET(request: NextRequest) {
     const response = await apiFetch<unknown>(
       `/api/v1/organisations/${encodeURIComponent(
         input.organisationId,
-      )}/integrations`,
+      )}/integrations${input.view === "gate-h" ? "/gate-h" : ""}`,
       { method: "GET", accessToken },
     );
 
-    return secureJson(integrationsDashboardSchema.parse(response));
+    return secureJson(
+      input.view === "gate-h"
+        ? gateHDashboardSchema.parse(response)
+        : integrationsDashboardSchema.parse(response),
+    );
   } catch (error) {
     return bffErrorResponse(error, "integration information");
   }

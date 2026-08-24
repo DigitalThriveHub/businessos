@@ -278,6 +278,7 @@ export type IntegrationConnectionWhereInput = {
   updatedAt?: Prisma.DateTimeFilter<"IntegrationConnection"> | Date | string
   events?: Prisma.IntegrationEventListRelationFilter
   checkouts?: Prisma.PaymentCheckoutSessionListRelationFilter
+  intakeForms?: Prisma.IntakeFormListRelationFilter
 }
 
 export type IntegrationConnectionOrderByWithRelationInput = {
@@ -295,6 +296,7 @@ export type IntegrationConnectionOrderByWithRelationInput = {
   updatedAt?: Prisma.SortOrder
   events?: Prisma.IntegrationEventOrderByRelationAggregateInput
   checkouts?: Prisma.PaymentCheckoutSessionOrderByRelationAggregateInput
+  intakeForms?: Prisma.IntakeFormOrderByRelationAggregateInput
 }
 
 export type IntegrationConnectionWhereUniqueInput = Prisma.AtLeast<{
@@ -317,6 +319,7 @@ export type IntegrationConnectionWhereUniqueInput = Prisma.AtLeast<{
   updatedAt?: Prisma.DateTimeFilter<"IntegrationConnection"> | Date | string
   events?: Prisma.IntegrationEventListRelationFilter
   checkouts?: Prisma.PaymentCheckoutSessionListRelationFilter
+  intakeForms?: Prisma.IntakeFormListRelationFilter
 }, "id" | "id_organisationId" | "organisationId_provider_displayName">
 
 export type IntegrationConnectionOrderByWithAggregationInput = {
@@ -372,6 +375,7 @@ export type IntegrationConnectionCreateInput = {
   updatedAt?: Date | string
   events?: Prisma.IntegrationEventCreateNestedManyWithoutConnectionInput
   checkouts?: Prisma.PaymentCheckoutSessionCreateNestedManyWithoutConnectionInput
+  intakeForms?: Prisma.IntakeFormCreateNestedManyWithoutConnectionInput
 }
 
 export type IntegrationConnectionUncheckedCreateInput = {
@@ -389,6 +393,7 @@ export type IntegrationConnectionUncheckedCreateInput = {
   updatedAt?: Date | string
   events?: Prisma.IntegrationEventUncheckedCreateNestedManyWithoutConnectionInput
   checkouts?: Prisma.PaymentCheckoutSessionUncheckedCreateNestedManyWithoutConnectionInput
+  intakeForms?: Prisma.IntakeFormUncheckedCreateNestedManyWithoutConnectionInput
 }
 
 export type IntegrationConnectionUpdateInput = {
@@ -406,6 +411,7 @@ export type IntegrationConnectionUpdateInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   events?: Prisma.IntegrationEventUpdateManyWithoutConnectionNestedInput
   checkouts?: Prisma.PaymentCheckoutSessionUpdateManyWithoutConnectionNestedInput
+  intakeForms?: Prisma.IntakeFormUpdateManyWithoutConnectionNestedInput
 }
 
 export type IntegrationConnectionUncheckedUpdateInput = {
@@ -423,6 +429,7 @@ export type IntegrationConnectionUncheckedUpdateInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   events?: Prisma.IntegrationEventUncheckedUpdateManyWithoutConnectionNestedInput
   checkouts?: Prisma.PaymentCheckoutSessionUncheckedUpdateManyWithoutConnectionNestedInput
+  intakeForms?: Prisma.IntakeFormUncheckedUpdateManyWithoutConnectionNestedInput
 }
 
 export type IntegrationConnectionCreateManyInput = {
@@ -549,6 +556,20 @@ export type EnumIntegrationConnectionStatusFieldUpdateOperationsInput = {
   set?: $Enums.IntegrationConnectionStatus
 }
 
+export type IntegrationConnectionCreateNestedOneWithoutIntakeFormsInput = {
+  create?: Prisma.XOR<Prisma.IntegrationConnectionCreateWithoutIntakeFormsInput, Prisma.IntegrationConnectionUncheckedCreateWithoutIntakeFormsInput>
+  connectOrCreate?: Prisma.IntegrationConnectionCreateOrConnectWithoutIntakeFormsInput
+  connect?: Prisma.IntegrationConnectionWhereUniqueInput
+}
+
+export type IntegrationConnectionUpdateOneRequiredWithoutIntakeFormsNestedInput = {
+  create?: Prisma.XOR<Prisma.IntegrationConnectionCreateWithoutIntakeFormsInput, Prisma.IntegrationConnectionUncheckedCreateWithoutIntakeFormsInput>
+  connectOrCreate?: Prisma.IntegrationConnectionCreateOrConnectWithoutIntakeFormsInput
+  upsert?: Prisma.IntegrationConnectionUpsertWithoutIntakeFormsInput
+  connect?: Prisma.IntegrationConnectionWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.IntegrationConnectionUpdateToOneWithWhereWithoutIntakeFormsInput, Prisma.IntegrationConnectionUpdateWithoutIntakeFormsInput>, Prisma.IntegrationConnectionUncheckedUpdateWithoutIntakeFormsInput>
+}
+
 export type IntegrationConnectionCreateNestedOneWithoutEventsInput = {
   create?: Prisma.XOR<Prisma.IntegrationConnectionCreateWithoutEventsInput, Prisma.IntegrationConnectionUncheckedCreateWithoutEventsInput>
   connectOrCreate?: Prisma.IntegrationConnectionCreateOrConnectWithoutEventsInput
@@ -577,6 +598,90 @@ export type IntegrationConnectionUpdateOneRequiredWithoutCheckoutsNestedInput = 
   update?: Prisma.XOR<Prisma.XOR<Prisma.IntegrationConnectionUpdateToOneWithWhereWithoutCheckoutsInput, Prisma.IntegrationConnectionUpdateWithoutCheckoutsInput>, Prisma.IntegrationConnectionUncheckedUpdateWithoutCheckoutsInput>
 }
 
+export type IntegrationConnectionCreateWithoutIntakeFormsInput = {
+  id?: string
+  organisationId: string
+  provider: $Enums.IntegrationProvider
+  displayName: string
+  status?: $Enums.IntegrationConnectionStatus
+  externalAccountReference?: string | null
+  secretVersion?: number
+  createdByUserId: string
+  updatedByUserId: string
+  version?: number
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  events?: Prisma.IntegrationEventCreateNestedManyWithoutConnectionInput
+  checkouts?: Prisma.PaymentCheckoutSessionCreateNestedManyWithoutConnectionInput
+}
+
+export type IntegrationConnectionUncheckedCreateWithoutIntakeFormsInput = {
+  id?: string
+  organisationId: string
+  provider: $Enums.IntegrationProvider
+  displayName: string
+  status?: $Enums.IntegrationConnectionStatus
+  externalAccountReference?: string | null
+  secretVersion?: number
+  createdByUserId: string
+  updatedByUserId: string
+  version?: number
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  events?: Prisma.IntegrationEventUncheckedCreateNestedManyWithoutConnectionInput
+  checkouts?: Prisma.PaymentCheckoutSessionUncheckedCreateNestedManyWithoutConnectionInput
+}
+
+export type IntegrationConnectionCreateOrConnectWithoutIntakeFormsInput = {
+  where: Prisma.IntegrationConnectionWhereUniqueInput
+  create: Prisma.XOR<Prisma.IntegrationConnectionCreateWithoutIntakeFormsInput, Prisma.IntegrationConnectionUncheckedCreateWithoutIntakeFormsInput>
+}
+
+export type IntegrationConnectionUpsertWithoutIntakeFormsInput = {
+  update: Prisma.XOR<Prisma.IntegrationConnectionUpdateWithoutIntakeFormsInput, Prisma.IntegrationConnectionUncheckedUpdateWithoutIntakeFormsInput>
+  create: Prisma.XOR<Prisma.IntegrationConnectionCreateWithoutIntakeFormsInput, Prisma.IntegrationConnectionUncheckedCreateWithoutIntakeFormsInput>
+  where?: Prisma.IntegrationConnectionWhereInput
+}
+
+export type IntegrationConnectionUpdateToOneWithWhereWithoutIntakeFormsInput = {
+  where?: Prisma.IntegrationConnectionWhereInput
+  data: Prisma.XOR<Prisma.IntegrationConnectionUpdateWithoutIntakeFormsInput, Prisma.IntegrationConnectionUncheckedUpdateWithoutIntakeFormsInput>
+}
+
+export type IntegrationConnectionUpdateWithoutIntakeFormsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  organisationId?: Prisma.StringFieldUpdateOperationsInput | string
+  provider?: Prisma.EnumIntegrationProviderFieldUpdateOperationsInput | $Enums.IntegrationProvider
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumIntegrationConnectionStatusFieldUpdateOperationsInput | $Enums.IntegrationConnectionStatus
+  externalAccountReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  secretVersion?: Prisma.IntFieldUpdateOperationsInput | number
+  createdByUserId?: Prisma.StringFieldUpdateOperationsInput | string
+  updatedByUserId?: Prisma.StringFieldUpdateOperationsInput | string
+  version?: Prisma.IntFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  events?: Prisma.IntegrationEventUpdateManyWithoutConnectionNestedInput
+  checkouts?: Prisma.PaymentCheckoutSessionUpdateManyWithoutConnectionNestedInput
+}
+
+export type IntegrationConnectionUncheckedUpdateWithoutIntakeFormsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  organisationId?: Prisma.StringFieldUpdateOperationsInput | string
+  provider?: Prisma.EnumIntegrationProviderFieldUpdateOperationsInput | $Enums.IntegrationProvider
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumIntegrationConnectionStatusFieldUpdateOperationsInput | $Enums.IntegrationConnectionStatus
+  externalAccountReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  secretVersion?: Prisma.IntFieldUpdateOperationsInput | number
+  createdByUserId?: Prisma.StringFieldUpdateOperationsInput | string
+  updatedByUserId?: Prisma.StringFieldUpdateOperationsInput | string
+  version?: Prisma.IntFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  events?: Prisma.IntegrationEventUncheckedUpdateManyWithoutConnectionNestedInput
+  checkouts?: Prisma.PaymentCheckoutSessionUncheckedUpdateManyWithoutConnectionNestedInput
+}
+
 export type IntegrationConnectionCreateWithoutEventsInput = {
   id?: string
   organisationId: string
@@ -591,6 +696,7 @@ export type IntegrationConnectionCreateWithoutEventsInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   checkouts?: Prisma.PaymentCheckoutSessionCreateNestedManyWithoutConnectionInput
+  intakeForms?: Prisma.IntakeFormCreateNestedManyWithoutConnectionInput
 }
 
 export type IntegrationConnectionUncheckedCreateWithoutEventsInput = {
@@ -607,6 +713,7 @@ export type IntegrationConnectionUncheckedCreateWithoutEventsInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   checkouts?: Prisma.PaymentCheckoutSessionUncheckedCreateNestedManyWithoutConnectionInput
+  intakeForms?: Prisma.IntakeFormUncheckedCreateNestedManyWithoutConnectionInput
 }
 
 export type IntegrationConnectionCreateOrConnectWithoutEventsInput = {
@@ -639,6 +746,7 @@ export type IntegrationConnectionUpdateWithoutEventsInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   checkouts?: Prisma.PaymentCheckoutSessionUpdateManyWithoutConnectionNestedInput
+  intakeForms?: Prisma.IntakeFormUpdateManyWithoutConnectionNestedInput
 }
 
 export type IntegrationConnectionUncheckedUpdateWithoutEventsInput = {
@@ -655,6 +763,7 @@ export type IntegrationConnectionUncheckedUpdateWithoutEventsInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   checkouts?: Prisma.PaymentCheckoutSessionUncheckedUpdateManyWithoutConnectionNestedInput
+  intakeForms?: Prisma.IntakeFormUncheckedUpdateManyWithoutConnectionNestedInput
 }
 
 export type IntegrationConnectionCreateWithoutCheckoutsInput = {
@@ -671,6 +780,7 @@ export type IntegrationConnectionCreateWithoutCheckoutsInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   events?: Prisma.IntegrationEventCreateNestedManyWithoutConnectionInput
+  intakeForms?: Prisma.IntakeFormCreateNestedManyWithoutConnectionInput
 }
 
 export type IntegrationConnectionUncheckedCreateWithoutCheckoutsInput = {
@@ -687,6 +797,7 @@ export type IntegrationConnectionUncheckedCreateWithoutCheckoutsInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   events?: Prisma.IntegrationEventUncheckedCreateNestedManyWithoutConnectionInput
+  intakeForms?: Prisma.IntakeFormUncheckedCreateNestedManyWithoutConnectionInput
 }
 
 export type IntegrationConnectionCreateOrConnectWithoutCheckoutsInput = {
@@ -719,6 +830,7 @@ export type IntegrationConnectionUpdateWithoutCheckoutsInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   events?: Prisma.IntegrationEventUpdateManyWithoutConnectionNestedInput
+  intakeForms?: Prisma.IntakeFormUpdateManyWithoutConnectionNestedInput
 }
 
 export type IntegrationConnectionUncheckedUpdateWithoutCheckoutsInput = {
@@ -735,6 +847,7 @@ export type IntegrationConnectionUncheckedUpdateWithoutCheckoutsInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   events?: Prisma.IntegrationEventUncheckedUpdateManyWithoutConnectionNestedInput
+  intakeForms?: Prisma.IntakeFormUncheckedUpdateManyWithoutConnectionNestedInput
 }
 
 
@@ -745,11 +858,13 @@ export type IntegrationConnectionUncheckedUpdateWithoutCheckoutsInput = {
 export type IntegrationConnectionCountOutputType = {
   events: number
   checkouts: number
+  intakeForms: number
 }
 
 export type IntegrationConnectionCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   events?: boolean | IntegrationConnectionCountOutputTypeCountEventsArgs
   checkouts?: boolean | IntegrationConnectionCountOutputTypeCountCheckoutsArgs
+  intakeForms?: boolean | IntegrationConnectionCountOutputTypeCountIntakeFormsArgs
 }
 
 /**
@@ -776,6 +891,13 @@ export type IntegrationConnectionCountOutputTypeCountCheckoutsArgs<ExtArgs exten
   where?: Prisma.PaymentCheckoutSessionWhereInput
 }
 
+/**
+ * IntegrationConnectionCountOutputType without action
+ */
+export type IntegrationConnectionCountOutputTypeCountIntakeFormsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.IntakeFormWhereInput
+}
+
 
 export type IntegrationConnectionSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -792,6 +914,7 @@ export type IntegrationConnectionSelect<ExtArgs extends runtime.Types.Extensions
   updatedAt?: boolean
   events?: boolean | Prisma.IntegrationConnection$eventsArgs<ExtArgs>
   checkouts?: boolean | Prisma.IntegrationConnection$checkoutsArgs<ExtArgs>
+  intakeForms?: boolean | Prisma.IntegrationConnection$intakeFormsArgs<ExtArgs>
   _count?: boolean | Prisma.IntegrationConnectionCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["integrationConnection"]>
 
@@ -844,6 +967,7 @@ export type IntegrationConnectionOmit<ExtArgs extends runtime.Types.Extensions.I
 export type IntegrationConnectionInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   events?: boolean | Prisma.IntegrationConnection$eventsArgs<ExtArgs>
   checkouts?: boolean | Prisma.IntegrationConnection$checkoutsArgs<ExtArgs>
+  intakeForms?: boolean | Prisma.IntegrationConnection$intakeFormsArgs<ExtArgs>
   _count?: boolean | Prisma.IntegrationConnectionCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type IntegrationConnectionIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -854,6 +978,7 @@ export type $IntegrationConnectionPayload<ExtArgs extends runtime.Types.Extensio
   objects: {
     events: Prisma.$IntegrationEventPayload<ExtArgs>[]
     checkouts: Prisma.$PaymentCheckoutSessionPayload<ExtArgs>[]
+    intakeForms: Prisma.$IntakeFormPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1264,6 +1389,7 @@ export interface Prisma__IntegrationConnectionClient<T, Null = never, ExtArgs ex
   readonly [Symbol.toStringTag]: "PrismaPromise"
   events<T extends Prisma.IntegrationConnection$eventsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.IntegrationConnection$eventsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$IntegrationEventPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   checkouts<T extends Prisma.IntegrationConnection$checkoutsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.IntegrationConnection$checkoutsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PaymentCheckoutSessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  intakeForms<T extends Prisma.IntegrationConnection$intakeFormsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.IntegrationConnection$intakeFormsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$IntakeFormPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1743,6 +1869,30 @@ export type IntegrationConnection$checkoutsArgs<ExtArgs extends runtime.Types.Ex
   take?: number
   skip?: number
   distinct?: Prisma.PaymentCheckoutSessionScalarFieldEnum | Prisma.PaymentCheckoutSessionScalarFieldEnum[]
+}
+
+/**
+ * IntegrationConnection.intakeForms
+ */
+export type IntegrationConnection$intakeFormsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the IntakeForm
+   */
+  select?: Prisma.IntakeFormSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the IntakeForm
+   */
+  omit?: Prisma.IntakeFormOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.IntakeFormInclude<ExtArgs> | null
+  where?: Prisma.IntakeFormWhereInput
+  orderBy?: Prisma.IntakeFormOrderByWithRelationInput | Prisma.IntakeFormOrderByWithRelationInput[]
+  cursor?: Prisma.IntakeFormWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.IntakeFormScalarFieldEnum | Prisma.IntakeFormScalarFieldEnum[]
 }
 
 /**

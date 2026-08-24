@@ -29,6 +29,7 @@ import {
   CreateCommunicationTemplateDto,
   PublishClientPortalUpdateDto,
   RevokeClientPortalAccessDto,
+  ResolveCommunicationMatchDto,
   ScheduleCommunicationReminderDto,
   SendCommunicationMessageDto,
 } from './dto/communications.dto';
@@ -210,6 +211,22 @@ export class CommunicationsController {
   ) {
     return this.communications.cancelReminder(
       reminderId,
+      dto,
+      requireOrganisationAccessContext(request),
+    );
+  }
+
+  @Post('matching/:queueId/decision')
+  @HttpCode(HttpStatus.OK)
+  @SecureResponse()
+  @RequirePermissions('communications.send')
+  resolveMatch(
+    @Param('queueId', new ParseUUIDPipe({ version: '4' })) queueId: string,
+    @Body() dto: ResolveCommunicationMatchDto,
+    @Req() request: OrganisationScopedRequest,
+  ) {
+    return this.communications.resolveMatch(
+      queueId,
       dto,
       requireOrganisationAccessContext(request),
     );
