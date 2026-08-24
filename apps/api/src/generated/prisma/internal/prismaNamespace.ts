@@ -478,7 +478,9 @@ export const ModelName = {
   ServiceEngagement: 'ServiceEngagement',
   EngagementInstalment: 'EngagementInstalment',
   LifecycleGateOverride: 'LifecycleGateOverride',
-  LifecycleException: 'LifecycleException'
+  LifecycleException: 'LifecycleException',
+  PilotAcceptanceEvidence: 'PilotAcceptanceEvidence',
+  PilotFeedback: 'PilotFeedback'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -494,7 +496,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "organisation" | "organisationSetting" | "userProfile" | "organisationMembership" | "department" | "departmentMembership" | "team" | "teamMembership" | "role" | "permission" | "rolePermission" | "roleAssignment" | "invitation" | "userSession" | "supportAccessGrant" | "auditEvent" | "securityEvent" | "jobProfile" | "jobProfileDuty" | "kpiDefinition" | "jobProfileKpi" | "agentProfile" | "agentPolicy" | "workforceAssignment" | "workforceAssignmentKpi" | "invitationOnboardingPlan" | "invitationOnboardingRole" | "invitationOnboardingKpi" | "enquiry" | "organisationNumberSequence" | "client" | "matter" | "matterParty" | "matterCompliance" | "matterStatusHistory" | "enquiryConversion" | "matterTask" | "matterDeadline" | "documentRequest" | "documentRequestItem" | "matterDocument" | "matterDocumentVersion" | "matterTimelineEvent" | "workflowDefinition" | "workflowVersion" | "workflowRun" | "workflowAction" | "slaPolicy" | "slaInstance" | "escalationRule" | "escalationEvent" | "approvalRequest" | "approvalDecision" | "clientPortalAccessGrant" | "clientPortalMatterGrant" | "clientPortalInvitation" | "portalMatterUpdate" | "communicationConversation" | "communicationMessage" | "communicationAttachment" | "communicationDeliveryEvent" | "communicationTemplate" | "communicationReminder" | "clientNotification" | "financeSettings" | "financeLedgerAccount" | "financeDocument" | "financeDocumentLine" | "financePayment" | "financePaymentAllocation" | "financeJournalEntry" | "financeJournalLine" | "integrationConnection" | "intakeForm" | "intakeSubmission" | "communicationMatchQueue" | "integrationEvent" | "paymentCheckoutSession" | "serviceEngagement" | "engagementInstalment" | "lifecycleGateOverride" | "lifecycleException"
+    modelProps: "organisation" | "organisationSetting" | "userProfile" | "organisationMembership" | "department" | "departmentMembership" | "team" | "teamMembership" | "role" | "permission" | "rolePermission" | "roleAssignment" | "invitation" | "userSession" | "supportAccessGrant" | "auditEvent" | "securityEvent" | "jobProfile" | "jobProfileDuty" | "kpiDefinition" | "jobProfileKpi" | "agentProfile" | "agentPolicy" | "workforceAssignment" | "workforceAssignmentKpi" | "invitationOnboardingPlan" | "invitationOnboardingRole" | "invitationOnboardingKpi" | "enquiry" | "organisationNumberSequence" | "client" | "matter" | "matterParty" | "matterCompliance" | "matterStatusHistory" | "enquiryConversion" | "matterTask" | "matterDeadline" | "documentRequest" | "documentRequestItem" | "matterDocument" | "matterDocumentVersion" | "matterTimelineEvent" | "workflowDefinition" | "workflowVersion" | "workflowRun" | "workflowAction" | "slaPolicy" | "slaInstance" | "escalationRule" | "escalationEvent" | "approvalRequest" | "approvalDecision" | "clientPortalAccessGrant" | "clientPortalMatterGrant" | "clientPortalInvitation" | "portalMatterUpdate" | "communicationConversation" | "communicationMessage" | "communicationAttachment" | "communicationDeliveryEvent" | "communicationTemplate" | "communicationReminder" | "clientNotification" | "financeSettings" | "financeLedgerAccount" | "financeDocument" | "financeDocumentLine" | "financePayment" | "financePaymentAllocation" | "financeJournalEntry" | "financeJournalLine" | "integrationConnection" | "intakeForm" | "intakeSubmission" | "communicationMatchQueue" | "integrationEvent" | "paymentCheckoutSession" | "serviceEngagement" | "engagementInstalment" | "lifecycleGateOverride" | "lifecycleException" | "pilotAcceptanceEvidence" | "pilotFeedback"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -6566,6 +6568,154 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    PilotAcceptanceEvidence: {
+      payload: Prisma.$PilotAcceptanceEvidencePayload<ExtArgs>
+      fields: Prisma.PilotAcceptanceEvidenceFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.PilotAcceptanceEvidenceFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PilotAcceptanceEvidencePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.PilotAcceptanceEvidenceFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PilotAcceptanceEvidencePayload>
+        }
+        findFirst: {
+          args: Prisma.PilotAcceptanceEvidenceFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PilotAcceptanceEvidencePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.PilotAcceptanceEvidenceFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PilotAcceptanceEvidencePayload>
+        }
+        findMany: {
+          args: Prisma.PilotAcceptanceEvidenceFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PilotAcceptanceEvidencePayload>[]
+        }
+        create: {
+          args: Prisma.PilotAcceptanceEvidenceCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PilotAcceptanceEvidencePayload>
+        }
+        createMany: {
+          args: Prisma.PilotAcceptanceEvidenceCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.PilotAcceptanceEvidenceCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PilotAcceptanceEvidencePayload>[]
+        }
+        delete: {
+          args: Prisma.PilotAcceptanceEvidenceDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PilotAcceptanceEvidencePayload>
+        }
+        update: {
+          args: Prisma.PilotAcceptanceEvidenceUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PilotAcceptanceEvidencePayload>
+        }
+        deleteMany: {
+          args: Prisma.PilotAcceptanceEvidenceDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.PilotAcceptanceEvidenceUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.PilotAcceptanceEvidenceUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PilotAcceptanceEvidencePayload>[]
+        }
+        upsert: {
+          args: Prisma.PilotAcceptanceEvidenceUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PilotAcceptanceEvidencePayload>
+        }
+        aggregate: {
+          args: Prisma.PilotAcceptanceEvidenceAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregatePilotAcceptanceEvidence>
+        }
+        groupBy: {
+          args: Prisma.PilotAcceptanceEvidenceGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PilotAcceptanceEvidenceGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.PilotAcceptanceEvidenceCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PilotAcceptanceEvidenceCountAggregateOutputType> | number
+        }
+      }
+    }
+    PilotFeedback: {
+      payload: Prisma.$PilotFeedbackPayload<ExtArgs>
+      fields: Prisma.PilotFeedbackFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.PilotFeedbackFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PilotFeedbackPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.PilotFeedbackFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PilotFeedbackPayload>
+        }
+        findFirst: {
+          args: Prisma.PilotFeedbackFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PilotFeedbackPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.PilotFeedbackFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PilotFeedbackPayload>
+        }
+        findMany: {
+          args: Prisma.PilotFeedbackFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PilotFeedbackPayload>[]
+        }
+        create: {
+          args: Prisma.PilotFeedbackCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PilotFeedbackPayload>
+        }
+        createMany: {
+          args: Prisma.PilotFeedbackCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.PilotFeedbackCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PilotFeedbackPayload>[]
+        }
+        delete: {
+          args: Prisma.PilotFeedbackDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PilotFeedbackPayload>
+        }
+        update: {
+          args: Prisma.PilotFeedbackUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PilotFeedbackPayload>
+        }
+        deleteMany: {
+          args: Prisma.PilotFeedbackDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.PilotFeedbackUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.PilotFeedbackUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PilotFeedbackPayload>[]
+        }
+        upsert: {
+          args: Prisma.PilotFeedbackUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PilotFeedbackPayload>
+        }
+        aggregate: {
+          args: Prisma.PilotFeedbackAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregatePilotFeedback>
+        }
+        groupBy: {
+          args: Prisma.PilotFeedbackGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PilotFeedbackGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.PilotFeedbackCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PilotFeedbackCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -8421,6 +8571,46 @@ export const LifecycleExceptionScalarFieldEnum = {
 export type LifecycleExceptionScalarFieldEnum = (typeof LifecycleExceptionScalarFieldEnum)[keyof typeof LifecycleExceptionScalarFieldEnum]
 
 
+export const PilotAcceptanceEvidenceScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  acceptanceKey: 'acceptanceKey',
+  roleName: 'roleName',
+  scenarioName: 'scenarioName',
+  status: 'status',
+  evidenceNote: 'evidenceNote',
+  evidenceReference: 'evidenceReference',
+  testedByUserId: 'testedByUserId',
+  testedAt: 'testedAt',
+  version: 'version',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type PilotAcceptanceEvidenceScalarFieldEnum = (typeof PilotAcceptanceEvidenceScalarFieldEnum)[keyof typeof PilotAcceptanceEvidenceScalarFieldEnum]
+
+
+export const PilotFeedbackScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  reporterUserId: 'reporterUserId',
+  affectedRole: 'affectedRole',
+  severity: 'severity',
+  title: 'title',
+  detail: 'detail',
+  reproductionSteps: 'reproductionSteps',
+  status: 'status',
+  resolution: 'resolution',
+  resolvedByUserId: 'resolvedByUserId',
+  resolvedAt: 'resolvedAt',
+  version: 'version',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type PilotFeedbackScalarFieldEnum = (typeof PilotFeedbackScalarFieldEnum)[keyof typeof PilotFeedbackScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -9757,6 +9947,48 @@ export type ListEnumLifecycleExceptionStatusFieldRefInput<$PrismaModel> = FieldR
 
 
 /**
+ * Reference to a field of type 'PilotAcceptanceStatus'
+ */
+export type EnumPilotAcceptanceStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PilotAcceptanceStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'PilotAcceptanceStatus[]'
+ */
+export type ListEnumPilotAcceptanceStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PilotAcceptanceStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'PilotFeedbackSeverity'
+ */
+export type EnumPilotFeedbackSeverityFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PilotFeedbackSeverity'>
+    
+
+
+/**
+ * Reference to a field of type 'PilotFeedbackSeverity[]'
+ */
+export type ListEnumPilotFeedbackSeverityFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PilotFeedbackSeverity[]'>
+    
+
+
+/**
+ * Reference to a field of type 'PilotFeedbackStatus'
+ */
+export type EnumPilotFeedbackStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PilotFeedbackStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'PilotFeedbackStatus[]'
+ */
+export type ListEnumPilotFeedbackStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PilotFeedbackStatus[]'>
+    
+
+
+/**
  * Reference to a field of type 'Float'
  */
 export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -10002,6 +10234,8 @@ export type GlobalOmitConfig = {
   engagementInstalment?: Prisma.EngagementInstalmentOmit
   lifecycleGateOverride?: Prisma.LifecycleGateOverrideOmit
   lifecycleException?: Prisma.LifecycleExceptionOmit
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceOmit
+  pilotFeedback?: Prisma.PilotFeedbackOmit
 }
 
 /* Types for Logging */

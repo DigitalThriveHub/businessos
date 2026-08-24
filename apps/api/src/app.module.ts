@@ -22,6 +22,7 @@ import { InvitationsModule } from './invitations/invitations.module';
 import { OrganisationsModule } from './organisations/organisations.module';
 import { OperationalReadinessModule } from './operational-readiness/operational-readiness.module';
 import { PaymentsModule } from './payments/payments.module';
+import { PilotReadinessModule } from './pilot-readiness/pilot-readiness.module';
 import { ServiceLifecycleModule } from './service-lifecycle/service-lifecycle.module';
 import { WorkforceConfigurationModule } from './workforce-configuration/workforce-configuration.module';
 
@@ -51,6 +52,7 @@ import { WorkforceConfigurationModule } from './workforce-configuration/workforc
     OrganisationsModule,
     OperationalReadinessModule,
     PaymentsModule,
+    PilotReadinessModule,
     ServiceLifecycleModule,
     WorkforceConfigurationModule,
   ],

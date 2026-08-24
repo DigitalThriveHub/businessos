@@ -898,6 +898,36 @@ export const LifecycleExceptionStatus = {
 export type LifecycleExceptionStatus = (typeof LifecycleExceptionStatus)[keyof typeof LifecycleExceptionStatus]
 
 
+export const PilotAcceptanceStatus = {
+  NOT_TESTED: 'NOT_TESTED',
+  PASS: 'PASS',
+  FAIL: 'FAIL',
+  BLOCKED: 'BLOCKED'
+} as const
+
+export type PilotAcceptanceStatus = (typeof PilotAcceptanceStatus)[keyof typeof PilotAcceptanceStatus]
+
+
+export const PilotFeedbackSeverity = {
+  LOW: 'LOW',
+  MEDIUM: 'MEDIUM',
+  HIGH: 'HIGH',
+  CRITICAL: 'CRITICAL'
+} as const
+
+export type PilotFeedbackSeverity = (typeof PilotFeedbackSeverity)[keyof typeof PilotFeedbackSeverity]
+
+
+export const PilotFeedbackStatus = {
+  OPEN: 'OPEN',
+  TRIAGED: 'TRIAGED',
+  RESOLVED: 'RESOLVED',
+  ACCEPTED_RISK: 'ACCEPTED_RISK'
+} as const
+
+export type PilotFeedbackStatus = (typeof PilotFeedbackStatus)[keyof typeof PilotFeedbackStatus]
+
+
 export const EnquiryStatus = {
   NEW: 'NEW',
   CONTACTED: 'CONTACTED',

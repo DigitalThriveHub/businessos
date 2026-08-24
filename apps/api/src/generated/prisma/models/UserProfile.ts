@@ -323,6 +323,9 @@ export type UserProfileWhereInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentListRelationFilter
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionListRelationFilter
   matterTimelineEvents?: Prisma.MatterTimelineEventListRelationFilter
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceListRelationFilter
+  pilotFeedbackReported?: Prisma.PilotFeedbackListRelationFilter
+  pilotFeedbackResolved?: Prisma.PilotFeedbackListRelationFilter
 }
 
 export type UserProfileOrderByWithRelationInput = {
@@ -406,6 +409,9 @@ export type UserProfileOrderByWithRelationInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentOrderByRelationAggregateInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionOrderByRelationAggregateInput
   matterTimelineEvents?: Prisma.MatterTimelineEventOrderByRelationAggregateInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceOrderByRelationAggregateInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackOrderByRelationAggregateInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackOrderByRelationAggregateInput
 }
 
 export type UserProfileWhereUniqueInput = Prisma.AtLeast<{
@@ -492,6 +498,9 @@ export type UserProfileWhereUniqueInput = Prisma.AtLeast<{
   matterDocumentsUpdated?: Prisma.MatterDocumentListRelationFilter
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionListRelationFilter
   matterTimelineEvents?: Prisma.MatterTimelineEventListRelationFilter
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceListRelationFilter
+  pilotFeedbackReported?: Prisma.PilotFeedbackListRelationFilter
+  pilotFeedbackResolved?: Prisma.PilotFeedbackListRelationFilter
 }, "id">
 
 export type UserProfileOrderByWithAggregationInput = {
@@ -617,6 +626,9 @@ export type UserProfileCreateInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileUncheckedCreateInput = {
@@ -700,6 +712,9 @@ export type UserProfileUncheckedCreateInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileUpdateInput = {
@@ -783,6 +798,9 @@ export type UserProfileUpdateInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUncheckedUpdateInput = {
@@ -866,6 +884,9 @@ export type UserProfileUncheckedUpdateInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileCreateManyInput = {
@@ -1970,6 +1991,52 @@ export type UserProfileUpdateOneWithoutMatterTimelineEventsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.UserProfileUpdateToOneWithWhereWithoutMatterTimelineEventsInput, Prisma.UserProfileUpdateWithoutMatterTimelineEventsInput>, Prisma.UserProfileUncheckedUpdateWithoutMatterTimelineEventsInput>
 }
 
+export type UserProfileCreateNestedOneWithoutPilotAcceptancesTestedInput = {
+  create?: Prisma.XOR<Prisma.UserProfileCreateWithoutPilotAcceptancesTestedInput, Prisma.UserProfileUncheckedCreateWithoutPilotAcceptancesTestedInput>
+  connectOrCreate?: Prisma.UserProfileCreateOrConnectWithoutPilotAcceptancesTestedInput
+  connect?: Prisma.UserProfileWhereUniqueInput
+}
+
+export type UserProfileUpdateOneWithoutPilotAcceptancesTestedNestedInput = {
+  create?: Prisma.XOR<Prisma.UserProfileCreateWithoutPilotAcceptancesTestedInput, Prisma.UserProfileUncheckedCreateWithoutPilotAcceptancesTestedInput>
+  connectOrCreate?: Prisma.UserProfileCreateOrConnectWithoutPilotAcceptancesTestedInput
+  upsert?: Prisma.UserProfileUpsertWithoutPilotAcceptancesTestedInput
+  disconnect?: Prisma.UserProfileWhereInput | boolean
+  delete?: Prisma.UserProfileWhereInput | boolean
+  connect?: Prisma.UserProfileWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserProfileUpdateToOneWithWhereWithoutPilotAcceptancesTestedInput, Prisma.UserProfileUpdateWithoutPilotAcceptancesTestedInput>, Prisma.UserProfileUncheckedUpdateWithoutPilotAcceptancesTestedInput>
+}
+
+export type UserProfileCreateNestedOneWithoutPilotFeedbackReportedInput = {
+  create?: Prisma.XOR<Prisma.UserProfileCreateWithoutPilotFeedbackReportedInput, Prisma.UserProfileUncheckedCreateWithoutPilotFeedbackReportedInput>
+  connectOrCreate?: Prisma.UserProfileCreateOrConnectWithoutPilotFeedbackReportedInput
+  connect?: Prisma.UserProfileWhereUniqueInput
+}
+
+export type UserProfileCreateNestedOneWithoutPilotFeedbackResolvedInput = {
+  create?: Prisma.XOR<Prisma.UserProfileCreateWithoutPilotFeedbackResolvedInput, Prisma.UserProfileUncheckedCreateWithoutPilotFeedbackResolvedInput>
+  connectOrCreate?: Prisma.UserProfileCreateOrConnectWithoutPilotFeedbackResolvedInput
+  connect?: Prisma.UserProfileWhereUniqueInput
+}
+
+export type UserProfileUpdateOneRequiredWithoutPilotFeedbackReportedNestedInput = {
+  create?: Prisma.XOR<Prisma.UserProfileCreateWithoutPilotFeedbackReportedInput, Prisma.UserProfileUncheckedCreateWithoutPilotFeedbackReportedInput>
+  connectOrCreate?: Prisma.UserProfileCreateOrConnectWithoutPilotFeedbackReportedInput
+  upsert?: Prisma.UserProfileUpsertWithoutPilotFeedbackReportedInput
+  connect?: Prisma.UserProfileWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserProfileUpdateToOneWithWhereWithoutPilotFeedbackReportedInput, Prisma.UserProfileUpdateWithoutPilotFeedbackReportedInput>, Prisma.UserProfileUncheckedUpdateWithoutPilotFeedbackReportedInput>
+}
+
+export type UserProfileUpdateOneWithoutPilotFeedbackResolvedNestedInput = {
+  create?: Prisma.XOR<Prisma.UserProfileCreateWithoutPilotFeedbackResolvedInput, Prisma.UserProfileUncheckedCreateWithoutPilotFeedbackResolvedInput>
+  connectOrCreate?: Prisma.UserProfileCreateOrConnectWithoutPilotFeedbackResolvedInput
+  upsert?: Prisma.UserProfileUpsertWithoutPilotFeedbackResolvedInput
+  disconnect?: Prisma.UserProfileWhereInput | boolean
+  delete?: Prisma.UserProfileWhereInput | boolean
+  connect?: Prisma.UserProfileWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserProfileUpdateToOneWithWhereWithoutPilotFeedbackResolvedInput, Prisma.UserProfileUpdateWithoutPilotFeedbackResolvedInput>, Prisma.UserProfileUncheckedUpdateWithoutPilotFeedbackResolvedInput>
+}
+
 export type UserProfileCreateWithoutOrganisationMembershipsInput = {
   id: string
   email: string
@@ -2050,6 +2117,9 @@ export type UserProfileCreateWithoutOrganisationMembershipsInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileUncheckedCreateWithoutOrganisationMembershipsInput = {
@@ -2132,6 +2202,9 @@ export type UserProfileUncheckedCreateWithoutOrganisationMembershipsInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileCreateOrConnectWithoutOrganisationMembershipsInput = {
@@ -2230,6 +2303,9 @@ export type UserProfileUpdateWithoutOrganisationMembershipsInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUncheckedUpdateWithoutOrganisationMembershipsInput = {
@@ -2312,6 +2388,9 @@ export type UserProfileUncheckedUpdateWithoutOrganisationMembershipsInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileCreateWithoutRoleAssignmentsInput = {
@@ -2394,6 +2473,9 @@ export type UserProfileCreateWithoutRoleAssignmentsInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileUncheckedCreateWithoutRoleAssignmentsInput = {
@@ -2476,6 +2558,9 @@ export type UserProfileUncheckedCreateWithoutRoleAssignmentsInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileCreateOrConnectWithoutRoleAssignmentsInput = {
@@ -2563,6 +2648,9 @@ export type UserProfileCreateWithoutGrantedRoleAssignmentsInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileUncheckedCreateWithoutGrantedRoleAssignmentsInput = {
@@ -2645,6 +2733,9 @@ export type UserProfileUncheckedCreateWithoutGrantedRoleAssignmentsInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileCreateOrConnectWithoutGrantedRoleAssignmentsInput = {
@@ -2732,6 +2823,9 @@ export type UserProfileCreateWithoutRevokedRoleAssignmentsInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileUncheckedCreateWithoutRevokedRoleAssignmentsInput = {
@@ -2814,6 +2908,9 @@ export type UserProfileUncheckedCreateWithoutRevokedRoleAssignmentsInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileCreateOrConnectWithoutRevokedRoleAssignmentsInput = {
@@ -2912,6 +3009,9 @@ export type UserProfileUpdateWithoutRoleAssignmentsInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUncheckedUpdateWithoutRoleAssignmentsInput = {
@@ -2994,6 +3094,9 @@ export type UserProfileUncheckedUpdateWithoutRoleAssignmentsInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUpsertWithoutGrantedRoleAssignmentsInput = {
@@ -3087,6 +3190,9 @@ export type UserProfileUpdateWithoutGrantedRoleAssignmentsInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUncheckedUpdateWithoutGrantedRoleAssignmentsInput = {
@@ -3169,6 +3275,9 @@ export type UserProfileUncheckedUpdateWithoutGrantedRoleAssignmentsInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUpsertWithoutRevokedRoleAssignmentsInput = {
@@ -3262,6 +3371,9 @@ export type UserProfileUpdateWithoutRevokedRoleAssignmentsInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUncheckedUpdateWithoutRevokedRoleAssignmentsInput = {
@@ -3344,6 +3456,9 @@ export type UserProfileUncheckedUpdateWithoutRevokedRoleAssignmentsInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileCreateWithoutInvitationsSentInput = {
@@ -3426,6 +3541,9 @@ export type UserProfileCreateWithoutInvitationsSentInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileUncheckedCreateWithoutInvitationsSentInput = {
@@ -3508,6 +3626,9 @@ export type UserProfileUncheckedCreateWithoutInvitationsSentInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileCreateOrConnectWithoutInvitationsSentInput = {
@@ -3595,6 +3716,9 @@ export type UserProfileCreateWithoutInvitationsAcceptedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileUncheckedCreateWithoutInvitationsAcceptedInput = {
@@ -3677,6 +3801,9 @@ export type UserProfileUncheckedCreateWithoutInvitationsAcceptedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileCreateOrConnectWithoutInvitationsAcceptedInput = {
@@ -3764,6 +3891,9 @@ export type UserProfileCreateWithoutInvitationsRevokedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileUncheckedCreateWithoutInvitationsRevokedInput = {
@@ -3846,6 +3976,9 @@ export type UserProfileUncheckedCreateWithoutInvitationsRevokedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileCreateOrConnectWithoutInvitationsRevokedInput = {
@@ -3944,6 +4077,9 @@ export type UserProfileUpdateWithoutInvitationsSentInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUncheckedUpdateWithoutInvitationsSentInput = {
@@ -4026,6 +4162,9 @@ export type UserProfileUncheckedUpdateWithoutInvitationsSentInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUpsertWithoutInvitationsAcceptedInput = {
@@ -4119,6 +4258,9 @@ export type UserProfileUpdateWithoutInvitationsAcceptedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUncheckedUpdateWithoutInvitationsAcceptedInput = {
@@ -4201,6 +4343,9 @@ export type UserProfileUncheckedUpdateWithoutInvitationsAcceptedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUpsertWithoutInvitationsRevokedInput = {
@@ -4294,6 +4439,9 @@ export type UserProfileUpdateWithoutInvitationsRevokedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUncheckedUpdateWithoutInvitationsRevokedInput = {
@@ -4376,6 +4524,9 @@ export type UserProfileUncheckedUpdateWithoutInvitationsRevokedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileCreateWithoutUserSessionsInput = {
@@ -4458,6 +4609,9 @@ export type UserProfileCreateWithoutUserSessionsInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileUncheckedCreateWithoutUserSessionsInput = {
@@ -4540,6 +4694,9 @@ export type UserProfileUncheckedCreateWithoutUserSessionsInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileCreateOrConnectWithoutUserSessionsInput = {
@@ -4627,6 +4784,9 @@ export type UserProfileCreateWithoutRevokedUserSessionsInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileUncheckedCreateWithoutRevokedUserSessionsInput = {
@@ -4709,6 +4869,9 @@ export type UserProfileUncheckedCreateWithoutRevokedUserSessionsInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileCreateOrConnectWithoutRevokedUserSessionsInput = {
@@ -4807,6 +4970,9 @@ export type UserProfileUpdateWithoutUserSessionsInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUncheckedUpdateWithoutUserSessionsInput = {
@@ -4889,6 +5055,9 @@ export type UserProfileUncheckedUpdateWithoutUserSessionsInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUpsertWithoutRevokedUserSessionsInput = {
@@ -4982,6 +5151,9 @@ export type UserProfileUpdateWithoutRevokedUserSessionsInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUncheckedUpdateWithoutRevokedUserSessionsInput = {
@@ -5064,6 +5236,9 @@ export type UserProfileUncheckedUpdateWithoutRevokedUserSessionsInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileCreateWithoutSupportAccessAsGranteeInput = {
@@ -5146,6 +5321,9 @@ export type UserProfileCreateWithoutSupportAccessAsGranteeInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileUncheckedCreateWithoutSupportAccessAsGranteeInput = {
@@ -5228,6 +5406,9 @@ export type UserProfileUncheckedCreateWithoutSupportAccessAsGranteeInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileCreateOrConnectWithoutSupportAccessAsGranteeInput = {
@@ -5315,6 +5496,9 @@ export type UserProfileCreateWithoutSupportAccessRequestedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileUncheckedCreateWithoutSupportAccessRequestedInput = {
@@ -5397,6 +5581,9 @@ export type UserProfileUncheckedCreateWithoutSupportAccessRequestedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileCreateOrConnectWithoutSupportAccessRequestedInput = {
@@ -5484,6 +5671,9 @@ export type UserProfileCreateWithoutSupportAccessApprovedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileUncheckedCreateWithoutSupportAccessApprovedInput = {
@@ -5566,6 +5756,9 @@ export type UserProfileUncheckedCreateWithoutSupportAccessApprovedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileCreateOrConnectWithoutSupportAccessApprovedInput = {
@@ -5653,6 +5846,9 @@ export type UserProfileCreateWithoutSupportAccessRevokedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileUncheckedCreateWithoutSupportAccessRevokedInput = {
@@ -5735,6 +5931,9 @@ export type UserProfileUncheckedCreateWithoutSupportAccessRevokedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileCreateOrConnectWithoutSupportAccessRevokedInput = {
@@ -5833,6 +6032,9 @@ export type UserProfileUpdateWithoutSupportAccessAsGranteeInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUncheckedUpdateWithoutSupportAccessAsGranteeInput = {
@@ -5915,6 +6117,9 @@ export type UserProfileUncheckedUpdateWithoutSupportAccessAsGranteeInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUpsertWithoutSupportAccessRequestedInput = {
@@ -6008,6 +6213,9 @@ export type UserProfileUpdateWithoutSupportAccessRequestedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUncheckedUpdateWithoutSupportAccessRequestedInput = {
@@ -6090,6 +6298,9 @@ export type UserProfileUncheckedUpdateWithoutSupportAccessRequestedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUpsertWithoutSupportAccessApprovedInput = {
@@ -6183,6 +6394,9 @@ export type UserProfileUpdateWithoutSupportAccessApprovedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUncheckedUpdateWithoutSupportAccessApprovedInput = {
@@ -6265,6 +6479,9 @@ export type UserProfileUncheckedUpdateWithoutSupportAccessApprovedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUpsertWithoutSupportAccessRevokedInput = {
@@ -6358,6 +6575,9 @@ export type UserProfileUpdateWithoutSupportAccessRevokedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUncheckedUpdateWithoutSupportAccessRevokedInput = {
@@ -6440,6 +6660,9 @@ export type UserProfileUncheckedUpdateWithoutSupportAccessRevokedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileCreateWithoutAuditEventsAsActorInput = {
@@ -6522,6 +6745,9 @@ export type UserProfileCreateWithoutAuditEventsAsActorInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileUncheckedCreateWithoutAuditEventsAsActorInput = {
@@ -6604,6 +6830,9 @@ export type UserProfileUncheckedCreateWithoutAuditEventsAsActorInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileCreateOrConnectWithoutAuditEventsAsActorInput = {
@@ -6691,6 +6920,9 @@ export type UserProfileCreateWithoutAuditEventsAsSubjectInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileUncheckedCreateWithoutAuditEventsAsSubjectInput = {
@@ -6773,6 +7005,9 @@ export type UserProfileUncheckedCreateWithoutAuditEventsAsSubjectInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileCreateOrConnectWithoutAuditEventsAsSubjectInput = {
@@ -6871,6 +7106,9 @@ export type UserProfileUpdateWithoutAuditEventsAsActorInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUncheckedUpdateWithoutAuditEventsAsActorInput = {
@@ -6953,6 +7191,9 @@ export type UserProfileUncheckedUpdateWithoutAuditEventsAsActorInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUpsertWithoutAuditEventsAsSubjectInput = {
@@ -7046,6 +7287,9 @@ export type UserProfileUpdateWithoutAuditEventsAsSubjectInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUncheckedUpdateWithoutAuditEventsAsSubjectInput = {
@@ -7128,6 +7372,9 @@ export type UserProfileUncheckedUpdateWithoutAuditEventsAsSubjectInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileCreateWithoutSecurityEventsAsActorInput = {
@@ -7210,6 +7457,9 @@ export type UserProfileCreateWithoutSecurityEventsAsActorInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileUncheckedCreateWithoutSecurityEventsAsActorInput = {
@@ -7292,6 +7542,9 @@ export type UserProfileUncheckedCreateWithoutSecurityEventsAsActorInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileCreateOrConnectWithoutSecurityEventsAsActorInput = {
@@ -7379,6 +7632,9 @@ export type UserProfileCreateWithoutSecurityEventsAsSubjectInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileUncheckedCreateWithoutSecurityEventsAsSubjectInput = {
@@ -7461,6 +7717,9 @@ export type UserProfileUncheckedCreateWithoutSecurityEventsAsSubjectInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileCreateOrConnectWithoutSecurityEventsAsSubjectInput = {
@@ -7548,6 +7807,9 @@ export type UserProfileCreateWithoutSecurityAcknowledgedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileUncheckedCreateWithoutSecurityAcknowledgedInput = {
@@ -7630,6 +7892,9 @@ export type UserProfileUncheckedCreateWithoutSecurityAcknowledgedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileCreateOrConnectWithoutSecurityAcknowledgedInput = {
@@ -7717,6 +7982,9 @@ export type UserProfileCreateWithoutSecurityResolvedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileUncheckedCreateWithoutSecurityResolvedInput = {
@@ -7799,6 +8067,9 @@ export type UserProfileUncheckedCreateWithoutSecurityResolvedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileCreateOrConnectWithoutSecurityResolvedInput = {
@@ -7897,6 +8168,9 @@ export type UserProfileUpdateWithoutSecurityEventsAsActorInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUncheckedUpdateWithoutSecurityEventsAsActorInput = {
@@ -7979,6 +8253,9 @@ export type UserProfileUncheckedUpdateWithoutSecurityEventsAsActorInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUpsertWithoutSecurityEventsAsSubjectInput = {
@@ -8072,6 +8349,9 @@ export type UserProfileUpdateWithoutSecurityEventsAsSubjectInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUncheckedUpdateWithoutSecurityEventsAsSubjectInput = {
@@ -8154,6 +8434,9 @@ export type UserProfileUncheckedUpdateWithoutSecurityEventsAsSubjectInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUpsertWithoutSecurityAcknowledgedInput = {
@@ -8247,6 +8530,9 @@ export type UserProfileUpdateWithoutSecurityAcknowledgedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUncheckedUpdateWithoutSecurityAcknowledgedInput = {
@@ -8329,6 +8615,9 @@ export type UserProfileUncheckedUpdateWithoutSecurityAcknowledgedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUpsertWithoutSecurityResolvedInput = {
@@ -8422,6 +8711,9 @@ export type UserProfileUpdateWithoutSecurityResolvedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUncheckedUpdateWithoutSecurityResolvedInput = {
@@ -8504,6 +8796,9 @@ export type UserProfileUncheckedUpdateWithoutSecurityResolvedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileCreateWithoutJobProfilesCreatedInput = {
@@ -8586,6 +8881,9 @@ export type UserProfileCreateWithoutJobProfilesCreatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileUncheckedCreateWithoutJobProfilesCreatedInput = {
@@ -8668,6 +8966,9 @@ export type UserProfileUncheckedCreateWithoutJobProfilesCreatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileCreateOrConnectWithoutJobProfilesCreatedInput = {
@@ -8755,6 +9056,9 @@ export type UserProfileCreateWithoutJobProfilesUpdatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileUncheckedCreateWithoutJobProfilesUpdatedInput = {
@@ -8837,6 +9141,9 @@ export type UserProfileUncheckedCreateWithoutJobProfilesUpdatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileCreateOrConnectWithoutJobProfilesUpdatedInput = {
@@ -8935,6 +9242,9 @@ export type UserProfileUpdateWithoutJobProfilesCreatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUncheckedUpdateWithoutJobProfilesCreatedInput = {
@@ -9017,6 +9327,9 @@ export type UserProfileUncheckedUpdateWithoutJobProfilesCreatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUpsertWithoutJobProfilesUpdatedInput = {
@@ -9110,6 +9423,9 @@ export type UserProfileUpdateWithoutJobProfilesUpdatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUncheckedUpdateWithoutJobProfilesUpdatedInput = {
@@ -9192,6 +9508,9 @@ export type UserProfileUncheckedUpdateWithoutJobProfilesUpdatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileCreateWithoutKpiDefinitionsCreatedInput = {
@@ -9274,6 +9593,9 @@ export type UserProfileCreateWithoutKpiDefinitionsCreatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileUncheckedCreateWithoutKpiDefinitionsCreatedInput = {
@@ -9356,6 +9678,9 @@ export type UserProfileUncheckedCreateWithoutKpiDefinitionsCreatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileCreateOrConnectWithoutKpiDefinitionsCreatedInput = {
@@ -9443,6 +9768,9 @@ export type UserProfileCreateWithoutKpiDefinitionsUpdatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileUncheckedCreateWithoutKpiDefinitionsUpdatedInput = {
@@ -9525,6 +9853,9 @@ export type UserProfileUncheckedCreateWithoutKpiDefinitionsUpdatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileCreateOrConnectWithoutKpiDefinitionsUpdatedInput = {
@@ -9623,6 +9954,9 @@ export type UserProfileUpdateWithoutKpiDefinitionsCreatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUncheckedUpdateWithoutKpiDefinitionsCreatedInput = {
@@ -9705,6 +10039,9 @@ export type UserProfileUncheckedUpdateWithoutKpiDefinitionsCreatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUpsertWithoutKpiDefinitionsUpdatedInput = {
@@ -9798,6 +10135,9 @@ export type UserProfileUpdateWithoutKpiDefinitionsUpdatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUncheckedUpdateWithoutKpiDefinitionsUpdatedInput = {
@@ -9880,6 +10220,9 @@ export type UserProfileUncheckedUpdateWithoutKpiDefinitionsUpdatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileCreateWithoutAgentProfilesCreatedInput = {
@@ -9962,6 +10305,9 @@ export type UserProfileCreateWithoutAgentProfilesCreatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileUncheckedCreateWithoutAgentProfilesCreatedInput = {
@@ -10044,6 +10390,9 @@ export type UserProfileUncheckedCreateWithoutAgentProfilesCreatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileCreateOrConnectWithoutAgentProfilesCreatedInput = {
@@ -10131,6 +10480,9 @@ export type UserProfileCreateWithoutAgentProfilesUpdatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileUncheckedCreateWithoutAgentProfilesUpdatedInput = {
@@ -10213,6 +10565,9 @@ export type UserProfileUncheckedCreateWithoutAgentProfilesUpdatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileCreateOrConnectWithoutAgentProfilesUpdatedInput = {
@@ -10311,6 +10666,9 @@ export type UserProfileUpdateWithoutAgentProfilesCreatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUncheckedUpdateWithoutAgentProfilesCreatedInput = {
@@ -10393,6 +10751,9 @@ export type UserProfileUncheckedUpdateWithoutAgentProfilesCreatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUpsertWithoutAgentProfilesUpdatedInput = {
@@ -10486,6 +10847,9 @@ export type UserProfileUpdateWithoutAgentProfilesUpdatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUncheckedUpdateWithoutAgentProfilesUpdatedInput = {
@@ -10568,6 +10932,9 @@ export type UserProfileUncheckedUpdateWithoutAgentProfilesUpdatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileCreateWithoutWorkforceAssignmentsCreatedInput = {
@@ -10650,6 +11017,9 @@ export type UserProfileCreateWithoutWorkforceAssignmentsCreatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileUncheckedCreateWithoutWorkforceAssignmentsCreatedInput = {
@@ -10732,6 +11102,9 @@ export type UserProfileUncheckedCreateWithoutWorkforceAssignmentsCreatedInput = 
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileCreateOrConnectWithoutWorkforceAssignmentsCreatedInput = {
@@ -10819,6 +11192,9 @@ export type UserProfileCreateWithoutWorkforceAssignmentsUpdatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileUncheckedCreateWithoutWorkforceAssignmentsUpdatedInput = {
@@ -10901,6 +11277,9 @@ export type UserProfileUncheckedCreateWithoutWorkforceAssignmentsUpdatedInput = 
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileCreateOrConnectWithoutWorkforceAssignmentsUpdatedInput = {
@@ -10988,6 +11367,9 @@ export type UserProfileCreateWithoutWorkforceAssignmentsEndedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileUncheckedCreateWithoutWorkforceAssignmentsEndedInput = {
@@ -11070,6 +11452,9 @@ export type UserProfileUncheckedCreateWithoutWorkforceAssignmentsEndedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileCreateOrConnectWithoutWorkforceAssignmentsEndedInput = {
@@ -11168,6 +11553,9 @@ export type UserProfileUpdateWithoutWorkforceAssignmentsCreatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUncheckedUpdateWithoutWorkforceAssignmentsCreatedInput = {
@@ -11250,6 +11638,9 @@ export type UserProfileUncheckedUpdateWithoutWorkforceAssignmentsCreatedInput = 
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUpsertWithoutWorkforceAssignmentsUpdatedInput = {
@@ -11343,6 +11734,9 @@ export type UserProfileUpdateWithoutWorkforceAssignmentsUpdatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUncheckedUpdateWithoutWorkforceAssignmentsUpdatedInput = {
@@ -11425,6 +11819,9 @@ export type UserProfileUncheckedUpdateWithoutWorkforceAssignmentsUpdatedInput = 
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUpsertWithoutWorkforceAssignmentsEndedInput = {
@@ -11518,6 +11915,9 @@ export type UserProfileUpdateWithoutWorkforceAssignmentsEndedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUncheckedUpdateWithoutWorkforceAssignmentsEndedInput = {
@@ -11600,6 +12000,9 @@ export type UserProfileUncheckedUpdateWithoutWorkforceAssignmentsEndedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileCreateWithoutWorkforceAssignmentKpisCreatedInput = {
@@ -11682,6 +12085,9 @@ export type UserProfileCreateWithoutWorkforceAssignmentKpisCreatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileUncheckedCreateWithoutWorkforceAssignmentKpisCreatedInput = {
@@ -11764,6 +12170,9 @@ export type UserProfileUncheckedCreateWithoutWorkforceAssignmentKpisCreatedInput
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileCreateOrConnectWithoutWorkforceAssignmentKpisCreatedInput = {
@@ -11862,6 +12271,9 @@ export type UserProfileUpdateWithoutWorkforceAssignmentKpisCreatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUncheckedUpdateWithoutWorkforceAssignmentKpisCreatedInput = {
@@ -11944,6 +12356,9 @@ export type UserProfileUncheckedUpdateWithoutWorkforceAssignmentKpisCreatedInput
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileCreateWithoutInvitationOnboardingPlansCreatedInput = {
@@ -12026,6 +12441,9 @@ export type UserProfileCreateWithoutInvitationOnboardingPlansCreatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileUncheckedCreateWithoutInvitationOnboardingPlansCreatedInput = {
@@ -12108,6 +12526,9 @@ export type UserProfileUncheckedCreateWithoutInvitationOnboardingPlansCreatedInp
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileCreateOrConnectWithoutInvitationOnboardingPlansCreatedInput = {
@@ -12206,6 +12627,9 @@ export type UserProfileUpdateWithoutInvitationOnboardingPlansCreatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUncheckedUpdateWithoutInvitationOnboardingPlansCreatedInput = {
@@ -12288,6 +12712,9 @@ export type UserProfileUncheckedUpdateWithoutInvitationOnboardingPlansCreatedInp
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileCreateWithoutAssignedEnquiriesInput = {
@@ -12370,6 +12797,9 @@ export type UserProfileCreateWithoutAssignedEnquiriesInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileUncheckedCreateWithoutAssignedEnquiriesInput = {
@@ -12452,6 +12882,9 @@ export type UserProfileUncheckedCreateWithoutAssignedEnquiriesInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileCreateOrConnectWithoutAssignedEnquiriesInput = {
@@ -12539,6 +12972,9 @@ export type UserProfileCreateWithoutCreatedEnquiriesInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileUncheckedCreateWithoutCreatedEnquiriesInput = {
@@ -12621,6 +13057,9 @@ export type UserProfileUncheckedCreateWithoutCreatedEnquiriesInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileCreateOrConnectWithoutCreatedEnquiriesInput = {
@@ -12708,6 +13147,9 @@ export type UserProfileCreateWithoutUpdatedEnquiriesInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileUncheckedCreateWithoutUpdatedEnquiriesInput = {
@@ -12790,6 +13232,9 @@ export type UserProfileUncheckedCreateWithoutUpdatedEnquiriesInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileCreateOrConnectWithoutUpdatedEnquiriesInput = {
@@ -12888,6 +13333,9 @@ export type UserProfileUpdateWithoutAssignedEnquiriesInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUncheckedUpdateWithoutAssignedEnquiriesInput = {
@@ -12970,6 +13418,9 @@ export type UserProfileUncheckedUpdateWithoutAssignedEnquiriesInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUpsertWithoutCreatedEnquiriesInput = {
@@ -13063,6 +13514,9 @@ export type UserProfileUpdateWithoutCreatedEnquiriesInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUncheckedUpdateWithoutCreatedEnquiriesInput = {
@@ -13145,6 +13599,9 @@ export type UserProfileUncheckedUpdateWithoutCreatedEnquiriesInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUpsertWithoutUpdatedEnquiriesInput = {
@@ -13238,6 +13695,9 @@ export type UserProfileUpdateWithoutUpdatedEnquiriesInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUncheckedUpdateWithoutUpdatedEnquiriesInput = {
@@ -13320,6 +13780,9 @@ export type UserProfileUncheckedUpdateWithoutUpdatedEnquiriesInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileCreateWithoutAssignedClientsInput = {
@@ -13402,6 +13865,9 @@ export type UserProfileCreateWithoutAssignedClientsInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileUncheckedCreateWithoutAssignedClientsInput = {
@@ -13484,6 +13950,9 @@ export type UserProfileUncheckedCreateWithoutAssignedClientsInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileCreateOrConnectWithoutAssignedClientsInput = {
@@ -13571,6 +14040,9 @@ export type UserProfileCreateWithoutClientsCreatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileUncheckedCreateWithoutClientsCreatedInput = {
@@ -13653,6 +14125,9 @@ export type UserProfileUncheckedCreateWithoutClientsCreatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileCreateOrConnectWithoutClientsCreatedInput = {
@@ -13740,6 +14215,9 @@ export type UserProfileCreateWithoutClientsUpdatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileUncheckedCreateWithoutClientsUpdatedInput = {
@@ -13822,6 +14300,9 @@ export type UserProfileUncheckedCreateWithoutClientsUpdatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileCreateOrConnectWithoutClientsUpdatedInput = {
@@ -13920,6 +14401,9 @@ export type UserProfileUpdateWithoutAssignedClientsInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUncheckedUpdateWithoutAssignedClientsInput = {
@@ -14002,6 +14486,9 @@ export type UserProfileUncheckedUpdateWithoutAssignedClientsInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUpsertWithoutClientsCreatedInput = {
@@ -14095,6 +14582,9 @@ export type UserProfileUpdateWithoutClientsCreatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUncheckedUpdateWithoutClientsCreatedInput = {
@@ -14177,6 +14667,9 @@ export type UserProfileUncheckedUpdateWithoutClientsCreatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUpsertWithoutClientsUpdatedInput = {
@@ -14270,6 +14763,9 @@ export type UserProfileUpdateWithoutClientsUpdatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUncheckedUpdateWithoutClientsUpdatedInput = {
@@ -14352,6 +14848,9 @@ export type UserProfileUncheckedUpdateWithoutClientsUpdatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileCreateWithoutAssignedMattersInput = {
@@ -14434,6 +14933,9 @@ export type UserProfileCreateWithoutAssignedMattersInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileUncheckedCreateWithoutAssignedMattersInput = {
@@ -14516,6 +15018,9 @@ export type UserProfileUncheckedCreateWithoutAssignedMattersInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileCreateOrConnectWithoutAssignedMattersInput = {
@@ -14603,6 +15108,9 @@ export type UserProfileCreateWithoutSupervisedMattersInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileUncheckedCreateWithoutSupervisedMattersInput = {
@@ -14685,6 +15193,9 @@ export type UserProfileUncheckedCreateWithoutSupervisedMattersInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileCreateOrConnectWithoutSupervisedMattersInput = {
@@ -14772,6 +15283,9 @@ export type UserProfileCreateWithoutMattersCreatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileUncheckedCreateWithoutMattersCreatedInput = {
@@ -14854,6 +15368,9 @@ export type UserProfileUncheckedCreateWithoutMattersCreatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileCreateOrConnectWithoutMattersCreatedInput = {
@@ -14941,6 +15458,9 @@ export type UserProfileCreateWithoutMattersUpdatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileUncheckedCreateWithoutMattersUpdatedInput = {
@@ -15023,6 +15543,9 @@ export type UserProfileUncheckedCreateWithoutMattersUpdatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileCreateOrConnectWithoutMattersUpdatedInput = {
@@ -15121,6 +15644,9 @@ export type UserProfileUpdateWithoutAssignedMattersInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUncheckedUpdateWithoutAssignedMattersInput = {
@@ -15203,6 +15729,9 @@ export type UserProfileUncheckedUpdateWithoutAssignedMattersInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUpsertWithoutSupervisedMattersInput = {
@@ -15296,6 +15825,9 @@ export type UserProfileUpdateWithoutSupervisedMattersInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUncheckedUpdateWithoutSupervisedMattersInput = {
@@ -15378,6 +15910,9 @@ export type UserProfileUncheckedUpdateWithoutSupervisedMattersInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUpsertWithoutMattersCreatedInput = {
@@ -15471,6 +16006,9 @@ export type UserProfileUpdateWithoutMattersCreatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUncheckedUpdateWithoutMattersCreatedInput = {
@@ -15553,6 +16091,9 @@ export type UserProfileUncheckedUpdateWithoutMattersCreatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUpsertWithoutMattersUpdatedInput = {
@@ -15646,6 +16187,9 @@ export type UserProfileUpdateWithoutMattersUpdatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUncheckedUpdateWithoutMattersUpdatedInput = {
@@ -15728,6 +16272,9 @@ export type UserProfileUncheckedUpdateWithoutMattersUpdatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileCreateWithoutConflictChecksCompletedInput = {
@@ -15810,6 +16357,9 @@ export type UserProfileCreateWithoutConflictChecksCompletedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileUncheckedCreateWithoutConflictChecksCompletedInput = {
@@ -15892,6 +16442,9 @@ export type UserProfileUncheckedCreateWithoutConflictChecksCompletedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileCreateOrConnectWithoutConflictChecksCompletedInput = {
@@ -15979,6 +16532,9 @@ export type UserProfileCreateWithoutAmlChecksCompletedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileUncheckedCreateWithoutAmlChecksCompletedInput = {
@@ -16061,6 +16617,9 @@ export type UserProfileUncheckedCreateWithoutAmlChecksCompletedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileCreateOrConnectWithoutAmlChecksCompletedInput = {
@@ -16148,6 +16707,9 @@ export type UserProfileCreateWithoutRiskReviewsCompletedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileUncheckedCreateWithoutRiskReviewsCompletedInput = {
@@ -16230,6 +16792,9 @@ export type UserProfileUncheckedCreateWithoutRiskReviewsCompletedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileCreateOrConnectWithoutRiskReviewsCompletedInput = {
@@ -16317,6 +16882,9 @@ export type UserProfileCreateWithoutMatterComplianceCreatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileUncheckedCreateWithoutMatterComplianceCreatedInput = {
@@ -16399,6 +16967,9 @@ export type UserProfileUncheckedCreateWithoutMatterComplianceCreatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileCreateOrConnectWithoutMatterComplianceCreatedInput = {
@@ -16486,6 +17057,9 @@ export type UserProfileCreateWithoutMatterComplianceUpdatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileUncheckedCreateWithoutMatterComplianceUpdatedInput = {
@@ -16568,6 +17142,9 @@ export type UserProfileUncheckedCreateWithoutMatterComplianceUpdatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileCreateOrConnectWithoutMatterComplianceUpdatedInput = {
@@ -16666,6 +17243,9 @@ export type UserProfileUpdateWithoutConflictChecksCompletedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUncheckedUpdateWithoutConflictChecksCompletedInput = {
@@ -16748,6 +17328,9 @@ export type UserProfileUncheckedUpdateWithoutConflictChecksCompletedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUpsertWithoutAmlChecksCompletedInput = {
@@ -16841,6 +17424,9 @@ export type UserProfileUpdateWithoutAmlChecksCompletedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUncheckedUpdateWithoutAmlChecksCompletedInput = {
@@ -16923,6 +17509,9 @@ export type UserProfileUncheckedUpdateWithoutAmlChecksCompletedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUpsertWithoutRiskReviewsCompletedInput = {
@@ -17016,6 +17605,9 @@ export type UserProfileUpdateWithoutRiskReviewsCompletedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUncheckedUpdateWithoutRiskReviewsCompletedInput = {
@@ -17098,6 +17690,9 @@ export type UserProfileUncheckedUpdateWithoutRiskReviewsCompletedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUpsertWithoutMatterComplianceCreatedInput = {
@@ -17191,6 +17786,9 @@ export type UserProfileUpdateWithoutMatterComplianceCreatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUncheckedUpdateWithoutMatterComplianceCreatedInput = {
@@ -17273,6 +17871,9 @@ export type UserProfileUncheckedUpdateWithoutMatterComplianceCreatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUpsertWithoutMatterComplianceUpdatedInput = {
@@ -17366,6 +17967,9 @@ export type UserProfileUpdateWithoutMatterComplianceUpdatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUncheckedUpdateWithoutMatterComplianceUpdatedInput = {
@@ -17448,6 +18052,9 @@ export type UserProfileUncheckedUpdateWithoutMatterComplianceUpdatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileCreateWithoutMatterStatusChangesInput = {
@@ -17530,6 +18137,9 @@ export type UserProfileCreateWithoutMatterStatusChangesInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileUncheckedCreateWithoutMatterStatusChangesInput = {
@@ -17612,6 +18222,9 @@ export type UserProfileUncheckedCreateWithoutMatterStatusChangesInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileCreateOrConnectWithoutMatterStatusChangesInput = {
@@ -17710,6 +18323,9 @@ export type UserProfileUpdateWithoutMatterStatusChangesInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUncheckedUpdateWithoutMatterStatusChangesInput = {
@@ -17792,6 +18408,9 @@ export type UserProfileUncheckedUpdateWithoutMatterStatusChangesInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileCreateWithoutEnquiryConversionsInput = {
@@ -17874,6 +18493,9 @@ export type UserProfileCreateWithoutEnquiryConversionsInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileUncheckedCreateWithoutEnquiryConversionsInput = {
@@ -17956,6 +18578,9 @@ export type UserProfileUncheckedCreateWithoutEnquiryConversionsInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileCreateOrConnectWithoutEnquiryConversionsInput = {
@@ -18054,6 +18679,9 @@ export type UserProfileUpdateWithoutEnquiryConversionsInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUncheckedUpdateWithoutEnquiryConversionsInput = {
@@ -18136,6 +18764,9 @@ export type UserProfileUncheckedUpdateWithoutEnquiryConversionsInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileCreateWithoutAssignedMatterTasksInput = {
@@ -18218,6 +18849,9 @@ export type UserProfileCreateWithoutAssignedMatterTasksInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileUncheckedCreateWithoutAssignedMatterTasksInput = {
@@ -18300,6 +18934,9 @@ export type UserProfileUncheckedCreateWithoutAssignedMatterTasksInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileCreateOrConnectWithoutAssignedMatterTasksInput = {
@@ -18387,6 +19024,9 @@ export type UserProfileCreateWithoutCompletedMatterTasksInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileUncheckedCreateWithoutCompletedMatterTasksInput = {
@@ -18469,6 +19109,9 @@ export type UserProfileUncheckedCreateWithoutCompletedMatterTasksInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileCreateOrConnectWithoutCompletedMatterTasksInput = {
@@ -18556,6 +19199,9 @@ export type UserProfileCreateWithoutCancelledMatterTasksInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileUncheckedCreateWithoutCancelledMatterTasksInput = {
@@ -18638,6 +19284,9 @@ export type UserProfileUncheckedCreateWithoutCancelledMatterTasksInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileCreateOrConnectWithoutCancelledMatterTasksInput = {
@@ -18725,6 +19374,9 @@ export type UserProfileCreateWithoutMatterTasksCreatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileUncheckedCreateWithoutMatterTasksCreatedInput = {
@@ -18807,6 +19459,9 @@ export type UserProfileUncheckedCreateWithoutMatterTasksCreatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileCreateOrConnectWithoutMatterTasksCreatedInput = {
@@ -18894,6 +19549,9 @@ export type UserProfileCreateWithoutMatterTasksUpdatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileUncheckedCreateWithoutMatterTasksUpdatedInput = {
@@ -18976,6 +19634,9 @@ export type UserProfileUncheckedCreateWithoutMatterTasksUpdatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileCreateOrConnectWithoutMatterTasksUpdatedInput = {
@@ -19074,6 +19735,9 @@ export type UserProfileUpdateWithoutAssignedMatterTasksInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUncheckedUpdateWithoutAssignedMatterTasksInput = {
@@ -19156,6 +19820,9 @@ export type UserProfileUncheckedUpdateWithoutAssignedMatterTasksInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUpsertWithoutCompletedMatterTasksInput = {
@@ -19249,6 +19916,9 @@ export type UserProfileUpdateWithoutCompletedMatterTasksInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUncheckedUpdateWithoutCompletedMatterTasksInput = {
@@ -19331,6 +20001,9 @@ export type UserProfileUncheckedUpdateWithoutCompletedMatterTasksInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUpsertWithoutCancelledMatterTasksInput = {
@@ -19424,6 +20097,9 @@ export type UserProfileUpdateWithoutCancelledMatterTasksInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUncheckedUpdateWithoutCancelledMatterTasksInput = {
@@ -19506,6 +20182,9 @@ export type UserProfileUncheckedUpdateWithoutCancelledMatterTasksInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUpsertWithoutMatterTasksCreatedInput = {
@@ -19599,6 +20278,9 @@ export type UserProfileUpdateWithoutMatterTasksCreatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUncheckedUpdateWithoutMatterTasksCreatedInput = {
@@ -19681,6 +20363,9 @@ export type UserProfileUncheckedUpdateWithoutMatterTasksCreatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUpsertWithoutMatterTasksUpdatedInput = {
@@ -19774,6 +20459,9 @@ export type UserProfileUpdateWithoutMatterTasksUpdatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUncheckedUpdateWithoutMatterTasksUpdatedInput = {
@@ -19856,6 +20544,9 @@ export type UserProfileUncheckedUpdateWithoutMatterTasksUpdatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileCreateWithoutOwnedMatterDeadlinesInput = {
@@ -19938,6 +20629,9 @@ export type UserProfileCreateWithoutOwnedMatterDeadlinesInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileUncheckedCreateWithoutOwnedMatterDeadlinesInput = {
@@ -20020,6 +20714,9 @@ export type UserProfileUncheckedCreateWithoutOwnedMatterDeadlinesInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileCreateOrConnectWithoutOwnedMatterDeadlinesInput = {
@@ -20107,6 +20804,9 @@ export type UserProfileCreateWithoutSatisfiedMatterDeadlinesInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileUncheckedCreateWithoutSatisfiedMatterDeadlinesInput = {
@@ -20189,6 +20889,9 @@ export type UserProfileUncheckedCreateWithoutSatisfiedMatterDeadlinesInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileCreateOrConnectWithoutSatisfiedMatterDeadlinesInput = {
@@ -20276,6 +20979,9 @@ export type UserProfileCreateWithoutCancelledMatterDeadlinesInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileUncheckedCreateWithoutCancelledMatterDeadlinesInput = {
@@ -20358,6 +21064,9 @@ export type UserProfileUncheckedCreateWithoutCancelledMatterDeadlinesInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileCreateOrConnectWithoutCancelledMatterDeadlinesInput = {
@@ -20445,6 +21154,9 @@ export type UserProfileCreateWithoutMatterDeadlinesCreatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileUncheckedCreateWithoutMatterDeadlinesCreatedInput = {
@@ -20527,6 +21239,9 @@ export type UserProfileUncheckedCreateWithoutMatterDeadlinesCreatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileCreateOrConnectWithoutMatterDeadlinesCreatedInput = {
@@ -20614,6 +21329,9 @@ export type UserProfileCreateWithoutMatterDeadlinesUpdatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileUncheckedCreateWithoutMatterDeadlinesUpdatedInput = {
@@ -20696,6 +21414,9 @@ export type UserProfileUncheckedCreateWithoutMatterDeadlinesUpdatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileCreateOrConnectWithoutMatterDeadlinesUpdatedInput = {
@@ -20794,6 +21515,9 @@ export type UserProfileUpdateWithoutOwnedMatterDeadlinesInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUncheckedUpdateWithoutOwnedMatterDeadlinesInput = {
@@ -20876,6 +21600,9 @@ export type UserProfileUncheckedUpdateWithoutOwnedMatterDeadlinesInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUpsertWithoutSatisfiedMatterDeadlinesInput = {
@@ -20969,6 +21696,9 @@ export type UserProfileUpdateWithoutSatisfiedMatterDeadlinesInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUncheckedUpdateWithoutSatisfiedMatterDeadlinesInput = {
@@ -21051,6 +21781,9 @@ export type UserProfileUncheckedUpdateWithoutSatisfiedMatterDeadlinesInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUpsertWithoutCancelledMatterDeadlinesInput = {
@@ -21144,6 +21877,9 @@ export type UserProfileUpdateWithoutCancelledMatterDeadlinesInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUncheckedUpdateWithoutCancelledMatterDeadlinesInput = {
@@ -21226,6 +21962,9 @@ export type UserProfileUncheckedUpdateWithoutCancelledMatterDeadlinesInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUpsertWithoutMatterDeadlinesCreatedInput = {
@@ -21319,6 +22058,9 @@ export type UserProfileUpdateWithoutMatterDeadlinesCreatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUncheckedUpdateWithoutMatterDeadlinesCreatedInput = {
@@ -21401,6 +22143,9 @@ export type UserProfileUncheckedUpdateWithoutMatterDeadlinesCreatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUpsertWithoutMatterDeadlinesUpdatedInput = {
@@ -21494,6 +22239,9 @@ export type UserProfileUpdateWithoutMatterDeadlinesUpdatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUncheckedUpdateWithoutMatterDeadlinesUpdatedInput = {
@@ -21576,6 +22324,9 @@ export type UserProfileUncheckedUpdateWithoutMatterDeadlinesUpdatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileCreateWithoutDocumentRequestsSentInput = {
@@ -21658,6 +22409,9 @@ export type UserProfileCreateWithoutDocumentRequestsSentInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileUncheckedCreateWithoutDocumentRequestsSentInput = {
@@ -21740,6 +22494,9 @@ export type UserProfileUncheckedCreateWithoutDocumentRequestsSentInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileCreateOrConnectWithoutDocumentRequestsSentInput = {
@@ -21827,6 +22584,9 @@ export type UserProfileCreateWithoutDocumentRequestsCancelledInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileUncheckedCreateWithoutDocumentRequestsCancelledInput = {
@@ -21909,6 +22669,9 @@ export type UserProfileUncheckedCreateWithoutDocumentRequestsCancelledInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileCreateOrConnectWithoutDocumentRequestsCancelledInput = {
@@ -21996,6 +22759,9 @@ export type UserProfileCreateWithoutDocumentRequestsCreatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileUncheckedCreateWithoutDocumentRequestsCreatedInput = {
@@ -22078,6 +22844,9 @@ export type UserProfileUncheckedCreateWithoutDocumentRequestsCreatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileCreateOrConnectWithoutDocumentRequestsCreatedInput = {
@@ -22165,6 +22934,9 @@ export type UserProfileCreateWithoutDocumentRequestsUpdatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileUncheckedCreateWithoutDocumentRequestsUpdatedInput = {
@@ -22247,6 +23019,9 @@ export type UserProfileUncheckedCreateWithoutDocumentRequestsUpdatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileCreateOrConnectWithoutDocumentRequestsUpdatedInput = {
@@ -22345,6 +23120,9 @@ export type UserProfileUpdateWithoutDocumentRequestsSentInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUncheckedUpdateWithoutDocumentRequestsSentInput = {
@@ -22427,6 +23205,9 @@ export type UserProfileUncheckedUpdateWithoutDocumentRequestsSentInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUpsertWithoutDocumentRequestsCancelledInput = {
@@ -22520,6 +23301,9 @@ export type UserProfileUpdateWithoutDocumentRequestsCancelledInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUncheckedUpdateWithoutDocumentRequestsCancelledInput = {
@@ -22602,6 +23386,9 @@ export type UserProfileUncheckedUpdateWithoutDocumentRequestsCancelledInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUpsertWithoutDocumentRequestsCreatedInput = {
@@ -22695,6 +23482,9 @@ export type UserProfileUpdateWithoutDocumentRequestsCreatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUncheckedUpdateWithoutDocumentRequestsCreatedInput = {
@@ -22777,6 +23567,9 @@ export type UserProfileUncheckedUpdateWithoutDocumentRequestsCreatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUpsertWithoutDocumentRequestsUpdatedInput = {
@@ -22870,6 +23663,9 @@ export type UserProfileUpdateWithoutDocumentRequestsUpdatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUncheckedUpdateWithoutDocumentRequestsUpdatedInput = {
@@ -22952,6 +23748,9 @@ export type UserProfileUncheckedUpdateWithoutDocumentRequestsUpdatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileCreateWithoutMatterDocumentsCreatedInput = {
@@ -23034,6 +23833,9 @@ export type UserProfileCreateWithoutMatterDocumentsCreatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileUncheckedCreateWithoutMatterDocumentsCreatedInput = {
@@ -23116,6 +23918,9 @@ export type UserProfileUncheckedCreateWithoutMatterDocumentsCreatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileCreateOrConnectWithoutMatterDocumentsCreatedInput = {
@@ -23203,6 +24008,9 @@ export type UserProfileCreateWithoutMatterDocumentsUpdatedInput = {
   matterDocumentsCreated?: Prisma.MatterDocumentCreateNestedManyWithoutCreatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileUncheckedCreateWithoutMatterDocumentsUpdatedInput = {
@@ -23285,6 +24093,9 @@ export type UserProfileUncheckedCreateWithoutMatterDocumentsUpdatedInput = {
   matterDocumentsCreated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutCreatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileCreateOrConnectWithoutMatterDocumentsUpdatedInput = {
@@ -23383,6 +24194,9 @@ export type UserProfileUpdateWithoutMatterDocumentsCreatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUncheckedUpdateWithoutMatterDocumentsCreatedInput = {
@@ -23465,6 +24279,9 @@ export type UserProfileUncheckedUpdateWithoutMatterDocumentsCreatedInput = {
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUpsertWithoutMatterDocumentsUpdatedInput = {
@@ -23558,6 +24375,9 @@ export type UserProfileUpdateWithoutMatterDocumentsUpdatedInput = {
   matterDocumentsCreated?: Prisma.MatterDocumentUpdateManyWithoutCreatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUncheckedUpdateWithoutMatterDocumentsUpdatedInput = {
@@ -23640,6 +24460,9 @@ export type UserProfileUncheckedUpdateWithoutMatterDocumentsUpdatedInput = {
   matterDocumentsCreated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutCreatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileCreateWithoutMatterDocumentVersionsUploadedInput = {
@@ -23722,6 +24545,9 @@ export type UserProfileCreateWithoutMatterDocumentVersionsUploadedInput = {
   matterDocumentsCreated?: Prisma.MatterDocumentCreateNestedManyWithoutCreatedByInput
   matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileUncheckedCreateWithoutMatterDocumentVersionsUploadedInput = {
@@ -23804,6 +24630,9 @@ export type UserProfileUncheckedCreateWithoutMatterDocumentVersionsUploadedInput
   matterDocumentsCreated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutCreatedByInput
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileCreateOrConnectWithoutMatterDocumentVersionsUploadedInput = {
@@ -23902,6 +24731,9 @@ export type UserProfileUpdateWithoutMatterDocumentVersionsUploadedInput = {
   matterDocumentsCreated?: Prisma.MatterDocumentUpdateManyWithoutCreatedByNestedInput
   matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUncheckedUpdateWithoutMatterDocumentVersionsUploadedInput = {
@@ -23984,6 +24816,9 @@ export type UserProfileUncheckedUpdateWithoutMatterDocumentVersionsUploadedInput
   matterDocumentsCreated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutCreatedByNestedInput
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
   matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileCreateWithoutMatterTimelineEventsInput = {
@@ -24066,6 +24901,9 @@ export type UserProfileCreateWithoutMatterTimelineEventsInput = {
   matterDocumentsCreated?: Prisma.MatterDocumentCreateNestedManyWithoutCreatedByInput
   matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileUncheckedCreateWithoutMatterTimelineEventsInput = {
@@ -24148,6 +24986,9 @@ export type UserProfileUncheckedCreateWithoutMatterTimelineEventsInput = {
   matterDocumentsCreated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutCreatedByInput
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
 }
 
 export type UserProfileCreateOrConnectWithoutMatterTimelineEventsInput = {
@@ -24246,6 +25087,9 @@ export type UserProfileUpdateWithoutMatterTimelineEventsInput = {
   matterDocumentsCreated?: Prisma.MatterDocumentUpdateManyWithoutCreatedByNestedInput
   matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
 }
 
 export type UserProfileUncheckedUpdateWithoutMatterTimelineEventsInput = {
@@ -24328,6 +25172,1077 @@ export type UserProfileUncheckedUpdateWithoutMatterTimelineEventsInput = {
   matterDocumentsCreated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutCreatedByNestedInput
   matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
   matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
+}
+
+export type UserProfileCreateWithoutPilotAcceptancesTestedInput = {
+  id: string
+  email: string
+  displayName?: string | null
+  firstName?: string | null
+  lastName?: string | null
+  avatarPath?: string | null
+  status?: $Enums.UserProfileStatus
+  locale?: string
+  timezone?: string
+  isPlatformUser?: boolean
+  lastSeenAt?: Date | string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  organisationMemberships?: Prisma.OrganisationMembershipCreateNestedManyWithoutUserProfileInput
+  roleAssignments?: Prisma.RoleAssignmentCreateNestedManyWithoutUserProfileInput
+  grantedRoleAssignments?: Prisma.RoleAssignmentCreateNestedManyWithoutGrantedByInput
+  revokedRoleAssignments?: Prisma.RoleAssignmentCreateNestedManyWithoutRevokedByInput
+  invitationsSent?: Prisma.InvitationCreateNestedManyWithoutInvitedByInput
+  invitationsAccepted?: Prisma.InvitationCreateNestedManyWithoutAcceptedByInput
+  invitationsRevoked?: Prisma.InvitationCreateNestedManyWithoutRevokedByInput
+  userSessions?: Prisma.UserSessionCreateNestedManyWithoutUserProfileInput
+  revokedUserSessions?: Prisma.UserSessionCreateNestedManyWithoutRevokedByInput
+  supportAccessAsGrantee?: Prisma.SupportAccessGrantCreateNestedManyWithoutGranteeInput
+  supportAccessRequested?: Prisma.SupportAccessGrantCreateNestedManyWithoutRequestedByInput
+  supportAccessApproved?: Prisma.SupportAccessGrantCreateNestedManyWithoutApprovedByInput
+  supportAccessRevoked?: Prisma.SupportAccessGrantCreateNestedManyWithoutRevokedByInput
+  auditEventsAsActor?: Prisma.AuditEventCreateNestedManyWithoutActorUserInput
+  auditEventsAsSubject?: Prisma.AuditEventCreateNestedManyWithoutSubjectUserInput
+  securityEventsAsActor?: Prisma.SecurityEventCreateNestedManyWithoutActorUserInput
+  securityEventsAsSubject?: Prisma.SecurityEventCreateNestedManyWithoutSubjectUserInput
+  securityAcknowledged?: Prisma.SecurityEventCreateNestedManyWithoutAcknowledgedByInput
+  securityResolved?: Prisma.SecurityEventCreateNestedManyWithoutResolvedByInput
+  assignedEnquiries?: Prisma.EnquiryCreateNestedManyWithoutAssignedToInput
+  createdEnquiries?: Prisma.EnquiryCreateNestedManyWithoutCreatedByInput
+  updatedEnquiries?: Prisma.EnquiryCreateNestedManyWithoutUpdatedByInput
+  jobProfilesCreated?: Prisma.JobProfileCreateNestedManyWithoutCreatedByInput
+  jobProfilesUpdated?: Prisma.JobProfileCreateNestedManyWithoutUpdatedByInput
+  kpiDefinitionsCreated?: Prisma.KpiDefinitionCreateNestedManyWithoutCreatedByInput
+  kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
+  agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
+  agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
+  workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
+  workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
+  workforceAssignmentKpisCreated?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutCreatedByInput
+  invitationOnboardingPlansCreated?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutCreatedByInput
+  assignedClients?: Prisma.ClientCreateNestedManyWithoutAssignedToInput
+  clientsCreated?: Prisma.ClientCreateNestedManyWithoutCreatedByInput
+  clientsUpdated?: Prisma.ClientCreateNestedManyWithoutUpdatedByInput
+  assignedMatters?: Prisma.MatterCreateNestedManyWithoutAssignedToInput
+  supervisedMatters?: Prisma.MatterCreateNestedManyWithoutSupervisorInput
+  mattersCreated?: Prisma.MatterCreateNestedManyWithoutCreatedByInput
+  mattersUpdated?: Prisma.MatterCreateNestedManyWithoutUpdatedByInput
+  matterComplianceCreated?: Prisma.MatterComplianceCreateNestedManyWithoutCreatedByInput
+  matterComplianceUpdated?: Prisma.MatterComplianceCreateNestedManyWithoutUpdatedByInput
+  conflictChecksCompleted?: Prisma.MatterComplianceCreateNestedManyWithoutConflictCheckedByInput
+  amlChecksCompleted?: Prisma.MatterComplianceCreateNestedManyWithoutAmlCheckedByInput
+  riskReviewsCompleted?: Prisma.MatterComplianceCreateNestedManyWithoutRiskReviewedByInput
+  matterStatusChanges?: Prisma.MatterStatusHistoryCreateNestedManyWithoutChangedByInput
+  enquiryConversions?: Prisma.EnquiryConversionCreateNestedManyWithoutConvertedByInput
+  assignedMatterTasks?: Prisma.MatterTaskCreateNestedManyWithoutAssignedToInput
+  completedMatterTasks?: Prisma.MatterTaskCreateNestedManyWithoutCompletedByInput
+  cancelledMatterTasks?: Prisma.MatterTaskCreateNestedManyWithoutCancelledByInput
+  matterTasksCreated?: Prisma.MatterTaskCreateNestedManyWithoutCreatedByInput
+  matterTasksUpdated?: Prisma.MatterTaskCreateNestedManyWithoutUpdatedByInput
+  ownedMatterDeadlines?: Prisma.MatterDeadlineCreateNestedManyWithoutOwnerInput
+  satisfiedMatterDeadlines?: Prisma.MatterDeadlineCreateNestedManyWithoutSatisfiedByInput
+  cancelledMatterDeadlines?: Prisma.MatterDeadlineCreateNestedManyWithoutCancelledByInput
+  matterDeadlinesCreated?: Prisma.MatterDeadlineCreateNestedManyWithoutCreatedByInput
+  matterDeadlinesUpdated?: Prisma.MatterDeadlineCreateNestedManyWithoutUpdatedByInput
+  documentRequestsSent?: Prisma.DocumentRequestCreateNestedManyWithoutSentByInput
+  documentRequestsCancelled?: Prisma.DocumentRequestCreateNestedManyWithoutCancelledByInput
+  documentRequestsCreated?: Prisma.DocumentRequestCreateNestedManyWithoutCreatedByInput
+  documentRequestsUpdated?: Prisma.DocumentRequestCreateNestedManyWithoutUpdatedByInput
+  matterDocumentsCreated?: Prisma.MatterDocumentCreateNestedManyWithoutCreatedByInput
+  matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
+  matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
+  matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
+}
+
+export type UserProfileUncheckedCreateWithoutPilotAcceptancesTestedInput = {
+  id: string
+  email: string
+  displayName?: string | null
+  firstName?: string | null
+  lastName?: string | null
+  avatarPath?: string | null
+  status?: $Enums.UserProfileStatus
+  locale?: string
+  timezone?: string
+  isPlatformUser?: boolean
+  lastSeenAt?: Date | string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  organisationMemberships?: Prisma.OrganisationMembershipUncheckedCreateNestedManyWithoutUserProfileInput
+  roleAssignments?: Prisma.RoleAssignmentUncheckedCreateNestedManyWithoutUserProfileInput
+  grantedRoleAssignments?: Prisma.RoleAssignmentUncheckedCreateNestedManyWithoutGrantedByInput
+  revokedRoleAssignments?: Prisma.RoleAssignmentUncheckedCreateNestedManyWithoutRevokedByInput
+  invitationsSent?: Prisma.InvitationUncheckedCreateNestedManyWithoutInvitedByInput
+  invitationsAccepted?: Prisma.InvitationUncheckedCreateNestedManyWithoutAcceptedByInput
+  invitationsRevoked?: Prisma.InvitationUncheckedCreateNestedManyWithoutRevokedByInput
+  userSessions?: Prisma.UserSessionUncheckedCreateNestedManyWithoutUserProfileInput
+  revokedUserSessions?: Prisma.UserSessionUncheckedCreateNestedManyWithoutRevokedByInput
+  supportAccessAsGrantee?: Prisma.SupportAccessGrantUncheckedCreateNestedManyWithoutGranteeInput
+  supportAccessRequested?: Prisma.SupportAccessGrantUncheckedCreateNestedManyWithoutRequestedByInput
+  supportAccessApproved?: Prisma.SupportAccessGrantUncheckedCreateNestedManyWithoutApprovedByInput
+  supportAccessRevoked?: Prisma.SupportAccessGrantUncheckedCreateNestedManyWithoutRevokedByInput
+  auditEventsAsActor?: Prisma.AuditEventUncheckedCreateNestedManyWithoutActorUserInput
+  auditEventsAsSubject?: Prisma.AuditEventUncheckedCreateNestedManyWithoutSubjectUserInput
+  securityEventsAsActor?: Prisma.SecurityEventUncheckedCreateNestedManyWithoutActorUserInput
+  securityEventsAsSubject?: Prisma.SecurityEventUncheckedCreateNestedManyWithoutSubjectUserInput
+  securityAcknowledged?: Prisma.SecurityEventUncheckedCreateNestedManyWithoutAcknowledgedByInput
+  securityResolved?: Prisma.SecurityEventUncheckedCreateNestedManyWithoutResolvedByInput
+  assignedEnquiries?: Prisma.EnquiryUncheckedCreateNestedManyWithoutAssignedToInput
+  createdEnquiries?: Prisma.EnquiryUncheckedCreateNestedManyWithoutCreatedByInput
+  updatedEnquiries?: Prisma.EnquiryUncheckedCreateNestedManyWithoutUpdatedByInput
+  jobProfilesCreated?: Prisma.JobProfileUncheckedCreateNestedManyWithoutCreatedByInput
+  jobProfilesUpdated?: Prisma.JobProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  kpiDefinitionsCreated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutCreatedByInput
+  kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
+  agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
+  workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
+  workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
+  workforceAssignmentKpisCreated?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutCreatedByInput
+  invitationOnboardingPlansCreated?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutCreatedByInput
+  assignedClients?: Prisma.ClientUncheckedCreateNestedManyWithoutAssignedToInput
+  clientsCreated?: Prisma.ClientUncheckedCreateNestedManyWithoutCreatedByInput
+  clientsUpdated?: Prisma.ClientUncheckedCreateNestedManyWithoutUpdatedByInput
+  assignedMatters?: Prisma.MatterUncheckedCreateNestedManyWithoutAssignedToInput
+  supervisedMatters?: Prisma.MatterUncheckedCreateNestedManyWithoutSupervisorInput
+  mattersCreated?: Prisma.MatterUncheckedCreateNestedManyWithoutCreatedByInput
+  mattersUpdated?: Prisma.MatterUncheckedCreateNestedManyWithoutUpdatedByInput
+  matterComplianceCreated?: Prisma.MatterComplianceUncheckedCreateNestedManyWithoutCreatedByInput
+  matterComplianceUpdated?: Prisma.MatterComplianceUncheckedCreateNestedManyWithoutUpdatedByInput
+  conflictChecksCompleted?: Prisma.MatterComplianceUncheckedCreateNestedManyWithoutConflictCheckedByInput
+  amlChecksCompleted?: Prisma.MatterComplianceUncheckedCreateNestedManyWithoutAmlCheckedByInput
+  riskReviewsCompleted?: Prisma.MatterComplianceUncheckedCreateNestedManyWithoutRiskReviewedByInput
+  matterStatusChanges?: Prisma.MatterStatusHistoryUncheckedCreateNestedManyWithoutChangedByInput
+  enquiryConversions?: Prisma.EnquiryConversionUncheckedCreateNestedManyWithoutConvertedByInput
+  assignedMatterTasks?: Prisma.MatterTaskUncheckedCreateNestedManyWithoutAssignedToInput
+  completedMatterTasks?: Prisma.MatterTaskUncheckedCreateNestedManyWithoutCompletedByInput
+  cancelledMatterTasks?: Prisma.MatterTaskUncheckedCreateNestedManyWithoutCancelledByInput
+  matterTasksCreated?: Prisma.MatterTaskUncheckedCreateNestedManyWithoutCreatedByInput
+  matterTasksUpdated?: Prisma.MatterTaskUncheckedCreateNestedManyWithoutUpdatedByInput
+  ownedMatterDeadlines?: Prisma.MatterDeadlineUncheckedCreateNestedManyWithoutOwnerInput
+  satisfiedMatterDeadlines?: Prisma.MatterDeadlineUncheckedCreateNestedManyWithoutSatisfiedByInput
+  cancelledMatterDeadlines?: Prisma.MatterDeadlineUncheckedCreateNestedManyWithoutCancelledByInput
+  matterDeadlinesCreated?: Prisma.MatterDeadlineUncheckedCreateNestedManyWithoutCreatedByInput
+  matterDeadlinesUpdated?: Prisma.MatterDeadlineUncheckedCreateNestedManyWithoutUpdatedByInput
+  documentRequestsSent?: Prisma.DocumentRequestUncheckedCreateNestedManyWithoutSentByInput
+  documentRequestsCancelled?: Prisma.DocumentRequestUncheckedCreateNestedManyWithoutCancelledByInput
+  documentRequestsCreated?: Prisma.DocumentRequestUncheckedCreateNestedManyWithoutCreatedByInput
+  documentRequestsUpdated?: Prisma.DocumentRequestUncheckedCreateNestedManyWithoutUpdatedByInput
+  matterDocumentsCreated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutCreatedByInput
+  matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
+  matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
+  matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
+}
+
+export type UserProfileCreateOrConnectWithoutPilotAcceptancesTestedInput = {
+  where: Prisma.UserProfileWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserProfileCreateWithoutPilotAcceptancesTestedInput, Prisma.UserProfileUncheckedCreateWithoutPilotAcceptancesTestedInput>
+}
+
+export type UserProfileUpsertWithoutPilotAcceptancesTestedInput = {
+  update: Prisma.XOR<Prisma.UserProfileUpdateWithoutPilotAcceptancesTestedInput, Prisma.UserProfileUncheckedUpdateWithoutPilotAcceptancesTestedInput>
+  create: Prisma.XOR<Prisma.UserProfileCreateWithoutPilotAcceptancesTestedInput, Prisma.UserProfileUncheckedCreateWithoutPilotAcceptancesTestedInput>
+  where?: Prisma.UserProfileWhereInput
+}
+
+export type UserProfileUpdateToOneWithWhereWithoutPilotAcceptancesTestedInput = {
+  where?: Prisma.UserProfileWhereInput
+  data: Prisma.XOR<Prisma.UserProfileUpdateWithoutPilotAcceptancesTestedInput, Prisma.UserProfileUncheckedUpdateWithoutPilotAcceptancesTestedInput>
+}
+
+export type UserProfileUpdateWithoutPilotAcceptancesTestedInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatarPath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumUserProfileStatusFieldUpdateOperationsInput | $Enums.UserProfileStatus
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  isPlatformUser?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  lastSeenAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  organisationMemberships?: Prisma.OrganisationMembershipUpdateManyWithoutUserProfileNestedInput
+  roleAssignments?: Prisma.RoleAssignmentUpdateManyWithoutUserProfileNestedInput
+  grantedRoleAssignments?: Prisma.RoleAssignmentUpdateManyWithoutGrantedByNestedInput
+  revokedRoleAssignments?: Prisma.RoleAssignmentUpdateManyWithoutRevokedByNestedInput
+  invitationsSent?: Prisma.InvitationUpdateManyWithoutInvitedByNestedInput
+  invitationsAccepted?: Prisma.InvitationUpdateManyWithoutAcceptedByNestedInput
+  invitationsRevoked?: Prisma.InvitationUpdateManyWithoutRevokedByNestedInput
+  userSessions?: Prisma.UserSessionUpdateManyWithoutUserProfileNestedInput
+  revokedUserSessions?: Prisma.UserSessionUpdateManyWithoutRevokedByNestedInput
+  supportAccessAsGrantee?: Prisma.SupportAccessGrantUpdateManyWithoutGranteeNestedInput
+  supportAccessRequested?: Prisma.SupportAccessGrantUpdateManyWithoutRequestedByNestedInput
+  supportAccessApproved?: Prisma.SupportAccessGrantUpdateManyWithoutApprovedByNestedInput
+  supportAccessRevoked?: Prisma.SupportAccessGrantUpdateManyWithoutRevokedByNestedInput
+  auditEventsAsActor?: Prisma.AuditEventUpdateManyWithoutActorUserNestedInput
+  auditEventsAsSubject?: Prisma.AuditEventUpdateManyWithoutSubjectUserNestedInput
+  securityEventsAsActor?: Prisma.SecurityEventUpdateManyWithoutActorUserNestedInput
+  securityEventsAsSubject?: Prisma.SecurityEventUpdateManyWithoutSubjectUserNestedInput
+  securityAcknowledged?: Prisma.SecurityEventUpdateManyWithoutAcknowledgedByNestedInput
+  securityResolved?: Prisma.SecurityEventUpdateManyWithoutResolvedByNestedInput
+  assignedEnquiries?: Prisma.EnquiryUpdateManyWithoutAssignedToNestedInput
+  createdEnquiries?: Prisma.EnquiryUpdateManyWithoutCreatedByNestedInput
+  updatedEnquiries?: Prisma.EnquiryUpdateManyWithoutUpdatedByNestedInput
+  jobProfilesCreated?: Prisma.JobProfileUpdateManyWithoutCreatedByNestedInput
+  jobProfilesUpdated?: Prisma.JobProfileUpdateManyWithoutUpdatedByNestedInput
+  kpiDefinitionsCreated?: Prisma.KpiDefinitionUpdateManyWithoutCreatedByNestedInput
+  kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
+  agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
+  agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
+  workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
+  workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
+  workforceAssignmentKpisCreated?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutCreatedByNestedInput
+  invitationOnboardingPlansCreated?: Prisma.InvitationOnboardingPlanUpdateManyWithoutCreatedByNestedInput
+  assignedClients?: Prisma.ClientUpdateManyWithoutAssignedToNestedInput
+  clientsCreated?: Prisma.ClientUpdateManyWithoutCreatedByNestedInput
+  clientsUpdated?: Prisma.ClientUpdateManyWithoutUpdatedByNestedInput
+  assignedMatters?: Prisma.MatterUpdateManyWithoutAssignedToNestedInput
+  supervisedMatters?: Prisma.MatterUpdateManyWithoutSupervisorNestedInput
+  mattersCreated?: Prisma.MatterUpdateManyWithoutCreatedByNestedInput
+  mattersUpdated?: Prisma.MatterUpdateManyWithoutUpdatedByNestedInput
+  matterComplianceCreated?: Prisma.MatterComplianceUpdateManyWithoutCreatedByNestedInput
+  matterComplianceUpdated?: Prisma.MatterComplianceUpdateManyWithoutUpdatedByNestedInput
+  conflictChecksCompleted?: Prisma.MatterComplianceUpdateManyWithoutConflictCheckedByNestedInput
+  amlChecksCompleted?: Prisma.MatterComplianceUpdateManyWithoutAmlCheckedByNestedInput
+  riskReviewsCompleted?: Prisma.MatterComplianceUpdateManyWithoutRiskReviewedByNestedInput
+  matterStatusChanges?: Prisma.MatterStatusHistoryUpdateManyWithoutChangedByNestedInput
+  enquiryConversions?: Prisma.EnquiryConversionUpdateManyWithoutConvertedByNestedInput
+  assignedMatterTasks?: Prisma.MatterTaskUpdateManyWithoutAssignedToNestedInput
+  completedMatterTasks?: Prisma.MatterTaskUpdateManyWithoutCompletedByNestedInput
+  cancelledMatterTasks?: Prisma.MatterTaskUpdateManyWithoutCancelledByNestedInput
+  matterTasksCreated?: Prisma.MatterTaskUpdateManyWithoutCreatedByNestedInput
+  matterTasksUpdated?: Prisma.MatterTaskUpdateManyWithoutUpdatedByNestedInput
+  ownedMatterDeadlines?: Prisma.MatterDeadlineUpdateManyWithoutOwnerNestedInput
+  satisfiedMatterDeadlines?: Prisma.MatterDeadlineUpdateManyWithoutSatisfiedByNestedInput
+  cancelledMatterDeadlines?: Prisma.MatterDeadlineUpdateManyWithoutCancelledByNestedInput
+  matterDeadlinesCreated?: Prisma.MatterDeadlineUpdateManyWithoutCreatedByNestedInput
+  matterDeadlinesUpdated?: Prisma.MatterDeadlineUpdateManyWithoutUpdatedByNestedInput
+  documentRequestsSent?: Prisma.DocumentRequestUpdateManyWithoutSentByNestedInput
+  documentRequestsCancelled?: Prisma.DocumentRequestUpdateManyWithoutCancelledByNestedInput
+  documentRequestsCreated?: Prisma.DocumentRequestUpdateManyWithoutCreatedByNestedInput
+  documentRequestsUpdated?: Prisma.DocumentRequestUpdateManyWithoutUpdatedByNestedInput
+  matterDocumentsCreated?: Prisma.MatterDocumentUpdateManyWithoutCreatedByNestedInput
+  matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
+  matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
+  matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
+}
+
+export type UserProfileUncheckedUpdateWithoutPilotAcceptancesTestedInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatarPath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumUserProfileStatusFieldUpdateOperationsInput | $Enums.UserProfileStatus
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  isPlatformUser?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  lastSeenAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  organisationMemberships?: Prisma.OrganisationMembershipUncheckedUpdateManyWithoutUserProfileNestedInput
+  roleAssignments?: Prisma.RoleAssignmentUncheckedUpdateManyWithoutUserProfileNestedInput
+  grantedRoleAssignments?: Prisma.RoleAssignmentUncheckedUpdateManyWithoutGrantedByNestedInput
+  revokedRoleAssignments?: Prisma.RoleAssignmentUncheckedUpdateManyWithoutRevokedByNestedInput
+  invitationsSent?: Prisma.InvitationUncheckedUpdateManyWithoutInvitedByNestedInput
+  invitationsAccepted?: Prisma.InvitationUncheckedUpdateManyWithoutAcceptedByNestedInput
+  invitationsRevoked?: Prisma.InvitationUncheckedUpdateManyWithoutRevokedByNestedInput
+  userSessions?: Prisma.UserSessionUncheckedUpdateManyWithoutUserProfileNestedInput
+  revokedUserSessions?: Prisma.UserSessionUncheckedUpdateManyWithoutRevokedByNestedInput
+  supportAccessAsGrantee?: Prisma.SupportAccessGrantUncheckedUpdateManyWithoutGranteeNestedInput
+  supportAccessRequested?: Prisma.SupportAccessGrantUncheckedUpdateManyWithoutRequestedByNestedInput
+  supportAccessApproved?: Prisma.SupportAccessGrantUncheckedUpdateManyWithoutApprovedByNestedInput
+  supportAccessRevoked?: Prisma.SupportAccessGrantUncheckedUpdateManyWithoutRevokedByNestedInput
+  auditEventsAsActor?: Prisma.AuditEventUncheckedUpdateManyWithoutActorUserNestedInput
+  auditEventsAsSubject?: Prisma.AuditEventUncheckedUpdateManyWithoutSubjectUserNestedInput
+  securityEventsAsActor?: Prisma.SecurityEventUncheckedUpdateManyWithoutActorUserNestedInput
+  securityEventsAsSubject?: Prisma.SecurityEventUncheckedUpdateManyWithoutSubjectUserNestedInput
+  securityAcknowledged?: Prisma.SecurityEventUncheckedUpdateManyWithoutAcknowledgedByNestedInput
+  securityResolved?: Prisma.SecurityEventUncheckedUpdateManyWithoutResolvedByNestedInput
+  assignedEnquiries?: Prisma.EnquiryUncheckedUpdateManyWithoutAssignedToNestedInput
+  createdEnquiries?: Prisma.EnquiryUncheckedUpdateManyWithoutCreatedByNestedInput
+  updatedEnquiries?: Prisma.EnquiryUncheckedUpdateManyWithoutUpdatedByNestedInput
+  jobProfilesCreated?: Prisma.JobProfileUncheckedUpdateManyWithoutCreatedByNestedInput
+  jobProfilesUpdated?: Prisma.JobProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  kpiDefinitionsCreated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutCreatedByNestedInput
+  kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
+  agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
+  workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
+  workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
+  workforceAssignmentKpisCreated?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutCreatedByNestedInput
+  invitationOnboardingPlansCreated?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutCreatedByNestedInput
+  assignedClients?: Prisma.ClientUncheckedUpdateManyWithoutAssignedToNestedInput
+  clientsCreated?: Prisma.ClientUncheckedUpdateManyWithoutCreatedByNestedInput
+  clientsUpdated?: Prisma.ClientUncheckedUpdateManyWithoutUpdatedByNestedInput
+  assignedMatters?: Prisma.MatterUncheckedUpdateManyWithoutAssignedToNestedInput
+  supervisedMatters?: Prisma.MatterUncheckedUpdateManyWithoutSupervisorNestedInput
+  mattersCreated?: Prisma.MatterUncheckedUpdateManyWithoutCreatedByNestedInput
+  mattersUpdated?: Prisma.MatterUncheckedUpdateManyWithoutUpdatedByNestedInput
+  matterComplianceCreated?: Prisma.MatterComplianceUncheckedUpdateManyWithoutCreatedByNestedInput
+  matterComplianceUpdated?: Prisma.MatterComplianceUncheckedUpdateManyWithoutUpdatedByNestedInput
+  conflictChecksCompleted?: Prisma.MatterComplianceUncheckedUpdateManyWithoutConflictCheckedByNestedInput
+  amlChecksCompleted?: Prisma.MatterComplianceUncheckedUpdateManyWithoutAmlCheckedByNestedInput
+  riskReviewsCompleted?: Prisma.MatterComplianceUncheckedUpdateManyWithoutRiskReviewedByNestedInput
+  matterStatusChanges?: Prisma.MatterStatusHistoryUncheckedUpdateManyWithoutChangedByNestedInput
+  enquiryConversions?: Prisma.EnquiryConversionUncheckedUpdateManyWithoutConvertedByNestedInput
+  assignedMatterTasks?: Prisma.MatterTaskUncheckedUpdateManyWithoutAssignedToNestedInput
+  completedMatterTasks?: Prisma.MatterTaskUncheckedUpdateManyWithoutCompletedByNestedInput
+  cancelledMatterTasks?: Prisma.MatterTaskUncheckedUpdateManyWithoutCancelledByNestedInput
+  matterTasksCreated?: Prisma.MatterTaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  matterTasksUpdated?: Prisma.MatterTaskUncheckedUpdateManyWithoutUpdatedByNestedInput
+  ownedMatterDeadlines?: Prisma.MatterDeadlineUncheckedUpdateManyWithoutOwnerNestedInput
+  satisfiedMatterDeadlines?: Prisma.MatterDeadlineUncheckedUpdateManyWithoutSatisfiedByNestedInput
+  cancelledMatterDeadlines?: Prisma.MatterDeadlineUncheckedUpdateManyWithoutCancelledByNestedInput
+  matterDeadlinesCreated?: Prisma.MatterDeadlineUncheckedUpdateManyWithoutCreatedByNestedInput
+  matterDeadlinesUpdated?: Prisma.MatterDeadlineUncheckedUpdateManyWithoutUpdatedByNestedInput
+  documentRequestsSent?: Prisma.DocumentRequestUncheckedUpdateManyWithoutSentByNestedInput
+  documentRequestsCancelled?: Prisma.DocumentRequestUncheckedUpdateManyWithoutCancelledByNestedInput
+  documentRequestsCreated?: Prisma.DocumentRequestUncheckedUpdateManyWithoutCreatedByNestedInput
+  documentRequestsUpdated?: Prisma.DocumentRequestUncheckedUpdateManyWithoutUpdatedByNestedInput
+  matterDocumentsCreated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutCreatedByNestedInput
+  matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
+  matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
+  matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
+}
+
+export type UserProfileCreateWithoutPilotFeedbackReportedInput = {
+  id: string
+  email: string
+  displayName?: string | null
+  firstName?: string | null
+  lastName?: string | null
+  avatarPath?: string | null
+  status?: $Enums.UserProfileStatus
+  locale?: string
+  timezone?: string
+  isPlatformUser?: boolean
+  lastSeenAt?: Date | string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  organisationMemberships?: Prisma.OrganisationMembershipCreateNestedManyWithoutUserProfileInput
+  roleAssignments?: Prisma.RoleAssignmentCreateNestedManyWithoutUserProfileInput
+  grantedRoleAssignments?: Prisma.RoleAssignmentCreateNestedManyWithoutGrantedByInput
+  revokedRoleAssignments?: Prisma.RoleAssignmentCreateNestedManyWithoutRevokedByInput
+  invitationsSent?: Prisma.InvitationCreateNestedManyWithoutInvitedByInput
+  invitationsAccepted?: Prisma.InvitationCreateNestedManyWithoutAcceptedByInput
+  invitationsRevoked?: Prisma.InvitationCreateNestedManyWithoutRevokedByInput
+  userSessions?: Prisma.UserSessionCreateNestedManyWithoutUserProfileInput
+  revokedUserSessions?: Prisma.UserSessionCreateNestedManyWithoutRevokedByInput
+  supportAccessAsGrantee?: Prisma.SupportAccessGrantCreateNestedManyWithoutGranteeInput
+  supportAccessRequested?: Prisma.SupportAccessGrantCreateNestedManyWithoutRequestedByInput
+  supportAccessApproved?: Prisma.SupportAccessGrantCreateNestedManyWithoutApprovedByInput
+  supportAccessRevoked?: Prisma.SupportAccessGrantCreateNestedManyWithoutRevokedByInput
+  auditEventsAsActor?: Prisma.AuditEventCreateNestedManyWithoutActorUserInput
+  auditEventsAsSubject?: Prisma.AuditEventCreateNestedManyWithoutSubjectUserInput
+  securityEventsAsActor?: Prisma.SecurityEventCreateNestedManyWithoutActorUserInput
+  securityEventsAsSubject?: Prisma.SecurityEventCreateNestedManyWithoutSubjectUserInput
+  securityAcknowledged?: Prisma.SecurityEventCreateNestedManyWithoutAcknowledgedByInput
+  securityResolved?: Prisma.SecurityEventCreateNestedManyWithoutResolvedByInput
+  assignedEnquiries?: Prisma.EnquiryCreateNestedManyWithoutAssignedToInput
+  createdEnquiries?: Prisma.EnquiryCreateNestedManyWithoutCreatedByInput
+  updatedEnquiries?: Prisma.EnquiryCreateNestedManyWithoutUpdatedByInput
+  jobProfilesCreated?: Prisma.JobProfileCreateNestedManyWithoutCreatedByInput
+  jobProfilesUpdated?: Prisma.JobProfileCreateNestedManyWithoutUpdatedByInput
+  kpiDefinitionsCreated?: Prisma.KpiDefinitionCreateNestedManyWithoutCreatedByInput
+  kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
+  agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
+  agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
+  workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
+  workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
+  workforceAssignmentKpisCreated?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutCreatedByInput
+  invitationOnboardingPlansCreated?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutCreatedByInput
+  assignedClients?: Prisma.ClientCreateNestedManyWithoutAssignedToInput
+  clientsCreated?: Prisma.ClientCreateNestedManyWithoutCreatedByInput
+  clientsUpdated?: Prisma.ClientCreateNestedManyWithoutUpdatedByInput
+  assignedMatters?: Prisma.MatterCreateNestedManyWithoutAssignedToInput
+  supervisedMatters?: Prisma.MatterCreateNestedManyWithoutSupervisorInput
+  mattersCreated?: Prisma.MatterCreateNestedManyWithoutCreatedByInput
+  mattersUpdated?: Prisma.MatterCreateNestedManyWithoutUpdatedByInput
+  matterComplianceCreated?: Prisma.MatterComplianceCreateNestedManyWithoutCreatedByInput
+  matterComplianceUpdated?: Prisma.MatterComplianceCreateNestedManyWithoutUpdatedByInput
+  conflictChecksCompleted?: Prisma.MatterComplianceCreateNestedManyWithoutConflictCheckedByInput
+  amlChecksCompleted?: Prisma.MatterComplianceCreateNestedManyWithoutAmlCheckedByInput
+  riskReviewsCompleted?: Prisma.MatterComplianceCreateNestedManyWithoutRiskReviewedByInput
+  matterStatusChanges?: Prisma.MatterStatusHistoryCreateNestedManyWithoutChangedByInput
+  enquiryConversions?: Prisma.EnquiryConversionCreateNestedManyWithoutConvertedByInput
+  assignedMatterTasks?: Prisma.MatterTaskCreateNestedManyWithoutAssignedToInput
+  completedMatterTasks?: Prisma.MatterTaskCreateNestedManyWithoutCompletedByInput
+  cancelledMatterTasks?: Prisma.MatterTaskCreateNestedManyWithoutCancelledByInput
+  matterTasksCreated?: Prisma.MatterTaskCreateNestedManyWithoutCreatedByInput
+  matterTasksUpdated?: Prisma.MatterTaskCreateNestedManyWithoutUpdatedByInput
+  ownedMatterDeadlines?: Prisma.MatterDeadlineCreateNestedManyWithoutOwnerInput
+  satisfiedMatterDeadlines?: Prisma.MatterDeadlineCreateNestedManyWithoutSatisfiedByInput
+  cancelledMatterDeadlines?: Prisma.MatterDeadlineCreateNestedManyWithoutCancelledByInput
+  matterDeadlinesCreated?: Prisma.MatterDeadlineCreateNestedManyWithoutCreatedByInput
+  matterDeadlinesUpdated?: Prisma.MatterDeadlineCreateNestedManyWithoutUpdatedByInput
+  documentRequestsSent?: Prisma.DocumentRequestCreateNestedManyWithoutSentByInput
+  documentRequestsCancelled?: Prisma.DocumentRequestCreateNestedManyWithoutCancelledByInput
+  documentRequestsCreated?: Prisma.DocumentRequestCreateNestedManyWithoutCreatedByInput
+  documentRequestsUpdated?: Prisma.DocumentRequestCreateNestedManyWithoutUpdatedByInput
+  matterDocumentsCreated?: Prisma.MatterDocumentCreateNestedManyWithoutCreatedByInput
+  matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
+  matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
+  matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
+}
+
+export type UserProfileUncheckedCreateWithoutPilotFeedbackReportedInput = {
+  id: string
+  email: string
+  displayName?: string | null
+  firstName?: string | null
+  lastName?: string | null
+  avatarPath?: string | null
+  status?: $Enums.UserProfileStatus
+  locale?: string
+  timezone?: string
+  isPlatformUser?: boolean
+  lastSeenAt?: Date | string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  organisationMemberships?: Prisma.OrganisationMembershipUncheckedCreateNestedManyWithoutUserProfileInput
+  roleAssignments?: Prisma.RoleAssignmentUncheckedCreateNestedManyWithoutUserProfileInput
+  grantedRoleAssignments?: Prisma.RoleAssignmentUncheckedCreateNestedManyWithoutGrantedByInput
+  revokedRoleAssignments?: Prisma.RoleAssignmentUncheckedCreateNestedManyWithoutRevokedByInput
+  invitationsSent?: Prisma.InvitationUncheckedCreateNestedManyWithoutInvitedByInput
+  invitationsAccepted?: Prisma.InvitationUncheckedCreateNestedManyWithoutAcceptedByInput
+  invitationsRevoked?: Prisma.InvitationUncheckedCreateNestedManyWithoutRevokedByInput
+  userSessions?: Prisma.UserSessionUncheckedCreateNestedManyWithoutUserProfileInput
+  revokedUserSessions?: Prisma.UserSessionUncheckedCreateNestedManyWithoutRevokedByInput
+  supportAccessAsGrantee?: Prisma.SupportAccessGrantUncheckedCreateNestedManyWithoutGranteeInput
+  supportAccessRequested?: Prisma.SupportAccessGrantUncheckedCreateNestedManyWithoutRequestedByInput
+  supportAccessApproved?: Prisma.SupportAccessGrantUncheckedCreateNestedManyWithoutApprovedByInput
+  supportAccessRevoked?: Prisma.SupportAccessGrantUncheckedCreateNestedManyWithoutRevokedByInput
+  auditEventsAsActor?: Prisma.AuditEventUncheckedCreateNestedManyWithoutActorUserInput
+  auditEventsAsSubject?: Prisma.AuditEventUncheckedCreateNestedManyWithoutSubjectUserInput
+  securityEventsAsActor?: Prisma.SecurityEventUncheckedCreateNestedManyWithoutActorUserInput
+  securityEventsAsSubject?: Prisma.SecurityEventUncheckedCreateNestedManyWithoutSubjectUserInput
+  securityAcknowledged?: Prisma.SecurityEventUncheckedCreateNestedManyWithoutAcknowledgedByInput
+  securityResolved?: Prisma.SecurityEventUncheckedCreateNestedManyWithoutResolvedByInput
+  assignedEnquiries?: Prisma.EnquiryUncheckedCreateNestedManyWithoutAssignedToInput
+  createdEnquiries?: Prisma.EnquiryUncheckedCreateNestedManyWithoutCreatedByInput
+  updatedEnquiries?: Prisma.EnquiryUncheckedCreateNestedManyWithoutUpdatedByInput
+  jobProfilesCreated?: Prisma.JobProfileUncheckedCreateNestedManyWithoutCreatedByInput
+  jobProfilesUpdated?: Prisma.JobProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  kpiDefinitionsCreated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutCreatedByInput
+  kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
+  agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
+  workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
+  workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
+  workforceAssignmentKpisCreated?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutCreatedByInput
+  invitationOnboardingPlansCreated?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutCreatedByInput
+  assignedClients?: Prisma.ClientUncheckedCreateNestedManyWithoutAssignedToInput
+  clientsCreated?: Prisma.ClientUncheckedCreateNestedManyWithoutCreatedByInput
+  clientsUpdated?: Prisma.ClientUncheckedCreateNestedManyWithoutUpdatedByInput
+  assignedMatters?: Prisma.MatterUncheckedCreateNestedManyWithoutAssignedToInput
+  supervisedMatters?: Prisma.MatterUncheckedCreateNestedManyWithoutSupervisorInput
+  mattersCreated?: Prisma.MatterUncheckedCreateNestedManyWithoutCreatedByInput
+  mattersUpdated?: Prisma.MatterUncheckedCreateNestedManyWithoutUpdatedByInput
+  matterComplianceCreated?: Prisma.MatterComplianceUncheckedCreateNestedManyWithoutCreatedByInput
+  matterComplianceUpdated?: Prisma.MatterComplianceUncheckedCreateNestedManyWithoutUpdatedByInput
+  conflictChecksCompleted?: Prisma.MatterComplianceUncheckedCreateNestedManyWithoutConflictCheckedByInput
+  amlChecksCompleted?: Prisma.MatterComplianceUncheckedCreateNestedManyWithoutAmlCheckedByInput
+  riskReviewsCompleted?: Prisma.MatterComplianceUncheckedCreateNestedManyWithoutRiskReviewedByInput
+  matterStatusChanges?: Prisma.MatterStatusHistoryUncheckedCreateNestedManyWithoutChangedByInput
+  enquiryConversions?: Prisma.EnquiryConversionUncheckedCreateNestedManyWithoutConvertedByInput
+  assignedMatterTasks?: Prisma.MatterTaskUncheckedCreateNestedManyWithoutAssignedToInput
+  completedMatterTasks?: Prisma.MatterTaskUncheckedCreateNestedManyWithoutCompletedByInput
+  cancelledMatterTasks?: Prisma.MatterTaskUncheckedCreateNestedManyWithoutCancelledByInput
+  matterTasksCreated?: Prisma.MatterTaskUncheckedCreateNestedManyWithoutCreatedByInput
+  matterTasksUpdated?: Prisma.MatterTaskUncheckedCreateNestedManyWithoutUpdatedByInput
+  ownedMatterDeadlines?: Prisma.MatterDeadlineUncheckedCreateNestedManyWithoutOwnerInput
+  satisfiedMatterDeadlines?: Prisma.MatterDeadlineUncheckedCreateNestedManyWithoutSatisfiedByInput
+  cancelledMatterDeadlines?: Prisma.MatterDeadlineUncheckedCreateNestedManyWithoutCancelledByInput
+  matterDeadlinesCreated?: Prisma.MatterDeadlineUncheckedCreateNestedManyWithoutCreatedByInput
+  matterDeadlinesUpdated?: Prisma.MatterDeadlineUncheckedCreateNestedManyWithoutUpdatedByInput
+  documentRequestsSent?: Prisma.DocumentRequestUncheckedCreateNestedManyWithoutSentByInput
+  documentRequestsCancelled?: Prisma.DocumentRequestUncheckedCreateNestedManyWithoutCancelledByInput
+  documentRequestsCreated?: Prisma.DocumentRequestUncheckedCreateNestedManyWithoutCreatedByInput
+  documentRequestsUpdated?: Prisma.DocumentRequestUncheckedCreateNestedManyWithoutUpdatedByInput
+  matterDocumentsCreated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutCreatedByInput
+  matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
+  matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
+  matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
+}
+
+export type UserProfileCreateOrConnectWithoutPilotFeedbackReportedInput = {
+  where: Prisma.UserProfileWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserProfileCreateWithoutPilotFeedbackReportedInput, Prisma.UserProfileUncheckedCreateWithoutPilotFeedbackReportedInput>
+}
+
+export type UserProfileCreateWithoutPilotFeedbackResolvedInput = {
+  id: string
+  email: string
+  displayName?: string | null
+  firstName?: string | null
+  lastName?: string | null
+  avatarPath?: string | null
+  status?: $Enums.UserProfileStatus
+  locale?: string
+  timezone?: string
+  isPlatformUser?: boolean
+  lastSeenAt?: Date | string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  organisationMemberships?: Prisma.OrganisationMembershipCreateNestedManyWithoutUserProfileInput
+  roleAssignments?: Prisma.RoleAssignmentCreateNestedManyWithoutUserProfileInput
+  grantedRoleAssignments?: Prisma.RoleAssignmentCreateNestedManyWithoutGrantedByInput
+  revokedRoleAssignments?: Prisma.RoleAssignmentCreateNestedManyWithoutRevokedByInput
+  invitationsSent?: Prisma.InvitationCreateNestedManyWithoutInvitedByInput
+  invitationsAccepted?: Prisma.InvitationCreateNestedManyWithoutAcceptedByInput
+  invitationsRevoked?: Prisma.InvitationCreateNestedManyWithoutRevokedByInput
+  userSessions?: Prisma.UserSessionCreateNestedManyWithoutUserProfileInput
+  revokedUserSessions?: Prisma.UserSessionCreateNestedManyWithoutRevokedByInput
+  supportAccessAsGrantee?: Prisma.SupportAccessGrantCreateNestedManyWithoutGranteeInput
+  supportAccessRequested?: Prisma.SupportAccessGrantCreateNestedManyWithoutRequestedByInput
+  supportAccessApproved?: Prisma.SupportAccessGrantCreateNestedManyWithoutApprovedByInput
+  supportAccessRevoked?: Prisma.SupportAccessGrantCreateNestedManyWithoutRevokedByInput
+  auditEventsAsActor?: Prisma.AuditEventCreateNestedManyWithoutActorUserInput
+  auditEventsAsSubject?: Prisma.AuditEventCreateNestedManyWithoutSubjectUserInput
+  securityEventsAsActor?: Prisma.SecurityEventCreateNestedManyWithoutActorUserInput
+  securityEventsAsSubject?: Prisma.SecurityEventCreateNestedManyWithoutSubjectUserInput
+  securityAcknowledged?: Prisma.SecurityEventCreateNestedManyWithoutAcknowledgedByInput
+  securityResolved?: Prisma.SecurityEventCreateNestedManyWithoutResolvedByInput
+  assignedEnquiries?: Prisma.EnquiryCreateNestedManyWithoutAssignedToInput
+  createdEnquiries?: Prisma.EnquiryCreateNestedManyWithoutCreatedByInput
+  updatedEnquiries?: Prisma.EnquiryCreateNestedManyWithoutUpdatedByInput
+  jobProfilesCreated?: Prisma.JobProfileCreateNestedManyWithoutCreatedByInput
+  jobProfilesUpdated?: Prisma.JobProfileCreateNestedManyWithoutUpdatedByInput
+  kpiDefinitionsCreated?: Prisma.KpiDefinitionCreateNestedManyWithoutCreatedByInput
+  kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
+  agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
+  agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
+  workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
+  workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
+  workforceAssignmentKpisCreated?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutCreatedByInput
+  invitationOnboardingPlansCreated?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutCreatedByInput
+  assignedClients?: Prisma.ClientCreateNestedManyWithoutAssignedToInput
+  clientsCreated?: Prisma.ClientCreateNestedManyWithoutCreatedByInput
+  clientsUpdated?: Prisma.ClientCreateNestedManyWithoutUpdatedByInput
+  assignedMatters?: Prisma.MatterCreateNestedManyWithoutAssignedToInput
+  supervisedMatters?: Prisma.MatterCreateNestedManyWithoutSupervisorInput
+  mattersCreated?: Prisma.MatterCreateNestedManyWithoutCreatedByInput
+  mattersUpdated?: Prisma.MatterCreateNestedManyWithoutUpdatedByInput
+  matterComplianceCreated?: Prisma.MatterComplianceCreateNestedManyWithoutCreatedByInput
+  matterComplianceUpdated?: Prisma.MatterComplianceCreateNestedManyWithoutUpdatedByInput
+  conflictChecksCompleted?: Prisma.MatterComplianceCreateNestedManyWithoutConflictCheckedByInput
+  amlChecksCompleted?: Prisma.MatterComplianceCreateNestedManyWithoutAmlCheckedByInput
+  riskReviewsCompleted?: Prisma.MatterComplianceCreateNestedManyWithoutRiskReviewedByInput
+  matterStatusChanges?: Prisma.MatterStatusHistoryCreateNestedManyWithoutChangedByInput
+  enquiryConversions?: Prisma.EnquiryConversionCreateNestedManyWithoutConvertedByInput
+  assignedMatterTasks?: Prisma.MatterTaskCreateNestedManyWithoutAssignedToInput
+  completedMatterTasks?: Prisma.MatterTaskCreateNestedManyWithoutCompletedByInput
+  cancelledMatterTasks?: Prisma.MatterTaskCreateNestedManyWithoutCancelledByInput
+  matterTasksCreated?: Prisma.MatterTaskCreateNestedManyWithoutCreatedByInput
+  matterTasksUpdated?: Prisma.MatterTaskCreateNestedManyWithoutUpdatedByInput
+  ownedMatterDeadlines?: Prisma.MatterDeadlineCreateNestedManyWithoutOwnerInput
+  satisfiedMatterDeadlines?: Prisma.MatterDeadlineCreateNestedManyWithoutSatisfiedByInput
+  cancelledMatterDeadlines?: Prisma.MatterDeadlineCreateNestedManyWithoutCancelledByInput
+  matterDeadlinesCreated?: Prisma.MatterDeadlineCreateNestedManyWithoutCreatedByInput
+  matterDeadlinesUpdated?: Prisma.MatterDeadlineCreateNestedManyWithoutUpdatedByInput
+  documentRequestsSent?: Prisma.DocumentRequestCreateNestedManyWithoutSentByInput
+  documentRequestsCancelled?: Prisma.DocumentRequestCreateNestedManyWithoutCancelledByInput
+  documentRequestsCreated?: Prisma.DocumentRequestCreateNestedManyWithoutCreatedByInput
+  documentRequestsUpdated?: Prisma.DocumentRequestCreateNestedManyWithoutUpdatedByInput
+  matterDocumentsCreated?: Prisma.MatterDocumentCreateNestedManyWithoutCreatedByInput
+  matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
+  matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
+  matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+}
+
+export type UserProfileUncheckedCreateWithoutPilotFeedbackResolvedInput = {
+  id: string
+  email: string
+  displayName?: string | null
+  firstName?: string | null
+  lastName?: string | null
+  avatarPath?: string | null
+  status?: $Enums.UserProfileStatus
+  locale?: string
+  timezone?: string
+  isPlatformUser?: boolean
+  lastSeenAt?: Date | string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  organisationMemberships?: Prisma.OrganisationMembershipUncheckedCreateNestedManyWithoutUserProfileInput
+  roleAssignments?: Prisma.RoleAssignmentUncheckedCreateNestedManyWithoutUserProfileInput
+  grantedRoleAssignments?: Prisma.RoleAssignmentUncheckedCreateNestedManyWithoutGrantedByInput
+  revokedRoleAssignments?: Prisma.RoleAssignmentUncheckedCreateNestedManyWithoutRevokedByInput
+  invitationsSent?: Prisma.InvitationUncheckedCreateNestedManyWithoutInvitedByInput
+  invitationsAccepted?: Prisma.InvitationUncheckedCreateNestedManyWithoutAcceptedByInput
+  invitationsRevoked?: Prisma.InvitationUncheckedCreateNestedManyWithoutRevokedByInput
+  userSessions?: Prisma.UserSessionUncheckedCreateNestedManyWithoutUserProfileInput
+  revokedUserSessions?: Prisma.UserSessionUncheckedCreateNestedManyWithoutRevokedByInput
+  supportAccessAsGrantee?: Prisma.SupportAccessGrantUncheckedCreateNestedManyWithoutGranteeInput
+  supportAccessRequested?: Prisma.SupportAccessGrantUncheckedCreateNestedManyWithoutRequestedByInput
+  supportAccessApproved?: Prisma.SupportAccessGrantUncheckedCreateNestedManyWithoutApprovedByInput
+  supportAccessRevoked?: Prisma.SupportAccessGrantUncheckedCreateNestedManyWithoutRevokedByInput
+  auditEventsAsActor?: Prisma.AuditEventUncheckedCreateNestedManyWithoutActorUserInput
+  auditEventsAsSubject?: Prisma.AuditEventUncheckedCreateNestedManyWithoutSubjectUserInput
+  securityEventsAsActor?: Prisma.SecurityEventUncheckedCreateNestedManyWithoutActorUserInput
+  securityEventsAsSubject?: Prisma.SecurityEventUncheckedCreateNestedManyWithoutSubjectUserInput
+  securityAcknowledged?: Prisma.SecurityEventUncheckedCreateNestedManyWithoutAcknowledgedByInput
+  securityResolved?: Prisma.SecurityEventUncheckedCreateNestedManyWithoutResolvedByInput
+  assignedEnquiries?: Prisma.EnquiryUncheckedCreateNestedManyWithoutAssignedToInput
+  createdEnquiries?: Prisma.EnquiryUncheckedCreateNestedManyWithoutCreatedByInput
+  updatedEnquiries?: Prisma.EnquiryUncheckedCreateNestedManyWithoutUpdatedByInput
+  jobProfilesCreated?: Prisma.JobProfileUncheckedCreateNestedManyWithoutCreatedByInput
+  jobProfilesUpdated?: Prisma.JobProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  kpiDefinitionsCreated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutCreatedByInput
+  kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
+  agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
+  workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
+  workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
+  workforceAssignmentKpisCreated?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutCreatedByInput
+  invitationOnboardingPlansCreated?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutCreatedByInput
+  assignedClients?: Prisma.ClientUncheckedCreateNestedManyWithoutAssignedToInput
+  clientsCreated?: Prisma.ClientUncheckedCreateNestedManyWithoutCreatedByInput
+  clientsUpdated?: Prisma.ClientUncheckedCreateNestedManyWithoutUpdatedByInput
+  assignedMatters?: Prisma.MatterUncheckedCreateNestedManyWithoutAssignedToInput
+  supervisedMatters?: Prisma.MatterUncheckedCreateNestedManyWithoutSupervisorInput
+  mattersCreated?: Prisma.MatterUncheckedCreateNestedManyWithoutCreatedByInput
+  mattersUpdated?: Prisma.MatterUncheckedCreateNestedManyWithoutUpdatedByInput
+  matterComplianceCreated?: Prisma.MatterComplianceUncheckedCreateNestedManyWithoutCreatedByInput
+  matterComplianceUpdated?: Prisma.MatterComplianceUncheckedCreateNestedManyWithoutUpdatedByInput
+  conflictChecksCompleted?: Prisma.MatterComplianceUncheckedCreateNestedManyWithoutConflictCheckedByInput
+  amlChecksCompleted?: Prisma.MatterComplianceUncheckedCreateNestedManyWithoutAmlCheckedByInput
+  riskReviewsCompleted?: Prisma.MatterComplianceUncheckedCreateNestedManyWithoutRiskReviewedByInput
+  matterStatusChanges?: Prisma.MatterStatusHistoryUncheckedCreateNestedManyWithoutChangedByInput
+  enquiryConversions?: Prisma.EnquiryConversionUncheckedCreateNestedManyWithoutConvertedByInput
+  assignedMatterTasks?: Prisma.MatterTaskUncheckedCreateNestedManyWithoutAssignedToInput
+  completedMatterTasks?: Prisma.MatterTaskUncheckedCreateNestedManyWithoutCompletedByInput
+  cancelledMatterTasks?: Prisma.MatterTaskUncheckedCreateNestedManyWithoutCancelledByInput
+  matterTasksCreated?: Prisma.MatterTaskUncheckedCreateNestedManyWithoutCreatedByInput
+  matterTasksUpdated?: Prisma.MatterTaskUncheckedCreateNestedManyWithoutUpdatedByInput
+  ownedMatterDeadlines?: Prisma.MatterDeadlineUncheckedCreateNestedManyWithoutOwnerInput
+  satisfiedMatterDeadlines?: Prisma.MatterDeadlineUncheckedCreateNestedManyWithoutSatisfiedByInput
+  cancelledMatterDeadlines?: Prisma.MatterDeadlineUncheckedCreateNestedManyWithoutCancelledByInput
+  matterDeadlinesCreated?: Prisma.MatterDeadlineUncheckedCreateNestedManyWithoutCreatedByInput
+  matterDeadlinesUpdated?: Prisma.MatterDeadlineUncheckedCreateNestedManyWithoutUpdatedByInput
+  documentRequestsSent?: Prisma.DocumentRequestUncheckedCreateNestedManyWithoutSentByInput
+  documentRequestsCancelled?: Prisma.DocumentRequestUncheckedCreateNestedManyWithoutCancelledByInput
+  documentRequestsCreated?: Prisma.DocumentRequestUncheckedCreateNestedManyWithoutCreatedByInput
+  documentRequestsUpdated?: Prisma.DocumentRequestUncheckedCreateNestedManyWithoutUpdatedByInput
+  matterDocumentsCreated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutCreatedByInput
+  matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
+  matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
+  matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+}
+
+export type UserProfileCreateOrConnectWithoutPilotFeedbackResolvedInput = {
+  where: Prisma.UserProfileWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserProfileCreateWithoutPilotFeedbackResolvedInput, Prisma.UserProfileUncheckedCreateWithoutPilotFeedbackResolvedInput>
+}
+
+export type UserProfileUpsertWithoutPilotFeedbackReportedInput = {
+  update: Prisma.XOR<Prisma.UserProfileUpdateWithoutPilotFeedbackReportedInput, Prisma.UserProfileUncheckedUpdateWithoutPilotFeedbackReportedInput>
+  create: Prisma.XOR<Prisma.UserProfileCreateWithoutPilotFeedbackReportedInput, Prisma.UserProfileUncheckedCreateWithoutPilotFeedbackReportedInput>
+  where?: Prisma.UserProfileWhereInput
+}
+
+export type UserProfileUpdateToOneWithWhereWithoutPilotFeedbackReportedInput = {
+  where?: Prisma.UserProfileWhereInput
+  data: Prisma.XOR<Prisma.UserProfileUpdateWithoutPilotFeedbackReportedInput, Prisma.UserProfileUncheckedUpdateWithoutPilotFeedbackReportedInput>
+}
+
+export type UserProfileUpdateWithoutPilotFeedbackReportedInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatarPath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumUserProfileStatusFieldUpdateOperationsInput | $Enums.UserProfileStatus
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  isPlatformUser?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  lastSeenAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  organisationMemberships?: Prisma.OrganisationMembershipUpdateManyWithoutUserProfileNestedInput
+  roleAssignments?: Prisma.RoleAssignmentUpdateManyWithoutUserProfileNestedInput
+  grantedRoleAssignments?: Prisma.RoleAssignmentUpdateManyWithoutGrantedByNestedInput
+  revokedRoleAssignments?: Prisma.RoleAssignmentUpdateManyWithoutRevokedByNestedInput
+  invitationsSent?: Prisma.InvitationUpdateManyWithoutInvitedByNestedInput
+  invitationsAccepted?: Prisma.InvitationUpdateManyWithoutAcceptedByNestedInput
+  invitationsRevoked?: Prisma.InvitationUpdateManyWithoutRevokedByNestedInput
+  userSessions?: Prisma.UserSessionUpdateManyWithoutUserProfileNestedInput
+  revokedUserSessions?: Prisma.UserSessionUpdateManyWithoutRevokedByNestedInput
+  supportAccessAsGrantee?: Prisma.SupportAccessGrantUpdateManyWithoutGranteeNestedInput
+  supportAccessRequested?: Prisma.SupportAccessGrantUpdateManyWithoutRequestedByNestedInput
+  supportAccessApproved?: Prisma.SupportAccessGrantUpdateManyWithoutApprovedByNestedInput
+  supportAccessRevoked?: Prisma.SupportAccessGrantUpdateManyWithoutRevokedByNestedInput
+  auditEventsAsActor?: Prisma.AuditEventUpdateManyWithoutActorUserNestedInput
+  auditEventsAsSubject?: Prisma.AuditEventUpdateManyWithoutSubjectUserNestedInput
+  securityEventsAsActor?: Prisma.SecurityEventUpdateManyWithoutActorUserNestedInput
+  securityEventsAsSubject?: Prisma.SecurityEventUpdateManyWithoutSubjectUserNestedInput
+  securityAcknowledged?: Prisma.SecurityEventUpdateManyWithoutAcknowledgedByNestedInput
+  securityResolved?: Prisma.SecurityEventUpdateManyWithoutResolvedByNestedInput
+  assignedEnquiries?: Prisma.EnquiryUpdateManyWithoutAssignedToNestedInput
+  createdEnquiries?: Prisma.EnquiryUpdateManyWithoutCreatedByNestedInput
+  updatedEnquiries?: Prisma.EnquiryUpdateManyWithoutUpdatedByNestedInput
+  jobProfilesCreated?: Prisma.JobProfileUpdateManyWithoutCreatedByNestedInput
+  jobProfilesUpdated?: Prisma.JobProfileUpdateManyWithoutUpdatedByNestedInput
+  kpiDefinitionsCreated?: Prisma.KpiDefinitionUpdateManyWithoutCreatedByNestedInput
+  kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
+  agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
+  agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
+  workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
+  workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
+  workforceAssignmentKpisCreated?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutCreatedByNestedInput
+  invitationOnboardingPlansCreated?: Prisma.InvitationOnboardingPlanUpdateManyWithoutCreatedByNestedInput
+  assignedClients?: Prisma.ClientUpdateManyWithoutAssignedToNestedInput
+  clientsCreated?: Prisma.ClientUpdateManyWithoutCreatedByNestedInput
+  clientsUpdated?: Prisma.ClientUpdateManyWithoutUpdatedByNestedInput
+  assignedMatters?: Prisma.MatterUpdateManyWithoutAssignedToNestedInput
+  supervisedMatters?: Prisma.MatterUpdateManyWithoutSupervisorNestedInput
+  mattersCreated?: Prisma.MatterUpdateManyWithoutCreatedByNestedInput
+  mattersUpdated?: Prisma.MatterUpdateManyWithoutUpdatedByNestedInput
+  matterComplianceCreated?: Prisma.MatterComplianceUpdateManyWithoutCreatedByNestedInput
+  matterComplianceUpdated?: Prisma.MatterComplianceUpdateManyWithoutUpdatedByNestedInput
+  conflictChecksCompleted?: Prisma.MatterComplianceUpdateManyWithoutConflictCheckedByNestedInput
+  amlChecksCompleted?: Prisma.MatterComplianceUpdateManyWithoutAmlCheckedByNestedInput
+  riskReviewsCompleted?: Prisma.MatterComplianceUpdateManyWithoutRiskReviewedByNestedInput
+  matterStatusChanges?: Prisma.MatterStatusHistoryUpdateManyWithoutChangedByNestedInput
+  enquiryConversions?: Prisma.EnquiryConversionUpdateManyWithoutConvertedByNestedInput
+  assignedMatterTasks?: Prisma.MatterTaskUpdateManyWithoutAssignedToNestedInput
+  completedMatterTasks?: Prisma.MatterTaskUpdateManyWithoutCompletedByNestedInput
+  cancelledMatterTasks?: Prisma.MatterTaskUpdateManyWithoutCancelledByNestedInput
+  matterTasksCreated?: Prisma.MatterTaskUpdateManyWithoutCreatedByNestedInput
+  matterTasksUpdated?: Prisma.MatterTaskUpdateManyWithoutUpdatedByNestedInput
+  ownedMatterDeadlines?: Prisma.MatterDeadlineUpdateManyWithoutOwnerNestedInput
+  satisfiedMatterDeadlines?: Prisma.MatterDeadlineUpdateManyWithoutSatisfiedByNestedInput
+  cancelledMatterDeadlines?: Prisma.MatterDeadlineUpdateManyWithoutCancelledByNestedInput
+  matterDeadlinesCreated?: Prisma.MatterDeadlineUpdateManyWithoutCreatedByNestedInput
+  matterDeadlinesUpdated?: Prisma.MatterDeadlineUpdateManyWithoutUpdatedByNestedInput
+  documentRequestsSent?: Prisma.DocumentRequestUpdateManyWithoutSentByNestedInput
+  documentRequestsCancelled?: Prisma.DocumentRequestUpdateManyWithoutCancelledByNestedInput
+  documentRequestsCreated?: Prisma.DocumentRequestUpdateManyWithoutCreatedByNestedInput
+  documentRequestsUpdated?: Prisma.DocumentRequestUpdateManyWithoutUpdatedByNestedInput
+  matterDocumentsCreated?: Prisma.MatterDocumentUpdateManyWithoutCreatedByNestedInput
+  matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
+  matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
+  matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
+}
+
+export type UserProfileUncheckedUpdateWithoutPilotFeedbackReportedInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatarPath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumUserProfileStatusFieldUpdateOperationsInput | $Enums.UserProfileStatus
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  isPlatformUser?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  lastSeenAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  organisationMemberships?: Prisma.OrganisationMembershipUncheckedUpdateManyWithoutUserProfileNestedInput
+  roleAssignments?: Prisma.RoleAssignmentUncheckedUpdateManyWithoutUserProfileNestedInput
+  grantedRoleAssignments?: Prisma.RoleAssignmentUncheckedUpdateManyWithoutGrantedByNestedInput
+  revokedRoleAssignments?: Prisma.RoleAssignmentUncheckedUpdateManyWithoutRevokedByNestedInput
+  invitationsSent?: Prisma.InvitationUncheckedUpdateManyWithoutInvitedByNestedInput
+  invitationsAccepted?: Prisma.InvitationUncheckedUpdateManyWithoutAcceptedByNestedInput
+  invitationsRevoked?: Prisma.InvitationUncheckedUpdateManyWithoutRevokedByNestedInput
+  userSessions?: Prisma.UserSessionUncheckedUpdateManyWithoutUserProfileNestedInput
+  revokedUserSessions?: Prisma.UserSessionUncheckedUpdateManyWithoutRevokedByNestedInput
+  supportAccessAsGrantee?: Prisma.SupportAccessGrantUncheckedUpdateManyWithoutGranteeNestedInput
+  supportAccessRequested?: Prisma.SupportAccessGrantUncheckedUpdateManyWithoutRequestedByNestedInput
+  supportAccessApproved?: Prisma.SupportAccessGrantUncheckedUpdateManyWithoutApprovedByNestedInput
+  supportAccessRevoked?: Prisma.SupportAccessGrantUncheckedUpdateManyWithoutRevokedByNestedInput
+  auditEventsAsActor?: Prisma.AuditEventUncheckedUpdateManyWithoutActorUserNestedInput
+  auditEventsAsSubject?: Prisma.AuditEventUncheckedUpdateManyWithoutSubjectUserNestedInput
+  securityEventsAsActor?: Prisma.SecurityEventUncheckedUpdateManyWithoutActorUserNestedInput
+  securityEventsAsSubject?: Prisma.SecurityEventUncheckedUpdateManyWithoutSubjectUserNestedInput
+  securityAcknowledged?: Prisma.SecurityEventUncheckedUpdateManyWithoutAcknowledgedByNestedInput
+  securityResolved?: Prisma.SecurityEventUncheckedUpdateManyWithoutResolvedByNestedInput
+  assignedEnquiries?: Prisma.EnquiryUncheckedUpdateManyWithoutAssignedToNestedInput
+  createdEnquiries?: Prisma.EnquiryUncheckedUpdateManyWithoutCreatedByNestedInput
+  updatedEnquiries?: Prisma.EnquiryUncheckedUpdateManyWithoutUpdatedByNestedInput
+  jobProfilesCreated?: Prisma.JobProfileUncheckedUpdateManyWithoutCreatedByNestedInput
+  jobProfilesUpdated?: Prisma.JobProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  kpiDefinitionsCreated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutCreatedByNestedInput
+  kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
+  agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
+  workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
+  workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
+  workforceAssignmentKpisCreated?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutCreatedByNestedInput
+  invitationOnboardingPlansCreated?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutCreatedByNestedInput
+  assignedClients?: Prisma.ClientUncheckedUpdateManyWithoutAssignedToNestedInput
+  clientsCreated?: Prisma.ClientUncheckedUpdateManyWithoutCreatedByNestedInput
+  clientsUpdated?: Prisma.ClientUncheckedUpdateManyWithoutUpdatedByNestedInput
+  assignedMatters?: Prisma.MatterUncheckedUpdateManyWithoutAssignedToNestedInput
+  supervisedMatters?: Prisma.MatterUncheckedUpdateManyWithoutSupervisorNestedInput
+  mattersCreated?: Prisma.MatterUncheckedUpdateManyWithoutCreatedByNestedInput
+  mattersUpdated?: Prisma.MatterUncheckedUpdateManyWithoutUpdatedByNestedInput
+  matterComplianceCreated?: Prisma.MatterComplianceUncheckedUpdateManyWithoutCreatedByNestedInput
+  matterComplianceUpdated?: Prisma.MatterComplianceUncheckedUpdateManyWithoutUpdatedByNestedInput
+  conflictChecksCompleted?: Prisma.MatterComplianceUncheckedUpdateManyWithoutConflictCheckedByNestedInput
+  amlChecksCompleted?: Prisma.MatterComplianceUncheckedUpdateManyWithoutAmlCheckedByNestedInput
+  riskReviewsCompleted?: Prisma.MatterComplianceUncheckedUpdateManyWithoutRiskReviewedByNestedInput
+  matterStatusChanges?: Prisma.MatterStatusHistoryUncheckedUpdateManyWithoutChangedByNestedInput
+  enquiryConversions?: Prisma.EnquiryConversionUncheckedUpdateManyWithoutConvertedByNestedInput
+  assignedMatterTasks?: Prisma.MatterTaskUncheckedUpdateManyWithoutAssignedToNestedInput
+  completedMatterTasks?: Prisma.MatterTaskUncheckedUpdateManyWithoutCompletedByNestedInput
+  cancelledMatterTasks?: Prisma.MatterTaskUncheckedUpdateManyWithoutCancelledByNestedInput
+  matterTasksCreated?: Prisma.MatterTaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  matterTasksUpdated?: Prisma.MatterTaskUncheckedUpdateManyWithoutUpdatedByNestedInput
+  ownedMatterDeadlines?: Prisma.MatterDeadlineUncheckedUpdateManyWithoutOwnerNestedInput
+  satisfiedMatterDeadlines?: Prisma.MatterDeadlineUncheckedUpdateManyWithoutSatisfiedByNestedInput
+  cancelledMatterDeadlines?: Prisma.MatterDeadlineUncheckedUpdateManyWithoutCancelledByNestedInput
+  matterDeadlinesCreated?: Prisma.MatterDeadlineUncheckedUpdateManyWithoutCreatedByNestedInput
+  matterDeadlinesUpdated?: Prisma.MatterDeadlineUncheckedUpdateManyWithoutUpdatedByNestedInput
+  documentRequestsSent?: Prisma.DocumentRequestUncheckedUpdateManyWithoutSentByNestedInput
+  documentRequestsCancelled?: Prisma.DocumentRequestUncheckedUpdateManyWithoutCancelledByNestedInput
+  documentRequestsCreated?: Prisma.DocumentRequestUncheckedUpdateManyWithoutCreatedByNestedInput
+  documentRequestsUpdated?: Prisma.DocumentRequestUncheckedUpdateManyWithoutUpdatedByNestedInput
+  matterDocumentsCreated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutCreatedByNestedInput
+  matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
+  matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
+  matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
+}
+
+export type UserProfileUpsertWithoutPilotFeedbackResolvedInput = {
+  update: Prisma.XOR<Prisma.UserProfileUpdateWithoutPilotFeedbackResolvedInput, Prisma.UserProfileUncheckedUpdateWithoutPilotFeedbackResolvedInput>
+  create: Prisma.XOR<Prisma.UserProfileCreateWithoutPilotFeedbackResolvedInput, Prisma.UserProfileUncheckedCreateWithoutPilotFeedbackResolvedInput>
+  where?: Prisma.UserProfileWhereInput
+}
+
+export type UserProfileUpdateToOneWithWhereWithoutPilotFeedbackResolvedInput = {
+  where?: Prisma.UserProfileWhereInput
+  data: Prisma.XOR<Prisma.UserProfileUpdateWithoutPilotFeedbackResolvedInput, Prisma.UserProfileUncheckedUpdateWithoutPilotFeedbackResolvedInput>
+}
+
+export type UserProfileUpdateWithoutPilotFeedbackResolvedInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatarPath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumUserProfileStatusFieldUpdateOperationsInput | $Enums.UserProfileStatus
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  isPlatformUser?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  lastSeenAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  organisationMemberships?: Prisma.OrganisationMembershipUpdateManyWithoutUserProfileNestedInput
+  roleAssignments?: Prisma.RoleAssignmentUpdateManyWithoutUserProfileNestedInput
+  grantedRoleAssignments?: Prisma.RoleAssignmentUpdateManyWithoutGrantedByNestedInput
+  revokedRoleAssignments?: Prisma.RoleAssignmentUpdateManyWithoutRevokedByNestedInput
+  invitationsSent?: Prisma.InvitationUpdateManyWithoutInvitedByNestedInput
+  invitationsAccepted?: Prisma.InvitationUpdateManyWithoutAcceptedByNestedInput
+  invitationsRevoked?: Prisma.InvitationUpdateManyWithoutRevokedByNestedInput
+  userSessions?: Prisma.UserSessionUpdateManyWithoutUserProfileNestedInput
+  revokedUserSessions?: Prisma.UserSessionUpdateManyWithoutRevokedByNestedInput
+  supportAccessAsGrantee?: Prisma.SupportAccessGrantUpdateManyWithoutGranteeNestedInput
+  supportAccessRequested?: Prisma.SupportAccessGrantUpdateManyWithoutRequestedByNestedInput
+  supportAccessApproved?: Prisma.SupportAccessGrantUpdateManyWithoutApprovedByNestedInput
+  supportAccessRevoked?: Prisma.SupportAccessGrantUpdateManyWithoutRevokedByNestedInput
+  auditEventsAsActor?: Prisma.AuditEventUpdateManyWithoutActorUserNestedInput
+  auditEventsAsSubject?: Prisma.AuditEventUpdateManyWithoutSubjectUserNestedInput
+  securityEventsAsActor?: Prisma.SecurityEventUpdateManyWithoutActorUserNestedInput
+  securityEventsAsSubject?: Prisma.SecurityEventUpdateManyWithoutSubjectUserNestedInput
+  securityAcknowledged?: Prisma.SecurityEventUpdateManyWithoutAcknowledgedByNestedInput
+  securityResolved?: Prisma.SecurityEventUpdateManyWithoutResolvedByNestedInput
+  assignedEnquiries?: Prisma.EnquiryUpdateManyWithoutAssignedToNestedInput
+  createdEnquiries?: Prisma.EnquiryUpdateManyWithoutCreatedByNestedInput
+  updatedEnquiries?: Prisma.EnquiryUpdateManyWithoutUpdatedByNestedInput
+  jobProfilesCreated?: Prisma.JobProfileUpdateManyWithoutCreatedByNestedInput
+  jobProfilesUpdated?: Prisma.JobProfileUpdateManyWithoutUpdatedByNestedInput
+  kpiDefinitionsCreated?: Prisma.KpiDefinitionUpdateManyWithoutCreatedByNestedInput
+  kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
+  agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
+  agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
+  workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
+  workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
+  workforceAssignmentKpisCreated?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutCreatedByNestedInput
+  invitationOnboardingPlansCreated?: Prisma.InvitationOnboardingPlanUpdateManyWithoutCreatedByNestedInput
+  assignedClients?: Prisma.ClientUpdateManyWithoutAssignedToNestedInput
+  clientsCreated?: Prisma.ClientUpdateManyWithoutCreatedByNestedInput
+  clientsUpdated?: Prisma.ClientUpdateManyWithoutUpdatedByNestedInput
+  assignedMatters?: Prisma.MatterUpdateManyWithoutAssignedToNestedInput
+  supervisedMatters?: Prisma.MatterUpdateManyWithoutSupervisorNestedInput
+  mattersCreated?: Prisma.MatterUpdateManyWithoutCreatedByNestedInput
+  mattersUpdated?: Prisma.MatterUpdateManyWithoutUpdatedByNestedInput
+  matterComplianceCreated?: Prisma.MatterComplianceUpdateManyWithoutCreatedByNestedInput
+  matterComplianceUpdated?: Prisma.MatterComplianceUpdateManyWithoutUpdatedByNestedInput
+  conflictChecksCompleted?: Prisma.MatterComplianceUpdateManyWithoutConflictCheckedByNestedInput
+  amlChecksCompleted?: Prisma.MatterComplianceUpdateManyWithoutAmlCheckedByNestedInput
+  riskReviewsCompleted?: Prisma.MatterComplianceUpdateManyWithoutRiskReviewedByNestedInput
+  matterStatusChanges?: Prisma.MatterStatusHistoryUpdateManyWithoutChangedByNestedInput
+  enquiryConversions?: Prisma.EnquiryConversionUpdateManyWithoutConvertedByNestedInput
+  assignedMatterTasks?: Prisma.MatterTaskUpdateManyWithoutAssignedToNestedInput
+  completedMatterTasks?: Prisma.MatterTaskUpdateManyWithoutCompletedByNestedInput
+  cancelledMatterTasks?: Prisma.MatterTaskUpdateManyWithoutCancelledByNestedInput
+  matterTasksCreated?: Prisma.MatterTaskUpdateManyWithoutCreatedByNestedInput
+  matterTasksUpdated?: Prisma.MatterTaskUpdateManyWithoutUpdatedByNestedInput
+  ownedMatterDeadlines?: Prisma.MatterDeadlineUpdateManyWithoutOwnerNestedInput
+  satisfiedMatterDeadlines?: Prisma.MatterDeadlineUpdateManyWithoutSatisfiedByNestedInput
+  cancelledMatterDeadlines?: Prisma.MatterDeadlineUpdateManyWithoutCancelledByNestedInput
+  matterDeadlinesCreated?: Prisma.MatterDeadlineUpdateManyWithoutCreatedByNestedInput
+  matterDeadlinesUpdated?: Prisma.MatterDeadlineUpdateManyWithoutUpdatedByNestedInput
+  documentRequestsSent?: Prisma.DocumentRequestUpdateManyWithoutSentByNestedInput
+  documentRequestsCancelled?: Prisma.DocumentRequestUpdateManyWithoutCancelledByNestedInput
+  documentRequestsCreated?: Prisma.DocumentRequestUpdateManyWithoutCreatedByNestedInput
+  documentRequestsUpdated?: Prisma.DocumentRequestUpdateManyWithoutUpdatedByNestedInput
+  matterDocumentsCreated?: Prisma.MatterDocumentUpdateManyWithoutCreatedByNestedInput
+  matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
+  matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
+  matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+}
+
+export type UserProfileUncheckedUpdateWithoutPilotFeedbackResolvedInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatarPath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumUserProfileStatusFieldUpdateOperationsInput | $Enums.UserProfileStatus
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  isPlatformUser?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  lastSeenAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  organisationMemberships?: Prisma.OrganisationMembershipUncheckedUpdateManyWithoutUserProfileNestedInput
+  roleAssignments?: Prisma.RoleAssignmentUncheckedUpdateManyWithoutUserProfileNestedInput
+  grantedRoleAssignments?: Prisma.RoleAssignmentUncheckedUpdateManyWithoutGrantedByNestedInput
+  revokedRoleAssignments?: Prisma.RoleAssignmentUncheckedUpdateManyWithoutRevokedByNestedInput
+  invitationsSent?: Prisma.InvitationUncheckedUpdateManyWithoutInvitedByNestedInput
+  invitationsAccepted?: Prisma.InvitationUncheckedUpdateManyWithoutAcceptedByNestedInput
+  invitationsRevoked?: Prisma.InvitationUncheckedUpdateManyWithoutRevokedByNestedInput
+  userSessions?: Prisma.UserSessionUncheckedUpdateManyWithoutUserProfileNestedInput
+  revokedUserSessions?: Prisma.UserSessionUncheckedUpdateManyWithoutRevokedByNestedInput
+  supportAccessAsGrantee?: Prisma.SupportAccessGrantUncheckedUpdateManyWithoutGranteeNestedInput
+  supportAccessRequested?: Prisma.SupportAccessGrantUncheckedUpdateManyWithoutRequestedByNestedInput
+  supportAccessApproved?: Prisma.SupportAccessGrantUncheckedUpdateManyWithoutApprovedByNestedInput
+  supportAccessRevoked?: Prisma.SupportAccessGrantUncheckedUpdateManyWithoutRevokedByNestedInput
+  auditEventsAsActor?: Prisma.AuditEventUncheckedUpdateManyWithoutActorUserNestedInput
+  auditEventsAsSubject?: Prisma.AuditEventUncheckedUpdateManyWithoutSubjectUserNestedInput
+  securityEventsAsActor?: Prisma.SecurityEventUncheckedUpdateManyWithoutActorUserNestedInput
+  securityEventsAsSubject?: Prisma.SecurityEventUncheckedUpdateManyWithoutSubjectUserNestedInput
+  securityAcknowledged?: Prisma.SecurityEventUncheckedUpdateManyWithoutAcknowledgedByNestedInput
+  securityResolved?: Prisma.SecurityEventUncheckedUpdateManyWithoutResolvedByNestedInput
+  assignedEnquiries?: Prisma.EnquiryUncheckedUpdateManyWithoutAssignedToNestedInput
+  createdEnquiries?: Prisma.EnquiryUncheckedUpdateManyWithoutCreatedByNestedInput
+  updatedEnquiries?: Prisma.EnquiryUncheckedUpdateManyWithoutUpdatedByNestedInput
+  jobProfilesCreated?: Prisma.JobProfileUncheckedUpdateManyWithoutCreatedByNestedInput
+  jobProfilesUpdated?: Prisma.JobProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  kpiDefinitionsCreated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutCreatedByNestedInput
+  kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
+  agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
+  workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
+  workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
+  workforceAssignmentKpisCreated?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutCreatedByNestedInput
+  invitationOnboardingPlansCreated?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutCreatedByNestedInput
+  assignedClients?: Prisma.ClientUncheckedUpdateManyWithoutAssignedToNestedInput
+  clientsCreated?: Prisma.ClientUncheckedUpdateManyWithoutCreatedByNestedInput
+  clientsUpdated?: Prisma.ClientUncheckedUpdateManyWithoutUpdatedByNestedInput
+  assignedMatters?: Prisma.MatterUncheckedUpdateManyWithoutAssignedToNestedInput
+  supervisedMatters?: Prisma.MatterUncheckedUpdateManyWithoutSupervisorNestedInput
+  mattersCreated?: Prisma.MatterUncheckedUpdateManyWithoutCreatedByNestedInput
+  mattersUpdated?: Prisma.MatterUncheckedUpdateManyWithoutUpdatedByNestedInput
+  matterComplianceCreated?: Prisma.MatterComplianceUncheckedUpdateManyWithoutCreatedByNestedInput
+  matterComplianceUpdated?: Prisma.MatterComplianceUncheckedUpdateManyWithoutUpdatedByNestedInput
+  conflictChecksCompleted?: Prisma.MatterComplianceUncheckedUpdateManyWithoutConflictCheckedByNestedInput
+  amlChecksCompleted?: Prisma.MatterComplianceUncheckedUpdateManyWithoutAmlCheckedByNestedInput
+  riskReviewsCompleted?: Prisma.MatterComplianceUncheckedUpdateManyWithoutRiskReviewedByNestedInput
+  matterStatusChanges?: Prisma.MatterStatusHistoryUncheckedUpdateManyWithoutChangedByNestedInput
+  enquiryConversions?: Prisma.EnquiryConversionUncheckedUpdateManyWithoutConvertedByNestedInput
+  assignedMatterTasks?: Prisma.MatterTaskUncheckedUpdateManyWithoutAssignedToNestedInput
+  completedMatterTasks?: Prisma.MatterTaskUncheckedUpdateManyWithoutCompletedByNestedInput
+  cancelledMatterTasks?: Prisma.MatterTaskUncheckedUpdateManyWithoutCancelledByNestedInput
+  matterTasksCreated?: Prisma.MatterTaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  matterTasksUpdated?: Prisma.MatterTaskUncheckedUpdateManyWithoutUpdatedByNestedInput
+  ownedMatterDeadlines?: Prisma.MatterDeadlineUncheckedUpdateManyWithoutOwnerNestedInput
+  satisfiedMatterDeadlines?: Prisma.MatterDeadlineUncheckedUpdateManyWithoutSatisfiedByNestedInput
+  cancelledMatterDeadlines?: Prisma.MatterDeadlineUncheckedUpdateManyWithoutCancelledByNestedInput
+  matterDeadlinesCreated?: Prisma.MatterDeadlineUncheckedUpdateManyWithoutCreatedByNestedInput
+  matterDeadlinesUpdated?: Prisma.MatterDeadlineUncheckedUpdateManyWithoutUpdatedByNestedInput
+  documentRequestsSent?: Prisma.DocumentRequestUncheckedUpdateManyWithoutSentByNestedInput
+  documentRequestsCancelled?: Prisma.DocumentRequestUncheckedUpdateManyWithoutCancelledByNestedInput
+  documentRequestsCreated?: Prisma.DocumentRequestUncheckedUpdateManyWithoutCreatedByNestedInput
+  documentRequestsUpdated?: Prisma.DocumentRequestUncheckedUpdateManyWithoutUpdatedByNestedInput
+  matterDocumentsCreated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutCreatedByNestedInput
+  matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
+  matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
+  matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
 }
 
 
@@ -24401,6 +26316,9 @@ export type UserProfileCountOutputType = {
   matterDocumentsUpdated: number
   matterDocumentVersionsUploaded: number
   matterTimelineEvents: number
+  pilotAcceptancesTested: number
+  pilotFeedbackReported: number
+  pilotFeedbackResolved: number
 }
 
 export type UserProfileCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -24469,6 +26387,9 @@ export type UserProfileCountOutputTypeSelect<ExtArgs extends runtime.Types.Exten
   matterDocumentsUpdated?: boolean | UserProfileCountOutputTypeCountMatterDocumentsUpdatedArgs
   matterDocumentVersionsUploaded?: boolean | UserProfileCountOutputTypeCountMatterDocumentVersionsUploadedArgs
   matterTimelineEvents?: boolean | UserProfileCountOutputTypeCountMatterTimelineEventsArgs
+  pilotAcceptancesTested?: boolean | UserProfileCountOutputTypeCountPilotAcceptancesTestedArgs
+  pilotFeedbackReported?: boolean | UserProfileCountOutputTypeCountPilotFeedbackReportedArgs
+  pilotFeedbackResolved?: boolean | UserProfileCountOutputTypeCountPilotFeedbackResolvedArgs
 }
 
 /**
@@ -24936,6 +26857,27 @@ export type UserProfileCountOutputTypeCountMatterTimelineEventsArgs<ExtArgs exte
   where?: Prisma.MatterTimelineEventWhereInput
 }
 
+/**
+ * UserProfileCountOutputType without action
+ */
+export type UserProfileCountOutputTypeCountPilotAcceptancesTestedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.PilotAcceptanceEvidenceWhereInput
+}
+
+/**
+ * UserProfileCountOutputType without action
+ */
+export type UserProfileCountOutputTypeCountPilotFeedbackReportedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.PilotFeedbackWhereInput
+}
+
+/**
+ * UserProfileCountOutputType without action
+ */
+export type UserProfileCountOutputTypeCountPilotFeedbackResolvedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.PilotFeedbackWhereInput
+}
+
 
 export type UserProfileSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -25018,6 +26960,9 @@ export type UserProfileSelect<ExtArgs extends runtime.Types.Extensions.InternalA
   matterDocumentsUpdated?: boolean | Prisma.UserProfile$matterDocumentsUpdatedArgs<ExtArgs>
   matterDocumentVersionsUploaded?: boolean | Prisma.UserProfile$matterDocumentVersionsUploadedArgs<ExtArgs>
   matterTimelineEvents?: boolean | Prisma.UserProfile$matterTimelineEventsArgs<ExtArgs>
+  pilotAcceptancesTested?: boolean | Prisma.UserProfile$pilotAcceptancesTestedArgs<ExtArgs>
+  pilotFeedbackReported?: boolean | Prisma.UserProfile$pilotFeedbackReportedArgs<ExtArgs>
+  pilotFeedbackResolved?: boolean | Prisma.UserProfile$pilotFeedbackResolvedArgs<ExtArgs>
   _count?: boolean | Prisma.UserProfileCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["userProfile"]>
 
@@ -25142,6 +27087,9 @@ export type UserProfileInclude<ExtArgs extends runtime.Types.Extensions.Internal
   matterDocumentsUpdated?: boolean | Prisma.UserProfile$matterDocumentsUpdatedArgs<ExtArgs>
   matterDocumentVersionsUploaded?: boolean | Prisma.UserProfile$matterDocumentVersionsUploadedArgs<ExtArgs>
   matterTimelineEvents?: boolean | Prisma.UserProfile$matterTimelineEventsArgs<ExtArgs>
+  pilotAcceptancesTested?: boolean | Prisma.UserProfile$pilotAcceptancesTestedArgs<ExtArgs>
+  pilotFeedbackReported?: boolean | Prisma.UserProfile$pilotFeedbackReportedArgs<ExtArgs>
+  pilotFeedbackResolved?: boolean | Prisma.UserProfile$pilotFeedbackResolvedArgs<ExtArgs>
   _count?: boolean | Prisma.UserProfileCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type UserProfileIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -25215,6 +27163,9 @@ export type $UserProfilePayload<ExtArgs extends runtime.Types.Extensions.Interna
     matterDocumentsUpdated: Prisma.$MatterDocumentPayload<ExtArgs>[]
     matterDocumentVersionsUploaded: Prisma.$MatterDocumentVersionPayload<ExtArgs>[]
     matterTimelineEvents: Prisma.$MatterTimelineEventPayload<ExtArgs>[]
+    pilotAcceptancesTested: Prisma.$PilotAcceptanceEvidencePayload<ExtArgs>[]
+    pilotFeedbackReported: Prisma.$PilotFeedbackPayload<ExtArgs>[]
+    pilotFeedbackResolved: Prisma.$PilotFeedbackPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     /**
@@ -25695,6 +27646,9 @@ export interface Prisma__UserProfileClient<T, Null = never, ExtArgs extends runt
   matterDocumentsUpdated<T extends Prisma.UserProfile$matterDocumentsUpdatedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserProfile$matterDocumentsUpdatedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$MatterDocumentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   matterDocumentVersionsUploaded<T extends Prisma.UserProfile$matterDocumentVersionsUploadedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserProfile$matterDocumentVersionsUploadedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$MatterDocumentVersionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   matterTimelineEvents<T extends Prisma.UserProfile$matterTimelineEventsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserProfile$matterTimelineEventsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$MatterTimelineEventPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  pilotAcceptancesTested<T extends Prisma.UserProfile$pilotAcceptancesTestedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserProfile$pilotAcceptancesTestedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PilotAcceptanceEvidencePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  pilotFeedbackReported<T extends Prisma.UserProfile$pilotFeedbackReportedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserProfile$pilotFeedbackReportedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PilotFeedbackPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  pilotFeedbackResolved<T extends Prisma.UserProfile$pilotFeedbackResolvedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserProfile$pilotFeedbackResolvedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PilotFeedbackPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -27689,6 +29643,78 @@ export type UserProfile$matterTimelineEventsArgs<ExtArgs extends runtime.Types.E
   take?: number
   skip?: number
   distinct?: Prisma.MatterTimelineEventScalarFieldEnum | Prisma.MatterTimelineEventScalarFieldEnum[]
+}
+
+/**
+ * UserProfile.pilotAcceptancesTested
+ */
+export type UserProfile$pilotAcceptancesTestedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the PilotAcceptanceEvidence
+   */
+  select?: Prisma.PilotAcceptanceEvidenceSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the PilotAcceptanceEvidence
+   */
+  omit?: Prisma.PilotAcceptanceEvidenceOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.PilotAcceptanceEvidenceInclude<ExtArgs> | null
+  where?: Prisma.PilotAcceptanceEvidenceWhereInput
+  orderBy?: Prisma.PilotAcceptanceEvidenceOrderByWithRelationInput | Prisma.PilotAcceptanceEvidenceOrderByWithRelationInput[]
+  cursor?: Prisma.PilotAcceptanceEvidenceWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.PilotAcceptanceEvidenceScalarFieldEnum | Prisma.PilotAcceptanceEvidenceScalarFieldEnum[]
+}
+
+/**
+ * UserProfile.pilotFeedbackReported
+ */
+export type UserProfile$pilotFeedbackReportedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the PilotFeedback
+   */
+  select?: Prisma.PilotFeedbackSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the PilotFeedback
+   */
+  omit?: Prisma.PilotFeedbackOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.PilotFeedbackInclude<ExtArgs> | null
+  where?: Prisma.PilotFeedbackWhereInput
+  orderBy?: Prisma.PilotFeedbackOrderByWithRelationInput | Prisma.PilotFeedbackOrderByWithRelationInput[]
+  cursor?: Prisma.PilotFeedbackWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.PilotFeedbackScalarFieldEnum | Prisma.PilotFeedbackScalarFieldEnum[]
+}
+
+/**
+ * UserProfile.pilotFeedbackResolved
+ */
+export type UserProfile$pilotFeedbackResolvedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the PilotFeedback
+   */
+  select?: Prisma.PilotFeedbackSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the PilotFeedback
+   */
+  omit?: Prisma.PilotFeedbackOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.PilotFeedbackInclude<ExtArgs> | null
+  where?: Prisma.PilotFeedbackWhereInput
+  orderBy?: Prisma.PilotFeedbackOrderByWithRelationInput | Prisma.PilotFeedbackOrderByWithRelationInput[]
+  cursor?: Prisma.PilotFeedbackWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.PilotFeedbackScalarFieldEnum | Prisma.PilotFeedbackScalarFieldEnum[]
 }
 
 /**

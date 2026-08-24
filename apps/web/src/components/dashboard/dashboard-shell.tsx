@@ -11,6 +11,7 @@ import {
   Gauge,
   Landmark,
   Route,
+  ClipboardCheck,
   LayoutDashboard,
   LogOut,
   MessagesSquare,
@@ -145,6 +146,12 @@ const navigationItems: NavigationItem[] = [
     href: "/integrations",
     icon: Plug,
     permissions: ["integrations.read"],
+  },
+  {
+    label: "Pilot Readiness",
+    href: "/pilot-readiness",
+    icon: ClipboardCheck,
+    permissions: ["command_centre.read"],
   },
   {
     label: "AI Workspace",

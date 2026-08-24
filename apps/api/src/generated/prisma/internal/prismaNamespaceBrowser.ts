@@ -132,7 +132,9 @@ export const ModelName = {
   ServiceEngagement: 'ServiceEngagement',
   EngagementInstalment: 'EngagementInstalment',
   LifecycleGateOverride: 'LifecycleGateOverride',
-  LifecycleException: 'LifecycleException'
+  LifecycleException: 'LifecycleException',
+  PilotAcceptanceEvidence: 'PilotAcceptanceEvidence',
+  PilotFeedback: 'PilotFeedback'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -1965,6 +1967,46 @@ export const LifecycleExceptionScalarFieldEnum = {
 } as const
 
 export type LifecycleExceptionScalarFieldEnum = (typeof LifecycleExceptionScalarFieldEnum)[keyof typeof LifecycleExceptionScalarFieldEnum]
+
+
+export const PilotAcceptanceEvidenceScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  acceptanceKey: 'acceptanceKey',
+  roleName: 'roleName',
+  scenarioName: 'scenarioName',
+  status: 'status',
+  evidenceNote: 'evidenceNote',
+  evidenceReference: 'evidenceReference',
+  testedByUserId: 'testedByUserId',
+  testedAt: 'testedAt',
+  version: 'version',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type PilotAcceptanceEvidenceScalarFieldEnum = (typeof PilotAcceptanceEvidenceScalarFieldEnum)[keyof typeof PilotAcceptanceEvidenceScalarFieldEnum]
+
+
+export const PilotFeedbackScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  reporterUserId: 'reporterUserId',
+  affectedRole: 'affectedRole',
+  severity: 'severity',
+  title: 'title',
+  detail: 'detail',
+  reproductionSteps: 'reproductionSteps',
+  status: 'status',
+  resolution: 'resolution',
+  resolvedByUserId: 'resolvedByUserId',
+  resolvedAt: 'resolvedAt',
+  version: 'version',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type PilotFeedbackScalarFieldEnum = (typeof PilotFeedbackScalarFieldEnum)[keyof typeof PilotFeedbackScalarFieldEnum]
 
 
 export const SortOrder = {

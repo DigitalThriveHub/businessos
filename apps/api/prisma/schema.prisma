@@ -813,6 +813,33 @@ enum LifecycleExceptionStatus {
   @@map("lifecycle_exception_status")
 }
 
+enum PilotAcceptanceStatus {
+  NOT_TESTED
+  PASS
+  FAIL
+  BLOCKED
+
+  @@map("pilot_acceptance_status")
+}
+
+enum PilotFeedbackSeverity {
+  LOW
+  MEDIUM
+  HIGH
+  CRITICAL
+
+  @@map("pilot_feedback_severity")
+}
+
+enum PilotFeedbackStatus {
+  OPEN
+  TRIAGED
+  RESOLVED
+  ACCEPTED_RISK
+
+  @@map("pilot_feedback_status")
+}
+
 model Organisation {
   id          String             @id(map: "pk_organisations") @default(uuid()) @map("id") @db.Uuid
   slug        String             @unique(map: "uq_organisations_slug") @map("slug") @db.VarChar(80)
@@ -876,6 +903,8 @@ model Organisation {
   escalationEvents          EscalationEvent[]
   approvalRequests          ApprovalRequest[]
   approvalDecisions         ApprovalDecision[]
+  pilotAcceptanceEvidence   PilotAcceptanceEvidence[]
+  pilotFeedback             PilotFeedback[]
 
   @@index([status, deletedAt], map: "ix_organisations_status_deleted")
   @@index([createdAt], map: "ix_organisations_created_at")
@@ -985,6 +1014,9 @@ model UserProfile {
   matterDocumentsUpdated           MatterDocument[]           @relation("MatterDocumentUpdatedBy")
   matterDocumentVersionsUploaded   MatterDocumentVersion[]    @relation("MatterDocumentVersionUploadedBy")
   matterTimelineEvents             MatterTimelineEvent[]      @relation("MatterTimelineActor")
+  pilotAcceptancesTested           PilotAcceptanceEvidence[]  @relation("PilotAcceptanceTestedBy")
+  pilotFeedbackReported            PilotFeedback[]            @relation("PilotFeedbackReporter")
+  pilotFeedbackResolved            PilotFeedback[]            @relation("PilotFeedbackResolvedBy")
 
   @@index([email], map: "ix_user_profiles_email")
   @@index([status, deletedAt], map: "ix_user_profiles_status_deleted")
@@ -3334,4 +3366,52 @@ model LifecycleException {
 
   @@index([organisationId, status, dueAt], map: "ix_exceptions_org_status_due")
   @@map("lifecycle_exceptions")
+}
+
+model PilotAcceptanceEvidence {
+  id                String                @id @default(uuid()) @db.Uuid
+  organisationId    String                @map("organisation_id") @db.Uuid
+  acceptanceKey     String                @map("acceptance_key") @db.VarChar(80)
+  roleName          String                @map("role_name") @db.VarChar(120)
+  scenarioName      String                @map("scenario_name") @db.VarChar(240)
+  status            PilotAcceptanceStatus @default(NOT_TESTED)
+  evidenceNote      String?               @map("evidence_note") @db.VarChar(2000)
+  evidenceReference String?               @map("evidence_reference") @db.VarChar(1000)
+  testedByUserId    String?               @map("tested_by_user_id") @db.Uuid
+  testedAt          DateTime?             @map("tested_at") @db.Timestamptz(6)
+  version           Int                   @default(1)
+  createdAt         DateTime              @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt         DateTime              @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  organisation Organisation @relation(fields: [organisationId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  testedBy     UserProfile? @relation("PilotAcceptanceTestedBy", fields: [testedByUserId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  @@unique([organisationId, acceptanceKey], map: "uq_pilot_acceptance_org_key")
+  @@index([organisationId, status], map: "ix_pilot_acceptance_org_status")
+  @@map("pilot_acceptance_evidence")
+}
+
+model PilotFeedback {
+  id                String                @id @default(uuid()) @db.Uuid
+  organisationId    String                @map("organisation_id") @db.Uuid
+  reporterUserId    String                @map("reporter_user_id") @db.Uuid
+  affectedRole      String                @map("affected_role") @db.VarChar(120)
+  severity          PilotFeedbackSeverity
+  title             String                @db.VarChar(240)
+  detail            String                @db.VarChar(4000)
+  reproductionSteps String                @map("reproduction_steps") @db.VarChar(4000)
+  status            PilotFeedbackStatus   @default(OPEN)
+  resolution        String?               @db.VarChar(4000)
+  resolvedByUserId  String?               @map("resolved_by_user_id") @db.Uuid
+  resolvedAt        DateTime?             @map("resolved_at") @db.Timestamptz(6)
+  version           Int                   @default(1)
+  createdAt         DateTime              @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt         DateTime              @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  organisation Organisation @relation(fields: [organisationId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  reporter     UserProfile  @relation("PilotFeedbackReporter", fields: [reporterUserId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  resolvedBy   UserProfile? @relation("PilotFeedbackResolvedBy", fields: [resolvedByUserId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  @@index([organisationId, status, severity, createdAt(sort: Desc)], map: "ix_pilot_feedback_org_status_severity")
+  @@map("pilot_feedback")
 }

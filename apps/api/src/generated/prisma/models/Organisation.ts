@@ -283,6 +283,8 @@ export type OrganisationWhereInput = {
   escalationEvents?: Prisma.EscalationEventListRelationFilter
   approvalRequests?: Prisma.ApprovalRequestListRelationFilter
   approvalDecisions?: Prisma.ApprovalDecisionListRelationFilter
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceListRelationFilter
+  pilotFeedback?: Prisma.PilotFeedbackListRelationFilter
 }
 
 export type OrganisationOrderByWithRelationInput = {
@@ -347,6 +349,8 @@ export type OrganisationOrderByWithRelationInput = {
   escalationEvents?: Prisma.EscalationEventOrderByRelationAggregateInput
   approvalRequests?: Prisma.ApprovalRequestOrderByRelationAggregateInput
   approvalDecisions?: Prisma.ApprovalDecisionOrderByRelationAggregateInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceOrderByRelationAggregateInput
+  pilotFeedback?: Prisma.PilotFeedbackOrderByRelationAggregateInput
 }
 
 export type OrganisationWhereUniqueInput = Prisma.AtLeast<{
@@ -414,6 +418,8 @@ export type OrganisationWhereUniqueInput = Prisma.AtLeast<{
   escalationEvents?: Prisma.EscalationEventListRelationFilter
   approvalRequests?: Prisma.ApprovalRequestListRelationFilter
   approvalDecisions?: Prisma.ApprovalDecisionListRelationFilter
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceListRelationFilter
+  pilotFeedback?: Prisma.PilotFeedbackListRelationFilter
 }, "id" | "slug">
 
 export type OrganisationOrderByWithAggregationInput = {
@@ -514,6 +520,8 @@ export type OrganisationCreateInput = {
   escalationEvents?: Prisma.EscalationEventCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationUncheckedCreateInput = {
@@ -578,6 +586,8 @@ export type OrganisationUncheckedCreateInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationUpdateInput = {
@@ -642,6 +652,8 @@ export type OrganisationUpdateInput = {
   escalationEvents?: Prisma.EscalationEventUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationUncheckedUpdateInput = {
@@ -706,6 +718,8 @@ export type OrganisationUncheckedUpdateInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationCreateManyInput = {
@@ -1522,6 +1536,34 @@ export type OrganisationUpdateOneRequiredWithoutApprovalDecisionsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.OrganisationUpdateToOneWithWhereWithoutApprovalDecisionsInput, Prisma.OrganisationUpdateWithoutApprovalDecisionsInput>, Prisma.OrganisationUncheckedUpdateWithoutApprovalDecisionsInput>
 }
 
+export type OrganisationCreateNestedOneWithoutPilotAcceptanceEvidenceInput = {
+  create?: Prisma.XOR<Prisma.OrganisationCreateWithoutPilotAcceptanceEvidenceInput, Prisma.OrganisationUncheckedCreateWithoutPilotAcceptanceEvidenceInput>
+  connectOrCreate?: Prisma.OrganisationCreateOrConnectWithoutPilotAcceptanceEvidenceInput
+  connect?: Prisma.OrganisationWhereUniqueInput
+}
+
+export type OrganisationUpdateOneRequiredWithoutPilotAcceptanceEvidenceNestedInput = {
+  create?: Prisma.XOR<Prisma.OrganisationCreateWithoutPilotAcceptanceEvidenceInput, Prisma.OrganisationUncheckedCreateWithoutPilotAcceptanceEvidenceInput>
+  connectOrCreate?: Prisma.OrganisationCreateOrConnectWithoutPilotAcceptanceEvidenceInput
+  upsert?: Prisma.OrganisationUpsertWithoutPilotAcceptanceEvidenceInput
+  connect?: Prisma.OrganisationWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.OrganisationUpdateToOneWithWhereWithoutPilotAcceptanceEvidenceInput, Prisma.OrganisationUpdateWithoutPilotAcceptanceEvidenceInput>, Prisma.OrganisationUncheckedUpdateWithoutPilotAcceptanceEvidenceInput>
+}
+
+export type OrganisationCreateNestedOneWithoutPilotFeedbackInput = {
+  create?: Prisma.XOR<Prisma.OrganisationCreateWithoutPilotFeedbackInput, Prisma.OrganisationUncheckedCreateWithoutPilotFeedbackInput>
+  connectOrCreate?: Prisma.OrganisationCreateOrConnectWithoutPilotFeedbackInput
+  connect?: Prisma.OrganisationWhereUniqueInput
+}
+
+export type OrganisationUpdateOneRequiredWithoutPilotFeedbackNestedInput = {
+  create?: Prisma.XOR<Prisma.OrganisationCreateWithoutPilotFeedbackInput, Prisma.OrganisationUncheckedCreateWithoutPilotFeedbackInput>
+  connectOrCreate?: Prisma.OrganisationCreateOrConnectWithoutPilotFeedbackInput
+  upsert?: Prisma.OrganisationUpsertWithoutPilotFeedbackInput
+  connect?: Prisma.OrganisationWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.OrganisationUpdateToOneWithWhereWithoutPilotFeedbackInput, Prisma.OrganisationUpdateWithoutPilotFeedbackInput>, Prisma.OrganisationUncheckedUpdateWithoutPilotFeedbackInput>
+}
+
 export type OrganisationCreateWithoutSettingsInput = {
   id?: string
   slug: string
@@ -1583,6 +1625,8 @@ export type OrganisationCreateWithoutSettingsInput = {
   escalationEvents?: Prisma.EscalationEventCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationUncheckedCreateWithoutSettingsInput = {
@@ -1646,6 +1690,8 @@ export type OrganisationUncheckedCreateWithoutSettingsInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationCreateOrConnectWithoutSettingsInput = {
@@ -1725,6 +1771,8 @@ export type OrganisationUpdateWithoutSettingsInput = {
   escalationEvents?: Prisma.EscalationEventUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationUncheckedUpdateWithoutSettingsInput = {
@@ -1788,6 +1836,8 @@ export type OrganisationUncheckedUpdateWithoutSettingsInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationCreateWithoutMembershipsInput = {
@@ -1851,6 +1901,8 @@ export type OrganisationCreateWithoutMembershipsInput = {
   escalationEvents?: Prisma.EscalationEventCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationUncheckedCreateWithoutMembershipsInput = {
@@ -1914,6 +1966,8 @@ export type OrganisationUncheckedCreateWithoutMembershipsInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationCreateOrConnectWithoutMembershipsInput = {
@@ -1993,6 +2047,8 @@ export type OrganisationUpdateWithoutMembershipsInput = {
   escalationEvents?: Prisma.EscalationEventUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationUncheckedUpdateWithoutMembershipsInput = {
@@ -2056,6 +2112,8 @@ export type OrganisationUncheckedUpdateWithoutMembershipsInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationCreateWithoutDepartmentsInput = {
@@ -2119,6 +2177,8 @@ export type OrganisationCreateWithoutDepartmentsInput = {
   escalationEvents?: Prisma.EscalationEventCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationUncheckedCreateWithoutDepartmentsInput = {
@@ -2182,6 +2242,8 @@ export type OrganisationUncheckedCreateWithoutDepartmentsInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationCreateOrConnectWithoutDepartmentsInput = {
@@ -2261,6 +2323,8 @@ export type OrganisationUpdateWithoutDepartmentsInput = {
   escalationEvents?: Prisma.EscalationEventUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationUncheckedUpdateWithoutDepartmentsInput = {
@@ -2324,6 +2388,8 @@ export type OrganisationUncheckedUpdateWithoutDepartmentsInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationCreateWithoutDepartmentMembershipsInput = {
@@ -2387,6 +2453,8 @@ export type OrganisationCreateWithoutDepartmentMembershipsInput = {
   escalationEvents?: Prisma.EscalationEventCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationUncheckedCreateWithoutDepartmentMembershipsInput = {
@@ -2450,6 +2518,8 @@ export type OrganisationUncheckedCreateWithoutDepartmentMembershipsInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationCreateOrConnectWithoutDepartmentMembershipsInput = {
@@ -2529,6 +2599,8 @@ export type OrganisationUpdateWithoutDepartmentMembershipsInput = {
   escalationEvents?: Prisma.EscalationEventUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationUncheckedUpdateWithoutDepartmentMembershipsInput = {
@@ -2592,6 +2664,8 @@ export type OrganisationUncheckedUpdateWithoutDepartmentMembershipsInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationCreateWithoutTeamsInput = {
@@ -2655,6 +2729,8 @@ export type OrganisationCreateWithoutTeamsInput = {
   escalationEvents?: Prisma.EscalationEventCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationUncheckedCreateWithoutTeamsInput = {
@@ -2718,6 +2794,8 @@ export type OrganisationUncheckedCreateWithoutTeamsInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationCreateOrConnectWithoutTeamsInput = {
@@ -2797,6 +2875,8 @@ export type OrganisationUpdateWithoutTeamsInput = {
   escalationEvents?: Prisma.EscalationEventUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationUncheckedUpdateWithoutTeamsInput = {
@@ -2860,6 +2940,8 @@ export type OrganisationUncheckedUpdateWithoutTeamsInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationCreateWithoutTeamMembershipsInput = {
@@ -2923,6 +3005,8 @@ export type OrganisationCreateWithoutTeamMembershipsInput = {
   escalationEvents?: Prisma.EscalationEventCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationUncheckedCreateWithoutTeamMembershipsInput = {
@@ -2986,6 +3070,8 @@ export type OrganisationUncheckedCreateWithoutTeamMembershipsInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationCreateOrConnectWithoutTeamMembershipsInput = {
@@ -3065,6 +3151,8 @@ export type OrganisationUpdateWithoutTeamMembershipsInput = {
   escalationEvents?: Prisma.EscalationEventUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationUncheckedUpdateWithoutTeamMembershipsInput = {
@@ -3128,6 +3216,8 @@ export type OrganisationUncheckedUpdateWithoutTeamMembershipsInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationCreateWithoutRolesInput = {
@@ -3191,6 +3281,8 @@ export type OrganisationCreateWithoutRolesInput = {
   escalationEvents?: Prisma.EscalationEventCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationUncheckedCreateWithoutRolesInput = {
@@ -3254,6 +3346,8 @@ export type OrganisationUncheckedCreateWithoutRolesInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationCreateOrConnectWithoutRolesInput = {
@@ -3333,6 +3427,8 @@ export type OrganisationUpdateWithoutRolesInput = {
   escalationEvents?: Prisma.EscalationEventUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationUncheckedUpdateWithoutRolesInput = {
@@ -3396,6 +3492,8 @@ export type OrganisationUncheckedUpdateWithoutRolesInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationCreateWithoutRoleAssignmentsInput = {
@@ -3459,6 +3557,8 @@ export type OrganisationCreateWithoutRoleAssignmentsInput = {
   escalationEvents?: Prisma.EscalationEventCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationUncheckedCreateWithoutRoleAssignmentsInput = {
@@ -3522,6 +3622,8 @@ export type OrganisationUncheckedCreateWithoutRoleAssignmentsInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationCreateOrConnectWithoutRoleAssignmentsInput = {
@@ -3601,6 +3703,8 @@ export type OrganisationUpdateWithoutRoleAssignmentsInput = {
   escalationEvents?: Prisma.EscalationEventUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationUncheckedUpdateWithoutRoleAssignmentsInput = {
@@ -3664,6 +3768,8 @@ export type OrganisationUncheckedUpdateWithoutRoleAssignmentsInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationCreateWithoutInvitationsInput = {
@@ -3727,6 +3833,8 @@ export type OrganisationCreateWithoutInvitationsInput = {
   escalationEvents?: Prisma.EscalationEventCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationUncheckedCreateWithoutInvitationsInput = {
@@ -3790,6 +3898,8 @@ export type OrganisationUncheckedCreateWithoutInvitationsInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationCreateOrConnectWithoutInvitationsInput = {
@@ -3869,6 +3979,8 @@ export type OrganisationUpdateWithoutInvitationsInput = {
   escalationEvents?: Prisma.EscalationEventUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationUncheckedUpdateWithoutInvitationsInput = {
@@ -3932,6 +4044,8 @@ export type OrganisationUncheckedUpdateWithoutInvitationsInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationCreateWithoutUserSessionsInput = {
@@ -3995,6 +4109,8 @@ export type OrganisationCreateWithoutUserSessionsInput = {
   escalationEvents?: Prisma.EscalationEventCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationUncheckedCreateWithoutUserSessionsInput = {
@@ -4058,6 +4174,8 @@ export type OrganisationUncheckedCreateWithoutUserSessionsInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationCreateOrConnectWithoutUserSessionsInput = {
@@ -4137,6 +4255,8 @@ export type OrganisationUpdateWithoutUserSessionsInput = {
   escalationEvents?: Prisma.EscalationEventUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationUncheckedUpdateWithoutUserSessionsInput = {
@@ -4200,6 +4320,8 @@ export type OrganisationUncheckedUpdateWithoutUserSessionsInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationCreateWithoutSupportAccessGrantsInput = {
@@ -4263,6 +4385,8 @@ export type OrganisationCreateWithoutSupportAccessGrantsInput = {
   escalationEvents?: Prisma.EscalationEventCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationUncheckedCreateWithoutSupportAccessGrantsInput = {
@@ -4326,6 +4450,8 @@ export type OrganisationUncheckedCreateWithoutSupportAccessGrantsInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationCreateOrConnectWithoutSupportAccessGrantsInput = {
@@ -4405,6 +4531,8 @@ export type OrganisationUpdateWithoutSupportAccessGrantsInput = {
   escalationEvents?: Prisma.EscalationEventUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationUncheckedUpdateWithoutSupportAccessGrantsInput = {
@@ -4468,6 +4596,8 @@ export type OrganisationUncheckedUpdateWithoutSupportAccessGrantsInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationCreateWithoutAuditEventsInput = {
@@ -4531,6 +4661,8 @@ export type OrganisationCreateWithoutAuditEventsInput = {
   escalationEvents?: Prisma.EscalationEventCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationUncheckedCreateWithoutAuditEventsInput = {
@@ -4594,6 +4726,8 @@ export type OrganisationUncheckedCreateWithoutAuditEventsInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationCreateOrConnectWithoutAuditEventsInput = {
@@ -4673,6 +4807,8 @@ export type OrganisationUpdateWithoutAuditEventsInput = {
   escalationEvents?: Prisma.EscalationEventUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationUncheckedUpdateWithoutAuditEventsInput = {
@@ -4736,6 +4872,8 @@ export type OrganisationUncheckedUpdateWithoutAuditEventsInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationCreateWithoutSecurityEventsInput = {
@@ -4799,6 +4937,8 @@ export type OrganisationCreateWithoutSecurityEventsInput = {
   escalationEvents?: Prisma.EscalationEventCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationUncheckedCreateWithoutSecurityEventsInput = {
@@ -4862,6 +5002,8 @@ export type OrganisationUncheckedCreateWithoutSecurityEventsInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationCreateOrConnectWithoutSecurityEventsInput = {
@@ -4941,6 +5083,8 @@ export type OrganisationUpdateWithoutSecurityEventsInput = {
   escalationEvents?: Prisma.EscalationEventUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationUncheckedUpdateWithoutSecurityEventsInput = {
@@ -5004,6 +5148,8 @@ export type OrganisationUncheckedUpdateWithoutSecurityEventsInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationCreateWithoutJobProfilesInput = {
@@ -5067,6 +5213,8 @@ export type OrganisationCreateWithoutJobProfilesInput = {
   escalationEvents?: Prisma.EscalationEventCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationUncheckedCreateWithoutJobProfilesInput = {
@@ -5130,6 +5278,8 @@ export type OrganisationUncheckedCreateWithoutJobProfilesInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationCreateOrConnectWithoutJobProfilesInput = {
@@ -5209,6 +5359,8 @@ export type OrganisationUpdateWithoutJobProfilesInput = {
   escalationEvents?: Prisma.EscalationEventUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationUncheckedUpdateWithoutJobProfilesInput = {
@@ -5272,6 +5424,8 @@ export type OrganisationUncheckedUpdateWithoutJobProfilesInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationCreateWithoutJobProfileDutiesInput = {
@@ -5335,6 +5489,8 @@ export type OrganisationCreateWithoutJobProfileDutiesInput = {
   escalationEvents?: Prisma.EscalationEventCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationUncheckedCreateWithoutJobProfileDutiesInput = {
@@ -5398,6 +5554,8 @@ export type OrganisationUncheckedCreateWithoutJobProfileDutiesInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationCreateOrConnectWithoutJobProfileDutiesInput = {
@@ -5477,6 +5635,8 @@ export type OrganisationUpdateWithoutJobProfileDutiesInput = {
   escalationEvents?: Prisma.EscalationEventUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationUncheckedUpdateWithoutJobProfileDutiesInput = {
@@ -5540,6 +5700,8 @@ export type OrganisationUncheckedUpdateWithoutJobProfileDutiesInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationCreateWithoutKpiDefinitionsInput = {
@@ -5603,6 +5765,8 @@ export type OrganisationCreateWithoutKpiDefinitionsInput = {
   escalationEvents?: Prisma.EscalationEventCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationUncheckedCreateWithoutKpiDefinitionsInput = {
@@ -5666,6 +5830,8 @@ export type OrganisationUncheckedCreateWithoutKpiDefinitionsInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationCreateOrConnectWithoutKpiDefinitionsInput = {
@@ -5745,6 +5911,8 @@ export type OrganisationUpdateWithoutKpiDefinitionsInput = {
   escalationEvents?: Prisma.EscalationEventUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationUncheckedUpdateWithoutKpiDefinitionsInput = {
@@ -5808,6 +5976,8 @@ export type OrganisationUncheckedUpdateWithoutKpiDefinitionsInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationCreateWithoutJobProfileKpisInput = {
@@ -5871,6 +6041,8 @@ export type OrganisationCreateWithoutJobProfileKpisInput = {
   escalationEvents?: Prisma.EscalationEventCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationUncheckedCreateWithoutJobProfileKpisInput = {
@@ -5934,6 +6106,8 @@ export type OrganisationUncheckedCreateWithoutJobProfileKpisInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationCreateOrConnectWithoutJobProfileKpisInput = {
@@ -6013,6 +6187,8 @@ export type OrganisationUpdateWithoutJobProfileKpisInput = {
   escalationEvents?: Prisma.EscalationEventUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationUncheckedUpdateWithoutJobProfileKpisInput = {
@@ -6076,6 +6252,8 @@ export type OrganisationUncheckedUpdateWithoutJobProfileKpisInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationCreateWithoutAgentProfilesInput = {
@@ -6139,6 +6317,8 @@ export type OrganisationCreateWithoutAgentProfilesInput = {
   escalationEvents?: Prisma.EscalationEventCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationUncheckedCreateWithoutAgentProfilesInput = {
@@ -6202,6 +6382,8 @@ export type OrganisationUncheckedCreateWithoutAgentProfilesInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationCreateOrConnectWithoutAgentProfilesInput = {
@@ -6281,6 +6463,8 @@ export type OrganisationUpdateWithoutAgentProfilesInput = {
   escalationEvents?: Prisma.EscalationEventUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationUncheckedUpdateWithoutAgentProfilesInput = {
@@ -6344,6 +6528,8 @@ export type OrganisationUncheckedUpdateWithoutAgentProfilesInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationCreateWithoutAgentPoliciesInput = {
@@ -6407,6 +6593,8 @@ export type OrganisationCreateWithoutAgentPoliciesInput = {
   escalationEvents?: Prisma.EscalationEventCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationUncheckedCreateWithoutAgentPoliciesInput = {
@@ -6470,6 +6658,8 @@ export type OrganisationUncheckedCreateWithoutAgentPoliciesInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationCreateOrConnectWithoutAgentPoliciesInput = {
@@ -6549,6 +6739,8 @@ export type OrganisationUpdateWithoutAgentPoliciesInput = {
   escalationEvents?: Prisma.EscalationEventUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationUncheckedUpdateWithoutAgentPoliciesInput = {
@@ -6612,6 +6804,8 @@ export type OrganisationUncheckedUpdateWithoutAgentPoliciesInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationCreateWithoutWorkforceAssignmentsInput = {
@@ -6675,6 +6869,8 @@ export type OrganisationCreateWithoutWorkforceAssignmentsInput = {
   escalationEvents?: Prisma.EscalationEventCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationUncheckedCreateWithoutWorkforceAssignmentsInput = {
@@ -6738,6 +6934,8 @@ export type OrganisationUncheckedCreateWithoutWorkforceAssignmentsInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationCreateOrConnectWithoutWorkforceAssignmentsInput = {
@@ -6817,6 +7015,8 @@ export type OrganisationUpdateWithoutWorkforceAssignmentsInput = {
   escalationEvents?: Prisma.EscalationEventUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationUncheckedUpdateWithoutWorkforceAssignmentsInput = {
@@ -6880,6 +7080,8 @@ export type OrganisationUncheckedUpdateWithoutWorkforceAssignmentsInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationCreateWithoutWorkforceAssignmentKpisInput = {
@@ -6943,6 +7145,8 @@ export type OrganisationCreateWithoutWorkforceAssignmentKpisInput = {
   escalationEvents?: Prisma.EscalationEventCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationUncheckedCreateWithoutWorkforceAssignmentKpisInput = {
@@ -7006,6 +7210,8 @@ export type OrganisationUncheckedCreateWithoutWorkforceAssignmentKpisInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationCreateOrConnectWithoutWorkforceAssignmentKpisInput = {
@@ -7085,6 +7291,8 @@ export type OrganisationUpdateWithoutWorkforceAssignmentKpisInput = {
   escalationEvents?: Prisma.EscalationEventUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationUncheckedUpdateWithoutWorkforceAssignmentKpisInput = {
@@ -7148,6 +7356,8 @@ export type OrganisationUncheckedUpdateWithoutWorkforceAssignmentKpisInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationCreateWithoutInvitationOnboardingPlansInput = {
@@ -7211,6 +7421,8 @@ export type OrganisationCreateWithoutInvitationOnboardingPlansInput = {
   escalationEvents?: Prisma.EscalationEventCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationUncheckedCreateWithoutInvitationOnboardingPlansInput = {
@@ -7274,6 +7486,8 @@ export type OrganisationUncheckedCreateWithoutInvitationOnboardingPlansInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationCreateOrConnectWithoutInvitationOnboardingPlansInput = {
@@ -7353,6 +7567,8 @@ export type OrganisationUpdateWithoutInvitationOnboardingPlansInput = {
   escalationEvents?: Prisma.EscalationEventUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationUncheckedUpdateWithoutInvitationOnboardingPlansInput = {
@@ -7416,6 +7632,8 @@ export type OrganisationUncheckedUpdateWithoutInvitationOnboardingPlansInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationCreateWithoutInvitationOnboardingRolesInput = {
@@ -7479,6 +7697,8 @@ export type OrganisationCreateWithoutInvitationOnboardingRolesInput = {
   escalationEvents?: Prisma.EscalationEventCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationUncheckedCreateWithoutInvitationOnboardingRolesInput = {
@@ -7542,6 +7762,8 @@ export type OrganisationUncheckedCreateWithoutInvitationOnboardingRolesInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationCreateOrConnectWithoutInvitationOnboardingRolesInput = {
@@ -7621,6 +7843,8 @@ export type OrganisationUpdateWithoutInvitationOnboardingRolesInput = {
   escalationEvents?: Prisma.EscalationEventUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationUncheckedUpdateWithoutInvitationOnboardingRolesInput = {
@@ -7684,6 +7908,8 @@ export type OrganisationUncheckedUpdateWithoutInvitationOnboardingRolesInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationCreateWithoutInvitationOnboardingKpisInput = {
@@ -7747,6 +7973,8 @@ export type OrganisationCreateWithoutInvitationOnboardingKpisInput = {
   escalationEvents?: Prisma.EscalationEventCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationUncheckedCreateWithoutInvitationOnboardingKpisInput = {
@@ -7810,6 +8038,8 @@ export type OrganisationUncheckedCreateWithoutInvitationOnboardingKpisInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationCreateOrConnectWithoutInvitationOnboardingKpisInput = {
@@ -7889,6 +8119,8 @@ export type OrganisationUpdateWithoutInvitationOnboardingKpisInput = {
   escalationEvents?: Prisma.EscalationEventUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationUncheckedUpdateWithoutInvitationOnboardingKpisInput = {
@@ -7952,6 +8184,8 @@ export type OrganisationUncheckedUpdateWithoutInvitationOnboardingKpisInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationCreateWithoutEnquiriesInput = {
@@ -8015,6 +8249,8 @@ export type OrganisationCreateWithoutEnquiriesInput = {
   escalationEvents?: Prisma.EscalationEventCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationUncheckedCreateWithoutEnquiriesInput = {
@@ -8078,6 +8314,8 @@ export type OrganisationUncheckedCreateWithoutEnquiriesInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationCreateOrConnectWithoutEnquiriesInput = {
@@ -8157,6 +8395,8 @@ export type OrganisationUpdateWithoutEnquiriesInput = {
   escalationEvents?: Prisma.EscalationEventUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationUncheckedUpdateWithoutEnquiriesInput = {
@@ -8220,6 +8460,8 @@ export type OrganisationUncheckedUpdateWithoutEnquiriesInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationCreateWithoutNumberSequencesInput = {
@@ -8283,6 +8525,8 @@ export type OrganisationCreateWithoutNumberSequencesInput = {
   escalationEvents?: Prisma.EscalationEventCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationUncheckedCreateWithoutNumberSequencesInput = {
@@ -8346,6 +8590,8 @@ export type OrganisationUncheckedCreateWithoutNumberSequencesInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationCreateOrConnectWithoutNumberSequencesInput = {
@@ -8425,6 +8671,8 @@ export type OrganisationUpdateWithoutNumberSequencesInput = {
   escalationEvents?: Prisma.EscalationEventUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationUncheckedUpdateWithoutNumberSequencesInput = {
@@ -8488,6 +8736,8 @@ export type OrganisationUncheckedUpdateWithoutNumberSequencesInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationCreateWithoutClientsInput = {
@@ -8551,6 +8801,8 @@ export type OrganisationCreateWithoutClientsInput = {
   escalationEvents?: Prisma.EscalationEventCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationUncheckedCreateWithoutClientsInput = {
@@ -8614,6 +8866,8 @@ export type OrganisationUncheckedCreateWithoutClientsInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationCreateOrConnectWithoutClientsInput = {
@@ -8693,6 +8947,8 @@ export type OrganisationUpdateWithoutClientsInput = {
   escalationEvents?: Prisma.EscalationEventUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationUncheckedUpdateWithoutClientsInput = {
@@ -8756,6 +9012,8 @@ export type OrganisationUncheckedUpdateWithoutClientsInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationCreateWithoutMattersInput = {
@@ -8819,6 +9077,8 @@ export type OrganisationCreateWithoutMattersInput = {
   escalationEvents?: Prisma.EscalationEventCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationUncheckedCreateWithoutMattersInput = {
@@ -8882,6 +9142,8 @@ export type OrganisationUncheckedCreateWithoutMattersInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationCreateOrConnectWithoutMattersInput = {
@@ -8961,6 +9223,8 @@ export type OrganisationUpdateWithoutMattersInput = {
   escalationEvents?: Prisma.EscalationEventUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationUncheckedUpdateWithoutMattersInput = {
@@ -9024,6 +9288,8 @@ export type OrganisationUncheckedUpdateWithoutMattersInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationCreateWithoutMatterPartiesInput = {
@@ -9087,6 +9353,8 @@ export type OrganisationCreateWithoutMatterPartiesInput = {
   escalationEvents?: Prisma.EscalationEventCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationUncheckedCreateWithoutMatterPartiesInput = {
@@ -9150,6 +9418,8 @@ export type OrganisationUncheckedCreateWithoutMatterPartiesInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationCreateOrConnectWithoutMatterPartiesInput = {
@@ -9229,6 +9499,8 @@ export type OrganisationUpdateWithoutMatterPartiesInput = {
   escalationEvents?: Prisma.EscalationEventUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationUncheckedUpdateWithoutMatterPartiesInput = {
@@ -9292,6 +9564,8 @@ export type OrganisationUncheckedUpdateWithoutMatterPartiesInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationCreateWithoutMatterComplianceRecordsInput = {
@@ -9355,6 +9629,8 @@ export type OrganisationCreateWithoutMatterComplianceRecordsInput = {
   escalationEvents?: Prisma.EscalationEventCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationUncheckedCreateWithoutMatterComplianceRecordsInput = {
@@ -9418,6 +9694,8 @@ export type OrganisationUncheckedCreateWithoutMatterComplianceRecordsInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationCreateOrConnectWithoutMatterComplianceRecordsInput = {
@@ -9497,6 +9775,8 @@ export type OrganisationUpdateWithoutMatterComplianceRecordsInput = {
   escalationEvents?: Prisma.EscalationEventUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationUncheckedUpdateWithoutMatterComplianceRecordsInput = {
@@ -9560,6 +9840,8 @@ export type OrganisationUncheckedUpdateWithoutMatterComplianceRecordsInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationCreateWithoutMatterStatusHistoryInput = {
@@ -9623,6 +9905,8 @@ export type OrganisationCreateWithoutMatterStatusHistoryInput = {
   escalationEvents?: Prisma.EscalationEventCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationUncheckedCreateWithoutMatterStatusHistoryInput = {
@@ -9686,6 +9970,8 @@ export type OrganisationUncheckedCreateWithoutMatterStatusHistoryInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationCreateOrConnectWithoutMatterStatusHistoryInput = {
@@ -9765,6 +10051,8 @@ export type OrganisationUpdateWithoutMatterStatusHistoryInput = {
   escalationEvents?: Prisma.EscalationEventUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationUncheckedUpdateWithoutMatterStatusHistoryInput = {
@@ -9828,6 +10116,8 @@ export type OrganisationUncheckedUpdateWithoutMatterStatusHistoryInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationCreateWithoutEnquiryConversionsInput = {
@@ -9891,6 +10181,8 @@ export type OrganisationCreateWithoutEnquiryConversionsInput = {
   escalationEvents?: Prisma.EscalationEventCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationUncheckedCreateWithoutEnquiryConversionsInput = {
@@ -9954,6 +10246,8 @@ export type OrganisationUncheckedCreateWithoutEnquiryConversionsInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationCreateOrConnectWithoutEnquiryConversionsInput = {
@@ -10033,6 +10327,8 @@ export type OrganisationUpdateWithoutEnquiryConversionsInput = {
   escalationEvents?: Prisma.EscalationEventUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationUncheckedUpdateWithoutEnquiryConversionsInput = {
@@ -10096,6 +10392,8 @@ export type OrganisationUncheckedUpdateWithoutEnquiryConversionsInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationCreateWithoutMatterTasksInput = {
@@ -10159,6 +10457,8 @@ export type OrganisationCreateWithoutMatterTasksInput = {
   escalationEvents?: Prisma.EscalationEventCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationUncheckedCreateWithoutMatterTasksInput = {
@@ -10222,6 +10522,8 @@ export type OrganisationUncheckedCreateWithoutMatterTasksInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationCreateOrConnectWithoutMatterTasksInput = {
@@ -10301,6 +10603,8 @@ export type OrganisationUpdateWithoutMatterTasksInput = {
   escalationEvents?: Prisma.EscalationEventUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationUncheckedUpdateWithoutMatterTasksInput = {
@@ -10364,6 +10668,8 @@ export type OrganisationUncheckedUpdateWithoutMatterTasksInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationCreateWithoutMatterDeadlinesInput = {
@@ -10427,6 +10733,8 @@ export type OrganisationCreateWithoutMatterDeadlinesInput = {
   escalationEvents?: Prisma.EscalationEventCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationUncheckedCreateWithoutMatterDeadlinesInput = {
@@ -10490,6 +10798,8 @@ export type OrganisationUncheckedCreateWithoutMatterDeadlinesInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationCreateOrConnectWithoutMatterDeadlinesInput = {
@@ -10569,6 +10879,8 @@ export type OrganisationUpdateWithoutMatterDeadlinesInput = {
   escalationEvents?: Prisma.EscalationEventUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationUncheckedUpdateWithoutMatterDeadlinesInput = {
@@ -10632,6 +10944,8 @@ export type OrganisationUncheckedUpdateWithoutMatterDeadlinesInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationCreateWithoutDocumentRequestsInput = {
@@ -10695,6 +11009,8 @@ export type OrganisationCreateWithoutDocumentRequestsInput = {
   escalationEvents?: Prisma.EscalationEventCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationUncheckedCreateWithoutDocumentRequestsInput = {
@@ -10758,6 +11074,8 @@ export type OrganisationUncheckedCreateWithoutDocumentRequestsInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationCreateOrConnectWithoutDocumentRequestsInput = {
@@ -10837,6 +11155,8 @@ export type OrganisationUpdateWithoutDocumentRequestsInput = {
   escalationEvents?: Prisma.EscalationEventUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationUncheckedUpdateWithoutDocumentRequestsInput = {
@@ -10900,6 +11220,8 @@ export type OrganisationUncheckedUpdateWithoutDocumentRequestsInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationCreateWithoutDocumentRequestItemsInput = {
@@ -10963,6 +11285,8 @@ export type OrganisationCreateWithoutDocumentRequestItemsInput = {
   escalationEvents?: Prisma.EscalationEventCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationUncheckedCreateWithoutDocumentRequestItemsInput = {
@@ -11026,6 +11350,8 @@ export type OrganisationUncheckedCreateWithoutDocumentRequestItemsInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationCreateOrConnectWithoutDocumentRequestItemsInput = {
@@ -11105,6 +11431,8 @@ export type OrganisationUpdateWithoutDocumentRequestItemsInput = {
   escalationEvents?: Prisma.EscalationEventUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationUncheckedUpdateWithoutDocumentRequestItemsInput = {
@@ -11168,6 +11496,8 @@ export type OrganisationUncheckedUpdateWithoutDocumentRequestItemsInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationCreateWithoutMatterDocumentsInput = {
@@ -11231,6 +11561,8 @@ export type OrganisationCreateWithoutMatterDocumentsInput = {
   escalationEvents?: Prisma.EscalationEventCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationUncheckedCreateWithoutMatterDocumentsInput = {
@@ -11294,6 +11626,8 @@ export type OrganisationUncheckedCreateWithoutMatterDocumentsInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationCreateOrConnectWithoutMatterDocumentsInput = {
@@ -11373,6 +11707,8 @@ export type OrganisationUpdateWithoutMatterDocumentsInput = {
   escalationEvents?: Prisma.EscalationEventUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationUncheckedUpdateWithoutMatterDocumentsInput = {
@@ -11436,6 +11772,8 @@ export type OrganisationUncheckedUpdateWithoutMatterDocumentsInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationCreateWithoutMatterDocumentVersionsInput = {
@@ -11499,6 +11837,8 @@ export type OrganisationCreateWithoutMatterDocumentVersionsInput = {
   escalationEvents?: Prisma.EscalationEventCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationUncheckedCreateWithoutMatterDocumentVersionsInput = {
@@ -11562,6 +11902,8 @@ export type OrganisationUncheckedCreateWithoutMatterDocumentVersionsInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationCreateOrConnectWithoutMatterDocumentVersionsInput = {
@@ -11641,6 +11983,8 @@ export type OrganisationUpdateWithoutMatterDocumentVersionsInput = {
   escalationEvents?: Prisma.EscalationEventUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationUncheckedUpdateWithoutMatterDocumentVersionsInput = {
@@ -11704,6 +12048,8 @@ export type OrganisationUncheckedUpdateWithoutMatterDocumentVersionsInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationCreateWithoutMatterTimelineEventsInput = {
@@ -11767,6 +12113,8 @@ export type OrganisationCreateWithoutMatterTimelineEventsInput = {
   escalationEvents?: Prisma.EscalationEventCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationUncheckedCreateWithoutMatterTimelineEventsInput = {
@@ -11830,6 +12178,8 @@ export type OrganisationUncheckedCreateWithoutMatterTimelineEventsInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationCreateOrConnectWithoutMatterTimelineEventsInput = {
@@ -11909,6 +12259,8 @@ export type OrganisationUpdateWithoutMatterTimelineEventsInput = {
   escalationEvents?: Prisma.EscalationEventUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationUncheckedUpdateWithoutMatterTimelineEventsInput = {
@@ -11972,6 +12324,8 @@ export type OrganisationUncheckedUpdateWithoutMatterTimelineEventsInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationCreateWithoutWorkflowDefinitionsInput = {
@@ -12035,6 +12389,8 @@ export type OrganisationCreateWithoutWorkflowDefinitionsInput = {
   escalationEvents?: Prisma.EscalationEventCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationUncheckedCreateWithoutWorkflowDefinitionsInput = {
@@ -12098,6 +12454,8 @@ export type OrganisationUncheckedCreateWithoutWorkflowDefinitionsInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationCreateOrConnectWithoutWorkflowDefinitionsInput = {
@@ -12177,6 +12535,8 @@ export type OrganisationUpdateWithoutWorkflowDefinitionsInput = {
   escalationEvents?: Prisma.EscalationEventUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationUncheckedUpdateWithoutWorkflowDefinitionsInput = {
@@ -12240,6 +12600,8 @@ export type OrganisationUncheckedUpdateWithoutWorkflowDefinitionsInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationCreateWithoutWorkflowVersionsInput = {
@@ -12303,6 +12665,8 @@ export type OrganisationCreateWithoutWorkflowVersionsInput = {
   escalationEvents?: Prisma.EscalationEventCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationUncheckedCreateWithoutWorkflowVersionsInput = {
@@ -12366,6 +12730,8 @@ export type OrganisationUncheckedCreateWithoutWorkflowVersionsInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationCreateOrConnectWithoutWorkflowVersionsInput = {
@@ -12445,6 +12811,8 @@ export type OrganisationUpdateWithoutWorkflowVersionsInput = {
   escalationEvents?: Prisma.EscalationEventUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationUncheckedUpdateWithoutWorkflowVersionsInput = {
@@ -12508,6 +12876,8 @@ export type OrganisationUncheckedUpdateWithoutWorkflowVersionsInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationCreateWithoutWorkflowRunsInput = {
@@ -12571,6 +12941,8 @@ export type OrganisationCreateWithoutWorkflowRunsInput = {
   escalationEvents?: Prisma.EscalationEventCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationUncheckedCreateWithoutWorkflowRunsInput = {
@@ -12634,6 +13006,8 @@ export type OrganisationUncheckedCreateWithoutWorkflowRunsInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationCreateOrConnectWithoutWorkflowRunsInput = {
@@ -12713,6 +13087,8 @@ export type OrganisationUpdateWithoutWorkflowRunsInput = {
   escalationEvents?: Prisma.EscalationEventUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationUncheckedUpdateWithoutWorkflowRunsInput = {
@@ -12776,6 +13152,8 @@ export type OrganisationUncheckedUpdateWithoutWorkflowRunsInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationCreateWithoutWorkflowActionsInput = {
@@ -12839,6 +13217,8 @@ export type OrganisationCreateWithoutWorkflowActionsInput = {
   escalationEvents?: Prisma.EscalationEventCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationUncheckedCreateWithoutWorkflowActionsInput = {
@@ -12902,6 +13282,8 @@ export type OrganisationUncheckedCreateWithoutWorkflowActionsInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationCreateOrConnectWithoutWorkflowActionsInput = {
@@ -12981,6 +13363,8 @@ export type OrganisationUpdateWithoutWorkflowActionsInput = {
   escalationEvents?: Prisma.EscalationEventUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationUncheckedUpdateWithoutWorkflowActionsInput = {
@@ -13044,6 +13428,8 @@ export type OrganisationUncheckedUpdateWithoutWorkflowActionsInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationCreateWithoutSlaPoliciesInput = {
@@ -13107,6 +13493,8 @@ export type OrganisationCreateWithoutSlaPoliciesInput = {
   escalationEvents?: Prisma.EscalationEventCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationUncheckedCreateWithoutSlaPoliciesInput = {
@@ -13170,6 +13558,8 @@ export type OrganisationUncheckedCreateWithoutSlaPoliciesInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationCreateOrConnectWithoutSlaPoliciesInput = {
@@ -13249,6 +13639,8 @@ export type OrganisationUpdateWithoutSlaPoliciesInput = {
   escalationEvents?: Prisma.EscalationEventUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationUncheckedUpdateWithoutSlaPoliciesInput = {
@@ -13312,6 +13704,8 @@ export type OrganisationUncheckedUpdateWithoutSlaPoliciesInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationCreateWithoutSlaInstancesInput = {
@@ -13375,6 +13769,8 @@ export type OrganisationCreateWithoutSlaInstancesInput = {
   escalationEvents?: Prisma.EscalationEventCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationUncheckedCreateWithoutSlaInstancesInput = {
@@ -13438,6 +13834,8 @@ export type OrganisationUncheckedCreateWithoutSlaInstancesInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationCreateOrConnectWithoutSlaInstancesInput = {
@@ -13517,6 +13915,8 @@ export type OrganisationUpdateWithoutSlaInstancesInput = {
   escalationEvents?: Prisma.EscalationEventUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationUncheckedUpdateWithoutSlaInstancesInput = {
@@ -13580,6 +13980,8 @@ export type OrganisationUncheckedUpdateWithoutSlaInstancesInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationCreateWithoutEscalationRulesInput = {
@@ -13643,6 +14045,8 @@ export type OrganisationCreateWithoutEscalationRulesInput = {
   escalationEvents?: Prisma.EscalationEventCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationUncheckedCreateWithoutEscalationRulesInput = {
@@ -13706,6 +14110,8 @@ export type OrganisationUncheckedCreateWithoutEscalationRulesInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationCreateOrConnectWithoutEscalationRulesInput = {
@@ -13785,6 +14191,8 @@ export type OrganisationUpdateWithoutEscalationRulesInput = {
   escalationEvents?: Prisma.EscalationEventUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationUncheckedUpdateWithoutEscalationRulesInput = {
@@ -13848,6 +14256,8 @@ export type OrganisationUncheckedUpdateWithoutEscalationRulesInput = {
   escalationEvents?: Prisma.EscalationEventUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationCreateWithoutEscalationEventsInput = {
@@ -13911,6 +14321,8 @@ export type OrganisationCreateWithoutEscalationEventsInput = {
   escalationRules?: Prisma.EscalationRuleCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationUncheckedCreateWithoutEscalationEventsInput = {
@@ -13974,6 +14386,8 @@ export type OrganisationUncheckedCreateWithoutEscalationEventsInput = {
   escalationRules?: Prisma.EscalationRuleUncheckedCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationCreateOrConnectWithoutEscalationEventsInput = {
@@ -14053,6 +14467,8 @@ export type OrganisationUpdateWithoutEscalationEventsInput = {
   escalationRules?: Prisma.EscalationRuleUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationUncheckedUpdateWithoutEscalationEventsInput = {
@@ -14116,6 +14532,8 @@ export type OrganisationUncheckedUpdateWithoutEscalationEventsInput = {
   escalationRules?: Prisma.EscalationRuleUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationCreateWithoutApprovalRequestsInput = {
@@ -14179,6 +14597,8 @@ export type OrganisationCreateWithoutApprovalRequestsInput = {
   escalationRules?: Prisma.EscalationRuleCreateNestedManyWithoutOrganisationInput
   escalationEvents?: Prisma.EscalationEventCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationUncheckedCreateWithoutApprovalRequestsInput = {
@@ -14242,6 +14662,8 @@ export type OrganisationUncheckedCreateWithoutApprovalRequestsInput = {
   escalationRules?: Prisma.EscalationRuleUncheckedCreateNestedManyWithoutOrganisationInput
   escalationEvents?: Prisma.EscalationEventUncheckedCreateNestedManyWithoutOrganisationInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationCreateOrConnectWithoutApprovalRequestsInput = {
@@ -14321,6 +14743,8 @@ export type OrganisationUpdateWithoutApprovalRequestsInput = {
   escalationRules?: Prisma.EscalationRuleUpdateManyWithoutOrganisationNestedInput
   escalationEvents?: Prisma.EscalationEventUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationUncheckedUpdateWithoutApprovalRequestsInput = {
@@ -14384,6 +14808,8 @@ export type OrganisationUncheckedUpdateWithoutApprovalRequestsInput = {
   escalationRules?: Prisma.EscalationRuleUncheckedUpdateManyWithoutOrganisationNestedInput
   escalationEvents?: Prisma.EscalationEventUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalDecisions?: Prisma.ApprovalDecisionUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationCreateWithoutApprovalDecisionsInput = {
@@ -14447,6 +14873,8 @@ export type OrganisationCreateWithoutApprovalDecisionsInput = {
   escalationRules?: Prisma.EscalationRuleCreateNestedManyWithoutOrganisationInput
   escalationEvents?: Prisma.EscalationEventCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationUncheckedCreateWithoutApprovalDecisionsInput = {
@@ -14510,6 +14938,8 @@ export type OrganisationUncheckedCreateWithoutApprovalDecisionsInput = {
   escalationRules?: Prisma.EscalationRuleUncheckedCreateNestedManyWithoutOrganisationInput
   escalationEvents?: Prisma.EscalationEventUncheckedCreateNestedManyWithoutOrganisationInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutOrganisationInput
 }
 
 export type OrganisationCreateOrConnectWithoutApprovalDecisionsInput = {
@@ -14589,6 +15019,8 @@ export type OrganisationUpdateWithoutApprovalDecisionsInput = {
   escalationRules?: Prisma.EscalationRuleUpdateManyWithoutOrganisationNestedInput
   escalationEvents?: Prisma.EscalationEventUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUpdateManyWithoutOrganisationNestedInput
 }
 
 export type OrganisationUncheckedUpdateWithoutApprovalDecisionsInput = {
@@ -14652,6 +15084,560 @@ export type OrganisationUncheckedUpdateWithoutApprovalDecisionsInput = {
   escalationRules?: Prisma.EscalationRuleUncheckedUpdateManyWithoutOrganisationNestedInput
   escalationEvents?: Prisma.EscalationEventUncheckedUpdateManyWithoutOrganisationNestedInput
   approvalRequests?: Prisma.ApprovalRequestUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutOrganisationNestedInput
+}
+
+export type OrganisationCreateWithoutPilotAcceptanceEvidenceInput = {
+  id?: string
+  slug: string
+  name: string
+  legalName?: string | null
+  status?: $Enums.OrganisationStatus
+  timezone?: string
+  locale?: string
+  countryCode?: string
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  settings?: Prisma.OrganisationSettingCreateNestedManyWithoutOrganisationInput
+  memberships?: Prisma.OrganisationMembershipCreateNestedManyWithoutOrganisationInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutOrganisationInput
+  departmentMemberships?: Prisma.DepartmentMembershipCreateNestedManyWithoutOrganisationInput
+  teams?: Prisma.TeamCreateNestedManyWithoutOrganisationInput
+  teamMemberships?: Prisma.TeamMembershipCreateNestedManyWithoutOrganisationInput
+  roles?: Prisma.RoleCreateNestedManyWithoutOrganisationInput
+  roleAssignments?: Prisma.RoleAssignmentCreateNestedManyWithoutOrganisationInput
+  invitations?: Prisma.InvitationCreateNestedManyWithoutOrganisationInput
+  userSessions?: Prisma.UserSessionCreateNestedManyWithoutActiveOrganisationInput
+  supportAccessGrants?: Prisma.SupportAccessGrantCreateNestedManyWithoutOrganisationInput
+  auditEvents?: Prisma.AuditEventCreateNestedManyWithoutOrganisationInput
+  securityEvents?: Prisma.SecurityEventCreateNestedManyWithoutOrganisationInput
+  enquiries?: Prisma.EnquiryCreateNestedManyWithoutOrganisationInput
+  jobProfiles?: Prisma.JobProfileCreateNestedManyWithoutOrganisationInput
+  jobProfileDuties?: Prisma.JobProfileDutyCreateNestedManyWithoutOrganisationInput
+  kpiDefinitions?: Prisma.KpiDefinitionCreateNestedManyWithoutOrganisationInput
+  jobProfileKpis?: Prisma.JobProfileKpiCreateNestedManyWithoutOrganisationInput
+  agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutOrganisationInput
+  agentPolicies?: Prisma.AgentPolicyCreateNestedManyWithoutOrganisationInput
+  workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationInput
+  workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutOrganisationInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutOrganisationInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleCreateNestedManyWithoutOrganisationInput
+  invitationOnboardingKpis?: Prisma.InvitationOnboardingKpiCreateNestedManyWithoutOrganisationInput
+  numberSequences?: Prisma.OrganisationNumberSequenceCreateNestedManyWithoutOrganisationInput
+  clients?: Prisma.ClientCreateNestedManyWithoutOrganisationInput
+  matters?: Prisma.MatterCreateNestedManyWithoutOrganisationInput
+  matterParties?: Prisma.MatterPartyCreateNestedManyWithoutOrganisationInput
+  matterComplianceRecords?: Prisma.MatterComplianceCreateNestedManyWithoutOrganisationInput
+  matterStatusHistory?: Prisma.MatterStatusHistoryCreateNestedManyWithoutOrganisationInput
+  enquiryConversions?: Prisma.EnquiryConversionCreateNestedManyWithoutOrganisationInput
+  matterTasks?: Prisma.MatterTaskCreateNestedManyWithoutOrganisationInput
+  matterDeadlines?: Prisma.MatterDeadlineCreateNestedManyWithoutOrganisationInput
+  documentRequests?: Prisma.DocumentRequestCreateNestedManyWithoutOrganisationInput
+  documentRequestItems?: Prisma.DocumentRequestItemCreateNestedManyWithoutOrganisationInput
+  matterDocuments?: Prisma.MatterDocumentCreateNestedManyWithoutOrganisationInput
+  matterDocumentVersions?: Prisma.MatterDocumentVersionCreateNestedManyWithoutOrganisationInput
+  matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutOrganisationInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionCreateNestedManyWithoutOrganisationInput
+  workflowVersions?: Prisma.WorkflowVersionCreateNestedManyWithoutOrganisationInput
+  workflowRuns?: Prisma.WorkflowRunCreateNestedManyWithoutOrganisationInput
+  workflowActions?: Prisma.WorkflowActionCreateNestedManyWithoutOrganisationInput
+  slaPolicies?: Prisma.SlaPolicyCreateNestedManyWithoutOrganisationInput
+  slaInstances?: Prisma.SlaInstanceCreateNestedManyWithoutOrganisationInput
+  escalationRules?: Prisma.EscalationRuleCreateNestedManyWithoutOrganisationInput
+  escalationEvents?: Prisma.EscalationEventCreateNestedManyWithoutOrganisationInput
+  approvalRequests?: Prisma.ApprovalRequestCreateNestedManyWithoutOrganisationInput
+  approvalDecisions?: Prisma.ApprovalDecisionCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackCreateNestedManyWithoutOrganisationInput
+}
+
+export type OrganisationUncheckedCreateWithoutPilotAcceptanceEvidenceInput = {
+  id?: string
+  slug: string
+  name: string
+  legalName?: string | null
+  status?: $Enums.OrganisationStatus
+  timezone?: string
+  locale?: string
+  countryCode?: string
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  settings?: Prisma.OrganisationSettingUncheckedCreateNestedManyWithoutOrganisationInput
+  memberships?: Prisma.OrganisationMembershipUncheckedCreateNestedManyWithoutOrganisationInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutOrganisationInput
+  departmentMemberships?: Prisma.DepartmentMembershipUncheckedCreateNestedManyWithoutOrganisationInput
+  teams?: Prisma.TeamUncheckedCreateNestedManyWithoutOrganisationInput
+  teamMemberships?: Prisma.TeamMembershipUncheckedCreateNestedManyWithoutOrganisationInput
+  roles?: Prisma.RoleUncheckedCreateNestedManyWithoutOrganisationInput
+  roleAssignments?: Prisma.RoleAssignmentUncheckedCreateNestedManyWithoutOrganisationInput
+  invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutOrganisationInput
+  userSessions?: Prisma.UserSessionUncheckedCreateNestedManyWithoutActiveOrganisationInput
+  supportAccessGrants?: Prisma.SupportAccessGrantUncheckedCreateNestedManyWithoutOrganisationInput
+  auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutOrganisationInput
+  securityEvents?: Prisma.SecurityEventUncheckedCreateNestedManyWithoutOrganisationInput
+  enquiries?: Prisma.EnquiryUncheckedCreateNestedManyWithoutOrganisationInput
+  jobProfiles?: Prisma.JobProfileUncheckedCreateNestedManyWithoutOrganisationInput
+  jobProfileDuties?: Prisma.JobProfileDutyUncheckedCreateNestedManyWithoutOrganisationInput
+  kpiDefinitions?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutOrganisationInput
+  jobProfileKpis?: Prisma.JobProfileKpiUncheckedCreateNestedManyWithoutOrganisationInput
+  agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutOrganisationInput
+  agentPolicies?: Prisma.AgentPolicyUncheckedCreateNestedManyWithoutOrganisationInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationInput
+  workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutOrganisationInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutOrganisationInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUncheckedCreateNestedManyWithoutOrganisationInput
+  invitationOnboardingKpis?: Prisma.InvitationOnboardingKpiUncheckedCreateNestedManyWithoutOrganisationInput
+  numberSequences?: Prisma.OrganisationNumberSequenceUncheckedCreateNestedManyWithoutOrganisationInput
+  clients?: Prisma.ClientUncheckedCreateNestedManyWithoutOrganisationInput
+  matters?: Prisma.MatterUncheckedCreateNestedManyWithoutOrganisationInput
+  matterParties?: Prisma.MatterPartyUncheckedCreateNestedManyWithoutOrganisationInput
+  matterComplianceRecords?: Prisma.MatterComplianceUncheckedCreateNestedManyWithoutOrganisationInput
+  matterStatusHistory?: Prisma.MatterStatusHistoryUncheckedCreateNestedManyWithoutOrganisationInput
+  enquiryConversions?: Prisma.EnquiryConversionUncheckedCreateNestedManyWithoutOrganisationInput
+  matterTasks?: Prisma.MatterTaskUncheckedCreateNestedManyWithoutOrganisationInput
+  matterDeadlines?: Prisma.MatterDeadlineUncheckedCreateNestedManyWithoutOrganisationInput
+  documentRequests?: Prisma.DocumentRequestUncheckedCreateNestedManyWithoutOrganisationInput
+  documentRequestItems?: Prisma.DocumentRequestItemUncheckedCreateNestedManyWithoutOrganisationInput
+  matterDocuments?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutOrganisationInput
+  matterDocumentVersions?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutOrganisationInput
+  matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutOrganisationInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionUncheckedCreateNestedManyWithoutOrganisationInput
+  workflowVersions?: Prisma.WorkflowVersionUncheckedCreateNestedManyWithoutOrganisationInput
+  workflowRuns?: Prisma.WorkflowRunUncheckedCreateNestedManyWithoutOrganisationInput
+  workflowActions?: Prisma.WorkflowActionUncheckedCreateNestedManyWithoutOrganisationInput
+  slaPolicies?: Prisma.SlaPolicyUncheckedCreateNestedManyWithoutOrganisationInput
+  slaInstances?: Prisma.SlaInstanceUncheckedCreateNestedManyWithoutOrganisationInput
+  escalationRules?: Prisma.EscalationRuleUncheckedCreateNestedManyWithoutOrganisationInput
+  escalationEvents?: Prisma.EscalationEventUncheckedCreateNestedManyWithoutOrganisationInput
+  approvalRequests?: Prisma.ApprovalRequestUncheckedCreateNestedManyWithoutOrganisationInput
+  approvalDecisions?: Prisma.ApprovalDecisionUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutOrganisationInput
+}
+
+export type OrganisationCreateOrConnectWithoutPilotAcceptanceEvidenceInput = {
+  where: Prisma.OrganisationWhereUniqueInput
+  create: Prisma.XOR<Prisma.OrganisationCreateWithoutPilotAcceptanceEvidenceInput, Prisma.OrganisationUncheckedCreateWithoutPilotAcceptanceEvidenceInput>
+}
+
+export type OrganisationUpsertWithoutPilotAcceptanceEvidenceInput = {
+  update: Prisma.XOR<Prisma.OrganisationUpdateWithoutPilotAcceptanceEvidenceInput, Prisma.OrganisationUncheckedUpdateWithoutPilotAcceptanceEvidenceInput>
+  create: Prisma.XOR<Prisma.OrganisationCreateWithoutPilotAcceptanceEvidenceInput, Prisma.OrganisationUncheckedCreateWithoutPilotAcceptanceEvidenceInput>
+  where?: Prisma.OrganisationWhereInput
+}
+
+export type OrganisationUpdateToOneWithWhereWithoutPilotAcceptanceEvidenceInput = {
+  where?: Prisma.OrganisationWhereInput
+  data: Prisma.XOR<Prisma.OrganisationUpdateWithoutPilotAcceptanceEvidenceInput, Prisma.OrganisationUncheckedUpdateWithoutPilotAcceptanceEvidenceInput>
+}
+
+export type OrganisationUpdateWithoutPilotAcceptanceEvidenceInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumOrganisationStatusFieldUpdateOperationsInput | $Enums.OrganisationStatus
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  countryCode?: Prisma.StringFieldUpdateOperationsInput | string
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  settings?: Prisma.OrganisationSettingUpdateManyWithoutOrganisationNestedInput
+  memberships?: Prisma.OrganisationMembershipUpdateManyWithoutOrganisationNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutOrganisationNestedInput
+  departmentMemberships?: Prisma.DepartmentMembershipUpdateManyWithoutOrganisationNestedInput
+  teams?: Prisma.TeamUpdateManyWithoutOrganisationNestedInput
+  teamMemberships?: Prisma.TeamMembershipUpdateManyWithoutOrganisationNestedInput
+  roles?: Prisma.RoleUpdateManyWithoutOrganisationNestedInput
+  roleAssignments?: Prisma.RoleAssignmentUpdateManyWithoutOrganisationNestedInput
+  invitations?: Prisma.InvitationUpdateManyWithoutOrganisationNestedInput
+  userSessions?: Prisma.UserSessionUpdateManyWithoutActiveOrganisationNestedInput
+  supportAccessGrants?: Prisma.SupportAccessGrantUpdateManyWithoutOrganisationNestedInput
+  auditEvents?: Prisma.AuditEventUpdateManyWithoutOrganisationNestedInput
+  securityEvents?: Prisma.SecurityEventUpdateManyWithoutOrganisationNestedInput
+  enquiries?: Prisma.EnquiryUpdateManyWithoutOrganisationNestedInput
+  jobProfiles?: Prisma.JobProfileUpdateManyWithoutOrganisationNestedInput
+  jobProfileDuties?: Prisma.JobProfileDutyUpdateManyWithoutOrganisationNestedInput
+  kpiDefinitions?: Prisma.KpiDefinitionUpdateManyWithoutOrganisationNestedInput
+  jobProfileKpis?: Prisma.JobProfileKpiUpdateManyWithoutOrganisationNestedInput
+  agentProfiles?: Prisma.AgentProfileUpdateManyWithoutOrganisationNestedInput
+  agentPolicies?: Prisma.AgentPolicyUpdateManyWithoutOrganisationNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationNestedInput
+  workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutOrganisationNestedInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutOrganisationNestedInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUpdateManyWithoutOrganisationNestedInput
+  invitationOnboardingKpis?: Prisma.InvitationOnboardingKpiUpdateManyWithoutOrganisationNestedInput
+  numberSequences?: Prisma.OrganisationNumberSequenceUpdateManyWithoutOrganisationNestedInput
+  clients?: Prisma.ClientUpdateManyWithoutOrganisationNestedInput
+  matters?: Prisma.MatterUpdateManyWithoutOrganisationNestedInput
+  matterParties?: Prisma.MatterPartyUpdateManyWithoutOrganisationNestedInput
+  matterComplianceRecords?: Prisma.MatterComplianceUpdateManyWithoutOrganisationNestedInput
+  matterStatusHistory?: Prisma.MatterStatusHistoryUpdateManyWithoutOrganisationNestedInput
+  enquiryConversions?: Prisma.EnquiryConversionUpdateManyWithoutOrganisationNestedInput
+  matterTasks?: Prisma.MatterTaskUpdateManyWithoutOrganisationNestedInput
+  matterDeadlines?: Prisma.MatterDeadlineUpdateManyWithoutOrganisationNestedInput
+  documentRequests?: Prisma.DocumentRequestUpdateManyWithoutOrganisationNestedInput
+  documentRequestItems?: Prisma.DocumentRequestItemUpdateManyWithoutOrganisationNestedInput
+  matterDocuments?: Prisma.MatterDocumentUpdateManyWithoutOrganisationNestedInput
+  matterDocumentVersions?: Prisma.MatterDocumentVersionUpdateManyWithoutOrganisationNestedInput
+  matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutOrganisationNestedInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionUpdateManyWithoutOrganisationNestedInput
+  workflowVersions?: Prisma.WorkflowVersionUpdateManyWithoutOrganisationNestedInput
+  workflowRuns?: Prisma.WorkflowRunUpdateManyWithoutOrganisationNestedInput
+  workflowActions?: Prisma.WorkflowActionUpdateManyWithoutOrganisationNestedInput
+  slaPolicies?: Prisma.SlaPolicyUpdateManyWithoutOrganisationNestedInput
+  slaInstances?: Prisma.SlaInstanceUpdateManyWithoutOrganisationNestedInput
+  escalationRules?: Prisma.EscalationRuleUpdateManyWithoutOrganisationNestedInput
+  escalationEvents?: Prisma.EscalationEventUpdateManyWithoutOrganisationNestedInput
+  approvalRequests?: Prisma.ApprovalRequestUpdateManyWithoutOrganisationNestedInput
+  approvalDecisions?: Prisma.ApprovalDecisionUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUpdateManyWithoutOrganisationNestedInput
+}
+
+export type OrganisationUncheckedUpdateWithoutPilotAcceptanceEvidenceInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumOrganisationStatusFieldUpdateOperationsInput | $Enums.OrganisationStatus
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  countryCode?: Prisma.StringFieldUpdateOperationsInput | string
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  settings?: Prisma.OrganisationSettingUncheckedUpdateManyWithoutOrganisationNestedInput
+  memberships?: Prisma.OrganisationMembershipUncheckedUpdateManyWithoutOrganisationNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutOrganisationNestedInput
+  departmentMemberships?: Prisma.DepartmentMembershipUncheckedUpdateManyWithoutOrganisationNestedInput
+  teams?: Prisma.TeamUncheckedUpdateManyWithoutOrganisationNestedInput
+  teamMemberships?: Prisma.TeamMembershipUncheckedUpdateManyWithoutOrganisationNestedInput
+  roles?: Prisma.RoleUncheckedUpdateManyWithoutOrganisationNestedInput
+  roleAssignments?: Prisma.RoleAssignmentUncheckedUpdateManyWithoutOrganisationNestedInput
+  invitations?: Prisma.InvitationUncheckedUpdateManyWithoutOrganisationNestedInput
+  userSessions?: Prisma.UserSessionUncheckedUpdateManyWithoutActiveOrganisationNestedInput
+  supportAccessGrants?: Prisma.SupportAccessGrantUncheckedUpdateManyWithoutOrganisationNestedInput
+  auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutOrganisationNestedInput
+  securityEvents?: Prisma.SecurityEventUncheckedUpdateManyWithoutOrganisationNestedInput
+  enquiries?: Prisma.EnquiryUncheckedUpdateManyWithoutOrganisationNestedInput
+  jobProfiles?: Prisma.JobProfileUncheckedUpdateManyWithoutOrganisationNestedInput
+  jobProfileDuties?: Prisma.JobProfileDutyUncheckedUpdateManyWithoutOrganisationNestedInput
+  kpiDefinitions?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutOrganisationNestedInput
+  jobProfileKpis?: Prisma.JobProfileKpiUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentPolicies?: Prisma.AgentPolicyUncheckedUpdateManyWithoutOrganisationNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationNestedInput
+  workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutOrganisationNestedInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutOrganisationNestedInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUncheckedUpdateManyWithoutOrganisationNestedInput
+  invitationOnboardingKpis?: Prisma.InvitationOnboardingKpiUncheckedUpdateManyWithoutOrganisationNestedInput
+  numberSequences?: Prisma.OrganisationNumberSequenceUncheckedUpdateManyWithoutOrganisationNestedInput
+  clients?: Prisma.ClientUncheckedUpdateManyWithoutOrganisationNestedInput
+  matters?: Prisma.MatterUncheckedUpdateManyWithoutOrganisationNestedInput
+  matterParties?: Prisma.MatterPartyUncheckedUpdateManyWithoutOrganisationNestedInput
+  matterComplianceRecords?: Prisma.MatterComplianceUncheckedUpdateManyWithoutOrganisationNestedInput
+  matterStatusHistory?: Prisma.MatterStatusHistoryUncheckedUpdateManyWithoutOrganisationNestedInput
+  enquiryConversions?: Prisma.EnquiryConversionUncheckedUpdateManyWithoutOrganisationNestedInput
+  matterTasks?: Prisma.MatterTaskUncheckedUpdateManyWithoutOrganisationNestedInput
+  matterDeadlines?: Prisma.MatterDeadlineUncheckedUpdateManyWithoutOrganisationNestedInput
+  documentRequests?: Prisma.DocumentRequestUncheckedUpdateManyWithoutOrganisationNestedInput
+  documentRequestItems?: Prisma.DocumentRequestItemUncheckedUpdateManyWithoutOrganisationNestedInput
+  matterDocuments?: Prisma.MatterDocumentUncheckedUpdateManyWithoutOrganisationNestedInput
+  matterDocumentVersions?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutOrganisationNestedInput
+  matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutOrganisationNestedInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionUncheckedUpdateManyWithoutOrganisationNestedInput
+  workflowVersions?: Prisma.WorkflowVersionUncheckedUpdateManyWithoutOrganisationNestedInput
+  workflowRuns?: Prisma.WorkflowRunUncheckedUpdateManyWithoutOrganisationNestedInput
+  workflowActions?: Prisma.WorkflowActionUncheckedUpdateManyWithoutOrganisationNestedInput
+  slaPolicies?: Prisma.SlaPolicyUncheckedUpdateManyWithoutOrganisationNestedInput
+  slaInstances?: Prisma.SlaInstanceUncheckedUpdateManyWithoutOrganisationNestedInput
+  escalationRules?: Prisma.EscalationRuleUncheckedUpdateManyWithoutOrganisationNestedInput
+  escalationEvents?: Prisma.EscalationEventUncheckedUpdateManyWithoutOrganisationNestedInput
+  approvalRequests?: Prisma.ApprovalRequestUncheckedUpdateManyWithoutOrganisationNestedInput
+  approvalDecisions?: Prisma.ApprovalDecisionUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutOrganisationNestedInput
+}
+
+export type OrganisationCreateWithoutPilotFeedbackInput = {
+  id?: string
+  slug: string
+  name: string
+  legalName?: string | null
+  status?: $Enums.OrganisationStatus
+  timezone?: string
+  locale?: string
+  countryCode?: string
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  settings?: Prisma.OrganisationSettingCreateNestedManyWithoutOrganisationInput
+  memberships?: Prisma.OrganisationMembershipCreateNestedManyWithoutOrganisationInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutOrganisationInput
+  departmentMemberships?: Prisma.DepartmentMembershipCreateNestedManyWithoutOrganisationInput
+  teams?: Prisma.TeamCreateNestedManyWithoutOrganisationInput
+  teamMemberships?: Prisma.TeamMembershipCreateNestedManyWithoutOrganisationInput
+  roles?: Prisma.RoleCreateNestedManyWithoutOrganisationInput
+  roleAssignments?: Prisma.RoleAssignmentCreateNestedManyWithoutOrganisationInput
+  invitations?: Prisma.InvitationCreateNestedManyWithoutOrganisationInput
+  userSessions?: Prisma.UserSessionCreateNestedManyWithoutActiveOrganisationInput
+  supportAccessGrants?: Prisma.SupportAccessGrantCreateNestedManyWithoutOrganisationInput
+  auditEvents?: Prisma.AuditEventCreateNestedManyWithoutOrganisationInput
+  securityEvents?: Prisma.SecurityEventCreateNestedManyWithoutOrganisationInput
+  enquiries?: Prisma.EnquiryCreateNestedManyWithoutOrganisationInput
+  jobProfiles?: Prisma.JobProfileCreateNestedManyWithoutOrganisationInput
+  jobProfileDuties?: Prisma.JobProfileDutyCreateNestedManyWithoutOrganisationInput
+  kpiDefinitions?: Prisma.KpiDefinitionCreateNestedManyWithoutOrganisationInput
+  jobProfileKpis?: Prisma.JobProfileKpiCreateNestedManyWithoutOrganisationInput
+  agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutOrganisationInput
+  agentPolicies?: Prisma.AgentPolicyCreateNestedManyWithoutOrganisationInput
+  workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationInput
+  workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutOrganisationInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutOrganisationInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleCreateNestedManyWithoutOrganisationInput
+  invitationOnboardingKpis?: Prisma.InvitationOnboardingKpiCreateNestedManyWithoutOrganisationInput
+  numberSequences?: Prisma.OrganisationNumberSequenceCreateNestedManyWithoutOrganisationInput
+  clients?: Prisma.ClientCreateNestedManyWithoutOrganisationInput
+  matters?: Prisma.MatterCreateNestedManyWithoutOrganisationInput
+  matterParties?: Prisma.MatterPartyCreateNestedManyWithoutOrganisationInput
+  matterComplianceRecords?: Prisma.MatterComplianceCreateNestedManyWithoutOrganisationInput
+  matterStatusHistory?: Prisma.MatterStatusHistoryCreateNestedManyWithoutOrganisationInput
+  enquiryConversions?: Prisma.EnquiryConversionCreateNestedManyWithoutOrganisationInput
+  matterTasks?: Prisma.MatterTaskCreateNestedManyWithoutOrganisationInput
+  matterDeadlines?: Prisma.MatterDeadlineCreateNestedManyWithoutOrganisationInput
+  documentRequests?: Prisma.DocumentRequestCreateNestedManyWithoutOrganisationInput
+  documentRequestItems?: Prisma.DocumentRequestItemCreateNestedManyWithoutOrganisationInput
+  matterDocuments?: Prisma.MatterDocumentCreateNestedManyWithoutOrganisationInput
+  matterDocumentVersions?: Prisma.MatterDocumentVersionCreateNestedManyWithoutOrganisationInput
+  matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutOrganisationInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionCreateNestedManyWithoutOrganisationInput
+  workflowVersions?: Prisma.WorkflowVersionCreateNestedManyWithoutOrganisationInput
+  workflowRuns?: Prisma.WorkflowRunCreateNestedManyWithoutOrganisationInput
+  workflowActions?: Prisma.WorkflowActionCreateNestedManyWithoutOrganisationInput
+  slaPolicies?: Prisma.SlaPolicyCreateNestedManyWithoutOrganisationInput
+  slaInstances?: Prisma.SlaInstanceCreateNestedManyWithoutOrganisationInput
+  escalationRules?: Prisma.EscalationRuleCreateNestedManyWithoutOrganisationInput
+  escalationEvents?: Prisma.EscalationEventCreateNestedManyWithoutOrganisationInput
+  approvalRequests?: Prisma.ApprovalRequestCreateNestedManyWithoutOrganisationInput
+  approvalDecisions?: Prisma.ApprovalDecisionCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutOrganisationInput
+}
+
+export type OrganisationUncheckedCreateWithoutPilotFeedbackInput = {
+  id?: string
+  slug: string
+  name: string
+  legalName?: string | null
+  status?: $Enums.OrganisationStatus
+  timezone?: string
+  locale?: string
+  countryCode?: string
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  settings?: Prisma.OrganisationSettingUncheckedCreateNestedManyWithoutOrganisationInput
+  memberships?: Prisma.OrganisationMembershipUncheckedCreateNestedManyWithoutOrganisationInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutOrganisationInput
+  departmentMemberships?: Prisma.DepartmentMembershipUncheckedCreateNestedManyWithoutOrganisationInput
+  teams?: Prisma.TeamUncheckedCreateNestedManyWithoutOrganisationInput
+  teamMemberships?: Prisma.TeamMembershipUncheckedCreateNestedManyWithoutOrganisationInput
+  roles?: Prisma.RoleUncheckedCreateNestedManyWithoutOrganisationInput
+  roleAssignments?: Prisma.RoleAssignmentUncheckedCreateNestedManyWithoutOrganisationInput
+  invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutOrganisationInput
+  userSessions?: Prisma.UserSessionUncheckedCreateNestedManyWithoutActiveOrganisationInput
+  supportAccessGrants?: Prisma.SupportAccessGrantUncheckedCreateNestedManyWithoutOrganisationInput
+  auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutOrganisationInput
+  securityEvents?: Prisma.SecurityEventUncheckedCreateNestedManyWithoutOrganisationInput
+  enquiries?: Prisma.EnquiryUncheckedCreateNestedManyWithoutOrganisationInput
+  jobProfiles?: Prisma.JobProfileUncheckedCreateNestedManyWithoutOrganisationInput
+  jobProfileDuties?: Prisma.JobProfileDutyUncheckedCreateNestedManyWithoutOrganisationInput
+  kpiDefinitions?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutOrganisationInput
+  jobProfileKpis?: Prisma.JobProfileKpiUncheckedCreateNestedManyWithoutOrganisationInput
+  agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutOrganisationInput
+  agentPolicies?: Prisma.AgentPolicyUncheckedCreateNestedManyWithoutOrganisationInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationInput
+  workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutOrganisationInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutOrganisationInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUncheckedCreateNestedManyWithoutOrganisationInput
+  invitationOnboardingKpis?: Prisma.InvitationOnboardingKpiUncheckedCreateNestedManyWithoutOrganisationInput
+  numberSequences?: Prisma.OrganisationNumberSequenceUncheckedCreateNestedManyWithoutOrganisationInput
+  clients?: Prisma.ClientUncheckedCreateNestedManyWithoutOrganisationInput
+  matters?: Prisma.MatterUncheckedCreateNestedManyWithoutOrganisationInput
+  matterParties?: Prisma.MatterPartyUncheckedCreateNestedManyWithoutOrganisationInput
+  matterComplianceRecords?: Prisma.MatterComplianceUncheckedCreateNestedManyWithoutOrganisationInput
+  matterStatusHistory?: Prisma.MatterStatusHistoryUncheckedCreateNestedManyWithoutOrganisationInput
+  enquiryConversions?: Prisma.EnquiryConversionUncheckedCreateNestedManyWithoutOrganisationInput
+  matterTasks?: Prisma.MatterTaskUncheckedCreateNestedManyWithoutOrganisationInput
+  matterDeadlines?: Prisma.MatterDeadlineUncheckedCreateNestedManyWithoutOrganisationInput
+  documentRequests?: Prisma.DocumentRequestUncheckedCreateNestedManyWithoutOrganisationInput
+  documentRequestItems?: Prisma.DocumentRequestItemUncheckedCreateNestedManyWithoutOrganisationInput
+  matterDocuments?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutOrganisationInput
+  matterDocumentVersions?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutOrganisationInput
+  matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutOrganisationInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionUncheckedCreateNestedManyWithoutOrganisationInput
+  workflowVersions?: Prisma.WorkflowVersionUncheckedCreateNestedManyWithoutOrganisationInput
+  workflowRuns?: Prisma.WorkflowRunUncheckedCreateNestedManyWithoutOrganisationInput
+  workflowActions?: Prisma.WorkflowActionUncheckedCreateNestedManyWithoutOrganisationInput
+  slaPolicies?: Prisma.SlaPolicyUncheckedCreateNestedManyWithoutOrganisationInput
+  slaInstances?: Prisma.SlaInstanceUncheckedCreateNestedManyWithoutOrganisationInput
+  escalationRules?: Prisma.EscalationRuleUncheckedCreateNestedManyWithoutOrganisationInput
+  escalationEvents?: Prisma.EscalationEventUncheckedCreateNestedManyWithoutOrganisationInput
+  approvalRequests?: Prisma.ApprovalRequestUncheckedCreateNestedManyWithoutOrganisationInput
+  approvalDecisions?: Prisma.ApprovalDecisionUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutOrganisationInput
+}
+
+export type OrganisationCreateOrConnectWithoutPilotFeedbackInput = {
+  where: Prisma.OrganisationWhereUniqueInput
+  create: Prisma.XOR<Prisma.OrganisationCreateWithoutPilotFeedbackInput, Prisma.OrganisationUncheckedCreateWithoutPilotFeedbackInput>
+}
+
+export type OrganisationUpsertWithoutPilotFeedbackInput = {
+  update: Prisma.XOR<Prisma.OrganisationUpdateWithoutPilotFeedbackInput, Prisma.OrganisationUncheckedUpdateWithoutPilotFeedbackInput>
+  create: Prisma.XOR<Prisma.OrganisationCreateWithoutPilotFeedbackInput, Prisma.OrganisationUncheckedCreateWithoutPilotFeedbackInput>
+  where?: Prisma.OrganisationWhereInput
+}
+
+export type OrganisationUpdateToOneWithWhereWithoutPilotFeedbackInput = {
+  where?: Prisma.OrganisationWhereInput
+  data: Prisma.XOR<Prisma.OrganisationUpdateWithoutPilotFeedbackInput, Prisma.OrganisationUncheckedUpdateWithoutPilotFeedbackInput>
+}
+
+export type OrganisationUpdateWithoutPilotFeedbackInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumOrganisationStatusFieldUpdateOperationsInput | $Enums.OrganisationStatus
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  countryCode?: Prisma.StringFieldUpdateOperationsInput | string
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  settings?: Prisma.OrganisationSettingUpdateManyWithoutOrganisationNestedInput
+  memberships?: Prisma.OrganisationMembershipUpdateManyWithoutOrganisationNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutOrganisationNestedInput
+  departmentMemberships?: Prisma.DepartmentMembershipUpdateManyWithoutOrganisationNestedInput
+  teams?: Prisma.TeamUpdateManyWithoutOrganisationNestedInput
+  teamMemberships?: Prisma.TeamMembershipUpdateManyWithoutOrganisationNestedInput
+  roles?: Prisma.RoleUpdateManyWithoutOrganisationNestedInput
+  roleAssignments?: Prisma.RoleAssignmentUpdateManyWithoutOrganisationNestedInput
+  invitations?: Prisma.InvitationUpdateManyWithoutOrganisationNestedInput
+  userSessions?: Prisma.UserSessionUpdateManyWithoutActiveOrganisationNestedInput
+  supportAccessGrants?: Prisma.SupportAccessGrantUpdateManyWithoutOrganisationNestedInput
+  auditEvents?: Prisma.AuditEventUpdateManyWithoutOrganisationNestedInput
+  securityEvents?: Prisma.SecurityEventUpdateManyWithoutOrganisationNestedInput
+  enquiries?: Prisma.EnquiryUpdateManyWithoutOrganisationNestedInput
+  jobProfiles?: Prisma.JobProfileUpdateManyWithoutOrganisationNestedInput
+  jobProfileDuties?: Prisma.JobProfileDutyUpdateManyWithoutOrganisationNestedInput
+  kpiDefinitions?: Prisma.KpiDefinitionUpdateManyWithoutOrganisationNestedInput
+  jobProfileKpis?: Prisma.JobProfileKpiUpdateManyWithoutOrganisationNestedInput
+  agentProfiles?: Prisma.AgentProfileUpdateManyWithoutOrganisationNestedInput
+  agentPolicies?: Prisma.AgentPolicyUpdateManyWithoutOrganisationNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationNestedInput
+  workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutOrganisationNestedInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutOrganisationNestedInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUpdateManyWithoutOrganisationNestedInput
+  invitationOnboardingKpis?: Prisma.InvitationOnboardingKpiUpdateManyWithoutOrganisationNestedInput
+  numberSequences?: Prisma.OrganisationNumberSequenceUpdateManyWithoutOrganisationNestedInput
+  clients?: Prisma.ClientUpdateManyWithoutOrganisationNestedInput
+  matters?: Prisma.MatterUpdateManyWithoutOrganisationNestedInput
+  matterParties?: Prisma.MatterPartyUpdateManyWithoutOrganisationNestedInput
+  matterComplianceRecords?: Prisma.MatterComplianceUpdateManyWithoutOrganisationNestedInput
+  matterStatusHistory?: Prisma.MatterStatusHistoryUpdateManyWithoutOrganisationNestedInput
+  enquiryConversions?: Prisma.EnquiryConversionUpdateManyWithoutOrganisationNestedInput
+  matterTasks?: Prisma.MatterTaskUpdateManyWithoutOrganisationNestedInput
+  matterDeadlines?: Prisma.MatterDeadlineUpdateManyWithoutOrganisationNestedInput
+  documentRequests?: Prisma.DocumentRequestUpdateManyWithoutOrganisationNestedInput
+  documentRequestItems?: Prisma.DocumentRequestItemUpdateManyWithoutOrganisationNestedInput
+  matterDocuments?: Prisma.MatterDocumentUpdateManyWithoutOrganisationNestedInput
+  matterDocumentVersions?: Prisma.MatterDocumentVersionUpdateManyWithoutOrganisationNestedInput
+  matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutOrganisationNestedInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionUpdateManyWithoutOrganisationNestedInput
+  workflowVersions?: Prisma.WorkflowVersionUpdateManyWithoutOrganisationNestedInput
+  workflowRuns?: Prisma.WorkflowRunUpdateManyWithoutOrganisationNestedInput
+  workflowActions?: Prisma.WorkflowActionUpdateManyWithoutOrganisationNestedInput
+  slaPolicies?: Prisma.SlaPolicyUpdateManyWithoutOrganisationNestedInput
+  slaInstances?: Prisma.SlaInstanceUpdateManyWithoutOrganisationNestedInput
+  escalationRules?: Prisma.EscalationRuleUpdateManyWithoutOrganisationNestedInput
+  escalationEvents?: Prisma.EscalationEventUpdateManyWithoutOrganisationNestedInput
+  approvalRequests?: Prisma.ApprovalRequestUpdateManyWithoutOrganisationNestedInput
+  approvalDecisions?: Prisma.ApprovalDecisionUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutOrganisationNestedInput
+}
+
+export type OrganisationUncheckedUpdateWithoutPilotFeedbackInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumOrganisationStatusFieldUpdateOperationsInput | $Enums.OrganisationStatus
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  countryCode?: Prisma.StringFieldUpdateOperationsInput | string
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  settings?: Prisma.OrganisationSettingUncheckedUpdateManyWithoutOrganisationNestedInput
+  memberships?: Prisma.OrganisationMembershipUncheckedUpdateManyWithoutOrganisationNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutOrganisationNestedInput
+  departmentMemberships?: Prisma.DepartmentMembershipUncheckedUpdateManyWithoutOrganisationNestedInput
+  teams?: Prisma.TeamUncheckedUpdateManyWithoutOrganisationNestedInput
+  teamMemberships?: Prisma.TeamMembershipUncheckedUpdateManyWithoutOrganisationNestedInput
+  roles?: Prisma.RoleUncheckedUpdateManyWithoutOrganisationNestedInput
+  roleAssignments?: Prisma.RoleAssignmentUncheckedUpdateManyWithoutOrganisationNestedInput
+  invitations?: Prisma.InvitationUncheckedUpdateManyWithoutOrganisationNestedInput
+  userSessions?: Prisma.UserSessionUncheckedUpdateManyWithoutActiveOrganisationNestedInput
+  supportAccessGrants?: Prisma.SupportAccessGrantUncheckedUpdateManyWithoutOrganisationNestedInput
+  auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutOrganisationNestedInput
+  securityEvents?: Prisma.SecurityEventUncheckedUpdateManyWithoutOrganisationNestedInput
+  enquiries?: Prisma.EnquiryUncheckedUpdateManyWithoutOrganisationNestedInput
+  jobProfiles?: Prisma.JobProfileUncheckedUpdateManyWithoutOrganisationNestedInput
+  jobProfileDuties?: Prisma.JobProfileDutyUncheckedUpdateManyWithoutOrganisationNestedInput
+  kpiDefinitions?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutOrganisationNestedInput
+  jobProfileKpis?: Prisma.JobProfileKpiUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentPolicies?: Prisma.AgentPolicyUncheckedUpdateManyWithoutOrganisationNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationNestedInput
+  workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutOrganisationNestedInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutOrganisationNestedInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUncheckedUpdateManyWithoutOrganisationNestedInput
+  invitationOnboardingKpis?: Prisma.InvitationOnboardingKpiUncheckedUpdateManyWithoutOrganisationNestedInput
+  numberSequences?: Prisma.OrganisationNumberSequenceUncheckedUpdateManyWithoutOrganisationNestedInput
+  clients?: Prisma.ClientUncheckedUpdateManyWithoutOrganisationNestedInput
+  matters?: Prisma.MatterUncheckedUpdateManyWithoutOrganisationNestedInput
+  matterParties?: Prisma.MatterPartyUncheckedUpdateManyWithoutOrganisationNestedInput
+  matterComplianceRecords?: Prisma.MatterComplianceUncheckedUpdateManyWithoutOrganisationNestedInput
+  matterStatusHistory?: Prisma.MatterStatusHistoryUncheckedUpdateManyWithoutOrganisationNestedInput
+  enquiryConversions?: Prisma.EnquiryConversionUncheckedUpdateManyWithoutOrganisationNestedInput
+  matterTasks?: Prisma.MatterTaskUncheckedUpdateManyWithoutOrganisationNestedInput
+  matterDeadlines?: Prisma.MatterDeadlineUncheckedUpdateManyWithoutOrganisationNestedInput
+  documentRequests?: Prisma.DocumentRequestUncheckedUpdateManyWithoutOrganisationNestedInput
+  documentRequestItems?: Prisma.DocumentRequestItemUncheckedUpdateManyWithoutOrganisationNestedInput
+  matterDocuments?: Prisma.MatterDocumentUncheckedUpdateManyWithoutOrganisationNestedInput
+  matterDocumentVersions?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutOrganisationNestedInput
+  matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutOrganisationNestedInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionUncheckedUpdateManyWithoutOrganisationNestedInput
+  workflowVersions?: Prisma.WorkflowVersionUncheckedUpdateManyWithoutOrganisationNestedInput
+  workflowRuns?: Prisma.WorkflowRunUncheckedUpdateManyWithoutOrganisationNestedInput
+  workflowActions?: Prisma.WorkflowActionUncheckedUpdateManyWithoutOrganisationNestedInput
+  slaPolicies?: Prisma.SlaPolicyUncheckedUpdateManyWithoutOrganisationNestedInput
+  slaInstances?: Prisma.SlaInstanceUncheckedUpdateManyWithoutOrganisationNestedInput
+  escalationRules?: Prisma.EscalationRuleUncheckedUpdateManyWithoutOrganisationNestedInput
+  escalationEvents?: Prisma.EscalationEventUncheckedUpdateManyWithoutOrganisationNestedInput
+  approvalRequests?: Prisma.ApprovalRequestUncheckedUpdateManyWithoutOrganisationNestedInput
+  approvalDecisions?: Prisma.ApprovalDecisionUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutOrganisationNestedInput
 }
 
 
@@ -14709,6 +15695,8 @@ export type OrganisationCountOutputType = {
   escalationEvents: number
   approvalRequests: number
   approvalDecisions: number
+  pilotAcceptanceEvidence: number
+  pilotFeedback: number
 }
 
 export type OrganisationCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -14761,6 +15749,8 @@ export type OrganisationCountOutputTypeSelect<ExtArgs extends runtime.Types.Exte
   escalationEvents?: boolean | OrganisationCountOutputTypeCountEscalationEventsArgs
   approvalRequests?: boolean | OrganisationCountOutputTypeCountApprovalRequestsArgs
   approvalDecisions?: boolean | OrganisationCountOutputTypeCountApprovalDecisionsArgs
+  pilotAcceptanceEvidence?: boolean | OrganisationCountOutputTypeCountPilotAcceptanceEvidenceArgs
+  pilotFeedback?: boolean | OrganisationCountOutputTypeCountPilotFeedbackArgs
 }
 
 /**
@@ -15116,6 +16106,20 @@ export type OrganisationCountOutputTypeCountApprovalDecisionsArgs<ExtArgs extend
   where?: Prisma.ApprovalDecisionWhereInput
 }
 
+/**
+ * OrganisationCountOutputType without action
+ */
+export type OrganisationCountOutputTypeCountPilotAcceptanceEvidenceArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.PilotAcceptanceEvidenceWhereInput
+}
+
+/**
+ * OrganisationCountOutputType without action
+ */
+export type OrganisationCountOutputTypeCountPilotFeedbackArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.PilotFeedbackWhereInput
+}
+
 
 export type OrganisationSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -15179,6 +16183,8 @@ export type OrganisationSelect<ExtArgs extends runtime.Types.Extensions.Internal
   escalationEvents?: boolean | Prisma.Organisation$escalationEventsArgs<ExtArgs>
   approvalRequests?: boolean | Prisma.Organisation$approvalRequestsArgs<ExtArgs>
   approvalDecisions?: boolean | Prisma.Organisation$approvalDecisionsArgs<ExtArgs>
+  pilotAcceptanceEvidence?: boolean | Prisma.Organisation$pilotAcceptanceEvidenceArgs<ExtArgs>
+  pilotFeedback?: boolean | Prisma.Organisation$pilotFeedbackArgs<ExtArgs>
   _count?: boolean | Prisma.OrganisationCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["organisation"]>
 
@@ -15278,6 +16284,8 @@ export type OrganisationInclude<ExtArgs extends runtime.Types.Extensions.Interna
   escalationEvents?: boolean | Prisma.Organisation$escalationEventsArgs<ExtArgs>
   approvalRequests?: boolean | Prisma.Organisation$approvalRequestsArgs<ExtArgs>
   approvalDecisions?: boolean | Prisma.Organisation$approvalDecisionsArgs<ExtArgs>
+  pilotAcceptanceEvidence?: boolean | Prisma.Organisation$pilotAcceptanceEvidenceArgs<ExtArgs>
+  pilotFeedback?: boolean | Prisma.Organisation$pilotFeedbackArgs<ExtArgs>
   _count?: boolean | Prisma.OrganisationCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type OrganisationIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -15335,6 +16343,8 @@ export type $OrganisationPayload<ExtArgs extends runtime.Types.Extensions.Intern
     escalationEvents: Prisma.$EscalationEventPayload<ExtArgs>[]
     approvalRequests: Prisma.$ApprovalRequestPayload<ExtArgs>[]
     approvalDecisions: Prisma.$ApprovalDecisionPayload<ExtArgs>[]
+    pilotAcceptanceEvidence: Prisma.$PilotAcceptanceEvidencePayload<ExtArgs>[]
+    pilotFeedback: Prisma.$PilotFeedbackPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -15792,6 +16802,8 @@ export interface Prisma__OrganisationClient<T, Null = never, ExtArgs extends run
   escalationEvents<T extends Prisma.Organisation$escalationEventsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Organisation$escalationEventsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$EscalationEventPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   approvalRequests<T extends Prisma.Organisation$approvalRequestsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Organisation$approvalRequestsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ApprovalRequestPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   approvalDecisions<T extends Prisma.Organisation$approvalDecisionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Organisation$approvalDecisionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ApprovalDecisionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  pilotAcceptanceEvidence<T extends Prisma.Organisation$pilotAcceptanceEvidenceArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Organisation$pilotAcceptanceEvidenceArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PilotAcceptanceEvidencePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  pilotFeedback<T extends Prisma.Organisation$pilotFeedbackArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Organisation$pilotFeedbackArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PilotFeedbackPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -17399,6 +18411,54 @@ export type Organisation$approvalDecisionsArgs<ExtArgs extends runtime.Types.Ext
   take?: number
   skip?: number
   distinct?: Prisma.ApprovalDecisionScalarFieldEnum | Prisma.ApprovalDecisionScalarFieldEnum[]
+}
+
+/**
+ * Organisation.pilotAcceptanceEvidence
+ */
+export type Organisation$pilotAcceptanceEvidenceArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the PilotAcceptanceEvidence
+   */
+  select?: Prisma.PilotAcceptanceEvidenceSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the PilotAcceptanceEvidence
+   */
+  omit?: Prisma.PilotAcceptanceEvidenceOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.PilotAcceptanceEvidenceInclude<ExtArgs> | null
+  where?: Prisma.PilotAcceptanceEvidenceWhereInput
+  orderBy?: Prisma.PilotAcceptanceEvidenceOrderByWithRelationInput | Prisma.PilotAcceptanceEvidenceOrderByWithRelationInput[]
+  cursor?: Prisma.PilotAcceptanceEvidenceWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.PilotAcceptanceEvidenceScalarFieldEnum | Prisma.PilotAcceptanceEvidenceScalarFieldEnum[]
+}
+
+/**
+ * Organisation.pilotFeedback
+ */
+export type Organisation$pilotFeedbackArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the PilotFeedback
+   */
+  select?: Prisma.PilotFeedbackSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the PilotFeedback
+   */
+  omit?: Prisma.PilotFeedbackOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.PilotFeedbackInclude<ExtArgs> | null
+  where?: Prisma.PilotFeedbackWhereInput
+  orderBy?: Prisma.PilotFeedbackOrderByWithRelationInput | Prisma.PilotFeedbackOrderByWithRelationInput[]
+  cursor?: Prisma.PilotFeedbackWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.PilotFeedbackScalarFieldEnum | Prisma.PilotFeedbackScalarFieldEnum[]
 }
 
 /**

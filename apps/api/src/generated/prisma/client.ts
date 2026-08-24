@@ -449,3 +449,13 @@ export type LifecycleGateOverride = Prisma.LifecycleGateOverrideModel
  * 
  */
 export type LifecycleException = Prisma.LifecycleExceptionModel
+/**
+ * Model PilotAcceptanceEvidence
+ * 
+ */
+export type PilotAcceptanceEvidence = Prisma.PilotAcceptanceEvidenceModel
+/**
+ * Model PilotFeedback
+ * 
+ */
+export type PilotFeedback = Prisma.PilotFeedbackModel

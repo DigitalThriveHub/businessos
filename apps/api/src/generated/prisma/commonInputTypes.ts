@@ -1918,6 +1918,57 @@ export type EnumLifecycleExceptionStatusWithAggregatesFilter<$PrismaModel = neve
   _max?: Prisma.NestedEnumLifecycleExceptionStatusFilter<$PrismaModel>
 }
 
+export type EnumPilotAcceptanceStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.PilotAcceptanceStatus | Prisma.EnumPilotAcceptanceStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.PilotAcceptanceStatus[] | Prisma.ListEnumPilotAcceptanceStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PilotAcceptanceStatus[] | Prisma.ListEnumPilotAcceptanceStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPilotAcceptanceStatusFilter<$PrismaModel> | $Enums.PilotAcceptanceStatus
+}
+
+export type EnumPilotAcceptanceStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.PilotAcceptanceStatus | Prisma.EnumPilotAcceptanceStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.PilotAcceptanceStatus[] | Prisma.ListEnumPilotAcceptanceStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PilotAcceptanceStatus[] | Prisma.ListEnumPilotAcceptanceStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPilotAcceptanceStatusWithAggregatesFilter<$PrismaModel> | $Enums.PilotAcceptanceStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumPilotAcceptanceStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumPilotAcceptanceStatusFilter<$PrismaModel>
+}
+
+export type EnumPilotFeedbackSeverityFilter<$PrismaModel = never> = {
+  equals?: $Enums.PilotFeedbackSeverity | Prisma.EnumPilotFeedbackSeverityFieldRefInput<$PrismaModel>
+  in?: $Enums.PilotFeedbackSeverity[] | Prisma.ListEnumPilotFeedbackSeverityFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PilotFeedbackSeverity[] | Prisma.ListEnumPilotFeedbackSeverityFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPilotFeedbackSeverityFilter<$PrismaModel> | $Enums.PilotFeedbackSeverity
+}
+
+export type EnumPilotFeedbackStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.PilotFeedbackStatus | Prisma.EnumPilotFeedbackStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.PilotFeedbackStatus[] | Prisma.ListEnumPilotFeedbackStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PilotFeedbackStatus[] | Prisma.ListEnumPilotFeedbackStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPilotFeedbackStatusFilter<$PrismaModel> | $Enums.PilotFeedbackStatus
+}
+
+export type EnumPilotFeedbackSeverityWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.PilotFeedbackSeverity | Prisma.EnumPilotFeedbackSeverityFieldRefInput<$PrismaModel>
+  in?: $Enums.PilotFeedbackSeverity[] | Prisma.ListEnumPilotFeedbackSeverityFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PilotFeedbackSeverity[] | Prisma.ListEnumPilotFeedbackSeverityFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPilotFeedbackSeverityWithAggregatesFilter<$PrismaModel> | $Enums.PilotFeedbackSeverity
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumPilotFeedbackSeverityFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumPilotFeedbackSeverityFilter<$PrismaModel>
+}
+
+export type EnumPilotFeedbackStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.PilotFeedbackStatus | Prisma.EnumPilotFeedbackStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.PilotFeedbackStatus[] | Prisma.ListEnumPilotFeedbackStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PilotFeedbackStatus[] | Prisma.ListEnumPilotFeedbackStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPilotFeedbackStatusWithAggregatesFilter<$PrismaModel> | $Enums.PilotFeedbackStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumPilotFeedbackStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumPilotFeedbackStatusFilter<$PrismaModel>
+}
+
 export type NestedUuidFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel>
   in?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
@@ -3775,6 +3826,57 @@ export type NestedEnumLifecycleExceptionStatusWithAggregatesFilter<$PrismaModel 
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumLifecycleExceptionStatusFilter<$PrismaModel>
   _max?: Prisma.NestedEnumLifecycleExceptionStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumPilotAcceptanceStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.PilotAcceptanceStatus | Prisma.EnumPilotAcceptanceStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.PilotAcceptanceStatus[] | Prisma.ListEnumPilotAcceptanceStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PilotAcceptanceStatus[] | Prisma.ListEnumPilotAcceptanceStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPilotAcceptanceStatusFilter<$PrismaModel> | $Enums.PilotAcceptanceStatus
+}
+
+export type NestedEnumPilotAcceptanceStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.PilotAcceptanceStatus | Prisma.EnumPilotAcceptanceStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.PilotAcceptanceStatus[] | Prisma.ListEnumPilotAcceptanceStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PilotAcceptanceStatus[] | Prisma.ListEnumPilotAcceptanceStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPilotAcceptanceStatusWithAggregatesFilter<$PrismaModel> | $Enums.PilotAcceptanceStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumPilotAcceptanceStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumPilotAcceptanceStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumPilotFeedbackSeverityFilter<$PrismaModel = never> = {
+  equals?: $Enums.PilotFeedbackSeverity | Prisma.EnumPilotFeedbackSeverityFieldRefInput<$PrismaModel>
+  in?: $Enums.PilotFeedbackSeverity[] | Prisma.ListEnumPilotFeedbackSeverityFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PilotFeedbackSeverity[] | Prisma.ListEnumPilotFeedbackSeverityFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPilotFeedbackSeverityFilter<$PrismaModel> | $Enums.PilotFeedbackSeverity
+}
+
+export type NestedEnumPilotFeedbackStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.PilotFeedbackStatus | Prisma.EnumPilotFeedbackStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.PilotFeedbackStatus[] | Prisma.ListEnumPilotFeedbackStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PilotFeedbackStatus[] | Prisma.ListEnumPilotFeedbackStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPilotFeedbackStatusFilter<$PrismaModel> | $Enums.PilotFeedbackStatus
+}
+
+export type NestedEnumPilotFeedbackSeverityWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.PilotFeedbackSeverity | Prisma.EnumPilotFeedbackSeverityFieldRefInput<$PrismaModel>
+  in?: $Enums.PilotFeedbackSeverity[] | Prisma.ListEnumPilotFeedbackSeverityFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PilotFeedbackSeverity[] | Prisma.ListEnumPilotFeedbackSeverityFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPilotFeedbackSeverityWithAggregatesFilter<$PrismaModel> | $Enums.PilotFeedbackSeverity
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumPilotFeedbackSeverityFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumPilotFeedbackSeverityFilter<$PrismaModel>
+}
+
+export type NestedEnumPilotFeedbackStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.PilotFeedbackStatus | Prisma.EnumPilotFeedbackStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.PilotFeedbackStatus[] | Prisma.ListEnumPilotFeedbackStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PilotFeedbackStatus[] | Prisma.ListEnumPilotFeedbackStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPilotFeedbackStatusWithAggregatesFilter<$PrismaModel> | $Enums.PilotFeedbackStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumPilotFeedbackStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumPilotFeedbackStatusFilter<$PrismaModel>
 }
 
 
