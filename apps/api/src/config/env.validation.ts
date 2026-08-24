@@ -173,6 +173,32 @@ const environmentSchema = z
     AXIOM_TOKEN: z.string().trim().min(20).max(512).optional(),
 
     BACKUP_RESTORE_EVIDENCE_AT: z.string().datetime().optional(),
+
+    OPERATIONS_HEALTH_TOKEN: z.string().min(32).max(512).optional(),
+
+    INCIDENT_RESPONSE_EMAIL: z.string().trim().email().max(320).optional(),
+
+    SUPABASE_PITR_ENABLED: z.enum(['true', 'false']).default('false'),
+
+    RECOVERY_POINT_OBJECTIVE_MINUTES: z.coerce
+      .number()
+      .int()
+      .min(1)
+      .max(1_440)
+      .default(5),
+
+    RECOVERY_TIME_OBJECTIVE_MINUTES: z.coerce
+      .number()
+      .int()
+      .min(5)
+      .max(10_080)
+      .default(60),
+
+    AUTOMATION_WORKER_ENABLED: z.enum(['true', 'false']).default('true'),
+
+    COMMUNICATION_DELIVERY_ENABLED: z.enum(['true', 'false']).default('false'),
+
+    DOCUMENT_SCANNER_ENABLED: z.enum(['true', 'false']).default('false'),
   })
   .superRefine((environment, ctx) => {
     if (environment.NODE_ENV === 'production') {
@@ -229,6 +255,8 @@ const environmentSchema = z
         ['SENTRY_DSN', environment.SENTRY_DSN],
         ['AXIOM_TOKEN', environment.AXIOM_TOKEN],
         ['BACKUP_RESTORE_EVIDENCE_AT', environment.BACKUP_RESTORE_EVIDENCE_AT],
+        ['OPERATIONS_HEALTH_TOKEN', environment.OPERATIONS_HEALTH_TOKEN],
+        ['INCIDENT_RESPONSE_EMAIL', environment.INCIDENT_RESPONSE_EMAIL],
       ] as const;
 
       for (const [
@@ -240,6 +268,24 @@ const environmentSchema = z
             code: 'custom',
             path: [environmentName],
             message: `${environmentName} is required in production`,
+          });
+        }
+      }
+
+      for (const worker of [
+        ['AUTOMATION_WORKER_ENABLED', environment.AUTOMATION_WORKER_ENABLED],
+        [
+          'COMMUNICATION_DELIVERY_ENABLED',
+          environment.COMMUNICATION_DELIVERY_ENABLED,
+        ],
+        ['DOCUMENT_SCANNER_ENABLED', environment.DOCUMENT_SCANNER_ENABLED],
+        ['SUPABASE_PITR_ENABLED', environment.SUPABASE_PITR_ENABLED],
+      ] as const) {
+        if (worker[1] !== 'true') {
+          ctx.addIssue({
+            code: 'custom',
+            path: [worker[0]],
+            message: `${worker[0]} must be true in production`,
           });
         }
       }

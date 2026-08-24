@@ -26,6 +26,13 @@ const productionEnvironment = {
   SENTRY_DSN: 'https://public@example.ingest.sentry.io/12345',
   AXIOM_TOKEN: 'xaat-businessos-production-token-123456',
   BACKUP_RESTORE_EVIDENCE_AT: new Date().toISOString(),
+  OPERATIONS_HEALTH_TOKEN:
+    'operations-health-token-with-independent-entropy-123456',
+  INCIDENT_RESPONSE_EMAIL: 'security@example.com',
+  SUPABASE_PITR_ENABLED: 'true',
+  AUTOMATION_WORKER_ENABLED: 'true',
+  COMMUNICATION_DELIVERY_ENABLED: 'true',
+  DOCUMENT_SCANNER_ENABLED: 'true',
 };
 
 describe('validateEnvironment Gate F controls', () => {
@@ -81,5 +88,14 @@ describe('validateEnvironment Gate F controls', () => {
         BACKUP_RESTORE_EVIDENCE_AT: '2025-01-01T00:00:00.000Z',
       }),
     ).toThrow('A successful backup restore exercise is required every 92 days');
+  });
+
+  it('rejects a production deployment with a disabled critical worker', () => {
+    expect(() =>
+      validateEnvironment({
+        ...productionEnvironment,
+        DOCUMENT_SCANNER_ENABLED: 'false',
+      }),
+    ).toThrow('DOCUMENT_SCANNER_ENABLED must be true in production');
   });
 });

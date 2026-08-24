@@ -1,0 +1,68 @@
+name: businessos
+
+services:
+  api:
+    image: ${BUSINESSOS_API_IMAGE:?Set an immutable API image tag or digest}
+    restart: unless-stopped
+    read_only: true
+    init: true
+    env_file: ${BUSINESSOS_API_ENV_FILE:?Set the protected API environment file}
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=64m
+    ports:
+      - "127.0.0.1:4000:4000"
+    networks: [frontend, backend]
+    depends_on:
+      clamav:
+        condition: service_healthy
+    security_opt: [no-new-privileges:true]
+    cap_drop: [ALL]
+    deploy:
+      resources:
+        limits: { cpus: "2.0", memory: 1536M }
+        reservations: { cpus: "0.25", memory: 256M }
+
+  web:
+    image: ${BUSINESSOS_WEB_IMAGE:?Set an immutable web image tag or digest}
+    restart: unless-stopped
+    read_only: true
+    init: true
+    env_file: ${BUSINESSOS_WEB_ENV_FILE:?Set the protected web environment file}
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=64m
+    ports:
+      - "127.0.0.1:3000:3000"
+    networks: [frontend]
+    security_opt: [no-new-privileges:true]
+    cap_drop: [ALL]
+    deploy:
+      resources:
+        limits: { cpus: "1.0", memory: 1024M }
+        reservations: { cpus: "0.25", memory: 256M }
+
+  clamav:
+    image: ${CLAMAV_IMAGE:?Set a reviewed immutable ClamAV image digest}
+    restart: unless-stopped
+    networks: [backend]
+    volumes:
+      - clamav-signatures:/var/lib/clamav
+    healthcheck:
+      test: ["CMD", "/usr/local/bin/clamdcheck.sh"]
+      interval: 30s
+      timeout: 10s
+      start_period: 120s
+      retries: 5
+    security_opt: [no-new-privileges:true]
+    cap_drop: [ALL]
+    deploy:
+      resources:
+        limits: { cpus: "2.0", memory: 2048M }
+        reservations: { cpus: "0.25", memory: 768M }
+
+networks:
+  frontend: {}
+  backend:
+    internal: true
+
+volumes:
+  clamav-signatures: {}
