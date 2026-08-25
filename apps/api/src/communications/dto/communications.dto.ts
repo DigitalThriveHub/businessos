@@ -19,9 +19,7 @@ import {
   ValidateIf,
 } from 'class-validator';
 
-// WhatsApp remains a database/provider extension point. It is deliberately
-// unavailable at the HTTP boundary until an approved provider is configured.
-const CHANNELS = ['PORTAL', 'EMAIL'] as const;
+const CHANNELS = ['PORTAL', 'EMAIL', 'WHATSAPP'] as const;
 const TEMPLATE_STATUSES = ['DRAFT', 'ACTIVE'] as const;
 const PORTAL_SCOPES = [
   'MATTER_PROGRESS',
@@ -68,6 +66,10 @@ export class CreateCommunicationConversationDto {
   @IsUUID('4')
   @IsOptional()
   assignedToUserId?: string;
+
+  @IsUUID('4')
+  @IsOptional()
+  integrationConnectionId?: string;
 }
 
 export class SendCommunicationMessageDto {
@@ -86,7 +88,10 @@ export class SendCommunicationMessageDto {
   @IsArray()
   @ArrayMaxSize(20)
   @ArrayUnique()
-  @IsEmail({}, { each: true })
+  @IsString({ each: true })
+  @Matches(/^(?:[^\s@]+@[^\s@]+\.[^\s@]+|\+[1-9][0-9]{7,14})$/, {
+    each: true,
+  })
   @Transform(({ value }: TransformFnParams) =>
     Array.isArray(value)
       ? value.map((item) =>
@@ -104,6 +109,174 @@ export class SendCommunicationMessageDto {
   @Transform(trim)
   @Matches(IDEMPOTENCY_PATTERN)
   idempotencyKey!: string;
+}
+
+const LIVE_PROVIDERS = [
+  'MICROSOFT_365',
+  'GOOGLE_WORKSPACE',
+  'WHATSAPP_BUSINESS',
+] as const;
+
+const PROVIDER_CAPABILITIES = ['EMAIL', 'WHATSAPP', 'CALENDAR'] as const;
+
+export class ConfigureProviderConnectionDto {
+  @IsUUID('4')
+  @IsOptional()
+  connectionId?: string;
+
+  @IsIn(LIVE_PROVIDERS)
+  provider!: (typeof LIVE_PROVIDERS)[number];
+
+  @Transform(trim)
+  @IsString()
+  @MinLength(2)
+  @MaxLength(160)
+  displayName!: string;
+
+  @Transform(trim)
+  @Matches(/^[A-Za-z0-9][A-Za-z0-9._:/-]{2,159}$/)
+  secretReference!: string;
+
+  @ValidateIf(
+    (dto: ConfigureProviderConnectionDto) =>
+      dto.provider !== 'WHATSAPP_BUSINESS',
+  )
+  @Transform(lower)
+  @IsEmail()
+  @MaxLength(320)
+  mailboxAddress?: string;
+
+  @ValidateIf(
+    (dto: ConfigureProviderConnectionDto) =>
+      dto.provider === 'WHATSAPP_BUSINESS',
+  )
+  @Transform(trim)
+  @Matches(/^\+[1-9][0-9]{7,14}$/)
+  phoneNumber?: string;
+
+  @IsArray()
+  @ArrayMinSize(1)
+  @ArrayMaxSize(3)
+  @ArrayUnique()
+  @IsIn(PROVIDER_CAPABILITIES, { each: true })
+  capabilities!: (typeof PROVIDER_CAPABILITIES)[number][];
+
+  @Type(() => Number)
+  @IsInt()
+  @Min(0)
+  expectedVersion: number = 0;
+}
+
+export class SetProviderConnectionStatusDto {
+  @IsIn(['ACTIVE', 'DISABLED'])
+  status!: 'ACTIVE' | 'DISABLED';
+
+  @Transform(trim)
+  @IsString()
+  @MinLength(3)
+  @MaxLength(1000)
+  reason!: string;
+
+  @Type(() => Number)
+  @IsInt()
+  @Min(1)
+  expectedVersion!: number;
+}
+
+export class CreateBusinessCalendarEventDto {
+  @IsUUID('4')
+  integrationConnectionId!: string;
+
+  @IsUUID('4')
+  @IsOptional()
+  clientId?: string;
+
+  @IsUUID('4')
+  @IsOptional()
+  matterId?: string;
+
+  @IsUUID('4')
+  @IsOptional()
+  conversationId?: string;
+
+  @Transform(trim)
+  @IsString()
+  @MinLength(1)
+  @MaxLength(240)
+  title!: string;
+
+  @Transform(nullableText)
+  @IsString()
+  @MaxLength(4000)
+  @IsOptional()
+  description?: string | null;
+
+  @IsISO8601({ strict: true, strictSeparator: true })
+  startsAt!: string;
+
+  @IsISO8601({ strict: true, strictSeparator: true })
+  endsAt!: string;
+
+  @Transform(trim)
+  @Matches(/^[A-Za-z_]+(?:\/[A-Za-z_+-]+)+$/)
+  @MaxLength(80)
+  timezone: string = 'Europe/London';
+
+  @Transform(nullableText)
+  @IsString()
+  @MaxLength(500)
+  @IsOptional()
+  location?: string | null;
+
+  @IsArray()
+  @ArrayMinSize(1)
+  @ArrayMaxSize(50)
+  @ArrayUnique()
+  @IsEmail({}, { each: true })
+  @Transform(({ value }: TransformFnParams) =>
+    Array.isArray(value)
+      ? value.map((item) =>
+          typeof item === 'string' ? item.trim().toLowerCase() : item,
+        )
+      : value,
+  )
+  attendeeAddresses!: string[];
+
+  @Type(() => Number)
+  @IsInt()
+  @Min(5)
+  @Max(10_080)
+  @IsOptional()
+  reminderMinutesBefore?: number;
+
+  @Transform(trim)
+  @Matches(IDEMPOTENCY_PATTERN)
+  idempotencyKey!: string;
+}
+
+export class CancelBusinessCalendarEventDto {
+  @Transform(trim)
+  @IsString()
+  @MinLength(3)
+  @MaxLength(1000)
+  reason!: string;
+
+  @Type(() => Number)
+  @IsInt()
+  @Min(1)
+  expectedVersion!: number;
+}
+
+export class RetryBusinessCalendarEventDto {
+  @Type(() => Number)
+  @IsInt()
+  @Min(1)
+  expectedVersion!: number;
+}
+
+export class SetBusinessCalendarOutcomeDto extends CancelBusinessCalendarEventDto {
+  @IsIn(['COMPLETED', 'NO_SHOW'])
+  status!: 'COMPLETED' | 'NO_SHOW';
 }
 
 export class CreateCommunicationTemplateDto {
@@ -234,7 +407,7 @@ export class ScheduleCommunicationReminderDto {
   conversationId!: string;
 
   @Transform(nullableText)
-  @IsEmail()
+  @Matches(/^(?:[^\s@]+@[^\s@]+\.[^\s@]+|\+[1-9][0-9]{7,14})$/)
   @MaxLength(320)
   @ValidateIf(
     (value: ScheduleCommunicationReminderDto) => value.channel !== 'PORTAL',

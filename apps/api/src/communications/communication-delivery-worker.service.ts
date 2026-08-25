@@ -9,19 +9,14 @@ import {
 } from '@nestjs/common';
 
 import { PrismaService } from '../database/prisma.service';
-import { EmailService } from '../notifications/email.service';
 import { CommunicationDeliveryWorkerConfig } from './communication-delivery-worker.config';
+import { CommunicationProviderGateway } from './providers/communication-provider-gateway.service';
+import {
+  ProviderOperationError,
+  type DeliveryJob,
+} from './providers/provider.types';
 
-interface ClaimedDeliveryJob {
-  messageId: string;
-  organisationId: string;
-  recipientAddresses: string[];
-  subject: string | null;
-  bodyText: string;
-  idempotencyKey: string;
-  attempt: number;
-  maxAttempts: number;
-}
+type ClaimedDeliveryJob = DeliveryJob;
 
 @Injectable()
 export class CommunicationDeliveryWorkerService
@@ -36,7 +31,7 @@ export class CommunicationDeliveryWorkerService
   constructor(
     private readonly database: PrismaService,
     private readonly config: CommunicationDeliveryWorkerConfig,
-    private readonly email: EmailService,
+    private readonly providers: CommunicationProviderGateway,
   ) {
     this.workerId = `${config.workerIdPrefix}-${hostname().slice(0, 40)}-${
       process.pid
@@ -46,7 +41,7 @@ export class CommunicationDeliveryWorkerService
   onModuleInit(): void {
     if (!this.config.enabled) {
       this.logger.log(
-        'Communication delivery worker is disabled; queued email remains fail-closed.',
+        'Communication delivery worker is disabled; queued provider messages remain fail-closed.',
       );
       return;
     }
@@ -73,13 +68,19 @@ export class CommunicationDeliveryWorkerService
         SELECT
           message_id AS "messageId",
           organisation_id AS "organisationId",
+          channel,
+          connection_id AS "connectionId",
+          provider,
+          secret_reference AS "secretReference",
+          mailbox_address AS "mailboxAddress",
+          phone_number AS "phoneNumber",
           recipient_addresses AS "recipientAddresses",
           subject,
           body_text AS "bodyText",
           idempotency_key AS "idempotencyKey",
           attempt,
           max_attempts AS "maxAttempts"
-        FROM private.claim_communication_delivery_job(
+        FROM private.claim_gate_l_delivery_job(
           ${this.workerId},
           ${this.config.leaseSeconds}
         )
@@ -112,13 +113,7 @@ export class CommunicationDeliveryWorkerService
 
   private async deliver(job: ClaimedDeliveryJob): Promise<void> {
     try {
-      const receipt = await this.email.sendTransactionalMessage({
-        messageId: job.messageId,
-        recipientEmails: job.recipientAddresses,
-        subject: job.subject ?? 'Secure message from BusinessOS',
-        bodyText: job.bodyText,
-        idempotencyKey: job.idempotencyKey,
-      });
+      const receipt = await this.providers.send(job);
 
       await this.database.$queryRaw`
         SELECT *
@@ -139,9 +134,13 @@ export class CommunicationDeliveryWorkerService
         FROM private.fail_communication_delivery_job(
           ${job.messageId}::uuid,
           ${this.workerId},
-          'EMAIL_PROVIDER_UNAVAILABLE',
-          'The email provider did not accept the message.',
-          true
+          ${
+            error instanceof ProviderOperationError
+              ? error.code
+              : 'COMMUNICATION_PROVIDER_UNAVAILABLE'
+          },
+          'The configured communication provider did not accept the message.',
+          ${error instanceof ProviderOperationError ? error.retryable : true}
         )
       `;
 

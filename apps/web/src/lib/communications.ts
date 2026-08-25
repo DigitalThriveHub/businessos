@@ -15,7 +15,7 @@ const dateTime = z.string().datetime({ offset: true });
 const nullableDateTime = dateTime.nullable();
 const nullableText = z.string().nullable();
 const channel = z.enum(COMMUNICATION_CHANNELS);
-const activeChannel = z.enum(["PORTAL", "EMAIL"]);
+const activeChannel = channel;
 const idempotency = z
   .string()
   .trim()
@@ -26,6 +26,7 @@ export const communicationMessageSchema = z.object({
   direction: z.enum(["INBOUND", "OUTBOUND", "INTERNAL"]),
   actorType: z.enum(["STAFF", "CLIENT", "SYSTEM", "AI_AGENT"]),
   authorUserProfileId: nullableUuid.optional(),
+  senderAddress: nullableText.optional(),
   subject: nullableText,
   bodyText: z.string(),
   status: z.string(),
@@ -49,6 +50,9 @@ export const communicationConversationSchema = z.object({
   matterTitle: nullableText.optional(),
   clientId: nullableUuid,
   clientName: nullableText.optional(),
+  integrationConnectionId: nullableUuid.optional(),
+  connectionName: nullableText.optional(),
+  connectionProvider: nullableText.optional(),
   channel,
   subject: z.string(),
   status: z.string(),
@@ -129,6 +133,69 @@ export const communicationReminderSchema = z.object({
   createdAt: dateTime,
 });
 
+export const providerConnectionSchema = z.object({
+  connectionId: uuid,
+  provider: z.enum(["MICROSOFT_365", "GOOGLE_WORKSPACE", "WHATSAPP_BUSINESS"]),
+  displayName: z.string(),
+  connectionStatus: z.enum(["ACTIVE", "DISABLED"]),
+  state: z.enum(["SETUP_REQUIRED", "READY", "DEGRADED", "DISABLED"]),
+  capabilities: z.array(z.enum(["EMAIL", "WHATSAPP", "CALENDAR"])),
+  mailboxAddress: nullableText,
+  phoneNumber: nullableText,
+  webhookPublicId: uuid,
+  lastHealthCheckedAt: nullableDateTime,
+  lastHealthyAt: nullableDateTime,
+  lastSyncAt: nullableDateTime,
+  lastErrorCode: nullableText,
+  lastErrorDetail: nullableText,
+  version: z.number().int().positive(),
+});
+
+export const businessCalendarEventSchema = z.object({
+  id: uuid,
+  integrationConnectionId: uuid,
+  connectionName: z.string(),
+  provider: z.enum(["MICROSOFT_365", "GOOGLE_WORKSPACE"]),
+  clientId: nullableUuid,
+  clientName: nullableText,
+  matterId: nullableUuid,
+  matterNumber: nullableText,
+  conversationId: nullableUuid,
+  title: z.string(),
+  description: nullableText,
+  startsAt: dateTime,
+  endsAt: dateTime,
+  timezone: z.string(),
+  location: nullableText,
+  attendeeAddresses: z.array(z.string().email()),
+  status: z.enum([
+    "PENDING_SYNC",
+    "SCHEDULED",
+    "CANCELLATION_PENDING",
+    "CANCELLED",
+    "COMPLETED",
+    "NO_SHOW",
+    "SYNC_FAILED",
+  ]),
+  providerJoinUrl: nullableText,
+  reminderMinutesBefore: z.number().int().nullable(),
+  failureCode: nullableText,
+  failureDetail: nullableText,
+  version: z.number().int().positive(),
+  createdAt: dateTime,
+  updatedAt: dateTime,
+});
+
+export const liveOperationsSchema = z.object({
+  providerConnections: z.array(providerConnectionSchema),
+  calendarEvents: z.array(businessCalendarEventSchema),
+  readiness: z.object({
+    readyConnections: z.number().int().nonnegative(),
+    degradedConnections: z.number().int().nonnegative(),
+    failedCalendarEvents: z.number().int().nonnegative(),
+  }),
+});
+
 export const communicationsDashboardSchema = z.object({
   conversations: z.array(communicationConversationSchema),
   templates: z.array(communicationTemplateSchema),
@@ -163,6 +230,7 @@ export const communicationsDashboardSchema = z.object({
       version: z.number().int().positive(),
     }),
   ),
+  liveOperations: liveOperationsSchema,
 });
 export type CommunicationsDashboard = z.infer<
   typeof communicationsDashboardSchema
@@ -182,6 +250,7 @@ const conversationCreate = z.object({
       channel: activeChannel,
       subject: z.string().trim().min(1).max(240),
       assignedToUserId: uuid.optional(),
+      integrationConnectionId: uuid.optional(),
     })
     .refine((value) => value.matterId || value.clientId, {
       message: "A client or matter is required.",
@@ -190,6 +259,11 @@ const conversationCreate = z.object({
       (value) =>
         value.channel !== "PORTAL" || Boolean(value.matterId && value.clientId),
       { message: "Portal conversations require both a client and matter." },
+    )
+    .refine(
+      (value) =>
+        value.channel !== "WHATSAPP" || Boolean(value.integrationConnectionId),
+      { message: "WhatsApp requires an active provider connection." },
     ),
 });
 
@@ -200,7 +274,12 @@ const messageSend = z.object({
   payload: z.object({
     subject: z.string().trim().max(500).nullable().optional(),
     bodyText: z.string().trim().min(1).max(50_000),
-    recipientAddresses: z.array(z.string().email()).max(20).optional(),
+    recipientAddresses: z
+      .array(
+        z.union([z.string().email(), z.string().regex(/^\+[1-9][0-9]{7,14}$/)]),
+      )
+      .max(20)
+      .optional(),
     scheduledAt: dateTime.optional(),
     idempotencyKey: idempotency,
   }),
@@ -279,7 +358,13 @@ const reminderSchedule = z.object({
   organisationId: uuid,
   payload: z.object({
     conversationId: uuid,
-    recipientAddress: z.string().trim().email().max(320).nullable().optional(),
+    recipientAddress: z
+      .union([
+        z.string().trim().email().max(320),
+        z.string().regex(/^\+[1-9][0-9]{7,14}$/),
+      ])
+      .nullable()
+      .optional(),
     channel: activeChannel,
     subject: z.string().trim().max(500).nullable().optional(),
     bodyText: z.string().trim().min(1).max(50_000),
@@ -301,6 +386,106 @@ const matchResolve = z.object({
   }),
 });
 
+const providerConfigure = z.object({
+  operation: z.literal("provider.configure"),
+  organisationId: uuid,
+  payload: z.object({
+    connectionId: uuid.optional(),
+    provider: z.enum([
+      "MICROSOFT_365",
+      "GOOGLE_WORKSPACE",
+      "WHATSAPP_BUSINESS",
+    ]),
+    displayName: z.string().trim().min(2).max(160),
+    secretReference: z
+      .string()
+      .trim()
+      .regex(/^[A-Za-z0-9][A-Za-z0-9._:/-]{2,159}$/),
+    mailboxAddress: z.string().email().optional(),
+    phoneNumber: z
+      .string()
+      .regex(/^\+[1-9][0-9]{7,14}$/)
+      .optional(),
+    capabilities: z
+      .array(z.enum(["EMAIL", "WHATSAPP", "CALENDAR"]))
+      .min(1)
+      .max(3),
+    expectedVersion: z.number().int().nonnegative(),
+  }),
+});
+
+const providerHealth = z.object({
+  operation: z.literal("provider.health"),
+  organisationId: uuid,
+  connectionId: uuid,
+  payload: z.object({}).default({}),
+});
+
+const providerStatus = z.object({
+  operation: z.literal("provider.status"),
+  organisationId: uuid,
+  connectionId: uuid,
+  payload: reasonPayload.extend({
+    status: z.enum(["ACTIVE", "DISABLED"]),
+    expectedVersion: z.number().int().positive(),
+  }),
+});
+
+const providerSync = z.object({
+  operation: z.literal("provider.sync"),
+  organisationId: uuid,
+  connectionId: uuid,
+  payload: z.object({}).default({}),
+});
+
+const calendarCreate = z.object({
+  operation: z.literal("calendar.create"),
+  organisationId: uuid,
+  payload: z.object({
+    integrationConnectionId: uuid,
+    clientId: uuid.optional(),
+    matterId: uuid.optional(),
+    conversationId: uuid.optional(),
+    title: z.string().trim().min(1).max(240),
+    description: z.string().trim().max(4000).nullable().optional(),
+    startsAt: dateTime,
+    endsAt: dateTime,
+    timezone: z.string().trim().min(3).max(80),
+    location: z.string().trim().max(500).nullable().optional(),
+    attendeeAddresses: z.array(z.string().email()).min(1).max(50),
+    reminderMinutesBefore: z.number().int().min(5).max(10_080).optional(),
+    idempotencyKey: idempotency,
+  }),
+});
+
+const calendarCancel = z.object({
+  operation: z.literal("calendar.cancel"),
+  organisationId: uuid,
+  eventId: uuid,
+  payload: reasonPayload.extend({
+    expectedVersion: z.number().int().positive(),
+  }),
+});
+
+const calendarRetry = z.object({
+  operation: z.literal("calendar.retry"),
+  organisationId: uuid,
+  eventId: uuid,
+  payload: z.object({
+    expectedVersion: z.number().int().positive(),
+  }),
+});
+
+const calendarOutcome = z.object({
+  operation: z.literal("calendar.outcome"),
+  organisationId: uuid,
+  eventId: uuid,
+  payload: reasonPayload.extend({
+    status: z.enum(["COMPLETED", "NO_SHOW"]),
+    expectedVersion: z.number().int().positive(),
+  }),
+});
+
 export const communicationsMutationSchema = z.discriminatedUnion("operation", [
   conversationCreate,
   messageSend,
@@ -312,6 +497,14 @@ export const communicationsMutationSchema = z.discriminatedUnion("operation", [
   reminderSchedule,
   reminderCancel,
   matchResolve,
+  providerConfigure,
+  providerHealth,
+  providerStatus,
+  providerSync,
+  calendarCreate,
+  calendarCancel,
+  calendarRetry,
+  calendarOutcome,
 ]);
 export type CommunicationsMutation = z.infer<
   typeof communicationsMutationSchema

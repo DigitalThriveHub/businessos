@@ -33,7 +33,14 @@ export const commandCentreDashboardSchema = z.object({
   serviceHealth: z.object({
     integrations: z.array(
       z.object({
-        provider: z.enum(["WORDPRESS", "STRIPE", "GENERIC"]),
+        provider: z.enum([
+          "WORDPRESS",
+          "STRIPE",
+          "GENERIC",
+          "MICROSOFT_365",
+          "GOOGLE_WORKSPACE",
+          "WHATSAPP_BUSINESS",
+        ]),
         name: z.string(),
         status: z.enum(["ACTIVE", "DISABLED"]),
         lastEventAt: dateTime.nullable(),

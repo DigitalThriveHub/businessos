@@ -636,10 +636,6 @@ export type EnumIntegrationDirectionFieldUpdateOperationsInput = {
   set?: $Enums.IntegrationDirection
 }
 
-export type EnumIntegrationEventStatusFieldUpdateOperationsInput = {
-  set?: $Enums.IntegrationEventStatus
-}
-
 export type IntegrationEventCreateWithoutConnectionInput = {
   id?: string
   provider: $Enums.IntegrationProvider

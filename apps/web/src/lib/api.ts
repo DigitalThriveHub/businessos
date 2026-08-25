@@ -16,6 +16,8 @@ export class ApiError extends Error {
   constructor(
     message: string,
     public readonly status: number,
+    public readonly code?: string,
+    public readonly correlationId?: string,
   ) {
     super(message);
     this.name = "ApiError";
@@ -106,44 +108,42 @@ export async function apiFetch<T>(
     );
 
     if (!response.ok) {
-      if (response.status === 400) {
-        throw new ApiError(
-          "The submitted information is invalid.",
-          400,
-        );
+      let problem: {
+        detail?: string;
+        code?: string;
+        correlationId?: string;
+      } = {};
+      if (response.headers.get("content-type")?.includes("json")) {
+        try {
+          problem = (await response.json()) as typeof problem;
+        } catch {
+          // An invalid upstream error body is replaced with the safe fallback.
+        }
       }
-
-      if (response.status === 401) {
-        throw new ApiError(
-          "Authentication is required.",
-          401,
-        );
-      }
-
-      if (response.status === 403) {
-        throw new ApiError(
-          "You do not have permission to perform this action.",
-          403,
-        );
-      }
-
-      if (response.status === 404) {
-        throw new ApiError(
-          "The requested resource was not found.",
-          404,
-        );
-      }
-
-      if (response.status === 409) {
-        throw new ApiError(
-          "The requested operation conflicts with an existing record.",
-          409,
-        );
-      }
-
+      const safeMessages: Record<number, string> = {
+        400: "The submitted information is invalid.",
+        401: "Authentication is required.",
+        403: "You do not have permission to perform this action.",
+        404: "The requested resource was not found.",
+        409: "The requested operation conflicts with an existing record.",
+        429: "Too many requests. Please try again shortly.",
+        503: "The provider service is temporarily unavailable.",
+      };
+      const detail =
+        typeof problem.detail === "string" && problem.detail.length <= 1000
+          ? problem.detail
+          : safeMessages[response.status] ??
+            "The API request could not be completed.";
       throw new ApiError(
-        "The API request could not be completed.",
+        response.status >= 500
+          ? safeMessages[response.status] ??
+              "The API request could not be completed."
+          : detail,
         response.status,
+        typeof problem.code === "string" ? problem.code : undefined,
+        typeof problem.correlationId === "string"
+          ? problem.correlationId
+          : response.headers.get("x-correlation-id") ?? undefined,
       );
     }
 

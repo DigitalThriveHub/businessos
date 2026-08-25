@@ -116,6 +116,9 @@ export class CommunicationsService {
             matter_record.title AS "matterTitle",
             conversation_record.client_id AS "clientId",
             client_record.display_name AS "clientName",
+            conversation_record.integration_connection_id AS "integrationConnectionId",
+            connection_record.display_name AS "connectionName",
+            connection_record.provider::text AS "connectionProvider",
             conversation_record.channel::text AS channel,
             conversation_record.subject,
             conversation_record.status::text AS status,
@@ -134,6 +137,7 @@ export class CommunicationsService {
                     'direction', message_record.direction::text,
                     'actorType', message_record.actor_type::text,
                     'authorUserProfileId', message_record.author_user_profile_id,
+                    'senderAddress', message_record.sender_address,
                     'subject', message_record.subject,
                     'bodyText', message_record.body_text,
                     'status', message_record.status::text,
@@ -163,6 +167,9 @@ export class CommunicationsService {
            AND client_record.organisation_id = conversation_record.organisation_id
           LEFT JOIN public.user_profiles AS assignee
             ON assignee.id = conversation_record.assigned_to_user_id
+          LEFT JOIN public.integration_connections AS connection_record
+            ON connection_record.id = conversation_record.integration_connection_id
+           AND connection_record.organisation_id = conversation_record.organisation_id
           WHERE conversation_record.organisation_id = ${context.organisationId}::uuid
             AND conversation_record.deleted_at IS NULL
           ORDER BY conversation_record.last_message_at DESC NULLS LAST,
@@ -341,11 +348,42 @@ export class CommunicationsService {
         'A portal conversation must be linked to both a client and matter.',
       );
     }
+    if (dto.channel === 'WHATSAPP' && !dto.integrationConnectionId) {
+      throw new BadRequestException(
+        'A WhatsApp conversation requires an active WhatsApp Business connection.',
+      );
+    }
 
     return this.runSafely('conversation.create', async () => {
       const rows = await this.rls.run(
         this.rlsContext(context),
         async (transaction) => {
+          if (dto.integrationConnectionId) {
+            const configured = await transaction.$queryRaw<
+              Array<{ configured: boolean }>
+            >`
+              SELECT EXISTS (
+                SELECT 1
+                FROM public.provider_connection_configs AS config
+                JOIN public.integration_connections AS connection
+                  ON connection.id = config.connection_id
+                 AND connection.organisation_id = config.organisation_id
+                WHERE config.connection_id = ${dto.integrationConnectionId}::uuid
+                  AND config.organisation_id = ${context.organisationId}::uuid
+                  AND config.state IN ('READY','DEGRADED')
+                  AND connection.status = 'ACTIVE'
+                  AND (
+                    (${dto.channel} = 'EMAIL' AND 'EMAIL' = ANY(config.capabilities))
+                    OR (${dto.channel} = 'WHATSAPP' AND 'WHATSAPP' = ANY(config.capabilities))
+                  )
+              ) AS configured
+            `;
+            if (configured[0]?.configured !== true) {
+              throw new BadRequestException(
+                'The selected provider connection is unavailable for this channel.',
+              );
+            }
+          }
           const conversationId = randomUUID();
 
           /*
@@ -355,7 +393,8 @@ export class CommunicationsService {
            */
           await transaction.$executeRaw`
             INSERT INTO public.communication_conversations (
-              id, organisation_id, matter_id, client_id, channel,
+              id, organisation_id, matter_id, client_id,
+              integration_connection_id, channel,
               subject, status, assigned_to_user_id, created_by_user_id,
               created_at, updated_at
             )
@@ -364,6 +403,7 @@ export class CommunicationsService {
               ${context.organisationId}::uuid,
               ${dto.matterId ?? null}::uuid,
               ${dto.clientId ?? null}::uuid,
+              ${dto.integrationConnectionId ?? null}::uuid,
               ${dto.channel}::public.business_communication_channel,
               ${dto.subject},
               'OPEN',
@@ -379,6 +419,7 @@ export class CommunicationsService {
               conversation_record.id,
               conversation_record.matter_id AS "matterId",
               conversation_record.client_id AS "clientId",
+              conversation_record.integration_connection_id AS "integrationConnectionId",
               conversation_record.channel::text AS channel,
               conversation_record.subject,
               conversation_record.status::text AS status,

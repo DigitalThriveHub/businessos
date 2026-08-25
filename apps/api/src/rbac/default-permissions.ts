@@ -121,6 +121,10 @@ export const DEFAULT_PERMISSION_KEYS = [
   'engagements.read',
   'engagements.manage',
   'engagements.override',
+
+  // Governed personal AI workspace. Operational execution remains controlled
+  // by the underlying domain permission and approval system.
+  'ai.workspace.access',
 ] as const;
 
 export type DefaultPermissionKey = (typeof DEFAULT_PERMISSION_KEYS)[number];

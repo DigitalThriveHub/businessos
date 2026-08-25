@@ -83,6 +83,7 @@ export const DEFAULT_ROLES = [
       'command_centre.read',
       'engagements.read',
       'engagements.manage',
+      'ai.workspace.access',
     ],
   },
   {
@@ -150,6 +151,7 @@ export const DEFAULT_ROLES = [
       'command_centre.read',
       'engagements.read',
       'engagements.manage',
+      'ai.workspace.access',
     ],
   },
   {
@@ -199,6 +201,7 @@ export const DEFAULT_ROLES = [
       'command_centre.read',
       'engagements.read',
       'engagements.manage',
+      'ai.workspace.access',
     ],
   },
   {
@@ -232,6 +235,7 @@ export const DEFAULT_ROLES = [
       'communications.read',
       'communications.send',
       'communication_templates.read',
+      'ai.workspace.access',
     ],
   },
   {
@@ -260,6 +264,7 @@ export const DEFAULT_ROLES = [
       'command_centre.read',
       'engagements.read',
       'engagements.manage',
+      'ai.workspace.access',
     ],
   },
   {
@@ -288,6 +293,7 @@ export const DEFAULT_ROLES = [
       'portal_access.read',
       'finance.read',
       'ledger.read',
+      'ai.workspace.access',
     ],
   },
   {
@@ -365,6 +371,7 @@ export const DEFAULT_ROLES = [
       'command_centre.read',
       'engagements.read',
       'engagements.manage',
+      'ai.workspace.access',
     ],
   },
   {
@@ -413,6 +420,7 @@ export const DEFAULT_ROLES = [
       'portal_access.read',
       'portal_updates.publish',
       'engagements.read',
+      'ai.workspace.access',
     ],
   },
 ] as const satisfies readonly DefaultRoleDefinition[];

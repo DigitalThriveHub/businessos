@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 
-import { CommunicationsWorkspace } from "@/components/communications/communications-workspace";
+import { GateLWorkspace } from "@/components/communications/gate-l-workspace";
 import { getAuthenticatedWorkspace } from "@/lib/authenticated-workspace";
 
 export const metadata: Metadata = {
@@ -21,9 +21,11 @@ export default async function CommunicationsPage() {
   if (!permissions.has("communications.read")) redirect("/dashboard");
 
   return (
-    <CommunicationsWorkspace
+    <GateLWorkspace
       organisationId={organisation.organisationId}
       canSend={permissions.has("communications.send")}
+      canManageCommunications={permissions.has("communications.manage")}
+      canManageIntegrations={permissions.has("integrations.manage")}
       canManagePortal={permissions.has("portal_access.manage")}
       canPublishUpdates={permissions.has("portal_updates.publish")}
       canManageTemplates={permissions.has("communication_templates.manage")}

@@ -286,6 +286,12 @@ export type UserProfileWhereInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionListRelationFilter
   agentProfilesCreated?: Prisma.AgentProfileListRelationFilter
   agentProfilesUpdated?: Prisma.AgentProfileListRelationFilter
+  agentConversationsOwned?: Prisma.AgentConversationListRelationFilter
+  agentRunsOwned?: Prisma.AgentRunListRelationFilter
+  agentMessagesOwned?: Prisma.AgentMessageListRelationFilter
+  agentActionsOwned?: Prisma.AgentActionListRelationFilter
+  agentToolCallsOwned?: Prisma.AgentToolCallListRelationFilter
+  agentUsageOwned?: Prisma.AgentUsageListRelationFilter
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentListRelationFilter
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentListRelationFilter
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentListRelationFilter
@@ -372,6 +378,12 @@ export type UserProfileOrderByWithRelationInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionOrderByRelationAggregateInput
   agentProfilesCreated?: Prisma.AgentProfileOrderByRelationAggregateInput
   agentProfilesUpdated?: Prisma.AgentProfileOrderByRelationAggregateInput
+  agentConversationsOwned?: Prisma.AgentConversationOrderByRelationAggregateInput
+  agentRunsOwned?: Prisma.AgentRunOrderByRelationAggregateInput
+  agentMessagesOwned?: Prisma.AgentMessageOrderByRelationAggregateInput
+  agentActionsOwned?: Prisma.AgentActionOrderByRelationAggregateInput
+  agentToolCallsOwned?: Prisma.AgentToolCallOrderByRelationAggregateInput
+  agentUsageOwned?: Prisma.AgentUsageOrderByRelationAggregateInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentOrderByRelationAggregateInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentOrderByRelationAggregateInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentOrderByRelationAggregateInput
@@ -461,6 +473,12 @@ export type UserProfileWhereUniqueInput = Prisma.AtLeast<{
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionListRelationFilter
   agentProfilesCreated?: Prisma.AgentProfileListRelationFilter
   agentProfilesUpdated?: Prisma.AgentProfileListRelationFilter
+  agentConversationsOwned?: Prisma.AgentConversationListRelationFilter
+  agentRunsOwned?: Prisma.AgentRunListRelationFilter
+  agentMessagesOwned?: Prisma.AgentMessageListRelationFilter
+  agentActionsOwned?: Prisma.AgentActionListRelationFilter
+  agentToolCallsOwned?: Prisma.AgentToolCallListRelationFilter
+  agentUsageOwned?: Prisma.AgentUsageListRelationFilter
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentListRelationFilter
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentListRelationFilter
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentListRelationFilter
@@ -589,6 +607,12 @@ export type UserProfileCreateInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
@@ -675,6 +699,12 @@ export type UserProfileUncheckedCreateInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
@@ -761,6 +791,12 @@ export type UserProfileUpdateInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
@@ -847,6 +883,12 @@ export type UserProfileUncheckedUpdateInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
@@ -1389,6 +1431,90 @@ export type UserProfileUpdateOneWithoutAgentProfilesUpdatedNestedInput = {
   delete?: Prisma.UserProfileWhereInput | boolean
   connect?: Prisma.UserProfileWhereUniqueInput
   update?: Prisma.XOR<Prisma.XOR<Prisma.UserProfileUpdateToOneWithWhereWithoutAgentProfilesUpdatedInput, Prisma.UserProfileUpdateWithoutAgentProfilesUpdatedInput>, Prisma.UserProfileUncheckedUpdateWithoutAgentProfilesUpdatedInput>
+}
+
+export type UserProfileCreateNestedOneWithoutAgentConversationsOwnedInput = {
+  create?: Prisma.XOR<Prisma.UserProfileCreateWithoutAgentConversationsOwnedInput, Prisma.UserProfileUncheckedCreateWithoutAgentConversationsOwnedInput>
+  connectOrCreate?: Prisma.UserProfileCreateOrConnectWithoutAgentConversationsOwnedInput
+  connect?: Prisma.UserProfileWhereUniqueInput
+}
+
+export type UserProfileUpdateOneRequiredWithoutAgentConversationsOwnedNestedInput = {
+  create?: Prisma.XOR<Prisma.UserProfileCreateWithoutAgentConversationsOwnedInput, Prisma.UserProfileUncheckedCreateWithoutAgentConversationsOwnedInput>
+  connectOrCreate?: Prisma.UserProfileCreateOrConnectWithoutAgentConversationsOwnedInput
+  upsert?: Prisma.UserProfileUpsertWithoutAgentConversationsOwnedInput
+  connect?: Prisma.UserProfileWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserProfileUpdateToOneWithWhereWithoutAgentConversationsOwnedInput, Prisma.UserProfileUpdateWithoutAgentConversationsOwnedInput>, Prisma.UserProfileUncheckedUpdateWithoutAgentConversationsOwnedInput>
+}
+
+export type UserProfileCreateNestedOneWithoutAgentRunsOwnedInput = {
+  create?: Prisma.XOR<Prisma.UserProfileCreateWithoutAgentRunsOwnedInput, Prisma.UserProfileUncheckedCreateWithoutAgentRunsOwnedInput>
+  connectOrCreate?: Prisma.UserProfileCreateOrConnectWithoutAgentRunsOwnedInput
+  connect?: Prisma.UserProfileWhereUniqueInput
+}
+
+export type UserProfileUpdateOneRequiredWithoutAgentRunsOwnedNestedInput = {
+  create?: Prisma.XOR<Prisma.UserProfileCreateWithoutAgentRunsOwnedInput, Prisma.UserProfileUncheckedCreateWithoutAgentRunsOwnedInput>
+  connectOrCreate?: Prisma.UserProfileCreateOrConnectWithoutAgentRunsOwnedInput
+  upsert?: Prisma.UserProfileUpsertWithoutAgentRunsOwnedInput
+  connect?: Prisma.UserProfileWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserProfileUpdateToOneWithWhereWithoutAgentRunsOwnedInput, Prisma.UserProfileUpdateWithoutAgentRunsOwnedInput>, Prisma.UserProfileUncheckedUpdateWithoutAgentRunsOwnedInput>
+}
+
+export type UserProfileCreateNestedOneWithoutAgentMessagesOwnedInput = {
+  create?: Prisma.XOR<Prisma.UserProfileCreateWithoutAgentMessagesOwnedInput, Prisma.UserProfileUncheckedCreateWithoutAgentMessagesOwnedInput>
+  connectOrCreate?: Prisma.UserProfileCreateOrConnectWithoutAgentMessagesOwnedInput
+  connect?: Prisma.UserProfileWhereUniqueInput
+}
+
+export type UserProfileUpdateOneRequiredWithoutAgentMessagesOwnedNestedInput = {
+  create?: Prisma.XOR<Prisma.UserProfileCreateWithoutAgentMessagesOwnedInput, Prisma.UserProfileUncheckedCreateWithoutAgentMessagesOwnedInput>
+  connectOrCreate?: Prisma.UserProfileCreateOrConnectWithoutAgentMessagesOwnedInput
+  upsert?: Prisma.UserProfileUpsertWithoutAgentMessagesOwnedInput
+  connect?: Prisma.UserProfileWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserProfileUpdateToOneWithWhereWithoutAgentMessagesOwnedInput, Prisma.UserProfileUpdateWithoutAgentMessagesOwnedInput>, Prisma.UserProfileUncheckedUpdateWithoutAgentMessagesOwnedInput>
+}
+
+export type UserProfileCreateNestedOneWithoutAgentActionsOwnedInput = {
+  create?: Prisma.XOR<Prisma.UserProfileCreateWithoutAgentActionsOwnedInput, Prisma.UserProfileUncheckedCreateWithoutAgentActionsOwnedInput>
+  connectOrCreate?: Prisma.UserProfileCreateOrConnectWithoutAgentActionsOwnedInput
+  connect?: Prisma.UserProfileWhereUniqueInput
+}
+
+export type UserProfileUpdateOneRequiredWithoutAgentActionsOwnedNestedInput = {
+  create?: Prisma.XOR<Prisma.UserProfileCreateWithoutAgentActionsOwnedInput, Prisma.UserProfileUncheckedCreateWithoutAgentActionsOwnedInput>
+  connectOrCreate?: Prisma.UserProfileCreateOrConnectWithoutAgentActionsOwnedInput
+  upsert?: Prisma.UserProfileUpsertWithoutAgentActionsOwnedInput
+  connect?: Prisma.UserProfileWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserProfileUpdateToOneWithWhereWithoutAgentActionsOwnedInput, Prisma.UserProfileUpdateWithoutAgentActionsOwnedInput>, Prisma.UserProfileUncheckedUpdateWithoutAgentActionsOwnedInput>
+}
+
+export type UserProfileCreateNestedOneWithoutAgentToolCallsOwnedInput = {
+  create?: Prisma.XOR<Prisma.UserProfileCreateWithoutAgentToolCallsOwnedInput, Prisma.UserProfileUncheckedCreateWithoutAgentToolCallsOwnedInput>
+  connectOrCreate?: Prisma.UserProfileCreateOrConnectWithoutAgentToolCallsOwnedInput
+  connect?: Prisma.UserProfileWhereUniqueInput
+}
+
+export type UserProfileUpdateOneRequiredWithoutAgentToolCallsOwnedNestedInput = {
+  create?: Prisma.XOR<Prisma.UserProfileCreateWithoutAgentToolCallsOwnedInput, Prisma.UserProfileUncheckedCreateWithoutAgentToolCallsOwnedInput>
+  connectOrCreate?: Prisma.UserProfileCreateOrConnectWithoutAgentToolCallsOwnedInput
+  upsert?: Prisma.UserProfileUpsertWithoutAgentToolCallsOwnedInput
+  connect?: Prisma.UserProfileWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserProfileUpdateToOneWithWhereWithoutAgentToolCallsOwnedInput, Prisma.UserProfileUpdateWithoutAgentToolCallsOwnedInput>, Prisma.UserProfileUncheckedUpdateWithoutAgentToolCallsOwnedInput>
+}
+
+export type UserProfileCreateNestedOneWithoutAgentUsageOwnedInput = {
+  create?: Prisma.XOR<Prisma.UserProfileCreateWithoutAgentUsageOwnedInput, Prisma.UserProfileUncheckedCreateWithoutAgentUsageOwnedInput>
+  connectOrCreate?: Prisma.UserProfileCreateOrConnectWithoutAgentUsageOwnedInput
+  connect?: Prisma.UserProfileWhereUniqueInput
+}
+
+export type UserProfileUpdateOneRequiredWithoutAgentUsageOwnedNestedInput = {
+  create?: Prisma.XOR<Prisma.UserProfileCreateWithoutAgentUsageOwnedInput, Prisma.UserProfileUncheckedCreateWithoutAgentUsageOwnedInput>
+  connectOrCreate?: Prisma.UserProfileCreateOrConnectWithoutAgentUsageOwnedInput
+  upsert?: Prisma.UserProfileUpsertWithoutAgentUsageOwnedInput
+  connect?: Prisma.UserProfileWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserProfileUpdateToOneWithWhereWithoutAgentUsageOwnedInput, Prisma.UserProfileUpdateWithoutAgentUsageOwnedInput>, Prisma.UserProfileUncheckedUpdateWithoutAgentUsageOwnedInput>
 }
 
 export type UserProfileCreateNestedOneWithoutWorkforceAssignmentsCreatedInput = {
@@ -2080,6 +2206,12 @@ export type UserProfileCreateWithoutOrganisationMembershipsInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
@@ -2165,6 +2297,12 @@ export type UserProfileUncheckedCreateWithoutOrganisationMembershipsInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
@@ -2266,6 +2404,12 @@ export type UserProfileUpdateWithoutOrganisationMembershipsInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
@@ -2351,6 +2495,12 @@ export type UserProfileUncheckedUpdateWithoutOrganisationMembershipsInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
@@ -2436,6 +2586,12 @@ export type UserProfileCreateWithoutRoleAssignmentsInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
@@ -2521,6 +2677,12 @@ export type UserProfileUncheckedCreateWithoutRoleAssignmentsInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
@@ -2611,6 +2773,12 @@ export type UserProfileCreateWithoutGrantedRoleAssignmentsInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
@@ -2696,6 +2864,12 @@ export type UserProfileUncheckedCreateWithoutGrantedRoleAssignmentsInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
@@ -2786,6 +2960,12 @@ export type UserProfileCreateWithoutRevokedRoleAssignmentsInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
@@ -2871,6 +3051,12 @@ export type UserProfileUncheckedCreateWithoutRevokedRoleAssignmentsInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
@@ -2972,6 +3158,12 @@ export type UserProfileUpdateWithoutRoleAssignmentsInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
@@ -3057,6 +3249,12 @@ export type UserProfileUncheckedUpdateWithoutRoleAssignmentsInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
@@ -3153,6 +3351,12 @@ export type UserProfileUpdateWithoutGrantedRoleAssignmentsInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
@@ -3238,6 +3442,12 @@ export type UserProfileUncheckedUpdateWithoutGrantedRoleAssignmentsInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
@@ -3334,6 +3544,12 @@ export type UserProfileUpdateWithoutRevokedRoleAssignmentsInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
@@ -3419,6 +3635,12 @@ export type UserProfileUncheckedUpdateWithoutRevokedRoleAssignmentsInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
@@ -3504,6 +3726,12 @@ export type UserProfileCreateWithoutInvitationsSentInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
@@ -3589,6 +3817,12 @@ export type UserProfileUncheckedCreateWithoutInvitationsSentInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
@@ -3679,6 +3913,12 @@ export type UserProfileCreateWithoutInvitationsAcceptedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
@@ -3764,6 +4004,12 @@ export type UserProfileUncheckedCreateWithoutInvitationsAcceptedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
@@ -3854,6 +4100,12 @@ export type UserProfileCreateWithoutInvitationsRevokedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
@@ -3939,6 +4191,12 @@ export type UserProfileUncheckedCreateWithoutInvitationsRevokedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
@@ -4040,6 +4298,12 @@ export type UserProfileUpdateWithoutInvitationsSentInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
@@ -4125,6 +4389,12 @@ export type UserProfileUncheckedUpdateWithoutInvitationsSentInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
@@ -4221,6 +4491,12 @@ export type UserProfileUpdateWithoutInvitationsAcceptedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
@@ -4306,6 +4582,12 @@ export type UserProfileUncheckedUpdateWithoutInvitationsAcceptedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
@@ -4402,6 +4684,12 @@ export type UserProfileUpdateWithoutInvitationsRevokedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
@@ -4487,6 +4775,12 @@ export type UserProfileUncheckedUpdateWithoutInvitationsRevokedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
@@ -4572,6 +4866,12 @@ export type UserProfileCreateWithoutUserSessionsInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
@@ -4657,6 +4957,12 @@ export type UserProfileUncheckedCreateWithoutUserSessionsInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
@@ -4747,6 +5053,12 @@ export type UserProfileCreateWithoutRevokedUserSessionsInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
@@ -4832,6 +5144,12 @@ export type UserProfileUncheckedCreateWithoutRevokedUserSessionsInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
@@ -4933,6 +5251,12 @@ export type UserProfileUpdateWithoutUserSessionsInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
@@ -5018,6 +5342,12 @@ export type UserProfileUncheckedUpdateWithoutUserSessionsInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
@@ -5114,6 +5444,12 @@ export type UserProfileUpdateWithoutRevokedUserSessionsInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
@@ -5199,6 +5535,12 @@ export type UserProfileUncheckedUpdateWithoutRevokedUserSessionsInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
@@ -5284,6 +5626,12 @@ export type UserProfileCreateWithoutSupportAccessAsGranteeInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
@@ -5369,6 +5717,12 @@ export type UserProfileUncheckedCreateWithoutSupportAccessAsGranteeInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
@@ -5459,6 +5813,12 @@ export type UserProfileCreateWithoutSupportAccessRequestedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
@@ -5544,6 +5904,12 @@ export type UserProfileUncheckedCreateWithoutSupportAccessRequestedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
@@ -5634,6 +6000,12 @@ export type UserProfileCreateWithoutSupportAccessApprovedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
@@ -5719,6 +6091,12 @@ export type UserProfileUncheckedCreateWithoutSupportAccessApprovedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
@@ -5809,6 +6187,12 @@ export type UserProfileCreateWithoutSupportAccessRevokedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
@@ -5894,6 +6278,12 @@ export type UserProfileUncheckedCreateWithoutSupportAccessRevokedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
@@ -5995,6 +6385,12 @@ export type UserProfileUpdateWithoutSupportAccessAsGranteeInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
@@ -6080,6 +6476,12 @@ export type UserProfileUncheckedUpdateWithoutSupportAccessAsGranteeInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
@@ -6176,6 +6578,12 @@ export type UserProfileUpdateWithoutSupportAccessRequestedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
@@ -6261,6 +6669,12 @@ export type UserProfileUncheckedUpdateWithoutSupportAccessRequestedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
@@ -6357,6 +6771,12 @@ export type UserProfileUpdateWithoutSupportAccessApprovedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
@@ -6442,6 +6862,12 @@ export type UserProfileUncheckedUpdateWithoutSupportAccessApprovedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
@@ -6538,6 +6964,12 @@ export type UserProfileUpdateWithoutSupportAccessRevokedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
@@ -6623,6 +7055,12 @@ export type UserProfileUncheckedUpdateWithoutSupportAccessRevokedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
@@ -6708,6 +7146,12 @@ export type UserProfileCreateWithoutAuditEventsAsActorInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
@@ -6793,6 +7237,12 @@ export type UserProfileUncheckedCreateWithoutAuditEventsAsActorInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
@@ -6883,6 +7333,12 @@ export type UserProfileCreateWithoutAuditEventsAsSubjectInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
@@ -6968,6 +7424,12 @@ export type UserProfileUncheckedCreateWithoutAuditEventsAsSubjectInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
@@ -7069,6 +7531,12 @@ export type UserProfileUpdateWithoutAuditEventsAsActorInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
@@ -7154,6 +7622,12 @@ export type UserProfileUncheckedUpdateWithoutAuditEventsAsActorInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
@@ -7250,6 +7724,12 @@ export type UserProfileUpdateWithoutAuditEventsAsSubjectInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
@@ -7335,6 +7815,12 @@ export type UserProfileUncheckedUpdateWithoutAuditEventsAsSubjectInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
@@ -7420,6 +7906,12 @@ export type UserProfileCreateWithoutSecurityEventsAsActorInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
@@ -7505,6 +7997,12 @@ export type UserProfileUncheckedCreateWithoutSecurityEventsAsActorInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
@@ -7595,6 +8093,12 @@ export type UserProfileCreateWithoutSecurityEventsAsSubjectInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
@@ -7680,6 +8184,12 @@ export type UserProfileUncheckedCreateWithoutSecurityEventsAsSubjectInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
@@ -7770,6 +8280,12 @@ export type UserProfileCreateWithoutSecurityAcknowledgedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
@@ -7855,6 +8371,12 @@ export type UserProfileUncheckedCreateWithoutSecurityAcknowledgedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
@@ -7945,6 +8467,12 @@ export type UserProfileCreateWithoutSecurityResolvedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
@@ -8030,6 +8558,12 @@ export type UserProfileUncheckedCreateWithoutSecurityResolvedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
@@ -8131,6 +8665,12 @@ export type UserProfileUpdateWithoutSecurityEventsAsActorInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
@@ -8216,6 +8756,12 @@ export type UserProfileUncheckedUpdateWithoutSecurityEventsAsActorInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
@@ -8312,6 +8858,12 @@ export type UserProfileUpdateWithoutSecurityEventsAsSubjectInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
@@ -8397,6 +8949,12 @@ export type UserProfileUncheckedUpdateWithoutSecurityEventsAsSubjectInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
@@ -8493,6 +9051,12 @@ export type UserProfileUpdateWithoutSecurityAcknowledgedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
@@ -8578,6 +9142,12 @@ export type UserProfileUncheckedUpdateWithoutSecurityAcknowledgedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
@@ -8674,6 +9244,12 @@ export type UserProfileUpdateWithoutSecurityResolvedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
@@ -8759,6 +9335,12 @@ export type UserProfileUncheckedUpdateWithoutSecurityResolvedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
@@ -8844,6 +9426,12 @@ export type UserProfileCreateWithoutJobProfilesCreatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
@@ -8929,6 +9517,12 @@ export type UserProfileUncheckedCreateWithoutJobProfilesCreatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
@@ -9019,6 +9613,12 @@ export type UserProfileCreateWithoutJobProfilesUpdatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
@@ -9104,6 +9704,12 @@ export type UserProfileUncheckedCreateWithoutJobProfilesUpdatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
@@ -9205,6 +9811,12 @@ export type UserProfileUpdateWithoutJobProfilesCreatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
@@ -9290,6 +9902,12 @@ export type UserProfileUncheckedUpdateWithoutJobProfilesCreatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
@@ -9386,6 +10004,12 @@ export type UserProfileUpdateWithoutJobProfilesUpdatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
@@ -9471,6 +10095,12 @@ export type UserProfileUncheckedUpdateWithoutJobProfilesUpdatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
@@ -9556,6 +10186,12 @@ export type UserProfileCreateWithoutKpiDefinitionsCreatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
@@ -9641,6 +10277,12 @@ export type UserProfileUncheckedCreateWithoutKpiDefinitionsCreatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
@@ -9731,6 +10373,12 @@ export type UserProfileCreateWithoutKpiDefinitionsUpdatedInput = {
   kpiDefinitionsCreated?: Prisma.KpiDefinitionCreateNestedManyWithoutCreatedByInput
   agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
@@ -9816,6 +10464,12 @@ export type UserProfileUncheckedCreateWithoutKpiDefinitionsUpdatedInput = {
   kpiDefinitionsCreated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutCreatedByInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
@@ -9917,6 +10571,12 @@ export type UserProfileUpdateWithoutKpiDefinitionsCreatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
@@ -10002,6 +10662,12 @@ export type UserProfileUncheckedUpdateWithoutKpiDefinitionsCreatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
@@ -10098,6 +10764,12 @@ export type UserProfileUpdateWithoutKpiDefinitionsUpdatedInput = {
   kpiDefinitionsCreated?: Prisma.KpiDefinitionUpdateManyWithoutCreatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
@@ -10183,6 +10855,12 @@ export type UserProfileUncheckedUpdateWithoutKpiDefinitionsUpdatedInput = {
   kpiDefinitionsCreated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutCreatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
@@ -10268,6 +10946,12 @@ export type UserProfileCreateWithoutAgentProfilesCreatedInput = {
   kpiDefinitionsCreated?: Prisma.KpiDefinitionCreateNestedManyWithoutCreatedByInput
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
@@ -10353,6 +11037,12 @@ export type UserProfileUncheckedCreateWithoutAgentProfilesCreatedInput = {
   kpiDefinitionsCreated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutCreatedByInput
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
@@ -10443,6 +11133,12 @@ export type UserProfileCreateWithoutAgentProfilesUpdatedInput = {
   kpiDefinitionsCreated?: Prisma.KpiDefinitionCreateNestedManyWithoutCreatedByInput
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
@@ -10528,6 +11224,12 @@ export type UserProfileUncheckedCreateWithoutAgentProfilesUpdatedInput = {
   kpiDefinitionsCreated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutCreatedByInput
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
@@ -10629,6 +11331,12 @@ export type UserProfileUpdateWithoutAgentProfilesCreatedInput = {
   kpiDefinitionsCreated?: Prisma.KpiDefinitionUpdateManyWithoutCreatedByNestedInput
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
@@ -10714,6 +11422,12 @@ export type UserProfileUncheckedUpdateWithoutAgentProfilesCreatedInput = {
   kpiDefinitionsCreated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutCreatedByNestedInput
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
@@ -10810,6 +11524,12 @@ export type UserProfileUpdateWithoutAgentProfilesUpdatedInput = {
   kpiDefinitionsCreated?: Prisma.KpiDefinitionUpdateManyWithoutCreatedByNestedInput
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
@@ -10895,6 +11615,2292 @@ export type UserProfileUncheckedUpdateWithoutAgentProfilesUpdatedInput = {
   kpiDefinitionsCreated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutCreatedByNestedInput
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
+  workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
+  workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
+  workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
+  workforceAssignmentKpisCreated?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutCreatedByNestedInput
+  invitationOnboardingPlansCreated?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutCreatedByNestedInput
+  assignedClients?: Prisma.ClientUncheckedUpdateManyWithoutAssignedToNestedInput
+  clientsCreated?: Prisma.ClientUncheckedUpdateManyWithoutCreatedByNestedInput
+  clientsUpdated?: Prisma.ClientUncheckedUpdateManyWithoutUpdatedByNestedInput
+  assignedMatters?: Prisma.MatterUncheckedUpdateManyWithoutAssignedToNestedInput
+  supervisedMatters?: Prisma.MatterUncheckedUpdateManyWithoutSupervisorNestedInput
+  mattersCreated?: Prisma.MatterUncheckedUpdateManyWithoutCreatedByNestedInput
+  mattersUpdated?: Prisma.MatterUncheckedUpdateManyWithoutUpdatedByNestedInput
+  matterComplianceCreated?: Prisma.MatterComplianceUncheckedUpdateManyWithoutCreatedByNestedInput
+  matterComplianceUpdated?: Prisma.MatterComplianceUncheckedUpdateManyWithoutUpdatedByNestedInput
+  conflictChecksCompleted?: Prisma.MatterComplianceUncheckedUpdateManyWithoutConflictCheckedByNestedInput
+  amlChecksCompleted?: Prisma.MatterComplianceUncheckedUpdateManyWithoutAmlCheckedByNestedInput
+  riskReviewsCompleted?: Prisma.MatterComplianceUncheckedUpdateManyWithoutRiskReviewedByNestedInput
+  matterStatusChanges?: Prisma.MatterStatusHistoryUncheckedUpdateManyWithoutChangedByNestedInput
+  enquiryConversions?: Prisma.EnquiryConversionUncheckedUpdateManyWithoutConvertedByNestedInput
+  assignedMatterTasks?: Prisma.MatterTaskUncheckedUpdateManyWithoutAssignedToNestedInput
+  completedMatterTasks?: Prisma.MatterTaskUncheckedUpdateManyWithoutCompletedByNestedInput
+  cancelledMatterTasks?: Prisma.MatterTaskUncheckedUpdateManyWithoutCancelledByNestedInput
+  matterTasksCreated?: Prisma.MatterTaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  matterTasksUpdated?: Prisma.MatterTaskUncheckedUpdateManyWithoutUpdatedByNestedInput
+  ownedMatterDeadlines?: Prisma.MatterDeadlineUncheckedUpdateManyWithoutOwnerNestedInput
+  satisfiedMatterDeadlines?: Prisma.MatterDeadlineUncheckedUpdateManyWithoutSatisfiedByNestedInput
+  cancelledMatterDeadlines?: Prisma.MatterDeadlineUncheckedUpdateManyWithoutCancelledByNestedInput
+  matterDeadlinesCreated?: Prisma.MatterDeadlineUncheckedUpdateManyWithoutCreatedByNestedInput
+  matterDeadlinesUpdated?: Prisma.MatterDeadlineUncheckedUpdateManyWithoutUpdatedByNestedInput
+  documentRequestsSent?: Prisma.DocumentRequestUncheckedUpdateManyWithoutSentByNestedInput
+  documentRequestsCancelled?: Prisma.DocumentRequestUncheckedUpdateManyWithoutCancelledByNestedInput
+  documentRequestsCreated?: Prisma.DocumentRequestUncheckedUpdateManyWithoutCreatedByNestedInput
+  documentRequestsUpdated?: Prisma.DocumentRequestUncheckedUpdateManyWithoutUpdatedByNestedInput
+  matterDocumentsCreated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutCreatedByNestedInput
+  matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
+  matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
+  matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
+}
+
+export type UserProfileCreateWithoutAgentConversationsOwnedInput = {
+  id: string
+  email: string
+  displayName?: string | null
+  firstName?: string | null
+  lastName?: string | null
+  avatarPath?: string | null
+  status?: $Enums.UserProfileStatus
+  locale?: string
+  timezone?: string
+  isPlatformUser?: boolean
+  lastSeenAt?: Date | string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  organisationMemberships?: Prisma.OrganisationMembershipCreateNestedManyWithoutUserProfileInput
+  roleAssignments?: Prisma.RoleAssignmentCreateNestedManyWithoutUserProfileInput
+  grantedRoleAssignments?: Prisma.RoleAssignmentCreateNestedManyWithoutGrantedByInput
+  revokedRoleAssignments?: Prisma.RoleAssignmentCreateNestedManyWithoutRevokedByInput
+  invitationsSent?: Prisma.InvitationCreateNestedManyWithoutInvitedByInput
+  invitationsAccepted?: Prisma.InvitationCreateNestedManyWithoutAcceptedByInput
+  invitationsRevoked?: Prisma.InvitationCreateNestedManyWithoutRevokedByInput
+  userSessions?: Prisma.UserSessionCreateNestedManyWithoutUserProfileInput
+  revokedUserSessions?: Prisma.UserSessionCreateNestedManyWithoutRevokedByInput
+  supportAccessAsGrantee?: Prisma.SupportAccessGrantCreateNestedManyWithoutGranteeInput
+  supportAccessRequested?: Prisma.SupportAccessGrantCreateNestedManyWithoutRequestedByInput
+  supportAccessApproved?: Prisma.SupportAccessGrantCreateNestedManyWithoutApprovedByInput
+  supportAccessRevoked?: Prisma.SupportAccessGrantCreateNestedManyWithoutRevokedByInput
+  auditEventsAsActor?: Prisma.AuditEventCreateNestedManyWithoutActorUserInput
+  auditEventsAsSubject?: Prisma.AuditEventCreateNestedManyWithoutSubjectUserInput
+  securityEventsAsActor?: Prisma.SecurityEventCreateNestedManyWithoutActorUserInput
+  securityEventsAsSubject?: Prisma.SecurityEventCreateNestedManyWithoutSubjectUserInput
+  securityAcknowledged?: Prisma.SecurityEventCreateNestedManyWithoutAcknowledgedByInput
+  securityResolved?: Prisma.SecurityEventCreateNestedManyWithoutResolvedByInput
+  assignedEnquiries?: Prisma.EnquiryCreateNestedManyWithoutAssignedToInput
+  createdEnquiries?: Prisma.EnquiryCreateNestedManyWithoutCreatedByInput
+  updatedEnquiries?: Prisma.EnquiryCreateNestedManyWithoutUpdatedByInput
+  jobProfilesCreated?: Prisma.JobProfileCreateNestedManyWithoutCreatedByInput
+  jobProfilesUpdated?: Prisma.JobProfileCreateNestedManyWithoutUpdatedByInput
+  kpiDefinitionsCreated?: Prisma.KpiDefinitionCreateNestedManyWithoutCreatedByInput
+  kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
+  agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
+  agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
+  workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
+  workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
+  workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
+  workforceAssignmentKpisCreated?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutCreatedByInput
+  invitationOnboardingPlansCreated?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutCreatedByInput
+  assignedClients?: Prisma.ClientCreateNestedManyWithoutAssignedToInput
+  clientsCreated?: Prisma.ClientCreateNestedManyWithoutCreatedByInput
+  clientsUpdated?: Prisma.ClientCreateNestedManyWithoutUpdatedByInput
+  assignedMatters?: Prisma.MatterCreateNestedManyWithoutAssignedToInput
+  supervisedMatters?: Prisma.MatterCreateNestedManyWithoutSupervisorInput
+  mattersCreated?: Prisma.MatterCreateNestedManyWithoutCreatedByInput
+  mattersUpdated?: Prisma.MatterCreateNestedManyWithoutUpdatedByInput
+  matterComplianceCreated?: Prisma.MatterComplianceCreateNestedManyWithoutCreatedByInput
+  matterComplianceUpdated?: Prisma.MatterComplianceCreateNestedManyWithoutUpdatedByInput
+  conflictChecksCompleted?: Prisma.MatterComplianceCreateNestedManyWithoutConflictCheckedByInput
+  amlChecksCompleted?: Prisma.MatterComplianceCreateNestedManyWithoutAmlCheckedByInput
+  riskReviewsCompleted?: Prisma.MatterComplianceCreateNestedManyWithoutRiskReviewedByInput
+  matterStatusChanges?: Prisma.MatterStatusHistoryCreateNestedManyWithoutChangedByInput
+  enquiryConversions?: Prisma.EnquiryConversionCreateNestedManyWithoutConvertedByInput
+  assignedMatterTasks?: Prisma.MatterTaskCreateNestedManyWithoutAssignedToInput
+  completedMatterTasks?: Prisma.MatterTaskCreateNestedManyWithoutCompletedByInput
+  cancelledMatterTasks?: Prisma.MatterTaskCreateNestedManyWithoutCancelledByInput
+  matterTasksCreated?: Prisma.MatterTaskCreateNestedManyWithoutCreatedByInput
+  matterTasksUpdated?: Prisma.MatterTaskCreateNestedManyWithoutUpdatedByInput
+  ownedMatterDeadlines?: Prisma.MatterDeadlineCreateNestedManyWithoutOwnerInput
+  satisfiedMatterDeadlines?: Prisma.MatterDeadlineCreateNestedManyWithoutSatisfiedByInput
+  cancelledMatterDeadlines?: Prisma.MatterDeadlineCreateNestedManyWithoutCancelledByInput
+  matterDeadlinesCreated?: Prisma.MatterDeadlineCreateNestedManyWithoutCreatedByInput
+  matterDeadlinesUpdated?: Prisma.MatterDeadlineCreateNestedManyWithoutUpdatedByInput
+  documentRequestsSent?: Prisma.DocumentRequestCreateNestedManyWithoutSentByInput
+  documentRequestsCancelled?: Prisma.DocumentRequestCreateNestedManyWithoutCancelledByInput
+  documentRequestsCreated?: Prisma.DocumentRequestCreateNestedManyWithoutCreatedByInput
+  documentRequestsUpdated?: Prisma.DocumentRequestCreateNestedManyWithoutUpdatedByInput
+  matterDocumentsCreated?: Prisma.MatterDocumentCreateNestedManyWithoutCreatedByInput
+  matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
+  matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
+  matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
+}
+
+export type UserProfileUncheckedCreateWithoutAgentConversationsOwnedInput = {
+  id: string
+  email: string
+  displayName?: string | null
+  firstName?: string | null
+  lastName?: string | null
+  avatarPath?: string | null
+  status?: $Enums.UserProfileStatus
+  locale?: string
+  timezone?: string
+  isPlatformUser?: boolean
+  lastSeenAt?: Date | string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  organisationMemberships?: Prisma.OrganisationMembershipUncheckedCreateNestedManyWithoutUserProfileInput
+  roleAssignments?: Prisma.RoleAssignmentUncheckedCreateNestedManyWithoutUserProfileInput
+  grantedRoleAssignments?: Prisma.RoleAssignmentUncheckedCreateNestedManyWithoutGrantedByInput
+  revokedRoleAssignments?: Prisma.RoleAssignmentUncheckedCreateNestedManyWithoutRevokedByInput
+  invitationsSent?: Prisma.InvitationUncheckedCreateNestedManyWithoutInvitedByInput
+  invitationsAccepted?: Prisma.InvitationUncheckedCreateNestedManyWithoutAcceptedByInput
+  invitationsRevoked?: Prisma.InvitationUncheckedCreateNestedManyWithoutRevokedByInput
+  userSessions?: Prisma.UserSessionUncheckedCreateNestedManyWithoutUserProfileInput
+  revokedUserSessions?: Prisma.UserSessionUncheckedCreateNestedManyWithoutRevokedByInput
+  supportAccessAsGrantee?: Prisma.SupportAccessGrantUncheckedCreateNestedManyWithoutGranteeInput
+  supportAccessRequested?: Prisma.SupportAccessGrantUncheckedCreateNestedManyWithoutRequestedByInput
+  supportAccessApproved?: Prisma.SupportAccessGrantUncheckedCreateNestedManyWithoutApprovedByInput
+  supportAccessRevoked?: Prisma.SupportAccessGrantUncheckedCreateNestedManyWithoutRevokedByInput
+  auditEventsAsActor?: Prisma.AuditEventUncheckedCreateNestedManyWithoutActorUserInput
+  auditEventsAsSubject?: Prisma.AuditEventUncheckedCreateNestedManyWithoutSubjectUserInput
+  securityEventsAsActor?: Prisma.SecurityEventUncheckedCreateNestedManyWithoutActorUserInput
+  securityEventsAsSubject?: Prisma.SecurityEventUncheckedCreateNestedManyWithoutSubjectUserInput
+  securityAcknowledged?: Prisma.SecurityEventUncheckedCreateNestedManyWithoutAcknowledgedByInput
+  securityResolved?: Prisma.SecurityEventUncheckedCreateNestedManyWithoutResolvedByInput
+  assignedEnquiries?: Prisma.EnquiryUncheckedCreateNestedManyWithoutAssignedToInput
+  createdEnquiries?: Prisma.EnquiryUncheckedCreateNestedManyWithoutCreatedByInput
+  updatedEnquiries?: Prisma.EnquiryUncheckedCreateNestedManyWithoutUpdatedByInput
+  jobProfilesCreated?: Prisma.JobProfileUncheckedCreateNestedManyWithoutCreatedByInput
+  jobProfilesUpdated?: Prisma.JobProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  kpiDefinitionsCreated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutCreatedByInput
+  kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
+  agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
+  workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
+  workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
+  workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
+  workforceAssignmentKpisCreated?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutCreatedByInput
+  invitationOnboardingPlansCreated?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutCreatedByInput
+  assignedClients?: Prisma.ClientUncheckedCreateNestedManyWithoutAssignedToInput
+  clientsCreated?: Prisma.ClientUncheckedCreateNestedManyWithoutCreatedByInput
+  clientsUpdated?: Prisma.ClientUncheckedCreateNestedManyWithoutUpdatedByInput
+  assignedMatters?: Prisma.MatterUncheckedCreateNestedManyWithoutAssignedToInput
+  supervisedMatters?: Prisma.MatterUncheckedCreateNestedManyWithoutSupervisorInput
+  mattersCreated?: Prisma.MatterUncheckedCreateNestedManyWithoutCreatedByInput
+  mattersUpdated?: Prisma.MatterUncheckedCreateNestedManyWithoutUpdatedByInput
+  matterComplianceCreated?: Prisma.MatterComplianceUncheckedCreateNestedManyWithoutCreatedByInput
+  matterComplianceUpdated?: Prisma.MatterComplianceUncheckedCreateNestedManyWithoutUpdatedByInput
+  conflictChecksCompleted?: Prisma.MatterComplianceUncheckedCreateNestedManyWithoutConflictCheckedByInput
+  amlChecksCompleted?: Prisma.MatterComplianceUncheckedCreateNestedManyWithoutAmlCheckedByInput
+  riskReviewsCompleted?: Prisma.MatterComplianceUncheckedCreateNestedManyWithoutRiskReviewedByInput
+  matterStatusChanges?: Prisma.MatterStatusHistoryUncheckedCreateNestedManyWithoutChangedByInput
+  enquiryConversions?: Prisma.EnquiryConversionUncheckedCreateNestedManyWithoutConvertedByInput
+  assignedMatterTasks?: Prisma.MatterTaskUncheckedCreateNestedManyWithoutAssignedToInput
+  completedMatterTasks?: Prisma.MatterTaskUncheckedCreateNestedManyWithoutCompletedByInput
+  cancelledMatterTasks?: Prisma.MatterTaskUncheckedCreateNestedManyWithoutCancelledByInput
+  matterTasksCreated?: Prisma.MatterTaskUncheckedCreateNestedManyWithoutCreatedByInput
+  matterTasksUpdated?: Prisma.MatterTaskUncheckedCreateNestedManyWithoutUpdatedByInput
+  ownedMatterDeadlines?: Prisma.MatterDeadlineUncheckedCreateNestedManyWithoutOwnerInput
+  satisfiedMatterDeadlines?: Prisma.MatterDeadlineUncheckedCreateNestedManyWithoutSatisfiedByInput
+  cancelledMatterDeadlines?: Prisma.MatterDeadlineUncheckedCreateNestedManyWithoutCancelledByInput
+  matterDeadlinesCreated?: Prisma.MatterDeadlineUncheckedCreateNestedManyWithoutCreatedByInput
+  matterDeadlinesUpdated?: Prisma.MatterDeadlineUncheckedCreateNestedManyWithoutUpdatedByInput
+  documentRequestsSent?: Prisma.DocumentRequestUncheckedCreateNestedManyWithoutSentByInput
+  documentRequestsCancelled?: Prisma.DocumentRequestUncheckedCreateNestedManyWithoutCancelledByInput
+  documentRequestsCreated?: Prisma.DocumentRequestUncheckedCreateNestedManyWithoutCreatedByInput
+  documentRequestsUpdated?: Prisma.DocumentRequestUncheckedCreateNestedManyWithoutUpdatedByInput
+  matterDocumentsCreated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutCreatedByInput
+  matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
+  matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
+  matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
+}
+
+export type UserProfileCreateOrConnectWithoutAgentConversationsOwnedInput = {
+  where: Prisma.UserProfileWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserProfileCreateWithoutAgentConversationsOwnedInput, Prisma.UserProfileUncheckedCreateWithoutAgentConversationsOwnedInput>
+}
+
+export type UserProfileUpsertWithoutAgentConversationsOwnedInput = {
+  update: Prisma.XOR<Prisma.UserProfileUpdateWithoutAgentConversationsOwnedInput, Prisma.UserProfileUncheckedUpdateWithoutAgentConversationsOwnedInput>
+  create: Prisma.XOR<Prisma.UserProfileCreateWithoutAgentConversationsOwnedInput, Prisma.UserProfileUncheckedCreateWithoutAgentConversationsOwnedInput>
+  where?: Prisma.UserProfileWhereInput
+}
+
+export type UserProfileUpdateToOneWithWhereWithoutAgentConversationsOwnedInput = {
+  where?: Prisma.UserProfileWhereInput
+  data: Prisma.XOR<Prisma.UserProfileUpdateWithoutAgentConversationsOwnedInput, Prisma.UserProfileUncheckedUpdateWithoutAgentConversationsOwnedInput>
+}
+
+export type UserProfileUpdateWithoutAgentConversationsOwnedInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatarPath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumUserProfileStatusFieldUpdateOperationsInput | $Enums.UserProfileStatus
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  isPlatformUser?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  lastSeenAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  organisationMemberships?: Prisma.OrganisationMembershipUpdateManyWithoutUserProfileNestedInput
+  roleAssignments?: Prisma.RoleAssignmentUpdateManyWithoutUserProfileNestedInput
+  grantedRoleAssignments?: Prisma.RoleAssignmentUpdateManyWithoutGrantedByNestedInput
+  revokedRoleAssignments?: Prisma.RoleAssignmentUpdateManyWithoutRevokedByNestedInput
+  invitationsSent?: Prisma.InvitationUpdateManyWithoutInvitedByNestedInput
+  invitationsAccepted?: Prisma.InvitationUpdateManyWithoutAcceptedByNestedInput
+  invitationsRevoked?: Prisma.InvitationUpdateManyWithoutRevokedByNestedInput
+  userSessions?: Prisma.UserSessionUpdateManyWithoutUserProfileNestedInput
+  revokedUserSessions?: Prisma.UserSessionUpdateManyWithoutRevokedByNestedInput
+  supportAccessAsGrantee?: Prisma.SupportAccessGrantUpdateManyWithoutGranteeNestedInput
+  supportAccessRequested?: Prisma.SupportAccessGrantUpdateManyWithoutRequestedByNestedInput
+  supportAccessApproved?: Prisma.SupportAccessGrantUpdateManyWithoutApprovedByNestedInput
+  supportAccessRevoked?: Prisma.SupportAccessGrantUpdateManyWithoutRevokedByNestedInput
+  auditEventsAsActor?: Prisma.AuditEventUpdateManyWithoutActorUserNestedInput
+  auditEventsAsSubject?: Prisma.AuditEventUpdateManyWithoutSubjectUserNestedInput
+  securityEventsAsActor?: Prisma.SecurityEventUpdateManyWithoutActorUserNestedInput
+  securityEventsAsSubject?: Prisma.SecurityEventUpdateManyWithoutSubjectUserNestedInput
+  securityAcknowledged?: Prisma.SecurityEventUpdateManyWithoutAcknowledgedByNestedInput
+  securityResolved?: Prisma.SecurityEventUpdateManyWithoutResolvedByNestedInput
+  assignedEnquiries?: Prisma.EnquiryUpdateManyWithoutAssignedToNestedInput
+  createdEnquiries?: Prisma.EnquiryUpdateManyWithoutCreatedByNestedInput
+  updatedEnquiries?: Prisma.EnquiryUpdateManyWithoutUpdatedByNestedInput
+  jobProfilesCreated?: Prisma.JobProfileUpdateManyWithoutCreatedByNestedInput
+  jobProfilesUpdated?: Prisma.JobProfileUpdateManyWithoutUpdatedByNestedInput
+  kpiDefinitionsCreated?: Prisma.KpiDefinitionUpdateManyWithoutCreatedByNestedInput
+  kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
+  agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
+  agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
+  workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
+  workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
+  workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
+  workforceAssignmentKpisCreated?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutCreatedByNestedInput
+  invitationOnboardingPlansCreated?: Prisma.InvitationOnboardingPlanUpdateManyWithoutCreatedByNestedInput
+  assignedClients?: Prisma.ClientUpdateManyWithoutAssignedToNestedInput
+  clientsCreated?: Prisma.ClientUpdateManyWithoutCreatedByNestedInput
+  clientsUpdated?: Prisma.ClientUpdateManyWithoutUpdatedByNestedInput
+  assignedMatters?: Prisma.MatterUpdateManyWithoutAssignedToNestedInput
+  supervisedMatters?: Prisma.MatterUpdateManyWithoutSupervisorNestedInput
+  mattersCreated?: Prisma.MatterUpdateManyWithoutCreatedByNestedInput
+  mattersUpdated?: Prisma.MatterUpdateManyWithoutUpdatedByNestedInput
+  matterComplianceCreated?: Prisma.MatterComplianceUpdateManyWithoutCreatedByNestedInput
+  matterComplianceUpdated?: Prisma.MatterComplianceUpdateManyWithoutUpdatedByNestedInput
+  conflictChecksCompleted?: Prisma.MatterComplianceUpdateManyWithoutConflictCheckedByNestedInput
+  amlChecksCompleted?: Prisma.MatterComplianceUpdateManyWithoutAmlCheckedByNestedInput
+  riskReviewsCompleted?: Prisma.MatterComplianceUpdateManyWithoutRiskReviewedByNestedInput
+  matterStatusChanges?: Prisma.MatterStatusHistoryUpdateManyWithoutChangedByNestedInput
+  enquiryConversions?: Prisma.EnquiryConversionUpdateManyWithoutConvertedByNestedInput
+  assignedMatterTasks?: Prisma.MatterTaskUpdateManyWithoutAssignedToNestedInput
+  completedMatterTasks?: Prisma.MatterTaskUpdateManyWithoutCompletedByNestedInput
+  cancelledMatterTasks?: Prisma.MatterTaskUpdateManyWithoutCancelledByNestedInput
+  matterTasksCreated?: Prisma.MatterTaskUpdateManyWithoutCreatedByNestedInput
+  matterTasksUpdated?: Prisma.MatterTaskUpdateManyWithoutUpdatedByNestedInput
+  ownedMatterDeadlines?: Prisma.MatterDeadlineUpdateManyWithoutOwnerNestedInput
+  satisfiedMatterDeadlines?: Prisma.MatterDeadlineUpdateManyWithoutSatisfiedByNestedInput
+  cancelledMatterDeadlines?: Prisma.MatterDeadlineUpdateManyWithoutCancelledByNestedInput
+  matterDeadlinesCreated?: Prisma.MatterDeadlineUpdateManyWithoutCreatedByNestedInput
+  matterDeadlinesUpdated?: Prisma.MatterDeadlineUpdateManyWithoutUpdatedByNestedInput
+  documentRequestsSent?: Prisma.DocumentRequestUpdateManyWithoutSentByNestedInput
+  documentRequestsCancelled?: Prisma.DocumentRequestUpdateManyWithoutCancelledByNestedInput
+  documentRequestsCreated?: Prisma.DocumentRequestUpdateManyWithoutCreatedByNestedInput
+  documentRequestsUpdated?: Prisma.DocumentRequestUpdateManyWithoutUpdatedByNestedInput
+  matterDocumentsCreated?: Prisma.MatterDocumentUpdateManyWithoutCreatedByNestedInput
+  matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
+  matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
+  matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
+}
+
+export type UserProfileUncheckedUpdateWithoutAgentConversationsOwnedInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatarPath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumUserProfileStatusFieldUpdateOperationsInput | $Enums.UserProfileStatus
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  isPlatformUser?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  lastSeenAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  organisationMemberships?: Prisma.OrganisationMembershipUncheckedUpdateManyWithoutUserProfileNestedInput
+  roleAssignments?: Prisma.RoleAssignmentUncheckedUpdateManyWithoutUserProfileNestedInput
+  grantedRoleAssignments?: Prisma.RoleAssignmentUncheckedUpdateManyWithoutGrantedByNestedInput
+  revokedRoleAssignments?: Prisma.RoleAssignmentUncheckedUpdateManyWithoutRevokedByNestedInput
+  invitationsSent?: Prisma.InvitationUncheckedUpdateManyWithoutInvitedByNestedInput
+  invitationsAccepted?: Prisma.InvitationUncheckedUpdateManyWithoutAcceptedByNestedInput
+  invitationsRevoked?: Prisma.InvitationUncheckedUpdateManyWithoutRevokedByNestedInput
+  userSessions?: Prisma.UserSessionUncheckedUpdateManyWithoutUserProfileNestedInput
+  revokedUserSessions?: Prisma.UserSessionUncheckedUpdateManyWithoutRevokedByNestedInput
+  supportAccessAsGrantee?: Prisma.SupportAccessGrantUncheckedUpdateManyWithoutGranteeNestedInput
+  supportAccessRequested?: Prisma.SupportAccessGrantUncheckedUpdateManyWithoutRequestedByNestedInput
+  supportAccessApproved?: Prisma.SupportAccessGrantUncheckedUpdateManyWithoutApprovedByNestedInput
+  supportAccessRevoked?: Prisma.SupportAccessGrantUncheckedUpdateManyWithoutRevokedByNestedInput
+  auditEventsAsActor?: Prisma.AuditEventUncheckedUpdateManyWithoutActorUserNestedInput
+  auditEventsAsSubject?: Prisma.AuditEventUncheckedUpdateManyWithoutSubjectUserNestedInput
+  securityEventsAsActor?: Prisma.SecurityEventUncheckedUpdateManyWithoutActorUserNestedInput
+  securityEventsAsSubject?: Prisma.SecurityEventUncheckedUpdateManyWithoutSubjectUserNestedInput
+  securityAcknowledged?: Prisma.SecurityEventUncheckedUpdateManyWithoutAcknowledgedByNestedInput
+  securityResolved?: Prisma.SecurityEventUncheckedUpdateManyWithoutResolvedByNestedInput
+  assignedEnquiries?: Prisma.EnquiryUncheckedUpdateManyWithoutAssignedToNestedInput
+  createdEnquiries?: Prisma.EnquiryUncheckedUpdateManyWithoutCreatedByNestedInput
+  updatedEnquiries?: Prisma.EnquiryUncheckedUpdateManyWithoutUpdatedByNestedInput
+  jobProfilesCreated?: Prisma.JobProfileUncheckedUpdateManyWithoutCreatedByNestedInput
+  jobProfilesUpdated?: Prisma.JobProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  kpiDefinitionsCreated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutCreatedByNestedInput
+  kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
+  agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
+  workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
+  workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
+  workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
+  workforceAssignmentKpisCreated?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutCreatedByNestedInput
+  invitationOnboardingPlansCreated?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutCreatedByNestedInput
+  assignedClients?: Prisma.ClientUncheckedUpdateManyWithoutAssignedToNestedInput
+  clientsCreated?: Prisma.ClientUncheckedUpdateManyWithoutCreatedByNestedInput
+  clientsUpdated?: Prisma.ClientUncheckedUpdateManyWithoutUpdatedByNestedInput
+  assignedMatters?: Prisma.MatterUncheckedUpdateManyWithoutAssignedToNestedInput
+  supervisedMatters?: Prisma.MatterUncheckedUpdateManyWithoutSupervisorNestedInput
+  mattersCreated?: Prisma.MatterUncheckedUpdateManyWithoutCreatedByNestedInput
+  mattersUpdated?: Prisma.MatterUncheckedUpdateManyWithoutUpdatedByNestedInput
+  matterComplianceCreated?: Prisma.MatterComplianceUncheckedUpdateManyWithoutCreatedByNestedInput
+  matterComplianceUpdated?: Prisma.MatterComplianceUncheckedUpdateManyWithoutUpdatedByNestedInput
+  conflictChecksCompleted?: Prisma.MatterComplianceUncheckedUpdateManyWithoutConflictCheckedByNestedInput
+  amlChecksCompleted?: Prisma.MatterComplianceUncheckedUpdateManyWithoutAmlCheckedByNestedInput
+  riskReviewsCompleted?: Prisma.MatterComplianceUncheckedUpdateManyWithoutRiskReviewedByNestedInput
+  matterStatusChanges?: Prisma.MatterStatusHistoryUncheckedUpdateManyWithoutChangedByNestedInput
+  enquiryConversions?: Prisma.EnquiryConversionUncheckedUpdateManyWithoutConvertedByNestedInput
+  assignedMatterTasks?: Prisma.MatterTaskUncheckedUpdateManyWithoutAssignedToNestedInput
+  completedMatterTasks?: Prisma.MatterTaskUncheckedUpdateManyWithoutCompletedByNestedInput
+  cancelledMatterTasks?: Prisma.MatterTaskUncheckedUpdateManyWithoutCancelledByNestedInput
+  matterTasksCreated?: Prisma.MatterTaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  matterTasksUpdated?: Prisma.MatterTaskUncheckedUpdateManyWithoutUpdatedByNestedInput
+  ownedMatterDeadlines?: Prisma.MatterDeadlineUncheckedUpdateManyWithoutOwnerNestedInput
+  satisfiedMatterDeadlines?: Prisma.MatterDeadlineUncheckedUpdateManyWithoutSatisfiedByNestedInput
+  cancelledMatterDeadlines?: Prisma.MatterDeadlineUncheckedUpdateManyWithoutCancelledByNestedInput
+  matterDeadlinesCreated?: Prisma.MatterDeadlineUncheckedUpdateManyWithoutCreatedByNestedInput
+  matterDeadlinesUpdated?: Prisma.MatterDeadlineUncheckedUpdateManyWithoutUpdatedByNestedInput
+  documentRequestsSent?: Prisma.DocumentRequestUncheckedUpdateManyWithoutSentByNestedInput
+  documentRequestsCancelled?: Prisma.DocumentRequestUncheckedUpdateManyWithoutCancelledByNestedInput
+  documentRequestsCreated?: Prisma.DocumentRequestUncheckedUpdateManyWithoutCreatedByNestedInput
+  documentRequestsUpdated?: Prisma.DocumentRequestUncheckedUpdateManyWithoutUpdatedByNestedInput
+  matterDocumentsCreated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutCreatedByNestedInput
+  matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
+  matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
+  matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
+}
+
+export type UserProfileCreateWithoutAgentRunsOwnedInput = {
+  id: string
+  email: string
+  displayName?: string | null
+  firstName?: string | null
+  lastName?: string | null
+  avatarPath?: string | null
+  status?: $Enums.UserProfileStatus
+  locale?: string
+  timezone?: string
+  isPlatformUser?: boolean
+  lastSeenAt?: Date | string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  organisationMemberships?: Prisma.OrganisationMembershipCreateNestedManyWithoutUserProfileInput
+  roleAssignments?: Prisma.RoleAssignmentCreateNestedManyWithoutUserProfileInput
+  grantedRoleAssignments?: Prisma.RoleAssignmentCreateNestedManyWithoutGrantedByInput
+  revokedRoleAssignments?: Prisma.RoleAssignmentCreateNestedManyWithoutRevokedByInput
+  invitationsSent?: Prisma.InvitationCreateNestedManyWithoutInvitedByInput
+  invitationsAccepted?: Prisma.InvitationCreateNestedManyWithoutAcceptedByInput
+  invitationsRevoked?: Prisma.InvitationCreateNestedManyWithoutRevokedByInput
+  userSessions?: Prisma.UserSessionCreateNestedManyWithoutUserProfileInput
+  revokedUserSessions?: Prisma.UserSessionCreateNestedManyWithoutRevokedByInput
+  supportAccessAsGrantee?: Prisma.SupportAccessGrantCreateNestedManyWithoutGranteeInput
+  supportAccessRequested?: Prisma.SupportAccessGrantCreateNestedManyWithoutRequestedByInput
+  supportAccessApproved?: Prisma.SupportAccessGrantCreateNestedManyWithoutApprovedByInput
+  supportAccessRevoked?: Prisma.SupportAccessGrantCreateNestedManyWithoutRevokedByInput
+  auditEventsAsActor?: Prisma.AuditEventCreateNestedManyWithoutActorUserInput
+  auditEventsAsSubject?: Prisma.AuditEventCreateNestedManyWithoutSubjectUserInput
+  securityEventsAsActor?: Prisma.SecurityEventCreateNestedManyWithoutActorUserInput
+  securityEventsAsSubject?: Prisma.SecurityEventCreateNestedManyWithoutSubjectUserInput
+  securityAcknowledged?: Prisma.SecurityEventCreateNestedManyWithoutAcknowledgedByInput
+  securityResolved?: Prisma.SecurityEventCreateNestedManyWithoutResolvedByInput
+  assignedEnquiries?: Prisma.EnquiryCreateNestedManyWithoutAssignedToInput
+  createdEnquiries?: Prisma.EnquiryCreateNestedManyWithoutCreatedByInput
+  updatedEnquiries?: Prisma.EnquiryCreateNestedManyWithoutUpdatedByInput
+  jobProfilesCreated?: Prisma.JobProfileCreateNestedManyWithoutCreatedByInput
+  jobProfilesUpdated?: Prisma.JobProfileCreateNestedManyWithoutUpdatedByInput
+  kpiDefinitionsCreated?: Prisma.KpiDefinitionCreateNestedManyWithoutCreatedByInput
+  kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
+  agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
+  agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
+  workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
+  workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
+  workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
+  workforceAssignmentKpisCreated?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutCreatedByInput
+  invitationOnboardingPlansCreated?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutCreatedByInput
+  assignedClients?: Prisma.ClientCreateNestedManyWithoutAssignedToInput
+  clientsCreated?: Prisma.ClientCreateNestedManyWithoutCreatedByInput
+  clientsUpdated?: Prisma.ClientCreateNestedManyWithoutUpdatedByInput
+  assignedMatters?: Prisma.MatterCreateNestedManyWithoutAssignedToInput
+  supervisedMatters?: Prisma.MatterCreateNestedManyWithoutSupervisorInput
+  mattersCreated?: Prisma.MatterCreateNestedManyWithoutCreatedByInput
+  mattersUpdated?: Prisma.MatterCreateNestedManyWithoutUpdatedByInput
+  matterComplianceCreated?: Prisma.MatterComplianceCreateNestedManyWithoutCreatedByInput
+  matterComplianceUpdated?: Prisma.MatterComplianceCreateNestedManyWithoutUpdatedByInput
+  conflictChecksCompleted?: Prisma.MatterComplianceCreateNestedManyWithoutConflictCheckedByInput
+  amlChecksCompleted?: Prisma.MatterComplianceCreateNestedManyWithoutAmlCheckedByInput
+  riskReviewsCompleted?: Prisma.MatterComplianceCreateNestedManyWithoutRiskReviewedByInput
+  matterStatusChanges?: Prisma.MatterStatusHistoryCreateNestedManyWithoutChangedByInput
+  enquiryConversions?: Prisma.EnquiryConversionCreateNestedManyWithoutConvertedByInput
+  assignedMatterTasks?: Prisma.MatterTaskCreateNestedManyWithoutAssignedToInput
+  completedMatterTasks?: Prisma.MatterTaskCreateNestedManyWithoutCompletedByInput
+  cancelledMatterTasks?: Prisma.MatterTaskCreateNestedManyWithoutCancelledByInput
+  matterTasksCreated?: Prisma.MatterTaskCreateNestedManyWithoutCreatedByInput
+  matterTasksUpdated?: Prisma.MatterTaskCreateNestedManyWithoutUpdatedByInput
+  ownedMatterDeadlines?: Prisma.MatterDeadlineCreateNestedManyWithoutOwnerInput
+  satisfiedMatterDeadlines?: Prisma.MatterDeadlineCreateNestedManyWithoutSatisfiedByInput
+  cancelledMatterDeadlines?: Prisma.MatterDeadlineCreateNestedManyWithoutCancelledByInput
+  matterDeadlinesCreated?: Prisma.MatterDeadlineCreateNestedManyWithoutCreatedByInput
+  matterDeadlinesUpdated?: Prisma.MatterDeadlineCreateNestedManyWithoutUpdatedByInput
+  documentRequestsSent?: Prisma.DocumentRequestCreateNestedManyWithoutSentByInput
+  documentRequestsCancelled?: Prisma.DocumentRequestCreateNestedManyWithoutCancelledByInput
+  documentRequestsCreated?: Prisma.DocumentRequestCreateNestedManyWithoutCreatedByInput
+  documentRequestsUpdated?: Prisma.DocumentRequestCreateNestedManyWithoutUpdatedByInput
+  matterDocumentsCreated?: Prisma.MatterDocumentCreateNestedManyWithoutCreatedByInput
+  matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
+  matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
+  matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
+}
+
+export type UserProfileUncheckedCreateWithoutAgentRunsOwnedInput = {
+  id: string
+  email: string
+  displayName?: string | null
+  firstName?: string | null
+  lastName?: string | null
+  avatarPath?: string | null
+  status?: $Enums.UserProfileStatus
+  locale?: string
+  timezone?: string
+  isPlatformUser?: boolean
+  lastSeenAt?: Date | string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  organisationMemberships?: Prisma.OrganisationMembershipUncheckedCreateNestedManyWithoutUserProfileInput
+  roleAssignments?: Prisma.RoleAssignmentUncheckedCreateNestedManyWithoutUserProfileInput
+  grantedRoleAssignments?: Prisma.RoleAssignmentUncheckedCreateNestedManyWithoutGrantedByInput
+  revokedRoleAssignments?: Prisma.RoleAssignmentUncheckedCreateNestedManyWithoutRevokedByInput
+  invitationsSent?: Prisma.InvitationUncheckedCreateNestedManyWithoutInvitedByInput
+  invitationsAccepted?: Prisma.InvitationUncheckedCreateNestedManyWithoutAcceptedByInput
+  invitationsRevoked?: Prisma.InvitationUncheckedCreateNestedManyWithoutRevokedByInput
+  userSessions?: Prisma.UserSessionUncheckedCreateNestedManyWithoutUserProfileInput
+  revokedUserSessions?: Prisma.UserSessionUncheckedCreateNestedManyWithoutRevokedByInput
+  supportAccessAsGrantee?: Prisma.SupportAccessGrantUncheckedCreateNestedManyWithoutGranteeInput
+  supportAccessRequested?: Prisma.SupportAccessGrantUncheckedCreateNestedManyWithoutRequestedByInput
+  supportAccessApproved?: Prisma.SupportAccessGrantUncheckedCreateNestedManyWithoutApprovedByInput
+  supportAccessRevoked?: Prisma.SupportAccessGrantUncheckedCreateNestedManyWithoutRevokedByInput
+  auditEventsAsActor?: Prisma.AuditEventUncheckedCreateNestedManyWithoutActorUserInput
+  auditEventsAsSubject?: Prisma.AuditEventUncheckedCreateNestedManyWithoutSubjectUserInput
+  securityEventsAsActor?: Prisma.SecurityEventUncheckedCreateNestedManyWithoutActorUserInput
+  securityEventsAsSubject?: Prisma.SecurityEventUncheckedCreateNestedManyWithoutSubjectUserInput
+  securityAcknowledged?: Prisma.SecurityEventUncheckedCreateNestedManyWithoutAcknowledgedByInput
+  securityResolved?: Prisma.SecurityEventUncheckedCreateNestedManyWithoutResolvedByInput
+  assignedEnquiries?: Prisma.EnquiryUncheckedCreateNestedManyWithoutAssignedToInput
+  createdEnquiries?: Prisma.EnquiryUncheckedCreateNestedManyWithoutCreatedByInput
+  updatedEnquiries?: Prisma.EnquiryUncheckedCreateNestedManyWithoutUpdatedByInput
+  jobProfilesCreated?: Prisma.JobProfileUncheckedCreateNestedManyWithoutCreatedByInput
+  jobProfilesUpdated?: Prisma.JobProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  kpiDefinitionsCreated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutCreatedByInput
+  kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
+  agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
+  workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
+  workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
+  workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
+  workforceAssignmentKpisCreated?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutCreatedByInput
+  invitationOnboardingPlansCreated?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutCreatedByInput
+  assignedClients?: Prisma.ClientUncheckedCreateNestedManyWithoutAssignedToInput
+  clientsCreated?: Prisma.ClientUncheckedCreateNestedManyWithoutCreatedByInput
+  clientsUpdated?: Prisma.ClientUncheckedCreateNestedManyWithoutUpdatedByInput
+  assignedMatters?: Prisma.MatterUncheckedCreateNestedManyWithoutAssignedToInput
+  supervisedMatters?: Prisma.MatterUncheckedCreateNestedManyWithoutSupervisorInput
+  mattersCreated?: Prisma.MatterUncheckedCreateNestedManyWithoutCreatedByInput
+  mattersUpdated?: Prisma.MatterUncheckedCreateNestedManyWithoutUpdatedByInput
+  matterComplianceCreated?: Prisma.MatterComplianceUncheckedCreateNestedManyWithoutCreatedByInput
+  matterComplianceUpdated?: Prisma.MatterComplianceUncheckedCreateNestedManyWithoutUpdatedByInput
+  conflictChecksCompleted?: Prisma.MatterComplianceUncheckedCreateNestedManyWithoutConflictCheckedByInput
+  amlChecksCompleted?: Prisma.MatterComplianceUncheckedCreateNestedManyWithoutAmlCheckedByInput
+  riskReviewsCompleted?: Prisma.MatterComplianceUncheckedCreateNestedManyWithoutRiskReviewedByInput
+  matterStatusChanges?: Prisma.MatterStatusHistoryUncheckedCreateNestedManyWithoutChangedByInput
+  enquiryConversions?: Prisma.EnquiryConversionUncheckedCreateNestedManyWithoutConvertedByInput
+  assignedMatterTasks?: Prisma.MatterTaskUncheckedCreateNestedManyWithoutAssignedToInput
+  completedMatterTasks?: Prisma.MatterTaskUncheckedCreateNestedManyWithoutCompletedByInput
+  cancelledMatterTasks?: Prisma.MatterTaskUncheckedCreateNestedManyWithoutCancelledByInput
+  matterTasksCreated?: Prisma.MatterTaskUncheckedCreateNestedManyWithoutCreatedByInput
+  matterTasksUpdated?: Prisma.MatterTaskUncheckedCreateNestedManyWithoutUpdatedByInput
+  ownedMatterDeadlines?: Prisma.MatterDeadlineUncheckedCreateNestedManyWithoutOwnerInput
+  satisfiedMatterDeadlines?: Prisma.MatterDeadlineUncheckedCreateNestedManyWithoutSatisfiedByInput
+  cancelledMatterDeadlines?: Prisma.MatterDeadlineUncheckedCreateNestedManyWithoutCancelledByInput
+  matterDeadlinesCreated?: Prisma.MatterDeadlineUncheckedCreateNestedManyWithoutCreatedByInput
+  matterDeadlinesUpdated?: Prisma.MatterDeadlineUncheckedCreateNestedManyWithoutUpdatedByInput
+  documentRequestsSent?: Prisma.DocumentRequestUncheckedCreateNestedManyWithoutSentByInput
+  documentRequestsCancelled?: Prisma.DocumentRequestUncheckedCreateNestedManyWithoutCancelledByInput
+  documentRequestsCreated?: Prisma.DocumentRequestUncheckedCreateNestedManyWithoutCreatedByInput
+  documentRequestsUpdated?: Prisma.DocumentRequestUncheckedCreateNestedManyWithoutUpdatedByInput
+  matterDocumentsCreated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutCreatedByInput
+  matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
+  matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
+  matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
+}
+
+export type UserProfileCreateOrConnectWithoutAgentRunsOwnedInput = {
+  where: Prisma.UserProfileWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserProfileCreateWithoutAgentRunsOwnedInput, Prisma.UserProfileUncheckedCreateWithoutAgentRunsOwnedInput>
+}
+
+export type UserProfileUpsertWithoutAgentRunsOwnedInput = {
+  update: Prisma.XOR<Prisma.UserProfileUpdateWithoutAgentRunsOwnedInput, Prisma.UserProfileUncheckedUpdateWithoutAgentRunsOwnedInput>
+  create: Prisma.XOR<Prisma.UserProfileCreateWithoutAgentRunsOwnedInput, Prisma.UserProfileUncheckedCreateWithoutAgentRunsOwnedInput>
+  where?: Prisma.UserProfileWhereInput
+}
+
+export type UserProfileUpdateToOneWithWhereWithoutAgentRunsOwnedInput = {
+  where?: Prisma.UserProfileWhereInput
+  data: Prisma.XOR<Prisma.UserProfileUpdateWithoutAgentRunsOwnedInput, Prisma.UserProfileUncheckedUpdateWithoutAgentRunsOwnedInput>
+}
+
+export type UserProfileUpdateWithoutAgentRunsOwnedInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatarPath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumUserProfileStatusFieldUpdateOperationsInput | $Enums.UserProfileStatus
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  isPlatformUser?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  lastSeenAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  organisationMemberships?: Prisma.OrganisationMembershipUpdateManyWithoutUserProfileNestedInput
+  roleAssignments?: Prisma.RoleAssignmentUpdateManyWithoutUserProfileNestedInput
+  grantedRoleAssignments?: Prisma.RoleAssignmentUpdateManyWithoutGrantedByNestedInput
+  revokedRoleAssignments?: Prisma.RoleAssignmentUpdateManyWithoutRevokedByNestedInput
+  invitationsSent?: Prisma.InvitationUpdateManyWithoutInvitedByNestedInput
+  invitationsAccepted?: Prisma.InvitationUpdateManyWithoutAcceptedByNestedInput
+  invitationsRevoked?: Prisma.InvitationUpdateManyWithoutRevokedByNestedInput
+  userSessions?: Prisma.UserSessionUpdateManyWithoutUserProfileNestedInput
+  revokedUserSessions?: Prisma.UserSessionUpdateManyWithoutRevokedByNestedInput
+  supportAccessAsGrantee?: Prisma.SupportAccessGrantUpdateManyWithoutGranteeNestedInput
+  supportAccessRequested?: Prisma.SupportAccessGrantUpdateManyWithoutRequestedByNestedInput
+  supportAccessApproved?: Prisma.SupportAccessGrantUpdateManyWithoutApprovedByNestedInput
+  supportAccessRevoked?: Prisma.SupportAccessGrantUpdateManyWithoutRevokedByNestedInput
+  auditEventsAsActor?: Prisma.AuditEventUpdateManyWithoutActorUserNestedInput
+  auditEventsAsSubject?: Prisma.AuditEventUpdateManyWithoutSubjectUserNestedInput
+  securityEventsAsActor?: Prisma.SecurityEventUpdateManyWithoutActorUserNestedInput
+  securityEventsAsSubject?: Prisma.SecurityEventUpdateManyWithoutSubjectUserNestedInput
+  securityAcknowledged?: Prisma.SecurityEventUpdateManyWithoutAcknowledgedByNestedInput
+  securityResolved?: Prisma.SecurityEventUpdateManyWithoutResolvedByNestedInput
+  assignedEnquiries?: Prisma.EnquiryUpdateManyWithoutAssignedToNestedInput
+  createdEnquiries?: Prisma.EnquiryUpdateManyWithoutCreatedByNestedInput
+  updatedEnquiries?: Prisma.EnquiryUpdateManyWithoutUpdatedByNestedInput
+  jobProfilesCreated?: Prisma.JobProfileUpdateManyWithoutCreatedByNestedInput
+  jobProfilesUpdated?: Prisma.JobProfileUpdateManyWithoutUpdatedByNestedInput
+  kpiDefinitionsCreated?: Prisma.KpiDefinitionUpdateManyWithoutCreatedByNestedInput
+  kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
+  agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
+  agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
+  workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
+  workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
+  workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
+  workforceAssignmentKpisCreated?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutCreatedByNestedInput
+  invitationOnboardingPlansCreated?: Prisma.InvitationOnboardingPlanUpdateManyWithoutCreatedByNestedInput
+  assignedClients?: Prisma.ClientUpdateManyWithoutAssignedToNestedInput
+  clientsCreated?: Prisma.ClientUpdateManyWithoutCreatedByNestedInput
+  clientsUpdated?: Prisma.ClientUpdateManyWithoutUpdatedByNestedInput
+  assignedMatters?: Prisma.MatterUpdateManyWithoutAssignedToNestedInput
+  supervisedMatters?: Prisma.MatterUpdateManyWithoutSupervisorNestedInput
+  mattersCreated?: Prisma.MatterUpdateManyWithoutCreatedByNestedInput
+  mattersUpdated?: Prisma.MatterUpdateManyWithoutUpdatedByNestedInput
+  matterComplianceCreated?: Prisma.MatterComplianceUpdateManyWithoutCreatedByNestedInput
+  matterComplianceUpdated?: Prisma.MatterComplianceUpdateManyWithoutUpdatedByNestedInput
+  conflictChecksCompleted?: Prisma.MatterComplianceUpdateManyWithoutConflictCheckedByNestedInput
+  amlChecksCompleted?: Prisma.MatterComplianceUpdateManyWithoutAmlCheckedByNestedInput
+  riskReviewsCompleted?: Prisma.MatterComplianceUpdateManyWithoutRiskReviewedByNestedInput
+  matterStatusChanges?: Prisma.MatterStatusHistoryUpdateManyWithoutChangedByNestedInput
+  enquiryConversions?: Prisma.EnquiryConversionUpdateManyWithoutConvertedByNestedInput
+  assignedMatterTasks?: Prisma.MatterTaskUpdateManyWithoutAssignedToNestedInput
+  completedMatterTasks?: Prisma.MatterTaskUpdateManyWithoutCompletedByNestedInput
+  cancelledMatterTasks?: Prisma.MatterTaskUpdateManyWithoutCancelledByNestedInput
+  matterTasksCreated?: Prisma.MatterTaskUpdateManyWithoutCreatedByNestedInput
+  matterTasksUpdated?: Prisma.MatterTaskUpdateManyWithoutUpdatedByNestedInput
+  ownedMatterDeadlines?: Prisma.MatterDeadlineUpdateManyWithoutOwnerNestedInput
+  satisfiedMatterDeadlines?: Prisma.MatterDeadlineUpdateManyWithoutSatisfiedByNestedInput
+  cancelledMatterDeadlines?: Prisma.MatterDeadlineUpdateManyWithoutCancelledByNestedInput
+  matterDeadlinesCreated?: Prisma.MatterDeadlineUpdateManyWithoutCreatedByNestedInput
+  matterDeadlinesUpdated?: Prisma.MatterDeadlineUpdateManyWithoutUpdatedByNestedInput
+  documentRequestsSent?: Prisma.DocumentRequestUpdateManyWithoutSentByNestedInput
+  documentRequestsCancelled?: Prisma.DocumentRequestUpdateManyWithoutCancelledByNestedInput
+  documentRequestsCreated?: Prisma.DocumentRequestUpdateManyWithoutCreatedByNestedInput
+  documentRequestsUpdated?: Prisma.DocumentRequestUpdateManyWithoutUpdatedByNestedInput
+  matterDocumentsCreated?: Prisma.MatterDocumentUpdateManyWithoutCreatedByNestedInput
+  matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
+  matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
+  matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
+}
+
+export type UserProfileUncheckedUpdateWithoutAgentRunsOwnedInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatarPath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumUserProfileStatusFieldUpdateOperationsInput | $Enums.UserProfileStatus
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  isPlatformUser?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  lastSeenAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  organisationMemberships?: Prisma.OrganisationMembershipUncheckedUpdateManyWithoutUserProfileNestedInput
+  roleAssignments?: Prisma.RoleAssignmentUncheckedUpdateManyWithoutUserProfileNestedInput
+  grantedRoleAssignments?: Prisma.RoleAssignmentUncheckedUpdateManyWithoutGrantedByNestedInput
+  revokedRoleAssignments?: Prisma.RoleAssignmentUncheckedUpdateManyWithoutRevokedByNestedInput
+  invitationsSent?: Prisma.InvitationUncheckedUpdateManyWithoutInvitedByNestedInput
+  invitationsAccepted?: Prisma.InvitationUncheckedUpdateManyWithoutAcceptedByNestedInput
+  invitationsRevoked?: Prisma.InvitationUncheckedUpdateManyWithoutRevokedByNestedInput
+  userSessions?: Prisma.UserSessionUncheckedUpdateManyWithoutUserProfileNestedInput
+  revokedUserSessions?: Prisma.UserSessionUncheckedUpdateManyWithoutRevokedByNestedInput
+  supportAccessAsGrantee?: Prisma.SupportAccessGrantUncheckedUpdateManyWithoutGranteeNestedInput
+  supportAccessRequested?: Prisma.SupportAccessGrantUncheckedUpdateManyWithoutRequestedByNestedInput
+  supportAccessApproved?: Prisma.SupportAccessGrantUncheckedUpdateManyWithoutApprovedByNestedInput
+  supportAccessRevoked?: Prisma.SupportAccessGrantUncheckedUpdateManyWithoutRevokedByNestedInput
+  auditEventsAsActor?: Prisma.AuditEventUncheckedUpdateManyWithoutActorUserNestedInput
+  auditEventsAsSubject?: Prisma.AuditEventUncheckedUpdateManyWithoutSubjectUserNestedInput
+  securityEventsAsActor?: Prisma.SecurityEventUncheckedUpdateManyWithoutActorUserNestedInput
+  securityEventsAsSubject?: Prisma.SecurityEventUncheckedUpdateManyWithoutSubjectUserNestedInput
+  securityAcknowledged?: Prisma.SecurityEventUncheckedUpdateManyWithoutAcknowledgedByNestedInput
+  securityResolved?: Prisma.SecurityEventUncheckedUpdateManyWithoutResolvedByNestedInput
+  assignedEnquiries?: Prisma.EnquiryUncheckedUpdateManyWithoutAssignedToNestedInput
+  createdEnquiries?: Prisma.EnquiryUncheckedUpdateManyWithoutCreatedByNestedInput
+  updatedEnquiries?: Prisma.EnquiryUncheckedUpdateManyWithoutUpdatedByNestedInput
+  jobProfilesCreated?: Prisma.JobProfileUncheckedUpdateManyWithoutCreatedByNestedInput
+  jobProfilesUpdated?: Prisma.JobProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  kpiDefinitionsCreated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutCreatedByNestedInput
+  kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
+  agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
+  workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
+  workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
+  workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
+  workforceAssignmentKpisCreated?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutCreatedByNestedInput
+  invitationOnboardingPlansCreated?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutCreatedByNestedInput
+  assignedClients?: Prisma.ClientUncheckedUpdateManyWithoutAssignedToNestedInput
+  clientsCreated?: Prisma.ClientUncheckedUpdateManyWithoutCreatedByNestedInput
+  clientsUpdated?: Prisma.ClientUncheckedUpdateManyWithoutUpdatedByNestedInput
+  assignedMatters?: Prisma.MatterUncheckedUpdateManyWithoutAssignedToNestedInput
+  supervisedMatters?: Prisma.MatterUncheckedUpdateManyWithoutSupervisorNestedInput
+  mattersCreated?: Prisma.MatterUncheckedUpdateManyWithoutCreatedByNestedInput
+  mattersUpdated?: Prisma.MatterUncheckedUpdateManyWithoutUpdatedByNestedInput
+  matterComplianceCreated?: Prisma.MatterComplianceUncheckedUpdateManyWithoutCreatedByNestedInput
+  matterComplianceUpdated?: Prisma.MatterComplianceUncheckedUpdateManyWithoutUpdatedByNestedInput
+  conflictChecksCompleted?: Prisma.MatterComplianceUncheckedUpdateManyWithoutConflictCheckedByNestedInput
+  amlChecksCompleted?: Prisma.MatterComplianceUncheckedUpdateManyWithoutAmlCheckedByNestedInput
+  riskReviewsCompleted?: Prisma.MatterComplianceUncheckedUpdateManyWithoutRiskReviewedByNestedInput
+  matterStatusChanges?: Prisma.MatterStatusHistoryUncheckedUpdateManyWithoutChangedByNestedInput
+  enquiryConversions?: Prisma.EnquiryConversionUncheckedUpdateManyWithoutConvertedByNestedInput
+  assignedMatterTasks?: Prisma.MatterTaskUncheckedUpdateManyWithoutAssignedToNestedInput
+  completedMatterTasks?: Prisma.MatterTaskUncheckedUpdateManyWithoutCompletedByNestedInput
+  cancelledMatterTasks?: Prisma.MatterTaskUncheckedUpdateManyWithoutCancelledByNestedInput
+  matterTasksCreated?: Prisma.MatterTaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  matterTasksUpdated?: Prisma.MatterTaskUncheckedUpdateManyWithoutUpdatedByNestedInput
+  ownedMatterDeadlines?: Prisma.MatterDeadlineUncheckedUpdateManyWithoutOwnerNestedInput
+  satisfiedMatterDeadlines?: Prisma.MatterDeadlineUncheckedUpdateManyWithoutSatisfiedByNestedInput
+  cancelledMatterDeadlines?: Prisma.MatterDeadlineUncheckedUpdateManyWithoutCancelledByNestedInput
+  matterDeadlinesCreated?: Prisma.MatterDeadlineUncheckedUpdateManyWithoutCreatedByNestedInput
+  matterDeadlinesUpdated?: Prisma.MatterDeadlineUncheckedUpdateManyWithoutUpdatedByNestedInput
+  documentRequestsSent?: Prisma.DocumentRequestUncheckedUpdateManyWithoutSentByNestedInput
+  documentRequestsCancelled?: Prisma.DocumentRequestUncheckedUpdateManyWithoutCancelledByNestedInput
+  documentRequestsCreated?: Prisma.DocumentRequestUncheckedUpdateManyWithoutCreatedByNestedInput
+  documentRequestsUpdated?: Prisma.DocumentRequestUncheckedUpdateManyWithoutUpdatedByNestedInput
+  matterDocumentsCreated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutCreatedByNestedInput
+  matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
+  matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
+  matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
+}
+
+export type UserProfileCreateWithoutAgentMessagesOwnedInput = {
+  id: string
+  email: string
+  displayName?: string | null
+  firstName?: string | null
+  lastName?: string | null
+  avatarPath?: string | null
+  status?: $Enums.UserProfileStatus
+  locale?: string
+  timezone?: string
+  isPlatformUser?: boolean
+  lastSeenAt?: Date | string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  organisationMemberships?: Prisma.OrganisationMembershipCreateNestedManyWithoutUserProfileInput
+  roleAssignments?: Prisma.RoleAssignmentCreateNestedManyWithoutUserProfileInput
+  grantedRoleAssignments?: Prisma.RoleAssignmentCreateNestedManyWithoutGrantedByInput
+  revokedRoleAssignments?: Prisma.RoleAssignmentCreateNestedManyWithoutRevokedByInput
+  invitationsSent?: Prisma.InvitationCreateNestedManyWithoutInvitedByInput
+  invitationsAccepted?: Prisma.InvitationCreateNestedManyWithoutAcceptedByInput
+  invitationsRevoked?: Prisma.InvitationCreateNestedManyWithoutRevokedByInput
+  userSessions?: Prisma.UserSessionCreateNestedManyWithoutUserProfileInput
+  revokedUserSessions?: Prisma.UserSessionCreateNestedManyWithoutRevokedByInput
+  supportAccessAsGrantee?: Prisma.SupportAccessGrantCreateNestedManyWithoutGranteeInput
+  supportAccessRequested?: Prisma.SupportAccessGrantCreateNestedManyWithoutRequestedByInput
+  supportAccessApproved?: Prisma.SupportAccessGrantCreateNestedManyWithoutApprovedByInput
+  supportAccessRevoked?: Prisma.SupportAccessGrantCreateNestedManyWithoutRevokedByInput
+  auditEventsAsActor?: Prisma.AuditEventCreateNestedManyWithoutActorUserInput
+  auditEventsAsSubject?: Prisma.AuditEventCreateNestedManyWithoutSubjectUserInput
+  securityEventsAsActor?: Prisma.SecurityEventCreateNestedManyWithoutActorUserInput
+  securityEventsAsSubject?: Prisma.SecurityEventCreateNestedManyWithoutSubjectUserInput
+  securityAcknowledged?: Prisma.SecurityEventCreateNestedManyWithoutAcknowledgedByInput
+  securityResolved?: Prisma.SecurityEventCreateNestedManyWithoutResolvedByInput
+  assignedEnquiries?: Prisma.EnquiryCreateNestedManyWithoutAssignedToInput
+  createdEnquiries?: Prisma.EnquiryCreateNestedManyWithoutCreatedByInput
+  updatedEnquiries?: Prisma.EnquiryCreateNestedManyWithoutUpdatedByInput
+  jobProfilesCreated?: Prisma.JobProfileCreateNestedManyWithoutCreatedByInput
+  jobProfilesUpdated?: Prisma.JobProfileCreateNestedManyWithoutUpdatedByInput
+  kpiDefinitionsCreated?: Prisma.KpiDefinitionCreateNestedManyWithoutCreatedByInput
+  kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
+  agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
+  agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
+  workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
+  workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
+  workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
+  workforceAssignmentKpisCreated?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutCreatedByInput
+  invitationOnboardingPlansCreated?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutCreatedByInput
+  assignedClients?: Prisma.ClientCreateNestedManyWithoutAssignedToInput
+  clientsCreated?: Prisma.ClientCreateNestedManyWithoutCreatedByInput
+  clientsUpdated?: Prisma.ClientCreateNestedManyWithoutUpdatedByInput
+  assignedMatters?: Prisma.MatterCreateNestedManyWithoutAssignedToInput
+  supervisedMatters?: Prisma.MatterCreateNestedManyWithoutSupervisorInput
+  mattersCreated?: Prisma.MatterCreateNestedManyWithoutCreatedByInput
+  mattersUpdated?: Prisma.MatterCreateNestedManyWithoutUpdatedByInput
+  matterComplianceCreated?: Prisma.MatterComplianceCreateNestedManyWithoutCreatedByInput
+  matterComplianceUpdated?: Prisma.MatterComplianceCreateNestedManyWithoutUpdatedByInput
+  conflictChecksCompleted?: Prisma.MatterComplianceCreateNestedManyWithoutConflictCheckedByInput
+  amlChecksCompleted?: Prisma.MatterComplianceCreateNestedManyWithoutAmlCheckedByInput
+  riskReviewsCompleted?: Prisma.MatterComplianceCreateNestedManyWithoutRiskReviewedByInput
+  matterStatusChanges?: Prisma.MatterStatusHistoryCreateNestedManyWithoutChangedByInput
+  enquiryConversions?: Prisma.EnquiryConversionCreateNestedManyWithoutConvertedByInput
+  assignedMatterTasks?: Prisma.MatterTaskCreateNestedManyWithoutAssignedToInput
+  completedMatterTasks?: Prisma.MatterTaskCreateNestedManyWithoutCompletedByInput
+  cancelledMatterTasks?: Prisma.MatterTaskCreateNestedManyWithoutCancelledByInput
+  matterTasksCreated?: Prisma.MatterTaskCreateNestedManyWithoutCreatedByInput
+  matterTasksUpdated?: Prisma.MatterTaskCreateNestedManyWithoutUpdatedByInput
+  ownedMatterDeadlines?: Prisma.MatterDeadlineCreateNestedManyWithoutOwnerInput
+  satisfiedMatterDeadlines?: Prisma.MatterDeadlineCreateNestedManyWithoutSatisfiedByInput
+  cancelledMatterDeadlines?: Prisma.MatterDeadlineCreateNestedManyWithoutCancelledByInput
+  matterDeadlinesCreated?: Prisma.MatterDeadlineCreateNestedManyWithoutCreatedByInput
+  matterDeadlinesUpdated?: Prisma.MatterDeadlineCreateNestedManyWithoutUpdatedByInput
+  documentRequestsSent?: Prisma.DocumentRequestCreateNestedManyWithoutSentByInput
+  documentRequestsCancelled?: Prisma.DocumentRequestCreateNestedManyWithoutCancelledByInput
+  documentRequestsCreated?: Prisma.DocumentRequestCreateNestedManyWithoutCreatedByInput
+  documentRequestsUpdated?: Prisma.DocumentRequestCreateNestedManyWithoutUpdatedByInput
+  matterDocumentsCreated?: Prisma.MatterDocumentCreateNestedManyWithoutCreatedByInput
+  matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
+  matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
+  matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
+}
+
+export type UserProfileUncheckedCreateWithoutAgentMessagesOwnedInput = {
+  id: string
+  email: string
+  displayName?: string | null
+  firstName?: string | null
+  lastName?: string | null
+  avatarPath?: string | null
+  status?: $Enums.UserProfileStatus
+  locale?: string
+  timezone?: string
+  isPlatformUser?: boolean
+  lastSeenAt?: Date | string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  organisationMemberships?: Prisma.OrganisationMembershipUncheckedCreateNestedManyWithoutUserProfileInput
+  roleAssignments?: Prisma.RoleAssignmentUncheckedCreateNestedManyWithoutUserProfileInput
+  grantedRoleAssignments?: Prisma.RoleAssignmentUncheckedCreateNestedManyWithoutGrantedByInput
+  revokedRoleAssignments?: Prisma.RoleAssignmentUncheckedCreateNestedManyWithoutRevokedByInput
+  invitationsSent?: Prisma.InvitationUncheckedCreateNestedManyWithoutInvitedByInput
+  invitationsAccepted?: Prisma.InvitationUncheckedCreateNestedManyWithoutAcceptedByInput
+  invitationsRevoked?: Prisma.InvitationUncheckedCreateNestedManyWithoutRevokedByInput
+  userSessions?: Prisma.UserSessionUncheckedCreateNestedManyWithoutUserProfileInput
+  revokedUserSessions?: Prisma.UserSessionUncheckedCreateNestedManyWithoutRevokedByInput
+  supportAccessAsGrantee?: Prisma.SupportAccessGrantUncheckedCreateNestedManyWithoutGranteeInput
+  supportAccessRequested?: Prisma.SupportAccessGrantUncheckedCreateNestedManyWithoutRequestedByInput
+  supportAccessApproved?: Prisma.SupportAccessGrantUncheckedCreateNestedManyWithoutApprovedByInput
+  supportAccessRevoked?: Prisma.SupportAccessGrantUncheckedCreateNestedManyWithoutRevokedByInput
+  auditEventsAsActor?: Prisma.AuditEventUncheckedCreateNestedManyWithoutActorUserInput
+  auditEventsAsSubject?: Prisma.AuditEventUncheckedCreateNestedManyWithoutSubjectUserInput
+  securityEventsAsActor?: Prisma.SecurityEventUncheckedCreateNestedManyWithoutActorUserInput
+  securityEventsAsSubject?: Prisma.SecurityEventUncheckedCreateNestedManyWithoutSubjectUserInput
+  securityAcknowledged?: Prisma.SecurityEventUncheckedCreateNestedManyWithoutAcknowledgedByInput
+  securityResolved?: Prisma.SecurityEventUncheckedCreateNestedManyWithoutResolvedByInput
+  assignedEnquiries?: Prisma.EnquiryUncheckedCreateNestedManyWithoutAssignedToInput
+  createdEnquiries?: Prisma.EnquiryUncheckedCreateNestedManyWithoutCreatedByInput
+  updatedEnquiries?: Prisma.EnquiryUncheckedCreateNestedManyWithoutUpdatedByInput
+  jobProfilesCreated?: Prisma.JobProfileUncheckedCreateNestedManyWithoutCreatedByInput
+  jobProfilesUpdated?: Prisma.JobProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  kpiDefinitionsCreated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutCreatedByInput
+  kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
+  agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
+  workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
+  workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
+  workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
+  workforceAssignmentKpisCreated?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutCreatedByInput
+  invitationOnboardingPlansCreated?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutCreatedByInput
+  assignedClients?: Prisma.ClientUncheckedCreateNestedManyWithoutAssignedToInput
+  clientsCreated?: Prisma.ClientUncheckedCreateNestedManyWithoutCreatedByInput
+  clientsUpdated?: Prisma.ClientUncheckedCreateNestedManyWithoutUpdatedByInput
+  assignedMatters?: Prisma.MatterUncheckedCreateNestedManyWithoutAssignedToInput
+  supervisedMatters?: Prisma.MatterUncheckedCreateNestedManyWithoutSupervisorInput
+  mattersCreated?: Prisma.MatterUncheckedCreateNestedManyWithoutCreatedByInput
+  mattersUpdated?: Prisma.MatterUncheckedCreateNestedManyWithoutUpdatedByInput
+  matterComplianceCreated?: Prisma.MatterComplianceUncheckedCreateNestedManyWithoutCreatedByInput
+  matterComplianceUpdated?: Prisma.MatterComplianceUncheckedCreateNestedManyWithoutUpdatedByInput
+  conflictChecksCompleted?: Prisma.MatterComplianceUncheckedCreateNestedManyWithoutConflictCheckedByInput
+  amlChecksCompleted?: Prisma.MatterComplianceUncheckedCreateNestedManyWithoutAmlCheckedByInput
+  riskReviewsCompleted?: Prisma.MatterComplianceUncheckedCreateNestedManyWithoutRiskReviewedByInput
+  matterStatusChanges?: Prisma.MatterStatusHistoryUncheckedCreateNestedManyWithoutChangedByInput
+  enquiryConversions?: Prisma.EnquiryConversionUncheckedCreateNestedManyWithoutConvertedByInput
+  assignedMatterTasks?: Prisma.MatterTaskUncheckedCreateNestedManyWithoutAssignedToInput
+  completedMatterTasks?: Prisma.MatterTaskUncheckedCreateNestedManyWithoutCompletedByInput
+  cancelledMatterTasks?: Prisma.MatterTaskUncheckedCreateNestedManyWithoutCancelledByInput
+  matterTasksCreated?: Prisma.MatterTaskUncheckedCreateNestedManyWithoutCreatedByInput
+  matterTasksUpdated?: Prisma.MatterTaskUncheckedCreateNestedManyWithoutUpdatedByInput
+  ownedMatterDeadlines?: Prisma.MatterDeadlineUncheckedCreateNestedManyWithoutOwnerInput
+  satisfiedMatterDeadlines?: Prisma.MatterDeadlineUncheckedCreateNestedManyWithoutSatisfiedByInput
+  cancelledMatterDeadlines?: Prisma.MatterDeadlineUncheckedCreateNestedManyWithoutCancelledByInput
+  matterDeadlinesCreated?: Prisma.MatterDeadlineUncheckedCreateNestedManyWithoutCreatedByInput
+  matterDeadlinesUpdated?: Prisma.MatterDeadlineUncheckedCreateNestedManyWithoutUpdatedByInput
+  documentRequestsSent?: Prisma.DocumentRequestUncheckedCreateNestedManyWithoutSentByInput
+  documentRequestsCancelled?: Prisma.DocumentRequestUncheckedCreateNestedManyWithoutCancelledByInput
+  documentRequestsCreated?: Prisma.DocumentRequestUncheckedCreateNestedManyWithoutCreatedByInput
+  documentRequestsUpdated?: Prisma.DocumentRequestUncheckedCreateNestedManyWithoutUpdatedByInput
+  matterDocumentsCreated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutCreatedByInput
+  matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
+  matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
+  matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
+}
+
+export type UserProfileCreateOrConnectWithoutAgentMessagesOwnedInput = {
+  where: Prisma.UserProfileWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserProfileCreateWithoutAgentMessagesOwnedInput, Prisma.UserProfileUncheckedCreateWithoutAgentMessagesOwnedInput>
+}
+
+export type UserProfileUpsertWithoutAgentMessagesOwnedInput = {
+  update: Prisma.XOR<Prisma.UserProfileUpdateWithoutAgentMessagesOwnedInput, Prisma.UserProfileUncheckedUpdateWithoutAgentMessagesOwnedInput>
+  create: Prisma.XOR<Prisma.UserProfileCreateWithoutAgentMessagesOwnedInput, Prisma.UserProfileUncheckedCreateWithoutAgentMessagesOwnedInput>
+  where?: Prisma.UserProfileWhereInput
+}
+
+export type UserProfileUpdateToOneWithWhereWithoutAgentMessagesOwnedInput = {
+  where?: Prisma.UserProfileWhereInput
+  data: Prisma.XOR<Prisma.UserProfileUpdateWithoutAgentMessagesOwnedInput, Prisma.UserProfileUncheckedUpdateWithoutAgentMessagesOwnedInput>
+}
+
+export type UserProfileUpdateWithoutAgentMessagesOwnedInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatarPath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumUserProfileStatusFieldUpdateOperationsInput | $Enums.UserProfileStatus
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  isPlatformUser?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  lastSeenAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  organisationMemberships?: Prisma.OrganisationMembershipUpdateManyWithoutUserProfileNestedInput
+  roleAssignments?: Prisma.RoleAssignmentUpdateManyWithoutUserProfileNestedInput
+  grantedRoleAssignments?: Prisma.RoleAssignmentUpdateManyWithoutGrantedByNestedInput
+  revokedRoleAssignments?: Prisma.RoleAssignmentUpdateManyWithoutRevokedByNestedInput
+  invitationsSent?: Prisma.InvitationUpdateManyWithoutInvitedByNestedInput
+  invitationsAccepted?: Prisma.InvitationUpdateManyWithoutAcceptedByNestedInput
+  invitationsRevoked?: Prisma.InvitationUpdateManyWithoutRevokedByNestedInput
+  userSessions?: Prisma.UserSessionUpdateManyWithoutUserProfileNestedInput
+  revokedUserSessions?: Prisma.UserSessionUpdateManyWithoutRevokedByNestedInput
+  supportAccessAsGrantee?: Prisma.SupportAccessGrantUpdateManyWithoutGranteeNestedInput
+  supportAccessRequested?: Prisma.SupportAccessGrantUpdateManyWithoutRequestedByNestedInput
+  supportAccessApproved?: Prisma.SupportAccessGrantUpdateManyWithoutApprovedByNestedInput
+  supportAccessRevoked?: Prisma.SupportAccessGrantUpdateManyWithoutRevokedByNestedInput
+  auditEventsAsActor?: Prisma.AuditEventUpdateManyWithoutActorUserNestedInput
+  auditEventsAsSubject?: Prisma.AuditEventUpdateManyWithoutSubjectUserNestedInput
+  securityEventsAsActor?: Prisma.SecurityEventUpdateManyWithoutActorUserNestedInput
+  securityEventsAsSubject?: Prisma.SecurityEventUpdateManyWithoutSubjectUserNestedInput
+  securityAcknowledged?: Prisma.SecurityEventUpdateManyWithoutAcknowledgedByNestedInput
+  securityResolved?: Prisma.SecurityEventUpdateManyWithoutResolvedByNestedInput
+  assignedEnquiries?: Prisma.EnquiryUpdateManyWithoutAssignedToNestedInput
+  createdEnquiries?: Prisma.EnquiryUpdateManyWithoutCreatedByNestedInput
+  updatedEnquiries?: Prisma.EnquiryUpdateManyWithoutUpdatedByNestedInput
+  jobProfilesCreated?: Prisma.JobProfileUpdateManyWithoutCreatedByNestedInput
+  jobProfilesUpdated?: Prisma.JobProfileUpdateManyWithoutUpdatedByNestedInput
+  kpiDefinitionsCreated?: Prisma.KpiDefinitionUpdateManyWithoutCreatedByNestedInput
+  kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
+  agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
+  agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
+  workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
+  workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
+  workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
+  workforceAssignmentKpisCreated?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutCreatedByNestedInput
+  invitationOnboardingPlansCreated?: Prisma.InvitationOnboardingPlanUpdateManyWithoutCreatedByNestedInput
+  assignedClients?: Prisma.ClientUpdateManyWithoutAssignedToNestedInput
+  clientsCreated?: Prisma.ClientUpdateManyWithoutCreatedByNestedInput
+  clientsUpdated?: Prisma.ClientUpdateManyWithoutUpdatedByNestedInput
+  assignedMatters?: Prisma.MatterUpdateManyWithoutAssignedToNestedInput
+  supervisedMatters?: Prisma.MatterUpdateManyWithoutSupervisorNestedInput
+  mattersCreated?: Prisma.MatterUpdateManyWithoutCreatedByNestedInput
+  mattersUpdated?: Prisma.MatterUpdateManyWithoutUpdatedByNestedInput
+  matterComplianceCreated?: Prisma.MatterComplianceUpdateManyWithoutCreatedByNestedInput
+  matterComplianceUpdated?: Prisma.MatterComplianceUpdateManyWithoutUpdatedByNestedInput
+  conflictChecksCompleted?: Prisma.MatterComplianceUpdateManyWithoutConflictCheckedByNestedInput
+  amlChecksCompleted?: Prisma.MatterComplianceUpdateManyWithoutAmlCheckedByNestedInput
+  riskReviewsCompleted?: Prisma.MatterComplianceUpdateManyWithoutRiskReviewedByNestedInput
+  matterStatusChanges?: Prisma.MatterStatusHistoryUpdateManyWithoutChangedByNestedInput
+  enquiryConversions?: Prisma.EnquiryConversionUpdateManyWithoutConvertedByNestedInput
+  assignedMatterTasks?: Prisma.MatterTaskUpdateManyWithoutAssignedToNestedInput
+  completedMatterTasks?: Prisma.MatterTaskUpdateManyWithoutCompletedByNestedInput
+  cancelledMatterTasks?: Prisma.MatterTaskUpdateManyWithoutCancelledByNestedInput
+  matterTasksCreated?: Prisma.MatterTaskUpdateManyWithoutCreatedByNestedInput
+  matterTasksUpdated?: Prisma.MatterTaskUpdateManyWithoutUpdatedByNestedInput
+  ownedMatterDeadlines?: Prisma.MatterDeadlineUpdateManyWithoutOwnerNestedInput
+  satisfiedMatterDeadlines?: Prisma.MatterDeadlineUpdateManyWithoutSatisfiedByNestedInput
+  cancelledMatterDeadlines?: Prisma.MatterDeadlineUpdateManyWithoutCancelledByNestedInput
+  matterDeadlinesCreated?: Prisma.MatterDeadlineUpdateManyWithoutCreatedByNestedInput
+  matterDeadlinesUpdated?: Prisma.MatterDeadlineUpdateManyWithoutUpdatedByNestedInput
+  documentRequestsSent?: Prisma.DocumentRequestUpdateManyWithoutSentByNestedInput
+  documentRequestsCancelled?: Prisma.DocumentRequestUpdateManyWithoutCancelledByNestedInput
+  documentRequestsCreated?: Prisma.DocumentRequestUpdateManyWithoutCreatedByNestedInput
+  documentRequestsUpdated?: Prisma.DocumentRequestUpdateManyWithoutUpdatedByNestedInput
+  matterDocumentsCreated?: Prisma.MatterDocumentUpdateManyWithoutCreatedByNestedInput
+  matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
+  matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
+  matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
+}
+
+export type UserProfileUncheckedUpdateWithoutAgentMessagesOwnedInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatarPath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumUserProfileStatusFieldUpdateOperationsInput | $Enums.UserProfileStatus
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  isPlatformUser?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  lastSeenAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  organisationMemberships?: Prisma.OrganisationMembershipUncheckedUpdateManyWithoutUserProfileNestedInput
+  roleAssignments?: Prisma.RoleAssignmentUncheckedUpdateManyWithoutUserProfileNestedInput
+  grantedRoleAssignments?: Prisma.RoleAssignmentUncheckedUpdateManyWithoutGrantedByNestedInput
+  revokedRoleAssignments?: Prisma.RoleAssignmentUncheckedUpdateManyWithoutRevokedByNestedInput
+  invitationsSent?: Prisma.InvitationUncheckedUpdateManyWithoutInvitedByNestedInput
+  invitationsAccepted?: Prisma.InvitationUncheckedUpdateManyWithoutAcceptedByNestedInput
+  invitationsRevoked?: Prisma.InvitationUncheckedUpdateManyWithoutRevokedByNestedInput
+  userSessions?: Prisma.UserSessionUncheckedUpdateManyWithoutUserProfileNestedInput
+  revokedUserSessions?: Prisma.UserSessionUncheckedUpdateManyWithoutRevokedByNestedInput
+  supportAccessAsGrantee?: Prisma.SupportAccessGrantUncheckedUpdateManyWithoutGranteeNestedInput
+  supportAccessRequested?: Prisma.SupportAccessGrantUncheckedUpdateManyWithoutRequestedByNestedInput
+  supportAccessApproved?: Prisma.SupportAccessGrantUncheckedUpdateManyWithoutApprovedByNestedInput
+  supportAccessRevoked?: Prisma.SupportAccessGrantUncheckedUpdateManyWithoutRevokedByNestedInput
+  auditEventsAsActor?: Prisma.AuditEventUncheckedUpdateManyWithoutActorUserNestedInput
+  auditEventsAsSubject?: Prisma.AuditEventUncheckedUpdateManyWithoutSubjectUserNestedInput
+  securityEventsAsActor?: Prisma.SecurityEventUncheckedUpdateManyWithoutActorUserNestedInput
+  securityEventsAsSubject?: Prisma.SecurityEventUncheckedUpdateManyWithoutSubjectUserNestedInput
+  securityAcknowledged?: Prisma.SecurityEventUncheckedUpdateManyWithoutAcknowledgedByNestedInput
+  securityResolved?: Prisma.SecurityEventUncheckedUpdateManyWithoutResolvedByNestedInput
+  assignedEnquiries?: Prisma.EnquiryUncheckedUpdateManyWithoutAssignedToNestedInput
+  createdEnquiries?: Prisma.EnquiryUncheckedUpdateManyWithoutCreatedByNestedInput
+  updatedEnquiries?: Prisma.EnquiryUncheckedUpdateManyWithoutUpdatedByNestedInput
+  jobProfilesCreated?: Prisma.JobProfileUncheckedUpdateManyWithoutCreatedByNestedInput
+  jobProfilesUpdated?: Prisma.JobProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  kpiDefinitionsCreated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutCreatedByNestedInput
+  kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
+  agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
+  workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
+  workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
+  workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
+  workforceAssignmentKpisCreated?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutCreatedByNestedInput
+  invitationOnboardingPlansCreated?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutCreatedByNestedInput
+  assignedClients?: Prisma.ClientUncheckedUpdateManyWithoutAssignedToNestedInput
+  clientsCreated?: Prisma.ClientUncheckedUpdateManyWithoutCreatedByNestedInput
+  clientsUpdated?: Prisma.ClientUncheckedUpdateManyWithoutUpdatedByNestedInput
+  assignedMatters?: Prisma.MatterUncheckedUpdateManyWithoutAssignedToNestedInput
+  supervisedMatters?: Prisma.MatterUncheckedUpdateManyWithoutSupervisorNestedInput
+  mattersCreated?: Prisma.MatterUncheckedUpdateManyWithoutCreatedByNestedInput
+  mattersUpdated?: Prisma.MatterUncheckedUpdateManyWithoutUpdatedByNestedInput
+  matterComplianceCreated?: Prisma.MatterComplianceUncheckedUpdateManyWithoutCreatedByNestedInput
+  matterComplianceUpdated?: Prisma.MatterComplianceUncheckedUpdateManyWithoutUpdatedByNestedInput
+  conflictChecksCompleted?: Prisma.MatterComplianceUncheckedUpdateManyWithoutConflictCheckedByNestedInput
+  amlChecksCompleted?: Prisma.MatterComplianceUncheckedUpdateManyWithoutAmlCheckedByNestedInput
+  riskReviewsCompleted?: Prisma.MatterComplianceUncheckedUpdateManyWithoutRiskReviewedByNestedInput
+  matterStatusChanges?: Prisma.MatterStatusHistoryUncheckedUpdateManyWithoutChangedByNestedInput
+  enquiryConversions?: Prisma.EnquiryConversionUncheckedUpdateManyWithoutConvertedByNestedInput
+  assignedMatterTasks?: Prisma.MatterTaskUncheckedUpdateManyWithoutAssignedToNestedInput
+  completedMatterTasks?: Prisma.MatterTaskUncheckedUpdateManyWithoutCompletedByNestedInput
+  cancelledMatterTasks?: Prisma.MatterTaskUncheckedUpdateManyWithoutCancelledByNestedInput
+  matterTasksCreated?: Prisma.MatterTaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  matterTasksUpdated?: Prisma.MatterTaskUncheckedUpdateManyWithoutUpdatedByNestedInput
+  ownedMatterDeadlines?: Prisma.MatterDeadlineUncheckedUpdateManyWithoutOwnerNestedInput
+  satisfiedMatterDeadlines?: Prisma.MatterDeadlineUncheckedUpdateManyWithoutSatisfiedByNestedInput
+  cancelledMatterDeadlines?: Prisma.MatterDeadlineUncheckedUpdateManyWithoutCancelledByNestedInput
+  matterDeadlinesCreated?: Prisma.MatterDeadlineUncheckedUpdateManyWithoutCreatedByNestedInput
+  matterDeadlinesUpdated?: Prisma.MatterDeadlineUncheckedUpdateManyWithoutUpdatedByNestedInput
+  documentRequestsSent?: Prisma.DocumentRequestUncheckedUpdateManyWithoutSentByNestedInput
+  documentRequestsCancelled?: Prisma.DocumentRequestUncheckedUpdateManyWithoutCancelledByNestedInput
+  documentRequestsCreated?: Prisma.DocumentRequestUncheckedUpdateManyWithoutCreatedByNestedInput
+  documentRequestsUpdated?: Prisma.DocumentRequestUncheckedUpdateManyWithoutUpdatedByNestedInput
+  matterDocumentsCreated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutCreatedByNestedInput
+  matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
+  matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
+  matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
+}
+
+export type UserProfileCreateWithoutAgentActionsOwnedInput = {
+  id: string
+  email: string
+  displayName?: string | null
+  firstName?: string | null
+  lastName?: string | null
+  avatarPath?: string | null
+  status?: $Enums.UserProfileStatus
+  locale?: string
+  timezone?: string
+  isPlatformUser?: boolean
+  lastSeenAt?: Date | string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  organisationMemberships?: Prisma.OrganisationMembershipCreateNestedManyWithoutUserProfileInput
+  roleAssignments?: Prisma.RoleAssignmentCreateNestedManyWithoutUserProfileInput
+  grantedRoleAssignments?: Prisma.RoleAssignmentCreateNestedManyWithoutGrantedByInput
+  revokedRoleAssignments?: Prisma.RoleAssignmentCreateNestedManyWithoutRevokedByInput
+  invitationsSent?: Prisma.InvitationCreateNestedManyWithoutInvitedByInput
+  invitationsAccepted?: Prisma.InvitationCreateNestedManyWithoutAcceptedByInput
+  invitationsRevoked?: Prisma.InvitationCreateNestedManyWithoutRevokedByInput
+  userSessions?: Prisma.UserSessionCreateNestedManyWithoutUserProfileInput
+  revokedUserSessions?: Prisma.UserSessionCreateNestedManyWithoutRevokedByInput
+  supportAccessAsGrantee?: Prisma.SupportAccessGrantCreateNestedManyWithoutGranteeInput
+  supportAccessRequested?: Prisma.SupportAccessGrantCreateNestedManyWithoutRequestedByInput
+  supportAccessApproved?: Prisma.SupportAccessGrantCreateNestedManyWithoutApprovedByInput
+  supportAccessRevoked?: Prisma.SupportAccessGrantCreateNestedManyWithoutRevokedByInput
+  auditEventsAsActor?: Prisma.AuditEventCreateNestedManyWithoutActorUserInput
+  auditEventsAsSubject?: Prisma.AuditEventCreateNestedManyWithoutSubjectUserInput
+  securityEventsAsActor?: Prisma.SecurityEventCreateNestedManyWithoutActorUserInput
+  securityEventsAsSubject?: Prisma.SecurityEventCreateNestedManyWithoutSubjectUserInput
+  securityAcknowledged?: Prisma.SecurityEventCreateNestedManyWithoutAcknowledgedByInput
+  securityResolved?: Prisma.SecurityEventCreateNestedManyWithoutResolvedByInput
+  assignedEnquiries?: Prisma.EnquiryCreateNestedManyWithoutAssignedToInput
+  createdEnquiries?: Prisma.EnquiryCreateNestedManyWithoutCreatedByInput
+  updatedEnquiries?: Prisma.EnquiryCreateNestedManyWithoutUpdatedByInput
+  jobProfilesCreated?: Prisma.JobProfileCreateNestedManyWithoutCreatedByInput
+  jobProfilesUpdated?: Prisma.JobProfileCreateNestedManyWithoutUpdatedByInput
+  kpiDefinitionsCreated?: Prisma.KpiDefinitionCreateNestedManyWithoutCreatedByInput
+  kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
+  agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
+  agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
+  workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
+  workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
+  workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
+  workforceAssignmentKpisCreated?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutCreatedByInput
+  invitationOnboardingPlansCreated?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutCreatedByInput
+  assignedClients?: Prisma.ClientCreateNestedManyWithoutAssignedToInput
+  clientsCreated?: Prisma.ClientCreateNestedManyWithoutCreatedByInput
+  clientsUpdated?: Prisma.ClientCreateNestedManyWithoutUpdatedByInput
+  assignedMatters?: Prisma.MatterCreateNestedManyWithoutAssignedToInput
+  supervisedMatters?: Prisma.MatterCreateNestedManyWithoutSupervisorInput
+  mattersCreated?: Prisma.MatterCreateNestedManyWithoutCreatedByInput
+  mattersUpdated?: Prisma.MatterCreateNestedManyWithoutUpdatedByInput
+  matterComplianceCreated?: Prisma.MatterComplianceCreateNestedManyWithoutCreatedByInput
+  matterComplianceUpdated?: Prisma.MatterComplianceCreateNestedManyWithoutUpdatedByInput
+  conflictChecksCompleted?: Prisma.MatterComplianceCreateNestedManyWithoutConflictCheckedByInput
+  amlChecksCompleted?: Prisma.MatterComplianceCreateNestedManyWithoutAmlCheckedByInput
+  riskReviewsCompleted?: Prisma.MatterComplianceCreateNestedManyWithoutRiskReviewedByInput
+  matterStatusChanges?: Prisma.MatterStatusHistoryCreateNestedManyWithoutChangedByInput
+  enquiryConversions?: Prisma.EnquiryConversionCreateNestedManyWithoutConvertedByInput
+  assignedMatterTasks?: Prisma.MatterTaskCreateNestedManyWithoutAssignedToInput
+  completedMatterTasks?: Prisma.MatterTaskCreateNestedManyWithoutCompletedByInput
+  cancelledMatterTasks?: Prisma.MatterTaskCreateNestedManyWithoutCancelledByInput
+  matterTasksCreated?: Prisma.MatterTaskCreateNestedManyWithoutCreatedByInput
+  matterTasksUpdated?: Prisma.MatterTaskCreateNestedManyWithoutUpdatedByInput
+  ownedMatterDeadlines?: Prisma.MatterDeadlineCreateNestedManyWithoutOwnerInput
+  satisfiedMatterDeadlines?: Prisma.MatterDeadlineCreateNestedManyWithoutSatisfiedByInput
+  cancelledMatterDeadlines?: Prisma.MatterDeadlineCreateNestedManyWithoutCancelledByInput
+  matterDeadlinesCreated?: Prisma.MatterDeadlineCreateNestedManyWithoutCreatedByInput
+  matterDeadlinesUpdated?: Prisma.MatterDeadlineCreateNestedManyWithoutUpdatedByInput
+  documentRequestsSent?: Prisma.DocumentRequestCreateNestedManyWithoutSentByInput
+  documentRequestsCancelled?: Prisma.DocumentRequestCreateNestedManyWithoutCancelledByInput
+  documentRequestsCreated?: Prisma.DocumentRequestCreateNestedManyWithoutCreatedByInput
+  documentRequestsUpdated?: Prisma.DocumentRequestCreateNestedManyWithoutUpdatedByInput
+  matterDocumentsCreated?: Prisma.MatterDocumentCreateNestedManyWithoutCreatedByInput
+  matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
+  matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
+  matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
+}
+
+export type UserProfileUncheckedCreateWithoutAgentActionsOwnedInput = {
+  id: string
+  email: string
+  displayName?: string | null
+  firstName?: string | null
+  lastName?: string | null
+  avatarPath?: string | null
+  status?: $Enums.UserProfileStatus
+  locale?: string
+  timezone?: string
+  isPlatformUser?: boolean
+  lastSeenAt?: Date | string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  organisationMemberships?: Prisma.OrganisationMembershipUncheckedCreateNestedManyWithoutUserProfileInput
+  roleAssignments?: Prisma.RoleAssignmentUncheckedCreateNestedManyWithoutUserProfileInput
+  grantedRoleAssignments?: Prisma.RoleAssignmentUncheckedCreateNestedManyWithoutGrantedByInput
+  revokedRoleAssignments?: Prisma.RoleAssignmentUncheckedCreateNestedManyWithoutRevokedByInput
+  invitationsSent?: Prisma.InvitationUncheckedCreateNestedManyWithoutInvitedByInput
+  invitationsAccepted?: Prisma.InvitationUncheckedCreateNestedManyWithoutAcceptedByInput
+  invitationsRevoked?: Prisma.InvitationUncheckedCreateNestedManyWithoutRevokedByInput
+  userSessions?: Prisma.UserSessionUncheckedCreateNestedManyWithoutUserProfileInput
+  revokedUserSessions?: Prisma.UserSessionUncheckedCreateNestedManyWithoutRevokedByInput
+  supportAccessAsGrantee?: Prisma.SupportAccessGrantUncheckedCreateNestedManyWithoutGranteeInput
+  supportAccessRequested?: Prisma.SupportAccessGrantUncheckedCreateNestedManyWithoutRequestedByInput
+  supportAccessApproved?: Prisma.SupportAccessGrantUncheckedCreateNestedManyWithoutApprovedByInput
+  supportAccessRevoked?: Prisma.SupportAccessGrantUncheckedCreateNestedManyWithoutRevokedByInput
+  auditEventsAsActor?: Prisma.AuditEventUncheckedCreateNestedManyWithoutActorUserInput
+  auditEventsAsSubject?: Prisma.AuditEventUncheckedCreateNestedManyWithoutSubjectUserInput
+  securityEventsAsActor?: Prisma.SecurityEventUncheckedCreateNestedManyWithoutActorUserInput
+  securityEventsAsSubject?: Prisma.SecurityEventUncheckedCreateNestedManyWithoutSubjectUserInput
+  securityAcknowledged?: Prisma.SecurityEventUncheckedCreateNestedManyWithoutAcknowledgedByInput
+  securityResolved?: Prisma.SecurityEventUncheckedCreateNestedManyWithoutResolvedByInput
+  assignedEnquiries?: Prisma.EnquiryUncheckedCreateNestedManyWithoutAssignedToInput
+  createdEnquiries?: Prisma.EnquiryUncheckedCreateNestedManyWithoutCreatedByInput
+  updatedEnquiries?: Prisma.EnquiryUncheckedCreateNestedManyWithoutUpdatedByInput
+  jobProfilesCreated?: Prisma.JobProfileUncheckedCreateNestedManyWithoutCreatedByInput
+  jobProfilesUpdated?: Prisma.JobProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  kpiDefinitionsCreated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutCreatedByInput
+  kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
+  agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
+  workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
+  workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
+  workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
+  workforceAssignmentKpisCreated?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutCreatedByInput
+  invitationOnboardingPlansCreated?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutCreatedByInput
+  assignedClients?: Prisma.ClientUncheckedCreateNestedManyWithoutAssignedToInput
+  clientsCreated?: Prisma.ClientUncheckedCreateNestedManyWithoutCreatedByInput
+  clientsUpdated?: Prisma.ClientUncheckedCreateNestedManyWithoutUpdatedByInput
+  assignedMatters?: Prisma.MatterUncheckedCreateNestedManyWithoutAssignedToInput
+  supervisedMatters?: Prisma.MatterUncheckedCreateNestedManyWithoutSupervisorInput
+  mattersCreated?: Prisma.MatterUncheckedCreateNestedManyWithoutCreatedByInput
+  mattersUpdated?: Prisma.MatterUncheckedCreateNestedManyWithoutUpdatedByInput
+  matterComplianceCreated?: Prisma.MatterComplianceUncheckedCreateNestedManyWithoutCreatedByInput
+  matterComplianceUpdated?: Prisma.MatterComplianceUncheckedCreateNestedManyWithoutUpdatedByInput
+  conflictChecksCompleted?: Prisma.MatterComplianceUncheckedCreateNestedManyWithoutConflictCheckedByInput
+  amlChecksCompleted?: Prisma.MatterComplianceUncheckedCreateNestedManyWithoutAmlCheckedByInput
+  riskReviewsCompleted?: Prisma.MatterComplianceUncheckedCreateNestedManyWithoutRiskReviewedByInput
+  matterStatusChanges?: Prisma.MatterStatusHistoryUncheckedCreateNestedManyWithoutChangedByInput
+  enquiryConversions?: Prisma.EnquiryConversionUncheckedCreateNestedManyWithoutConvertedByInput
+  assignedMatterTasks?: Prisma.MatterTaskUncheckedCreateNestedManyWithoutAssignedToInput
+  completedMatterTasks?: Prisma.MatterTaskUncheckedCreateNestedManyWithoutCompletedByInput
+  cancelledMatterTasks?: Prisma.MatterTaskUncheckedCreateNestedManyWithoutCancelledByInput
+  matterTasksCreated?: Prisma.MatterTaskUncheckedCreateNestedManyWithoutCreatedByInput
+  matterTasksUpdated?: Prisma.MatterTaskUncheckedCreateNestedManyWithoutUpdatedByInput
+  ownedMatterDeadlines?: Prisma.MatterDeadlineUncheckedCreateNestedManyWithoutOwnerInput
+  satisfiedMatterDeadlines?: Prisma.MatterDeadlineUncheckedCreateNestedManyWithoutSatisfiedByInput
+  cancelledMatterDeadlines?: Prisma.MatterDeadlineUncheckedCreateNestedManyWithoutCancelledByInput
+  matterDeadlinesCreated?: Prisma.MatterDeadlineUncheckedCreateNestedManyWithoutCreatedByInput
+  matterDeadlinesUpdated?: Prisma.MatterDeadlineUncheckedCreateNestedManyWithoutUpdatedByInput
+  documentRequestsSent?: Prisma.DocumentRequestUncheckedCreateNestedManyWithoutSentByInput
+  documentRequestsCancelled?: Prisma.DocumentRequestUncheckedCreateNestedManyWithoutCancelledByInput
+  documentRequestsCreated?: Prisma.DocumentRequestUncheckedCreateNestedManyWithoutCreatedByInput
+  documentRequestsUpdated?: Prisma.DocumentRequestUncheckedCreateNestedManyWithoutUpdatedByInput
+  matterDocumentsCreated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutCreatedByInput
+  matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
+  matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
+  matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
+}
+
+export type UserProfileCreateOrConnectWithoutAgentActionsOwnedInput = {
+  where: Prisma.UserProfileWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserProfileCreateWithoutAgentActionsOwnedInput, Prisma.UserProfileUncheckedCreateWithoutAgentActionsOwnedInput>
+}
+
+export type UserProfileUpsertWithoutAgentActionsOwnedInput = {
+  update: Prisma.XOR<Prisma.UserProfileUpdateWithoutAgentActionsOwnedInput, Prisma.UserProfileUncheckedUpdateWithoutAgentActionsOwnedInput>
+  create: Prisma.XOR<Prisma.UserProfileCreateWithoutAgentActionsOwnedInput, Prisma.UserProfileUncheckedCreateWithoutAgentActionsOwnedInput>
+  where?: Prisma.UserProfileWhereInput
+}
+
+export type UserProfileUpdateToOneWithWhereWithoutAgentActionsOwnedInput = {
+  where?: Prisma.UserProfileWhereInput
+  data: Prisma.XOR<Prisma.UserProfileUpdateWithoutAgentActionsOwnedInput, Prisma.UserProfileUncheckedUpdateWithoutAgentActionsOwnedInput>
+}
+
+export type UserProfileUpdateWithoutAgentActionsOwnedInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatarPath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumUserProfileStatusFieldUpdateOperationsInput | $Enums.UserProfileStatus
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  isPlatformUser?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  lastSeenAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  organisationMemberships?: Prisma.OrganisationMembershipUpdateManyWithoutUserProfileNestedInput
+  roleAssignments?: Prisma.RoleAssignmentUpdateManyWithoutUserProfileNestedInput
+  grantedRoleAssignments?: Prisma.RoleAssignmentUpdateManyWithoutGrantedByNestedInput
+  revokedRoleAssignments?: Prisma.RoleAssignmentUpdateManyWithoutRevokedByNestedInput
+  invitationsSent?: Prisma.InvitationUpdateManyWithoutInvitedByNestedInput
+  invitationsAccepted?: Prisma.InvitationUpdateManyWithoutAcceptedByNestedInput
+  invitationsRevoked?: Prisma.InvitationUpdateManyWithoutRevokedByNestedInput
+  userSessions?: Prisma.UserSessionUpdateManyWithoutUserProfileNestedInput
+  revokedUserSessions?: Prisma.UserSessionUpdateManyWithoutRevokedByNestedInput
+  supportAccessAsGrantee?: Prisma.SupportAccessGrantUpdateManyWithoutGranteeNestedInput
+  supportAccessRequested?: Prisma.SupportAccessGrantUpdateManyWithoutRequestedByNestedInput
+  supportAccessApproved?: Prisma.SupportAccessGrantUpdateManyWithoutApprovedByNestedInput
+  supportAccessRevoked?: Prisma.SupportAccessGrantUpdateManyWithoutRevokedByNestedInput
+  auditEventsAsActor?: Prisma.AuditEventUpdateManyWithoutActorUserNestedInput
+  auditEventsAsSubject?: Prisma.AuditEventUpdateManyWithoutSubjectUserNestedInput
+  securityEventsAsActor?: Prisma.SecurityEventUpdateManyWithoutActorUserNestedInput
+  securityEventsAsSubject?: Prisma.SecurityEventUpdateManyWithoutSubjectUserNestedInput
+  securityAcknowledged?: Prisma.SecurityEventUpdateManyWithoutAcknowledgedByNestedInput
+  securityResolved?: Prisma.SecurityEventUpdateManyWithoutResolvedByNestedInput
+  assignedEnquiries?: Prisma.EnquiryUpdateManyWithoutAssignedToNestedInput
+  createdEnquiries?: Prisma.EnquiryUpdateManyWithoutCreatedByNestedInput
+  updatedEnquiries?: Prisma.EnquiryUpdateManyWithoutUpdatedByNestedInput
+  jobProfilesCreated?: Prisma.JobProfileUpdateManyWithoutCreatedByNestedInput
+  jobProfilesUpdated?: Prisma.JobProfileUpdateManyWithoutUpdatedByNestedInput
+  kpiDefinitionsCreated?: Prisma.KpiDefinitionUpdateManyWithoutCreatedByNestedInput
+  kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
+  agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
+  agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
+  workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
+  workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
+  workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
+  workforceAssignmentKpisCreated?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutCreatedByNestedInput
+  invitationOnboardingPlansCreated?: Prisma.InvitationOnboardingPlanUpdateManyWithoutCreatedByNestedInput
+  assignedClients?: Prisma.ClientUpdateManyWithoutAssignedToNestedInput
+  clientsCreated?: Prisma.ClientUpdateManyWithoutCreatedByNestedInput
+  clientsUpdated?: Prisma.ClientUpdateManyWithoutUpdatedByNestedInput
+  assignedMatters?: Prisma.MatterUpdateManyWithoutAssignedToNestedInput
+  supervisedMatters?: Prisma.MatterUpdateManyWithoutSupervisorNestedInput
+  mattersCreated?: Prisma.MatterUpdateManyWithoutCreatedByNestedInput
+  mattersUpdated?: Prisma.MatterUpdateManyWithoutUpdatedByNestedInput
+  matterComplianceCreated?: Prisma.MatterComplianceUpdateManyWithoutCreatedByNestedInput
+  matterComplianceUpdated?: Prisma.MatterComplianceUpdateManyWithoutUpdatedByNestedInput
+  conflictChecksCompleted?: Prisma.MatterComplianceUpdateManyWithoutConflictCheckedByNestedInput
+  amlChecksCompleted?: Prisma.MatterComplianceUpdateManyWithoutAmlCheckedByNestedInput
+  riskReviewsCompleted?: Prisma.MatterComplianceUpdateManyWithoutRiskReviewedByNestedInput
+  matterStatusChanges?: Prisma.MatterStatusHistoryUpdateManyWithoutChangedByNestedInput
+  enquiryConversions?: Prisma.EnquiryConversionUpdateManyWithoutConvertedByNestedInput
+  assignedMatterTasks?: Prisma.MatterTaskUpdateManyWithoutAssignedToNestedInput
+  completedMatterTasks?: Prisma.MatterTaskUpdateManyWithoutCompletedByNestedInput
+  cancelledMatterTasks?: Prisma.MatterTaskUpdateManyWithoutCancelledByNestedInput
+  matterTasksCreated?: Prisma.MatterTaskUpdateManyWithoutCreatedByNestedInput
+  matterTasksUpdated?: Prisma.MatterTaskUpdateManyWithoutUpdatedByNestedInput
+  ownedMatterDeadlines?: Prisma.MatterDeadlineUpdateManyWithoutOwnerNestedInput
+  satisfiedMatterDeadlines?: Prisma.MatterDeadlineUpdateManyWithoutSatisfiedByNestedInput
+  cancelledMatterDeadlines?: Prisma.MatterDeadlineUpdateManyWithoutCancelledByNestedInput
+  matterDeadlinesCreated?: Prisma.MatterDeadlineUpdateManyWithoutCreatedByNestedInput
+  matterDeadlinesUpdated?: Prisma.MatterDeadlineUpdateManyWithoutUpdatedByNestedInput
+  documentRequestsSent?: Prisma.DocumentRequestUpdateManyWithoutSentByNestedInput
+  documentRequestsCancelled?: Prisma.DocumentRequestUpdateManyWithoutCancelledByNestedInput
+  documentRequestsCreated?: Prisma.DocumentRequestUpdateManyWithoutCreatedByNestedInput
+  documentRequestsUpdated?: Prisma.DocumentRequestUpdateManyWithoutUpdatedByNestedInput
+  matterDocumentsCreated?: Prisma.MatterDocumentUpdateManyWithoutCreatedByNestedInput
+  matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
+  matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
+  matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
+}
+
+export type UserProfileUncheckedUpdateWithoutAgentActionsOwnedInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatarPath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumUserProfileStatusFieldUpdateOperationsInput | $Enums.UserProfileStatus
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  isPlatformUser?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  lastSeenAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  organisationMemberships?: Prisma.OrganisationMembershipUncheckedUpdateManyWithoutUserProfileNestedInput
+  roleAssignments?: Prisma.RoleAssignmentUncheckedUpdateManyWithoutUserProfileNestedInput
+  grantedRoleAssignments?: Prisma.RoleAssignmentUncheckedUpdateManyWithoutGrantedByNestedInput
+  revokedRoleAssignments?: Prisma.RoleAssignmentUncheckedUpdateManyWithoutRevokedByNestedInput
+  invitationsSent?: Prisma.InvitationUncheckedUpdateManyWithoutInvitedByNestedInput
+  invitationsAccepted?: Prisma.InvitationUncheckedUpdateManyWithoutAcceptedByNestedInput
+  invitationsRevoked?: Prisma.InvitationUncheckedUpdateManyWithoutRevokedByNestedInput
+  userSessions?: Prisma.UserSessionUncheckedUpdateManyWithoutUserProfileNestedInput
+  revokedUserSessions?: Prisma.UserSessionUncheckedUpdateManyWithoutRevokedByNestedInput
+  supportAccessAsGrantee?: Prisma.SupportAccessGrantUncheckedUpdateManyWithoutGranteeNestedInput
+  supportAccessRequested?: Prisma.SupportAccessGrantUncheckedUpdateManyWithoutRequestedByNestedInput
+  supportAccessApproved?: Prisma.SupportAccessGrantUncheckedUpdateManyWithoutApprovedByNestedInput
+  supportAccessRevoked?: Prisma.SupportAccessGrantUncheckedUpdateManyWithoutRevokedByNestedInput
+  auditEventsAsActor?: Prisma.AuditEventUncheckedUpdateManyWithoutActorUserNestedInput
+  auditEventsAsSubject?: Prisma.AuditEventUncheckedUpdateManyWithoutSubjectUserNestedInput
+  securityEventsAsActor?: Prisma.SecurityEventUncheckedUpdateManyWithoutActorUserNestedInput
+  securityEventsAsSubject?: Prisma.SecurityEventUncheckedUpdateManyWithoutSubjectUserNestedInput
+  securityAcknowledged?: Prisma.SecurityEventUncheckedUpdateManyWithoutAcknowledgedByNestedInput
+  securityResolved?: Prisma.SecurityEventUncheckedUpdateManyWithoutResolvedByNestedInput
+  assignedEnquiries?: Prisma.EnquiryUncheckedUpdateManyWithoutAssignedToNestedInput
+  createdEnquiries?: Prisma.EnquiryUncheckedUpdateManyWithoutCreatedByNestedInput
+  updatedEnquiries?: Prisma.EnquiryUncheckedUpdateManyWithoutUpdatedByNestedInput
+  jobProfilesCreated?: Prisma.JobProfileUncheckedUpdateManyWithoutCreatedByNestedInput
+  jobProfilesUpdated?: Prisma.JobProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  kpiDefinitionsCreated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutCreatedByNestedInput
+  kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
+  agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
+  workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
+  workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
+  workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
+  workforceAssignmentKpisCreated?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutCreatedByNestedInput
+  invitationOnboardingPlansCreated?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutCreatedByNestedInput
+  assignedClients?: Prisma.ClientUncheckedUpdateManyWithoutAssignedToNestedInput
+  clientsCreated?: Prisma.ClientUncheckedUpdateManyWithoutCreatedByNestedInput
+  clientsUpdated?: Prisma.ClientUncheckedUpdateManyWithoutUpdatedByNestedInput
+  assignedMatters?: Prisma.MatterUncheckedUpdateManyWithoutAssignedToNestedInput
+  supervisedMatters?: Prisma.MatterUncheckedUpdateManyWithoutSupervisorNestedInput
+  mattersCreated?: Prisma.MatterUncheckedUpdateManyWithoutCreatedByNestedInput
+  mattersUpdated?: Prisma.MatterUncheckedUpdateManyWithoutUpdatedByNestedInput
+  matterComplianceCreated?: Prisma.MatterComplianceUncheckedUpdateManyWithoutCreatedByNestedInput
+  matterComplianceUpdated?: Prisma.MatterComplianceUncheckedUpdateManyWithoutUpdatedByNestedInput
+  conflictChecksCompleted?: Prisma.MatterComplianceUncheckedUpdateManyWithoutConflictCheckedByNestedInput
+  amlChecksCompleted?: Prisma.MatterComplianceUncheckedUpdateManyWithoutAmlCheckedByNestedInput
+  riskReviewsCompleted?: Prisma.MatterComplianceUncheckedUpdateManyWithoutRiskReviewedByNestedInput
+  matterStatusChanges?: Prisma.MatterStatusHistoryUncheckedUpdateManyWithoutChangedByNestedInput
+  enquiryConversions?: Prisma.EnquiryConversionUncheckedUpdateManyWithoutConvertedByNestedInput
+  assignedMatterTasks?: Prisma.MatterTaskUncheckedUpdateManyWithoutAssignedToNestedInput
+  completedMatterTasks?: Prisma.MatterTaskUncheckedUpdateManyWithoutCompletedByNestedInput
+  cancelledMatterTasks?: Prisma.MatterTaskUncheckedUpdateManyWithoutCancelledByNestedInput
+  matterTasksCreated?: Prisma.MatterTaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  matterTasksUpdated?: Prisma.MatterTaskUncheckedUpdateManyWithoutUpdatedByNestedInput
+  ownedMatterDeadlines?: Prisma.MatterDeadlineUncheckedUpdateManyWithoutOwnerNestedInput
+  satisfiedMatterDeadlines?: Prisma.MatterDeadlineUncheckedUpdateManyWithoutSatisfiedByNestedInput
+  cancelledMatterDeadlines?: Prisma.MatterDeadlineUncheckedUpdateManyWithoutCancelledByNestedInput
+  matterDeadlinesCreated?: Prisma.MatterDeadlineUncheckedUpdateManyWithoutCreatedByNestedInput
+  matterDeadlinesUpdated?: Prisma.MatterDeadlineUncheckedUpdateManyWithoutUpdatedByNestedInput
+  documentRequestsSent?: Prisma.DocumentRequestUncheckedUpdateManyWithoutSentByNestedInput
+  documentRequestsCancelled?: Prisma.DocumentRequestUncheckedUpdateManyWithoutCancelledByNestedInput
+  documentRequestsCreated?: Prisma.DocumentRequestUncheckedUpdateManyWithoutCreatedByNestedInput
+  documentRequestsUpdated?: Prisma.DocumentRequestUncheckedUpdateManyWithoutUpdatedByNestedInput
+  matterDocumentsCreated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutCreatedByNestedInput
+  matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
+  matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
+  matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
+}
+
+export type UserProfileCreateWithoutAgentToolCallsOwnedInput = {
+  id: string
+  email: string
+  displayName?: string | null
+  firstName?: string | null
+  lastName?: string | null
+  avatarPath?: string | null
+  status?: $Enums.UserProfileStatus
+  locale?: string
+  timezone?: string
+  isPlatformUser?: boolean
+  lastSeenAt?: Date | string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  organisationMemberships?: Prisma.OrganisationMembershipCreateNestedManyWithoutUserProfileInput
+  roleAssignments?: Prisma.RoleAssignmentCreateNestedManyWithoutUserProfileInput
+  grantedRoleAssignments?: Prisma.RoleAssignmentCreateNestedManyWithoutGrantedByInput
+  revokedRoleAssignments?: Prisma.RoleAssignmentCreateNestedManyWithoutRevokedByInput
+  invitationsSent?: Prisma.InvitationCreateNestedManyWithoutInvitedByInput
+  invitationsAccepted?: Prisma.InvitationCreateNestedManyWithoutAcceptedByInput
+  invitationsRevoked?: Prisma.InvitationCreateNestedManyWithoutRevokedByInput
+  userSessions?: Prisma.UserSessionCreateNestedManyWithoutUserProfileInput
+  revokedUserSessions?: Prisma.UserSessionCreateNestedManyWithoutRevokedByInput
+  supportAccessAsGrantee?: Prisma.SupportAccessGrantCreateNestedManyWithoutGranteeInput
+  supportAccessRequested?: Prisma.SupportAccessGrantCreateNestedManyWithoutRequestedByInput
+  supportAccessApproved?: Prisma.SupportAccessGrantCreateNestedManyWithoutApprovedByInput
+  supportAccessRevoked?: Prisma.SupportAccessGrantCreateNestedManyWithoutRevokedByInput
+  auditEventsAsActor?: Prisma.AuditEventCreateNestedManyWithoutActorUserInput
+  auditEventsAsSubject?: Prisma.AuditEventCreateNestedManyWithoutSubjectUserInput
+  securityEventsAsActor?: Prisma.SecurityEventCreateNestedManyWithoutActorUserInput
+  securityEventsAsSubject?: Prisma.SecurityEventCreateNestedManyWithoutSubjectUserInput
+  securityAcknowledged?: Prisma.SecurityEventCreateNestedManyWithoutAcknowledgedByInput
+  securityResolved?: Prisma.SecurityEventCreateNestedManyWithoutResolvedByInput
+  assignedEnquiries?: Prisma.EnquiryCreateNestedManyWithoutAssignedToInput
+  createdEnquiries?: Prisma.EnquiryCreateNestedManyWithoutCreatedByInput
+  updatedEnquiries?: Prisma.EnquiryCreateNestedManyWithoutUpdatedByInput
+  jobProfilesCreated?: Prisma.JobProfileCreateNestedManyWithoutCreatedByInput
+  jobProfilesUpdated?: Prisma.JobProfileCreateNestedManyWithoutUpdatedByInput
+  kpiDefinitionsCreated?: Prisma.KpiDefinitionCreateNestedManyWithoutCreatedByInput
+  kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
+  agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
+  agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
+  workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
+  workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
+  workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
+  workforceAssignmentKpisCreated?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutCreatedByInput
+  invitationOnboardingPlansCreated?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutCreatedByInput
+  assignedClients?: Prisma.ClientCreateNestedManyWithoutAssignedToInput
+  clientsCreated?: Prisma.ClientCreateNestedManyWithoutCreatedByInput
+  clientsUpdated?: Prisma.ClientCreateNestedManyWithoutUpdatedByInput
+  assignedMatters?: Prisma.MatterCreateNestedManyWithoutAssignedToInput
+  supervisedMatters?: Prisma.MatterCreateNestedManyWithoutSupervisorInput
+  mattersCreated?: Prisma.MatterCreateNestedManyWithoutCreatedByInput
+  mattersUpdated?: Prisma.MatterCreateNestedManyWithoutUpdatedByInput
+  matterComplianceCreated?: Prisma.MatterComplianceCreateNestedManyWithoutCreatedByInput
+  matterComplianceUpdated?: Prisma.MatterComplianceCreateNestedManyWithoutUpdatedByInput
+  conflictChecksCompleted?: Prisma.MatterComplianceCreateNestedManyWithoutConflictCheckedByInput
+  amlChecksCompleted?: Prisma.MatterComplianceCreateNestedManyWithoutAmlCheckedByInput
+  riskReviewsCompleted?: Prisma.MatterComplianceCreateNestedManyWithoutRiskReviewedByInput
+  matterStatusChanges?: Prisma.MatterStatusHistoryCreateNestedManyWithoutChangedByInput
+  enquiryConversions?: Prisma.EnquiryConversionCreateNestedManyWithoutConvertedByInput
+  assignedMatterTasks?: Prisma.MatterTaskCreateNestedManyWithoutAssignedToInput
+  completedMatterTasks?: Prisma.MatterTaskCreateNestedManyWithoutCompletedByInput
+  cancelledMatterTasks?: Prisma.MatterTaskCreateNestedManyWithoutCancelledByInput
+  matterTasksCreated?: Prisma.MatterTaskCreateNestedManyWithoutCreatedByInput
+  matterTasksUpdated?: Prisma.MatterTaskCreateNestedManyWithoutUpdatedByInput
+  ownedMatterDeadlines?: Prisma.MatterDeadlineCreateNestedManyWithoutOwnerInput
+  satisfiedMatterDeadlines?: Prisma.MatterDeadlineCreateNestedManyWithoutSatisfiedByInput
+  cancelledMatterDeadlines?: Prisma.MatterDeadlineCreateNestedManyWithoutCancelledByInput
+  matterDeadlinesCreated?: Prisma.MatterDeadlineCreateNestedManyWithoutCreatedByInput
+  matterDeadlinesUpdated?: Prisma.MatterDeadlineCreateNestedManyWithoutUpdatedByInput
+  documentRequestsSent?: Prisma.DocumentRequestCreateNestedManyWithoutSentByInput
+  documentRequestsCancelled?: Prisma.DocumentRequestCreateNestedManyWithoutCancelledByInput
+  documentRequestsCreated?: Prisma.DocumentRequestCreateNestedManyWithoutCreatedByInput
+  documentRequestsUpdated?: Prisma.DocumentRequestCreateNestedManyWithoutUpdatedByInput
+  matterDocumentsCreated?: Prisma.MatterDocumentCreateNestedManyWithoutCreatedByInput
+  matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
+  matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
+  matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
+}
+
+export type UserProfileUncheckedCreateWithoutAgentToolCallsOwnedInput = {
+  id: string
+  email: string
+  displayName?: string | null
+  firstName?: string | null
+  lastName?: string | null
+  avatarPath?: string | null
+  status?: $Enums.UserProfileStatus
+  locale?: string
+  timezone?: string
+  isPlatformUser?: boolean
+  lastSeenAt?: Date | string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  organisationMemberships?: Prisma.OrganisationMembershipUncheckedCreateNestedManyWithoutUserProfileInput
+  roleAssignments?: Prisma.RoleAssignmentUncheckedCreateNestedManyWithoutUserProfileInput
+  grantedRoleAssignments?: Prisma.RoleAssignmentUncheckedCreateNestedManyWithoutGrantedByInput
+  revokedRoleAssignments?: Prisma.RoleAssignmentUncheckedCreateNestedManyWithoutRevokedByInput
+  invitationsSent?: Prisma.InvitationUncheckedCreateNestedManyWithoutInvitedByInput
+  invitationsAccepted?: Prisma.InvitationUncheckedCreateNestedManyWithoutAcceptedByInput
+  invitationsRevoked?: Prisma.InvitationUncheckedCreateNestedManyWithoutRevokedByInput
+  userSessions?: Prisma.UserSessionUncheckedCreateNestedManyWithoutUserProfileInput
+  revokedUserSessions?: Prisma.UserSessionUncheckedCreateNestedManyWithoutRevokedByInput
+  supportAccessAsGrantee?: Prisma.SupportAccessGrantUncheckedCreateNestedManyWithoutGranteeInput
+  supportAccessRequested?: Prisma.SupportAccessGrantUncheckedCreateNestedManyWithoutRequestedByInput
+  supportAccessApproved?: Prisma.SupportAccessGrantUncheckedCreateNestedManyWithoutApprovedByInput
+  supportAccessRevoked?: Prisma.SupportAccessGrantUncheckedCreateNestedManyWithoutRevokedByInput
+  auditEventsAsActor?: Prisma.AuditEventUncheckedCreateNestedManyWithoutActorUserInput
+  auditEventsAsSubject?: Prisma.AuditEventUncheckedCreateNestedManyWithoutSubjectUserInput
+  securityEventsAsActor?: Prisma.SecurityEventUncheckedCreateNestedManyWithoutActorUserInput
+  securityEventsAsSubject?: Prisma.SecurityEventUncheckedCreateNestedManyWithoutSubjectUserInput
+  securityAcknowledged?: Prisma.SecurityEventUncheckedCreateNestedManyWithoutAcknowledgedByInput
+  securityResolved?: Prisma.SecurityEventUncheckedCreateNestedManyWithoutResolvedByInput
+  assignedEnquiries?: Prisma.EnquiryUncheckedCreateNestedManyWithoutAssignedToInput
+  createdEnquiries?: Prisma.EnquiryUncheckedCreateNestedManyWithoutCreatedByInput
+  updatedEnquiries?: Prisma.EnquiryUncheckedCreateNestedManyWithoutUpdatedByInput
+  jobProfilesCreated?: Prisma.JobProfileUncheckedCreateNestedManyWithoutCreatedByInput
+  jobProfilesUpdated?: Prisma.JobProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  kpiDefinitionsCreated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutCreatedByInput
+  kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
+  agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
+  workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
+  workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
+  workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
+  workforceAssignmentKpisCreated?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutCreatedByInput
+  invitationOnboardingPlansCreated?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutCreatedByInput
+  assignedClients?: Prisma.ClientUncheckedCreateNestedManyWithoutAssignedToInput
+  clientsCreated?: Prisma.ClientUncheckedCreateNestedManyWithoutCreatedByInput
+  clientsUpdated?: Prisma.ClientUncheckedCreateNestedManyWithoutUpdatedByInput
+  assignedMatters?: Prisma.MatterUncheckedCreateNestedManyWithoutAssignedToInput
+  supervisedMatters?: Prisma.MatterUncheckedCreateNestedManyWithoutSupervisorInput
+  mattersCreated?: Prisma.MatterUncheckedCreateNestedManyWithoutCreatedByInput
+  mattersUpdated?: Prisma.MatterUncheckedCreateNestedManyWithoutUpdatedByInput
+  matterComplianceCreated?: Prisma.MatterComplianceUncheckedCreateNestedManyWithoutCreatedByInput
+  matterComplianceUpdated?: Prisma.MatterComplianceUncheckedCreateNestedManyWithoutUpdatedByInput
+  conflictChecksCompleted?: Prisma.MatterComplianceUncheckedCreateNestedManyWithoutConflictCheckedByInput
+  amlChecksCompleted?: Prisma.MatterComplianceUncheckedCreateNestedManyWithoutAmlCheckedByInput
+  riskReviewsCompleted?: Prisma.MatterComplianceUncheckedCreateNestedManyWithoutRiskReviewedByInput
+  matterStatusChanges?: Prisma.MatterStatusHistoryUncheckedCreateNestedManyWithoutChangedByInput
+  enquiryConversions?: Prisma.EnquiryConversionUncheckedCreateNestedManyWithoutConvertedByInput
+  assignedMatterTasks?: Prisma.MatterTaskUncheckedCreateNestedManyWithoutAssignedToInput
+  completedMatterTasks?: Prisma.MatterTaskUncheckedCreateNestedManyWithoutCompletedByInput
+  cancelledMatterTasks?: Prisma.MatterTaskUncheckedCreateNestedManyWithoutCancelledByInput
+  matterTasksCreated?: Prisma.MatterTaskUncheckedCreateNestedManyWithoutCreatedByInput
+  matterTasksUpdated?: Prisma.MatterTaskUncheckedCreateNestedManyWithoutUpdatedByInput
+  ownedMatterDeadlines?: Prisma.MatterDeadlineUncheckedCreateNestedManyWithoutOwnerInput
+  satisfiedMatterDeadlines?: Prisma.MatterDeadlineUncheckedCreateNestedManyWithoutSatisfiedByInput
+  cancelledMatterDeadlines?: Prisma.MatterDeadlineUncheckedCreateNestedManyWithoutCancelledByInput
+  matterDeadlinesCreated?: Prisma.MatterDeadlineUncheckedCreateNestedManyWithoutCreatedByInput
+  matterDeadlinesUpdated?: Prisma.MatterDeadlineUncheckedCreateNestedManyWithoutUpdatedByInput
+  documentRequestsSent?: Prisma.DocumentRequestUncheckedCreateNestedManyWithoutSentByInput
+  documentRequestsCancelled?: Prisma.DocumentRequestUncheckedCreateNestedManyWithoutCancelledByInput
+  documentRequestsCreated?: Prisma.DocumentRequestUncheckedCreateNestedManyWithoutCreatedByInput
+  documentRequestsUpdated?: Prisma.DocumentRequestUncheckedCreateNestedManyWithoutUpdatedByInput
+  matterDocumentsCreated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutCreatedByInput
+  matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
+  matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
+  matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
+}
+
+export type UserProfileCreateOrConnectWithoutAgentToolCallsOwnedInput = {
+  where: Prisma.UserProfileWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserProfileCreateWithoutAgentToolCallsOwnedInput, Prisma.UserProfileUncheckedCreateWithoutAgentToolCallsOwnedInput>
+}
+
+export type UserProfileUpsertWithoutAgentToolCallsOwnedInput = {
+  update: Prisma.XOR<Prisma.UserProfileUpdateWithoutAgentToolCallsOwnedInput, Prisma.UserProfileUncheckedUpdateWithoutAgentToolCallsOwnedInput>
+  create: Prisma.XOR<Prisma.UserProfileCreateWithoutAgentToolCallsOwnedInput, Prisma.UserProfileUncheckedCreateWithoutAgentToolCallsOwnedInput>
+  where?: Prisma.UserProfileWhereInput
+}
+
+export type UserProfileUpdateToOneWithWhereWithoutAgentToolCallsOwnedInput = {
+  where?: Prisma.UserProfileWhereInput
+  data: Prisma.XOR<Prisma.UserProfileUpdateWithoutAgentToolCallsOwnedInput, Prisma.UserProfileUncheckedUpdateWithoutAgentToolCallsOwnedInput>
+}
+
+export type UserProfileUpdateWithoutAgentToolCallsOwnedInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatarPath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumUserProfileStatusFieldUpdateOperationsInput | $Enums.UserProfileStatus
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  isPlatformUser?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  lastSeenAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  organisationMemberships?: Prisma.OrganisationMembershipUpdateManyWithoutUserProfileNestedInput
+  roleAssignments?: Prisma.RoleAssignmentUpdateManyWithoutUserProfileNestedInput
+  grantedRoleAssignments?: Prisma.RoleAssignmentUpdateManyWithoutGrantedByNestedInput
+  revokedRoleAssignments?: Prisma.RoleAssignmentUpdateManyWithoutRevokedByNestedInput
+  invitationsSent?: Prisma.InvitationUpdateManyWithoutInvitedByNestedInput
+  invitationsAccepted?: Prisma.InvitationUpdateManyWithoutAcceptedByNestedInput
+  invitationsRevoked?: Prisma.InvitationUpdateManyWithoutRevokedByNestedInput
+  userSessions?: Prisma.UserSessionUpdateManyWithoutUserProfileNestedInput
+  revokedUserSessions?: Prisma.UserSessionUpdateManyWithoutRevokedByNestedInput
+  supportAccessAsGrantee?: Prisma.SupportAccessGrantUpdateManyWithoutGranteeNestedInput
+  supportAccessRequested?: Prisma.SupportAccessGrantUpdateManyWithoutRequestedByNestedInput
+  supportAccessApproved?: Prisma.SupportAccessGrantUpdateManyWithoutApprovedByNestedInput
+  supportAccessRevoked?: Prisma.SupportAccessGrantUpdateManyWithoutRevokedByNestedInput
+  auditEventsAsActor?: Prisma.AuditEventUpdateManyWithoutActorUserNestedInput
+  auditEventsAsSubject?: Prisma.AuditEventUpdateManyWithoutSubjectUserNestedInput
+  securityEventsAsActor?: Prisma.SecurityEventUpdateManyWithoutActorUserNestedInput
+  securityEventsAsSubject?: Prisma.SecurityEventUpdateManyWithoutSubjectUserNestedInput
+  securityAcknowledged?: Prisma.SecurityEventUpdateManyWithoutAcknowledgedByNestedInput
+  securityResolved?: Prisma.SecurityEventUpdateManyWithoutResolvedByNestedInput
+  assignedEnquiries?: Prisma.EnquiryUpdateManyWithoutAssignedToNestedInput
+  createdEnquiries?: Prisma.EnquiryUpdateManyWithoutCreatedByNestedInput
+  updatedEnquiries?: Prisma.EnquiryUpdateManyWithoutUpdatedByNestedInput
+  jobProfilesCreated?: Prisma.JobProfileUpdateManyWithoutCreatedByNestedInput
+  jobProfilesUpdated?: Prisma.JobProfileUpdateManyWithoutUpdatedByNestedInput
+  kpiDefinitionsCreated?: Prisma.KpiDefinitionUpdateManyWithoutCreatedByNestedInput
+  kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
+  agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
+  agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
+  workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
+  workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
+  workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
+  workforceAssignmentKpisCreated?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutCreatedByNestedInput
+  invitationOnboardingPlansCreated?: Prisma.InvitationOnboardingPlanUpdateManyWithoutCreatedByNestedInput
+  assignedClients?: Prisma.ClientUpdateManyWithoutAssignedToNestedInput
+  clientsCreated?: Prisma.ClientUpdateManyWithoutCreatedByNestedInput
+  clientsUpdated?: Prisma.ClientUpdateManyWithoutUpdatedByNestedInput
+  assignedMatters?: Prisma.MatterUpdateManyWithoutAssignedToNestedInput
+  supervisedMatters?: Prisma.MatterUpdateManyWithoutSupervisorNestedInput
+  mattersCreated?: Prisma.MatterUpdateManyWithoutCreatedByNestedInput
+  mattersUpdated?: Prisma.MatterUpdateManyWithoutUpdatedByNestedInput
+  matterComplianceCreated?: Prisma.MatterComplianceUpdateManyWithoutCreatedByNestedInput
+  matterComplianceUpdated?: Prisma.MatterComplianceUpdateManyWithoutUpdatedByNestedInput
+  conflictChecksCompleted?: Prisma.MatterComplianceUpdateManyWithoutConflictCheckedByNestedInput
+  amlChecksCompleted?: Prisma.MatterComplianceUpdateManyWithoutAmlCheckedByNestedInput
+  riskReviewsCompleted?: Prisma.MatterComplianceUpdateManyWithoutRiskReviewedByNestedInput
+  matterStatusChanges?: Prisma.MatterStatusHistoryUpdateManyWithoutChangedByNestedInput
+  enquiryConversions?: Prisma.EnquiryConversionUpdateManyWithoutConvertedByNestedInput
+  assignedMatterTasks?: Prisma.MatterTaskUpdateManyWithoutAssignedToNestedInput
+  completedMatterTasks?: Prisma.MatterTaskUpdateManyWithoutCompletedByNestedInput
+  cancelledMatterTasks?: Prisma.MatterTaskUpdateManyWithoutCancelledByNestedInput
+  matterTasksCreated?: Prisma.MatterTaskUpdateManyWithoutCreatedByNestedInput
+  matterTasksUpdated?: Prisma.MatterTaskUpdateManyWithoutUpdatedByNestedInput
+  ownedMatterDeadlines?: Prisma.MatterDeadlineUpdateManyWithoutOwnerNestedInput
+  satisfiedMatterDeadlines?: Prisma.MatterDeadlineUpdateManyWithoutSatisfiedByNestedInput
+  cancelledMatterDeadlines?: Prisma.MatterDeadlineUpdateManyWithoutCancelledByNestedInput
+  matterDeadlinesCreated?: Prisma.MatterDeadlineUpdateManyWithoutCreatedByNestedInput
+  matterDeadlinesUpdated?: Prisma.MatterDeadlineUpdateManyWithoutUpdatedByNestedInput
+  documentRequestsSent?: Prisma.DocumentRequestUpdateManyWithoutSentByNestedInput
+  documentRequestsCancelled?: Prisma.DocumentRequestUpdateManyWithoutCancelledByNestedInput
+  documentRequestsCreated?: Prisma.DocumentRequestUpdateManyWithoutCreatedByNestedInput
+  documentRequestsUpdated?: Prisma.DocumentRequestUpdateManyWithoutUpdatedByNestedInput
+  matterDocumentsCreated?: Prisma.MatterDocumentUpdateManyWithoutCreatedByNestedInput
+  matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
+  matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
+  matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
+}
+
+export type UserProfileUncheckedUpdateWithoutAgentToolCallsOwnedInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatarPath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumUserProfileStatusFieldUpdateOperationsInput | $Enums.UserProfileStatus
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  isPlatformUser?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  lastSeenAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  organisationMemberships?: Prisma.OrganisationMembershipUncheckedUpdateManyWithoutUserProfileNestedInput
+  roleAssignments?: Prisma.RoleAssignmentUncheckedUpdateManyWithoutUserProfileNestedInput
+  grantedRoleAssignments?: Prisma.RoleAssignmentUncheckedUpdateManyWithoutGrantedByNestedInput
+  revokedRoleAssignments?: Prisma.RoleAssignmentUncheckedUpdateManyWithoutRevokedByNestedInput
+  invitationsSent?: Prisma.InvitationUncheckedUpdateManyWithoutInvitedByNestedInput
+  invitationsAccepted?: Prisma.InvitationUncheckedUpdateManyWithoutAcceptedByNestedInput
+  invitationsRevoked?: Prisma.InvitationUncheckedUpdateManyWithoutRevokedByNestedInput
+  userSessions?: Prisma.UserSessionUncheckedUpdateManyWithoutUserProfileNestedInput
+  revokedUserSessions?: Prisma.UserSessionUncheckedUpdateManyWithoutRevokedByNestedInput
+  supportAccessAsGrantee?: Prisma.SupportAccessGrantUncheckedUpdateManyWithoutGranteeNestedInput
+  supportAccessRequested?: Prisma.SupportAccessGrantUncheckedUpdateManyWithoutRequestedByNestedInput
+  supportAccessApproved?: Prisma.SupportAccessGrantUncheckedUpdateManyWithoutApprovedByNestedInput
+  supportAccessRevoked?: Prisma.SupportAccessGrantUncheckedUpdateManyWithoutRevokedByNestedInput
+  auditEventsAsActor?: Prisma.AuditEventUncheckedUpdateManyWithoutActorUserNestedInput
+  auditEventsAsSubject?: Prisma.AuditEventUncheckedUpdateManyWithoutSubjectUserNestedInput
+  securityEventsAsActor?: Prisma.SecurityEventUncheckedUpdateManyWithoutActorUserNestedInput
+  securityEventsAsSubject?: Prisma.SecurityEventUncheckedUpdateManyWithoutSubjectUserNestedInput
+  securityAcknowledged?: Prisma.SecurityEventUncheckedUpdateManyWithoutAcknowledgedByNestedInput
+  securityResolved?: Prisma.SecurityEventUncheckedUpdateManyWithoutResolvedByNestedInput
+  assignedEnquiries?: Prisma.EnquiryUncheckedUpdateManyWithoutAssignedToNestedInput
+  createdEnquiries?: Prisma.EnquiryUncheckedUpdateManyWithoutCreatedByNestedInput
+  updatedEnquiries?: Prisma.EnquiryUncheckedUpdateManyWithoutUpdatedByNestedInput
+  jobProfilesCreated?: Prisma.JobProfileUncheckedUpdateManyWithoutCreatedByNestedInput
+  jobProfilesUpdated?: Prisma.JobProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  kpiDefinitionsCreated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutCreatedByNestedInput
+  kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
+  agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
+  workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
+  workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
+  workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
+  workforceAssignmentKpisCreated?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutCreatedByNestedInput
+  invitationOnboardingPlansCreated?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutCreatedByNestedInput
+  assignedClients?: Prisma.ClientUncheckedUpdateManyWithoutAssignedToNestedInput
+  clientsCreated?: Prisma.ClientUncheckedUpdateManyWithoutCreatedByNestedInput
+  clientsUpdated?: Prisma.ClientUncheckedUpdateManyWithoutUpdatedByNestedInput
+  assignedMatters?: Prisma.MatterUncheckedUpdateManyWithoutAssignedToNestedInput
+  supervisedMatters?: Prisma.MatterUncheckedUpdateManyWithoutSupervisorNestedInput
+  mattersCreated?: Prisma.MatterUncheckedUpdateManyWithoutCreatedByNestedInput
+  mattersUpdated?: Prisma.MatterUncheckedUpdateManyWithoutUpdatedByNestedInput
+  matterComplianceCreated?: Prisma.MatterComplianceUncheckedUpdateManyWithoutCreatedByNestedInput
+  matterComplianceUpdated?: Prisma.MatterComplianceUncheckedUpdateManyWithoutUpdatedByNestedInput
+  conflictChecksCompleted?: Prisma.MatterComplianceUncheckedUpdateManyWithoutConflictCheckedByNestedInput
+  amlChecksCompleted?: Prisma.MatterComplianceUncheckedUpdateManyWithoutAmlCheckedByNestedInput
+  riskReviewsCompleted?: Prisma.MatterComplianceUncheckedUpdateManyWithoutRiskReviewedByNestedInput
+  matterStatusChanges?: Prisma.MatterStatusHistoryUncheckedUpdateManyWithoutChangedByNestedInput
+  enquiryConversions?: Prisma.EnquiryConversionUncheckedUpdateManyWithoutConvertedByNestedInput
+  assignedMatterTasks?: Prisma.MatterTaskUncheckedUpdateManyWithoutAssignedToNestedInput
+  completedMatterTasks?: Prisma.MatterTaskUncheckedUpdateManyWithoutCompletedByNestedInput
+  cancelledMatterTasks?: Prisma.MatterTaskUncheckedUpdateManyWithoutCancelledByNestedInput
+  matterTasksCreated?: Prisma.MatterTaskUncheckedUpdateManyWithoutCreatedByNestedInput
+  matterTasksUpdated?: Prisma.MatterTaskUncheckedUpdateManyWithoutUpdatedByNestedInput
+  ownedMatterDeadlines?: Prisma.MatterDeadlineUncheckedUpdateManyWithoutOwnerNestedInput
+  satisfiedMatterDeadlines?: Prisma.MatterDeadlineUncheckedUpdateManyWithoutSatisfiedByNestedInput
+  cancelledMatterDeadlines?: Prisma.MatterDeadlineUncheckedUpdateManyWithoutCancelledByNestedInput
+  matterDeadlinesCreated?: Prisma.MatterDeadlineUncheckedUpdateManyWithoutCreatedByNestedInput
+  matterDeadlinesUpdated?: Prisma.MatterDeadlineUncheckedUpdateManyWithoutUpdatedByNestedInput
+  documentRequestsSent?: Prisma.DocumentRequestUncheckedUpdateManyWithoutSentByNestedInput
+  documentRequestsCancelled?: Prisma.DocumentRequestUncheckedUpdateManyWithoutCancelledByNestedInput
+  documentRequestsCreated?: Prisma.DocumentRequestUncheckedUpdateManyWithoutCreatedByNestedInput
+  documentRequestsUpdated?: Prisma.DocumentRequestUncheckedUpdateManyWithoutUpdatedByNestedInput
+  matterDocumentsCreated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutCreatedByNestedInput
+  matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedUpdateManyWithoutUpdatedByNestedInput
+  matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutUploadedByNestedInput
+  matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutResolvedByNestedInput
+}
+
+export type UserProfileCreateWithoutAgentUsageOwnedInput = {
+  id: string
+  email: string
+  displayName?: string | null
+  firstName?: string | null
+  lastName?: string | null
+  avatarPath?: string | null
+  status?: $Enums.UserProfileStatus
+  locale?: string
+  timezone?: string
+  isPlatformUser?: boolean
+  lastSeenAt?: Date | string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  organisationMemberships?: Prisma.OrganisationMembershipCreateNestedManyWithoutUserProfileInput
+  roleAssignments?: Prisma.RoleAssignmentCreateNestedManyWithoutUserProfileInput
+  grantedRoleAssignments?: Prisma.RoleAssignmentCreateNestedManyWithoutGrantedByInput
+  revokedRoleAssignments?: Prisma.RoleAssignmentCreateNestedManyWithoutRevokedByInput
+  invitationsSent?: Prisma.InvitationCreateNestedManyWithoutInvitedByInput
+  invitationsAccepted?: Prisma.InvitationCreateNestedManyWithoutAcceptedByInput
+  invitationsRevoked?: Prisma.InvitationCreateNestedManyWithoutRevokedByInput
+  userSessions?: Prisma.UserSessionCreateNestedManyWithoutUserProfileInput
+  revokedUserSessions?: Prisma.UserSessionCreateNestedManyWithoutRevokedByInput
+  supportAccessAsGrantee?: Prisma.SupportAccessGrantCreateNestedManyWithoutGranteeInput
+  supportAccessRequested?: Prisma.SupportAccessGrantCreateNestedManyWithoutRequestedByInput
+  supportAccessApproved?: Prisma.SupportAccessGrantCreateNestedManyWithoutApprovedByInput
+  supportAccessRevoked?: Prisma.SupportAccessGrantCreateNestedManyWithoutRevokedByInput
+  auditEventsAsActor?: Prisma.AuditEventCreateNestedManyWithoutActorUserInput
+  auditEventsAsSubject?: Prisma.AuditEventCreateNestedManyWithoutSubjectUserInput
+  securityEventsAsActor?: Prisma.SecurityEventCreateNestedManyWithoutActorUserInput
+  securityEventsAsSubject?: Prisma.SecurityEventCreateNestedManyWithoutSubjectUserInput
+  securityAcknowledged?: Prisma.SecurityEventCreateNestedManyWithoutAcknowledgedByInput
+  securityResolved?: Prisma.SecurityEventCreateNestedManyWithoutResolvedByInput
+  assignedEnquiries?: Prisma.EnquiryCreateNestedManyWithoutAssignedToInput
+  createdEnquiries?: Prisma.EnquiryCreateNestedManyWithoutCreatedByInput
+  updatedEnquiries?: Prisma.EnquiryCreateNestedManyWithoutUpdatedByInput
+  jobProfilesCreated?: Prisma.JobProfileCreateNestedManyWithoutCreatedByInput
+  jobProfilesUpdated?: Prisma.JobProfileCreateNestedManyWithoutUpdatedByInput
+  kpiDefinitionsCreated?: Prisma.KpiDefinitionCreateNestedManyWithoutCreatedByInput
+  kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
+  agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
+  agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
+  workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
+  workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
+  workforceAssignmentKpisCreated?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutCreatedByInput
+  invitationOnboardingPlansCreated?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutCreatedByInput
+  assignedClients?: Prisma.ClientCreateNestedManyWithoutAssignedToInput
+  clientsCreated?: Prisma.ClientCreateNestedManyWithoutCreatedByInput
+  clientsUpdated?: Prisma.ClientCreateNestedManyWithoutUpdatedByInput
+  assignedMatters?: Prisma.MatterCreateNestedManyWithoutAssignedToInput
+  supervisedMatters?: Prisma.MatterCreateNestedManyWithoutSupervisorInput
+  mattersCreated?: Prisma.MatterCreateNestedManyWithoutCreatedByInput
+  mattersUpdated?: Prisma.MatterCreateNestedManyWithoutUpdatedByInput
+  matterComplianceCreated?: Prisma.MatterComplianceCreateNestedManyWithoutCreatedByInput
+  matterComplianceUpdated?: Prisma.MatterComplianceCreateNestedManyWithoutUpdatedByInput
+  conflictChecksCompleted?: Prisma.MatterComplianceCreateNestedManyWithoutConflictCheckedByInput
+  amlChecksCompleted?: Prisma.MatterComplianceCreateNestedManyWithoutAmlCheckedByInput
+  riskReviewsCompleted?: Prisma.MatterComplianceCreateNestedManyWithoutRiskReviewedByInput
+  matterStatusChanges?: Prisma.MatterStatusHistoryCreateNestedManyWithoutChangedByInput
+  enquiryConversions?: Prisma.EnquiryConversionCreateNestedManyWithoutConvertedByInput
+  assignedMatterTasks?: Prisma.MatterTaskCreateNestedManyWithoutAssignedToInput
+  completedMatterTasks?: Prisma.MatterTaskCreateNestedManyWithoutCompletedByInput
+  cancelledMatterTasks?: Prisma.MatterTaskCreateNestedManyWithoutCancelledByInput
+  matterTasksCreated?: Prisma.MatterTaskCreateNestedManyWithoutCreatedByInput
+  matterTasksUpdated?: Prisma.MatterTaskCreateNestedManyWithoutUpdatedByInput
+  ownedMatterDeadlines?: Prisma.MatterDeadlineCreateNestedManyWithoutOwnerInput
+  satisfiedMatterDeadlines?: Prisma.MatterDeadlineCreateNestedManyWithoutSatisfiedByInput
+  cancelledMatterDeadlines?: Prisma.MatterDeadlineCreateNestedManyWithoutCancelledByInput
+  matterDeadlinesCreated?: Prisma.MatterDeadlineCreateNestedManyWithoutCreatedByInput
+  matterDeadlinesUpdated?: Prisma.MatterDeadlineCreateNestedManyWithoutUpdatedByInput
+  documentRequestsSent?: Prisma.DocumentRequestCreateNestedManyWithoutSentByInput
+  documentRequestsCancelled?: Prisma.DocumentRequestCreateNestedManyWithoutCancelledByInput
+  documentRequestsCreated?: Prisma.DocumentRequestCreateNestedManyWithoutCreatedByInput
+  documentRequestsUpdated?: Prisma.DocumentRequestCreateNestedManyWithoutUpdatedByInput
+  matterDocumentsCreated?: Prisma.MatterDocumentCreateNestedManyWithoutCreatedByInput
+  matterDocumentsUpdated?: Prisma.MatterDocumentCreateNestedManyWithoutUpdatedByInput
+  matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionCreateNestedManyWithoutUploadedByInput
+  matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackCreateNestedManyWithoutResolvedByInput
+}
+
+export type UserProfileUncheckedCreateWithoutAgentUsageOwnedInput = {
+  id: string
+  email: string
+  displayName?: string | null
+  firstName?: string | null
+  lastName?: string | null
+  avatarPath?: string | null
+  status?: $Enums.UserProfileStatus
+  locale?: string
+  timezone?: string
+  isPlatformUser?: boolean
+  lastSeenAt?: Date | string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  organisationMemberships?: Prisma.OrganisationMembershipUncheckedCreateNestedManyWithoutUserProfileInput
+  roleAssignments?: Prisma.RoleAssignmentUncheckedCreateNestedManyWithoutUserProfileInput
+  grantedRoleAssignments?: Prisma.RoleAssignmentUncheckedCreateNestedManyWithoutGrantedByInput
+  revokedRoleAssignments?: Prisma.RoleAssignmentUncheckedCreateNestedManyWithoutRevokedByInput
+  invitationsSent?: Prisma.InvitationUncheckedCreateNestedManyWithoutInvitedByInput
+  invitationsAccepted?: Prisma.InvitationUncheckedCreateNestedManyWithoutAcceptedByInput
+  invitationsRevoked?: Prisma.InvitationUncheckedCreateNestedManyWithoutRevokedByInput
+  userSessions?: Prisma.UserSessionUncheckedCreateNestedManyWithoutUserProfileInput
+  revokedUserSessions?: Prisma.UserSessionUncheckedCreateNestedManyWithoutRevokedByInput
+  supportAccessAsGrantee?: Prisma.SupportAccessGrantUncheckedCreateNestedManyWithoutGranteeInput
+  supportAccessRequested?: Prisma.SupportAccessGrantUncheckedCreateNestedManyWithoutRequestedByInput
+  supportAccessApproved?: Prisma.SupportAccessGrantUncheckedCreateNestedManyWithoutApprovedByInput
+  supportAccessRevoked?: Prisma.SupportAccessGrantUncheckedCreateNestedManyWithoutRevokedByInput
+  auditEventsAsActor?: Prisma.AuditEventUncheckedCreateNestedManyWithoutActorUserInput
+  auditEventsAsSubject?: Prisma.AuditEventUncheckedCreateNestedManyWithoutSubjectUserInput
+  securityEventsAsActor?: Prisma.SecurityEventUncheckedCreateNestedManyWithoutActorUserInput
+  securityEventsAsSubject?: Prisma.SecurityEventUncheckedCreateNestedManyWithoutSubjectUserInput
+  securityAcknowledged?: Prisma.SecurityEventUncheckedCreateNestedManyWithoutAcknowledgedByInput
+  securityResolved?: Prisma.SecurityEventUncheckedCreateNestedManyWithoutResolvedByInput
+  assignedEnquiries?: Prisma.EnquiryUncheckedCreateNestedManyWithoutAssignedToInput
+  createdEnquiries?: Prisma.EnquiryUncheckedCreateNestedManyWithoutCreatedByInput
+  updatedEnquiries?: Prisma.EnquiryUncheckedCreateNestedManyWithoutUpdatedByInput
+  jobProfilesCreated?: Prisma.JobProfileUncheckedCreateNestedManyWithoutCreatedByInput
+  jobProfilesUpdated?: Prisma.JobProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  kpiDefinitionsCreated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutCreatedByInput
+  kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
+  agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
+  workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
+  workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
+  workforceAssignmentKpisCreated?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutCreatedByInput
+  invitationOnboardingPlansCreated?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutCreatedByInput
+  assignedClients?: Prisma.ClientUncheckedCreateNestedManyWithoutAssignedToInput
+  clientsCreated?: Prisma.ClientUncheckedCreateNestedManyWithoutCreatedByInput
+  clientsUpdated?: Prisma.ClientUncheckedCreateNestedManyWithoutUpdatedByInput
+  assignedMatters?: Prisma.MatterUncheckedCreateNestedManyWithoutAssignedToInput
+  supervisedMatters?: Prisma.MatterUncheckedCreateNestedManyWithoutSupervisorInput
+  mattersCreated?: Prisma.MatterUncheckedCreateNestedManyWithoutCreatedByInput
+  mattersUpdated?: Prisma.MatterUncheckedCreateNestedManyWithoutUpdatedByInput
+  matterComplianceCreated?: Prisma.MatterComplianceUncheckedCreateNestedManyWithoutCreatedByInput
+  matterComplianceUpdated?: Prisma.MatterComplianceUncheckedCreateNestedManyWithoutUpdatedByInput
+  conflictChecksCompleted?: Prisma.MatterComplianceUncheckedCreateNestedManyWithoutConflictCheckedByInput
+  amlChecksCompleted?: Prisma.MatterComplianceUncheckedCreateNestedManyWithoutAmlCheckedByInput
+  riskReviewsCompleted?: Prisma.MatterComplianceUncheckedCreateNestedManyWithoutRiskReviewedByInput
+  matterStatusChanges?: Prisma.MatterStatusHistoryUncheckedCreateNestedManyWithoutChangedByInput
+  enquiryConversions?: Prisma.EnquiryConversionUncheckedCreateNestedManyWithoutConvertedByInput
+  assignedMatterTasks?: Prisma.MatterTaskUncheckedCreateNestedManyWithoutAssignedToInput
+  completedMatterTasks?: Prisma.MatterTaskUncheckedCreateNestedManyWithoutCompletedByInput
+  cancelledMatterTasks?: Prisma.MatterTaskUncheckedCreateNestedManyWithoutCancelledByInput
+  matterTasksCreated?: Prisma.MatterTaskUncheckedCreateNestedManyWithoutCreatedByInput
+  matterTasksUpdated?: Prisma.MatterTaskUncheckedCreateNestedManyWithoutUpdatedByInput
+  ownedMatterDeadlines?: Prisma.MatterDeadlineUncheckedCreateNestedManyWithoutOwnerInput
+  satisfiedMatterDeadlines?: Prisma.MatterDeadlineUncheckedCreateNestedManyWithoutSatisfiedByInput
+  cancelledMatterDeadlines?: Prisma.MatterDeadlineUncheckedCreateNestedManyWithoutCancelledByInput
+  matterDeadlinesCreated?: Prisma.MatterDeadlineUncheckedCreateNestedManyWithoutCreatedByInput
+  matterDeadlinesUpdated?: Prisma.MatterDeadlineUncheckedCreateNestedManyWithoutUpdatedByInput
+  documentRequestsSent?: Prisma.DocumentRequestUncheckedCreateNestedManyWithoutSentByInput
+  documentRequestsCancelled?: Prisma.DocumentRequestUncheckedCreateNestedManyWithoutCancelledByInput
+  documentRequestsCreated?: Prisma.DocumentRequestUncheckedCreateNestedManyWithoutCreatedByInput
+  documentRequestsUpdated?: Prisma.DocumentRequestUncheckedCreateNestedManyWithoutUpdatedByInput
+  matterDocumentsCreated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutCreatedByInput
+  matterDocumentsUpdated?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutUpdatedByInput
+  matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutUploadedByInput
+  matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutActorInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutTestedByInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutReporterInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutResolvedByInput
+}
+
+export type UserProfileCreateOrConnectWithoutAgentUsageOwnedInput = {
+  where: Prisma.UserProfileWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserProfileCreateWithoutAgentUsageOwnedInput, Prisma.UserProfileUncheckedCreateWithoutAgentUsageOwnedInput>
+}
+
+export type UserProfileUpsertWithoutAgentUsageOwnedInput = {
+  update: Prisma.XOR<Prisma.UserProfileUpdateWithoutAgentUsageOwnedInput, Prisma.UserProfileUncheckedUpdateWithoutAgentUsageOwnedInput>
+  create: Prisma.XOR<Prisma.UserProfileCreateWithoutAgentUsageOwnedInput, Prisma.UserProfileUncheckedCreateWithoutAgentUsageOwnedInput>
+  where?: Prisma.UserProfileWhereInput
+}
+
+export type UserProfileUpdateToOneWithWhereWithoutAgentUsageOwnedInput = {
+  where?: Prisma.UserProfileWhereInput
+  data: Prisma.XOR<Prisma.UserProfileUpdateWithoutAgentUsageOwnedInput, Prisma.UserProfileUncheckedUpdateWithoutAgentUsageOwnedInput>
+}
+
+export type UserProfileUpdateWithoutAgentUsageOwnedInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatarPath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumUserProfileStatusFieldUpdateOperationsInput | $Enums.UserProfileStatus
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  isPlatformUser?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  lastSeenAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  organisationMemberships?: Prisma.OrganisationMembershipUpdateManyWithoutUserProfileNestedInput
+  roleAssignments?: Prisma.RoleAssignmentUpdateManyWithoutUserProfileNestedInput
+  grantedRoleAssignments?: Prisma.RoleAssignmentUpdateManyWithoutGrantedByNestedInput
+  revokedRoleAssignments?: Prisma.RoleAssignmentUpdateManyWithoutRevokedByNestedInput
+  invitationsSent?: Prisma.InvitationUpdateManyWithoutInvitedByNestedInput
+  invitationsAccepted?: Prisma.InvitationUpdateManyWithoutAcceptedByNestedInput
+  invitationsRevoked?: Prisma.InvitationUpdateManyWithoutRevokedByNestedInput
+  userSessions?: Prisma.UserSessionUpdateManyWithoutUserProfileNestedInput
+  revokedUserSessions?: Prisma.UserSessionUpdateManyWithoutRevokedByNestedInput
+  supportAccessAsGrantee?: Prisma.SupportAccessGrantUpdateManyWithoutGranteeNestedInput
+  supportAccessRequested?: Prisma.SupportAccessGrantUpdateManyWithoutRequestedByNestedInput
+  supportAccessApproved?: Prisma.SupportAccessGrantUpdateManyWithoutApprovedByNestedInput
+  supportAccessRevoked?: Prisma.SupportAccessGrantUpdateManyWithoutRevokedByNestedInput
+  auditEventsAsActor?: Prisma.AuditEventUpdateManyWithoutActorUserNestedInput
+  auditEventsAsSubject?: Prisma.AuditEventUpdateManyWithoutSubjectUserNestedInput
+  securityEventsAsActor?: Prisma.SecurityEventUpdateManyWithoutActorUserNestedInput
+  securityEventsAsSubject?: Prisma.SecurityEventUpdateManyWithoutSubjectUserNestedInput
+  securityAcknowledged?: Prisma.SecurityEventUpdateManyWithoutAcknowledgedByNestedInput
+  securityResolved?: Prisma.SecurityEventUpdateManyWithoutResolvedByNestedInput
+  assignedEnquiries?: Prisma.EnquiryUpdateManyWithoutAssignedToNestedInput
+  createdEnquiries?: Prisma.EnquiryUpdateManyWithoutCreatedByNestedInput
+  updatedEnquiries?: Prisma.EnquiryUpdateManyWithoutUpdatedByNestedInput
+  jobProfilesCreated?: Prisma.JobProfileUpdateManyWithoutCreatedByNestedInput
+  jobProfilesUpdated?: Prisma.JobProfileUpdateManyWithoutUpdatedByNestedInput
+  kpiDefinitionsCreated?: Prisma.KpiDefinitionUpdateManyWithoutCreatedByNestedInput
+  kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
+  agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
+  agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
+  workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
+  workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
+  workforceAssignmentKpisCreated?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutCreatedByNestedInput
+  invitationOnboardingPlansCreated?: Prisma.InvitationOnboardingPlanUpdateManyWithoutCreatedByNestedInput
+  assignedClients?: Prisma.ClientUpdateManyWithoutAssignedToNestedInput
+  clientsCreated?: Prisma.ClientUpdateManyWithoutCreatedByNestedInput
+  clientsUpdated?: Prisma.ClientUpdateManyWithoutUpdatedByNestedInput
+  assignedMatters?: Prisma.MatterUpdateManyWithoutAssignedToNestedInput
+  supervisedMatters?: Prisma.MatterUpdateManyWithoutSupervisorNestedInput
+  mattersCreated?: Prisma.MatterUpdateManyWithoutCreatedByNestedInput
+  mattersUpdated?: Prisma.MatterUpdateManyWithoutUpdatedByNestedInput
+  matterComplianceCreated?: Prisma.MatterComplianceUpdateManyWithoutCreatedByNestedInput
+  matterComplianceUpdated?: Prisma.MatterComplianceUpdateManyWithoutUpdatedByNestedInput
+  conflictChecksCompleted?: Prisma.MatterComplianceUpdateManyWithoutConflictCheckedByNestedInput
+  amlChecksCompleted?: Prisma.MatterComplianceUpdateManyWithoutAmlCheckedByNestedInput
+  riskReviewsCompleted?: Prisma.MatterComplianceUpdateManyWithoutRiskReviewedByNestedInput
+  matterStatusChanges?: Prisma.MatterStatusHistoryUpdateManyWithoutChangedByNestedInput
+  enquiryConversions?: Prisma.EnquiryConversionUpdateManyWithoutConvertedByNestedInput
+  assignedMatterTasks?: Prisma.MatterTaskUpdateManyWithoutAssignedToNestedInput
+  completedMatterTasks?: Prisma.MatterTaskUpdateManyWithoutCompletedByNestedInput
+  cancelledMatterTasks?: Prisma.MatterTaskUpdateManyWithoutCancelledByNestedInput
+  matterTasksCreated?: Prisma.MatterTaskUpdateManyWithoutCreatedByNestedInput
+  matterTasksUpdated?: Prisma.MatterTaskUpdateManyWithoutUpdatedByNestedInput
+  ownedMatterDeadlines?: Prisma.MatterDeadlineUpdateManyWithoutOwnerNestedInput
+  satisfiedMatterDeadlines?: Prisma.MatterDeadlineUpdateManyWithoutSatisfiedByNestedInput
+  cancelledMatterDeadlines?: Prisma.MatterDeadlineUpdateManyWithoutCancelledByNestedInput
+  matterDeadlinesCreated?: Prisma.MatterDeadlineUpdateManyWithoutCreatedByNestedInput
+  matterDeadlinesUpdated?: Prisma.MatterDeadlineUpdateManyWithoutUpdatedByNestedInput
+  documentRequestsSent?: Prisma.DocumentRequestUpdateManyWithoutSentByNestedInput
+  documentRequestsCancelled?: Prisma.DocumentRequestUpdateManyWithoutCancelledByNestedInput
+  documentRequestsCreated?: Prisma.DocumentRequestUpdateManyWithoutCreatedByNestedInput
+  documentRequestsUpdated?: Prisma.DocumentRequestUpdateManyWithoutUpdatedByNestedInput
+  matterDocumentsCreated?: Prisma.MatterDocumentUpdateManyWithoutCreatedByNestedInput
+  matterDocumentsUpdated?: Prisma.MatterDocumentUpdateManyWithoutUpdatedByNestedInput
+  matterDocumentVersionsUploaded?: Prisma.MatterDocumentVersionUpdateManyWithoutUploadedByNestedInput
+  matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutActorNestedInput
+  pilotAcceptancesTested?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutTestedByNestedInput
+  pilotFeedbackReported?: Prisma.PilotFeedbackUpdateManyWithoutReporterNestedInput
+  pilotFeedbackResolved?: Prisma.PilotFeedbackUpdateManyWithoutResolvedByNestedInput
+}
+
+export type UserProfileUncheckedUpdateWithoutAgentUsageOwnedInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatarPath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumUserProfileStatusFieldUpdateOperationsInput | $Enums.UserProfileStatus
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  isPlatformUser?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  lastSeenAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  organisationMemberships?: Prisma.OrganisationMembershipUncheckedUpdateManyWithoutUserProfileNestedInput
+  roleAssignments?: Prisma.RoleAssignmentUncheckedUpdateManyWithoutUserProfileNestedInput
+  grantedRoleAssignments?: Prisma.RoleAssignmentUncheckedUpdateManyWithoutGrantedByNestedInput
+  revokedRoleAssignments?: Prisma.RoleAssignmentUncheckedUpdateManyWithoutRevokedByNestedInput
+  invitationsSent?: Prisma.InvitationUncheckedUpdateManyWithoutInvitedByNestedInput
+  invitationsAccepted?: Prisma.InvitationUncheckedUpdateManyWithoutAcceptedByNestedInput
+  invitationsRevoked?: Prisma.InvitationUncheckedUpdateManyWithoutRevokedByNestedInput
+  userSessions?: Prisma.UserSessionUncheckedUpdateManyWithoutUserProfileNestedInput
+  revokedUserSessions?: Prisma.UserSessionUncheckedUpdateManyWithoutRevokedByNestedInput
+  supportAccessAsGrantee?: Prisma.SupportAccessGrantUncheckedUpdateManyWithoutGranteeNestedInput
+  supportAccessRequested?: Prisma.SupportAccessGrantUncheckedUpdateManyWithoutRequestedByNestedInput
+  supportAccessApproved?: Prisma.SupportAccessGrantUncheckedUpdateManyWithoutApprovedByNestedInput
+  supportAccessRevoked?: Prisma.SupportAccessGrantUncheckedUpdateManyWithoutRevokedByNestedInput
+  auditEventsAsActor?: Prisma.AuditEventUncheckedUpdateManyWithoutActorUserNestedInput
+  auditEventsAsSubject?: Prisma.AuditEventUncheckedUpdateManyWithoutSubjectUserNestedInput
+  securityEventsAsActor?: Prisma.SecurityEventUncheckedUpdateManyWithoutActorUserNestedInput
+  securityEventsAsSubject?: Prisma.SecurityEventUncheckedUpdateManyWithoutSubjectUserNestedInput
+  securityAcknowledged?: Prisma.SecurityEventUncheckedUpdateManyWithoutAcknowledgedByNestedInput
+  securityResolved?: Prisma.SecurityEventUncheckedUpdateManyWithoutResolvedByNestedInput
+  assignedEnquiries?: Prisma.EnquiryUncheckedUpdateManyWithoutAssignedToNestedInput
+  createdEnquiries?: Prisma.EnquiryUncheckedUpdateManyWithoutCreatedByNestedInput
+  updatedEnquiries?: Prisma.EnquiryUncheckedUpdateManyWithoutUpdatedByNestedInput
+  jobProfilesCreated?: Prisma.JobProfileUncheckedUpdateManyWithoutCreatedByNestedInput
+  jobProfilesUpdated?: Prisma.JobProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  kpiDefinitionsCreated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutCreatedByNestedInput
+  kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
+  agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
@@ -10981,6 +13987,12 @@ export type UserProfileCreateWithoutWorkforceAssignmentsCreatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
   workforceAssignmentKpisCreated?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutCreatedByInput
@@ -11066,6 +14078,12 @@ export type UserProfileUncheckedCreateWithoutWorkforceAssignmentsCreatedInput = 
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
   workforceAssignmentKpisCreated?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutCreatedByInput
@@ -11156,6 +14174,12 @@ export type UserProfileCreateWithoutWorkforceAssignmentsUpdatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
   workforceAssignmentKpisCreated?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutCreatedByInput
@@ -11241,6 +14265,12 @@ export type UserProfileUncheckedCreateWithoutWorkforceAssignmentsUpdatedInput = 
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
   workforceAssignmentKpisCreated?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutCreatedByInput
@@ -11331,6 +14361,12 @@ export type UserProfileCreateWithoutWorkforceAssignmentsEndedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentKpisCreated?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutCreatedByInput
@@ -11416,6 +14452,12 @@ export type UserProfileUncheckedCreateWithoutWorkforceAssignmentsEndedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentKpisCreated?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutCreatedByInput
@@ -11517,6 +14559,12 @@ export type UserProfileUpdateWithoutWorkforceAssignmentsCreatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
   workforceAssignmentKpisCreated?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutCreatedByNestedInput
@@ -11602,6 +14650,12 @@ export type UserProfileUncheckedUpdateWithoutWorkforceAssignmentsCreatedInput = 
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
   workforceAssignmentKpisCreated?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -11698,6 +14752,12 @@ export type UserProfileUpdateWithoutWorkforceAssignmentsUpdatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
   workforceAssignmentKpisCreated?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutCreatedByNestedInput
@@ -11783,6 +14843,12 @@ export type UserProfileUncheckedUpdateWithoutWorkforceAssignmentsUpdatedInput = 
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
   workforceAssignmentKpisCreated?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -11879,6 +14945,12 @@ export type UserProfileUpdateWithoutWorkforceAssignmentsEndedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentKpisCreated?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutCreatedByNestedInput
@@ -11964,6 +15036,12 @@ export type UserProfileUncheckedUpdateWithoutWorkforceAssignmentsEndedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentKpisCreated?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutCreatedByNestedInput
@@ -12049,6 +15127,12 @@ export type UserProfileCreateWithoutWorkforceAssignmentKpisCreatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
@@ -12134,6 +15218,12 @@ export type UserProfileUncheckedCreateWithoutWorkforceAssignmentKpisCreatedInput
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
@@ -12235,6 +15325,12 @@ export type UserProfileUpdateWithoutWorkforceAssignmentKpisCreatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
@@ -12320,6 +15416,12 @@ export type UserProfileUncheckedUpdateWithoutWorkforceAssignmentKpisCreatedInput
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
@@ -12405,6 +15507,12 @@ export type UserProfileCreateWithoutInvitationOnboardingPlansCreatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
@@ -12490,6 +15598,12 @@ export type UserProfileUncheckedCreateWithoutInvitationOnboardingPlansCreatedInp
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
@@ -12591,6 +15705,12 @@ export type UserProfileUpdateWithoutInvitationOnboardingPlansCreatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
@@ -12676,6 +15796,12 @@ export type UserProfileUncheckedUpdateWithoutInvitationOnboardingPlansCreatedInp
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
@@ -12760,6 +15886,12 @@ export type UserProfileCreateWithoutAssignedEnquiriesInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
@@ -12845,6 +15977,12 @@ export type UserProfileUncheckedCreateWithoutAssignedEnquiriesInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
@@ -12935,6 +16073,12 @@ export type UserProfileCreateWithoutCreatedEnquiriesInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
@@ -13020,6 +16164,12 @@ export type UserProfileUncheckedCreateWithoutCreatedEnquiriesInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
@@ -13110,6 +16260,12 @@ export type UserProfileCreateWithoutUpdatedEnquiriesInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
@@ -13195,6 +16351,12 @@ export type UserProfileUncheckedCreateWithoutUpdatedEnquiriesInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
@@ -13296,6 +16458,12 @@ export type UserProfileUpdateWithoutAssignedEnquiriesInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
@@ -13381,6 +16549,12 @@ export type UserProfileUncheckedUpdateWithoutAssignedEnquiriesInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
@@ -13477,6 +16651,12 @@ export type UserProfileUpdateWithoutCreatedEnquiriesInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
@@ -13562,6 +16742,12 @@ export type UserProfileUncheckedUpdateWithoutCreatedEnquiriesInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
@@ -13658,6 +16844,12 @@ export type UserProfileUpdateWithoutUpdatedEnquiriesInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
@@ -13743,6 +16935,12 @@ export type UserProfileUncheckedUpdateWithoutUpdatedEnquiriesInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
@@ -13829,6 +17027,12 @@ export type UserProfileCreateWithoutAssignedClientsInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
@@ -13914,6 +17118,12 @@ export type UserProfileUncheckedCreateWithoutAssignedClientsInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
@@ -14004,6 +17214,12 @@ export type UserProfileCreateWithoutClientsCreatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
@@ -14089,6 +17305,12 @@ export type UserProfileUncheckedCreateWithoutClientsCreatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
@@ -14179,6 +17401,12 @@ export type UserProfileCreateWithoutClientsUpdatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
@@ -14264,6 +17492,12 @@ export type UserProfileUncheckedCreateWithoutClientsUpdatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
@@ -14365,6 +17599,12 @@ export type UserProfileUpdateWithoutAssignedClientsInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
@@ -14450,6 +17690,12 @@ export type UserProfileUncheckedUpdateWithoutAssignedClientsInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
@@ -14546,6 +17792,12 @@ export type UserProfileUpdateWithoutClientsCreatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
@@ -14631,6 +17883,12 @@ export type UserProfileUncheckedUpdateWithoutClientsCreatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
@@ -14727,6 +17985,12 @@ export type UserProfileUpdateWithoutClientsUpdatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
@@ -14812,6 +18076,12 @@ export type UserProfileUncheckedUpdateWithoutClientsUpdatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
@@ -14897,6 +18167,12 @@ export type UserProfileCreateWithoutAssignedMattersInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
@@ -14982,6 +18258,12 @@ export type UserProfileUncheckedCreateWithoutAssignedMattersInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
@@ -15072,6 +18354,12 @@ export type UserProfileCreateWithoutSupervisedMattersInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
@@ -15157,6 +18445,12 @@ export type UserProfileUncheckedCreateWithoutSupervisedMattersInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
@@ -15247,6 +18541,12 @@ export type UserProfileCreateWithoutMattersCreatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
@@ -15332,6 +18632,12 @@ export type UserProfileUncheckedCreateWithoutMattersCreatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
@@ -15422,6 +18728,12 @@ export type UserProfileCreateWithoutMattersUpdatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
@@ -15507,6 +18819,12 @@ export type UserProfileUncheckedCreateWithoutMattersUpdatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
@@ -15608,6 +18926,12 @@ export type UserProfileUpdateWithoutAssignedMattersInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
@@ -15693,6 +19017,12 @@ export type UserProfileUncheckedUpdateWithoutAssignedMattersInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
@@ -15789,6 +19119,12 @@ export type UserProfileUpdateWithoutSupervisedMattersInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
@@ -15874,6 +19210,12 @@ export type UserProfileUncheckedUpdateWithoutSupervisedMattersInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
@@ -15970,6 +19312,12 @@ export type UserProfileUpdateWithoutMattersCreatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
@@ -16055,6 +19403,12 @@ export type UserProfileUncheckedUpdateWithoutMattersCreatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
@@ -16151,6 +19505,12 @@ export type UserProfileUpdateWithoutMattersUpdatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
@@ -16236,6 +19596,12 @@ export type UserProfileUncheckedUpdateWithoutMattersUpdatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
@@ -16321,6 +19687,12 @@ export type UserProfileCreateWithoutConflictChecksCompletedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
@@ -16406,6 +19778,12 @@ export type UserProfileUncheckedCreateWithoutConflictChecksCompletedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
@@ -16496,6 +19874,12 @@ export type UserProfileCreateWithoutAmlChecksCompletedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
@@ -16581,6 +19965,12 @@ export type UserProfileUncheckedCreateWithoutAmlChecksCompletedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
@@ -16671,6 +20061,12 @@ export type UserProfileCreateWithoutRiskReviewsCompletedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
@@ -16756,6 +20152,12 @@ export type UserProfileUncheckedCreateWithoutRiskReviewsCompletedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
@@ -16846,6 +20248,12 @@ export type UserProfileCreateWithoutMatterComplianceCreatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
@@ -16931,6 +20339,12 @@ export type UserProfileUncheckedCreateWithoutMatterComplianceCreatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
@@ -17021,6 +20435,12 @@ export type UserProfileCreateWithoutMatterComplianceUpdatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
@@ -17106,6 +20526,12 @@ export type UserProfileUncheckedCreateWithoutMatterComplianceUpdatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
@@ -17207,6 +20633,12 @@ export type UserProfileUpdateWithoutConflictChecksCompletedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
@@ -17292,6 +20724,12 @@ export type UserProfileUncheckedUpdateWithoutConflictChecksCompletedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
@@ -17388,6 +20826,12 @@ export type UserProfileUpdateWithoutAmlChecksCompletedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
@@ -17473,6 +20917,12 @@ export type UserProfileUncheckedUpdateWithoutAmlChecksCompletedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
@@ -17569,6 +21019,12 @@ export type UserProfileUpdateWithoutRiskReviewsCompletedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
@@ -17654,6 +21110,12 @@ export type UserProfileUncheckedUpdateWithoutRiskReviewsCompletedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
@@ -17750,6 +21212,12 @@ export type UserProfileUpdateWithoutMatterComplianceCreatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
@@ -17835,6 +21303,12 @@ export type UserProfileUncheckedUpdateWithoutMatterComplianceCreatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
@@ -17931,6 +21405,12 @@ export type UserProfileUpdateWithoutMatterComplianceUpdatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
@@ -18016,6 +21496,12 @@ export type UserProfileUncheckedUpdateWithoutMatterComplianceUpdatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
@@ -18101,6 +21587,12 @@ export type UserProfileCreateWithoutMatterStatusChangesInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
@@ -18186,6 +21678,12 @@ export type UserProfileUncheckedCreateWithoutMatterStatusChangesInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
@@ -18287,6 +21785,12 @@ export type UserProfileUpdateWithoutMatterStatusChangesInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
@@ -18372,6 +21876,12 @@ export type UserProfileUncheckedUpdateWithoutMatterStatusChangesInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
@@ -18457,6 +21967,12 @@ export type UserProfileCreateWithoutEnquiryConversionsInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
@@ -18542,6 +22058,12 @@ export type UserProfileUncheckedCreateWithoutEnquiryConversionsInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
@@ -18643,6 +22165,12 @@ export type UserProfileUpdateWithoutEnquiryConversionsInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
@@ -18728,6 +22256,12 @@ export type UserProfileUncheckedUpdateWithoutEnquiryConversionsInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
@@ -18813,6 +22347,12 @@ export type UserProfileCreateWithoutAssignedMatterTasksInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
@@ -18898,6 +22438,12 @@ export type UserProfileUncheckedCreateWithoutAssignedMatterTasksInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
@@ -18988,6 +22534,12 @@ export type UserProfileCreateWithoutCompletedMatterTasksInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
@@ -19073,6 +22625,12 @@ export type UserProfileUncheckedCreateWithoutCompletedMatterTasksInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
@@ -19163,6 +22721,12 @@ export type UserProfileCreateWithoutCancelledMatterTasksInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
@@ -19248,6 +22812,12 @@ export type UserProfileUncheckedCreateWithoutCancelledMatterTasksInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
@@ -19338,6 +22908,12 @@ export type UserProfileCreateWithoutMatterTasksCreatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
@@ -19423,6 +22999,12 @@ export type UserProfileUncheckedCreateWithoutMatterTasksCreatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
@@ -19513,6 +23095,12 @@ export type UserProfileCreateWithoutMatterTasksUpdatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
@@ -19598,6 +23186,12 @@ export type UserProfileUncheckedCreateWithoutMatterTasksUpdatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
@@ -19699,6 +23293,12 @@ export type UserProfileUpdateWithoutAssignedMatterTasksInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
@@ -19784,6 +23384,12 @@ export type UserProfileUncheckedUpdateWithoutAssignedMatterTasksInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
@@ -19880,6 +23486,12 @@ export type UserProfileUpdateWithoutCompletedMatterTasksInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
@@ -19965,6 +23577,12 @@ export type UserProfileUncheckedUpdateWithoutCompletedMatterTasksInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
@@ -20061,6 +23679,12 @@ export type UserProfileUpdateWithoutCancelledMatterTasksInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
@@ -20146,6 +23770,12 @@ export type UserProfileUncheckedUpdateWithoutCancelledMatterTasksInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
@@ -20242,6 +23872,12 @@ export type UserProfileUpdateWithoutMatterTasksCreatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
@@ -20327,6 +23963,12 @@ export type UserProfileUncheckedUpdateWithoutMatterTasksCreatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
@@ -20423,6 +24065,12 @@ export type UserProfileUpdateWithoutMatterTasksUpdatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
@@ -20508,6 +24156,12 @@ export type UserProfileUncheckedUpdateWithoutMatterTasksUpdatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
@@ -20593,6 +24247,12 @@ export type UserProfileCreateWithoutOwnedMatterDeadlinesInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
@@ -20678,6 +24338,12 @@ export type UserProfileUncheckedCreateWithoutOwnedMatterDeadlinesInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
@@ -20768,6 +24434,12 @@ export type UserProfileCreateWithoutSatisfiedMatterDeadlinesInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
@@ -20853,6 +24525,12 @@ export type UserProfileUncheckedCreateWithoutSatisfiedMatterDeadlinesInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
@@ -20943,6 +24621,12 @@ export type UserProfileCreateWithoutCancelledMatterDeadlinesInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
@@ -21028,6 +24712,12 @@ export type UserProfileUncheckedCreateWithoutCancelledMatterDeadlinesInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
@@ -21118,6 +24808,12 @@ export type UserProfileCreateWithoutMatterDeadlinesCreatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
@@ -21203,6 +24899,12 @@ export type UserProfileUncheckedCreateWithoutMatterDeadlinesCreatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
@@ -21293,6 +24995,12 @@ export type UserProfileCreateWithoutMatterDeadlinesUpdatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
@@ -21378,6 +25086,12 @@ export type UserProfileUncheckedCreateWithoutMatterDeadlinesUpdatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
@@ -21479,6 +25193,12 @@ export type UserProfileUpdateWithoutOwnedMatterDeadlinesInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
@@ -21564,6 +25284,12 @@ export type UserProfileUncheckedUpdateWithoutOwnedMatterDeadlinesInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
@@ -21660,6 +25386,12 @@ export type UserProfileUpdateWithoutSatisfiedMatterDeadlinesInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
@@ -21745,6 +25477,12 @@ export type UserProfileUncheckedUpdateWithoutSatisfiedMatterDeadlinesInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
@@ -21841,6 +25579,12 @@ export type UserProfileUpdateWithoutCancelledMatterDeadlinesInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
@@ -21926,6 +25670,12 @@ export type UserProfileUncheckedUpdateWithoutCancelledMatterDeadlinesInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
@@ -22022,6 +25772,12 @@ export type UserProfileUpdateWithoutMatterDeadlinesCreatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
@@ -22107,6 +25863,12 @@ export type UserProfileUncheckedUpdateWithoutMatterDeadlinesCreatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
@@ -22203,6 +25965,12 @@ export type UserProfileUpdateWithoutMatterDeadlinesUpdatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
@@ -22288,6 +26056,12 @@ export type UserProfileUncheckedUpdateWithoutMatterDeadlinesUpdatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
@@ -22373,6 +26147,12 @@ export type UserProfileCreateWithoutDocumentRequestsSentInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
@@ -22458,6 +26238,12 @@ export type UserProfileUncheckedCreateWithoutDocumentRequestsSentInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
@@ -22548,6 +26334,12 @@ export type UserProfileCreateWithoutDocumentRequestsCancelledInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
@@ -22633,6 +26425,12 @@ export type UserProfileUncheckedCreateWithoutDocumentRequestsCancelledInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
@@ -22723,6 +26521,12 @@ export type UserProfileCreateWithoutDocumentRequestsCreatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
@@ -22808,6 +26612,12 @@ export type UserProfileUncheckedCreateWithoutDocumentRequestsCreatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
@@ -22898,6 +26708,12 @@ export type UserProfileCreateWithoutDocumentRequestsUpdatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
@@ -22983,6 +26799,12 @@ export type UserProfileUncheckedCreateWithoutDocumentRequestsUpdatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
@@ -23084,6 +26906,12 @@ export type UserProfileUpdateWithoutDocumentRequestsSentInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
@@ -23169,6 +26997,12 @@ export type UserProfileUncheckedUpdateWithoutDocumentRequestsSentInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
@@ -23265,6 +27099,12 @@ export type UserProfileUpdateWithoutDocumentRequestsCancelledInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
@@ -23350,6 +27190,12 @@ export type UserProfileUncheckedUpdateWithoutDocumentRequestsCancelledInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
@@ -23446,6 +27292,12 @@ export type UserProfileUpdateWithoutDocumentRequestsCreatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
@@ -23531,6 +27383,12 @@ export type UserProfileUncheckedUpdateWithoutDocumentRequestsCreatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
@@ -23627,6 +27485,12 @@ export type UserProfileUpdateWithoutDocumentRequestsUpdatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
@@ -23712,6 +27576,12 @@ export type UserProfileUncheckedUpdateWithoutDocumentRequestsUpdatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
@@ -23797,6 +27667,12 @@ export type UserProfileCreateWithoutMatterDocumentsCreatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
@@ -23882,6 +27758,12 @@ export type UserProfileUncheckedCreateWithoutMatterDocumentsCreatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
@@ -23972,6 +27854,12 @@ export type UserProfileCreateWithoutMatterDocumentsUpdatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
@@ -24057,6 +27945,12 @@ export type UserProfileUncheckedCreateWithoutMatterDocumentsUpdatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
@@ -24158,6 +28052,12 @@ export type UserProfileUpdateWithoutMatterDocumentsCreatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
@@ -24243,6 +28143,12 @@ export type UserProfileUncheckedUpdateWithoutMatterDocumentsCreatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
@@ -24339,6 +28245,12 @@ export type UserProfileUpdateWithoutMatterDocumentsUpdatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
@@ -24424,6 +28336,12 @@ export type UserProfileUncheckedUpdateWithoutMatterDocumentsUpdatedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
@@ -24509,6 +28427,12 @@ export type UserProfileCreateWithoutMatterDocumentVersionsUploadedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
@@ -24594,6 +28518,12 @@ export type UserProfileUncheckedCreateWithoutMatterDocumentVersionsUploadedInput
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
@@ -24695,6 +28625,12 @@ export type UserProfileUpdateWithoutMatterDocumentVersionsUploadedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
@@ -24780,6 +28716,12 @@ export type UserProfileUncheckedUpdateWithoutMatterDocumentVersionsUploadedInput
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
@@ -24865,6 +28807,12 @@ export type UserProfileCreateWithoutMatterTimelineEventsInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
@@ -24950,6 +28898,12 @@ export type UserProfileUncheckedCreateWithoutMatterTimelineEventsInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
@@ -25051,6 +29005,12 @@ export type UserProfileUpdateWithoutMatterTimelineEventsInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
@@ -25136,6 +29096,12 @@ export type UserProfileUncheckedUpdateWithoutMatterTimelineEventsInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
@@ -25221,6 +29187,12 @@ export type UserProfileCreateWithoutPilotAcceptancesTestedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
@@ -25306,6 +29278,12 @@ export type UserProfileUncheckedCreateWithoutPilotAcceptancesTestedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
@@ -25407,6 +29385,12 @@ export type UserProfileUpdateWithoutPilotAcceptancesTestedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
@@ -25492,6 +29476,12 @@ export type UserProfileUncheckedUpdateWithoutPilotAcceptancesTestedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
@@ -25577,6 +29567,12 @@ export type UserProfileCreateWithoutPilotFeedbackReportedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
@@ -25662,6 +29658,12 @@ export type UserProfileUncheckedCreateWithoutPilotFeedbackReportedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
@@ -25752,6 +29754,12 @@ export type UserProfileCreateWithoutPilotFeedbackResolvedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentCreateNestedManyWithoutEndedByInput
@@ -25837,6 +29845,12 @@ export type UserProfileUncheckedCreateWithoutPilotFeedbackResolvedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutUpdatedByInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutCreatedByInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutUpdatedByInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOwnerInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOwnerInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOwnerInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOwnerInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOwnerInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOwnerInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutCreatedByInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutUpdatedByInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutEndedByInput
@@ -25938,6 +29952,12 @@ export type UserProfileUpdateWithoutPilotFeedbackReportedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
@@ -26023,6 +30043,12 @@ export type UserProfileUncheckedUpdateWithoutPilotFeedbackReportedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
@@ -26119,6 +30145,12 @@ export type UserProfileUpdateWithoutPilotFeedbackResolvedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUpdateManyWithoutEndedByNestedInput
@@ -26204,6 +30236,12 @@ export type UserProfileUncheckedUpdateWithoutPilotFeedbackResolvedInput = {
   kpiDefinitionsUpdated?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutUpdatedByNestedInput
   agentProfilesCreated?: Prisma.AgentProfileUncheckedUpdateManyWithoutCreatedByNestedInput
   agentProfilesUpdated?: Prisma.AgentProfileUncheckedUpdateManyWithoutUpdatedByNestedInput
+  agentConversationsOwned?: Prisma.AgentConversationUncheckedUpdateManyWithoutOwnerNestedInput
+  agentRunsOwned?: Prisma.AgentRunUncheckedUpdateManyWithoutOwnerNestedInput
+  agentMessagesOwned?: Prisma.AgentMessageUncheckedUpdateManyWithoutOwnerNestedInput
+  agentActionsOwned?: Prisma.AgentActionUncheckedUpdateManyWithoutOwnerNestedInput
+  agentToolCallsOwned?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOwnerNestedInput
+  agentUsageOwned?: Prisma.AgentUsageUncheckedUpdateManyWithoutOwnerNestedInput
   workforceAssignmentsCreated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutCreatedByNestedInput
   workforceAssignmentsUpdated?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutUpdatedByNestedInput
   workforceAssignmentsEnded?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutEndedByNestedInput
@@ -26279,6 +30317,12 @@ export type UserProfileCountOutputType = {
   kpiDefinitionsUpdated: number
   agentProfilesCreated: number
   agentProfilesUpdated: number
+  agentConversationsOwned: number
+  agentRunsOwned: number
+  agentMessagesOwned: number
+  agentActionsOwned: number
+  agentToolCallsOwned: number
+  agentUsageOwned: number
   workforceAssignmentsCreated: number
   workforceAssignmentsUpdated: number
   workforceAssignmentsEnded: number
@@ -26350,6 +30394,12 @@ export type UserProfileCountOutputTypeSelect<ExtArgs extends runtime.Types.Exten
   kpiDefinitionsUpdated?: boolean | UserProfileCountOutputTypeCountKpiDefinitionsUpdatedArgs
   agentProfilesCreated?: boolean | UserProfileCountOutputTypeCountAgentProfilesCreatedArgs
   agentProfilesUpdated?: boolean | UserProfileCountOutputTypeCountAgentProfilesUpdatedArgs
+  agentConversationsOwned?: boolean | UserProfileCountOutputTypeCountAgentConversationsOwnedArgs
+  agentRunsOwned?: boolean | UserProfileCountOutputTypeCountAgentRunsOwnedArgs
+  agentMessagesOwned?: boolean | UserProfileCountOutputTypeCountAgentMessagesOwnedArgs
+  agentActionsOwned?: boolean | UserProfileCountOutputTypeCountAgentActionsOwnedArgs
+  agentToolCallsOwned?: boolean | UserProfileCountOutputTypeCountAgentToolCallsOwnedArgs
+  agentUsageOwned?: boolean | UserProfileCountOutputTypeCountAgentUsageOwnedArgs
   workforceAssignmentsCreated?: boolean | UserProfileCountOutputTypeCountWorkforceAssignmentsCreatedArgs
   workforceAssignmentsUpdated?: boolean | UserProfileCountOutputTypeCountWorkforceAssignmentsUpdatedArgs
   workforceAssignmentsEnded?: boolean | UserProfileCountOutputTypeCountWorkforceAssignmentsEndedArgs
@@ -26596,6 +30646,48 @@ export type UserProfileCountOutputTypeCountAgentProfilesCreatedArgs<ExtArgs exte
  */
 export type UserProfileCountOutputTypeCountAgentProfilesUpdatedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.AgentProfileWhereInput
+}
+
+/**
+ * UserProfileCountOutputType without action
+ */
+export type UserProfileCountOutputTypeCountAgentConversationsOwnedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.AgentConversationWhereInput
+}
+
+/**
+ * UserProfileCountOutputType without action
+ */
+export type UserProfileCountOutputTypeCountAgentRunsOwnedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.AgentRunWhereInput
+}
+
+/**
+ * UserProfileCountOutputType without action
+ */
+export type UserProfileCountOutputTypeCountAgentMessagesOwnedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.AgentMessageWhereInput
+}
+
+/**
+ * UserProfileCountOutputType without action
+ */
+export type UserProfileCountOutputTypeCountAgentActionsOwnedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.AgentActionWhereInput
+}
+
+/**
+ * UserProfileCountOutputType without action
+ */
+export type UserProfileCountOutputTypeCountAgentToolCallsOwnedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.AgentToolCallWhereInput
+}
+
+/**
+ * UserProfileCountOutputType without action
+ */
+export type UserProfileCountOutputTypeCountAgentUsageOwnedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.AgentUsageWhereInput
 }
 
 /**
@@ -26923,6 +31015,12 @@ export type UserProfileSelect<ExtArgs extends runtime.Types.Extensions.InternalA
   kpiDefinitionsUpdated?: boolean | Prisma.UserProfile$kpiDefinitionsUpdatedArgs<ExtArgs>
   agentProfilesCreated?: boolean | Prisma.UserProfile$agentProfilesCreatedArgs<ExtArgs>
   agentProfilesUpdated?: boolean | Prisma.UserProfile$agentProfilesUpdatedArgs<ExtArgs>
+  agentConversationsOwned?: boolean | Prisma.UserProfile$agentConversationsOwnedArgs<ExtArgs>
+  agentRunsOwned?: boolean | Prisma.UserProfile$agentRunsOwnedArgs<ExtArgs>
+  agentMessagesOwned?: boolean | Prisma.UserProfile$agentMessagesOwnedArgs<ExtArgs>
+  agentActionsOwned?: boolean | Prisma.UserProfile$agentActionsOwnedArgs<ExtArgs>
+  agentToolCallsOwned?: boolean | Prisma.UserProfile$agentToolCallsOwnedArgs<ExtArgs>
+  agentUsageOwned?: boolean | Prisma.UserProfile$agentUsageOwnedArgs<ExtArgs>
   workforceAssignmentsCreated?: boolean | Prisma.UserProfile$workforceAssignmentsCreatedArgs<ExtArgs>
   workforceAssignmentsUpdated?: boolean | Prisma.UserProfile$workforceAssignmentsUpdatedArgs<ExtArgs>
   workforceAssignmentsEnded?: boolean | Prisma.UserProfile$workforceAssignmentsEndedArgs<ExtArgs>
@@ -27050,6 +31148,12 @@ export type UserProfileInclude<ExtArgs extends runtime.Types.Extensions.Internal
   kpiDefinitionsUpdated?: boolean | Prisma.UserProfile$kpiDefinitionsUpdatedArgs<ExtArgs>
   agentProfilesCreated?: boolean | Prisma.UserProfile$agentProfilesCreatedArgs<ExtArgs>
   agentProfilesUpdated?: boolean | Prisma.UserProfile$agentProfilesUpdatedArgs<ExtArgs>
+  agentConversationsOwned?: boolean | Prisma.UserProfile$agentConversationsOwnedArgs<ExtArgs>
+  agentRunsOwned?: boolean | Prisma.UserProfile$agentRunsOwnedArgs<ExtArgs>
+  agentMessagesOwned?: boolean | Prisma.UserProfile$agentMessagesOwnedArgs<ExtArgs>
+  agentActionsOwned?: boolean | Prisma.UserProfile$agentActionsOwnedArgs<ExtArgs>
+  agentToolCallsOwned?: boolean | Prisma.UserProfile$agentToolCallsOwnedArgs<ExtArgs>
+  agentUsageOwned?: boolean | Prisma.UserProfile$agentUsageOwnedArgs<ExtArgs>
   workforceAssignmentsCreated?: boolean | Prisma.UserProfile$workforceAssignmentsCreatedArgs<ExtArgs>
   workforceAssignmentsUpdated?: boolean | Prisma.UserProfile$workforceAssignmentsUpdatedArgs<ExtArgs>
   workforceAssignmentsEnded?: boolean | Prisma.UserProfile$workforceAssignmentsEndedArgs<ExtArgs>
@@ -27126,6 +31230,12 @@ export type $UserProfilePayload<ExtArgs extends runtime.Types.Extensions.Interna
     kpiDefinitionsUpdated: Prisma.$KpiDefinitionPayload<ExtArgs>[]
     agentProfilesCreated: Prisma.$AgentProfilePayload<ExtArgs>[]
     agentProfilesUpdated: Prisma.$AgentProfilePayload<ExtArgs>[]
+    agentConversationsOwned: Prisma.$AgentConversationPayload<ExtArgs>[]
+    agentRunsOwned: Prisma.$AgentRunPayload<ExtArgs>[]
+    agentMessagesOwned: Prisma.$AgentMessagePayload<ExtArgs>[]
+    agentActionsOwned: Prisma.$AgentActionPayload<ExtArgs>[]
+    agentToolCallsOwned: Prisma.$AgentToolCallPayload<ExtArgs>[]
+    agentUsageOwned: Prisma.$AgentUsagePayload<ExtArgs>[]
     workforceAssignmentsCreated: Prisma.$WorkforceAssignmentPayload<ExtArgs>[]
     workforceAssignmentsUpdated: Prisma.$WorkforceAssignmentPayload<ExtArgs>[]
     workforceAssignmentsEnded: Prisma.$WorkforceAssignmentPayload<ExtArgs>[]
@@ -27609,6 +31719,12 @@ export interface Prisma__UserProfileClient<T, Null = never, ExtArgs extends runt
   kpiDefinitionsUpdated<T extends Prisma.UserProfile$kpiDefinitionsUpdatedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserProfile$kpiDefinitionsUpdatedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$KpiDefinitionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   agentProfilesCreated<T extends Prisma.UserProfile$agentProfilesCreatedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserProfile$agentProfilesCreatedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AgentProfilePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   agentProfilesUpdated<T extends Prisma.UserProfile$agentProfilesUpdatedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserProfile$agentProfilesUpdatedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AgentProfilePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  agentConversationsOwned<T extends Prisma.UserProfile$agentConversationsOwnedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserProfile$agentConversationsOwnedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AgentConversationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  agentRunsOwned<T extends Prisma.UserProfile$agentRunsOwnedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserProfile$agentRunsOwnedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AgentRunPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  agentMessagesOwned<T extends Prisma.UserProfile$agentMessagesOwnedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserProfile$agentMessagesOwnedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AgentMessagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  agentActionsOwned<T extends Prisma.UserProfile$agentActionsOwnedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserProfile$agentActionsOwnedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AgentActionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  agentToolCallsOwned<T extends Prisma.UserProfile$agentToolCallsOwnedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserProfile$agentToolCallsOwnedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AgentToolCallPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  agentUsageOwned<T extends Prisma.UserProfile$agentUsageOwnedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserProfile$agentUsageOwnedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AgentUsagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   workforceAssignmentsCreated<T extends Prisma.UserProfile$workforceAssignmentsCreatedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserProfile$workforceAssignmentsCreatedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$WorkforceAssignmentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   workforceAssignmentsUpdated<T extends Prisma.UserProfile$workforceAssignmentsUpdatedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserProfile$workforceAssignmentsUpdatedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$WorkforceAssignmentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   workforceAssignmentsEnded<T extends Prisma.UserProfile$workforceAssignmentsEndedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserProfile$workforceAssignmentsEndedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$WorkforceAssignmentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -28755,6 +32871,150 @@ export type UserProfile$agentProfilesUpdatedArgs<ExtArgs extends runtime.Types.E
   take?: number
   skip?: number
   distinct?: Prisma.AgentProfileScalarFieldEnum | Prisma.AgentProfileScalarFieldEnum[]
+}
+
+/**
+ * UserProfile.agentConversationsOwned
+ */
+export type UserProfile$agentConversationsOwnedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the AgentConversation
+   */
+  select?: Prisma.AgentConversationSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the AgentConversation
+   */
+  omit?: Prisma.AgentConversationOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.AgentConversationInclude<ExtArgs> | null
+  where?: Prisma.AgentConversationWhereInput
+  orderBy?: Prisma.AgentConversationOrderByWithRelationInput | Prisma.AgentConversationOrderByWithRelationInput[]
+  cursor?: Prisma.AgentConversationWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.AgentConversationScalarFieldEnum | Prisma.AgentConversationScalarFieldEnum[]
+}
+
+/**
+ * UserProfile.agentRunsOwned
+ */
+export type UserProfile$agentRunsOwnedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the AgentRun
+   */
+  select?: Prisma.AgentRunSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the AgentRun
+   */
+  omit?: Prisma.AgentRunOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.AgentRunInclude<ExtArgs> | null
+  where?: Prisma.AgentRunWhereInput
+  orderBy?: Prisma.AgentRunOrderByWithRelationInput | Prisma.AgentRunOrderByWithRelationInput[]
+  cursor?: Prisma.AgentRunWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.AgentRunScalarFieldEnum | Prisma.AgentRunScalarFieldEnum[]
+}
+
+/**
+ * UserProfile.agentMessagesOwned
+ */
+export type UserProfile$agentMessagesOwnedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the AgentMessage
+   */
+  select?: Prisma.AgentMessageSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the AgentMessage
+   */
+  omit?: Prisma.AgentMessageOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.AgentMessageInclude<ExtArgs> | null
+  where?: Prisma.AgentMessageWhereInput
+  orderBy?: Prisma.AgentMessageOrderByWithRelationInput | Prisma.AgentMessageOrderByWithRelationInput[]
+  cursor?: Prisma.AgentMessageWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.AgentMessageScalarFieldEnum | Prisma.AgentMessageScalarFieldEnum[]
+}
+
+/**
+ * UserProfile.agentActionsOwned
+ */
+export type UserProfile$agentActionsOwnedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the AgentAction
+   */
+  select?: Prisma.AgentActionSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the AgentAction
+   */
+  omit?: Prisma.AgentActionOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.AgentActionInclude<ExtArgs> | null
+  where?: Prisma.AgentActionWhereInput
+  orderBy?: Prisma.AgentActionOrderByWithRelationInput | Prisma.AgentActionOrderByWithRelationInput[]
+  cursor?: Prisma.AgentActionWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.AgentActionScalarFieldEnum | Prisma.AgentActionScalarFieldEnum[]
+}
+
+/**
+ * UserProfile.agentToolCallsOwned
+ */
+export type UserProfile$agentToolCallsOwnedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the AgentToolCall
+   */
+  select?: Prisma.AgentToolCallSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the AgentToolCall
+   */
+  omit?: Prisma.AgentToolCallOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.AgentToolCallInclude<ExtArgs> | null
+  where?: Prisma.AgentToolCallWhereInput
+  orderBy?: Prisma.AgentToolCallOrderByWithRelationInput | Prisma.AgentToolCallOrderByWithRelationInput[]
+  cursor?: Prisma.AgentToolCallWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.AgentToolCallScalarFieldEnum | Prisma.AgentToolCallScalarFieldEnum[]
+}
+
+/**
+ * UserProfile.agentUsageOwned
+ */
+export type UserProfile$agentUsageOwnedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the AgentUsage
+   */
+  select?: Prisma.AgentUsageSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the AgentUsage
+   */
+  omit?: Prisma.AgentUsageOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.AgentUsageInclude<ExtArgs> | null
+  where?: Prisma.AgentUsageWhereInput
+  orderBy?: Prisma.AgentUsageOrderByWithRelationInput | Prisma.AgentUsageOrderByWithRelationInput[]
+  cursor?: Prisma.AgentUsageWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.AgentUsageScalarFieldEnum | Prisma.AgentUsageScalarFieldEnum[]
 }
 
 /**

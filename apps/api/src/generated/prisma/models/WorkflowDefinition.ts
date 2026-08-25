@@ -566,10 +566,6 @@ export type WorkflowDefinitionUncheckedUpdateManyWithoutOrganisationNestedInput 
   deleteMany?: Prisma.WorkflowDefinitionScalarWhereInput | Prisma.WorkflowDefinitionScalarWhereInput[]
 }
 
-export type EnumAutomationSubjectTypeFieldUpdateOperationsInput = {
-  set?: $Enums.AutomationSubjectType
-}
-
 export type EnumWorkflowDefinitionStatusFieldUpdateOperationsInput = {
   set?: $Enums.WorkflowDefinitionStatus
 }

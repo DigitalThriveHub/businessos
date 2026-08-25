@@ -23,16 +23,23 @@ import {
 } from '../auth/request-security-context';
 import { CommunicationsService } from './communications.service';
 import {
+  CancelBusinessCalendarEventDto,
   CancelCommunicationReminderDto,
+  ConfigureProviderConnectionDto,
+  CreateBusinessCalendarEventDto,
   CreateClientPortalInvitationDto,
   CreateCommunicationConversationDto,
   CreateCommunicationTemplateDto,
   PublishClientPortalUpdateDto,
   RevokeClientPortalAccessDto,
   ResolveCommunicationMatchDto,
+  RetryBusinessCalendarEventDto,
   ScheduleCommunicationReminderDto,
   SendCommunicationMessageDto,
+  SetBusinessCalendarOutcomeDto,
+  SetProviderConnectionStatusDto,
 } from './dto/communications.dto';
+import { GateLOperationsService } from './gate-l-operations.service';
 
 function SecureResponse() {
   return applyDecorators(
@@ -45,7 +52,10 @@ function SecureResponse() {
 @Controller('organisations/:organisationId/communications')
 @UseGuards(JwtAuthGuard, OrganisationAccessGuard, PermissionGuard)
 export class CommunicationsController {
-  constructor(private readonly communications: CommunicationsService) {}
+  constructor(
+    private readonly communications: CommunicationsService,
+    private readonly gateL: GateLOperationsService,
+  ) {}
 
   @Get()
   @SecureResponse()
@@ -56,6 +66,140 @@ export class CommunicationsController {
     @Req() request: OrganisationScopedRequest,
   ) {
     return this.communications.getDashboard(
+      requireOrganisationAccessContext(request),
+    );
+  }
+
+  @Get('live-operations')
+  @SecureResponse()
+  @RequirePermissions('communications.read')
+  getLiveOperations(
+    @Param('organisationId', new ParseUUIDPipe({ version: '4' }))
+    _organisationId: string,
+    @Req() request: OrganisationScopedRequest,
+  ) {
+    return this.gateL.getDashboard(requireOrganisationAccessContext(request));
+  }
+
+  @Post('provider-connections')
+  @HttpCode(HttpStatus.CREATED)
+  @SecureResponse()
+  @RequirePermissions('integrations.manage')
+  configureProvider(
+    @Body() dto: ConfigureProviderConnectionDto,
+    @Req() request: OrganisationScopedRequest,
+  ) {
+    return this.gateL.configureProvider(
+      dto,
+      requireOrganisationAccessContext(request),
+    );
+  }
+
+  @Post('provider-connections/:connectionId/health')
+  @HttpCode(HttpStatus.OK)
+  @SecureResponse()
+  @RequirePermissions('integrations.manage')
+  testProvider(
+    @Param('connectionId', new ParseUUIDPipe({ version: '4' }))
+    connectionId: string,
+    @Req() request: OrganisationScopedRequest,
+  ) {
+    return this.gateL.testProvider(
+      connectionId,
+      requireOrganisationAccessContext(request),
+    );
+  }
+
+  @Post('provider-connections/:connectionId/status')
+  @HttpCode(HttpStatus.OK)
+  @SecureResponse()
+  @RequirePermissions('integrations.manage')
+  setProviderStatus(
+    @Param('connectionId', new ParseUUIDPipe({ version: '4' }))
+    connectionId: string,
+    @Body() dto: SetProviderConnectionStatusDto,
+    @Req() request: OrganisationScopedRequest,
+  ) {
+    return this.gateL.setProviderStatus(
+      connectionId,
+      dto,
+      requireOrganisationAccessContext(request),
+    );
+  }
+
+  @Post('provider-connections/:connectionId/sync')
+  @HttpCode(HttpStatus.ACCEPTED)
+  @SecureResponse()
+  @RequirePermissions('communications.manage')
+  syncProvider(
+    @Param('connectionId', new ParseUUIDPipe({ version: '4' }))
+    connectionId: string,
+    @Req() request: OrganisationScopedRequest,
+  ) {
+    return this.gateL.manualSync(
+      connectionId,
+      requireOrganisationAccessContext(request),
+    );
+  }
+
+  @Post('calendar-events')
+  @HttpCode(HttpStatus.CREATED)
+  @SecureResponse()
+  @RequirePermissions('communications.send')
+  createCalendarEvent(
+    @Body() dto: CreateBusinessCalendarEventDto,
+    @Req() request: OrganisationScopedRequest,
+  ) {
+    return this.gateL.createCalendarEvent(
+      dto,
+      requireOrganisationAccessContext(request),
+    );
+  }
+
+  @Post('calendar-events/:eventId/cancel')
+  @HttpCode(HttpStatus.OK)
+  @SecureResponse()
+  @RequirePermissions('communications.send')
+  cancelCalendarEvent(
+    @Param('eventId', new ParseUUIDPipe({ version: '4' })) eventId: string,
+    @Body() dto: CancelBusinessCalendarEventDto,
+    @Req() request: OrganisationScopedRequest,
+  ) {
+    return this.gateL.cancelCalendarEvent(
+      eventId,
+      dto,
+      requireOrganisationAccessContext(request),
+    );
+  }
+
+  @Post('calendar-events/:eventId/retry')
+  @HttpCode(HttpStatus.OK)
+  @SecureResponse()
+  @RequirePermissions('communications.send')
+  retryCalendarEvent(
+    @Param('eventId', new ParseUUIDPipe({ version: '4' })) eventId: string,
+    @Body() dto: RetryBusinessCalendarEventDto,
+    @Req() request: OrganisationScopedRequest,
+  ) {
+    return this.gateL.retryCalendarEvent(
+      eventId,
+      dto,
+      requireOrganisationAccessContext(request),
+    );
+  }
+
+  @Post('calendar-events/:eventId/outcome')
+  @HttpCode(HttpStatus.OK)
+  @SecureResponse()
+  @RequirePermissions('communications.manage')
+  setCalendarOutcome(
+    @Param('eventId', new ParseUUIDPipe({ version: '4' })) eventId: string,
+    @Body() dto: SetBusinessCalendarOutcomeDto,
+    @Req() request: OrganisationScopedRequest,
+  ) {
+    return this.gateL.setCalendarOutcome(
+      eventId,
+      dto,
       requireOrganisationAccessContext(request),
     );
   }

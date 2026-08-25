@@ -22,14 +22,23 @@ export async function GET(request: NextRequest) {
     const input = communicationsReadQuerySchema.parse(
       Object.fromEntries(request.nextUrl.searchParams.entries()),
     );
-    const response = await apiFetch<unknown>(
-      `/api/v1/organisations/${encodeURIComponent(
-        input.organisationId,
-      )}/communications`,
-      { method: "GET", accessToken },
-    );
+    const base = `/api/v1/organisations/${encodeURIComponent(
+      input.organisationId,
+    )}/communications`;
+    const [response, liveOperations] = await Promise.all([
+      apiFetch<unknown>(base, { method: "GET", accessToken }),
+      apiFetch<unknown>(`${base}/live-operations`, {
+        method: "GET",
+        accessToken,
+      }),
+    ]);
 
-    return secureJson(communicationsDashboardSchema.parse(response));
+    return secureJson(
+      communicationsDashboardSchema.parse({
+        ...(typeof response === "object" && response !== null ? response : {}),
+        liveOperations,
+      }),
+    );
   } catch (error) {
     return bffErrorResponse(error, "communications information");
   }

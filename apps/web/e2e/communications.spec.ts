@@ -25,12 +25,15 @@ function normaliseSecret(value: string): string {
 }
 
 async function signIn(page: Page): Promise<void> {
-  if (!email || !password || !totpSecret) throw new Error("Gate D E2E credentials are required.");
+  if (!email || !password || !totpSecret)
+    throw new Error("Gate D E2E credentials are required.");
   await page.goto("/login?returnTo=%2Fcommunications");
   await page.getByLabel(/email/i).fill(email);
   await page.getByLabel(/password/i).fill(password);
   await page.getByRole("button", { name: /sign in/i }).click();
-  await page.waitForURL(/\/(communications|mfa\/challenge)/, { timeout: 20_000 });
+  await page.waitForURL(/\/(communications|mfa\/challenge)/, {
+    timeout: 20_000,
+  });
   if (new URL(page.url()).pathname === "/mfa/challenge") {
     const remaining = 30_000 - (Date.now() % 30_000);
     if (remaining < 5_000) await page.waitForTimeout(remaining + 300);
@@ -50,7 +53,10 @@ async function signIn(page: Page): Promise<void> {
 
 async function post<T>(page: Page, route: string, body: unknown): Promise<T> {
   const response = await page.request.post(route, {
-    headers: { Origin: new URL(page.url()).origin, "Content-Type": "application/json" },
+    headers: {
+      Origin: new URL(page.url()).origin,
+      "Content-Type": "application/json",
+    },
     data: body,
   });
   const text = await response.text();
@@ -59,8 +65,13 @@ async function post<T>(page: Page, route: string, body: unknown): Promise<T> {
 }
 
 test.describe("Gate D communications", () => {
-  test("runs an authenticated portal-message and tenant-isolation workflow", async ({ page }) => {
-    test.skip(!email || !password || !totpSecret, "Dedicated AAL2 Gate D credentials are not configured.");
+  test("runs an authenticated portal-message and tenant-isolation workflow", async ({
+    page,
+  }) => {
+    test.skip(
+      !email || !password || !totpSecret,
+      "Dedicated AAL2 Gate D credentials are not configured.",
+    );
     test.setTimeout(90_000);
     await signIn(page);
 
@@ -76,8 +87,13 @@ test.describe("Gate D communications", () => {
       "communications.send",
     ];
     const organisation = user.organisations.find((entry) => {
-      const granted = new Set(entry.permissions.map((permission) => permission.toLowerCase()));
-      return entry.organisationStatus.toUpperCase() === "ACTIVE" && required.every((permission) => granted.has(permission));
+      const granted = new Set(
+        entry.permissions.map((permission) => permission.toLowerCase()),
+      );
+      return (
+        entry.organisationStatus.toUpperCase() === "ACTIVE" &&
+        required.every((permission) => granted.has(permission))
+      );
     });
     test.skip(!organisation, "The Gate D E2E role is incomplete.");
     if (!organisation) throw new Error("Gate D E2E organisation is missing.");
@@ -87,55 +103,78 @@ test.describe("Gate D communications", () => {
     let matter: MatterRecord | null = null;
 
     try {
-      client = await post<ClientRecord>(page, "/api/case-management/mutations", {
-        operation: "client.create",
-        organisationId: organisation.organisationId,
-        payload: {
-          kind: "INDIVIDUAL",
-          firstName: `GateD-${unique}`,
-          lastName: "Playwright",
-          email: `gate-d-${unique}@example.test`,
-          processingLawfulBasis: "CONTRACT",
-          preferredLanguage: "en-GB",
-          preferredCommunication: "EMAIL",
+      client = await post<ClientRecord>(
+        page,
+        "/api/case-management/mutations",
+        {
+          operation: "client.create",
+          organisationId: organisation.organisationId,
+          payload: {
+            kind: "INDIVIDUAL",
+            firstName: `GateD-${unique}`,
+            lastName: "Playwright",
+            email: `gate-d-${unique}@example.test`,
+            processingLawfulBasis: "CONTRACT",
+            preferredLanguage: "en-GB",
+            preferredCommunication: "EMAIL",
+          },
         },
-      });
-      matter = await post<MatterRecord>(page, "/api/case-management/mutations", {
-        operation: "matter.create",
-        organisationId: organisation.organisationId,
-        payload: {
-          primaryClientId: client.id,
-          title: `Gate D communication ${unique}`,
-          serviceType: "Secure communications E2E",
-          jurisdictionCountryCode: "GB",
-          priority: "NORMAL",
+      );
+      matter = await post<MatterRecord>(
+        page,
+        "/api/case-management/mutations",
+        {
+          operation: "matter.create",
+          organisationId: organisation.organisationId,
+          payload: {
+            primaryClientId: client.id,
+            title: `Gate D communication ${unique}`,
+            serviceType: "Secure communications E2E",
+            jurisdictionCountryCode: "GB",
+            priority: "NORMAL",
+          },
         },
-      });
-      const conversation = await post<{ id: string }>(page, "/api/communications/mutations", {
-        operation: "conversation.create",
-        organisationId: organisation.organisationId,
-        payload: {
-          clientId: client.id,
-          matterId: matter.id,
-          channel: "PORTAL",
-          subject: `Secure update ${unique}`,
+      );
+      const conversation = await post<{ id: string }>(
+        page,
+        "/api/communications/mutations",
+        {
+          operation: "conversation.create",
+          organisationId: organisation.organisationId,
+          payload: {
+            clientId: client.id,
+            matterId: matter.id,
+            channel: "PORTAL",
+            subject: `Secure update ${unique}`,
+          },
         },
-      });
+      );
       await post(page, "/api/communications/mutations", {
         operation: "message.send",
         organisationId: organisation.organisationId,
         conversationId: conversation.id,
         payload: {
           subject: `Secure update ${unique}`,
-          bodyText: "This message is visible only through authorised portal access.",
+          bodyText:
+            "This message is visible only through authorised portal access.",
           recipientAddresses: [],
           idempotencyKey: `gate-d-e2e/${unique}`,
         },
       });
 
       await page.goto("/communications");
-      await expect(page.getByRole("heading", { name: "Communications", exact: true })).toBeVisible();
-      await expect(page.getByText(`Secure update ${unique}`, { exact: true })).toBeVisible({ timeout: 20_000 });
+      await expect(
+        page.getByRole("heading", {
+          name: "Communications & calendar",
+          exact: true,
+        }),
+      ).toBeVisible({ timeout: 30_000 });
+      await expect(
+        page.getByRole("heading", {
+          name: `Secure update ${unique}`,
+          exact: true,
+        }),
+      ).toBeVisible({ timeout: 20_000 });
 
       const foreign = await page.request.get(
         `/api/communications?${new URLSearchParams({ organisationId: crypto.randomUUID() }).toString()}`,
@@ -144,17 +183,31 @@ test.describe("Gate D communications", () => {
       expect(foreign.headers()["cache-control"]).toContain("no-store");
     } finally {
       if (matter) {
-        const cancelled = await post<MatterRecord>(page, "/api/case-management/mutations", {
-          operation: "matter.status",
-          organisationId: organisation.organisationId,
-          matterId: matter.id,
-          payload: { toStatus: "CANCELLED", reason: "Gate D E2E cleanup.", outcome: "Verified.", expectedVersion: matter.version },
-        });
+        const cancelled = await post<MatterRecord>(
+          page,
+          "/api/case-management/mutations",
+          {
+            operation: "matter.status",
+            organisationId: organisation.organisationId,
+            matterId: matter.id,
+            payload: {
+              toStatus: "CANCELLED",
+              reason: "Gate D E2E cleanup.",
+              outcome: "Verified.",
+              expectedVersion: matter.version,
+            },
+          },
+        );
         await post(page, "/api/case-management/mutations", {
           operation: "matter.status",
           organisationId: organisation.organisationId,
           matterId: matter.id,
-          payload: { toStatus: "ARCHIVED", reason: "Gate D E2E cleanup.", outcome: null, expectedVersion: cancelled.version },
+          payload: {
+            toStatus: "ARCHIVED",
+            reason: "Gate D E2E cleanup.",
+            outcome: null,
+            expectedVersion: cancelled.version,
+          },
         });
       }
       if (client) {
@@ -162,7 +215,10 @@ test.describe("Gate D communications", () => {
           operation: "client.archive",
           organisationId: organisation.organisationId,
           clientId: client.id,
-          payload: { reason: "Gate D E2E cleanup.", expectedVersion: client.version },
+          payload: {
+            reason: "Gate D E2E cleanup.",
+            expectedVersion: client.version,
+          },
         });
       }
     }

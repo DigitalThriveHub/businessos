@@ -194,4 +194,53 @@ describe('AutomationControlService', () => {
     ).rejects.toBeInstanceOf(BadRequestException);
     expect(transaction.$queryRaw).not.toHaveBeenCalled();
   });
+
+  it('materialises an approved AI communication as a draft in the same RLS transaction', async () => {
+    const decidedAt = new Date('2026-08-25T10:00:00.000Z');
+    const transaction = {
+      $queryRaw: jest
+        .fn()
+        .mockResolvedValueOnce([
+          {
+            approvalRequestId: '55555555-5555-4555-8555-555555555555',
+            approvalStatus: 'APPROVED',
+            approvalVersion: 2,
+            decisionId: '66666666-6666-4666-8666-666666666666',
+            decidedAt,
+          },
+        ])
+        .mockResolvedValueOnce([
+          {
+            materialise_approved_ai_draft:
+              '77777777-7777-4777-8777-777777777777',
+          },
+        ]),
+    };
+    const rls = {
+      run: jest.fn(
+        async (
+          _context: unknown,
+          callback: (value: typeof transaction) => Promise<unknown>,
+        ) => callback(transaction),
+      ),
+    };
+    const service = new AutomationControlService(rls as never);
+
+    await expect(
+      service.decideApproval(
+        '55555555-5555-4555-8555-555555555555',
+        {
+          expectedVersion: 1,
+          decision: 'APPROVED',
+          reason: 'Reviewed and approved as a draft only.',
+        },
+        CONTEXT,
+      ),
+    ).resolves.toMatchObject({
+      approvalStatus: 'APPROVED',
+      decidedAt: decidedAt.toISOString(),
+    });
+    expect(transaction.$queryRaw).toHaveBeenCalledTimes(2);
+    expect(rls.run).toHaveBeenCalledTimes(1);
+  });
 });

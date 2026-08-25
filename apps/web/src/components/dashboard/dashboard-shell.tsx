@@ -154,10 +154,10 @@ const navigationItems: NavigationItem[] = [
     permissions: ["command_centre.read"],
   },
   {
-    label: "AI Workspace",
+    label: "My AI",
     href: "/ai",
     icon: Bot,
-    permissions: ["ai.use", "ai.execute", "ai.workspace.access"],
+    permissions: ["ai.workspace.access"],
   },
   {
     label: "Organisation",
@@ -242,12 +242,12 @@ export function DashboardShell({
       </a>
 
       <header className="sticky top-0 z-40 border-b border-slate-200 bg-white/95 backdrop-blur">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
+        <div className="mx-auto flex max-w-[1600px] items-center justify-between gap-4 px-4 py-2 sm:px-5 lg:px-6">
           <Link
             href="/dashboard"
             className="flex min-w-0 items-center gap-3 rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2"
           >
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-slate-950 text-white">
+            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-slate-950 text-white">
               <LayoutDashboard aria-hidden="true" className="h-5 w-5" />
             </div>
 
@@ -272,7 +272,7 @@ export function DashboardShell({
             <form action={logout}>
               <button
                 type="submit"
-                className="inline-flex h-10 items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white px-4 text-sm font-medium transition hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2"
+                className="inline-flex h-9 items-center justify-center gap-2 rounded-lg border border-slate-300 bg-white px-3 text-sm font-medium transition hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2"
               >
                 <LogOut aria-hidden="true" className="h-4 w-4" />
 
@@ -283,8 +283,8 @@ export function DashboardShell({
         </div>
       </header>
 
-      <div className="mx-auto grid max-w-7xl gap-6 px-4 py-6 sm:px-6 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-8 lg:px-8 lg:py-8">
-        <aside className="lg:sticky lg:top-24 lg:self-start">
+      <div className="mx-auto grid max-w-[1600px] gap-4 px-4 py-4 sm:px-5 lg:grid-cols-[210px_minmax(0,1fr)] lg:px-6">
+        <aside className="lg:sticky lg:top-16 lg:self-start">
           <nav
             aria-label="Primary navigation"
             className="flex gap-2 overflow-x-auto pb-2 lg:flex-col lg:overflow-visible lg:pb-0"
@@ -301,8 +301,8 @@ export function DashboardShell({
                   aria-current={active ? "page" : undefined}
                   className={
                     active
-                      ? "flex min-h-11 shrink-0 items-center gap-3 rounded-xl bg-slate-950 px-4 py-3 text-sm font-medium text-white shadow-sm"
-                      : "flex min-h-11 shrink-0 items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-slate-700 transition hover:bg-white hover:text-slate-950 hover:shadow-sm"
+                      ? "flex min-h-9 shrink-0 items-center gap-2.5 rounded-lg bg-slate-950 px-3 py-2 text-sm font-medium text-white shadow-sm"
+                      : "flex min-h-9 shrink-0 items-center gap-2.5 rounded-lg px-3 py-2 text-sm font-medium text-slate-700 transition hover:bg-white hover:text-slate-950 hover:shadow-sm"
                   }
                 >
                   <Icon aria-hidden="true" className="h-4 w-4" />

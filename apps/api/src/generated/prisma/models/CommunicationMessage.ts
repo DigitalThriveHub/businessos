@@ -42,6 +42,7 @@ export type CommunicationMessageMinAggregateOutputType = {
   conversationId: string | null
   matterId: string | null
   clientId: string | null
+  integrationConnectionId: string | null
   channel: $Enums.BusinessCommunicationChannel | null
   direction: $Enums.CommunicationDirection | null
   actorType: $Enums.CommunicationActorType | null
@@ -78,6 +79,7 @@ export type CommunicationMessageMaxAggregateOutputType = {
   conversationId: string | null
   matterId: string | null
   clientId: string | null
+  integrationConnectionId: string | null
   channel: $Enums.BusinessCommunicationChannel | null
   direction: $Enums.CommunicationDirection | null
   actorType: $Enums.CommunicationActorType | null
@@ -114,6 +116,7 @@ export type CommunicationMessageCountAggregateOutputType = {
   conversationId: number
   matterId: number
   clientId: number
+  integrationConnectionId: number
   channel: number
   direction: number
   actorType: number
@@ -163,6 +166,7 @@ export type CommunicationMessageMinAggregateInputType = {
   conversationId?: true
   matterId?: true
   clientId?: true
+  integrationConnectionId?: true
   channel?: true
   direction?: true
   actorType?: true
@@ -199,6 +203,7 @@ export type CommunicationMessageMaxAggregateInputType = {
   conversationId?: true
   matterId?: true
   clientId?: true
+  integrationConnectionId?: true
   channel?: true
   direction?: true
   actorType?: true
@@ -235,6 +240,7 @@ export type CommunicationMessageCountAggregateInputType = {
   conversationId?: true
   matterId?: true
   clientId?: true
+  integrationConnectionId?: true
   channel?: true
   direction?: true
   actorType?: true
@@ -359,6 +365,7 @@ export type CommunicationMessageGroupByOutputType = {
   conversationId: string
   matterId: string | null
   clientId: string | null
+  integrationConnectionId: string | null
   channel: $Enums.BusinessCommunicationChannel
   direction: $Enums.CommunicationDirection
   actorType: $Enums.CommunicationActorType
@@ -419,6 +426,7 @@ export type CommunicationMessageWhereInput = {
   conversationId?: Prisma.UuidFilter<"CommunicationMessage"> | string
   matterId?: Prisma.UuidNullableFilter<"CommunicationMessage"> | string | null
   clientId?: Prisma.UuidNullableFilter<"CommunicationMessage"> | string | null
+  integrationConnectionId?: Prisma.UuidNullableFilter<"CommunicationMessage"> | string | null
   channel?: Prisma.EnumBusinessCommunicationChannelFilter<"CommunicationMessage"> | $Enums.BusinessCommunicationChannel
   direction?: Prisma.EnumCommunicationDirectionFilter<"CommunicationMessage"> | $Enums.CommunicationDirection
   actorType?: Prisma.EnumCommunicationActorTypeFilter<"CommunicationMessage"> | $Enums.CommunicationActorType
@@ -456,6 +464,7 @@ export type CommunicationMessageOrderByWithRelationInput = {
   conversationId?: Prisma.SortOrder
   matterId?: Prisma.SortOrderInput | Prisma.SortOrder
   clientId?: Prisma.SortOrderInput | Prisma.SortOrder
+  integrationConnectionId?: Prisma.SortOrderInput | Prisma.SortOrder
   channel?: Prisma.SortOrder
   direction?: Prisma.SortOrder
   actorType?: Prisma.SortOrder
@@ -499,6 +508,7 @@ export type CommunicationMessageWhereUniqueInput = Prisma.AtLeast<{
   conversationId?: Prisma.UuidFilter<"CommunicationMessage"> | string
   matterId?: Prisma.UuidNullableFilter<"CommunicationMessage"> | string | null
   clientId?: Prisma.UuidNullableFilter<"CommunicationMessage"> | string | null
+  integrationConnectionId?: Prisma.UuidNullableFilter<"CommunicationMessage"> | string | null
   channel?: Prisma.EnumBusinessCommunicationChannelFilter<"CommunicationMessage"> | $Enums.BusinessCommunicationChannel
   direction?: Prisma.EnumCommunicationDirectionFilter<"CommunicationMessage"> | $Enums.CommunicationDirection
   actorType?: Prisma.EnumCommunicationActorTypeFilter<"CommunicationMessage"> | $Enums.CommunicationActorType
@@ -536,6 +546,7 @@ export type CommunicationMessageOrderByWithAggregationInput = {
   conversationId?: Prisma.SortOrder
   matterId?: Prisma.SortOrderInput | Prisma.SortOrder
   clientId?: Prisma.SortOrderInput | Prisma.SortOrder
+  integrationConnectionId?: Prisma.SortOrderInput | Prisma.SortOrder
   channel?: Prisma.SortOrder
   direction?: Prisma.SortOrder
   actorType?: Prisma.SortOrder
@@ -581,6 +592,7 @@ export type CommunicationMessageScalarWhereWithAggregatesInput = {
   conversationId?: Prisma.UuidWithAggregatesFilter<"CommunicationMessage"> | string
   matterId?: Prisma.UuidNullableWithAggregatesFilter<"CommunicationMessage"> | string | null
   clientId?: Prisma.UuidNullableWithAggregatesFilter<"CommunicationMessage"> | string | null
+  integrationConnectionId?: Prisma.UuidNullableWithAggregatesFilter<"CommunicationMessage"> | string | null
   channel?: Prisma.EnumBusinessCommunicationChannelWithAggregatesFilter<"CommunicationMessage"> | $Enums.BusinessCommunicationChannel
   direction?: Prisma.EnumCommunicationDirectionWithAggregatesFilter<"CommunicationMessage"> | $Enums.CommunicationDirection
   actorType?: Prisma.EnumCommunicationActorTypeWithAggregatesFilter<"CommunicationMessage"> | $Enums.CommunicationActorType
@@ -618,6 +630,7 @@ export type CommunicationMessageCreateInput = {
   conversationId: string
   matterId?: string | null
   clientId?: string | null
+  integrationConnectionId?: string | null
   channel: $Enums.BusinessCommunicationChannel
   direction: $Enums.CommunicationDirection
   actorType: $Enums.CommunicationActorType
@@ -655,6 +668,7 @@ export type CommunicationMessageUncheckedCreateInput = {
   conversationId: string
   matterId?: string | null
   clientId?: string | null
+  integrationConnectionId?: string | null
   channel: $Enums.BusinessCommunicationChannel
   direction: $Enums.CommunicationDirection
   actorType: $Enums.CommunicationActorType
@@ -692,6 +706,7 @@ export type CommunicationMessageUpdateInput = {
   conversationId?: Prisma.StringFieldUpdateOperationsInput | string
   matterId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   clientId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  integrationConnectionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   channel?: Prisma.EnumBusinessCommunicationChannelFieldUpdateOperationsInput | $Enums.BusinessCommunicationChannel
   direction?: Prisma.EnumCommunicationDirectionFieldUpdateOperationsInput | $Enums.CommunicationDirection
   actorType?: Prisma.EnumCommunicationActorTypeFieldUpdateOperationsInput | $Enums.CommunicationActorType
@@ -729,6 +744,7 @@ export type CommunicationMessageUncheckedUpdateInput = {
   conversationId?: Prisma.StringFieldUpdateOperationsInput | string
   matterId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   clientId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  integrationConnectionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   channel?: Prisma.EnumBusinessCommunicationChannelFieldUpdateOperationsInput | $Enums.BusinessCommunicationChannel
   direction?: Prisma.EnumCommunicationDirectionFieldUpdateOperationsInput | $Enums.CommunicationDirection
   actorType?: Prisma.EnumCommunicationActorTypeFieldUpdateOperationsInput | $Enums.CommunicationActorType
@@ -766,6 +782,7 @@ export type CommunicationMessageCreateManyInput = {
   conversationId: string
   matterId?: string | null
   clientId?: string | null
+  integrationConnectionId?: string | null
   channel: $Enums.BusinessCommunicationChannel
   direction: $Enums.CommunicationDirection
   actorType: $Enums.CommunicationActorType
@@ -803,6 +820,7 @@ export type CommunicationMessageUpdateManyMutationInput = {
   conversationId?: Prisma.StringFieldUpdateOperationsInput | string
   matterId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   clientId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  integrationConnectionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   channel?: Prisma.EnumBusinessCommunicationChannelFieldUpdateOperationsInput | $Enums.BusinessCommunicationChannel
   direction?: Prisma.EnumCommunicationDirectionFieldUpdateOperationsInput | $Enums.CommunicationDirection
   actorType?: Prisma.EnumCommunicationActorTypeFieldUpdateOperationsInput | $Enums.CommunicationActorType
@@ -840,6 +858,7 @@ export type CommunicationMessageUncheckedUpdateManyInput = {
   conversationId?: Prisma.StringFieldUpdateOperationsInput | string
   matterId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   clientId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  integrationConnectionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   channel?: Prisma.EnumBusinessCommunicationChannelFieldUpdateOperationsInput | $Enums.BusinessCommunicationChannel
   direction?: Prisma.EnumCommunicationDirectionFieldUpdateOperationsInput | $Enums.CommunicationDirection
   actorType?: Prisma.EnumCommunicationActorTypeFieldUpdateOperationsInput | $Enums.CommunicationActorType
@@ -892,6 +911,7 @@ export type CommunicationMessageCountOrderByAggregateInput = {
   conversationId?: Prisma.SortOrder
   matterId?: Prisma.SortOrder
   clientId?: Prisma.SortOrder
+  integrationConnectionId?: Prisma.SortOrder
   channel?: Prisma.SortOrder
   direction?: Prisma.SortOrder
   actorType?: Prisma.SortOrder
@@ -934,6 +954,7 @@ export type CommunicationMessageMaxOrderByAggregateInput = {
   conversationId?: Prisma.SortOrder
   matterId?: Prisma.SortOrder
   clientId?: Prisma.SortOrder
+  integrationConnectionId?: Prisma.SortOrder
   channel?: Prisma.SortOrder
   direction?: Prisma.SortOrder
   actorType?: Prisma.SortOrder
@@ -970,6 +991,7 @@ export type CommunicationMessageMinOrderByAggregateInput = {
   conversationId?: Prisma.SortOrder
   matterId?: Prisma.SortOrder
   clientId?: Prisma.SortOrder
+  integrationConnectionId?: Prisma.SortOrder
   channel?: Prisma.SortOrder
   direction?: Prisma.SortOrder
   actorType?: Prisma.SortOrder
@@ -1034,6 +1056,7 @@ export type CommunicationMessageSelect<ExtArgs extends runtime.Types.Extensions.
   conversationId?: boolean
   matterId?: boolean
   clientId?: boolean
+  integrationConnectionId?: boolean
   channel?: boolean
   direction?: boolean
   actorType?: boolean
@@ -1071,6 +1094,7 @@ export type CommunicationMessageSelectCreateManyAndReturn<ExtArgs extends runtim
   conversationId?: boolean
   matterId?: boolean
   clientId?: boolean
+  integrationConnectionId?: boolean
   channel?: boolean
   direction?: boolean
   actorType?: boolean
@@ -1108,6 +1132,7 @@ export type CommunicationMessageSelectUpdateManyAndReturn<ExtArgs extends runtim
   conversationId?: boolean
   matterId?: boolean
   clientId?: boolean
+  integrationConnectionId?: boolean
   channel?: boolean
   direction?: boolean
   actorType?: boolean
@@ -1145,6 +1170,7 @@ export type CommunicationMessageSelectScalar = {
   conversationId?: boolean
   matterId?: boolean
   clientId?: boolean
+  integrationConnectionId?: boolean
   channel?: boolean
   direction?: boolean
   actorType?: boolean
@@ -1176,7 +1202,7 @@ export type CommunicationMessageSelectScalar = {
   updatedAt?: boolean
 }
 
-export type CommunicationMessageOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "organisationId" | "conversationId" | "matterId" | "clientId" | "channel" | "direction" | "actorType" | "authorUserProfileId" | "senderAddress" | "recipientAddresses" | "subject" | "bodyText" | "status" | "clientVisible" | "approvalRequestId" | "idempotencyKey" | "provider" | "providerMessageId" | "scheduledAt" | "queuedAt" | "sentAt" | "deliveredAt" | "readAt" | "failedAt" | "failureCode" | "failureDetail" | "attempts" | "maxAttempts" | "nextAttemptAt" | "leaseOwner" | "leaseExpiresAt" | "createdAt" | "updatedAt", ExtArgs["result"]["communicationMessage"]>
+export type CommunicationMessageOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "organisationId" | "conversationId" | "matterId" | "clientId" | "integrationConnectionId" | "channel" | "direction" | "actorType" | "authorUserProfileId" | "senderAddress" | "recipientAddresses" | "subject" | "bodyText" | "status" | "clientVisible" | "approvalRequestId" | "idempotencyKey" | "provider" | "providerMessageId" | "scheduledAt" | "queuedAt" | "sentAt" | "deliveredAt" | "readAt" | "failedAt" | "failureCode" | "failureDetail" | "attempts" | "maxAttempts" | "nextAttemptAt" | "leaseOwner" | "leaseExpiresAt" | "createdAt" | "updatedAt", ExtArgs["result"]["communicationMessage"]>
 
 export type $CommunicationMessagePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "CommunicationMessage"
@@ -1187,6 +1213,7 @@ export type $CommunicationMessagePayload<ExtArgs extends runtime.Types.Extension
     conversationId: string
     matterId: string | null
     clientId: string | null
+    integrationConnectionId: string | null
     channel: $Enums.BusinessCommunicationChannel
     direction: $Enums.CommunicationDirection
     actorType: $Enums.CommunicationActorType
@@ -1644,6 +1671,7 @@ export interface CommunicationMessageFieldRefs {
   readonly conversationId: Prisma.FieldRef<"CommunicationMessage", 'String'>
   readonly matterId: Prisma.FieldRef<"CommunicationMessage", 'String'>
   readonly clientId: Prisma.FieldRef<"CommunicationMessage", 'String'>
+  readonly integrationConnectionId: Prisma.FieldRef<"CommunicationMessage", 'String'>
   readonly channel: Prisma.FieldRef<"CommunicationMessage", 'BusinessCommunicationChannel'>
   readonly direction: Prisma.FieldRef<"CommunicationMessage", 'CommunicationDirection'>
   readonly actorType: Prisma.FieldRef<"CommunicationMessage", 'CommunicationActorType'>

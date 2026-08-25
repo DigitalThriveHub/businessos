@@ -1,13 +1,11 @@
 import { expect, test, type Page } from "@playwright/test";
 import * as OTPAuth from "otpauth";
 
-const email = process.env.E2E_USER_EMAIL;
-const password = process.env.E2E_USER_PASSWORD;
+const email = process.env.E2E_CASE_USER_EMAIL ?? process.env.E2E_USER_EMAIL;
+const password =
+  process.env.E2E_CASE_USER_PASSWORD ?? process.env.E2E_USER_PASSWORD;
 const totpSecret =
-  process.env.E2E_USER_TOTP_SECRET ??
-  (email !== undefined && email === process.env.E2E_CASE_USER_EMAIL
-    ? process.env.E2E_CASE_USER_TOTP_SECRET
-    : undefined);
+  process.env.E2E_CASE_USER_TOTP_SECRET ?? process.env.E2E_USER_TOTP_SECRET;
 
 function normaliseSecret(value: string): string {
   const secret = value.replace(/[\s-]/g, "").toUpperCase();
@@ -67,7 +65,9 @@ async function signIn(page: Page): Promise<void> {
     timeout: 20_000,
   });
 
-  await expect(page.getByRole("heading", { name: /dashboard/i })).toBeVisible();
+  await expect(page.getByRole("heading", { name: /dashboard/i })).toBeVisible({
+    timeout: 20_000,
+  });
 }
 test.describe("authentication security", () => {
   test("redirects an unauthenticated user away from protected routes", async ({

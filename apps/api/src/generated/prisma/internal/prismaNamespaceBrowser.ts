@@ -74,6 +74,12 @@ export const ModelName = {
   JobProfileKpi: 'JobProfileKpi',
   AgentProfile: 'AgentProfile',
   AgentPolicy: 'AgentPolicy',
+  AgentConversation: 'AgentConversation',
+  AgentRun: 'AgentRun',
+  AgentMessage: 'AgentMessage',
+  AgentAction: 'AgentAction',
+  AgentToolCall: 'AgentToolCall',
+  AgentUsage: 'AgentUsage',
   WorkforceAssignment: 'WorkforceAssignment',
   WorkforceAssignmentKpi: 'WorkforceAssignmentKpi',
   InvitationOnboardingPlan: 'InvitationOnboardingPlan',
@@ -124,6 +130,9 @@ export const ModelName = {
   FinanceJournalEntry: 'FinanceJournalEntry',
   FinanceJournalLine: 'FinanceJournalLine',
   IntegrationConnection: 'IntegrationConnection',
+  ProviderConnectionConfig: 'ProviderConnectionConfig',
+  BusinessCalendarEvent: 'BusinessCalendarEvent',
+  ProviderWebhookReceipt: 'ProviderWebhookReceipt',
   IntakeForm: 'IntakeForm',
   IntakeSubmission: 'IntakeSubmission',
   CommunicationMatchQueue: 'CommunicationMatchQueue',
@@ -626,6 +635,125 @@ export const AgentPolicyScalarFieldEnum = {
 } as const
 
 export type AgentPolicyScalarFieldEnum = (typeof AgentPolicyScalarFieldEnum)[keyof typeof AgentPolicyScalarFieldEnum]
+
+
+export const AgentConversationScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  userProfileId: 'userProfileId',
+  agentProfileId: 'agentProfileId',
+  title: 'title',
+  status: 'status',
+  lastMessageAt: 'lastMessageAt',
+  archivedAt: 'archivedAt',
+  version: 'version',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type AgentConversationScalarFieldEnum = (typeof AgentConversationScalarFieldEnum)[keyof typeof AgentConversationScalarFieldEnum]
+
+
+export const AgentRunScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  userProfileId: 'userProfileId',
+  conversationId: 'conversationId',
+  agentProfileId: 'agentProfileId',
+  clientRequestId: 'clientRequestId',
+  mode: 'mode',
+  status: 'status',
+  model: 'model',
+  providerResponseId: 'providerResponseId',
+  providerRequestId: 'providerRequestId',
+  requestSha256: 'requestSha256',
+  latencyMs: 'latencyMs',
+  errorCode: 'errorCode',
+  errorDetail: 'errorDetail',
+  startedAt: 'startedAt',
+  completedAt: 'completedAt',
+  failedAt: 'failedAt',
+  version: 'version',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type AgentRunScalarFieldEnum = (typeof AgentRunScalarFieldEnum)[keyof typeof AgentRunScalarFieldEnum]
+
+
+export const AgentMessageScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  userProfileId: 'userProfileId',
+  conversationId: 'conversationId',
+  runId: 'runId',
+  role: 'role',
+  content: 'content',
+  structuredContent: 'structuredContent',
+  createdAt: 'createdAt'
+} as const
+
+export type AgentMessageScalarFieldEnum = (typeof AgentMessageScalarFieldEnum)[keyof typeof AgentMessageScalarFieldEnum]
+
+
+export const AgentActionScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  userProfileId: 'userProfileId',
+  conversationId: 'conversationId',
+  runId: 'runId',
+  approvalRequestId: 'approvalRequestId',
+  toolKey: 'toolKey',
+  requiredPermissionKey: 'requiredPermissionKey',
+  subjectType: 'subjectType',
+  subjectId: 'subjectId',
+  title: 'title',
+  summary: 'summary',
+  riskLevel: 'riskLevel',
+  proposedPayload: 'proposedPayload',
+  status: 'status',
+  blockedReason: 'blockedReason',
+  version: 'version',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type AgentActionScalarFieldEnum = (typeof AgentActionScalarFieldEnum)[keyof typeof AgentActionScalarFieldEnum]
+
+
+export const AgentToolCallScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  userProfileId: 'userProfileId',
+  runId: 'runId',
+  toolKey: 'toolKey',
+  status: 'status',
+  arguments: 'arguments',
+  resultSummary: 'resultSummary',
+  errorCode: 'errorCode',
+  startedAt: 'startedAt',
+  completedAt: 'completedAt',
+  createdAt: 'createdAt'
+} as const
+
+export type AgentToolCallScalarFieldEnum = (typeof AgentToolCallScalarFieldEnum)[keyof typeof AgentToolCallScalarFieldEnum]
+
+
+export const AgentUsageScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  userProfileId: 'userProfileId',
+  runId: 'runId',
+  model: 'model',
+  inputTokens: 'inputTokens',
+  cachedInputTokens: 'cachedInputTokens',
+  outputTokens: 'outputTokens',
+  totalTokens: 'totalTokens',
+  estimatedCostMinor: 'estimatedCostMinor',
+  createdAt: 'createdAt'
+} as const
+
+export type AgentUsageScalarFieldEnum = (typeof AgentUsageScalarFieldEnum)[keyof typeof AgentUsageScalarFieldEnum]
 
 
 export const WorkforceAssignmentScalarFieldEnum = {
@@ -1438,6 +1566,7 @@ export const CommunicationConversationScalarFieldEnum = {
   organisationId: 'organisationId',
   matterId: 'matterId',
   clientId: 'clientId',
+  integrationConnectionId: 'integrationConnectionId',
   channel: 'channel',
   subject: 'subject',
   status: 'status',
@@ -1462,6 +1591,7 @@ export const CommunicationMessageScalarFieldEnum = {
   conversationId: 'conversationId',
   matterId: 'matterId',
   clientId: 'clientId',
+  integrationConnectionId: 'integrationConnectionId',
   channel: 'channel',
   direction: 'direction',
   actorType: 'actorType',
@@ -1775,6 +1905,85 @@ export const IntegrationConnectionScalarFieldEnum = {
 } as const
 
 export type IntegrationConnectionScalarFieldEnum = (typeof IntegrationConnectionScalarFieldEnum)[keyof typeof IntegrationConnectionScalarFieldEnum]
+
+
+export const ProviderConnectionConfigScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  connectionId: 'connectionId',
+  secretReference: 'secretReference',
+  state: 'state',
+  capabilities: 'capabilities',
+  mailboxAddress: 'mailboxAddress',
+  phoneNumber: 'phoneNumber',
+  webhookPublicId: 'webhookPublicId',
+  syncCursor: 'syncCursor',
+  lastHealthCheckedAt: 'lastHealthCheckedAt',
+  lastHealthyAt: 'lastHealthyAt',
+  lastSyncAt: 'lastSyncAt',
+  lastErrorCode: 'lastErrorCode',
+  lastErrorDetail: 'lastErrorDetail',
+  leaseOwner: 'leaseOwner',
+  leaseExpiresAt: 'leaseExpiresAt',
+  createdByUserId: 'createdByUserId',
+  updatedByUserId: 'updatedByUserId',
+  version: 'version',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ProviderConnectionConfigScalarFieldEnum = (typeof ProviderConnectionConfigScalarFieldEnum)[keyof typeof ProviderConnectionConfigScalarFieldEnum]
+
+
+export const BusinessCalendarEventScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  integrationConnectionId: 'integrationConnectionId',
+  clientId: 'clientId',
+  matterId: 'matterId',
+  conversationId: 'conversationId',
+  title: 'title',
+  description: 'description',
+  startsAt: 'startsAt',
+  endsAt: 'endsAt',
+  timezone: 'timezone',
+  location: 'location',
+  attendeeAddresses: 'attendeeAddresses',
+  status: 'status',
+  providerEventId: 'providerEventId',
+  providerJoinUrl: 'providerJoinUrl',
+  idempotencyKey: 'idempotencyKey',
+  reminderMinutesBefore: 'reminderMinutesBefore',
+  reminderMessageId: 'reminderMessageId',
+  failureCode: 'failureCode',
+  failureDetail: 'failureDetail',
+  createdByUserId: 'createdByUserId',
+  updatedByUserId: 'updatedByUserId',
+  version: 'version',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type BusinessCalendarEventScalarFieldEnum = (typeof BusinessCalendarEventScalarFieldEnum)[keyof typeof BusinessCalendarEventScalarFieldEnum]
+
+
+export const ProviderWebhookReceiptScalarFieldEnum = {
+  id: 'id',
+  organisationId: 'organisationId',
+  connectionId: 'connectionId',
+  provider: 'provider',
+  externalEventId: 'externalEventId',
+  eventType: 'eventType',
+  payloadSha256: 'payloadSha256',
+  status: 'status',
+  correlationId: 'correlationId',
+  errorCode: 'errorCode',
+  occurredAt: 'occurredAt',
+  receivedAt: 'receivedAt',
+  processedAt: 'processedAt'
+} as const
+
+export type ProviderWebhookReceiptScalarFieldEnum = (typeof ProviderWebhookReceiptScalarFieldEnum)[keyof typeof ProviderWebhookReceiptScalarFieldEnum]
 
 
 export const IntakeFormScalarFieldEnum = {

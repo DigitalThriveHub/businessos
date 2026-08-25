@@ -222,12 +222,16 @@ export function bffErrorResponse(
   }
 
   if (error instanceof ApiError) {
+    const evidence = {
+      ...(error.code ? { code: error.code } : {}),
+      ...(error.correlationId ? { correlationId: error.correlationId } : {}),
+    };
     switch (error.status) {
       case 400:
         return secureJson(
           {
-            message:
-              `The submitted ${subject} information is invalid.`,
+            message: error.message,
+            ...evidence,
           },
           400,
         );
@@ -240,6 +244,7 @@ export function bffErrorResponse(
           {
             message:
               "You do not have permission to perform this action.",
+            ...evidence,
           },
           403,
         );
@@ -249,6 +254,7 @@ export function bffErrorResponse(
           {
             message:
               `The requested ${subject} could not be found.`,
+            ...evidence,
           },
           404,
         );
@@ -256,8 +262,8 @@ export function bffErrorResponse(
       case 409:
         return secureJson(
           {
-            message:
-              `The ${subject} conflicts with an existing record.`,
+            message: error.message,
+            ...evidence,
           },
           409,
         );
@@ -267,6 +273,7 @@ export function bffErrorResponse(
           {
             message:
               `The ${subject} could not be accepted.`,
+            ...evidence,
           },
           422,
         );
@@ -276,6 +283,7 @@ export function bffErrorResponse(
           {
             message:
               "Too many requests. Please try again shortly.",
+            ...evidence,
           },
           429,
         );
@@ -286,8 +294,10 @@ export function bffErrorResponse(
       case 504:
         return secureJson(
           {
-            message:
-              `The ${subject} service is temporarily unavailable.`,
+            message: error.correlationId
+              ? `${error.message} Support reference: ${error.correlationId}.`
+              : error.message,
+            ...evidence,
           },
           503,
         );

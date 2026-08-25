@@ -368,6 +368,7 @@ export type ApprovalRequestWhereInput = {
   workflowRun?: Prisma.XOR<Prisma.WorkflowRunNullableScalarRelationFilter, Prisma.WorkflowRunWhereInput> | null
   workflowAction?: Prisma.XOR<Prisma.WorkflowActionNullableScalarRelationFilter, Prisma.WorkflowActionWhereInput> | null
   decision?: Prisma.XOR<Prisma.ApprovalDecisionNullableScalarRelationFilter, Prisma.ApprovalDecisionWhereInput> | null
+  agentActions?: Prisma.AgentActionListRelationFilter
 }
 
 export type ApprovalRequestOrderByWithRelationInput = {
@@ -399,6 +400,7 @@ export type ApprovalRequestOrderByWithRelationInput = {
   workflowRun?: Prisma.WorkflowRunOrderByWithRelationInput
   workflowAction?: Prisma.WorkflowActionOrderByWithRelationInput
   decision?: Prisma.ApprovalDecisionOrderByWithRelationInput
+  agentActions?: Prisma.AgentActionOrderByRelationAggregateInput
 }
 
 export type ApprovalRequestWhereUniqueInput = Prisma.AtLeast<{
@@ -434,6 +436,7 @@ export type ApprovalRequestWhereUniqueInput = Prisma.AtLeast<{
   workflowRun?: Prisma.XOR<Prisma.WorkflowRunNullableScalarRelationFilter, Prisma.WorkflowRunWhereInput> | null
   workflowAction?: Prisma.XOR<Prisma.WorkflowActionNullableScalarRelationFilter, Prisma.WorkflowActionWhereInput> | null
   decision?: Prisma.XOR<Prisma.ApprovalDecisionNullableScalarRelationFilter, Prisma.ApprovalDecisionWhereInput> | null
+  agentActions?: Prisma.AgentActionListRelationFilter
 }, "id" | "id_organisationId">
 
 export type ApprovalRequestOrderByWithAggregationInput = {
@@ -524,6 +527,7 @@ export type ApprovalRequestCreateInput = {
   workflowRun?: Prisma.WorkflowRunCreateNestedOneWithoutApprovalRequestsInput
   workflowAction?: Prisma.WorkflowActionCreateNestedOneWithoutApprovalRequestsInput
   decision?: Prisma.ApprovalDecisionCreateNestedOneWithoutApprovalRequestInput
+  agentActions?: Prisma.AgentActionCreateNestedManyWithoutApprovalRequestInput
 }
 
 export type ApprovalRequestUncheckedCreateInput = {
@@ -552,6 +556,7 @@ export type ApprovalRequestUncheckedCreateInput = {
   updatedAt?: Date | string
   version?: number
   decision?: Prisma.ApprovalDecisionUncheckedCreateNestedOneWithoutApprovalRequestInput
+  agentActions?: Prisma.AgentActionUncheckedCreateNestedManyWithoutApprovalRequestInput
 }
 
 export type ApprovalRequestUpdateInput = {
@@ -580,6 +585,7 @@ export type ApprovalRequestUpdateInput = {
   workflowRun?: Prisma.WorkflowRunUpdateOneWithoutApprovalRequestsNestedInput
   workflowAction?: Prisma.WorkflowActionUpdateOneWithoutApprovalRequestsNestedInput
   decision?: Prisma.ApprovalDecisionUpdateOneWithoutApprovalRequestNestedInput
+  agentActions?: Prisma.AgentActionUpdateManyWithoutApprovalRequestNestedInput
 }
 
 export type ApprovalRequestUncheckedUpdateInput = {
@@ -608,6 +614,7 @@ export type ApprovalRequestUncheckedUpdateInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   version?: Prisma.IntFieldUpdateOperationsInput | number
   decision?: Prisma.ApprovalDecisionUncheckedUpdateOneWithoutApprovalRequestNestedInput
+  agentActions?: Prisma.AgentActionUncheckedUpdateManyWithoutApprovalRequestNestedInput
 }
 
 export type ApprovalRequestCreateManyInput = {
@@ -696,6 +703,11 @@ export type ApprovalRequestListRelationFilter = {
 
 export type ApprovalRequestOrderByRelationAggregateInput = {
   _count?: Prisma.SortOrder
+}
+
+export type ApprovalRequestNullableScalarRelationFilter = {
+  is?: Prisma.ApprovalRequestWhereInput | null
+  isNot?: Prisma.ApprovalRequestWhereInput | null
 }
 
 export type ApprovalRequestIdOrganisationIdCompoundUniqueInput = {
@@ -837,6 +849,22 @@ export type ApprovalRequestUncheckedUpdateManyWithoutOrganisationNestedInput = {
   deleteMany?: Prisma.ApprovalRequestScalarWhereInput | Prisma.ApprovalRequestScalarWhereInput[]
 }
 
+export type ApprovalRequestCreateNestedOneWithoutAgentActionsInput = {
+  create?: Prisma.XOR<Prisma.ApprovalRequestCreateWithoutAgentActionsInput, Prisma.ApprovalRequestUncheckedCreateWithoutAgentActionsInput>
+  connectOrCreate?: Prisma.ApprovalRequestCreateOrConnectWithoutAgentActionsInput
+  connect?: Prisma.ApprovalRequestWhereUniqueInput
+}
+
+export type ApprovalRequestUpdateOneWithoutAgentActionsNestedInput = {
+  create?: Prisma.XOR<Prisma.ApprovalRequestCreateWithoutAgentActionsInput, Prisma.ApprovalRequestUncheckedCreateWithoutAgentActionsInput>
+  connectOrCreate?: Prisma.ApprovalRequestCreateOrConnectWithoutAgentActionsInput
+  upsert?: Prisma.ApprovalRequestUpsertWithoutAgentActionsInput
+  disconnect?: Prisma.ApprovalRequestWhereInput | boolean
+  delete?: Prisma.ApprovalRequestWhereInput | boolean
+  connect?: Prisma.ApprovalRequestWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.ApprovalRequestUpdateToOneWithWhereWithoutAgentActionsInput, Prisma.ApprovalRequestUpdateWithoutAgentActionsInput>, Prisma.ApprovalRequestUncheckedUpdateWithoutAgentActionsInput>
+}
+
 export type ApprovalRequestCreateNestedManyWithoutWorkflowRunInput = {
   create?: Prisma.XOR<Prisma.ApprovalRequestCreateWithoutWorkflowRunInput, Prisma.ApprovalRequestUncheckedCreateWithoutWorkflowRunInput> | Prisma.ApprovalRequestCreateWithoutWorkflowRunInput[] | Prisma.ApprovalRequestUncheckedCreateWithoutWorkflowRunInput[]
   connectOrCreate?: Prisma.ApprovalRequestCreateOrConnectWithoutWorkflowRunInput | Prisma.ApprovalRequestCreateOrConnectWithoutWorkflowRunInput[]
@@ -921,10 +949,6 @@ export type ApprovalRequestUncheckedUpdateManyWithoutWorkflowActionNestedInput =
   deleteMany?: Prisma.ApprovalRequestScalarWhereInput | Prisma.ApprovalRequestScalarWhereInput[]
 }
 
-export type EnumApprovalRiskLevelFieldUpdateOperationsInput = {
-  set?: $Enums.ApprovalRiskLevel
-}
-
 export type EnumApprovalRequestStatusFieldUpdateOperationsInput = {
   set?: $Enums.ApprovalRequestStatus
 }
@@ -968,6 +992,7 @@ export type ApprovalRequestCreateWithoutOrganisationInput = {
   workflowRun?: Prisma.WorkflowRunCreateNestedOneWithoutApprovalRequestsInput
   workflowAction?: Prisma.WorkflowActionCreateNestedOneWithoutApprovalRequestsInput
   decision?: Prisma.ApprovalDecisionCreateNestedOneWithoutApprovalRequestInput
+  agentActions?: Prisma.AgentActionCreateNestedManyWithoutApprovalRequestInput
 }
 
 export type ApprovalRequestUncheckedCreateWithoutOrganisationInput = {
@@ -995,6 +1020,7 @@ export type ApprovalRequestUncheckedCreateWithoutOrganisationInput = {
   updatedAt?: Date | string
   version?: number
   decision?: Prisma.ApprovalDecisionUncheckedCreateNestedOneWithoutApprovalRequestInput
+  agentActions?: Prisma.AgentActionUncheckedCreateNestedManyWithoutApprovalRequestInput
 }
 
 export type ApprovalRequestCreateOrConnectWithoutOrganisationInput = {
@@ -1053,6 +1079,134 @@ export type ApprovalRequestScalarWhereInput = {
   version?: Prisma.IntFilter<"ApprovalRequest"> | number
 }
 
+export type ApprovalRequestCreateWithoutAgentActionsInput = {
+  id?: string
+  subjectType: $Enums.AutomationSubjectType
+  subjectId: string
+  title: string
+  summary: string
+  actionKey: string
+  riskLevel?: $Enums.ApprovalRiskLevel
+  proposedPayload?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  status?: $Enums.ApprovalRequestStatus
+  requestedByActorType?: $Enums.AuditActorType
+  requestedByUserProfileId?: string | null
+  approverUserId?: string | null
+  approverTeamId?: string | null
+  allowSelfApproval?: boolean
+  expiresAt: Date | string
+  decidedAt?: Date | string | null
+  cancelledAt?: Date | string | null
+  cancellationReason?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  version?: number
+  organisation: Prisma.OrganisationCreateNestedOneWithoutApprovalRequestsInput
+  workflowRun?: Prisma.WorkflowRunCreateNestedOneWithoutApprovalRequestsInput
+  workflowAction?: Prisma.WorkflowActionCreateNestedOneWithoutApprovalRequestsInput
+  decision?: Prisma.ApprovalDecisionCreateNestedOneWithoutApprovalRequestInput
+}
+
+export type ApprovalRequestUncheckedCreateWithoutAgentActionsInput = {
+  id?: string
+  organisationId: string
+  workflowRunId?: string | null
+  workflowActionId?: string | null
+  subjectType: $Enums.AutomationSubjectType
+  subjectId: string
+  title: string
+  summary: string
+  actionKey: string
+  riskLevel?: $Enums.ApprovalRiskLevel
+  proposedPayload?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  status?: $Enums.ApprovalRequestStatus
+  requestedByActorType?: $Enums.AuditActorType
+  requestedByUserProfileId?: string | null
+  approverUserId?: string | null
+  approverTeamId?: string | null
+  allowSelfApproval?: boolean
+  expiresAt: Date | string
+  decidedAt?: Date | string | null
+  cancelledAt?: Date | string | null
+  cancellationReason?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  version?: number
+  decision?: Prisma.ApprovalDecisionUncheckedCreateNestedOneWithoutApprovalRequestInput
+}
+
+export type ApprovalRequestCreateOrConnectWithoutAgentActionsInput = {
+  where: Prisma.ApprovalRequestWhereUniqueInput
+  create: Prisma.XOR<Prisma.ApprovalRequestCreateWithoutAgentActionsInput, Prisma.ApprovalRequestUncheckedCreateWithoutAgentActionsInput>
+}
+
+export type ApprovalRequestUpsertWithoutAgentActionsInput = {
+  update: Prisma.XOR<Prisma.ApprovalRequestUpdateWithoutAgentActionsInput, Prisma.ApprovalRequestUncheckedUpdateWithoutAgentActionsInput>
+  create: Prisma.XOR<Prisma.ApprovalRequestCreateWithoutAgentActionsInput, Prisma.ApprovalRequestUncheckedCreateWithoutAgentActionsInput>
+  where?: Prisma.ApprovalRequestWhereInput
+}
+
+export type ApprovalRequestUpdateToOneWithWhereWithoutAgentActionsInput = {
+  where?: Prisma.ApprovalRequestWhereInput
+  data: Prisma.XOR<Prisma.ApprovalRequestUpdateWithoutAgentActionsInput, Prisma.ApprovalRequestUncheckedUpdateWithoutAgentActionsInput>
+}
+
+export type ApprovalRequestUpdateWithoutAgentActionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  subjectType?: Prisma.EnumAutomationSubjectTypeFieldUpdateOperationsInput | $Enums.AutomationSubjectType
+  subjectId?: Prisma.StringFieldUpdateOperationsInput | string
+  title?: Prisma.StringFieldUpdateOperationsInput | string
+  summary?: Prisma.StringFieldUpdateOperationsInput | string
+  actionKey?: Prisma.StringFieldUpdateOperationsInput | string
+  riskLevel?: Prisma.EnumApprovalRiskLevelFieldUpdateOperationsInput | $Enums.ApprovalRiskLevel
+  proposedPayload?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  status?: Prisma.EnumApprovalRequestStatusFieldUpdateOperationsInput | $Enums.ApprovalRequestStatus
+  requestedByActorType?: Prisma.EnumAuditActorTypeFieldUpdateOperationsInput | $Enums.AuditActorType
+  requestedByUserProfileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  approverUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  approverTeamId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  allowSelfApproval?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  expiresAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  decidedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  cancelledAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  cancellationReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  version?: Prisma.IntFieldUpdateOperationsInput | number
+  organisation?: Prisma.OrganisationUpdateOneRequiredWithoutApprovalRequestsNestedInput
+  workflowRun?: Prisma.WorkflowRunUpdateOneWithoutApprovalRequestsNestedInput
+  workflowAction?: Prisma.WorkflowActionUpdateOneWithoutApprovalRequestsNestedInput
+  decision?: Prisma.ApprovalDecisionUpdateOneWithoutApprovalRequestNestedInput
+}
+
+export type ApprovalRequestUncheckedUpdateWithoutAgentActionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  organisationId?: Prisma.StringFieldUpdateOperationsInput | string
+  workflowRunId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  workflowActionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  subjectType?: Prisma.EnumAutomationSubjectTypeFieldUpdateOperationsInput | $Enums.AutomationSubjectType
+  subjectId?: Prisma.StringFieldUpdateOperationsInput | string
+  title?: Prisma.StringFieldUpdateOperationsInput | string
+  summary?: Prisma.StringFieldUpdateOperationsInput | string
+  actionKey?: Prisma.StringFieldUpdateOperationsInput | string
+  riskLevel?: Prisma.EnumApprovalRiskLevelFieldUpdateOperationsInput | $Enums.ApprovalRiskLevel
+  proposedPayload?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  status?: Prisma.EnumApprovalRequestStatusFieldUpdateOperationsInput | $Enums.ApprovalRequestStatus
+  requestedByActorType?: Prisma.EnumAuditActorTypeFieldUpdateOperationsInput | $Enums.AuditActorType
+  requestedByUserProfileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  approverUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  approverTeamId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  allowSelfApproval?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  expiresAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  decidedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  cancelledAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  cancellationReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  version?: Prisma.IntFieldUpdateOperationsInput | number
+  decision?: Prisma.ApprovalDecisionUncheckedUpdateOneWithoutApprovalRequestNestedInput
+}
+
 export type ApprovalRequestCreateWithoutWorkflowRunInput = {
   id?: string
   subjectType: $Enums.AutomationSubjectType
@@ -1078,6 +1232,7 @@ export type ApprovalRequestCreateWithoutWorkflowRunInput = {
   organisation: Prisma.OrganisationCreateNestedOneWithoutApprovalRequestsInput
   workflowAction?: Prisma.WorkflowActionCreateNestedOneWithoutApprovalRequestsInput
   decision?: Prisma.ApprovalDecisionCreateNestedOneWithoutApprovalRequestInput
+  agentActions?: Prisma.AgentActionCreateNestedManyWithoutApprovalRequestInput
 }
 
 export type ApprovalRequestUncheckedCreateWithoutWorkflowRunInput = {
@@ -1104,6 +1259,7 @@ export type ApprovalRequestUncheckedCreateWithoutWorkflowRunInput = {
   updatedAt?: Date | string
   version?: number
   decision?: Prisma.ApprovalDecisionUncheckedCreateNestedOneWithoutApprovalRequestInput
+  agentActions?: Prisma.AgentActionUncheckedCreateNestedManyWithoutApprovalRequestInput
 }
 
 export type ApprovalRequestCreateOrConnectWithoutWorkflowRunInput = {
@@ -1157,6 +1313,7 @@ export type ApprovalRequestCreateWithoutWorkflowActionInput = {
   organisation: Prisma.OrganisationCreateNestedOneWithoutApprovalRequestsInput
   workflowRun?: Prisma.WorkflowRunCreateNestedOneWithoutApprovalRequestsInput
   decision?: Prisma.ApprovalDecisionCreateNestedOneWithoutApprovalRequestInput
+  agentActions?: Prisma.AgentActionCreateNestedManyWithoutApprovalRequestInput
 }
 
 export type ApprovalRequestUncheckedCreateWithoutWorkflowActionInput = {
@@ -1183,6 +1340,7 @@ export type ApprovalRequestUncheckedCreateWithoutWorkflowActionInput = {
   updatedAt?: Date | string
   version?: number
   decision?: Prisma.ApprovalDecisionUncheckedCreateNestedOneWithoutApprovalRequestInput
+  agentActions?: Prisma.AgentActionUncheckedCreateNestedManyWithoutApprovalRequestInput
 }
 
 export type ApprovalRequestCreateOrConnectWithoutWorkflowActionInput = {
@@ -1236,6 +1394,7 @@ export type ApprovalRequestCreateWithoutDecisionInput = {
   organisation: Prisma.OrganisationCreateNestedOneWithoutApprovalRequestsInput
   workflowRun?: Prisma.WorkflowRunCreateNestedOneWithoutApprovalRequestsInput
   workflowAction?: Prisma.WorkflowActionCreateNestedOneWithoutApprovalRequestsInput
+  agentActions?: Prisma.AgentActionCreateNestedManyWithoutApprovalRequestInput
 }
 
 export type ApprovalRequestUncheckedCreateWithoutDecisionInput = {
@@ -1263,6 +1422,7 @@ export type ApprovalRequestUncheckedCreateWithoutDecisionInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   version?: number
+  agentActions?: Prisma.AgentActionUncheckedCreateNestedManyWithoutApprovalRequestInput
 }
 
 export type ApprovalRequestCreateOrConnectWithoutDecisionInput = {
@@ -1306,6 +1466,7 @@ export type ApprovalRequestUpdateWithoutDecisionInput = {
   organisation?: Prisma.OrganisationUpdateOneRequiredWithoutApprovalRequestsNestedInput
   workflowRun?: Prisma.WorkflowRunUpdateOneWithoutApprovalRequestsNestedInput
   workflowAction?: Prisma.WorkflowActionUpdateOneWithoutApprovalRequestsNestedInput
+  agentActions?: Prisma.AgentActionUpdateManyWithoutApprovalRequestNestedInput
 }
 
 export type ApprovalRequestUncheckedUpdateWithoutDecisionInput = {
@@ -1333,6 +1494,7 @@ export type ApprovalRequestUncheckedUpdateWithoutDecisionInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   version?: Prisma.IntFieldUpdateOperationsInput | number
+  agentActions?: Prisma.AgentActionUncheckedUpdateManyWithoutApprovalRequestNestedInput
 }
 
 export type ApprovalRequestCreateManyOrganisationInput = {
@@ -1386,6 +1548,7 @@ export type ApprovalRequestUpdateWithoutOrganisationInput = {
   workflowRun?: Prisma.WorkflowRunUpdateOneWithoutApprovalRequestsNestedInput
   workflowAction?: Prisma.WorkflowActionUpdateOneWithoutApprovalRequestsNestedInput
   decision?: Prisma.ApprovalDecisionUpdateOneWithoutApprovalRequestNestedInput
+  agentActions?: Prisma.AgentActionUpdateManyWithoutApprovalRequestNestedInput
 }
 
 export type ApprovalRequestUncheckedUpdateWithoutOrganisationInput = {
@@ -1413,6 +1576,7 @@ export type ApprovalRequestUncheckedUpdateWithoutOrganisationInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   version?: Prisma.IntFieldUpdateOperationsInput | number
   decision?: Prisma.ApprovalDecisionUncheckedUpdateOneWithoutApprovalRequestNestedInput
+  agentActions?: Prisma.AgentActionUncheckedUpdateManyWithoutApprovalRequestNestedInput
 }
 
 export type ApprovalRequestUncheckedUpdateManyWithoutOrganisationInput = {
@@ -1491,6 +1655,7 @@ export type ApprovalRequestUpdateWithoutWorkflowRunInput = {
   organisation?: Prisma.OrganisationUpdateOneRequiredWithoutApprovalRequestsNestedInput
   workflowAction?: Prisma.WorkflowActionUpdateOneWithoutApprovalRequestsNestedInput
   decision?: Prisma.ApprovalDecisionUpdateOneWithoutApprovalRequestNestedInput
+  agentActions?: Prisma.AgentActionUpdateManyWithoutApprovalRequestNestedInput
 }
 
 export type ApprovalRequestUncheckedUpdateWithoutWorkflowRunInput = {
@@ -1517,6 +1682,7 @@ export type ApprovalRequestUncheckedUpdateWithoutWorkflowRunInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   version?: Prisma.IntFieldUpdateOperationsInput | number
   decision?: Prisma.ApprovalDecisionUncheckedUpdateOneWithoutApprovalRequestNestedInput
+  agentActions?: Prisma.AgentActionUncheckedUpdateManyWithoutApprovalRequestNestedInput
 }
 
 export type ApprovalRequestUncheckedUpdateManyWithoutWorkflowRunInput = {
@@ -1594,6 +1760,7 @@ export type ApprovalRequestUpdateWithoutWorkflowActionInput = {
   organisation?: Prisma.OrganisationUpdateOneRequiredWithoutApprovalRequestsNestedInput
   workflowRun?: Prisma.WorkflowRunUpdateOneWithoutApprovalRequestsNestedInput
   decision?: Prisma.ApprovalDecisionUpdateOneWithoutApprovalRequestNestedInput
+  agentActions?: Prisma.AgentActionUpdateManyWithoutApprovalRequestNestedInput
 }
 
 export type ApprovalRequestUncheckedUpdateWithoutWorkflowActionInput = {
@@ -1620,6 +1787,7 @@ export type ApprovalRequestUncheckedUpdateWithoutWorkflowActionInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   version?: Prisma.IntFieldUpdateOperationsInput | number
   decision?: Prisma.ApprovalDecisionUncheckedUpdateOneWithoutApprovalRequestNestedInput
+  agentActions?: Prisma.AgentActionUncheckedUpdateManyWithoutApprovalRequestNestedInput
 }
 
 export type ApprovalRequestUncheckedUpdateManyWithoutWorkflowActionInput = {
@@ -1647,6 +1815,35 @@ export type ApprovalRequestUncheckedUpdateManyWithoutWorkflowActionInput = {
   version?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
+
+/**
+ * Count Type ApprovalRequestCountOutputType
+ */
+
+export type ApprovalRequestCountOutputType = {
+  agentActions: number
+}
+
+export type ApprovalRequestCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  agentActions?: boolean | ApprovalRequestCountOutputTypeCountAgentActionsArgs
+}
+
+/**
+ * ApprovalRequestCountOutputType without action
+ */
+export type ApprovalRequestCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ApprovalRequestCountOutputType
+   */
+  select?: Prisma.ApprovalRequestCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * ApprovalRequestCountOutputType without action
+ */
+export type ApprovalRequestCountOutputTypeCountAgentActionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.AgentActionWhereInput
+}
 
 
 export type ApprovalRequestSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -1678,6 +1875,8 @@ export type ApprovalRequestSelect<ExtArgs extends runtime.Types.Extensions.Inter
   workflowRun?: boolean | Prisma.ApprovalRequest$workflowRunArgs<ExtArgs>
   workflowAction?: boolean | Prisma.ApprovalRequest$workflowActionArgs<ExtArgs>
   decision?: boolean | Prisma.ApprovalRequest$decisionArgs<ExtArgs>
+  agentActions?: boolean | Prisma.ApprovalRequest$agentActionsArgs<ExtArgs>
+  _count?: boolean | Prisma.ApprovalRequestCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["approvalRequest"]>
 
 export type ApprovalRequestSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -1773,6 +1972,8 @@ export type ApprovalRequestInclude<ExtArgs extends runtime.Types.Extensions.Inte
   workflowRun?: boolean | Prisma.ApprovalRequest$workflowRunArgs<ExtArgs>
   workflowAction?: boolean | Prisma.ApprovalRequest$workflowActionArgs<ExtArgs>
   decision?: boolean | Prisma.ApprovalRequest$decisionArgs<ExtArgs>
+  agentActions?: boolean | Prisma.ApprovalRequest$agentActionsArgs<ExtArgs>
+  _count?: boolean | Prisma.ApprovalRequestCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type ApprovalRequestIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   organisation?: boolean | Prisma.OrganisationDefaultArgs<ExtArgs>
@@ -1792,6 +1993,7 @@ export type $ApprovalRequestPayload<ExtArgs extends runtime.Types.Extensions.Int
     workflowRun: Prisma.$WorkflowRunPayload<ExtArgs> | null
     workflowAction: Prisma.$WorkflowActionPayload<ExtArgs> | null
     decision: Prisma.$ApprovalDecisionPayload<ExtArgs> | null
+    agentActions: Prisma.$AgentActionPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -2216,6 +2418,7 @@ export interface Prisma__ApprovalRequestClient<T, Null = never, ExtArgs extends 
   workflowRun<T extends Prisma.ApprovalRequest$workflowRunArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ApprovalRequest$workflowRunArgs<ExtArgs>>): Prisma.Prisma__WorkflowRunClient<runtime.Types.Result.GetResult<Prisma.$WorkflowRunPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   workflowAction<T extends Prisma.ApprovalRequest$workflowActionArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ApprovalRequest$workflowActionArgs<ExtArgs>>): Prisma.Prisma__WorkflowActionClient<runtime.Types.Result.GetResult<Prisma.$WorkflowActionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   decision<T extends Prisma.ApprovalRequest$decisionArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ApprovalRequest$decisionArgs<ExtArgs>>): Prisma.Prisma__ApprovalDecisionClient<runtime.Types.Result.GetResult<Prisma.$ApprovalDecisionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  agentActions<T extends Prisma.ApprovalRequest$agentActionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ApprovalRequest$agentActionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AgentActionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2724,6 +2927,30 @@ export type ApprovalRequest$decisionArgs<ExtArgs extends runtime.Types.Extension
    */
   include?: Prisma.ApprovalDecisionInclude<ExtArgs> | null
   where?: Prisma.ApprovalDecisionWhereInput
+}
+
+/**
+ * ApprovalRequest.agentActions
+ */
+export type ApprovalRequest$agentActionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the AgentAction
+   */
+  select?: Prisma.AgentActionSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the AgentAction
+   */
+  omit?: Prisma.AgentActionOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.AgentActionInclude<ExtArgs> | null
+  where?: Prisma.AgentActionWhereInput
+  orderBy?: Prisma.AgentActionOrderByWithRelationInput | Prisma.AgentActionOrderByWithRelationInput[]
+  cursor?: Prisma.AgentActionWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.AgentActionScalarFieldEnum | Prisma.AgentActionScalarFieldEnum[]
 }
 
 /**

@@ -703,6 +703,11 @@ export class AutomationControlService {
         if (!row) {
           throw new NotFoundException('Approval request not found.');
         }
+        if (dto.decision === 'APPROVED') {
+          await transaction.$queryRaw`
+            SELECT private.materialise_approved_ai_draft(${approvalId}::uuid)
+          `;
+        }
         return { ...row, decidedAt: iso(row.decidedAt) };
       }),
     );

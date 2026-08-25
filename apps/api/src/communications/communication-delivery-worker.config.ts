@@ -60,14 +60,18 @@ export class CommunicationDeliveryWorkerConfig {
         .slice(0, 60) || 'businessos-api';
 
     if (this.enabled) {
-      if (!environment.RESEND_API_KEY?.startsWith('re_')) {
+      const hasResend = environment.RESEND_API_KEY?.startsWith('re_');
+      const hasLiveProviders = Boolean(
+        environment.GATE_L_PROVIDER_SECRETS_JSON?.trim(),
+      );
+      if (!hasResend && !hasLiveProviders) {
         throw new Error(
-          'RESEND_API_KEY is required when communication delivery is enabled.',
+          'RESEND_API_KEY or GATE_L_PROVIDER_SECRETS_JSON is required when communication delivery is enabled.',
         );
       }
-      if (!environment.EMAIL_FROM_ADDRESS?.includes('@')) {
+      if (hasResend && !environment.EMAIL_FROM_ADDRESS?.includes('@')) {
         throw new Error(
-          'EMAIL_FROM_ADDRESS is required when communication delivery is enabled.',
+          'EMAIL_FROM_ADDRESS is required when Resend delivery is enabled.',
         );
       }
     }

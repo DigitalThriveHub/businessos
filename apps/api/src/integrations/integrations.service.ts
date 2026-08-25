@@ -109,7 +109,7 @@ export class IntegrationsService {
         `,
       );
       const connection = this.requireOne(rows, 'integration connection');
-      if (dto.provider !== 'STRIPE') {
+      if (['WORDPRESS', 'GENERIC'].includes(dto.provider)) {
         connection.signingSecret = this.signing.deriveConnectionSecret(
           String(connection.id),
           Number(connection.secretVersion),

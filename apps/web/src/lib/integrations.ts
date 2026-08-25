@@ -3,13 +3,21 @@ import { z } from "zod";
 const uuid = z.string().uuid();
 const dateTime = z.string().datetime({ offset: true });
 const nullableDateTime = dateTime.nullable();
-const provider = z.enum(["WORDPRESS", "STRIPE", "GENERIC"]);
+const connectionProvider = z.enum([
+  "WORDPRESS",
+  "STRIPE",
+  "GENERIC",
+  "MICROSOFT_365",
+  "GOOGLE_WORKSPACE",
+  "WHATSAPP_BUSINESS",
+]);
+const configurableProvider = z.enum(["WORDPRESS", "STRIPE", "GENERIC"]);
 const status = z.enum(["ACTIVE", "DISABLED"]);
 
 export const integrationConnectionSchema = z.object({
   id: uuid,
   organisationId: uuid,
-  provider,
+  provider: connectionProvider,
   displayName: z.string(),
   status,
   externalAccountReference: z.string().nullable().optional(),
@@ -31,7 +39,7 @@ export const integrationsDashboardSchema = z.object({
     z.object({
       id: uuid,
       connectionId: uuid,
-      provider,
+      provider: connectionProvider,
       direction: z.enum(["INBOUND", "OUTBOUND"]),
       externalEventId: z.string(),
       eventType: z.string(),
@@ -117,7 +125,7 @@ export const integrationMutationSchema = z.discriminatedUnion("operation", [
     operation: z.literal("connection.create"),
     organisationId: uuid,
     payload: z.object({
-      provider,
+      provider: configurableProvider,
       displayName: z.string().trim().min(2).max(160),
       externalAccountReference: z
         .string()

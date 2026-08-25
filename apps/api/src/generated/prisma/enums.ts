@@ -207,6 +207,61 @@ export const AgentAuthorityLevel = {
 export type AgentAuthorityLevel = (typeof AgentAuthorityLevel)[keyof typeof AgentAuthorityLevel]
 
 
+export const AgentConversationStatus = {
+  ACTIVE: 'ACTIVE',
+  ARCHIVED: 'ARCHIVED'
+} as const
+
+export type AgentConversationStatus = (typeof AgentConversationStatus)[keyof typeof AgentConversationStatus]
+
+
+export const AgentRunMode = {
+  CHAT: 'CHAT',
+  DAILY_BRIEF: 'DAILY_BRIEF'
+} as const
+
+export type AgentRunMode = (typeof AgentRunMode)[keyof typeof AgentRunMode]
+
+
+export const AgentRunStatus = {
+  RUNNING: 'RUNNING',
+  COMPLETED: 'COMPLETED',
+  FAILED: 'FAILED'
+} as const
+
+export type AgentRunStatus = (typeof AgentRunStatus)[keyof typeof AgentRunStatus]
+
+
+export const AgentMessageRole = {
+  USER: 'USER',
+  ASSISTANT: 'ASSISTANT'
+} as const
+
+export type AgentMessageRole = (typeof AgentMessageRole)[keyof typeof AgentMessageRole]
+
+
+export const AgentActionStatus = {
+  PROPOSED: 'PROPOSED',
+  PENDING_APPROVAL: 'PENDING_APPROVAL',
+  BLOCKED: 'BLOCKED',
+  APPROVED: 'APPROVED',
+  EXECUTING: 'EXECUTING',
+  EXECUTED: 'EXECUTED',
+  FAILED: 'FAILED'
+} as const
+
+export type AgentActionStatus = (typeof AgentActionStatus)[keyof typeof AgentActionStatus]
+
+
+export const AgentToolCallStatus = {
+  SUCCEEDED: 'SUCCEEDED',
+  DENIED: 'DENIED',
+  FAILED: 'FAILED'
+} as const
+
+export type AgentToolCallStatus = (typeof AgentToolCallStatus)[keyof typeof AgentToolCallStatus]
+
+
 export const OnboardingPlanStatus = {
   PENDING: 'PENDING',
   PROVISIONED: 'PROVISIONED',
@@ -792,10 +847,36 @@ export type FinanceJournalSource = (typeof FinanceJournalSource)[keyof typeof Fi
 export const IntegrationProvider = {
   WORDPRESS: 'WORDPRESS',
   STRIPE: 'STRIPE',
-  GENERIC: 'GENERIC'
+  GENERIC: 'GENERIC',
+  MICROSOFT_365: 'MICROSOFT_365',
+  GOOGLE_WORKSPACE: 'GOOGLE_WORKSPACE',
+  WHATSAPP_BUSINESS: 'WHATSAPP_BUSINESS'
 } as const
 
 export type IntegrationProvider = (typeof IntegrationProvider)[keyof typeof IntegrationProvider]
+
+
+export const ProviderConnectionState = {
+  SETUP_REQUIRED: 'SETUP_REQUIRED',
+  READY: 'READY',
+  DEGRADED: 'DEGRADED',
+  DISABLED: 'DISABLED'
+} as const
+
+export type ProviderConnectionState = (typeof ProviderConnectionState)[keyof typeof ProviderConnectionState]
+
+
+export const BusinessCalendarEventStatus = {
+  PENDING_SYNC: 'PENDING_SYNC',
+  SCHEDULED: 'SCHEDULED',
+  CANCELLATION_PENDING: 'CANCELLATION_PENDING',
+  CANCELLED: 'CANCELLED',
+  COMPLETED: 'COMPLETED',
+  NO_SHOW: 'NO_SHOW',
+  SYNC_FAILED: 'SYNC_FAILED'
+} as const
+
+export type BusinessCalendarEventStatus = (typeof BusinessCalendarEventStatus)[keyof typeof BusinessCalendarEventStatus]
 
 
 export const IntegrationConnectionStatus = {

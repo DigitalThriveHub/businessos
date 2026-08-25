@@ -311,6 +311,8 @@ export type AgentProfileWhereInput = {
   policies?: Prisma.AgentPolicyListRelationFilter
   workforceAssignments?: Prisma.WorkforceAssignmentListRelationFilter
   onboardingPlans?: Prisma.InvitationOnboardingPlanListRelationFilter
+  conversations?: Prisma.AgentConversationListRelationFilter
+  runs?: Prisma.AgentRunListRelationFilter
 }
 
 export type AgentProfileOrderByWithRelationInput = {
@@ -337,6 +339,8 @@ export type AgentProfileOrderByWithRelationInput = {
   policies?: Prisma.AgentPolicyOrderByRelationAggregateInput
   workforceAssignments?: Prisma.WorkforceAssignmentOrderByRelationAggregateInput
   onboardingPlans?: Prisma.InvitationOnboardingPlanOrderByRelationAggregateInput
+  conversations?: Prisma.AgentConversationOrderByRelationAggregateInput
+  runs?: Prisma.AgentRunOrderByRelationAggregateInput
 }
 
 export type AgentProfileWhereUniqueInput = Prisma.AtLeast<{
@@ -368,6 +372,8 @@ export type AgentProfileWhereUniqueInput = Prisma.AtLeast<{
   policies?: Prisma.AgentPolicyListRelationFilter
   workforceAssignments?: Prisma.WorkforceAssignmentListRelationFilter
   onboardingPlans?: Prisma.InvitationOnboardingPlanListRelationFilter
+  conversations?: Prisma.AgentConversationListRelationFilter
+  runs?: Prisma.AgentRunListRelationFilter
 }, "id" | "id_organisationId" | "organisationId_key">
 
 export type AgentProfileOrderByWithAggregationInput = {
@@ -436,6 +442,8 @@ export type AgentProfileCreateInput = {
   policies?: Prisma.AgentPolicyCreateNestedManyWithoutAgentProfileInput
   workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutAgentProfileInput
   onboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutAgentProfileInput
+  conversations?: Prisma.AgentConversationCreateNestedManyWithoutAgentProfileInput
+  runs?: Prisma.AgentRunCreateNestedManyWithoutAgentProfileInput
 }
 
 export type AgentProfileUncheckedCreateInput = {
@@ -458,6 +466,8 @@ export type AgentProfileUncheckedCreateInput = {
   policies?: Prisma.AgentPolicyUncheckedCreateNestedManyWithoutAgentProfileInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutAgentProfileInput
   onboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutAgentProfileInput
+  conversations?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutAgentProfileInput
+  runs?: Prisma.AgentRunUncheckedCreateNestedManyWithoutAgentProfileInput
 }
 
 export type AgentProfileUpdateInput = {
@@ -480,6 +490,8 @@ export type AgentProfileUpdateInput = {
   policies?: Prisma.AgentPolicyUpdateManyWithoutAgentProfileNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutAgentProfileNestedInput
   onboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutAgentProfileNestedInput
+  conversations?: Prisma.AgentConversationUpdateManyWithoutAgentProfileNestedInput
+  runs?: Prisma.AgentRunUpdateManyWithoutAgentProfileNestedInput
 }
 
 export type AgentProfileUncheckedUpdateInput = {
@@ -502,6 +514,8 @@ export type AgentProfileUncheckedUpdateInput = {
   policies?: Prisma.AgentPolicyUncheckedUpdateManyWithoutAgentProfileNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutAgentProfileNestedInput
   onboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutAgentProfileNestedInput
+  conversations?: Prisma.AgentConversationUncheckedUpdateManyWithoutAgentProfileNestedInput
+  runs?: Prisma.AgentRunUncheckedUpdateManyWithoutAgentProfileNestedInput
 }
 
 export type AgentProfileCreateManyInput = {
@@ -838,6 +852,38 @@ export type AgentProfileUpdateOneRequiredWithoutPoliciesNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.AgentProfileUpdateToOneWithWhereWithoutPoliciesInput, Prisma.AgentProfileUpdateWithoutPoliciesInput>, Prisma.AgentProfileUncheckedUpdateWithoutPoliciesInput>
 }
 
+export type AgentProfileCreateNestedOneWithoutConversationsInput = {
+  create?: Prisma.XOR<Prisma.AgentProfileCreateWithoutConversationsInput, Prisma.AgentProfileUncheckedCreateWithoutConversationsInput>
+  connectOrCreate?: Prisma.AgentProfileCreateOrConnectWithoutConversationsInput
+  connect?: Prisma.AgentProfileWhereUniqueInput
+}
+
+export type AgentProfileUpdateOneWithoutConversationsNestedInput = {
+  create?: Prisma.XOR<Prisma.AgentProfileCreateWithoutConversationsInput, Prisma.AgentProfileUncheckedCreateWithoutConversationsInput>
+  connectOrCreate?: Prisma.AgentProfileCreateOrConnectWithoutConversationsInput
+  upsert?: Prisma.AgentProfileUpsertWithoutConversationsInput
+  disconnect?: Prisma.AgentProfileWhereInput | boolean
+  delete?: Prisma.AgentProfileWhereInput | boolean
+  connect?: Prisma.AgentProfileWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.AgentProfileUpdateToOneWithWhereWithoutConversationsInput, Prisma.AgentProfileUpdateWithoutConversationsInput>, Prisma.AgentProfileUncheckedUpdateWithoutConversationsInput>
+}
+
+export type AgentProfileCreateNestedOneWithoutRunsInput = {
+  create?: Prisma.XOR<Prisma.AgentProfileCreateWithoutRunsInput, Prisma.AgentProfileUncheckedCreateWithoutRunsInput>
+  connectOrCreate?: Prisma.AgentProfileCreateOrConnectWithoutRunsInput
+  connect?: Prisma.AgentProfileWhereUniqueInput
+}
+
+export type AgentProfileUpdateOneWithoutRunsNestedInput = {
+  create?: Prisma.XOR<Prisma.AgentProfileCreateWithoutRunsInput, Prisma.AgentProfileUncheckedCreateWithoutRunsInput>
+  connectOrCreate?: Prisma.AgentProfileCreateOrConnectWithoutRunsInput
+  upsert?: Prisma.AgentProfileUpsertWithoutRunsInput
+  disconnect?: Prisma.AgentProfileWhereInput | boolean
+  delete?: Prisma.AgentProfileWhereInput | boolean
+  connect?: Prisma.AgentProfileWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.AgentProfileUpdateToOneWithWhereWithoutRunsInput, Prisma.AgentProfileUpdateWithoutRunsInput>, Prisma.AgentProfileUncheckedUpdateWithoutRunsInput>
+}
+
 export type AgentProfileCreateNestedOneWithoutWorkforceAssignmentsInput = {
   create?: Prisma.XOR<Prisma.AgentProfileCreateWithoutWorkforceAssignmentsInput, Prisma.AgentProfileUncheckedCreateWithoutWorkforceAssignmentsInput>
   connectOrCreate?: Prisma.AgentProfileCreateOrConnectWithoutWorkforceAssignmentsInput
@@ -889,6 +935,8 @@ export type AgentProfileCreateWithoutOrganisationInput = {
   policies?: Prisma.AgentPolicyCreateNestedManyWithoutAgentProfileInput
   workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutAgentProfileInput
   onboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutAgentProfileInput
+  conversations?: Prisma.AgentConversationCreateNestedManyWithoutAgentProfileInput
+  runs?: Prisma.AgentRunCreateNestedManyWithoutAgentProfileInput
 }
 
 export type AgentProfileUncheckedCreateWithoutOrganisationInput = {
@@ -910,6 +958,8 @@ export type AgentProfileUncheckedCreateWithoutOrganisationInput = {
   policies?: Prisma.AgentPolicyUncheckedCreateNestedManyWithoutAgentProfileInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutAgentProfileInput
   onboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutAgentProfileInput
+  conversations?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutAgentProfileInput
+  runs?: Prisma.AgentRunUncheckedCreateNestedManyWithoutAgentProfileInput
 }
 
 export type AgentProfileCreateOrConnectWithoutOrganisationInput = {
@@ -979,6 +1029,8 @@ export type AgentProfileCreateWithoutCreatedByInput = {
   policies?: Prisma.AgentPolicyCreateNestedManyWithoutAgentProfileInput
   workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutAgentProfileInput
   onboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutAgentProfileInput
+  conversations?: Prisma.AgentConversationCreateNestedManyWithoutAgentProfileInput
+  runs?: Prisma.AgentRunCreateNestedManyWithoutAgentProfileInput
 }
 
 export type AgentProfileUncheckedCreateWithoutCreatedByInput = {
@@ -1000,6 +1052,8 @@ export type AgentProfileUncheckedCreateWithoutCreatedByInput = {
   policies?: Prisma.AgentPolicyUncheckedCreateNestedManyWithoutAgentProfileInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutAgentProfileInput
   onboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutAgentProfileInput
+  conversations?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutAgentProfileInput
+  runs?: Prisma.AgentRunUncheckedCreateNestedManyWithoutAgentProfileInput
 }
 
 export type AgentProfileCreateOrConnectWithoutCreatedByInput = {
@@ -1031,6 +1085,8 @@ export type AgentProfileCreateWithoutUpdatedByInput = {
   policies?: Prisma.AgentPolicyCreateNestedManyWithoutAgentProfileInput
   workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutAgentProfileInput
   onboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutAgentProfileInput
+  conversations?: Prisma.AgentConversationCreateNestedManyWithoutAgentProfileInput
+  runs?: Prisma.AgentRunCreateNestedManyWithoutAgentProfileInput
 }
 
 export type AgentProfileUncheckedCreateWithoutUpdatedByInput = {
@@ -1052,6 +1108,8 @@ export type AgentProfileUncheckedCreateWithoutUpdatedByInput = {
   policies?: Prisma.AgentPolicyUncheckedCreateNestedManyWithoutAgentProfileInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutAgentProfileInput
   onboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutAgentProfileInput
+  conversations?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutAgentProfileInput
+  runs?: Prisma.AgentRunUncheckedCreateNestedManyWithoutAgentProfileInput
 }
 
 export type AgentProfileCreateOrConnectWithoutUpdatedByInput = {
@@ -1115,6 +1173,8 @@ export type AgentProfileCreateWithoutDepartmentInput = {
   policies?: Prisma.AgentPolicyCreateNestedManyWithoutAgentProfileInput
   workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutAgentProfileInput
   onboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutAgentProfileInput
+  conversations?: Prisma.AgentConversationCreateNestedManyWithoutAgentProfileInput
+  runs?: Prisma.AgentRunCreateNestedManyWithoutAgentProfileInput
 }
 
 export type AgentProfileUncheckedCreateWithoutDepartmentInput = {
@@ -1135,6 +1195,8 @@ export type AgentProfileUncheckedCreateWithoutDepartmentInput = {
   policies?: Prisma.AgentPolicyUncheckedCreateNestedManyWithoutAgentProfileInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutAgentProfileInput
   onboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutAgentProfileInput
+  conversations?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutAgentProfileInput
+  runs?: Prisma.AgentRunUncheckedCreateNestedManyWithoutAgentProfileInput
 }
 
 export type AgentProfileCreateOrConnectWithoutDepartmentInput = {
@@ -1182,6 +1244,8 @@ export type AgentProfileCreateWithoutPoliciesInput = {
   updatedBy?: Prisma.UserProfileCreateNestedOneWithoutAgentProfilesUpdatedInput
   workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutAgentProfileInput
   onboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutAgentProfileInput
+  conversations?: Prisma.AgentConversationCreateNestedManyWithoutAgentProfileInput
+  runs?: Prisma.AgentRunCreateNestedManyWithoutAgentProfileInput
 }
 
 export type AgentProfileUncheckedCreateWithoutPoliciesInput = {
@@ -1203,6 +1267,8 @@ export type AgentProfileUncheckedCreateWithoutPoliciesInput = {
   deletedAt?: Date | string | null
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutAgentProfileInput
   onboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutAgentProfileInput
+  conversations?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutAgentProfileInput
+  runs?: Prisma.AgentRunUncheckedCreateNestedManyWithoutAgentProfileInput
 }
 
 export type AgentProfileCreateOrConnectWithoutPoliciesInput = {
@@ -1240,6 +1306,8 @@ export type AgentProfileUpdateWithoutPoliciesInput = {
   updatedBy?: Prisma.UserProfileUpdateOneWithoutAgentProfilesUpdatedNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutAgentProfileNestedInput
   onboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutAgentProfileNestedInput
+  conversations?: Prisma.AgentConversationUpdateManyWithoutAgentProfileNestedInput
+  runs?: Prisma.AgentRunUpdateManyWithoutAgentProfileNestedInput
 }
 
 export type AgentProfileUncheckedUpdateWithoutPoliciesInput = {
@@ -1261,6 +1329,224 @@ export type AgentProfileUncheckedUpdateWithoutPoliciesInput = {
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutAgentProfileNestedInput
   onboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutAgentProfileNestedInput
+  conversations?: Prisma.AgentConversationUncheckedUpdateManyWithoutAgentProfileNestedInput
+  runs?: Prisma.AgentRunUncheckedUpdateManyWithoutAgentProfileNestedInput
+}
+
+export type AgentProfileCreateWithoutConversationsInput = {
+  id?: string
+  key: string
+  name: string
+  description: string
+  behaviourInstructions: string
+  authorityCeiling?: $Enums.AgentAuthorityLevel
+  requiresHumanReview?: boolean
+  version?: number
+  isActive?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  organisation: Prisma.OrganisationCreateNestedOneWithoutAgentProfilesInput
+  department?: Prisma.DepartmentCreateNestedOneWithoutAgentProfilesInput
+  createdBy: Prisma.UserProfileCreateNestedOneWithoutAgentProfilesCreatedInput
+  updatedBy?: Prisma.UserProfileCreateNestedOneWithoutAgentProfilesUpdatedInput
+  policies?: Prisma.AgentPolicyCreateNestedManyWithoutAgentProfileInput
+  workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutAgentProfileInput
+  onboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutAgentProfileInput
+  runs?: Prisma.AgentRunCreateNestedManyWithoutAgentProfileInput
+}
+
+export type AgentProfileUncheckedCreateWithoutConversationsInput = {
+  id?: string
+  organisationId: string
+  departmentId?: string | null
+  key: string
+  name: string
+  description: string
+  behaviourInstructions: string
+  authorityCeiling?: $Enums.AgentAuthorityLevel
+  requiresHumanReview?: boolean
+  version?: number
+  isActive?: boolean
+  createdByUserProfileId: string
+  updatedByUserProfileId?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  policies?: Prisma.AgentPolicyUncheckedCreateNestedManyWithoutAgentProfileInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutAgentProfileInput
+  onboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutAgentProfileInput
+  runs?: Prisma.AgentRunUncheckedCreateNestedManyWithoutAgentProfileInput
+}
+
+export type AgentProfileCreateOrConnectWithoutConversationsInput = {
+  where: Prisma.AgentProfileWhereUniqueInput
+  create: Prisma.XOR<Prisma.AgentProfileCreateWithoutConversationsInput, Prisma.AgentProfileUncheckedCreateWithoutConversationsInput>
+}
+
+export type AgentProfileUpsertWithoutConversationsInput = {
+  update: Prisma.XOR<Prisma.AgentProfileUpdateWithoutConversationsInput, Prisma.AgentProfileUncheckedUpdateWithoutConversationsInput>
+  create: Prisma.XOR<Prisma.AgentProfileCreateWithoutConversationsInput, Prisma.AgentProfileUncheckedCreateWithoutConversationsInput>
+  where?: Prisma.AgentProfileWhereInput
+}
+
+export type AgentProfileUpdateToOneWithWhereWithoutConversationsInput = {
+  where?: Prisma.AgentProfileWhereInput
+  data: Prisma.XOR<Prisma.AgentProfileUpdateWithoutConversationsInput, Prisma.AgentProfileUncheckedUpdateWithoutConversationsInput>
+}
+
+export type AgentProfileUpdateWithoutConversationsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  key?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.StringFieldUpdateOperationsInput | string
+  behaviourInstructions?: Prisma.StringFieldUpdateOperationsInput | string
+  authorityCeiling?: Prisma.EnumAgentAuthorityLevelFieldUpdateOperationsInput | $Enums.AgentAuthorityLevel
+  requiresHumanReview?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  version?: Prisma.IntFieldUpdateOperationsInput | number
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  organisation?: Prisma.OrganisationUpdateOneRequiredWithoutAgentProfilesNestedInput
+  department?: Prisma.DepartmentUpdateOneWithoutAgentProfilesNestedInput
+  createdBy?: Prisma.UserProfileUpdateOneRequiredWithoutAgentProfilesCreatedNestedInput
+  updatedBy?: Prisma.UserProfileUpdateOneWithoutAgentProfilesUpdatedNestedInput
+  policies?: Prisma.AgentPolicyUpdateManyWithoutAgentProfileNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutAgentProfileNestedInput
+  onboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutAgentProfileNestedInput
+  runs?: Prisma.AgentRunUpdateManyWithoutAgentProfileNestedInput
+}
+
+export type AgentProfileUncheckedUpdateWithoutConversationsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  organisationId?: Prisma.StringFieldUpdateOperationsInput | string
+  departmentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  key?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.StringFieldUpdateOperationsInput | string
+  behaviourInstructions?: Prisma.StringFieldUpdateOperationsInput | string
+  authorityCeiling?: Prisma.EnumAgentAuthorityLevelFieldUpdateOperationsInput | $Enums.AgentAuthorityLevel
+  requiresHumanReview?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  version?: Prisma.IntFieldUpdateOperationsInput | number
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdByUserProfileId?: Prisma.StringFieldUpdateOperationsInput | string
+  updatedByUserProfileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  policies?: Prisma.AgentPolicyUncheckedUpdateManyWithoutAgentProfileNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutAgentProfileNestedInput
+  onboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutAgentProfileNestedInput
+  runs?: Prisma.AgentRunUncheckedUpdateManyWithoutAgentProfileNestedInput
+}
+
+export type AgentProfileCreateWithoutRunsInput = {
+  id?: string
+  key: string
+  name: string
+  description: string
+  behaviourInstructions: string
+  authorityCeiling?: $Enums.AgentAuthorityLevel
+  requiresHumanReview?: boolean
+  version?: number
+  isActive?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  organisation: Prisma.OrganisationCreateNestedOneWithoutAgentProfilesInput
+  department?: Prisma.DepartmentCreateNestedOneWithoutAgentProfilesInput
+  createdBy: Prisma.UserProfileCreateNestedOneWithoutAgentProfilesCreatedInput
+  updatedBy?: Prisma.UserProfileCreateNestedOneWithoutAgentProfilesUpdatedInput
+  policies?: Prisma.AgentPolicyCreateNestedManyWithoutAgentProfileInput
+  workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutAgentProfileInput
+  onboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutAgentProfileInput
+  conversations?: Prisma.AgentConversationCreateNestedManyWithoutAgentProfileInput
+}
+
+export type AgentProfileUncheckedCreateWithoutRunsInput = {
+  id?: string
+  organisationId: string
+  departmentId?: string | null
+  key: string
+  name: string
+  description: string
+  behaviourInstructions: string
+  authorityCeiling?: $Enums.AgentAuthorityLevel
+  requiresHumanReview?: boolean
+  version?: number
+  isActive?: boolean
+  createdByUserProfileId: string
+  updatedByUserProfileId?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  policies?: Prisma.AgentPolicyUncheckedCreateNestedManyWithoutAgentProfileInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutAgentProfileInput
+  onboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutAgentProfileInput
+  conversations?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutAgentProfileInput
+}
+
+export type AgentProfileCreateOrConnectWithoutRunsInput = {
+  where: Prisma.AgentProfileWhereUniqueInput
+  create: Prisma.XOR<Prisma.AgentProfileCreateWithoutRunsInput, Prisma.AgentProfileUncheckedCreateWithoutRunsInput>
+}
+
+export type AgentProfileUpsertWithoutRunsInput = {
+  update: Prisma.XOR<Prisma.AgentProfileUpdateWithoutRunsInput, Prisma.AgentProfileUncheckedUpdateWithoutRunsInput>
+  create: Prisma.XOR<Prisma.AgentProfileCreateWithoutRunsInput, Prisma.AgentProfileUncheckedCreateWithoutRunsInput>
+  where?: Prisma.AgentProfileWhereInput
+}
+
+export type AgentProfileUpdateToOneWithWhereWithoutRunsInput = {
+  where?: Prisma.AgentProfileWhereInput
+  data: Prisma.XOR<Prisma.AgentProfileUpdateWithoutRunsInput, Prisma.AgentProfileUncheckedUpdateWithoutRunsInput>
+}
+
+export type AgentProfileUpdateWithoutRunsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  key?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.StringFieldUpdateOperationsInput | string
+  behaviourInstructions?: Prisma.StringFieldUpdateOperationsInput | string
+  authorityCeiling?: Prisma.EnumAgentAuthorityLevelFieldUpdateOperationsInput | $Enums.AgentAuthorityLevel
+  requiresHumanReview?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  version?: Prisma.IntFieldUpdateOperationsInput | number
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  organisation?: Prisma.OrganisationUpdateOneRequiredWithoutAgentProfilesNestedInput
+  department?: Prisma.DepartmentUpdateOneWithoutAgentProfilesNestedInput
+  createdBy?: Prisma.UserProfileUpdateOneRequiredWithoutAgentProfilesCreatedNestedInput
+  updatedBy?: Prisma.UserProfileUpdateOneWithoutAgentProfilesUpdatedNestedInput
+  policies?: Prisma.AgentPolicyUpdateManyWithoutAgentProfileNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutAgentProfileNestedInput
+  onboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutAgentProfileNestedInput
+  conversations?: Prisma.AgentConversationUpdateManyWithoutAgentProfileNestedInput
+}
+
+export type AgentProfileUncheckedUpdateWithoutRunsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  organisationId?: Prisma.StringFieldUpdateOperationsInput | string
+  departmentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  key?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.StringFieldUpdateOperationsInput | string
+  behaviourInstructions?: Prisma.StringFieldUpdateOperationsInput | string
+  authorityCeiling?: Prisma.EnumAgentAuthorityLevelFieldUpdateOperationsInput | $Enums.AgentAuthorityLevel
+  requiresHumanReview?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  version?: Prisma.IntFieldUpdateOperationsInput | number
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdByUserProfileId?: Prisma.StringFieldUpdateOperationsInput | string
+  updatedByUserProfileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  policies?: Prisma.AgentPolicyUncheckedUpdateManyWithoutAgentProfileNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutAgentProfileNestedInput
+  onboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutAgentProfileNestedInput
+  conversations?: Prisma.AgentConversationUncheckedUpdateManyWithoutAgentProfileNestedInput
 }
 
 export type AgentProfileCreateWithoutWorkforceAssignmentsInput = {
@@ -1282,6 +1568,8 @@ export type AgentProfileCreateWithoutWorkforceAssignmentsInput = {
   updatedBy?: Prisma.UserProfileCreateNestedOneWithoutAgentProfilesUpdatedInput
   policies?: Prisma.AgentPolicyCreateNestedManyWithoutAgentProfileInput
   onboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutAgentProfileInput
+  conversations?: Prisma.AgentConversationCreateNestedManyWithoutAgentProfileInput
+  runs?: Prisma.AgentRunCreateNestedManyWithoutAgentProfileInput
 }
 
 export type AgentProfileUncheckedCreateWithoutWorkforceAssignmentsInput = {
@@ -1303,6 +1591,8 @@ export type AgentProfileUncheckedCreateWithoutWorkforceAssignmentsInput = {
   deletedAt?: Date | string | null
   policies?: Prisma.AgentPolicyUncheckedCreateNestedManyWithoutAgentProfileInput
   onboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutAgentProfileInput
+  conversations?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutAgentProfileInput
+  runs?: Prisma.AgentRunUncheckedCreateNestedManyWithoutAgentProfileInput
 }
 
 export type AgentProfileCreateOrConnectWithoutWorkforceAssignmentsInput = {
@@ -1340,6 +1630,8 @@ export type AgentProfileUpdateWithoutWorkforceAssignmentsInput = {
   updatedBy?: Prisma.UserProfileUpdateOneWithoutAgentProfilesUpdatedNestedInput
   policies?: Prisma.AgentPolicyUpdateManyWithoutAgentProfileNestedInput
   onboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutAgentProfileNestedInput
+  conversations?: Prisma.AgentConversationUpdateManyWithoutAgentProfileNestedInput
+  runs?: Prisma.AgentRunUpdateManyWithoutAgentProfileNestedInput
 }
 
 export type AgentProfileUncheckedUpdateWithoutWorkforceAssignmentsInput = {
@@ -1361,6 +1653,8 @@ export type AgentProfileUncheckedUpdateWithoutWorkforceAssignmentsInput = {
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   policies?: Prisma.AgentPolicyUncheckedUpdateManyWithoutAgentProfileNestedInput
   onboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutAgentProfileNestedInput
+  conversations?: Prisma.AgentConversationUncheckedUpdateManyWithoutAgentProfileNestedInput
+  runs?: Prisma.AgentRunUncheckedUpdateManyWithoutAgentProfileNestedInput
 }
 
 export type AgentProfileCreateWithoutOnboardingPlansInput = {
@@ -1382,6 +1676,8 @@ export type AgentProfileCreateWithoutOnboardingPlansInput = {
   updatedBy?: Prisma.UserProfileCreateNestedOneWithoutAgentProfilesUpdatedInput
   policies?: Prisma.AgentPolicyCreateNestedManyWithoutAgentProfileInput
   workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutAgentProfileInput
+  conversations?: Prisma.AgentConversationCreateNestedManyWithoutAgentProfileInput
+  runs?: Prisma.AgentRunCreateNestedManyWithoutAgentProfileInput
 }
 
 export type AgentProfileUncheckedCreateWithoutOnboardingPlansInput = {
@@ -1403,6 +1699,8 @@ export type AgentProfileUncheckedCreateWithoutOnboardingPlansInput = {
   deletedAt?: Date | string | null
   policies?: Prisma.AgentPolicyUncheckedCreateNestedManyWithoutAgentProfileInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutAgentProfileInput
+  conversations?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutAgentProfileInput
+  runs?: Prisma.AgentRunUncheckedCreateNestedManyWithoutAgentProfileInput
 }
 
 export type AgentProfileCreateOrConnectWithoutOnboardingPlansInput = {
@@ -1440,6 +1738,8 @@ export type AgentProfileUpdateWithoutOnboardingPlansInput = {
   updatedBy?: Prisma.UserProfileUpdateOneWithoutAgentProfilesUpdatedNestedInput
   policies?: Prisma.AgentPolicyUpdateManyWithoutAgentProfileNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutAgentProfileNestedInput
+  conversations?: Prisma.AgentConversationUpdateManyWithoutAgentProfileNestedInput
+  runs?: Prisma.AgentRunUpdateManyWithoutAgentProfileNestedInput
 }
 
 export type AgentProfileUncheckedUpdateWithoutOnboardingPlansInput = {
@@ -1461,6 +1761,8 @@ export type AgentProfileUncheckedUpdateWithoutOnboardingPlansInput = {
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   policies?: Prisma.AgentPolicyUncheckedUpdateManyWithoutAgentProfileNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutAgentProfileNestedInput
+  conversations?: Prisma.AgentConversationUncheckedUpdateManyWithoutAgentProfileNestedInput
+  runs?: Prisma.AgentRunUncheckedUpdateManyWithoutAgentProfileNestedInput
 }
 
 export type AgentProfileCreateManyOrganisationInput = {
@@ -1500,6 +1802,8 @@ export type AgentProfileUpdateWithoutOrganisationInput = {
   policies?: Prisma.AgentPolicyUpdateManyWithoutAgentProfileNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutAgentProfileNestedInput
   onboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutAgentProfileNestedInput
+  conversations?: Prisma.AgentConversationUpdateManyWithoutAgentProfileNestedInput
+  runs?: Prisma.AgentRunUpdateManyWithoutAgentProfileNestedInput
 }
 
 export type AgentProfileUncheckedUpdateWithoutOrganisationInput = {
@@ -1521,6 +1825,8 @@ export type AgentProfileUncheckedUpdateWithoutOrganisationInput = {
   policies?: Prisma.AgentPolicyUncheckedUpdateManyWithoutAgentProfileNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutAgentProfileNestedInput
   onboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutAgentProfileNestedInput
+  conversations?: Prisma.AgentConversationUncheckedUpdateManyWithoutAgentProfileNestedInput
+  runs?: Prisma.AgentRunUncheckedUpdateManyWithoutAgentProfileNestedInput
 }
 
 export type AgentProfileUncheckedUpdateManyWithoutOrganisationInput = {
@@ -1596,6 +1902,8 @@ export type AgentProfileUpdateWithoutCreatedByInput = {
   policies?: Prisma.AgentPolicyUpdateManyWithoutAgentProfileNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutAgentProfileNestedInput
   onboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutAgentProfileNestedInput
+  conversations?: Prisma.AgentConversationUpdateManyWithoutAgentProfileNestedInput
+  runs?: Prisma.AgentRunUpdateManyWithoutAgentProfileNestedInput
 }
 
 export type AgentProfileUncheckedUpdateWithoutCreatedByInput = {
@@ -1617,6 +1925,8 @@ export type AgentProfileUncheckedUpdateWithoutCreatedByInput = {
   policies?: Prisma.AgentPolicyUncheckedUpdateManyWithoutAgentProfileNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutAgentProfileNestedInput
   onboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutAgentProfileNestedInput
+  conversations?: Prisma.AgentConversationUncheckedUpdateManyWithoutAgentProfileNestedInput
+  runs?: Prisma.AgentRunUncheckedUpdateManyWithoutAgentProfileNestedInput
 }
 
 export type AgentProfileUncheckedUpdateManyWithoutCreatedByInput = {
@@ -1656,6 +1966,8 @@ export type AgentProfileUpdateWithoutUpdatedByInput = {
   policies?: Prisma.AgentPolicyUpdateManyWithoutAgentProfileNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutAgentProfileNestedInput
   onboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutAgentProfileNestedInput
+  conversations?: Prisma.AgentConversationUpdateManyWithoutAgentProfileNestedInput
+  runs?: Prisma.AgentRunUpdateManyWithoutAgentProfileNestedInput
 }
 
 export type AgentProfileUncheckedUpdateWithoutUpdatedByInput = {
@@ -1677,6 +1989,8 @@ export type AgentProfileUncheckedUpdateWithoutUpdatedByInput = {
   policies?: Prisma.AgentPolicyUncheckedUpdateManyWithoutAgentProfileNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutAgentProfileNestedInput
   onboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutAgentProfileNestedInput
+  conversations?: Prisma.AgentConversationUncheckedUpdateManyWithoutAgentProfileNestedInput
+  runs?: Prisma.AgentRunUncheckedUpdateManyWithoutAgentProfileNestedInput
 }
 
 export type AgentProfileUncheckedUpdateManyWithoutUpdatedByInput = {
@@ -1733,6 +2047,8 @@ export type AgentProfileUpdateWithoutDepartmentInput = {
   policies?: Prisma.AgentPolicyUpdateManyWithoutAgentProfileNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutAgentProfileNestedInput
   onboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutAgentProfileNestedInput
+  conversations?: Prisma.AgentConversationUpdateManyWithoutAgentProfileNestedInput
+  runs?: Prisma.AgentRunUpdateManyWithoutAgentProfileNestedInput
 }
 
 export type AgentProfileUncheckedUpdateWithoutDepartmentInput = {
@@ -1753,6 +2069,8 @@ export type AgentProfileUncheckedUpdateWithoutDepartmentInput = {
   policies?: Prisma.AgentPolicyUncheckedUpdateManyWithoutAgentProfileNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutAgentProfileNestedInput
   onboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutAgentProfileNestedInput
+  conversations?: Prisma.AgentConversationUncheckedUpdateManyWithoutAgentProfileNestedInput
+  runs?: Prisma.AgentRunUncheckedUpdateManyWithoutAgentProfileNestedInput
 }
 
 export type AgentProfileUncheckedUpdateManyWithoutDepartmentInput = {
@@ -1781,12 +2099,16 @@ export type AgentProfileCountOutputType = {
   policies: number
   workforceAssignments: number
   onboardingPlans: number
+  conversations: number
+  runs: number
 }
 
 export type AgentProfileCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   policies?: boolean | AgentProfileCountOutputTypeCountPoliciesArgs
   workforceAssignments?: boolean | AgentProfileCountOutputTypeCountWorkforceAssignmentsArgs
   onboardingPlans?: boolean | AgentProfileCountOutputTypeCountOnboardingPlansArgs
+  conversations?: boolean | AgentProfileCountOutputTypeCountConversationsArgs
+  runs?: boolean | AgentProfileCountOutputTypeCountRunsArgs
 }
 
 /**
@@ -1820,6 +2142,20 @@ export type AgentProfileCountOutputTypeCountOnboardingPlansArgs<ExtArgs extends 
   where?: Prisma.InvitationOnboardingPlanWhereInput
 }
 
+/**
+ * AgentProfileCountOutputType without action
+ */
+export type AgentProfileCountOutputTypeCountConversationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.AgentConversationWhereInput
+}
+
+/**
+ * AgentProfileCountOutputType without action
+ */
+export type AgentProfileCountOutputTypeCountRunsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.AgentRunWhereInput
+}
+
 
 export type AgentProfileSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -1845,6 +2181,8 @@ export type AgentProfileSelect<ExtArgs extends runtime.Types.Extensions.Internal
   policies?: boolean | Prisma.AgentProfile$policiesArgs<ExtArgs>
   workforceAssignments?: boolean | Prisma.AgentProfile$workforceAssignmentsArgs<ExtArgs>
   onboardingPlans?: boolean | Prisma.AgentProfile$onboardingPlansArgs<ExtArgs>
+  conversations?: boolean | Prisma.AgentProfile$conversationsArgs<ExtArgs>
+  runs?: boolean | Prisma.AgentProfile$runsArgs<ExtArgs>
   _count?: boolean | Prisma.AgentProfileCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["agentProfile"]>
 
@@ -1922,6 +2260,8 @@ export type AgentProfileInclude<ExtArgs extends runtime.Types.Extensions.Interna
   policies?: boolean | Prisma.AgentProfile$policiesArgs<ExtArgs>
   workforceAssignments?: boolean | Prisma.AgentProfile$workforceAssignmentsArgs<ExtArgs>
   onboardingPlans?: boolean | Prisma.AgentProfile$onboardingPlansArgs<ExtArgs>
+  conversations?: boolean | Prisma.AgentProfile$conversationsArgs<ExtArgs>
+  runs?: boolean | Prisma.AgentProfile$runsArgs<ExtArgs>
   _count?: boolean | Prisma.AgentProfileCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type AgentProfileIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1947,6 +2287,8 @@ export type $AgentProfilePayload<ExtArgs extends runtime.Types.Extensions.Intern
     policies: Prisma.$AgentPolicyPayload<ExtArgs>[]
     workforceAssignments: Prisma.$WorkforceAssignmentPayload<ExtArgs>[]
     onboardingPlans: Prisma.$InvitationOnboardingPlanPayload<ExtArgs>[]
+    conversations: Prisma.$AgentConversationPayload<ExtArgs>[]
+    runs: Prisma.$AgentRunPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -2366,6 +2708,8 @@ export interface Prisma__AgentProfileClient<T, Null = never, ExtArgs extends run
   policies<T extends Prisma.AgentProfile$policiesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.AgentProfile$policiesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AgentPolicyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   workforceAssignments<T extends Prisma.AgentProfile$workforceAssignmentsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.AgentProfile$workforceAssignmentsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$WorkforceAssignmentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   onboardingPlans<T extends Prisma.AgentProfile$onboardingPlansArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.AgentProfile$onboardingPlansArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$InvitationOnboardingPlanPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  conversations<T extends Prisma.AgentProfile$conversationsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.AgentProfile$conversationsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AgentConversationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  runs<T extends Prisma.AgentProfile$runsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.AgentProfile$runsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AgentRunPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2919,6 +3263,54 @@ export type AgentProfile$onboardingPlansArgs<ExtArgs extends runtime.Types.Exten
   take?: number
   skip?: number
   distinct?: Prisma.InvitationOnboardingPlanScalarFieldEnum | Prisma.InvitationOnboardingPlanScalarFieldEnum[]
+}
+
+/**
+ * AgentProfile.conversations
+ */
+export type AgentProfile$conversationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the AgentConversation
+   */
+  select?: Prisma.AgentConversationSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the AgentConversation
+   */
+  omit?: Prisma.AgentConversationOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.AgentConversationInclude<ExtArgs> | null
+  where?: Prisma.AgentConversationWhereInput
+  orderBy?: Prisma.AgentConversationOrderByWithRelationInput | Prisma.AgentConversationOrderByWithRelationInput[]
+  cursor?: Prisma.AgentConversationWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.AgentConversationScalarFieldEnum | Prisma.AgentConversationScalarFieldEnum[]
+}
+
+/**
+ * AgentProfile.runs
+ */
+export type AgentProfile$runsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the AgentRun
+   */
+  select?: Prisma.AgentRunSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the AgentRun
+   */
+  omit?: Prisma.AgentRunOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.AgentRunInclude<ExtArgs> | null
+  where?: Prisma.AgentRunWhereInput
+  orderBy?: Prisma.AgentRunOrderByWithRelationInput | Prisma.AgentRunOrderByWithRelationInput[]
+  cursor?: Prisma.AgentRunWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.AgentRunScalarFieldEnum | Prisma.AgentRunScalarFieldEnum[]
 }
 
 /**

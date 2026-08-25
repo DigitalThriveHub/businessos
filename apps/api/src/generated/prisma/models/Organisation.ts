@@ -254,6 +254,12 @@ export type OrganisationWhereInput = {
   jobProfileKpis?: Prisma.JobProfileKpiListRelationFilter
   agentProfiles?: Prisma.AgentProfileListRelationFilter
   agentPolicies?: Prisma.AgentPolicyListRelationFilter
+  agentConversations?: Prisma.AgentConversationListRelationFilter
+  agentRuns?: Prisma.AgentRunListRelationFilter
+  agentMessages?: Prisma.AgentMessageListRelationFilter
+  agentActions?: Prisma.AgentActionListRelationFilter
+  agentToolCalls?: Prisma.AgentToolCallListRelationFilter
+  agentUsage?: Prisma.AgentUsageListRelationFilter
   workforceAssignments?: Prisma.WorkforceAssignmentListRelationFilter
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiListRelationFilter
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanListRelationFilter
@@ -320,6 +326,12 @@ export type OrganisationOrderByWithRelationInput = {
   jobProfileKpis?: Prisma.JobProfileKpiOrderByRelationAggregateInput
   agentProfiles?: Prisma.AgentProfileOrderByRelationAggregateInput
   agentPolicies?: Prisma.AgentPolicyOrderByRelationAggregateInput
+  agentConversations?: Prisma.AgentConversationOrderByRelationAggregateInput
+  agentRuns?: Prisma.AgentRunOrderByRelationAggregateInput
+  agentMessages?: Prisma.AgentMessageOrderByRelationAggregateInput
+  agentActions?: Prisma.AgentActionOrderByRelationAggregateInput
+  agentToolCalls?: Prisma.AgentToolCallOrderByRelationAggregateInput
+  agentUsage?: Prisma.AgentUsageOrderByRelationAggregateInput
   workforceAssignments?: Prisma.WorkforceAssignmentOrderByRelationAggregateInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiOrderByRelationAggregateInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanOrderByRelationAggregateInput
@@ -389,6 +401,12 @@ export type OrganisationWhereUniqueInput = Prisma.AtLeast<{
   jobProfileKpis?: Prisma.JobProfileKpiListRelationFilter
   agentProfiles?: Prisma.AgentProfileListRelationFilter
   agentPolicies?: Prisma.AgentPolicyListRelationFilter
+  agentConversations?: Prisma.AgentConversationListRelationFilter
+  agentRuns?: Prisma.AgentRunListRelationFilter
+  agentMessages?: Prisma.AgentMessageListRelationFilter
+  agentActions?: Prisma.AgentActionListRelationFilter
+  agentToolCalls?: Prisma.AgentToolCallListRelationFilter
+  agentUsage?: Prisma.AgentUsageListRelationFilter
   workforceAssignments?: Prisma.WorkforceAssignmentListRelationFilter
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiListRelationFilter
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanListRelationFilter
@@ -491,6 +509,12 @@ export type OrganisationCreateInput = {
   jobProfileKpis?: Prisma.JobProfileKpiCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutOrganisationInput
@@ -557,6 +581,12 @@ export type OrganisationUncheckedCreateInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyUncheckedCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutOrganisationInput
@@ -623,6 +653,12 @@ export type OrganisationUpdateInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutOrganisationNestedInput
@@ -689,6 +725,12 @@ export type OrganisationUncheckedUpdateInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutOrganisationNestedInput
@@ -1114,6 +1156,90 @@ export type OrganisationUpdateOneRequiredWithoutAgentPoliciesNestedInput = {
   upsert?: Prisma.OrganisationUpsertWithoutAgentPoliciesInput
   connect?: Prisma.OrganisationWhereUniqueInput
   update?: Prisma.XOR<Prisma.XOR<Prisma.OrganisationUpdateToOneWithWhereWithoutAgentPoliciesInput, Prisma.OrganisationUpdateWithoutAgentPoliciesInput>, Prisma.OrganisationUncheckedUpdateWithoutAgentPoliciesInput>
+}
+
+export type OrganisationCreateNestedOneWithoutAgentConversationsInput = {
+  create?: Prisma.XOR<Prisma.OrganisationCreateWithoutAgentConversationsInput, Prisma.OrganisationUncheckedCreateWithoutAgentConversationsInput>
+  connectOrCreate?: Prisma.OrganisationCreateOrConnectWithoutAgentConversationsInput
+  connect?: Prisma.OrganisationWhereUniqueInput
+}
+
+export type OrganisationUpdateOneRequiredWithoutAgentConversationsNestedInput = {
+  create?: Prisma.XOR<Prisma.OrganisationCreateWithoutAgentConversationsInput, Prisma.OrganisationUncheckedCreateWithoutAgentConversationsInput>
+  connectOrCreate?: Prisma.OrganisationCreateOrConnectWithoutAgentConversationsInput
+  upsert?: Prisma.OrganisationUpsertWithoutAgentConversationsInput
+  connect?: Prisma.OrganisationWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.OrganisationUpdateToOneWithWhereWithoutAgentConversationsInput, Prisma.OrganisationUpdateWithoutAgentConversationsInput>, Prisma.OrganisationUncheckedUpdateWithoutAgentConversationsInput>
+}
+
+export type OrganisationCreateNestedOneWithoutAgentRunsInput = {
+  create?: Prisma.XOR<Prisma.OrganisationCreateWithoutAgentRunsInput, Prisma.OrganisationUncheckedCreateWithoutAgentRunsInput>
+  connectOrCreate?: Prisma.OrganisationCreateOrConnectWithoutAgentRunsInput
+  connect?: Prisma.OrganisationWhereUniqueInput
+}
+
+export type OrganisationUpdateOneRequiredWithoutAgentRunsNestedInput = {
+  create?: Prisma.XOR<Prisma.OrganisationCreateWithoutAgentRunsInput, Prisma.OrganisationUncheckedCreateWithoutAgentRunsInput>
+  connectOrCreate?: Prisma.OrganisationCreateOrConnectWithoutAgentRunsInput
+  upsert?: Prisma.OrganisationUpsertWithoutAgentRunsInput
+  connect?: Prisma.OrganisationWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.OrganisationUpdateToOneWithWhereWithoutAgentRunsInput, Prisma.OrganisationUpdateWithoutAgentRunsInput>, Prisma.OrganisationUncheckedUpdateWithoutAgentRunsInput>
+}
+
+export type OrganisationCreateNestedOneWithoutAgentMessagesInput = {
+  create?: Prisma.XOR<Prisma.OrganisationCreateWithoutAgentMessagesInput, Prisma.OrganisationUncheckedCreateWithoutAgentMessagesInput>
+  connectOrCreate?: Prisma.OrganisationCreateOrConnectWithoutAgentMessagesInput
+  connect?: Prisma.OrganisationWhereUniqueInput
+}
+
+export type OrganisationUpdateOneRequiredWithoutAgentMessagesNestedInput = {
+  create?: Prisma.XOR<Prisma.OrganisationCreateWithoutAgentMessagesInput, Prisma.OrganisationUncheckedCreateWithoutAgentMessagesInput>
+  connectOrCreate?: Prisma.OrganisationCreateOrConnectWithoutAgentMessagesInput
+  upsert?: Prisma.OrganisationUpsertWithoutAgentMessagesInput
+  connect?: Prisma.OrganisationWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.OrganisationUpdateToOneWithWhereWithoutAgentMessagesInput, Prisma.OrganisationUpdateWithoutAgentMessagesInput>, Prisma.OrganisationUncheckedUpdateWithoutAgentMessagesInput>
+}
+
+export type OrganisationCreateNestedOneWithoutAgentActionsInput = {
+  create?: Prisma.XOR<Prisma.OrganisationCreateWithoutAgentActionsInput, Prisma.OrganisationUncheckedCreateWithoutAgentActionsInput>
+  connectOrCreate?: Prisma.OrganisationCreateOrConnectWithoutAgentActionsInput
+  connect?: Prisma.OrganisationWhereUniqueInput
+}
+
+export type OrganisationUpdateOneRequiredWithoutAgentActionsNestedInput = {
+  create?: Prisma.XOR<Prisma.OrganisationCreateWithoutAgentActionsInput, Prisma.OrganisationUncheckedCreateWithoutAgentActionsInput>
+  connectOrCreate?: Prisma.OrganisationCreateOrConnectWithoutAgentActionsInput
+  upsert?: Prisma.OrganisationUpsertWithoutAgentActionsInput
+  connect?: Prisma.OrganisationWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.OrganisationUpdateToOneWithWhereWithoutAgentActionsInput, Prisma.OrganisationUpdateWithoutAgentActionsInput>, Prisma.OrganisationUncheckedUpdateWithoutAgentActionsInput>
+}
+
+export type OrganisationCreateNestedOneWithoutAgentToolCallsInput = {
+  create?: Prisma.XOR<Prisma.OrganisationCreateWithoutAgentToolCallsInput, Prisma.OrganisationUncheckedCreateWithoutAgentToolCallsInput>
+  connectOrCreate?: Prisma.OrganisationCreateOrConnectWithoutAgentToolCallsInput
+  connect?: Prisma.OrganisationWhereUniqueInput
+}
+
+export type OrganisationUpdateOneRequiredWithoutAgentToolCallsNestedInput = {
+  create?: Prisma.XOR<Prisma.OrganisationCreateWithoutAgentToolCallsInput, Prisma.OrganisationUncheckedCreateWithoutAgentToolCallsInput>
+  connectOrCreate?: Prisma.OrganisationCreateOrConnectWithoutAgentToolCallsInput
+  upsert?: Prisma.OrganisationUpsertWithoutAgentToolCallsInput
+  connect?: Prisma.OrganisationWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.OrganisationUpdateToOneWithWhereWithoutAgentToolCallsInput, Prisma.OrganisationUpdateWithoutAgentToolCallsInput>, Prisma.OrganisationUncheckedUpdateWithoutAgentToolCallsInput>
+}
+
+export type OrganisationCreateNestedOneWithoutAgentUsageInput = {
+  create?: Prisma.XOR<Prisma.OrganisationCreateWithoutAgentUsageInput, Prisma.OrganisationUncheckedCreateWithoutAgentUsageInput>
+  connectOrCreate?: Prisma.OrganisationCreateOrConnectWithoutAgentUsageInput
+  connect?: Prisma.OrganisationWhereUniqueInput
+}
+
+export type OrganisationUpdateOneRequiredWithoutAgentUsageNestedInput = {
+  create?: Prisma.XOR<Prisma.OrganisationCreateWithoutAgentUsageInput, Prisma.OrganisationUncheckedCreateWithoutAgentUsageInput>
+  connectOrCreate?: Prisma.OrganisationCreateOrConnectWithoutAgentUsageInput
+  upsert?: Prisma.OrganisationUpsertWithoutAgentUsageInput
+  connect?: Prisma.OrganisationWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.OrganisationUpdateToOneWithWhereWithoutAgentUsageInput, Prisma.OrganisationUpdateWithoutAgentUsageInput>, Prisma.OrganisationUncheckedUpdateWithoutAgentUsageInput>
 }
 
 export type OrganisationCreateNestedOneWithoutWorkforceAssignmentsInput = {
@@ -1596,6 +1722,12 @@ export type OrganisationCreateWithoutSettingsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutOrganisationInput
@@ -1661,6 +1793,12 @@ export type OrganisationUncheckedCreateWithoutSettingsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyUncheckedCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutOrganisationInput
@@ -1742,6 +1880,12 @@ export type OrganisationUpdateWithoutSettingsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutOrganisationNestedInput
@@ -1807,6 +1951,12 @@ export type OrganisationUncheckedUpdateWithoutSettingsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutOrganisationNestedInput
@@ -1872,6 +2022,12 @@ export type OrganisationCreateWithoutMembershipsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutOrganisationInput
@@ -1937,6 +2093,12 @@ export type OrganisationUncheckedCreateWithoutMembershipsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyUncheckedCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutOrganisationInput
@@ -2018,6 +2180,12 @@ export type OrganisationUpdateWithoutMembershipsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutOrganisationNestedInput
@@ -2083,6 +2251,12 @@ export type OrganisationUncheckedUpdateWithoutMembershipsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutOrganisationNestedInput
@@ -2148,6 +2322,12 @@ export type OrganisationCreateWithoutDepartmentsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutOrganisationInput
@@ -2213,6 +2393,12 @@ export type OrganisationUncheckedCreateWithoutDepartmentsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyUncheckedCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutOrganisationInput
@@ -2294,6 +2480,12 @@ export type OrganisationUpdateWithoutDepartmentsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutOrganisationNestedInput
@@ -2359,6 +2551,12 @@ export type OrganisationUncheckedUpdateWithoutDepartmentsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutOrganisationNestedInput
@@ -2424,6 +2622,12 @@ export type OrganisationCreateWithoutDepartmentMembershipsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutOrganisationInput
@@ -2489,6 +2693,12 @@ export type OrganisationUncheckedCreateWithoutDepartmentMembershipsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyUncheckedCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutOrganisationInput
@@ -2570,6 +2780,12 @@ export type OrganisationUpdateWithoutDepartmentMembershipsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutOrganisationNestedInput
@@ -2635,6 +2851,12 @@ export type OrganisationUncheckedUpdateWithoutDepartmentMembershipsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutOrganisationNestedInput
@@ -2700,6 +2922,12 @@ export type OrganisationCreateWithoutTeamsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutOrganisationInput
@@ -2765,6 +2993,12 @@ export type OrganisationUncheckedCreateWithoutTeamsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyUncheckedCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutOrganisationInput
@@ -2846,6 +3080,12 @@ export type OrganisationUpdateWithoutTeamsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutOrganisationNestedInput
@@ -2911,6 +3151,12 @@ export type OrganisationUncheckedUpdateWithoutTeamsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutOrganisationNestedInput
@@ -2976,6 +3222,12 @@ export type OrganisationCreateWithoutTeamMembershipsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutOrganisationInput
@@ -3041,6 +3293,12 @@ export type OrganisationUncheckedCreateWithoutTeamMembershipsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyUncheckedCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutOrganisationInput
@@ -3122,6 +3380,12 @@ export type OrganisationUpdateWithoutTeamMembershipsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutOrganisationNestedInput
@@ -3187,6 +3451,12 @@ export type OrganisationUncheckedUpdateWithoutTeamMembershipsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutOrganisationNestedInput
@@ -3252,6 +3522,12 @@ export type OrganisationCreateWithoutRolesInput = {
   jobProfileKpis?: Prisma.JobProfileKpiCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutOrganisationInput
@@ -3317,6 +3593,12 @@ export type OrganisationUncheckedCreateWithoutRolesInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyUncheckedCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutOrganisationInput
@@ -3398,6 +3680,12 @@ export type OrganisationUpdateWithoutRolesInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutOrganisationNestedInput
@@ -3463,6 +3751,12 @@ export type OrganisationUncheckedUpdateWithoutRolesInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutOrganisationNestedInput
@@ -3528,6 +3822,12 @@ export type OrganisationCreateWithoutRoleAssignmentsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutOrganisationInput
@@ -3593,6 +3893,12 @@ export type OrganisationUncheckedCreateWithoutRoleAssignmentsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyUncheckedCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutOrganisationInput
@@ -3674,6 +3980,12 @@ export type OrganisationUpdateWithoutRoleAssignmentsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutOrganisationNestedInput
@@ -3739,6 +4051,12 @@ export type OrganisationUncheckedUpdateWithoutRoleAssignmentsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutOrganisationNestedInput
@@ -3804,6 +4122,12 @@ export type OrganisationCreateWithoutInvitationsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutOrganisationInput
@@ -3869,6 +4193,12 @@ export type OrganisationUncheckedCreateWithoutInvitationsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyUncheckedCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutOrganisationInput
@@ -3950,6 +4280,12 @@ export type OrganisationUpdateWithoutInvitationsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutOrganisationNestedInput
@@ -4015,6 +4351,12 @@ export type OrganisationUncheckedUpdateWithoutInvitationsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutOrganisationNestedInput
@@ -4080,6 +4422,12 @@ export type OrganisationCreateWithoutUserSessionsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutOrganisationInput
@@ -4145,6 +4493,12 @@ export type OrganisationUncheckedCreateWithoutUserSessionsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyUncheckedCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutOrganisationInput
@@ -4226,6 +4580,12 @@ export type OrganisationUpdateWithoutUserSessionsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutOrganisationNestedInput
@@ -4291,6 +4651,12 @@ export type OrganisationUncheckedUpdateWithoutUserSessionsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutOrganisationNestedInput
@@ -4356,6 +4722,12 @@ export type OrganisationCreateWithoutSupportAccessGrantsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutOrganisationInput
@@ -4421,6 +4793,12 @@ export type OrganisationUncheckedCreateWithoutSupportAccessGrantsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyUncheckedCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutOrganisationInput
@@ -4502,6 +4880,12 @@ export type OrganisationUpdateWithoutSupportAccessGrantsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutOrganisationNestedInput
@@ -4567,6 +4951,12 @@ export type OrganisationUncheckedUpdateWithoutSupportAccessGrantsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutOrganisationNestedInput
@@ -4632,6 +5022,12 @@ export type OrganisationCreateWithoutAuditEventsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutOrganisationInput
@@ -4697,6 +5093,12 @@ export type OrganisationUncheckedCreateWithoutAuditEventsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyUncheckedCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutOrganisationInput
@@ -4778,6 +5180,12 @@ export type OrganisationUpdateWithoutAuditEventsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutOrganisationNestedInput
@@ -4843,6 +5251,12 @@ export type OrganisationUncheckedUpdateWithoutAuditEventsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutOrganisationNestedInput
@@ -4908,6 +5322,12 @@ export type OrganisationCreateWithoutSecurityEventsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutOrganisationInput
@@ -4973,6 +5393,12 @@ export type OrganisationUncheckedCreateWithoutSecurityEventsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyUncheckedCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutOrganisationInput
@@ -5054,6 +5480,12 @@ export type OrganisationUpdateWithoutSecurityEventsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutOrganisationNestedInput
@@ -5119,6 +5551,12 @@ export type OrganisationUncheckedUpdateWithoutSecurityEventsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutOrganisationNestedInput
@@ -5184,6 +5622,12 @@ export type OrganisationCreateWithoutJobProfilesInput = {
   jobProfileKpis?: Prisma.JobProfileKpiCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutOrganisationInput
@@ -5249,6 +5693,12 @@ export type OrganisationUncheckedCreateWithoutJobProfilesInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyUncheckedCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutOrganisationInput
@@ -5330,6 +5780,12 @@ export type OrganisationUpdateWithoutJobProfilesInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutOrganisationNestedInput
@@ -5395,6 +5851,12 @@ export type OrganisationUncheckedUpdateWithoutJobProfilesInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutOrganisationNestedInput
@@ -5460,6 +5922,12 @@ export type OrganisationCreateWithoutJobProfileDutiesInput = {
   jobProfileKpis?: Prisma.JobProfileKpiCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutOrganisationInput
@@ -5525,6 +5993,12 @@ export type OrganisationUncheckedCreateWithoutJobProfileDutiesInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyUncheckedCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutOrganisationInput
@@ -5606,6 +6080,12 @@ export type OrganisationUpdateWithoutJobProfileDutiesInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutOrganisationNestedInput
@@ -5671,6 +6151,12 @@ export type OrganisationUncheckedUpdateWithoutJobProfileDutiesInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutOrganisationNestedInput
@@ -5736,6 +6222,12 @@ export type OrganisationCreateWithoutKpiDefinitionsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutOrganisationInput
@@ -5801,6 +6293,12 @@ export type OrganisationUncheckedCreateWithoutKpiDefinitionsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyUncheckedCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutOrganisationInput
@@ -5882,6 +6380,12 @@ export type OrganisationUpdateWithoutKpiDefinitionsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutOrganisationNestedInput
@@ -5947,6 +6451,12 @@ export type OrganisationUncheckedUpdateWithoutKpiDefinitionsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutOrganisationNestedInput
@@ -6012,6 +6522,12 @@ export type OrganisationCreateWithoutJobProfileKpisInput = {
   kpiDefinitions?: Prisma.KpiDefinitionCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutOrganisationInput
@@ -6077,6 +6593,12 @@ export type OrganisationUncheckedCreateWithoutJobProfileKpisInput = {
   kpiDefinitions?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyUncheckedCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutOrganisationInput
@@ -6158,6 +6680,12 @@ export type OrganisationUpdateWithoutJobProfileKpisInput = {
   kpiDefinitions?: Prisma.KpiDefinitionUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutOrganisationNestedInput
@@ -6223,6 +6751,12 @@ export type OrganisationUncheckedUpdateWithoutJobProfileKpisInput = {
   kpiDefinitions?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutOrganisationNestedInput
@@ -6288,6 +6822,12 @@ export type OrganisationCreateWithoutAgentProfilesInput = {
   kpiDefinitions?: Prisma.KpiDefinitionCreateNestedManyWithoutOrganisationInput
   jobProfileKpis?: Prisma.JobProfileKpiCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutOrganisationInput
@@ -6353,6 +6893,12 @@ export type OrganisationUncheckedCreateWithoutAgentProfilesInput = {
   kpiDefinitions?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutOrganisationInput
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyUncheckedCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutOrganisationInput
@@ -6434,6 +6980,12 @@ export type OrganisationUpdateWithoutAgentProfilesInput = {
   kpiDefinitions?: Prisma.KpiDefinitionUpdateManyWithoutOrganisationNestedInput
   jobProfileKpis?: Prisma.JobProfileKpiUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutOrganisationNestedInput
@@ -6499,6 +7051,12 @@ export type OrganisationUncheckedUpdateWithoutAgentProfilesInput = {
   kpiDefinitions?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutOrganisationNestedInput
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutOrganisationNestedInput
@@ -6564,6 +7122,12 @@ export type OrganisationCreateWithoutAgentPoliciesInput = {
   kpiDefinitions?: Prisma.KpiDefinitionCreateNestedManyWithoutOrganisationInput
   jobProfileKpis?: Prisma.JobProfileKpiCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutOrganisationInput
@@ -6629,6 +7193,12 @@ export type OrganisationUncheckedCreateWithoutAgentPoliciesInput = {
   kpiDefinitions?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutOrganisationInput
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutOrganisationInput
@@ -6710,6 +7280,12 @@ export type OrganisationUpdateWithoutAgentPoliciesInput = {
   kpiDefinitions?: Prisma.KpiDefinitionUpdateManyWithoutOrganisationNestedInput
   jobProfileKpis?: Prisma.JobProfileKpiUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutOrganisationNestedInput
@@ -6775,6 +7351,1812 @@ export type OrganisationUncheckedUpdateWithoutAgentPoliciesInput = {
   kpiDefinitions?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutOrganisationNestedInput
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUncheckedUpdateManyWithoutOrganisationNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationNestedInput
+  workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutOrganisationNestedInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutOrganisationNestedInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUncheckedUpdateManyWithoutOrganisationNestedInput
+  invitationOnboardingKpis?: Prisma.InvitationOnboardingKpiUncheckedUpdateManyWithoutOrganisationNestedInput
+  numberSequences?: Prisma.OrganisationNumberSequenceUncheckedUpdateManyWithoutOrganisationNestedInput
+  clients?: Prisma.ClientUncheckedUpdateManyWithoutOrganisationNestedInput
+  matters?: Prisma.MatterUncheckedUpdateManyWithoutOrganisationNestedInput
+  matterParties?: Prisma.MatterPartyUncheckedUpdateManyWithoutOrganisationNestedInput
+  matterComplianceRecords?: Prisma.MatterComplianceUncheckedUpdateManyWithoutOrganisationNestedInput
+  matterStatusHistory?: Prisma.MatterStatusHistoryUncheckedUpdateManyWithoutOrganisationNestedInput
+  enquiryConversions?: Prisma.EnquiryConversionUncheckedUpdateManyWithoutOrganisationNestedInput
+  matterTasks?: Prisma.MatterTaskUncheckedUpdateManyWithoutOrganisationNestedInput
+  matterDeadlines?: Prisma.MatterDeadlineUncheckedUpdateManyWithoutOrganisationNestedInput
+  documentRequests?: Prisma.DocumentRequestUncheckedUpdateManyWithoutOrganisationNestedInput
+  documentRequestItems?: Prisma.DocumentRequestItemUncheckedUpdateManyWithoutOrganisationNestedInput
+  matterDocuments?: Prisma.MatterDocumentUncheckedUpdateManyWithoutOrganisationNestedInput
+  matterDocumentVersions?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutOrganisationNestedInput
+  matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutOrganisationNestedInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionUncheckedUpdateManyWithoutOrganisationNestedInput
+  workflowVersions?: Prisma.WorkflowVersionUncheckedUpdateManyWithoutOrganisationNestedInput
+  workflowRuns?: Prisma.WorkflowRunUncheckedUpdateManyWithoutOrganisationNestedInput
+  workflowActions?: Prisma.WorkflowActionUncheckedUpdateManyWithoutOrganisationNestedInput
+  slaPolicies?: Prisma.SlaPolicyUncheckedUpdateManyWithoutOrganisationNestedInput
+  slaInstances?: Prisma.SlaInstanceUncheckedUpdateManyWithoutOrganisationNestedInput
+  escalationRules?: Prisma.EscalationRuleUncheckedUpdateManyWithoutOrganisationNestedInput
+  escalationEvents?: Prisma.EscalationEventUncheckedUpdateManyWithoutOrganisationNestedInput
+  approvalRequests?: Prisma.ApprovalRequestUncheckedUpdateManyWithoutOrganisationNestedInput
+  approvalDecisions?: Prisma.ApprovalDecisionUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutOrganisationNestedInput
+}
+
+export type OrganisationCreateWithoutAgentConversationsInput = {
+  id?: string
+  slug: string
+  name: string
+  legalName?: string | null
+  status?: $Enums.OrganisationStatus
+  timezone?: string
+  locale?: string
+  countryCode?: string
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  settings?: Prisma.OrganisationSettingCreateNestedManyWithoutOrganisationInput
+  memberships?: Prisma.OrganisationMembershipCreateNestedManyWithoutOrganisationInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutOrganisationInput
+  departmentMemberships?: Prisma.DepartmentMembershipCreateNestedManyWithoutOrganisationInput
+  teams?: Prisma.TeamCreateNestedManyWithoutOrganisationInput
+  teamMemberships?: Prisma.TeamMembershipCreateNestedManyWithoutOrganisationInput
+  roles?: Prisma.RoleCreateNestedManyWithoutOrganisationInput
+  roleAssignments?: Prisma.RoleAssignmentCreateNestedManyWithoutOrganisationInput
+  invitations?: Prisma.InvitationCreateNestedManyWithoutOrganisationInput
+  userSessions?: Prisma.UserSessionCreateNestedManyWithoutActiveOrganisationInput
+  supportAccessGrants?: Prisma.SupportAccessGrantCreateNestedManyWithoutOrganisationInput
+  auditEvents?: Prisma.AuditEventCreateNestedManyWithoutOrganisationInput
+  securityEvents?: Prisma.SecurityEventCreateNestedManyWithoutOrganisationInput
+  enquiries?: Prisma.EnquiryCreateNestedManyWithoutOrganisationInput
+  jobProfiles?: Prisma.JobProfileCreateNestedManyWithoutOrganisationInput
+  jobProfileDuties?: Prisma.JobProfileDutyCreateNestedManyWithoutOrganisationInput
+  kpiDefinitions?: Prisma.KpiDefinitionCreateNestedManyWithoutOrganisationInput
+  jobProfileKpis?: Prisma.JobProfileKpiCreateNestedManyWithoutOrganisationInput
+  agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutOrganisationInput
+  agentPolicies?: Prisma.AgentPolicyCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageCreateNestedManyWithoutOrganisationInput
+  workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationInput
+  workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutOrganisationInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutOrganisationInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleCreateNestedManyWithoutOrganisationInput
+  invitationOnboardingKpis?: Prisma.InvitationOnboardingKpiCreateNestedManyWithoutOrganisationInput
+  numberSequences?: Prisma.OrganisationNumberSequenceCreateNestedManyWithoutOrganisationInput
+  clients?: Prisma.ClientCreateNestedManyWithoutOrganisationInput
+  matters?: Prisma.MatterCreateNestedManyWithoutOrganisationInput
+  matterParties?: Prisma.MatterPartyCreateNestedManyWithoutOrganisationInput
+  matterComplianceRecords?: Prisma.MatterComplianceCreateNestedManyWithoutOrganisationInput
+  matterStatusHistory?: Prisma.MatterStatusHistoryCreateNestedManyWithoutOrganisationInput
+  enquiryConversions?: Prisma.EnquiryConversionCreateNestedManyWithoutOrganisationInput
+  matterTasks?: Prisma.MatterTaskCreateNestedManyWithoutOrganisationInput
+  matterDeadlines?: Prisma.MatterDeadlineCreateNestedManyWithoutOrganisationInput
+  documentRequests?: Prisma.DocumentRequestCreateNestedManyWithoutOrganisationInput
+  documentRequestItems?: Prisma.DocumentRequestItemCreateNestedManyWithoutOrganisationInput
+  matterDocuments?: Prisma.MatterDocumentCreateNestedManyWithoutOrganisationInput
+  matterDocumentVersions?: Prisma.MatterDocumentVersionCreateNestedManyWithoutOrganisationInput
+  matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutOrganisationInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionCreateNestedManyWithoutOrganisationInput
+  workflowVersions?: Prisma.WorkflowVersionCreateNestedManyWithoutOrganisationInput
+  workflowRuns?: Prisma.WorkflowRunCreateNestedManyWithoutOrganisationInput
+  workflowActions?: Prisma.WorkflowActionCreateNestedManyWithoutOrganisationInput
+  slaPolicies?: Prisma.SlaPolicyCreateNestedManyWithoutOrganisationInput
+  slaInstances?: Prisma.SlaInstanceCreateNestedManyWithoutOrganisationInput
+  escalationRules?: Prisma.EscalationRuleCreateNestedManyWithoutOrganisationInput
+  escalationEvents?: Prisma.EscalationEventCreateNestedManyWithoutOrganisationInput
+  approvalRequests?: Prisma.ApprovalRequestCreateNestedManyWithoutOrganisationInput
+  approvalDecisions?: Prisma.ApprovalDecisionCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackCreateNestedManyWithoutOrganisationInput
+}
+
+export type OrganisationUncheckedCreateWithoutAgentConversationsInput = {
+  id?: string
+  slug: string
+  name: string
+  legalName?: string | null
+  status?: $Enums.OrganisationStatus
+  timezone?: string
+  locale?: string
+  countryCode?: string
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  settings?: Prisma.OrganisationSettingUncheckedCreateNestedManyWithoutOrganisationInput
+  memberships?: Prisma.OrganisationMembershipUncheckedCreateNestedManyWithoutOrganisationInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutOrganisationInput
+  departmentMemberships?: Prisma.DepartmentMembershipUncheckedCreateNestedManyWithoutOrganisationInput
+  teams?: Prisma.TeamUncheckedCreateNestedManyWithoutOrganisationInput
+  teamMemberships?: Prisma.TeamMembershipUncheckedCreateNestedManyWithoutOrganisationInput
+  roles?: Prisma.RoleUncheckedCreateNestedManyWithoutOrganisationInput
+  roleAssignments?: Prisma.RoleAssignmentUncheckedCreateNestedManyWithoutOrganisationInput
+  invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutOrganisationInput
+  userSessions?: Prisma.UserSessionUncheckedCreateNestedManyWithoutActiveOrganisationInput
+  supportAccessGrants?: Prisma.SupportAccessGrantUncheckedCreateNestedManyWithoutOrganisationInput
+  auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutOrganisationInput
+  securityEvents?: Prisma.SecurityEventUncheckedCreateNestedManyWithoutOrganisationInput
+  enquiries?: Prisma.EnquiryUncheckedCreateNestedManyWithoutOrganisationInput
+  jobProfiles?: Prisma.JobProfileUncheckedCreateNestedManyWithoutOrganisationInput
+  jobProfileDuties?: Prisma.JobProfileDutyUncheckedCreateNestedManyWithoutOrganisationInput
+  kpiDefinitions?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutOrganisationInput
+  jobProfileKpis?: Prisma.JobProfileKpiUncheckedCreateNestedManyWithoutOrganisationInput
+  agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutOrganisationInput
+  agentPolicies?: Prisma.AgentPolicyUncheckedCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOrganisationInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationInput
+  workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutOrganisationInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutOrganisationInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUncheckedCreateNestedManyWithoutOrganisationInput
+  invitationOnboardingKpis?: Prisma.InvitationOnboardingKpiUncheckedCreateNestedManyWithoutOrganisationInput
+  numberSequences?: Prisma.OrganisationNumberSequenceUncheckedCreateNestedManyWithoutOrganisationInput
+  clients?: Prisma.ClientUncheckedCreateNestedManyWithoutOrganisationInput
+  matters?: Prisma.MatterUncheckedCreateNestedManyWithoutOrganisationInput
+  matterParties?: Prisma.MatterPartyUncheckedCreateNestedManyWithoutOrganisationInput
+  matterComplianceRecords?: Prisma.MatterComplianceUncheckedCreateNestedManyWithoutOrganisationInput
+  matterStatusHistory?: Prisma.MatterStatusHistoryUncheckedCreateNestedManyWithoutOrganisationInput
+  enquiryConversions?: Prisma.EnquiryConversionUncheckedCreateNestedManyWithoutOrganisationInput
+  matterTasks?: Prisma.MatterTaskUncheckedCreateNestedManyWithoutOrganisationInput
+  matterDeadlines?: Prisma.MatterDeadlineUncheckedCreateNestedManyWithoutOrganisationInput
+  documentRequests?: Prisma.DocumentRequestUncheckedCreateNestedManyWithoutOrganisationInput
+  documentRequestItems?: Prisma.DocumentRequestItemUncheckedCreateNestedManyWithoutOrganisationInput
+  matterDocuments?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutOrganisationInput
+  matterDocumentVersions?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutOrganisationInput
+  matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutOrganisationInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionUncheckedCreateNestedManyWithoutOrganisationInput
+  workflowVersions?: Prisma.WorkflowVersionUncheckedCreateNestedManyWithoutOrganisationInput
+  workflowRuns?: Prisma.WorkflowRunUncheckedCreateNestedManyWithoutOrganisationInput
+  workflowActions?: Prisma.WorkflowActionUncheckedCreateNestedManyWithoutOrganisationInput
+  slaPolicies?: Prisma.SlaPolicyUncheckedCreateNestedManyWithoutOrganisationInput
+  slaInstances?: Prisma.SlaInstanceUncheckedCreateNestedManyWithoutOrganisationInput
+  escalationRules?: Prisma.EscalationRuleUncheckedCreateNestedManyWithoutOrganisationInput
+  escalationEvents?: Prisma.EscalationEventUncheckedCreateNestedManyWithoutOrganisationInput
+  approvalRequests?: Prisma.ApprovalRequestUncheckedCreateNestedManyWithoutOrganisationInput
+  approvalDecisions?: Prisma.ApprovalDecisionUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutOrganisationInput
+}
+
+export type OrganisationCreateOrConnectWithoutAgentConversationsInput = {
+  where: Prisma.OrganisationWhereUniqueInput
+  create: Prisma.XOR<Prisma.OrganisationCreateWithoutAgentConversationsInput, Prisma.OrganisationUncheckedCreateWithoutAgentConversationsInput>
+}
+
+export type OrganisationUpsertWithoutAgentConversationsInput = {
+  update: Prisma.XOR<Prisma.OrganisationUpdateWithoutAgentConversationsInput, Prisma.OrganisationUncheckedUpdateWithoutAgentConversationsInput>
+  create: Prisma.XOR<Prisma.OrganisationCreateWithoutAgentConversationsInput, Prisma.OrganisationUncheckedCreateWithoutAgentConversationsInput>
+  where?: Prisma.OrganisationWhereInput
+}
+
+export type OrganisationUpdateToOneWithWhereWithoutAgentConversationsInput = {
+  where?: Prisma.OrganisationWhereInput
+  data: Prisma.XOR<Prisma.OrganisationUpdateWithoutAgentConversationsInput, Prisma.OrganisationUncheckedUpdateWithoutAgentConversationsInput>
+}
+
+export type OrganisationUpdateWithoutAgentConversationsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumOrganisationStatusFieldUpdateOperationsInput | $Enums.OrganisationStatus
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  countryCode?: Prisma.StringFieldUpdateOperationsInput | string
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  settings?: Prisma.OrganisationSettingUpdateManyWithoutOrganisationNestedInput
+  memberships?: Prisma.OrganisationMembershipUpdateManyWithoutOrganisationNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutOrganisationNestedInput
+  departmentMemberships?: Prisma.DepartmentMembershipUpdateManyWithoutOrganisationNestedInput
+  teams?: Prisma.TeamUpdateManyWithoutOrganisationNestedInput
+  teamMemberships?: Prisma.TeamMembershipUpdateManyWithoutOrganisationNestedInput
+  roles?: Prisma.RoleUpdateManyWithoutOrganisationNestedInput
+  roleAssignments?: Prisma.RoleAssignmentUpdateManyWithoutOrganisationNestedInput
+  invitations?: Prisma.InvitationUpdateManyWithoutOrganisationNestedInput
+  userSessions?: Prisma.UserSessionUpdateManyWithoutActiveOrganisationNestedInput
+  supportAccessGrants?: Prisma.SupportAccessGrantUpdateManyWithoutOrganisationNestedInput
+  auditEvents?: Prisma.AuditEventUpdateManyWithoutOrganisationNestedInput
+  securityEvents?: Prisma.SecurityEventUpdateManyWithoutOrganisationNestedInput
+  enquiries?: Prisma.EnquiryUpdateManyWithoutOrganisationNestedInput
+  jobProfiles?: Prisma.JobProfileUpdateManyWithoutOrganisationNestedInput
+  jobProfileDuties?: Prisma.JobProfileDutyUpdateManyWithoutOrganisationNestedInput
+  kpiDefinitions?: Prisma.KpiDefinitionUpdateManyWithoutOrganisationNestedInput
+  jobProfileKpis?: Prisma.JobProfileKpiUpdateManyWithoutOrganisationNestedInput
+  agentProfiles?: Prisma.AgentProfileUpdateManyWithoutOrganisationNestedInput
+  agentPolicies?: Prisma.AgentPolicyUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUpdateManyWithoutOrganisationNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationNestedInput
+  workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutOrganisationNestedInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutOrganisationNestedInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUpdateManyWithoutOrganisationNestedInput
+  invitationOnboardingKpis?: Prisma.InvitationOnboardingKpiUpdateManyWithoutOrganisationNestedInput
+  numberSequences?: Prisma.OrganisationNumberSequenceUpdateManyWithoutOrganisationNestedInput
+  clients?: Prisma.ClientUpdateManyWithoutOrganisationNestedInput
+  matters?: Prisma.MatterUpdateManyWithoutOrganisationNestedInput
+  matterParties?: Prisma.MatterPartyUpdateManyWithoutOrganisationNestedInput
+  matterComplianceRecords?: Prisma.MatterComplianceUpdateManyWithoutOrganisationNestedInput
+  matterStatusHistory?: Prisma.MatterStatusHistoryUpdateManyWithoutOrganisationNestedInput
+  enquiryConversions?: Prisma.EnquiryConversionUpdateManyWithoutOrganisationNestedInput
+  matterTasks?: Prisma.MatterTaskUpdateManyWithoutOrganisationNestedInput
+  matterDeadlines?: Prisma.MatterDeadlineUpdateManyWithoutOrganisationNestedInput
+  documentRequests?: Prisma.DocumentRequestUpdateManyWithoutOrganisationNestedInput
+  documentRequestItems?: Prisma.DocumentRequestItemUpdateManyWithoutOrganisationNestedInput
+  matterDocuments?: Prisma.MatterDocumentUpdateManyWithoutOrganisationNestedInput
+  matterDocumentVersions?: Prisma.MatterDocumentVersionUpdateManyWithoutOrganisationNestedInput
+  matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutOrganisationNestedInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionUpdateManyWithoutOrganisationNestedInput
+  workflowVersions?: Prisma.WorkflowVersionUpdateManyWithoutOrganisationNestedInput
+  workflowRuns?: Prisma.WorkflowRunUpdateManyWithoutOrganisationNestedInput
+  workflowActions?: Prisma.WorkflowActionUpdateManyWithoutOrganisationNestedInput
+  slaPolicies?: Prisma.SlaPolicyUpdateManyWithoutOrganisationNestedInput
+  slaInstances?: Prisma.SlaInstanceUpdateManyWithoutOrganisationNestedInput
+  escalationRules?: Prisma.EscalationRuleUpdateManyWithoutOrganisationNestedInput
+  escalationEvents?: Prisma.EscalationEventUpdateManyWithoutOrganisationNestedInput
+  approvalRequests?: Prisma.ApprovalRequestUpdateManyWithoutOrganisationNestedInput
+  approvalDecisions?: Prisma.ApprovalDecisionUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUpdateManyWithoutOrganisationNestedInput
+}
+
+export type OrganisationUncheckedUpdateWithoutAgentConversationsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumOrganisationStatusFieldUpdateOperationsInput | $Enums.OrganisationStatus
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  countryCode?: Prisma.StringFieldUpdateOperationsInput | string
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  settings?: Prisma.OrganisationSettingUncheckedUpdateManyWithoutOrganisationNestedInput
+  memberships?: Prisma.OrganisationMembershipUncheckedUpdateManyWithoutOrganisationNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutOrganisationNestedInput
+  departmentMemberships?: Prisma.DepartmentMembershipUncheckedUpdateManyWithoutOrganisationNestedInput
+  teams?: Prisma.TeamUncheckedUpdateManyWithoutOrganisationNestedInput
+  teamMemberships?: Prisma.TeamMembershipUncheckedUpdateManyWithoutOrganisationNestedInput
+  roles?: Prisma.RoleUncheckedUpdateManyWithoutOrganisationNestedInput
+  roleAssignments?: Prisma.RoleAssignmentUncheckedUpdateManyWithoutOrganisationNestedInput
+  invitations?: Prisma.InvitationUncheckedUpdateManyWithoutOrganisationNestedInput
+  userSessions?: Prisma.UserSessionUncheckedUpdateManyWithoutActiveOrganisationNestedInput
+  supportAccessGrants?: Prisma.SupportAccessGrantUncheckedUpdateManyWithoutOrganisationNestedInput
+  auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutOrganisationNestedInput
+  securityEvents?: Prisma.SecurityEventUncheckedUpdateManyWithoutOrganisationNestedInput
+  enquiries?: Prisma.EnquiryUncheckedUpdateManyWithoutOrganisationNestedInput
+  jobProfiles?: Prisma.JobProfileUncheckedUpdateManyWithoutOrganisationNestedInput
+  jobProfileDuties?: Prisma.JobProfileDutyUncheckedUpdateManyWithoutOrganisationNestedInput
+  kpiDefinitions?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutOrganisationNestedInput
+  jobProfileKpis?: Prisma.JobProfileKpiUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentPolicies?: Prisma.AgentPolicyUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUncheckedUpdateManyWithoutOrganisationNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationNestedInput
+  workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutOrganisationNestedInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutOrganisationNestedInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUncheckedUpdateManyWithoutOrganisationNestedInput
+  invitationOnboardingKpis?: Prisma.InvitationOnboardingKpiUncheckedUpdateManyWithoutOrganisationNestedInput
+  numberSequences?: Prisma.OrganisationNumberSequenceUncheckedUpdateManyWithoutOrganisationNestedInput
+  clients?: Prisma.ClientUncheckedUpdateManyWithoutOrganisationNestedInput
+  matters?: Prisma.MatterUncheckedUpdateManyWithoutOrganisationNestedInput
+  matterParties?: Prisma.MatterPartyUncheckedUpdateManyWithoutOrganisationNestedInput
+  matterComplianceRecords?: Prisma.MatterComplianceUncheckedUpdateManyWithoutOrganisationNestedInput
+  matterStatusHistory?: Prisma.MatterStatusHistoryUncheckedUpdateManyWithoutOrganisationNestedInput
+  enquiryConversions?: Prisma.EnquiryConversionUncheckedUpdateManyWithoutOrganisationNestedInput
+  matterTasks?: Prisma.MatterTaskUncheckedUpdateManyWithoutOrganisationNestedInput
+  matterDeadlines?: Prisma.MatterDeadlineUncheckedUpdateManyWithoutOrganisationNestedInput
+  documentRequests?: Prisma.DocumentRequestUncheckedUpdateManyWithoutOrganisationNestedInput
+  documentRequestItems?: Prisma.DocumentRequestItemUncheckedUpdateManyWithoutOrganisationNestedInput
+  matterDocuments?: Prisma.MatterDocumentUncheckedUpdateManyWithoutOrganisationNestedInput
+  matterDocumentVersions?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutOrganisationNestedInput
+  matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutOrganisationNestedInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionUncheckedUpdateManyWithoutOrganisationNestedInput
+  workflowVersions?: Prisma.WorkflowVersionUncheckedUpdateManyWithoutOrganisationNestedInput
+  workflowRuns?: Prisma.WorkflowRunUncheckedUpdateManyWithoutOrganisationNestedInput
+  workflowActions?: Prisma.WorkflowActionUncheckedUpdateManyWithoutOrganisationNestedInput
+  slaPolicies?: Prisma.SlaPolicyUncheckedUpdateManyWithoutOrganisationNestedInput
+  slaInstances?: Prisma.SlaInstanceUncheckedUpdateManyWithoutOrganisationNestedInput
+  escalationRules?: Prisma.EscalationRuleUncheckedUpdateManyWithoutOrganisationNestedInput
+  escalationEvents?: Prisma.EscalationEventUncheckedUpdateManyWithoutOrganisationNestedInput
+  approvalRequests?: Prisma.ApprovalRequestUncheckedUpdateManyWithoutOrganisationNestedInput
+  approvalDecisions?: Prisma.ApprovalDecisionUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutOrganisationNestedInput
+}
+
+export type OrganisationCreateWithoutAgentRunsInput = {
+  id?: string
+  slug: string
+  name: string
+  legalName?: string | null
+  status?: $Enums.OrganisationStatus
+  timezone?: string
+  locale?: string
+  countryCode?: string
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  settings?: Prisma.OrganisationSettingCreateNestedManyWithoutOrganisationInput
+  memberships?: Prisma.OrganisationMembershipCreateNestedManyWithoutOrganisationInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutOrganisationInput
+  departmentMemberships?: Prisma.DepartmentMembershipCreateNestedManyWithoutOrganisationInput
+  teams?: Prisma.TeamCreateNestedManyWithoutOrganisationInput
+  teamMemberships?: Prisma.TeamMembershipCreateNestedManyWithoutOrganisationInput
+  roles?: Prisma.RoleCreateNestedManyWithoutOrganisationInput
+  roleAssignments?: Prisma.RoleAssignmentCreateNestedManyWithoutOrganisationInput
+  invitations?: Prisma.InvitationCreateNestedManyWithoutOrganisationInput
+  userSessions?: Prisma.UserSessionCreateNestedManyWithoutActiveOrganisationInput
+  supportAccessGrants?: Prisma.SupportAccessGrantCreateNestedManyWithoutOrganisationInput
+  auditEvents?: Prisma.AuditEventCreateNestedManyWithoutOrganisationInput
+  securityEvents?: Prisma.SecurityEventCreateNestedManyWithoutOrganisationInput
+  enquiries?: Prisma.EnquiryCreateNestedManyWithoutOrganisationInput
+  jobProfiles?: Prisma.JobProfileCreateNestedManyWithoutOrganisationInput
+  jobProfileDuties?: Prisma.JobProfileDutyCreateNestedManyWithoutOrganisationInput
+  kpiDefinitions?: Prisma.KpiDefinitionCreateNestedManyWithoutOrganisationInput
+  jobProfileKpis?: Prisma.JobProfileKpiCreateNestedManyWithoutOrganisationInput
+  agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutOrganisationInput
+  agentPolicies?: Prisma.AgentPolicyCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageCreateNestedManyWithoutOrganisationInput
+  workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationInput
+  workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutOrganisationInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutOrganisationInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleCreateNestedManyWithoutOrganisationInput
+  invitationOnboardingKpis?: Prisma.InvitationOnboardingKpiCreateNestedManyWithoutOrganisationInput
+  numberSequences?: Prisma.OrganisationNumberSequenceCreateNestedManyWithoutOrganisationInput
+  clients?: Prisma.ClientCreateNestedManyWithoutOrganisationInput
+  matters?: Prisma.MatterCreateNestedManyWithoutOrganisationInput
+  matterParties?: Prisma.MatterPartyCreateNestedManyWithoutOrganisationInput
+  matterComplianceRecords?: Prisma.MatterComplianceCreateNestedManyWithoutOrganisationInput
+  matterStatusHistory?: Prisma.MatterStatusHistoryCreateNestedManyWithoutOrganisationInput
+  enquiryConversions?: Prisma.EnquiryConversionCreateNestedManyWithoutOrganisationInput
+  matterTasks?: Prisma.MatterTaskCreateNestedManyWithoutOrganisationInput
+  matterDeadlines?: Prisma.MatterDeadlineCreateNestedManyWithoutOrganisationInput
+  documentRequests?: Prisma.DocumentRequestCreateNestedManyWithoutOrganisationInput
+  documentRequestItems?: Prisma.DocumentRequestItemCreateNestedManyWithoutOrganisationInput
+  matterDocuments?: Prisma.MatterDocumentCreateNestedManyWithoutOrganisationInput
+  matterDocumentVersions?: Prisma.MatterDocumentVersionCreateNestedManyWithoutOrganisationInput
+  matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutOrganisationInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionCreateNestedManyWithoutOrganisationInput
+  workflowVersions?: Prisma.WorkflowVersionCreateNestedManyWithoutOrganisationInput
+  workflowRuns?: Prisma.WorkflowRunCreateNestedManyWithoutOrganisationInput
+  workflowActions?: Prisma.WorkflowActionCreateNestedManyWithoutOrganisationInput
+  slaPolicies?: Prisma.SlaPolicyCreateNestedManyWithoutOrganisationInput
+  slaInstances?: Prisma.SlaInstanceCreateNestedManyWithoutOrganisationInput
+  escalationRules?: Prisma.EscalationRuleCreateNestedManyWithoutOrganisationInput
+  escalationEvents?: Prisma.EscalationEventCreateNestedManyWithoutOrganisationInput
+  approvalRequests?: Prisma.ApprovalRequestCreateNestedManyWithoutOrganisationInput
+  approvalDecisions?: Prisma.ApprovalDecisionCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackCreateNestedManyWithoutOrganisationInput
+}
+
+export type OrganisationUncheckedCreateWithoutAgentRunsInput = {
+  id?: string
+  slug: string
+  name: string
+  legalName?: string | null
+  status?: $Enums.OrganisationStatus
+  timezone?: string
+  locale?: string
+  countryCode?: string
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  settings?: Prisma.OrganisationSettingUncheckedCreateNestedManyWithoutOrganisationInput
+  memberships?: Prisma.OrganisationMembershipUncheckedCreateNestedManyWithoutOrganisationInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutOrganisationInput
+  departmentMemberships?: Prisma.DepartmentMembershipUncheckedCreateNestedManyWithoutOrganisationInput
+  teams?: Prisma.TeamUncheckedCreateNestedManyWithoutOrganisationInput
+  teamMemberships?: Prisma.TeamMembershipUncheckedCreateNestedManyWithoutOrganisationInput
+  roles?: Prisma.RoleUncheckedCreateNestedManyWithoutOrganisationInput
+  roleAssignments?: Prisma.RoleAssignmentUncheckedCreateNestedManyWithoutOrganisationInput
+  invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutOrganisationInput
+  userSessions?: Prisma.UserSessionUncheckedCreateNestedManyWithoutActiveOrganisationInput
+  supportAccessGrants?: Prisma.SupportAccessGrantUncheckedCreateNestedManyWithoutOrganisationInput
+  auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutOrganisationInput
+  securityEvents?: Prisma.SecurityEventUncheckedCreateNestedManyWithoutOrganisationInput
+  enquiries?: Prisma.EnquiryUncheckedCreateNestedManyWithoutOrganisationInput
+  jobProfiles?: Prisma.JobProfileUncheckedCreateNestedManyWithoutOrganisationInput
+  jobProfileDuties?: Prisma.JobProfileDutyUncheckedCreateNestedManyWithoutOrganisationInput
+  kpiDefinitions?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutOrganisationInput
+  jobProfileKpis?: Prisma.JobProfileKpiUncheckedCreateNestedManyWithoutOrganisationInput
+  agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutOrganisationInput
+  agentPolicies?: Prisma.AgentPolicyUncheckedCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOrganisationInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationInput
+  workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutOrganisationInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutOrganisationInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUncheckedCreateNestedManyWithoutOrganisationInput
+  invitationOnboardingKpis?: Prisma.InvitationOnboardingKpiUncheckedCreateNestedManyWithoutOrganisationInput
+  numberSequences?: Prisma.OrganisationNumberSequenceUncheckedCreateNestedManyWithoutOrganisationInput
+  clients?: Prisma.ClientUncheckedCreateNestedManyWithoutOrganisationInput
+  matters?: Prisma.MatterUncheckedCreateNestedManyWithoutOrganisationInput
+  matterParties?: Prisma.MatterPartyUncheckedCreateNestedManyWithoutOrganisationInput
+  matterComplianceRecords?: Prisma.MatterComplianceUncheckedCreateNestedManyWithoutOrganisationInput
+  matterStatusHistory?: Prisma.MatterStatusHistoryUncheckedCreateNestedManyWithoutOrganisationInput
+  enquiryConversions?: Prisma.EnquiryConversionUncheckedCreateNestedManyWithoutOrganisationInput
+  matterTasks?: Prisma.MatterTaskUncheckedCreateNestedManyWithoutOrganisationInput
+  matterDeadlines?: Prisma.MatterDeadlineUncheckedCreateNestedManyWithoutOrganisationInput
+  documentRequests?: Prisma.DocumentRequestUncheckedCreateNestedManyWithoutOrganisationInput
+  documentRequestItems?: Prisma.DocumentRequestItemUncheckedCreateNestedManyWithoutOrganisationInput
+  matterDocuments?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutOrganisationInput
+  matterDocumentVersions?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutOrganisationInput
+  matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutOrganisationInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionUncheckedCreateNestedManyWithoutOrganisationInput
+  workflowVersions?: Prisma.WorkflowVersionUncheckedCreateNestedManyWithoutOrganisationInput
+  workflowRuns?: Prisma.WorkflowRunUncheckedCreateNestedManyWithoutOrganisationInput
+  workflowActions?: Prisma.WorkflowActionUncheckedCreateNestedManyWithoutOrganisationInput
+  slaPolicies?: Prisma.SlaPolicyUncheckedCreateNestedManyWithoutOrganisationInput
+  slaInstances?: Prisma.SlaInstanceUncheckedCreateNestedManyWithoutOrganisationInput
+  escalationRules?: Prisma.EscalationRuleUncheckedCreateNestedManyWithoutOrganisationInput
+  escalationEvents?: Prisma.EscalationEventUncheckedCreateNestedManyWithoutOrganisationInput
+  approvalRequests?: Prisma.ApprovalRequestUncheckedCreateNestedManyWithoutOrganisationInput
+  approvalDecisions?: Prisma.ApprovalDecisionUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutOrganisationInput
+}
+
+export type OrganisationCreateOrConnectWithoutAgentRunsInput = {
+  where: Prisma.OrganisationWhereUniqueInput
+  create: Prisma.XOR<Prisma.OrganisationCreateWithoutAgentRunsInput, Prisma.OrganisationUncheckedCreateWithoutAgentRunsInput>
+}
+
+export type OrganisationUpsertWithoutAgentRunsInput = {
+  update: Prisma.XOR<Prisma.OrganisationUpdateWithoutAgentRunsInput, Prisma.OrganisationUncheckedUpdateWithoutAgentRunsInput>
+  create: Prisma.XOR<Prisma.OrganisationCreateWithoutAgentRunsInput, Prisma.OrganisationUncheckedCreateWithoutAgentRunsInput>
+  where?: Prisma.OrganisationWhereInput
+}
+
+export type OrganisationUpdateToOneWithWhereWithoutAgentRunsInput = {
+  where?: Prisma.OrganisationWhereInput
+  data: Prisma.XOR<Prisma.OrganisationUpdateWithoutAgentRunsInput, Prisma.OrganisationUncheckedUpdateWithoutAgentRunsInput>
+}
+
+export type OrganisationUpdateWithoutAgentRunsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumOrganisationStatusFieldUpdateOperationsInput | $Enums.OrganisationStatus
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  countryCode?: Prisma.StringFieldUpdateOperationsInput | string
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  settings?: Prisma.OrganisationSettingUpdateManyWithoutOrganisationNestedInput
+  memberships?: Prisma.OrganisationMembershipUpdateManyWithoutOrganisationNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutOrganisationNestedInput
+  departmentMemberships?: Prisma.DepartmentMembershipUpdateManyWithoutOrganisationNestedInput
+  teams?: Prisma.TeamUpdateManyWithoutOrganisationNestedInput
+  teamMemberships?: Prisma.TeamMembershipUpdateManyWithoutOrganisationNestedInput
+  roles?: Prisma.RoleUpdateManyWithoutOrganisationNestedInput
+  roleAssignments?: Prisma.RoleAssignmentUpdateManyWithoutOrganisationNestedInput
+  invitations?: Prisma.InvitationUpdateManyWithoutOrganisationNestedInput
+  userSessions?: Prisma.UserSessionUpdateManyWithoutActiveOrganisationNestedInput
+  supportAccessGrants?: Prisma.SupportAccessGrantUpdateManyWithoutOrganisationNestedInput
+  auditEvents?: Prisma.AuditEventUpdateManyWithoutOrganisationNestedInput
+  securityEvents?: Prisma.SecurityEventUpdateManyWithoutOrganisationNestedInput
+  enquiries?: Prisma.EnquiryUpdateManyWithoutOrganisationNestedInput
+  jobProfiles?: Prisma.JobProfileUpdateManyWithoutOrganisationNestedInput
+  jobProfileDuties?: Prisma.JobProfileDutyUpdateManyWithoutOrganisationNestedInput
+  kpiDefinitions?: Prisma.KpiDefinitionUpdateManyWithoutOrganisationNestedInput
+  jobProfileKpis?: Prisma.JobProfileKpiUpdateManyWithoutOrganisationNestedInput
+  agentProfiles?: Prisma.AgentProfileUpdateManyWithoutOrganisationNestedInput
+  agentPolicies?: Prisma.AgentPolicyUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUpdateManyWithoutOrganisationNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationNestedInput
+  workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutOrganisationNestedInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutOrganisationNestedInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUpdateManyWithoutOrganisationNestedInput
+  invitationOnboardingKpis?: Prisma.InvitationOnboardingKpiUpdateManyWithoutOrganisationNestedInput
+  numberSequences?: Prisma.OrganisationNumberSequenceUpdateManyWithoutOrganisationNestedInput
+  clients?: Prisma.ClientUpdateManyWithoutOrganisationNestedInput
+  matters?: Prisma.MatterUpdateManyWithoutOrganisationNestedInput
+  matterParties?: Prisma.MatterPartyUpdateManyWithoutOrganisationNestedInput
+  matterComplianceRecords?: Prisma.MatterComplianceUpdateManyWithoutOrganisationNestedInput
+  matterStatusHistory?: Prisma.MatterStatusHistoryUpdateManyWithoutOrganisationNestedInput
+  enquiryConversions?: Prisma.EnquiryConversionUpdateManyWithoutOrganisationNestedInput
+  matterTasks?: Prisma.MatterTaskUpdateManyWithoutOrganisationNestedInput
+  matterDeadlines?: Prisma.MatterDeadlineUpdateManyWithoutOrganisationNestedInput
+  documentRequests?: Prisma.DocumentRequestUpdateManyWithoutOrganisationNestedInput
+  documentRequestItems?: Prisma.DocumentRequestItemUpdateManyWithoutOrganisationNestedInput
+  matterDocuments?: Prisma.MatterDocumentUpdateManyWithoutOrganisationNestedInput
+  matterDocumentVersions?: Prisma.MatterDocumentVersionUpdateManyWithoutOrganisationNestedInput
+  matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutOrganisationNestedInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionUpdateManyWithoutOrganisationNestedInput
+  workflowVersions?: Prisma.WorkflowVersionUpdateManyWithoutOrganisationNestedInput
+  workflowRuns?: Prisma.WorkflowRunUpdateManyWithoutOrganisationNestedInput
+  workflowActions?: Prisma.WorkflowActionUpdateManyWithoutOrganisationNestedInput
+  slaPolicies?: Prisma.SlaPolicyUpdateManyWithoutOrganisationNestedInput
+  slaInstances?: Prisma.SlaInstanceUpdateManyWithoutOrganisationNestedInput
+  escalationRules?: Prisma.EscalationRuleUpdateManyWithoutOrganisationNestedInput
+  escalationEvents?: Prisma.EscalationEventUpdateManyWithoutOrganisationNestedInput
+  approvalRequests?: Prisma.ApprovalRequestUpdateManyWithoutOrganisationNestedInput
+  approvalDecisions?: Prisma.ApprovalDecisionUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUpdateManyWithoutOrganisationNestedInput
+}
+
+export type OrganisationUncheckedUpdateWithoutAgentRunsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumOrganisationStatusFieldUpdateOperationsInput | $Enums.OrganisationStatus
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  countryCode?: Prisma.StringFieldUpdateOperationsInput | string
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  settings?: Prisma.OrganisationSettingUncheckedUpdateManyWithoutOrganisationNestedInput
+  memberships?: Prisma.OrganisationMembershipUncheckedUpdateManyWithoutOrganisationNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutOrganisationNestedInput
+  departmentMemberships?: Prisma.DepartmentMembershipUncheckedUpdateManyWithoutOrganisationNestedInput
+  teams?: Prisma.TeamUncheckedUpdateManyWithoutOrganisationNestedInput
+  teamMemberships?: Prisma.TeamMembershipUncheckedUpdateManyWithoutOrganisationNestedInput
+  roles?: Prisma.RoleUncheckedUpdateManyWithoutOrganisationNestedInput
+  roleAssignments?: Prisma.RoleAssignmentUncheckedUpdateManyWithoutOrganisationNestedInput
+  invitations?: Prisma.InvitationUncheckedUpdateManyWithoutOrganisationNestedInput
+  userSessions?: Prisma.UserSessionUncheckedUpdateManyWithoutActiveOrganisationNestedInput
+  supportAccessGrants?: Prisma.SupportAccessGrantUncheckedUpdateManyWithoutOrganisationNestedInput
+  auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutOrganisationNestedInput
+  securityEvents?: Prisma.SecurityEventUncheckedUpdateManyWithoutOrganisationNestedInput
+  enquiries?: Prisma.EnquiryUncheckedUpdateManyWithoutOrganisationNestedInput
+  jobProfiles?: Prisma.JobProfileUncheckedUpdateManyWithoutOrganisationNestedInput
+  jobProfileDuties?: Prisma.JobProfileDutyUncheckedUpdateManyWithoutOrganisationNestedInput
+  kpiDefinitions?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutOrganisationNestedInput
+  jobProfileKpis?: Prisma.JobProfileKpiUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentPolicies?: Prisma.AgentPolicyUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUncheckedUpdateManyWithoutOrganisationNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationNestedInput
+  workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutOrganisationNestedInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutOrganisationNestedInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUncheckedUpdateManyWithoutOrganisationNestedInput
+  invitationOnboardingKpis?: Prisma.InvitationOnboardingKpiUncheckedUpdateManyWithoutOrganisationNestedInput
+  numberSequences?: Prisma.OrganisationNumberSequenceUncheckedUpdateManyWithoutOrganisationNestedInput
+  clients?: Prisma.ClientUncheckedUpdateManyWithoutOrganisationNestedInput
+  matters?: Prisma.MatterUncheckedUpdateManyWithoutOrganisationNestedInput
+  matterParties?: Prisma.MatterPartyUncheckedUpdateManyWithoutOrganisationNestedInput
+  matterComplianceRecords?: Prisma.MatterComplianceUncheckedUpdateManyWithoutOrganisationNestedInput
+  matterStatusHistory?: Prisma.MatterStatusHistoryUncheckedUpdateManyWithoutOrganisationNestedInput
+  enquiryConversions?: Prisma.EnquiryConversionUncheckedUpdateManyWithoutOrganisationNestedInput
+  matterTasks?: Prisma.MatterTaskUncheckedUpdateManyWithoutOrganisationNestedInput
+  matterDeadlines?: Prisma.MatterDeadlineUncheckedUpdateManyWithoutOrganisationNestedInput
+  documentRequests?: Prisma.DocumentRequestUncheckedUpdateManyWithoutOrganisationNestedInput
+  documentRequestItems?: Prisma.DocumentRequestItemUncheckedUpdateManyWithoutOrganisationNestedInput
+  matterDocuments?: Prisma.MatterDocumentUncheckedUpdateManyWithoutOrganisationNestedInput
+  matterDocumentVersions?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutOrganisationNestedInput
+  matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutOrganisationNestedInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionUncheckedUpdateManyWithoutOrganisationNestedInput
+  workflowVersions?: Prisma.WorkflowVersionUncheckedUpdateManyWithoutOrganisationNestedInput
+  workflowRuns?: Prisma.WorkflowRunUncheckedUpdateManyWithoutOrganisationNestedInput
+  workflowActions?: Prisma.WorkflowActionUncheckedUpdateManyWithoutOrganisationNestedInput
+  slaPolicies?: Prisma.SlaPolicyUncheckedUpdateManyWithoutOrganisationNestedInput
+  slaInstances?: Prisma.SlaInstanceUncheckedUpdateManyWithoutOrganisationNestedInput
+  escalationRules?: Prisma.EscalationRuleUncheckedUpdateManyWithoutOrganisationNestedInput
+  escalationEvents?: Prisma.EscalationEventUncheckedUpdateManyWithoutOrganisationNestedInput
+  approvalRequests?: Prisma.ApprovalRequestUncheckedUpdateManyWithoutOrganisationNestedInput
+  approvalDecisions?: Prisma.ApprovalDecisionUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutOrganisationNestedInput
+}
+
+export type OrganisationCreateWithoutAgentMessagesInput = {
+  id?: string
+  slug: string
+  name: string
+  legalName?: string | null
+  status?: $Enums.OrganisationStatus
+  timezone?: string
+  locale?: string
+  countryCode?: string
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  settings?: Prisma.OrganisationSettingCreateNestedManyWithoutOrganisationInput
+  memberships?: Prisma.OrganisationMembershipCreateNestedManyWithoutOrganisationInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutOrganisationInput
+  departmentMemberships?: Prisma.DepartmentMembershipCreateNestedManyWithoutOrganisationInput
+  teams?: Prisma.TeamCreateNestedManyWithoutOrganisationInput
+  teamMemberships?: Prisma.TeamMembershipCreateNestedManyWithoutOrganisationInput
+  roles?: Prisma.RoleCreateNestedManyWithoutOrganisationInput
+  roleAssignments?: Prisma.RoleAssignmentCreateNestedManyWithoutOrganisationInput
+  invitations?: Prisma.InvitationCreateNestedManyWithoutOrganisationInput
+  userSessions?: Prisma.UserSessionCreateNestedManyWithoutActiveOrganisationInput
+  supportAccessGrants?: Prisma.SupportAccessGrantCreateNestedManyWithoutOrganisationInput
+  auditEvents?: Prisma.AuditEventCreateNestedManyWithoutOrganisationInput
+  securityEvents?: Prisma.SecurityEventCreateNestedManyWithoutOrganisationInput
+  enquiries?: Prisma.EnquiryCreateNestedManyWithoutOrganisationInput
+  jobProfiles?: Prisma.JobProfileCreateNestedManyWithoutOrganisationInput
+  jobProfileDuties?: Prisma.JobProfileDutyCreateNestedManyWithoutOrganisationInput
+  kpiDefinitions?: Prisma.KpiDefinitionCreateNestedManyWithoutOrganisationInput
+  jobProfileKpis?: Prisma.JobProfileKpiCreateNestedManyWithoutOrganisationInput
+  agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutOrganisationInput
+  agentPolicies?: Prisma.AgentPolicyCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageCreateNestedManyWithoutOrganisationInput
+  workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationInput
+  workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutOrganisationInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutOrganisationInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleCreateNestedManyWithoutOrganisationInput
+  invitationOnboardingKpis?: Prisma.InvitationOnboardingKpiCreateNestedManyWithoutOrganisationInput
+  numberSequences?: Prisma.OrganisationNumberSequenceCreateNestedManyWithoutOrganisationInput
+  clients?: Prisma.ClientCreateNestedManyWithoutOrganisationInput
+  matters?: Prisma.MatterCreateNestedManyWithoutOrganisationInput
+  matterParties?: Prisma.MatterPartyCreateNestedManyWithoutOrganisationInput
+  matterComplianceRecords?: Prisma.MatterComplianceCreateNestedManyWithoutOrganisationInput
+  matterStatusHistory?: Prisma.MatterStatusHistoryCreateNestedManyWithoutOrganisationInput
+  enquiryConversions?: Prisma.EnquiryConversionCreateNestedManyWithoutOrganisationInput
+  matterTasks?: Prisma.MatterTaskCreateNestedManyWithoutOrganisationInput
+  matterDeadlines?: Prisma.MatterDeadlineCreateNestedManyWithoutOrganisationInput
+  documentRequests?: Prisma.DocumentRequestCreateNestedManyWithoutOrganisationInput
+  documentRequestItems?: Prisma.DocumentRequestItemCreateNestedManyWithoutOrganisationInput
+  matterDocuments?: Prisma.MatterDocumentCreateNestedManyWithoutOrganisationInput
+  matterDocumentVersions?: Prisma.MatterDocumentVersionCreateNestedManyWithoutOrganisationInput
+  matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutOrganisationInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionCreateNestedManyWithoutOrganisationInput
+  workflowVersions?: Prisma.WorkflowVersionCreateNestedManyWithoutOrganisationInput
+  workflowRuns?: Prisma.WorkflowRunCreateNestedManyWithoutOrganisationInput
+  workflowActions?: Prisma.WorkflowActionCreateNestedManyWithoutOrganisationInput
+  slaPolicies?: Prisma.SlaPolicyCreateNestedManyWithoutOrganisationInput
+  slaInstances?: Prisma.SlaInstanceCreateNestedManyWithoutOrganisationInput
+  escalationRules?: Prisma.EscalationRuleCreateNestedManyWithoutOrganisationInput
+  escalationEvents?: Prisma.EscalationEventCreateNestedManyWithoutOrganisationInput
+  approvalRequests?: Prisma.ApprovalRequestCreateNestedManyWithoutOrganisationInput
+  approvalDecisions?: Prisma.ApprovalDecisionCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackCreateNestedManyWithoutOrganisationInput
+}
+
+export type OrganisationUncheckedCreateWithoutAgentMessagesInput = {
+  id?: string
+  slug: string
+  name: string
+  legalName?: string | null
+  status?: $Enums.OrganisationStatus
+  timezone?: string
+  locale?: string
+  countryCode?: string
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  settings?: Prisma.OrganisationSettingUncheckedCreateNestedManyWithoutOrganisationInput
+  memberships?: Prisma.OrganisationMembershipUncheckedCreateNestedManyWithoutOrganisationInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutOrganisationInput
+  departmentMemberships?: Prisma.DepartmentMembershipUncheckedCreateNestedManyWithoutOrganisationInput
+  teams?: Prisma.TeamUncheckedCreateNestedManyWithoutOrganisationInput
+  teamMemberships?: Prisma.TeamMembershipUncheckedCreateNestedManyWithoutOrganisationInput
+  roles?: Prisma.RoleUncheckedCreateNestedManyWithoutOrganisationInput
+  roleAssignments?: Prisma.RoleAssignmentUncheckedCreateNestedManyWithoutOrganisationInput
+  invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutOrganisationInput
+  userSessions?: Prisma.UserSessionUncheckedCreateNestedManyWithoutActiveOrganisationInput
+  supportAccessGrants?: Prisma.SupportAccessGrantUncheckedCreateNestedManyWithoutOrganisationInput
+  auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutOrganisationInput
+  securityEvents?: Prisma.SecurityEventUncheckedCreateNestedManyWithoutOrganisationInput
+  enquiries?: Prisma.EnquiryUncheckedCreateNestedManyWithoutOrganisationInput
+  jobProfiles?: Prisma.JobProfileUncheckedCreateNestedManyWithoutOrganisationInput
+  jobProfileDuties?: Prisma.JobProfileDutyUncheckedCreateNestedManyWithoutOrganisationInput
+  kpiDefinitions?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutOrganisationInput
+  jobProfileKpis?: Prisma.JobProfileKpiUncheckedCreateNestedManyWithoutOrganisationInput
+  agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutOrganisationInput
+  agentPolicies?: Prisma.AgentPolicyUncheckedCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOrganisationInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationInput
+  workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutOrganisationInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutOrganisationInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUncheckedCreateNestedManyWithoutOrganisationInput
+  invitationOnboardingKpis?: Prisma.InvitationOnboardingKpiUncheckedCreateNestedManyWithoutOrganisationInput
+  numberSequences?: Prisma.OrganisationNumberSequenceUncheckedCreateNestedManyWithoutOrganisationInput
+  clients?: Prisma.ClientUncheckedCreateNestedManyWithoutOrganisationInput
+  matters?: Prisma.MatterUncheckedCreateNestedManyWithoutOrganisationInput
+  matterParties?: Prisma.MatterPartyUncheckedCreateNestedManyWithoutOrganisationInput
+  matterComplianceRecords?: Prisma.MatterComplianceUncheckedCreateNestedManyWithoutOrganisationInput
+  matterStatusHistory?: Prisma.MatterStatusHistoryUncheckedCreateNestedManyWithoutOrganisationInput
+  enquiryConversions?: Prisma.EnquiryConversionUncheckedCreateNestedManyWithoutOrganisationInput
+  matterTasks?: Prisma.MatterTaskUncheckedCreateNestedManyWithoutOrganisationInput
+  matterDeadlines?: Prisma.MatterDeadlineUncheckedCreateNestedManyWithoutOrganisationInput
+  documentRequests?: Prisma.DocumentRequestUncheckedCreateNestedManyWithoutOrganisationInput
+  documentRequestItems?: Prisma.DocumentRequestItemUncheckedCreateNestedManyWithoutOrganisationInput
+  matterDocuments?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutOrganisationInput
+  matterDocumentVersions?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutOrganisationInput
+  matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutOrganisationInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionUncheckedCreateNestedManyWithoutOrganisationInput
+  workflowVersions?: Prisma.WorkflowVersionUncheckedCreateNestedManyWithoutOrganisationInput
+  workflowRuns?: Prisma.WorkflowRunUncheckedCreateNestedManyWithoutOrganisationInput
+  workflowActions?: Prisma.WorkflowActionUncheckedCreateNestedManyWithoutOrganisationInput
+  slaPolicies?: Prisma.SlaPolicyUncheckedCreateNestedManyWithoutOrganisationInput
+  slaInstances?: Prisma.SlaInstanceUncheckedCreateNestedManyWithoutOrganisationInput
+  escalationRules?: Prisma.EscalationRuleUncheckedCreateNestedManyWithoutOrganisationInput
+  escalationEvents?: Prisma.EscalationEventUncheckedCreateNestedManyWithoutOrganisationInput
+  approvalRequests?: Prisma.ApprovalRequestUncheckedCreateNestedManyWithoutOrganisationInput
+  approvalDecisions?: Prisma.ApprovalDecisionUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutOrganisationInput
+}
+
+export type OrganisationCreateOrConnectWithoutAgentMessagesInput = {
+  where: Prisma.OrganisationWhereUniqueInput
+  create: Prisma.XOR<Prisma.OrganisationCreateWithoutAgentMessagesInput, Prisma.OrganisationUncheckedCreateWithoutAgentMessagesInput>
+}
+
+export type OrganisationUpsertWithoutAgentMessagesInput = {
+  update: Prisma.XOR<Prisma.OrganisationUpdateWithoutAgentMessagesInput, Prisma.OrganisationUncheckedUpdateWithoutAgentMessagesInput>
+  create: Prisma.XOR<Prisma.OrganisationCreateWithoutAgentMessagesInput, Prisma.OrganisationUncheckedCreateWithoutAgentMessagesInput>
+  where?: Prisma.OrganisationWhereInput
+}
+
+export type OrganisationUpdateToOneWithWhereWithoutAgentMessagesInput = {
+  where?: Prisma.OrganisationWhereInput
+  data: Prisma.XOR<Prisma.OrganisationUpdateWithoutAgentMessagesInput, Prisma.OrganisationUncheckedUpdateWithoutAgentMessagesInput>
+}
+
+export type OrganisationUpdateWithoutAgentMessagesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumOrganisationStatusFieldUpdateOperationsInput | $Enums.OrganisationStatus
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  countryCode?: Prisma.StringFieldUpdateOperationsInput | string
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  settings?: Prisma.OrganisationSettingUpdateManyWithoutOrganisationNestedInput
+  memberships?: Prisma.OrganisationMembershipUpdateManyWithoutOrganisationNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutOrganisationNestedInput
+  departmentMemberships?: Prisma.DepartmentMembershipUpdateManyWithoutOrganisationNestedInput
+  teams?: Prisma.TeamUpdateManyWithoutOrganisationNestedInput
+  teamMemberships?: Prisma.TeamMembershipUpdateManyWithoutOrganisationNestedInput
+  roles?: Prisma.RoleUpdateManyWithoutOrganisationNestedInput
+  roleAssignments?: Prisma.RoleAssignmentUpdateManyWithoutOrganisationNestedInput
+  invitations?: Prisma.InvitationUpdateManyWithoutOrganisationNestedInput
+  userSessions?: Prisma.UserSessionUpdateManyWithoutActiveOrganisationNestedInput
+  supportAccessGrants?: Prisma.SupportAccessGrantUpdateManyWithoutOrganisationNestedInput
+  auditEvents?: Prisma.AuditEventUpdateManyWithoutOrganisationNestedInput
+  securityEvents?: Prisma.SecurityEventUpdateManyWithoutOrganisationNestedInput
+  enquiries?: Prisma.EnquiryUpdateManyWithoutOrganisationNestedInput
+  jobProfiles?: Prisma.JobProfileUpdateManyWithoutOrganisationNestedInput
+  jobProfileDuties?: Prisma.JobProfileDutyUpdateManyWithoutOrganisationNestedInput
+  kpiDefinitions?: Prisma.KpiDefinitionUpdateManyWithoutOrganisationNestedInput
+  jobProfileKpis?: Prisma.JobProfileKpiUpdateManyWithoutOrganisationNestedInput
+  agentProfiles?: Prisma.AgentProfileUpdateManyWithoutOrganisationNestedInput
+  agentPolicies?: Prisma.AgentPolicyUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUpdateManyWithoutOrganisationNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationNestedInput
+  workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutOrganisationNestedInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutOrganisationNestedInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUpdateManyWithoutOrganisationNestedInput
+  invitationOnboardingKpis?: Prisma.InvitationOnboardingKpiUpdateManyWithoutOrganisationNestedInput
+  numberSequences?: Prisma.OrganisationNumberSequenceUpdateManyWithoutOrganisationNestedInput
+  clients?: Prisma.ClientUpdateManyWithoutOrganisationNestedInput
+  matters?: Prisma.MatterUpdateManyWithoutOrganisationNestedInput
+  matterParties?: Prisma.MatterPartyUpdateManyWithoutOrganisationNestedInput
+  matterComplianceRecords?: Prisma.MatterComplianceUpdateManyWithoutOrganisationNestedInput
+  matterStatusHistory?: Prisma.MatterStatusHistoryUpdateManyWithoutOrganisationNestedInput
+  enquiryConversions?: Prisma.EnquiryConversionUpdateManyWithoutOrganisationNestedInput
+  matterTasks?: Prisma.MatterTaskUpdateManyWithoutOrganisationNestedInput
+  matterDeadlines?: Prisma.MatterDeadlineUpdateManyWithoutOrganisationNestedInput
+  documentRequests?: Prisma.DocumentRequestUpdateManyWithoutOrganisationNestedInput
+  documentRequestItems?: Prisma.DocumentRequestItemUpdateManyWithoutOrganisationNestedInput
+  matterDocuments?: Prisma.MatterDocumentUpdateManyWithoutOrganisationNestedInput
+  matterDocumentVersions?: Prisma.MatterDocumentVersionUpdateManyWithoutOrganisationNestedInput
+  matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutOrganisationNestedInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionUpdateManyWithoutOrganisationNestedInput
+  workflowVersions?: Prisma.WorkflowVersionUpdateManyWithoutOrganisationNestedInput
+  workflowRuns?: Prisma.WorkflowRunUpdateManyWithoutOrganisationNestedInput
+  workflowActions?: Prisma.WorkflowActionUpdateManyWithoutOrganisationNestedInput
+  slaPolicies?: Prisma.SlaPolicyUpdateManyWithoutOrganisationNestedInput
+  slaInstances?: Prisma.SlaInstanceUpdateManyWithoutOrganisationNestedInput
+  escalationRules?: Prisma.EscalationRuleUpdateManyWithoutOrganisationNestedInput
+  escalationEvents?: Prisma.EscalationEventUpdateManyWithoutOrganisationNestedInput
+  approvalRequests?: Prisma.ApprovalRequestUpdateManyWithoutOrganisationNestedInput
+  approvalDecisions?: Prisma.ApprovalDecisionUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUpdateManyWithoutOrganisationNestedInput
+}
+
+export type OrganisationUncheckedUpdateWithoutAgentMessagesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumOrganisationStatusFieldUpdateOperationsInput | $Enums.OrganisationStatus
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  countryCode?: Prisma.StringFieldUpdateOperationsInput | string
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  settings?: Prisma.OrganisationSettingUncheckedUpdateManyWithoutOrganisationNestedInput
+  memberships?: Prisma.OrganisationMembershipUncheckedUpdateManyWithoutOrganisationNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutOrganisationNestedInput
+  departmentMemberships?: Prisma.DepartmentMembershipUncheckedUpdateManyWithoutOrganisationNestedInput
+  teams?: Prisma.TeamUncheckedUpdateManyWithoutOrganisationNestedInput
+  teamMemberships?: Prisma.TeamMembershipUncheckedUpdateManyWithoutOrganisationNestedInput
+  roles?: Prisma.RoleUncheckedUpdateManyWithoutOrganisationNestedInput
+  roleAssignments?: Prisma.RoleAssignmentUncheckedUpdateManyWithoutOrganisationNestedInput
+  invitations?: Prisma.InvitationUncheckedUpdateManyWithoutOrganisationNestedInput
+  userSessions?: Prisma.UserSessionUncheckedUpdateManyWithoutActiveOrganisationNestedInput
+  supportAccessGrants?: Prisma.SupportAccessGrantUncheckedUpdateManyWithoutOrganisationNestedInput
+  auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutOrganisationNestedInput
+  securityEvents?: Prisma.SecurityEventUncheckedUpdateManyWithoutOrganisationNestedInput
+  enquiries?: Prisma.EnquiryUncheckedUpdateManyWithoutOrganisationNestedInput
+  jobProfiles?: Prisma.JobProfileUncheckedUpdateManyWithoutOrganisationNestedInput
+  jobProfileDuties?: Prisma.JobProfileDutyUncheckedUpdateManyWithoutOrganisationNestedInput
+  kpiDefinitions?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutOrganisationNestedInput
+  jobProfileKpis?: Prisma.JobProfileKpiUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentPolicies?: Prisma.AgentPolicyUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUncheckedUpdateManyWithoutOrganisationNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationNestedInput
+  workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutOrganisationNestedInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutOrganisationNestedInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUncheckedUpdateManyWithoutOrganisationNestedInput
+  invitationOnboardingKpis?: Prisma.InvitationOnboardingKpiUncheckedUpdateManyWithoutOrganisationNestedInput
+  numberSequences?: Prisma.OrganisationNumberSequenceUncheckedUpdateManyWithoutOrganisationNestedInput
+  clients?: Prisma.ClientUncheckedUpdateManyWithoutOrganisationNestedInput
+  matters?: Prisma.MatterUncheckedUpdateManyWithoutOrganisationNestedInput
+  matterParties?: Prisma.MatterPartyUncheckedUpdateManyWithoutOrganisationNestedInput
+  matterComplianceRecords?: Prisma.MatterComplianceUncheckedUpdateManyWithoutOrganisationNestedInput
+  matterStatusHistory?: Prisma.MatterStatusHistoryUncheckedUpdateManyWithoutOrganisationNestedInput
+  enquiryConversions?: Prisma.EnquiryConversionUncheckedUpdateManyWithoutOrganisationNestedInput
+  matterTasks?: Prisma.MatterTaskUncheckedUpdateManyWithoutOrganisationNestedInput
+  matterDeadlines?: Prisma.MatterDeadlineUncheckedUpdateManyWithoutOrganisationNestedInput
+  documentRequests?: Prisma.DocumentRequestUncheckedUpdateManyWithoutOrganisationNestedInput
+  documentRequestItems?: Prisma.DocumentRequestItemUncheckedUpdateManyWithoutOrganisationNestedInput
+  matterDocuments?: Prisma.MatterDocumentUncheckedUpdateManyWithoutOrganisationNestedInput
+  matterDocumentVersions?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutOrganisationNestedInput
+  matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutOrganisationNestedInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionUncheckedUpdateManyWithoutOrganisationNestedInput
+  workflowVersions?: Prisma.WorkflowVersionUncheckedUpdateManyWithoutOrganisationNestedInput
+  workflowRuns?: Prisma.WorkflowRunUncheckedUpdateManyWithoutOrganisationNestedInput
+  workflowActions?: Prisma.WorkflowActionUncheckedUpdateManyWithoutOrganisationNestedInput
+  slaPolicies?: Prisma.SlaPolicyUncheckedUpdateManyWithoutOrganisationNestedInput
+  slaInstances?: Prisma.SlaInstanceUncheckedUpdateManyWithoutOrganisationNestedInput
+  escalationRules?: Prisma.EscalationRuleUncheckedUpdateManyWithoutOrganisationNestedInput
+  escalationEvents?: Prisma.EscalationEventUncheckedUpdateManyWithoutOrganisationNestedInput
+  approvalRequests?: Prisma.ApprovalRequestUncheckedUpdateManyWithoutOrganisationNestedInput
+  approvalDecisions?: Prisma.ApprovalDecisionUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutOrganisationNestedInput
+}
+
+export type OrganisationCreateWithoutAgentActionsInput = {
+  id?: string
+  slug: string
+  name: string
+  legalName?: string | null
+  status?: $Enums.OrganisationStatus
+  timezone?: string
+  locale?: string
+  countryCode?: string
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  settings?: Prisma.OrganisationSettingCreateNestedManyWithoutOrganisationInput
+  memberships?: Prisma.OrganisationMembershipCreateNestedManyWithoutOrganisationInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutOrganisationInput
+  departmentMemberships?: Prisma.DepartmentMembershipCreateNestedManyWithoutOrganisationInput
+  teams?: Prisma.TeamCreateNestedManyWithoutOrganisationInput
+  teamMemberships?: Prisma.TeamMembershipCreateNestedManyWithoutOrganisationInput
+  roles?: Prisma.RoleCreateNestedManyWithoutOrganisationInput
+  roleAssignments?: Prisma.RoleAssignmentCreateNestedManyWithoutOrganisationInput
+  invitations?: Prisma.InvitationCreateNestedManyWithoutOrganisationInput
+  userSessions?: Prisma.UserSessionCreateNestedManyWithoutActiveOrganisationInput
+  supportAccessGrants?: Prisma.SupportAccessGrantCreateNestedManyWithoutOrganisationInput
+  auditEvents?: Prisma.AuditEventCreateNestedManyWithoutOrganisationInput
+  securityEvents?: Prisma.SecurityEventCreateNestedManyWithoutOrganisationInput
+  enquiries?: Prisma.EnquiryCreateNestedManyWithoutOrganisationInput
+  jobProfiles?: Prisma.JobProfileCreateNestedManyWithoutOrganisationInput
+  jobProfileDuties?: Prisma.JobProfileDutyCreateNestedManyWithoutOrganisationInput
+  kpiDefinitions?: Prisma.KpiDefinitionCreateNestedManyWithoutOrganisationInput
+  jobProfileKpis?: Prisma.JobProfileKpiCreateNestedManyWithoutOrganisationInput
+  agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutOrganisationInput
+  agentPolicies?: Prisma.AgentPolicyCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageCreateNestedManyWithoutOrganisationInput
+  workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationInput
+  workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutOrganisationInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutOrganisationInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleCreateNestedManyWithoutOrganisationInput
+  invitationOnboardingKpis?: Prisma.InvitationOnboardingKpiCreateNestedManyWithoutOrganisationInput
+  numberSequences?: Prisma.OrganisationNumberSequenceCreateNestedManyWithoutOrganisationInput
+  clients?: Prisma.ClientCreateNestedManyWithoutOrganisationInput
+  matters?: Prisma.MatterCreateNestedManyWithoutOrganisationInput
+  matterParties?: Prisma.MatterPartyCreateNestedManyWithoutOrganisationInput
+  matterComplianceRecords?: Prisma.MatterComplianceCreateNestedManyWithoutOrganisationInput
+  matterStatusHistory?: Prisma.MatterStatusHistoryCreateNestedManyWithoutOrganisationInput
+  enquiryConversions?: Prisma.EnquiryConversionCreateNestedManyWithoutOrganisationInput
+  matterTasks?: Prisma.MatterTaskCreateNestedManyWithoutOrganisationInput
+  matterDeadlines?: Prisma.MatterDeadlineCreateNestedManyWithoutOrganisationInput
+  documentRequests?: Prisma.DocumentRequestCreateNestedManyWithoutOrganisationInput
+  documentRequestItems?: Prisma.DocumentRequestItemCreateNestedManyWithoutOrganisationInput
+  matterDocuments?: Prisma.MatterDocumentCreateNestedManyWithoutOrganisationInput
+  matterDocumentVersions?: Prisma.MatterDocumentVersionCreateNestedManyWithoutOrganisationInput
+  matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutOrganisationInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionCreateNestedManyWithoutOrganisationInput
+  workflowVersions?: Prisma.WorkflowVersionCreateNestedManyWithoutOrganisationInput
+  workflowRuns?: Prisma.WorkflowRunCreateNestedManyWithoutOrganisationInput
+  workflowActions?: Prisma.WorkflowActionCreateNestedManyWithoutOrganisationInput
+  slaPolicies?: Prisma.SlaPolicyCreateNestedManyWithoutOrganisationInput
+  slaInstances?: Prisma.SlaInstanceCreateNestedManyWithoutOrganisationInput
+  escalationRules?: Prisma.EscalationRuleCreateNestedManyWithoutOrganisationInput
+  escalationEvents?: Prisma.EscalationEventCreateNestedManyWithoutOrganisationInput
+  approvalRequests?: Prisma.ApprovalRequestCreateNestedManyWithoutOrganisationInput
+  approvalDecisions?: Prisma.ApprovalDecisionCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackCreateNestedManyWithoutOrganisationInput
+}
+
+export type OrganisationUncheckedCreateWithoutAgentActionsInput = {
+  id?: string
+  slug: string
+  name: string
+  legalName?: string | null
+  status?: $Enums.OrganisationStatus
+  timezone?: string
+  locale?: string
+  countryCode?: string
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  settings?: Prisma.OrganisationSettingUncheckedCreateNestedManyWithoutOrganisationInput
+  memberships?: Prisma.OrganisationMembershipUncheckedCreateNestedManyWithoutOrganisationInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutOrganisationInput
+  departmentMemberships?: Prisma.DepartmentMembershipUncheckedCreateNestedManyWithoutOrganisationInput
+  teams?: Prisma.TeamUncheckedCreateNestedManyWithoutOrganisationInput
+  teamMemberships?: Prisma.TeamMembershipUncheckedCreateNestedManyWithoutOrganisationInput
+  roles?: Prisma.RoleUncheckedCreateNestedManyWithoutOrganisationInput
+  roleAssignments?: Prisma.RoleAssignmentUncheckedCreateNestedManyWithoutOrganisationInput
+  invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutOrganisationInput
+  userSessions?: Prisma.UserSessionUncheckedCreateNestedManyWithoutActiveOrganisationInput
+  supportAccessGrants?: Prisma.SupportAccessGrantUncheckedCreateNestedManyWithoutOrganisationInput
+  auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutOrganisationInput
+  securityEvents?: Prisma.SecurityEventUncheckedCreateNestedManyWithoutOrganisationInput
+  enquiries?: Prisma.EnquiryUncheckedCreateNestedManyWithoutOrganisationInput
+  jobProfiles?: Prisma.JobProfileUncheckedCreateNestedManyWithoutOrganisationInput
+  jobProfileDuties?: Prisma.JobProfileDutyUncheckedCreateNestedManyWithoutOrganisationInput
+  kpiDefinitions?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutOrganisationInput
+  jobProfileKpis?: Prisma.JobProfileKpiUncheckedCreateNestedManyWithoutOrganisationInput
+  agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutOrganisationInput
+  agentPolicies?: Prisma.AgentPolicyUncheckedCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOrganisationInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationInput
+  workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutOrganisationInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutOrganisationInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUncheckedCreateNestedManyWithoutOrganisationInput
+  invitationOnboardingKpis?: Prisma.InvitationOnboardingKpiUncheckedCreateNestedManyWithoutOrganisationInput
+  numberSequences?: Prisma.OrganisationNumberSequenceUncheckedCreateNestedManyWithoutOrganisationInput
+  clients?: Prisma.ClientUncheckedCreateNestedManyWithoutOrganisationInput
+  matters?: Prisma.MatterUncheckedCreateNestedManyWithoutOrganisationInput
+  matterParties?: Prisma.MatterPartyUncheckedCreateNestedManyWithoutOrganisationInput
+  matterComplianceRecords?: Prisma.MatterComplianceUncheckedCreateNestedManyWithoutOrganisationInput
+  matterStatusHistory?: Prisma.MatterStatusHistoryUncheckedCreateNestedManyWithoutOrganisationInput
+  enquiryConversions?: Prisma.EnquiryConversionUncheckedCreateNestedManyWithoutOrganisationInput
+  matterTasks?: Prisma.MatterTaskUncheckedCreateNestedManyWithoutOrganisationInput
+  matterDeadlines?: Prisma.MatterDeadlineUncheckedCreateNestedManyWithoutOrganisationInput
+  documentRequests?: Prisma.DocumentRequestUncheckedCreateNestedManyWithoutOrganisationInput
+  documentRequestItems?: Prisma.DocumentRequestItemUncheckedCreateNestedManyWithoutOrganisationInput
+  matterDocuments?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutOrganisationInput
+  matterDocumentVersions?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutOrganisationInput
+  matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutOrganisationInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionUncheckedCreateNestedManyWithoutOrganisationInput
+  workflowVersions?: Prisma.WorkflowVersionUncheckedCreateNestedManyWithoutOrganisationInput
+  workflowRuns?: Prisma.WorkflowRunUncheckedCreateNestedManyWithoutOrganisationInput
+  workflowActions?: Prisma.WorkflowActionUncheckedCreateNestedManyWithoutOrganisationInput
+  slaPolicies?: Prisma.SlaPolicyUncheckedCreateNestedManyWithoutOrganisationInput
+  slaInstances?: Prisma.SlaInstanceUncheckedCreateNestedManyWithoutOrganisationInput
+  escalationRules?: Prisma.EscalationRuleUncheckedCreateNestedManyWithoutOrganisationInput
+  escalationEvents?: Prisma.EscalationEventUncheckedCreateNestedManyWithoutOrganisationInput
+  approvalRequests?: Prisma.ApprovalRequestUncheckedCreateNestedManyWithoutOrganisationInput
+  approvalDecisions?: Prisma.ApprovalDecisionUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutOrganisationInput
+}
+
+export type OrganisationCreateOrConnectWithoutAgentActionsInput = {
+  where: Prisma.OrganisationWhereUniqueInput
+  create: Prisma.XOR<Prisma.OrganisationCreateWithoutAgentActionsInput, Prisma.OrganisationUncheckedCreateWithoutAgentActionsInput>
+}
+
+export type OrganisationUpsertWithoutAgentActionsInput = {
+  update: Prisma.XOR<Prisma.OrganisationUpdateWithoutAgentActionsInput, Prisma.OrganisationUncheckedUpdateWithoutAgentActionsInput>
+  create: Prisma.XOR<Prisma.OrganisationCreateWithoutAgentActionsInput, Prisma.OrganisationUncheckedCreateWithoutAgentActionsInput>
+  where?: Prisma.OrganisationWhereInput
+}
+
+export type OrganisationUpdateToOneWithWhereWithoutAgentActionsInput = {
+  where?: Prisma.OrganisationWhereInput
+  data: Prisma.XOR<Prisma.OrganisationUpdateWithoutAgentActionsInput, Prisma.OrganisationUncheckedUpdateWithoutAgentActionsInput>
+}
+
+export type OrganisationUpdateWithoutAgentActionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumOrganisationStatusFieldUpdateOperationsInput | $Enums.OrganisationStatus
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  countryCode?: Prisma.StringFieldUpdateOperationsInput | string
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  settings?: Prisma.OrganisationSettingUpdateManyWithoutOrganisationNestedInput
+  memberships?: Prisma.OrganisationMembershipUpdateManyWithoutOrganisationNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutOrganisationNestedInput
+  departmentMemberships?: Prisma.DepartmentMembershipUpdateManyWithoutOrganisationNestedInput
+  teams?: Prisma.TeamUpdateManyWithoutOrganisationNestedInput
+  teamMemberships?: Prisma.TeamMembershipUpdateManyWithoutOrganisationNestedInput
+  roles?: Prisma.RoleUpdateManyWithoutOrganisationNestedInput
+  roleAssignments?: Prisma.RoleAssignmentUpdateManyWithoutOrganisationNestedInput
+  invitations?: Prisma.InvitationUpdateManyWithoutOrganisationNestedInput
+  userSessions?: Prisma.UserSessionUpdateManyWithoutActiveOrganisationNestedInput
+  supportAccessGrants?: Prisma.SupportAccessGrantUpdateManyWithoutOrganisationNestedInput
+  auditEvents?: Prisma.AuditEventUpdateManyWithoutOrganisationNestedInput
+  securityEvents?: Prisma.SecurityEventUpdateManyWithoutOrganisationNestedInput
+  enquiries?: Prisma.EnquiryUpdateManyWithoutOrganisationNestedInput
+  jobProfiles?: Prisma.JobProfileUpdateManyWithoutOrganisationNestedInput
+  jobProfileDuties?: Prisma.JobProfileDutyUpdateManyWithoutOrganisationNestedInput
+  kpiDefinitions?: Prisma.KpiDefinitionUpdateManyWithoutOrganisationNestedInput
+  jobProfileKpis?: Prisma.JobProfileKpiUpdateManyWithoutOrganisationNestedInput
+  agentProfiles?: Prisma.AgentProfileUpdateManyWithoutOrganisationNestedInput
+  agentPolicies?: Prisma.AgentPolicyUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUpdateManyWithoutOrganisationNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationNestedInput
+  workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutOrganisationNestedInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutOrganisationNestedInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUpdateManyWithoutOrganisationNestedInput
+  invitationOnboardingKpis?: Prisma.InvitationOnboardingKpiUpdateManyWithoutOrganisationNestedInput
+  numberSequences?: Prisma.OrganisationNumberSequenceUpdateManyWithoutOrganisationNestedInput
+  clients?: Prisma.ClientUpdateManyWithoutOrganisationNestedInput
+  matters?: Prisma.MatterUpdateManyWithoutOrganisationNestedInput
+  matterParties?: Prisma.MatterPartyUpdateManyWithoutOrganisationNestedInput
+  matterComplianceRecords?: Prisma.MatterComplianceUpdateManyWithoutOrganisationNestedInput
+  matterStatusHistory?: Prisma.MatterStatusHistoryUpdateManyWithoutOrganisationNestedInput
+  enquiryConversions?: Prisma.EnquiryConversionUpdateManyWithoutOrganisationNestedInput
+  matterTasks?: Prisma.MatterTaskUpdateManyWithoutOrganisationNestedInput
+  matterDeadlines?: Prisma.MatterDeadlineUpdateManyWithoutOrganisationNestedInput
+  documentRequests?: Prisma.DocumentRequestUpdateManyWithoutOrganisationNestedInput
+  documentRequestItems?: Prisma.DocumentRequestItemUpdateManyWithoutOrganisationNestedInput
+  matterDocuments?: Prisma.MatterDocumentUpdateManyWithoutOrganisationNestedInput
+  matterDocumentVersions?: Prisma.MatterDocumentVersionUpdateManyWithoutOrganisationNestedInput
+  matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutOrganisationNestedInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionUpdateManyWithoutOrganisationNestedInput
+  workflowVersions?: Prisma.WorkflowVersionUpdateManyWithoutOrganisationNestedInput
+  workflowRuns?: Prisma.WorkflowRunUpdateManyWithoutOrganisationNestedInput
+  workflowActions?: Prisma.WorkflowActionUpdateManyWithoutOrganisationNestedInput
+  slaPolicies?: Prisma.SlaPolicyUpdateManyWithoutOrganisationNestedInput
+  slaInstances?: Prisma.SlaInstanceUpdateManyWithoutOrganisationNestedInput
+  escalationRules?: Prisma.EscalationRuleUpdateManyWithoutOrganisationNestedInput
+  escalationEvents?: Prisma.EscalationEventUpdateManyWithoutOrganisationNestedInput
+  approvalRequests?: Prisma.ApprovalRequestUpdateManyWithoutOrganisationNestedInput
+  approvalDecisions?: Prisma.ApprovalDecisionUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUpdateManyWithoutOrganisationNestedInput
+}
+
+export type OrganisationUncheckedUpdateWithoutAgentActionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumOrganisationStatusFieldUpdateOperationsInput | $Enums.OrganisationStatus
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  countryCode?: Prisma.StringFieldUpdateOperationsInput | string
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  settings?: Prisma.OrganisationSettingUncheckedUpdateManyWithoutOrganisationNestedInput
+  memberships?: Prisma.OrganisationMembershipUncheckedUpdateManyWithoutOrganisationNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutOrganisationNestedInput
+  departmentMemberships?: Prisma.DepartmentMembershipUncheckedUpdateManyWithoutOrganisationNestedInput
+  teams?: Prisma.TeamUncheckedUpdateManyWithoutOrganisationNestedInput
+  teamMemberships?: Prisma.TeamMembershipUncheckedUpdateManyWithoutOrganisationNestedInput
+  roles?: Prisma.RoleUncheckedUpdateManyWithoutOrganisationNestedInput
+  roleAssignments?: Prisma.RoleAssignmentUncheckedUpdateManyWithoutOrganisationNestedInput
+  invitations?: Prisma.InvitationUncheckedUpdateManyWithoutOrganisationNestedInput
+  userSessions?: Prisma.UserSessionUncheckedUpdateManyWithoutActiveOrganisationNestedInput
+  supportAccessGrants?: Prisma.SupportAccessGrantUncheckedUpdateManyWithoutOrganisationNestedInput
+  auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutOrganisationNestedInput
+  securityEvents?: Prisma.SecurityEventUncheckedUpdateManyWithoutOrganisationNestedInput
+  enquiries?: Prisma.EnquiryUncheckedUpdateManyWithoutOrganisationNestedInput
+  jobProfiles?: Prisma.JobProfileUncheckedUpdateManyWithoutOrganisationNestedInput
+  jobProfileDuties?: Prisma.JobProfileDutyUncheckedUpdateManyWithoutOrganisationNestedInput
+  kpiDefinitions?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutOrganisationNestedInput
+  jobProfileKpis?: Prisma.JobProfileKpiUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentPolicies?: Prisma.AgentPolicyUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUncheckedUpdateManyWithoutOrganisationNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationNestedInput
+  workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutOrganisationNestedInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutOrganisationNestedInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUncheckedUpdateManyWithoutOrganisationNestedInput
+  invitationOnboardingKpis?: Prisma.InvitationOnboardingKpiUncheckedUpdateManyWithoutOrganisationNestedInput
+  numberSequences?: Prisma.OrganisationNumberSequenceUncheckedUpdateManyWithoutOrganisationNestedInput
+  clients?: Prisma.ClientUncheckedUpdateManyWithoutOrganisationNestedInput
+  matters?: Prisma.MatterUncheckedUpdateManyWithoutOrganisationNestedInput
+  matterParties?: Prisma.MatterPartyUncheckedUpdateManyWithoutOrganisationNestedInput
+  matterComplianceRecords?: Prisma.MatterComplianceUncheckedUpdateManyWithoutOrganisationNestedInput
+  matterStatusHistory?: Prisma.MatterStatusHistoryUncheckedUpdateManyWithoutOrganisationNestedInput
+  enquiryConversions?: Prisma.EnquiryConversionUncheckedUpdateManyWithoutOrganisationNestedInput
+  matterTasks?: Prisma.MatterTaskUncheckedUpdateManyWithoutOrganisationNestedInput
+  matterDeadlines?: Prisma.MatterDeadlineUncheckedUpdateManyWithoutOrganisationNestedInput
+  documentRequests?: Prisma.DocumentRequestUncheckedUpdateManyWithoutOrganisationNestedInput
+  documentRequestItems?: Prisma.DocumentRequestItemUncheckedUpdateManyWithoutOrganisationNestedInput
+  matterDocuments?: Prisma.MatterDocumentUncheckedUpdateManyWithoutOrganisationNestedInput
+  matterDocumentVersions?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutOrganisationNestedInput
+  matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutOrganisationNestedInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionUncheckedUpdateManyWithoutOrganisationNestedInput
+  workflowVersions?: Prisma.WorkflowVersionUncheckedUpdateManyWithoutOrganisationNestedInput
+  workflowRuns?: Prisma.WorkflowRunUncheckedUpdateManyWithoutOrganisationNestedInput
+  workflowActions?: Prisma.WorkflowActionUncheckedUpdateManyWithoutOrganisationNestedInput
+  slaPolicies?: Prisma.SlaPolicyUncheckedUpdateManyWithoutOrganisationNestedInput
+  slaInstances?: Prisma.SlaInstanceUncheckedUpdateManyWithoutOrganisationNestedInput
+  escalationRules?: Prisma.EscalationRuleUncheckedUpdateManyWithoutOrganisationNestedInput
+  escalationEvents?: Prisma.EscalationEventUncheckedUpdateManyWithoutOrganisationNestedInput
+  approvalRequests?: Prisma.ApprovalRequestUncheckedUpdateManyWithoutOrganisationNestedInput
+  approvalDecisions?: Prisma.ApprovalDecisionUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutOrganisationNestedInput
+}
+
+export type OrganisationCreateWithoutAgentToolCallsInput = {
+  id?: string
+  slug: string
+  name: string
+  legalName?: string | null
+  status?: $Enums.OrganisationStatus
+  timezone?: string
+  locale?: string
+  countryCode?: string
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  settings?: Prisma.OrganisationSettingCreateNestedManyWithoutOrganisationInput
+  memberships?: Prisma.OrganisationMembershipCreateNestedManyWithoutOrganisationInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutOrganisationInput
+  departmentMemberships?: Prisma.DepartmentMembershipCreateNestedManyWithoutOrganisationInput
+  teams?: Prisma.TeamCreateNestedManyWithoutOrganisationInput
+  teamMemberships?: Prisma.TeamMembershipCreateNestedManyWithoutOrganisationInput
+  roles?: Prisma.RoleCreateNestedManyWithoutOrganisationInput
+  roleAssignments?: Prisma.RoleAssignmentCreateNestedManyWithoutOrganisationInput
+  invitations?: Prisma.InvitationCreateNestedManyWithoutOrganisationInput
+  userSessions?: Prisma.UserSessionCreateNestedManyWithoutActiveOrganisationInput
+  supportAccessGrants?: Prisma.SupportAccessGrantCreateNestedManyWithoutOrganisationInput
+  auditEvents?: Prisma.AuditEventCreateNestedManyWithoutOrganisationInput
+  securityEvents?: Prisma.SecurityEventCreateNestedManyWithoutOrganisationInput
+  enquiries?: Prisma.EnquiryCreateNestedManyWithoutOrganisationInput
+  jobProfiles?: Prisma.JobProfileCreateNestedManyWithoutOrganisationInput
+  jobProfileDuties?: Prisma.JobProfileDutyCreateNestedManyWithoutOrganisationInput
+  kpiDefinitions?: Prisma.KpiDefinitionCreateNestedManyWithoutOrganisationInput
+  jobProfileKpis?: Prisma.JobProfileKpiCreateNestedManyWithoutOrganisationInput
+  agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutOrganisationInput
+  agentPolicies?: Prisma.AgentPolicyCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageCreateNestedManyWithoutOrganisationInput
+  workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationInput
+  workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutOrganisationInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutOrganisationInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleCreateNestedManyWithoutOrganisationInput
+  invitationOnboardingKpis?: Prisma.InvitationOnboardingKpiCreateNestedManyWithoutOrganisationInput
+  numberSequences?: Prisma.OrganisationNumberSequenceCreateNestedManyWithoutOrganisationInput
+  clients?: Prisma.ClientCreateNestedManyWithoutOrganisationInput
+  matters?: Prisma.MatterCreateNestedManyWithoutOrganisationInput
+  matterParties?: Prisma.MatterPartyCreateNestedManyWithoutOrganisationInput
+  matterComplianceRecords?: Prisma.MatterComplianceCreateNestedManyWithoutOrganisationInput
+  matterStatusHistory?: Prisma.MatterStatusHistoryCreateNestedManyWithoutOrganisationInput
+  enquiryConversions?: Prisma.EnquiryConversionCreateNestedManyWithoutOrganisationInput
+  matterTasks?: Prisma.MatterTaskCreateNestedManyWithoutOrganisationInput
+  matterDeadlines?: Prisma.MatterDeadlineCreateNestedManyWithoutOrganisationInput
+  documentRequests?: Prisma.DocumentRequestCreateNestedManyWithoutOrganisationInput
+  documentRequestItems?: Prisma.DocumentRequestItemCreateNestedManyWithoutOrganisationInput
+  matterDocuments?: Prisma.MatterDocumentCreateNestedManyWithoutOrganisationInput
+  matterDocumentVersions?: Prisma.MatterDocumentVersionCreateNestedManyWithoutOrganisationInput
+  matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutOrganisationInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionCreateNestedManyWithoutOrganisationInput
+  workflowVersions?: Prisma.WorkflowVersionCreateNestedManyWithoutOrganisationInput
+  workflowRuns?: Prisma.WorkflowRunCreateNestedManyWithoutOrganisationInput
+  workflowActions?: Prisma.WorkflowActionCreateNestedManyWithoutOrganisationInput
+  slaPolicies?: Prisma.SlaPolicyCreateNestedManyWithoutOrganisationInput
+  slaInstances?: Prisma.SlaInstanceCreateNestedManyWithoutOrganisationInput
+  escalationRules?: Prisma.EscalationRuleCreateNestedManyWithoutOrganisationInput
+  escalationEvents?: Prisma.EscalationEventCreateNestedManyWithoutOrganisationInput
+  approvalRequests?: Prisma.ApprovalRequestCreateNestedManyWithoutOrganisationInput
+  approvalDecisions?: Prisma.ApprovalDecisionCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackCreateNestedManyWithoutOrganisationInput
+}
+
+export type OrganisationUncheckedCreateWithoutAgentToolCallsInput = {
+  id?: string
+  slug: string
+  name: string
+  legalName?: string | null
+  status?: $Enums.OrganisationStatus
+  timezone?: string
+  locale?: string
+  countryCode?: string
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  settings?: Prisma.OrganisationSettingUncheckedCreateNestedManyWithoutOrganisationInput
+  memberships?: Prisma.OrganisationMembershipUncheckedCreateNestedManyWithoutOrganisationInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutOrganisationInput
+  departmentMemberships?: Prisma.DepartmentMembershipUncheckedCreateNestedManyWithoutOrganisationInput
+  teams?: Prisma.TeamUncheckedCreateNestedManyWithoutOrganisationInput
+  teamMemberships?: Prisma.TeamMembershipUncheckedCreateNestedManyWithoutOrganisationInput
+  roles?: Prisma.RoleUncheckedCreateNestedManyWithoutOrganisationInput
+  roleAssignments?: Prisma.RoleAssignmentUncheckedCreateNestedManyWithoutOrganisationInput
+  invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutOrganisationInput
+  userSessions?: Prisma.UserSessionUncheckedCreateNestedManyWithoutActiveOrganisationInput
+  supportAccessGrants?: Prisma.SupportAccessGrantUncheckedCreateNestedManyWithoutOrganisationInput
+  auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutOrganisationInput
+  securityEvents?: Prisma.SecurityEventUncheckedCreateNestedManyWithoutOrganisationInput
+  enquiries?: Prisma.EnquiryUncheckedCreateNestedManyWithoutOrganisationInput
+  jobProfiles?: Prisma.JobProfileUncheckedCreateNestedManyWithoutOrganisationInput
+  jobProfileDuties?: Prisma.JobProfileDutyUncheckedCreateNestedManyWithoutOrganisationInput
+  kpiDefinitions?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutOrganisationInput
+  jobProfileKpis?: Prisma.JobProfileKpiUncheckedCreateNestedManyWithoutOrganisationInput
+  agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutOrganisationInput
+  agentPolicies?: Prisma.AgentPolicyUncheckedCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOrganisationInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationInput
+  workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutOrganisationInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutOrganisationInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUncheckedCreateNestedManyWithoutOrganisationInput
+  invitationOnboardingKpis?: Prisma.InvitationOnboardingKpiUncheckedCreateNestedManyWithoutOrganisationInput
+  numberSequences?: Prisma.OrganisationNumberSequenceUncheckedCreateNestedManyWithoutOrganisationInput
+  clients?: Prisma.ClientUncheckedCreateNestedManyWithoutOrganisationInput
+  matters?: Prisma.MatterUncheckedCreateNestedManyWithoutOrganisationInput
+  matterParties?: Prisma.MatterPartyUncheckedCreateNestedManyWithoutOrganisationInput
+  matterComplianceRecords?: Prisma.MatterComplianceUncheckedCreateNestedManyWithoutOrganisationInput
+  matterStatusHistory?: Prisma.MatterStatusHistoryUncheckedCreateNestedManyWithoutOrganisationInput
+  enquiryConversions?: Prisma.EnquiryConversionUncheckedCreateNestedManyWithoutOrganisationInput
+  matterTasks?: Prisma.MatterTaskUncheckedCreateNestedManyWithoutOrganisationInput
+  matterDeadlines?: Prisma.MatterDeadlineUncheckedCreateNestedManyWithoutOrganisationInput
+  documentRequests?: Prisma.DocumentRequestUncheckedCreateNestedManyWithoutOrganisationInput
+  documentRequestItems?: Prisma.DocumentRequestItemUncheckedCreateNestedManyWithoutOrganisationInput
+  matterDocuments?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutOrganisationInput
+  matterDocumentVersions?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutOrganisationInput
+  matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutOrganisationInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionUncheckedCreateNestedManyWithoutOrganisationInput
+  workflowVersions?: Prisma.WorkflowVersionUncheckedCreateNestedManyWithoutOrganisationInput
+  workflowRuns?: Prisma.WorkflowRunUncheckedCreateNestedManyWithoutOrganisationInput
+  workflowActions?: Prisma.WorkflowActionUncheckedCreateNestedManyWithoutOrganisationInput
+  slaPolicies?: Prisma.SlaPolicyUncheckedCreateNestedManyWithoutOrganisationInput
+  slaInstances?: Prisma.SlaInstanceUncheckedCreateNestedManyWithoutOrganisationInput
+  escalationRules?: Prisma.EscalationRuleUncheckedCreateNestedManyWithoutOrganisationInput
+  escalationEvents?: Prisma.EscalationEventUncheckedCreateNestedManyWithoutOrganisationInput
+  approvalRequests?: Prisma.ApprovalRequestUncheckedCreateNestedManyWithoutOrganisationInput
+  approvalDecisions?: Prisma.ApprovalDecisionUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutOrganisationInput
+}
+
+export type OrganisationCreateOrConnectWithoutAgentToolCallsInput = {
+  where: Prisma.OrganisationWhereUniqueInput
+  create: Prisma.XOR<Prisma.OrganisationCreateWithoutAgentToolCallsInput, Prisma.OrganisationUncheckedCreateWithoutAgentToolCallsInput>
+}
+
+export type OrganisationUpsertWithoutAgentToolCallsInput = {
+  update: Prisma.XOR<Prisma.OrganisationUpdateWithoutAgentToolCallsInput, Prisma.OrganisationUncheckedUpdateWithoutAgentToolCallsInput>
+  create: Prisma.XOR<Prisma.OrganisationCreateWithoutAgentToolCallsInput, Prisma.OrganisationUncheckedCreateWithoutAgentToolCallsInput>
+  where?: Prisma.OrganisationWhereInput
+}
+
+export type OrganisationUpdateToOneWithWhereWithoutAgentToolCallsInput = {
+  where?: Prisma.OrganisationWhereInput
+  data: Prisma.XOR<Prisma.OrganisationUpdateWithoutAgentToolCallsInput, Prisma.OrganisationUncheckedUpdateWithoutAgentToolCallsInput>
+}
+
+export type OrganisationUpdateWithoutAgentToolCallsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumOrganisationStatusFieldUpdateOperationsInput | $Enums.OrganisationStatus
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  countryCode?: Prisma.StringFieldUpdateOperationsInput | string
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  settings?: Prisma.OrganisationSettingUpdateManyWithoutOrganisationNestedInput
+  memberships?: Prisma.OrganisationMembershipUpdateManyWithoutOrganisationNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutOrganisationNestedInput
+  departmentMemberships?: Prisma.DepartmentMembershipUpdateManyWithoutOrganisationNestedInput
+  teams?: Prisma.TeamUpdateManyWithoutOrganisationNestedInput
+  teamMemberships?: Prisma.TeamMembershipUpdateManyWithoutOrganisationNestedInput
+  roles?: Prisma.RoleUpdateManyWithoutOrganisationNestedInput
+  roleAssignments?: Prisma.RoleAssignmentUpdateManyWithoutOrganisationNestedInput
+  invitations?: Prisma.InvitationUpdateManyWithoutOrganisationNestedInput
+  userSessions?: Prisma.UserSessionUpdateManyWithoutActiveOrganisationNestedInput
+  supportAccessGrants?: Prisma.SupportAccessGrantUpdateManyWithoutOrganisationNestedInput
+  auditEvents?: Prisma.AuditEventUpdateManyWithoutOrganisationNestedInput
+  securityEvents?: Prisma.SecurityEventUpdateManyWithoutOrganisationNestedInput
+  enquiries?: Prisma.EnquiryUpdateManyWithoutOrganisationNestedInput
+  jobProfiles?: Prisma.JobProfileUpdateManyWithoutOrganisationNestedInput
+  jobProfileDuties?: Prisma.JobProfileDutyUpdateManyWithoutOrganisationNestedInput
+  kpiDefinitions?: Prisma.KpiDefinitionUpdateManyWithoutOrganisationNestedInput
+  jobProfileKpis?: Prisma.JobProfileKpiUpdateManyWithoutOrganisationNestedInput
+  agentProfiles?: Prisma.AgentProfileUpdateManyWithoutOrganisationNestedInput
+  agentPolicies?: Prisma.AgentPolicyUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUpdateManyWithoutOrganisationNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationNestedInput
+  workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutOrganisationNestedInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutOrganisationNestedInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUpdateManyWithoutOrganisationNestedInput
+  invitationOnboardingKpis?: Prisma.InvitationOnboardingKpiUpdateManyWithoutOrganisationNestedInput
+  numberSequences?: Prisma.OrganisationNumberSequenceUpdateManyWithoutOrganisationNestedInput
+  clients?: Prisma.ClientUpdateManyWithoutOrganisationNestedInput
+  matters?: Prisma.MatterUpdateManyWithoutOrganisationNestedInput
+  matterParties?: Prisma.MatterPartyUpdateManyWithoutOrganisationNestedInput
+  matterComplianceRecords?: Prisma.MatterComplianceUpdateManyWithoutOrganisationNestedInput
+  matterStatusHistory?: Prisma.MatterStatusHistoryUpdateManyWithoutOrganisationNestedInput
+  enquiryConversions?: Prisma.EnquiryConversionUpdateManyWithoutOrganisationNestedInput
+  matterTasks?: Prisma.MatterTaskUpdateManyWithoutOrganisationNestedInput
+  matterDeadlines?: Prisma.MatterDeadlineUpdateManyWithoutOrganisationNestedInput
+  documentRequests?: Prisma.DocumentRequestUpdateManyWithoutOrganisationNestedInput
+  documentRequestItems?: Prisma.DocumentRequestItemUpdateManyWithoutOrganisationNestedInput
+  matterDocuments?: Prisma.MatterDocumentUpdateManyWithoutOrganisationNestedInput
+  matterDocumentVersions?: Prisma.MatterDocumentVersionUpdateManyWithoutOrganisationNestedInput
+  matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutOrganisationNestedInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionUpdateManyWithoutOrganisationNestedInput
+  workflowVersions?: Prisma.WorkflowVersionUpdateManyWithoutOrganisationNestedInput
+  workflowRuns?: Prisma.WorkflowRunUpdateManyWithoutOrganisationNestedInput
+  workflowActions?: Prisma.WorkflowActionUpdateManyWithoutOrganisationNestedInput
+  slaPolicies?: Prisma.SlaPolicyUpdateManyWithoutOrganisationNestedInput
+  slaInstances?: Prisma.SlaInstanceUpdateManyWithoutOrganisationNestedInput
+  escalationRules?: Prisma.EscalationRuleUpdateManyWithoutOrganisationNestedInput
+  escalationEvents?: Prisma.EscalationEventUpdateManyWithoutOrganisationNestedInput
+  approvalRequests?: Prisma.ApprovalRequestUpdateManyWithoutOrganisationNestedInput
+  approvalDecisions?: Prisma.ApprovalDecisionUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUpdateManyWithoutOrganisationNestedInput
+}
+
+export type OrganisationUncheckedUpdateWithoutAgentToolCallsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumOrganisationStatusFieldUpdateOperationsInput | $Enums.OrganisationStatus
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  countryCode?: Prisma.StringFieldUpdateOperationsInput | string
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  settings?: Prisma.OrganisationSettingUncheckedUpdateManyWithoutOrganisationNestedInput
+  memberships?: Prisma.OrganisationMembershipUncheckedUpdateManyWithoutOrganisationNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutOrganisationNestedInput
+  departmentMemberships?: Prisma.DepartmentMembershipUncheckedUpdateManyWithoutOrganisationNestedInput
+  teams?: Prisma.TeamUncheckedUpdateManyWithoutOrganisationNestedInput
+  teamMemberships?: Prisma.TeamMembershipUncheckedUpdateManyWithoutOrganisationNestedInput
+  roles?: Prisma.RoleUncheckedUpdateManyWithoutOrganisationNestedInput
+  roleAssignments?: Prisma.RoleAssignmentUncheckedUpdateManyWithoutOrganisationNestedInput
+  invitations?: Prisma.InvitationUncheckedUpdateManyWithoutOrganisationNestedInput
+  userSessions?: Prisma.UserSessionUncheckedUpdateManyWithoutActiveOrganisationNestedInput
+  supportAccessGrants?: Prisma.SupportAccessGrantUncheckedUpdateManyWithoutOrganisationNestedInput
+  auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutOrganisationNestedInput
+  securityEvents?: Prisma.SecurityEventUncheckedUpdateManyWithoutOrganisationNestedInput
+  enquiries?: Prisma.EnquiryUncheckedUpdateManyWithoutOrganisationNestedInput
+  jobProfiles?: Prisma.JobProfileUncheckedUpdateManyWithoutOrganisationNestedInput
+  jobProfileDuties?: Prisma.JobProfileDutyUncheckedUpdateManyWithoutOrganisationNestedInput
+  kpiDefinitions?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutOrganisationNestedInput
+  jobProfileKpis?: Prisma.JobProfileKpiUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentPolicies?: Prisma.AgentPolicyUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUncheckedUpdateManyWithoutOrganisationNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationNestedInput
+  workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutOrganisationNestedInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutOrganisationNestedInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUncheckedUpdateManyWithoutOrganisationNestedInput
+  invitationOnboardingKpis?: Prisma.InvitationOnboardingKpiUncheckedUpdateManyWithoutOrganisationNestedInput
+  numberSequences?: Prisma.OrganisationNumberSequenceUncheckedUpdateManyWithoutOrganisationNestedInput
+  clients?: Prisma.ClientUncheckedUpdateManyWithoutOrganisationNestedInput
+  matters?: Prisma.MatterUncheckedUpdateManyWithoutOrganisationNestedInput
+  matterParties?: Prisma.MatterPartyUncheckedUpdateManyWithoutOrganisationNestedInput
+  matterComplianceRecords?: Prisma.MatterComplianceUncheckedUpdateManyWithoutOrganisationNestedInput
+  matterStatusHistory?: Prisma.MatterStatusHistoryUncheckedUpdateManyWithoutOrganisationNestedInput
+  enquiryConversions?: Prisma.EnquiryConversionUncheckedUpdateManyWithoutOrganisationNestedInput
+  matterTasks?: Prisma.MatterTaskUncheckedUpdateManyWithoutOrganisationNestedInput
+  matterDeadlines?: Prisma.MatterDeadlineUncheckedUpdateManyWithoutOrganisationNestedInput
+  documentRequests?: Prisma.DocumentRequestUncheckedUpdateManyWithoutOrganisationNestedInput
+  documentRequestItems?: Prisma.DocumentRequestItemUncheckedUpdateManyWithoutOrganisationNestedInput
+  matterDocuments?: Prisma.MatterDocumentUncheckedUpdateManyWithoutOrganisationNestedInput
+  matterDocumentVersions?: Prisma.MatterDocumentVersionUncheckedUpdateManyWithoutOrganisationNestedInput
+  matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedUpdateManyWithoutOrganisationNestedInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionUncheckedUpdateManyWithoutOrganisationNestedInput
+  workflowVersions?: Prisma.WorkflowVersionUncheckedUpdateManyWithoutOrganisationNestedInput
+  workflowRuns?: Prisma.WorkflowRunUncheckedUpdateManyWithoutOrganisationNestedInput
+  workflowActions?: Prisma.WorkflowActionUncheckedUpdateManyWithoutOrganisationNestedInput
+  slaPolicies?: Prisma.SlaPolicyUncheckedUpdateManyWithoutOrganisationNestedInput
+  slaInstances?: Prisma.SlaInstanceUncheckedUpdateManyWithoutOrganisationNestedInput
+  escalationRules?: Prisma.EscalationRuleUncheckedUpdateManyWithoutOrganisationNestedInput
+  escalationEvents?: Prisma.EscalationEventUncheckedUpdateManyWithoutOrganisationNestedInput
+  approvalRequests?: Prisma.ApprovalRequestUncheckedUpdateManyWithoutOrganisationNestedInput
+  approvalDecisions?: Prisma.ApprovalDecisionUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedUpdateManyWithoutOrganisationNestedInput
+}
+
+export type OrganisationCreateWithoutAgentUsageInput = {
+  id?: string
+  slug: string
+  name: string
+  legalName?: string | null
+  status?: $Enums.OrganisationStatus
+  timezone?: string
+  locale?: string
+  countryCode?: string
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  settings?: Prisma.OrganisationSettingCreateNestedManyWithoutOrganisationInput
+  memberships?: Prisma.OrganisationMembershipCreateNestedManyWithoutOrganisationInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutOrganisationInput
+  departmentMemberships?: Prisma.DepartmentMembershipCreateNestedManyWithoutOrganisationInput
+  teams?: Prisma.TeamCreateNestedManyWithoutOrganisationInput
+  teamMemberships?: Prisma.TeamMembershipCreateNestedManyWithoutOrganisationInput
+  roles?: Prisma.RoleCreateNestedManyWithoutOrganisationInput
+  roleAssignments?: Prisma.RoleAssignmentCreateNestedManyWithoutOrganisationInput
+  invitations?: Prisma.InvitationCreateNestedManyWithoutOrganisationInput
+  userSessions?: Prisma.UserSessionCreateNestedManyWithoutActiveOrganisationInput
+  supportAccessGrants?: Prisma.SupportAccessGrantCreateNestedManyWithoutOrganisationInput
+  auditEvents?: Prisma.AuditEventCreateNestedManyWithoutOrganisationInput
+  securityEvents?: Prisma.SecurityEventCreateNestedManyWithoutOrganisationInput
+  enquiries?: Prisma.EnquiryCreateNestedManyWithoutOrganisationInput
+  jobProfiles?: Prisma.JobProfileCreateNestedManyWithoutOrganisationInput
+  jobProfileDuties?: Prisma.JobProfileDutyCreateNestedManyWithoutOrganisationInput
+  kpiDefinitions?: Prisma.KpiDefinitionCreateNestedManyWithoutOrganisationInput
+  jobProfileKpis?: Prisma.JobProfileKpiCreateNestedManyWithoutOrganisationInput
+  agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutOrganisationInput
+  agentPolicies?: Prisma.AgentPolicyCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallCreateNestedManyWithoutOrganisationInput
+  workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationInput
+  workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutOrganisationInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutOrganisationInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleCreateNestedManyWithoutOrganisationInput
+  invitationOnboardingKpis?: Prisma.InvitationOnboardingKpiCreateNestedManyWithoutOrganisationInput
+  numberSequences?: Prisma.OrganisationNumberSequenceCreateNestedManyWithoutOrganisationInput
+  clients?: Prisma.ClientCreateNestedManyWithoutOrganisationInput
+  matters?: Prisma.MatterCreateNestedManyWithoutOrganisationInput
+  matterParties?: Prisma.MatterPartyCreateNestedManyWithoutOrganisationInput
+  matterComplianceRecords?: Prisma.MatterComplianceCreateNestedManyWithoutOrganisationInput
+  matterStatusHistory?: Prisma.MatterStatusHistoryCreateNestedManyWithoutOrganisationInput
+  enquiryConversions?: Prisma.EnquiryConversionCreateNestedManyWithoutOrganisationInput
+  matterTasks?: Prisma.MatterTaskCreateNestedManyWithoutOrganisationInput
+  matterDeadlines?: Prisma.MatterDeadlineCreateNestedManyWithoutOrganisationInput
+  documentRequests?: Prisma.DocumentRequestCreateNestedManyWithoutOrganisationInput
+  documentRequestItems?: Prisma.DocumentRequestItemCreateNestedManyWithoutOrganisationInput
+  matterDocuments?: Prisma.MatterDocumentCreateNestedManyWithoutOrganisationInput
+  matterDocumentVersions?: Prisma.MatterDocumentVersionCreateNestedManyWithoutOrganisationInput
+  matterTimelineEvents?: Prisma.MatterTimelineEventCreateNestedManyWithoutOrganisationInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionCreateNestedManyWithoutOrganisationInput
+  workflowVersions?: Prisma.WorkflowVersionCreateNestedManyWithoutOrganisationInput
+  workflowRuns?: Prisma.WorkflowRunCreateNestedManyWithoutOrganisationInput
+  workflowActions?: Prisma.WorkflowActionCreateNestedManyWithoutOrganisationInput
+  slaPolicies?: Prisma.SlaPolicyCreateNestedManyWithoutOrganisationInput
+  slaInstances?: Prisma.SlaInstanceCreateNestedManyWithoutOrganisationInput
+  escalationRules?: Prisma.EscalationRuleCreateNestedManyWithoutOrganisationInput
+  escalationEvents?: Prisma.EscalationEventCreateNestedManyWithoutOrganisationInput
+  approvalRequests?: Prisma.ApprovalRequestCreateNestedManyWithoutOrganisationInput
+  approvalDecisions?: Prisma.ApprovalDecisionCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackCreateNestedManyWithoutOrganisationInput
+}
+
+export type OrganisationUncheckedCreateWithoutAgentUsageInput = {
+  id?: string
+  slug: string
+  name: string
+  legalName?: string | null
+  status?: $Enums.OrganisationStatus
+  timezone?: string
+  locale?: string
+  countryCode?: string
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  settings?: Prisma.OrganisationSettingUncheckedCreateNestedManyWithoutOrganisationInput
+  memberships?: Prisma.OrganisationMembershipUncheckedCreateNestedManyWithoutOrganisationInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutOrganisationInput
+  departmentMemberships?: Prisma.DepartmentMembershipUncheckedCreateNestedManyWithoutOrganisationInput
+  teams?: Prisma.TeamUncheckedCreateNestedManyWithoutOrganisationInput
+  teamMemberships?: Prisma.TeamMembershipUncheckedCreateNestedManyWithoutOrganisationInput
+  roles?: Prisma.RoleUncheckedCreateNestedManyWithoutOrganisationInput
+  roleAssignments?: Prisma.RoleAssignmentUncheckedCreateNestedManyWithoutOrganisationInput
+  invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutOrganisationInput
+  userSessions?: Prisma.UserSessionUncheckedCreateNestedManyWithoutActiveOrganisationInput
+  supportAccessGrants?: Prisma.SupportAccessGrantUncheckedCreateNestedManyWithoutOrganisationInput
+  auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutOrganisationInput
+  securityEvents?: Prisma.SecurityEventUncheckedCreateNestedManyWithoutOrganisationInput
+  enquiries?: Prisma.EnquiryUncheckedCreateNestedManyWithoutOrganisationInput
+  jobProfiles?: Prisma.JobProfileUncheckedCreateNestedManyWithoutOrganisationInput
+  jobProfileDuties?: Prisma.JobProfileDutyUncheckedCreateNestedManyWithoutOrganisationInput
+  kpiDefinitions?: Prisma.KpiDefinitionUncheckedCreateNestedManyWithoutOrganisationInput
+  jobProfileKpis?: Prisma.JobProfileKpiUncheckedCreateNestedManyWithoutOrganisationInput
+  agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutOrganisationInput
+  agentPolicies?: Prisma.AgentPolicyUncheckedCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOrganisationInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationInput
+  workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutOrganisationInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutOrganisationInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUncheckedCreateNestedManyWithoutOrganisationInput
+  invitationOnboardingKpis?: Prisma.InvitationOnboardingKpiUncheckedCreateNestedManyWithoutOrganisationInput
+  numberSequences?: Prisma.OrganisationNumberSequenceUncheckedCreateNestedManyWithoutOrganisationInput
+  clients?: Prisma.ClientUncheckedCreateNestedManyWithoutOrganisationInput
+  matters?: Prisma.MatterUncheckedCreateNestedManyWithoutOrganisationInput
+  matterParties?: Prisma.MatterPartyUncheckedCreateNestedManyWithoutOrganisationInput
+  matterComplianceRecords?: Prisma.MatterComplianceUncheckedCreateNestedManyWithoutOrganisationInput
+  matterStatusHistory?: Prisma.MatterStatusHistoryUncheckedCreateNestedManyWithoutOrganisationInput
+  enquiryConversions?: Prisma.EnquiryConversionUncheckedCreateNestedManyWithoutOrganisationInput
+  matterTasks?: Prisma.MatterTaskUncheckedCreateNestedManyWithoutOrganisationInput
+  matterDeadlines?: Prisma.MatterDeadlineUncheckedCreateNestedManyWithoutOrganisationInput
+  documentRequests?: Prisma.DocumentRequestUncheckedCreateNestedManyWithoutOrganisationInput
+  documentRequestItems?: Prisma.DocumentRequestItemUncheckedCreateNestedManyWithoutOrganisationInput
+  matterDocuments?: Prisma.MatterDocumentUncheckedCreateNestedManyWithoutOrganisationInput
+  matterDocumentVersions?: Prisma.MatterDocumentVersionUncheckedCreateNestedManyWithoutOrganisationInput
+  matterTimelineEvents?: Prisma.MatterTimelineEventUncheckedCreateNestedManyWithoutOrganisationInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionUncheckedCreateNestedManyWithoutOrganisationInput
+  workflowVersions?: Prisma.WorkflowVersionUncheckedCreateNestedManyWithoutOrganisationInput
+  workflowRuns?: Prisma.WorkflowRunUncheckedCreateNestedManyWithoutOrganisationInput
+  workflowActions?: Prisma.WorkflowActionUncheckedCreateNestedManyWithoutOrganisationInput
+  slaPolicies?: Prisma.SlaPolicyUncheckedCreateNestedManyWithoutOrganisationInput
+  slaInstances?: Prisma.SlaInstanceUncheckedCreateNestedManyWithoutOrganisationInput
+  escalationRules?: Prisma.EscalationRuleUncheckedCreateNestedManyWithoutOrganisationInput
+  escalationEvents?: Prisma.EscalationEventUncheckedCreateNestedManyWithoutOrganisationInput
+  approvalRequests?: Prisma.ApprovalRequestUncheckedCreateNestedManyWithoutOrganisationInput
+  approvalDecisions?: Prisma.ApprovalDecisionUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUncheckedCreateNestedManyWithoutOrganisationInput
+  pilotFeedback?: Prisma.PilotFeedbackUncheckedCreateNestedManyWithoutOrganisationInput
+}
+
+export type OrganisationCreateOrConnectWithoutAgentUsageInput = {
+  where: Prisma.OrganisationWhereUniqueInput
+  create: Prisma.XOR<Prisma.OrganisationCreateWithoutAgentUsageInput, Prisma.OrganisationUncheckedCreateWithoutAgentUsageInput>
+}
+
+export type OrganisationUpsertWithoutAgentUsageInput = {
+  update: Prisma.XOR<Prisma.OrganisationUpdateWithoutAgentUsageInput, Prisma.OrganisationUncheckedUpdateWithoutAgentUsageInput>
+  create: Prisma.XOR<Prisma.OrganisationCreateWithoutAgentUsageInput, Prisma.OrganisationUncheckedCreateWithoutAgentUsageInput>
+  where?: Prisma.OrganisationWhereInput
+}
+
+export type OrganisationUpdateToOneWithWhereWithoutAgentUsageInput = {
+  where?: Prisma.OrganisationWhereInput
+  data: Prisma.XOR<Prisma.OrganisationUpdateWithoutAgentUsageInput, Prisma.OrganisationUncheckedUpdateWithoutAgentUsageInput>
+}
+
+export type OrganisationUpdateWithoutAgentUsageInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumOrganisationStatusFieldUpdateOperationsInput | $Enums.OrganisationStatus
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  countryCode?: Prisma.StringFieldUpdateOperationsInput | string
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  settings?: Prisma.OrganisationSettingUpdateManyWithoutOrganisationNestedInput
+  memberships?: Prisma.OrganisationMembershipUpdateManyWithoutOrganisationNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutOrganisationNestedInput
+  departmentMemberships?: Prisma.DepartmentMembershipUpdateManyWithoutOrganisationNestedInput
+  teams?: Prisma.TeamUpdateManyWithoutOrganisationNestedInput
+  teamMemberships?: Prisma.TeamMembershipUpdateManyWithoutOrganisationNestedInput
+  roles?: Prisma.RoleUpdateManyWithoutOrganisationNestedInput
+  roleAssignments?: Prisma.RoleAssignmentUpdateManyWithoutOrganisationNestedInput
+  invitations?: Prisma.InvitationUpdateManyWithoutOrganisationNestedInput
+  userSessions?: Prisma.UserSessionUpdateManyWithoutActiveOrganisationNestedInput
+  supportAccessGrants?: Prisma.SupportAccessGrantUpdateManyWithoutOrganisationNestedInput
+  auditEvents?: Prisma.AuditEventUpdateManyWithoutOrganisationNestedInput
+  securityEvents?: Prisma.SecurityEventUpdateManyWithoutOrganisationNestedInput
+  enquiries?: Prisma.EnquiryUpdateManyWithoutOrganisationNestedInput
+  jobProfiles?: Prisma.JobProfileUpdateManyWithoutOrganisationNestedInput
+  jobProfileDuties?: Prisma.JobProfileDutyUpdateManyWithoutOrganisationNestedInput
+  kpiDefinitions?: Prisma.KpiDefinitionUpdateManyWithoutOrganisationNestedInput
+  jobProfileKpis?: Prisma.JobProfileKpiUpdateManyWithoutOrganisationNestedInput
+  agentProfiles?: Prisma.AgentProfileUpdateManyWithoutOrganisationNestedInput
+  agentPolicies?: Prisma.AgentPolicyUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUpdateManyWithoutOrganisationNestedInput
+  workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationNestedInput
+  workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutOrganisationNestedInput
+  invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutOrganisationNestedInput
+  invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUpdateManyWithoutOrganisationNestedInput
+  invitationOnboardingKpis?: Prisma.InvitationOnboardingKpiUpdateManyWithoutOrganisationNestedInput
+  numberSequences?: Prisma.OrganisationNumberSequenceUpdateManyWithoutOrganisationNestedInput
+  clients?: Prisma.ClientUpdateManyWithoutOrganisationNestedInput
+  matters?: Prisma.MatterUpdateManyWithoutOrganisationNestedInput
+  matterParties?: Prisma.MatterPartyUpdateManyWithoutOrganisationNestedInput
+  matterComplianceRecords?: Prisma.MatterComplianceUpdateManyWithoutOrganisationNestedInput
+  matterStatusHistory?: Prisma.MatterStatusHistoryUpdateManyWithoutOrganisationNestedInput
+  enquiryConversions?: Prisma.EnquiryConversionUpdateManyWithoutOrganisationNestedInput
+  matterTasks?: Prisma.MatterTaskUpdateManyWithoutOrganisationNestedInput
+  matterDeadlines?: Prisma.MatterDeadlineUpdateManyWithoutOrganisationNestedInput
+  documentRequests?: Prisma.DocumentRequestUpdateManyWithoutOrganisationNestedInput
+  documentRequestItems?: Prisma.DocumentRequestItemUpdateManyWithoutOrganisationNestedInput
+  matterDocuments?: Prisma.MatterDocumentUpdateManyWithoutOrganisationNestedInput
+  matterDocumentVersions?: Prisma.MatterDocumentVersionUpdateManyWithoutOrganisationNestedInput
+  matterTimelineEvents?: Prisma.MatterTimelineEventUpdateManyWithoutOrganisationNestedInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionUpdateManyWithoutOrganisationNestedInput
+  workflowVersions?: Prisma.WorkflowVersionUpdateManyWithoutOrganisationNestedInput
+  workflowRuns?: Prisma.WorkflowRunUpdateManyWithoutOrganisationNestedInput
+  workflowActions?: Prisma.WorkflowActionUpdateManyWithoutOrganisationNestedInput
+  slaPolicies?: Prisma.SlaPolicyUpdateManyWithoutOrganisationNestedInput
+  slaInstances?: Prisma.SlaInstanceUpdateManyWithoutOrganisationNestedInput
+  escalationRules?: Prisma.EscalationRuleUpdateManyWithoutOrganisationNestedInput
+  escalationEvents?: Prisma.EscalationEventUpdateManyWithoutOrganisationNestedInput
+  approvalRequests?: Prisma.ApprovalRequestUpdateManyWithoutOrganisationNestedInput
+  approvalDecisions?: Prisma.ApprovalDecisionUpdateManyWithoutOrganisationNestedInput
+  pilotAcceptanceEvidence?: Prisma.PilotAcceptanceEvidenceUpdateManyWithoutOrganisationNestedInput
+  pilotFeedback?: Prisma.PilotFeedbackUpdateManyWithoutOrganisationNestedInput
+}
+
+export type OrganisationUncheckedUpdateWithoutAgentUsageInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumOrganisationStatusFieldUpdateOperationsInput | $Enums.OrganisationStatus
+  timezone?: Prisma.StringFieldUpdateOperationsInput | string
+  locale?: Prisma.StringFieldUpdateOperationsInput | string
+  countryCode?: Prisma.StringFieldUpdateOperationsInput | string
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  settings?: Prisma.OrganisationSettingUncheckedUpdateManyWithoutOrganisationNestedInput
+  memberships?: Prisma.OrganisationMembershipUncheckedUpdateManyWithoutOrganisationNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutOrganisationNestedInput
+  departmentMemberships?: Prisma.DepartmentMembershipUncheckedUpdateManyWithoutOrganisationNestedInput
+  teams?: Prisma.TeamUncheckedUpdateManyWithoutOrganisationNestedInput
+  teamMemberships?: Prisma.TeamMembershipUncheckedUpdateManyWithoutOrganisationNestedInput
+  roles?: Prisma.RoleUncheckedUpdateManyWithoutOrganisationNestedInput
+  roleAssignments?: Prisma.RoleAssignmentUncheckedUpdateManyWithoutOrganisationNestedInput
+  invitations?: Prisma.InvitationUncheckedUpdateManyWithoutOrganisationNestedInput
+  userSessions?: Prisma.UserSessionUncheckedUpdateManyWithoutActiveOrganisationNestedInput
+  supportAccessGrants?: Prisma.SupportAccessGrantUncheckedUpdateManyWithoutOrganisationNestedInput
+  auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutOrganisationNestedInput
+  securityEvents?: Prisma.SecurityEventUncheckedUpdateManyWithoutOrganisationNestedInput
+  enquiries?: Prisma.EnquiryUncheckedUpdateManyWithoutOrganisationNestedInput
+  jobProfiles?: Prisma.JobProfileUncheckedUpdateManyWithoutOrganisationNestedInput
+  jobProfileDuties?: Prisma.JobProfileDutyUncheckedUpdateManyWithoutOrganisationNestedInput
+  kpiDefinitions?: Prisma.KpiDefinitionUncheckedUpdateManyWithoutOrganisationNestedInput
+  jobProfileKpis?: Prisma.JobProfileKpiUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentPolicies?: Prisma.AgentPolicyUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutOrganisationNestedInput
@@ -6841,6 +9223,12 @@ export type OrganisationCreateWithoutWorkforceAssignmentsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutOrganisationInput
   invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleCreateNestedManyWithoutOrganisationInput
@@ -6906,6 +9294,12 @@ export type OrganisationUncheckedCreateWithoutWorkforceAssignmentsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyUncheckedCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutOrganisationInput
   invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUncheckedCreateNestedManyWithoutOrganisationInput
@@ -6987,6 +9381,12 @@ export type OrganisationUpdateWithoutWorkforceAssignmentsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUpdateManyWithoutOrganisationNestedInput
@@ -7052,6 +9452,12 @@ export type OrganisationUncheckedUpdateWithoutWorkforceAssignmentsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUncheckedUpdateManyWithoutOrganisationNestedInput
@@ -7117,6 +9523,12 @@ export type OrganisationCreateWithoutWorkforceAssignmentKpisInput = {
   jobProfileKpis?: Prisma.JobProfileKpiCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutOrganisationInput
   invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleCreateNestedManyWithoutOrganisationInput
@@ -7182,6 +9594,12 @@ export type OrganisationUncheckedCreateWithoutWorkforceAssignmentKpisInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyUncheckedCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutOrganisationInput
   invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUncheckedCreateNestedManyWithoutOrganisationInput
@@ -7263,6 +9681,12 @@ export type OrganisationUpdateWithoutWorkforceAssignmentKpisInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUpdateManyWithoutOrganisationNestedInput
@@ -7328,6 +9752,12 @@ export type OrganisationUncheckedUpdateWithoutWorkforceAssignmentKpisInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUncheckedUpdateManyWithoutOrganisationNestedInput
@@ -7393,6 +9823,12 @@ export type OrganisationCreateWithoutInvitationOnboardingPlansInput = {
   jobProfileKpis?: Prisma.JobProfileKpiCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutOrganisationInput
   invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleCreateNestedManyWithoutOrganisationInput
@@ -7458,6 +9894,12 @@ export type OrganisationUncheckedCreateWithoutInvitationOnboardingPlansInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyUncheckedCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutOrganisationInput
   invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUncheckedCreateNestedManyWithoutOrganisationInput
@@ -7539,6 +9981,12 @@ export type OrganisationUpdateWithoutInvitationOnboardingPlansInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUpdateManyWithoutOrganisationNestedInput
@@ -7604,6 +10052,12 @@ export type OrganisationUncheckedUpdateWithoutInvitationOnboardingPlansInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingRoles?: Prisma.InvitationOnboardingRoleUncheckedUpdateManyWithoutOrganisationNestedInput
@@ -7669,6 +10123,12 @@ export type OrganisationCreateWithoutInvitationOnboardingRolesInput = {
   jobProfileKpis?: Prisma.JobProfileKpiCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutOrganisationInput
@@ -7734,6 +10194,12 @@ export type OrganisationUncheckedCreateWithoutInvitationOnboardingRolesInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyUncheckedCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutOrganisationInput
@@ -7815,6 +10281,12 @@ export type OrganisationUpdateWithoutInvitationOnboardingRolesInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutOrganisationNestedInput
@@ -7880,6 +10352,12 @@ export type OrganisationUncheckedUpdateWithoutInvitationOnboardingRolesInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutOrganisationNestedInput
@@ -7945,6 +10423,12 @@ export type OrganisationCreateWithoutInvitationOnboardingKpisInput = {
   jobProfileKpis?: Prisma.JobProfileKpiCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutOrganisationInput
@@ -8010,6 +10494,12 @@ export type OrganisationUncheckedCreateWithoutInvitationOnboardingKpisInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyUncheckedCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutOrganisationInput
@@ -8091,6 +10581,12 @@ export type OrganisationUpdateWithoutInvitationOnboardingKpisInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutOrganisationNestedInput
@@ -8156,6 +10652,12 @@ export type OrganisationUncheckedUpdateWithoutInvitationOnboardingKpisInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutOrganisationNestedInput
@@ -8220,6 +10722,12 @@ export type OrganisationCreateWithoutEnquiriesInput = {
   jobProfileKpis?: Prisma.JobProfileKpiCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutOrganisationInput
@@ -8285,6 +10793,12 @@ export type OrganisationUncheckedCreateWithoutEnquiriesInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyUncheckedCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutOrganisationInput
@@ -8366,6 +10880,12 @@ export type OrganisationUpdateWithoutEnquiriesInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutOrganisationNestedInput
@@ -8431,6 +10951,12 @@ export type OrganisationUncheckedUpdateWithoutEnquiriesInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutOrganisationNestedInput
@@ -8497,6 +11023,12 @@ export type OrganisationCreateWithoutNumberSequencesInput = {
   jobProfileKpis?: Prisma.JobProfileKpiCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutOrganisationInput
@@ -8562,6 +11094,12 @@ export type OrganisationUncheckedCreateWithoutNumberSequencesInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyUncheckedCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutOrganisationInput
@@ -8643,6 +11181,12 @@ export type OrganisationUpdateWithoutNumberSequencesInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutOrganisationNestedInput
@@ -8708,6 +11252,12 @@ export type OrganisationUncheckedUpdateWithoutNumberSequencesInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutOrganisationNestedInput
@@ -8773,6 +11323,12 @@ export type OrganisationCreateWithoutClientsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutOrganisationInput
@@ -8838,6 +11394,12 @@ export type OrganisationUncheckedCreateWithoutClientsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyUncheckedCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutOrganisationInput
@@ -8919,6 +11481,12 @@ export type OrganisationUpdateWithoutClientsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutOrganisationNestedInput
@@ -8984,6 +11552,12 @@ export type OrganisationUncheckedUpdateWithoutClientsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutOrganisationNestedInput
@@ -9049,6 +11623,12 @@ export type OrganisationCreateWithoutMattersInput = {
   jobProfileKpis?: Prisma.JobProfileKpiCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutOrganisationInput
@@ -9114,6 +11694,12 @@ export type OrganisationUncheckedCreateWithoutMattersInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyUncheckedCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutOrganisationInput
@@ -9195,6 +11781,12 @@ export type OrganisationUpdateWithoutMattersInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutOrganisationNestedInput
@@ -9260,6 +11852,12 @@ export type OrganisationUncheckedUpdateWithoutMattersInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutOrganisationNestedInput
@@ -9325,6 +11923,12 @@ export type OrganisationCreateWithoutMatterPartiesInput = {
   jobProfileKpis?: Prisma.JobProfileKpiCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutOrganisationInput
@@ -9390,6 +11994,12 @@ export type OrganisationUncheckedCreateWithoutMatterPartiesInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyUncheckedCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutOrganisationInput
@@ -9471,6 +12081,12 @@ export type OrganisationUpdateWithoutMatterPartiesInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutOrganisationNestedInput
@@ -9536,6 +12152,12 @@ export type OrganisationUncheckedUpdateWithoutMatterPartiesInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutOrganisationNestedInput
@@ -9601,6 +12223,12 @@ export type OrganisationCreateWithoutMatterComplianceRecordsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutOrganisationInput
@@ -9666,6 +12294,12 @@ export type OrganisationUncheckedCreateWithoutMatterComplianceRecordsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyUncheckedCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutOrganisationInput
@@ -9747,6 +12381,12 @@ export type OrganisationUpdateWithoutMatterComplianceRecordsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutOrganisationNestedInput
@@ -9812,6 +12452,12 @@ export type OrganisationUncheckedUpdateWithoutMatterComplianceRecordsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutOrganisationNestedInput
@@ -9877,6 +12523,12 @@ export type OrganisationCreateWithoutMatterStatusHistoryInput = {
   jobProfileKpis?: Prisma.JobProfileKpiCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutOrganisationInput
@@ -9942,6 +12594,12 @@ export type OrganisationUncheckedCreateWithoutMatterStatusHistoryInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyUncheckedCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutOrganisationInput
@@ -10023,6 +12681,12 @@ export type OrganisationUpdateWithoutMatterStatusHistoryInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutOrganisationNestedInput
@@ -10088,6 +12752,12 @@ export type OrganisationUncheckedUpdateWithoutMatterStatusHistoryInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutOrganisationNestedInput
@@ -10153,6 +12823,12 @@ export type OrganisationCreateWithoutEnquiryConversionsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutOrganisationInput
@@ -10218,6 +12894,12 @@ export type OrganisationUncheckedCreateWithoutEnquiryConversionsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyUncheckedCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutOrganisationInput
@@ -10299,6 +12981,12 @@ export type OrganisationUpdateWithoutEnquiryConversionsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutOrganisationNestedInput
@@ -10364,6 +13052,12 @@ export type OrganisationUncheckedUpdateWithoutEnquiryConversionsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutOrganisationNestedInput
@@ -10429,6 +13123,12 @@ export type OrganisationCreateWithoutMatterTasksInput = {
   jobProfileKpis?: Prisma.JobProfileKpiCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutOrganisationInput
@@ -10494,6 +13194,12 @@ export type OrganisationUncheckedCreateWithoutMatterTasksInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyUncheckedCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutOrganisationInput
@@ -10575,6 +13281,12 @@ export type OrganisationUpdateWithoutMatterTasksInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutOrganisationNestedInput
@@ -10640,6 +13352,12 @@ export type OrganisationUncheckedUpdateWithoutMatterTasksInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutOrganisationNestedInput
@@ -10705,6 +13423,12 @@ export type OrganisationCreateWithoutMatterDeadlinesInput = {
   jobProfileKpis?: Prisma.JobProfileKpiCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutOrganisationInput
@@ -10770,6 +13494,12 @@ export type OrganisationUncheckedCreateWithoutMatterDeadlinesInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyUncheckedCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutOrganisationInput
@@ -10851,6 +13581,12 @@ export type OrganisationUpdateWithoutMatterDeadlinesInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutOrganisationNestedInput
@@ -10916,6 +13652,12 @@ export type OrganisationUncheckedUpdateWithoutMatterDeadlinesInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutOrganisationNestedInput
@@ -10981,6 +13723,12 @@ export type OrganisationCreateWithoutDocumentRequestsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutOrganisationInput
@@ -11046,6 +13794,12 @@ export type OrganisationUncheckedCreateWithoutDocumentRequestsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyUncheckedCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutOrganisationInput
@@ -11127,6 +13881,12 @@ export type OrganisationUpdateWithoutDocumentRequestsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutOrganisationNestedInput
@@ -11192,6 +13952,12 @@ export type OrganisationUncheckedUpdateWithoutDocumentRequestsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutOrganisationNestedInput
@@ -11257,6 +14023,12 @@ export type OrganisationCreateWithoutDocumentRequestItemsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutOrganisationInput
@@ -11322,6 +14094,12 @@ export type OrganisationUncheckedCreateWithoutDocumentRequestItemsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyUncheckedCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutOrganisationInput
@@ -11403,6 +14181,12 @@ export type OrganisationUpdateWithoutDocumentRequestItemsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutOrganisationNestedInput
@@ -11468,6 +14252,12 @@ export type OrganisationUncheckedUpdateWithoutDocumentRequestItemsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutOrganisationNestedInput
@@ -11533,6 +14323,12 @@ export type OrganisationCreateWithoutMatterDocumentsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutOrganisationInput
@@ -11598,6 +14394,12 @@ export type OrganisationUncheckedCreateWithoutMatterDocumentsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyUncheckedCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutOrganisationInput
@@ -11679,6 +14481,12 @@ export type OrganisationUpdateWithoutMatterDocumentsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutOrganisationNestedInput
@@ -11744,6 +14552,12 @@ export type OrganisationUncheckedUpdateWithoutMatterDocumentsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutOrganisationNestedInput
@@ -11809,6 +14623,12 @@ export type OrganisationCreateWithoutMatterDocumentVersionsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutOrganisationInput
@@ -11874,6 +14694,12 @@ export type OrganisationUncheckedCreateWithoutMatterDocumentVersionsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyUncheckedCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutOrganisationInput
@@ -11955,6 +14781,12 @@ export type OrganisationUpdateWithoutMatterDocumentVersionsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutOrganisationNestedInput
@@ -12020,6 +14852,12 @@ export type OrganisationUncheckedUpdateWithoutMatterDocumentVersionsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutOrganisationNestedInput
@@ -12085,6 +14923,12 @@ export type OrganisationCreateWithoutMatterTimelineEventsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutOrganisationInput
@@ -12150,6 +14994,12 @@ export type OrganisationUncheckedCreateWithoutMatterTimelineEventsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyUncheckedCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutOrganisationInput
@@ -12231,6 +15081,12 @@ export type OrganisationUpdateWithoutMatterTimelineEventsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutOrganisationNestedInput
@@ -12296,6 +15152,12 @@ export type OrganisationUncheckedUpdateWithoutMatterTimelineEventsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutOrganisationNestedInput
@@ -12361,6 +15223,12 @@ export type OrganisationCreateWithoutWorkflowDefinitionsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutOrganisationInput
@@ -12426,6 +15294,12 @@ export type OrganisationUncheckedCreateWithoutWorkflowDefinitionsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyUncheckedCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutOrganisationInput
@@ -12507,6 +15381,12 @@ export type OrganisationUpdateWithoutWorkflowDefinitionsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutOrganisationNestedInput
@@ -12572,6 +15452,12 @@ export type OrganisationUncheckedUpdateWithoutWorkflowDefinitionsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutOrganisationNestedInput
@@ -12637,6 +15523,12 @@ export type OrganisationCreateWithoutWorkflowVersionsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutOrganisationInput
@@ -12702,6 +15594,12 @@ export type OrganisationUncheckedCreateWithoutWorkflowVersionsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyUncheckedCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutOrganisationInput
@@ -12783,6 +15681,12 @@ export type OrganisationUpdateWithoutWorkflowVersionsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutOrganisationNestedInput
@@ -12848,6 +15752,12 @@ export type OrganisationUncheckedUpdateWithoutWorkflowVersionsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutOrganisationNestedInput
@@ -12913,6 +15823,12 @@ export type OrganisationCreateWithoutWorkflowRunsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutOrganisationInput
@@ -12978,6 +15894,12 @@ export type OrganisationUncheckedCreateWithoutWorkflowRunsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyUncheckedCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutOrganisationInput
@@ -13059,6 +15981,12 @@ export type OrganisationUpdateWithoutWorkflowRunsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutOrganisationNestedInput
@@ -13124,6 +16052,12 @@ export type OrganisationUncheckedUpdateWithoutWorkflowRunsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutOrganisationNestedInput
@@ -13189,6 +16123,12 @@ export type OrganisationCreateWithoutWorkflowActionsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutOrganisationInput
@@ -13254,6 +16194,12 @@ export type OrganisationUncheckedCreateWithoutWorkflowActionsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyUncheckedCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutOrganisationInput
@@ -13335,6 +16281,12 @@ export type OrganisationUpdateWithoutWorkflowActionsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutOrganisationNestedInput
@@ -13400,6 +16352,12 @@ export type OrganisationUncheckedUpdateWithoutWorkflowActionsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutOrganisationNestedInput
@@ -13465,6 +16423,12 @@ export type OrganisationCreateWithoutSlaPoliciesInput = {
   jobProfileKpis?: Prisma.JobProfileKpiCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutOrganisationInput
@@ -13530,6 +16494,12 @@ export type OrganisationUncheckedCreateWithoutSlaPoliciesInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyUncheckedCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutOrganisationInput
@@ -13611,6 +16581,12 @@ export type OrganisationUpdateWithoutSlaPoliciesInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutOrganisationNestedInput
@@ -13676,6 +16652,12 @@ export type OrganisationUncheckedUpdateWithoutSlaPoliciesInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutOrganisationNestedInput
@@ -13741,6 +16723,12 @@ export type OrganisationCreateWithoutSlaInstancesInput = {
   jobProfileKpis?: Prisma.JobProfileKpiCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutOrganisationInput
@@ -13806,6 +16794,12 @@ export type OrganisationUncheckedCreateWithoutSlaInstancesInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyUncheckedCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutOrganisationInput
@@ -13887,6 +16881,12 @@ export type OrganisationUpdateWithoutSlaInstancesInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutOrganisationNestedInput
@@ -13952,6 +16952,12 @@ export type OrganisationUncheckedUpdateWithoutSlaInstancesInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutOrganisationNestedInput
@@ -14017,6 +17023,12 @@ export type OrganisationCreateWithoutEscalationRulesInput = {
   jobProfileKpis?: Prisma.JobProfileKpiCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutOrganisationInput
@@ -14082,6 +17094,12 @@ export type OrganisationUncheckedCreateWithoutEscalationRulesInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyUncheckedCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutOrganisationInput
@@ -14163,6 +17181,12 @@ export type OrganisationUpdateWithoutEscalationRulesInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutOrganisationNestedInput
@@ -14228,6 +17252,12 @@ export type OrganisationUncheckedUpdateWithoutEscalationRulesInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutOrganisationNestedInput
@@ -14293,6 +17323,12 @@ export type OrganisationCreateWithoutEscalationEventsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutOrganisationInput
@@ -14358,6 +17394,12 @@ export type OrganisationUncheckedCreateWithoutEscalationEventsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyUncheckedCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutOrganisationInput
@@ -14439,6 +17481,12 @@ export type OrganisationUpdateWithoutEscalationEventsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutOrganisationNestedInput
@@ -14504,6 +17552,12 @@ export type OrganisationUncheckedUpdateWithoutEscalationEventsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutOrganisationNestedInput
@@ -14569,6 +17623,12 @@ export type OrganisationCreateWithoutApprovalRequestsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutOrganisationInput
@@ -14634,6 +17694,12 @@ export type OrganisationUncheckedCreateWithoutApprovalRequestsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyUncheckedCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutOrganisationInput
@@ -14715,6 +17781,12 @@ export type OrganisationUpdateWithoutApprovalRequestsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutOrganisationNestedInput
@@ -14780,6 +17852,12 @@ export type OrganisationUncheckedUpdateWithoutApprovalRequestsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutOrganisationNestedInput
@@ -14845,6 +17923,12 @@ export type OrganisationCreateWithoutApprovalDecisionsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutOrganisationInput
@@ -14910,6 +17994,12 @@ export type OrganisationUncheckedCreateWithoutApprovalDecisionsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyUncheckedCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutOrganisationInput
@@ -14991,6 +18081,12 @@ export type OrganisationUpdateWithoutApprovalDecisionsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutOrganisationNestedInput
@@ -15056,6 +18152,12 @@ export type OrganisationUncheckedUpdateWithoutApprovalDecisionsInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutOrganisationNestedInput
@@ -15121,6 +18223,12 @@ export type OrganisationCreateWithoutPilotAcceptanceEvidenceInput = {
   jobProfileKpis?: Prisma.JobProfileKpiCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutOrganisationInput
@@ -15186,6 +18294,12 @@ export type OrganisationUncheckedCreateWithoutPilotAcceptanceEvidenceInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyUncheckedCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutOrganisationInput
@@ -15267,6 +18381,12 @@ export type OrganisationUpdateWithoutPilotAcceptanceEvidenceInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutOrganisationNestedInput
@@ -15332,6 +18452,12 @@ export type OrganisationUncheckedUpdateWithoutPilotAcceptanceEvidenceInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutOrganisationNestedInput
@@ -15397,6 +18523,12 @@ export type OrganisationCreateWithoutPilotFeedbackInput = {
   jobProfileKpis?: Prisma.JobProfileKpiCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanCreateNestedManyWithoutOrganisationInput
@@ -15462,6 +18594,12 @@ export type OrganisationUncheckedCreateWithoutPilotFeedbackInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedCreateNestedManyWithoutOrganisationInput
   agentProfiles?: Prisma.AgentProfileUncheckedCreateNestedManyWithoutOrganisationInput
   agentPolicies?: Prisma.AgentPolicyUncheckedCreateNestedManyWithoutOrganisationInput
+  agentConversations?: Prisma.AgentConversationUncheckedCreateNestedManyWithoutOrganisationInput
+  agentRuns?: Prisma.AgentRunUncheckedCreateNestedManyWithoutOrganisationInput
+  agentMessages?: Prisma.AgentMessageUncheckedCreateNestedManyWithoutOrganisationInput
+  agentActions?: Prisma.AgentActionUncheckedCreateNestedManyWithoutOrganisationInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedCreateNestedManyWithoutOrganisationInput
+  agentUsage?: Prisma.AgentUsageUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedCreateNestedManyWithoutOrganisationInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedCreateNestedManyWithoutOrganisationInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedCreateNestedManyWithoutOrganisationInput
@@ -15543,6 +18681,12 @@ export type OrganisationUpdateWithoutPilotFeedbackInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUpdateManyWithoutOrganisationNestedInput
@@ -15608,6 +18752,12 @@ export type OrganisationUncheckedUpdateWithoutPilotFeedbackInput = {
   jobProfileKpis?: Prisma.JobProfileKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   agentProfiles?: Prisma.AgentProfileUncheckedUpdateManyWithoutOrganisationNestedInput
   agentPolicies?: Prisma.AgentPolicyUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentConversations?: Prisma.AgentConversationUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentRuns?: Prisma.AgentRunUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentMessages?: Prisma.AgentMessageUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentActions?: Prisma.AgentActionUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentToolCalls?: Prisma.AgentToolCallUncheckedUpdateManyWithoutOrganisationNestedInput
+  agentUsage?: Prisma.AgentUsageUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignments?: Prisma.WorkforceAssignmentUncheckedUpdateManyWithoutOrganisationNestedInput
   workforceAssignmentKpis?: Prisma.WorkforceAssignmentKpiUncheckedUpdateManyWithoutOrganisationNestedInput
   invitationOnboardingPlans?: Prisma.InvitationOnboardingPlanUncheckedUpdateManyWithoutOrganisationNestedInput
@@ -15666,6 +18816,12 @@ export type OrganisationCountOutputType = {
   jobProfileKpis: number
   agentProfiles: number
   agentPolicies: number
+  agentConversations: number
+  agentRuns: number
+  agentMessages: number
+  agentActions: number
+  agentToolCalls: number
+  agentUsage: number
   workforceAssignments: number
   workforceAssignmentKpis: number
   invitationOnboardingPlans: number
@@ -15720,6 +18876,12 @@ export type OrganisationCountOutputTypeSelect<ExtArgs extends runtime.Types.Exte
   jobProfileKpis?: boolean | OrganisationCountOutputTypeCountJobProfileKpisArgs
   agentProfiles?: boolean | OrganisationCountOutputTypeCountAgentProfilesArgs
   agentPolicies?: boolean | OrganisationCountOutputTypeCountAgentPoliciesArgs
+  agentConversations?: boolean | OrganisationCountOutputTypeCountAgentConversationsArgs
+  agentRuns?: boolean | OrganisationCountOutputTypeCountAgentRunsArgs
+  agentMessages?: boolean | OrganisationCountOutputTypeCountAgentMessagesArgs
+  agentActions?: boolean | OrganisationCountOutputTypeCountAgentActionsArgs
+  agentToolCalls?: boolean | OrganisationCountOutputTypeCountAgentToolCallsArgs
+  agentUsage?: boolean | OrganisationCountOutputTypeCountAgentUsageArgs
   workforceAssignments?: boolean | OrganisationCountOutputTypeCountWorkforceAssignmentsArgs
   workforceAssignmentKpis?: boolean | OrganisationCountOutputTypeCountWorkforceAssignmentKpisArgs
   invitationOnboardingPlans?: boolean | OrganisationCountOutputTypeCountInvitationOnboardingPlansArgs
@@ -15901,6 +19063,48 @@ export type OrganisationCountOutputTypeCountAgentProfilesArgs<ExtArgs extends ru
  */
 export type OrganisationCountOutputTypeCountAgentPoliciesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.AgentPolicyWhereInput
+}
+
+/**
+ * OrganisationCountOutputType without action
+ */
+export type OrganisationCountOutputTypeCountAgentConversationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.AgentConversationWhereInput
+}
+
+/**
+ * OrganisationCountOutputType without action
+ */
+export type OrganisationCountOutputTypeCountAgentRunsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.AgentRunWhereInput
+}
+
+/**
+ * OrganisationCountOutputType without action
+ */
+export type OrganisationCountOutputTypeCountAgentMessagesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.AgentMessageWhereInput
+}
+
+/**
+ * OrganisationCountOutputType without action
+ */
+export type OrganisationCountOutputTypeCountAgentActionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.AgentActionWhereInput
+}
+
+/**
+ * OrganisationCountOutputType without action
+ */
+export type OrganisationCountOutputTypeCountAgentToolCallsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.AgentToolCallWhereInput
+}
+
+/**
+ * OrganisationCountOutputType without action
+ */
+export type OrganisationCountOutputTypeCountAgentUsageArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.AgentUsageWhereInput
 }
 
 /**
@@ -16154,6 +19358,12 @@ export type OrganisationSelect<ExtArgs extends runtime.Types.Extensions.Internal
   jobProfileKpis?: boolean | Prisma.Organisation$jobProfileKpisArgs<ExtArgs>
   agentProfiles?: boolean | Prisma.Organisation$agentProfilesArgs<ExtArgs>
   agentPolicies?: boolean | Prisma.Organisation$agentPoliciesArgs<ExtArgs>
+  agentConversations?: boolean | Prisma.Organisation$agentConversationsArgs<ExtArgs>
+  agentRuns?: boolean | Prisma.Organisation$agentRunsArgs<ExtArgs>
+  agentMessages?: boolean | Prisma.Organisation$agentMessagesArgs<ExtArgs>
+  agentActions?: boolean | Prisma.Organisation$agentActionsArgs<ExtArgs>
+  agentToolCalls?: boolean | Prisma.Organisation$agentToolCallsArgs<ExtArgs>
+  agentUsage?: boolean | Prisma.Organisation$agentUsageArgs<ExtArgs>
   workforceAssignments?: boolean | Prisma.Organisation$workforceAssignmentsArgs<ExtArgs>
   workforceAssignmentKpis?: boolean | Prisma.Organisation$workforceAssignmentKpisArgs<ExtArgs>
   invitationOnboardingPlans?: boolean | Prisma.Organisation$invitationOnboardingPlansArgs<ExtArgs>
@@ -16255,6 +19465,12 @@ export type OrganisationInclude<ExtArgs extends runtime.Types.Extensions.Interna
   jobProfileKpis?: boolean | Prisma.Organisation$jobProfileKpisArgs<ExtArgs>
   agentProfiles?: boolean | Prisma.Organisation$agentProfilesArgs<ExtArgs>
   agentPolicies?: boolean | Prisma.Organisation$agentPoliciesArgs<ExtArgs>
+  agentConversations?: boolean | Prisma.Organisation$agentConversationsArgs<ExtArgs>
+  agentRuns?: boolean | Prisma.Organisation$agentRunsArgs<ExtArgs>
+  agentMessages?: boolean | Prisma.Organisation$agentMessagesArgs<ExtArgs>
+  agentActions?: boolean | Prisma.Organisation$agentActionsArgs<ExtArgs>
+  agentToolCalls?: boolean | Prisma.Organisation$agentToolCallsArgs<ExtArgs>
+  agentUsage?: boolean | Prisma.Organisation$agentUsageArgs<ExtArgs>
   workforceAssignments?: boolean | Prisma.Organisation$workforceAssignmentsArgs<ExtArgs>
   workforceAssignmentKpis?: boolean | Prisma.Organisation$workforceAssignmentKpisArgs<ExtArgs>
   invitationOnboardingPlans?: boolean | Prisma.Organisation$invitationOnboardingPlansArgs<ExtArgs>
@@ -16314,6 +19530,12 @@ export type $OrganisationPayload<ExtArgs extends runtime.Types.Extensions.Intern
     jobProfileKpis: Prisma.$JobProfileKpiPayload<ExtArgs>[]
     agentProfiles: Prisma.$AgentProfilePayload<ExtArgs>[]
     agentPolicies: Prisma.$AgentPolicyPayload<ExtArgs>[]
+    agentConversations: Prisma.$AgentConversationPayload<ExtArgs>[]
+    agentRuns: Prisma.$AgentRunPayload<ExtArgs>[]
+    agentMessages: Prisma.$AgentMessagePayload<ExtArgs>[]
+    agentActions: Prisma.$AgentActionPayload<ExtArgs>[]
+    agentToolCalls: Prisma.$AgentToolCallPayload<ExtArgs>[]
+    agentUsage: Prisma.$AgentUsagePayload<ExtArgs>[]
     workforceAssignments: Prisma.$WorkforceAssignmentPayload<ExtArgs>[]
     workforceAssignmentKpis: Prisma.$WorkforceAssignmentKpiPayload<ExtArgs>[]
     invitationOnboardingPlans: Prisma.$InvitationOnboardingPlanPayload<ExtArgs>[]
@@ -16773,6 +19995,12 @@ export interface Prisma__OrganisationClient<T, Null = never, ExtArgs extends run
   jobProfileKpis<T extends Prisma.Organisation$jobProfileKpisArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Organisation$jobProfileKpisArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$JobProfileKpiPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   agentProfiles<T extends Prisma.Organisation$agentProfilesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Organisation$agentProfilesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AgentProfilePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   agentPolicies<T extends Prisma.Organisation$agentPoliciesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Organisation$agentPoliciesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AgentPolicyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  agentConversations<T extends Prisma.Organisation$agentConversationsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Organisation$agentConversationsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AgentConversationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  agentRuns<T extends Prisma.Organisation$agentRunsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Organisation$agentRunsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AgentRunPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  agentMessages<T extends Prisma.Organisation$agentMessagesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Organisation$agentMessagesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AgentMessagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  agentActions<T extends Prisma.Organisation$agentActionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Organisation$agentActionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AgentActionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  agentToolCalls<T extends Prisma.Organisation$agentToolCallsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Organisation$agentToolCallsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AgentToolCallPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  agentUsage<T extends Prisma.Organisation$agentUsageArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Organisation$agentUsageArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AgentUsagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   workforceAssignments<T extends Prisma.Organisation$workforceAssignmentsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Organisation$workforceAssignmentsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$WorkforceAssignmentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   workforceAssignmentKpis<T extends Prisma.Organisation$workforceAssignmentKpisArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Organisation$workforceAssignmentKpisArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$WorkforceAssignmentKpiPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   invitationOnboardingPlans<T extends Prisma.Organisation$invitationOnboardingPlansArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Organisation$invitationOnboardingPlansArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$InvitationOnboardingPlanPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -17715,6 +20943,150 @@ export type Organisation$agentPoliciesArgs<ExtArgs extends runtime.Types.Extensi
   take?: number
   skip?: number
   distinct?: Prisma.AgentPolicyScalarFieldEnum | Prisma.AgentPolicyScalarFieldEnum[]
+}
+
+/**
+ * Organisation.agentConversations
+ */
+export type Organisation$agentConversationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the AgentConversation
+   */
+  select?: Prisma.AgentConversationSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the AgentConversation
+   */
+  omit?: Prisma.AgentConversationOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.AgentConversationInclude<ExtArgs> | null
+  where?: Prisma.AgentConversationWhereInput
+  orderBy?: Prisma.AgentConversationOrderByWithRelationInput | Prisma.AgentConversationOrderByWithRelationInput[]
+  cursor?: Prisma.AgentConversationWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.AgentConversationScalarFieldEnum | Prisma.AgentConversationScalarFieldEnum[]
+}
+
+/**
+ * Organisation.agentRuns
+ */
+export type Organisation$agentRunsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the AgentRun
+   */
+  select?: Prisma.AgentRunSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the AgentRun
+   */
+  omit?: Prisma.AgentRunOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.AgentRunInclude<ExtArgs> | null
+  where?: Prisma.AgentRunWhereInput
+  orderBy?: Prisma.AgentRunOrderByWithRelationInput | Prisma.AgentRunOrderByWithRelationInput[]
+  cursor?: Prisma.AgentRunWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.AgentRunScalarFieldEnum | Prisma.AgentRunScalarFieldEnum[]
+}
+
+/**
+ * Organisation.agentMessages
+ */
+export type Organisation$agentMessagesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the AgentMessage
+   */
+  select?: Prisma.AgentMessageSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the AgentMessage
+   */
+  omit?: Prisma.AgentMessageOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.AgentMessageInclude<ExtArgs> | null
+  where?: Prisma.AgentMessageWhereInput
+  orderBy?: Prisma.AgentMessageOrderByWithRelationInput | Prisma.AgentMessageOrderByWithRelationInput[]
+  cursor?: Prisma.AgentMessageWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.AgentMessageScalarFieldEnum | Prisma.AgentMessageScalarFieldEnum[]
+}
+
+/**
+ * Organisation.agentActions
+ */
+export type Organisation$agentActionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the AgentAction
+   */
+  select?: Prisma.AgentActionSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the AgentAction
+   */
+  omit?: Prisma.AgentActionOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.AgentActionInclude<ExtArgs> | null
+  where?: Prisma.AgentActionWhereInput
+  orderBy?: Prisma.AgentActionOrderByWithRelationInput | Prisma.AgentActionOrderByWithRelationInput[]
+  cursor?: Prisma.AgentActionWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.AgentActionScalarFieldEnum | Prisma.AgentActionScalarFieldEnum[]
+}
+
+/**
+ * Organisation.agentToolCalls
+ */
+export type Organisation$agentToolCallsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the AgentToolCall
+   */
+  select?: Prisma.AgentToolCallSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the AgentToolCall
+   */
+  omit?: Prisma.AgentToolCallOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.AgentToolCallInclude<ExtArgs> | null
+  where?: Prisma.AgentToolCallWhereInput
+  orderBy?: Prisma.AgentToolCallOrderByWithRelationInput | Prisma.AgentToolCallOrderByWithRelationInput[]
+  cursor?: Prisma.AgentToolCallWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.AgentToolCallScalarFieldEnum | Prisma.AgentToolCallScalarFieldEnum[]
+}
+
+/**
+ * Organisation.agentUsage
+ */
+export type Organisation$agentUsageArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the AgentUsage
+   */
+  select?: Prisma.AgentUsageSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the AgentUsage
+   */
+  omit?: Prisma.AgentUsageOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.AgentUsageInclude<ExtArgs> | null
+  where?: Prisma.AgentUsageWhereInput
+  orderBy?: Prisma.AgentUsageOrderByWithRelationInput | Prisma.AgentUsageOrderByWithRelationInput[]
+  cursor?: Prisma.AgentUsageWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.AgentUsageScalarFieldEnum | Prisma.AgentUsageScalarFieldEnum[]
 }
 
 /**

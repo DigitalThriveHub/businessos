@@ -11,9 +11,7 @@ describe('DEFAULT_ROLES', () => {
   });
 
   it('only assigns registered permissions', () => {
-    const registeredPermissions = new Set<string>(
-      DEFAULT_PERMISSION_KEYS,
-    );
+    const registeredPermissions = new Set<string>(DEFAULT_PERMISSION_KEYS);
 
     for (const role of DEFAULT_ROLES) {
       for (const permission of role.permissions) {

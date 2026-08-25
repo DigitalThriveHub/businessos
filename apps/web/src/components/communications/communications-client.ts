@@ -6,8 +6,15 @@ const REQUEST_TIMEOUT_MS = 20_000;
 
 async function responseMessage(response: Response): Promise<string> {
   try {
-    const body = (await response.json()) as { message?: string };
-    if (body.message) return body.message;
+    const body = (await response.json()) as {
+      message?: string;
+      correlationId?: string;
+    };
+    if (body.message) {
+      return body.correlationId && !body.message.includes(body.correlationId)
+        ? `${body.message} Support reference: ${body.correlationId}.`
+        : body.message;
+    }
   } catch {
     // Detailed upstream errors are intentionally not exposed.
   }

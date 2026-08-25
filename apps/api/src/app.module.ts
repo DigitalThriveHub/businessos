@@ -19,6 +19,7 @@ import { EnquiriesModule } from './enquiries/enquiries.module';
 import { FinanceModule } from './finance/finance.module';
 import { IntegrationsModule } from './integrations/integrations.module';
 import { InvitationsModule } from './invitations/invitations.module';
+import { MyAiModule } from './my-ai/my-ai.module';
 import { OrganisationsModule } from './organisations/organisations.module';
 import { OperationalReadinessModule } from './operational-readiness/operational-readiness.module';
 import { PaymentsModule } from './payments/payments.module';
@@ -49,6 +50,7 @@ import { WorkforceConfigurationModule } from './workforce-configuration/workforc
     FinanceModule,
     IntegrationsModule,
     InvitationsModule,
+    MyAiModule,
     OrganisationsModule,
     OperationalReadinessModule,
     PaymentsModule,

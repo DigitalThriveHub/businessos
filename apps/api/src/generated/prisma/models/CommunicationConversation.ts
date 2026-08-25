@@ -39,6 +39,7 @@ export type CommunicationConversationMinAggregateOutputType = {
   organisationId: string | null
   matterId: string | null
   clientId: string | null
+  integrationConnectionId: string | null
   channel: $Enums.BusinessCommunicationChannel | null
   subject: string | null
   status: $Enums.CommunicationConversationStatus | null
@@ -59,6 +60,7 @@ export type CommunicationConversationMaxAggregateOutputType = {
   organisationId: string | null
   matterId: string | null
   clientId: string | null
+  integrationConnectionId: string | null
   channel: $Enums.BusinessCommunicationChannel | null
   subject: string | null
   status: $Enums.CommunicationConversationStatus | null
@@ -79,6 +81,7 @@ export type CommunicationConversationCountAggregateOutputType = {
   organisationId: number
   matterId: number
   clientId: number
+  integrationConnectionId: number
   channel: number
   subject: number
   status: number
@@ -109,6 +112,7 @@ export type CommunicationConversationMinAggregateInputType = {
   organisationId?: true
   matterId?: true
   clientId?: true
+  integrationConnectionId?: true
   channel?: true
   subject?: true
   status?: true
@@ -129,6 +133,7 @@ export type CommunicationConversationMaxAggregateInputType = {
   organisationId?: true
   matterId?: true
   clientId?: true
+  integrationConnectionId?: true
   channel?: true
   subject?: true
   status?: true
@@ -149,6 +154,7 @@ export type CommunicationConversationCountAggregateInputType = {
   organisationId?: true
   matterId?: true
   clientId?: true
+  integrationConnectionId?: true
   channel?: true
   subject?: true
   status?: true
@@ -256,6 +262,7 @@ export type CommunicationConversationGroupByOutputType = {
   organisationId: string
   matterId: string | null
   clientId: string | null
+  integrationConnectionId: string | null
   channel: $Enums.BusinessCommunicationChannel
   subject: string
   status: $Enums.CommunicationConversationStatus
@@ -299,6 +306,7 @@ export type CommunicationConversationWhereInput = {
   organisationId?: Prisma.UuidFilter<"CommunicationConversation"> | string
   matterId?: Prisma.UuidNullableFilter<"CommunicationConversation"> | string | null
   clientId?: Prisma.UuidNullableFilter<"CommunicationConversation"> | string | null
+  integrationConnectionId?: Prisma.UuidNullableFilter<"CommunicationConversation"> | string | null
   channel?: Prisma.EnumBusinessCommunicationChannelFilter<"CommunicationConversation"> | $Enums.BusinessCommunicationChannel
   subject?: Prisma.StringFilter<"CommunicationConversation"> | string
   status?: Prisma.EnumCommunicationConversationStatusFilter<"CommunicationConversation"> | $Enums.CommunicationConversationStatus
@@ -319,6 +327,7 @@ export type CommunicationConversationOrderByWithRelationInput = {
   organisationId?: Prisma.SortOrder
   matterId?: Prisma.SortOrderInput | Prisma.SortOrder
   clientId?: Prisma.SortOrderInput | Prisma.SortOrder
+  integrationConnectionId?: Prisma.SortOrderInput | Prisma.SortOrder
   channel?: Prisma.SortOrder
   subject?: Prisma.SortOrder
   status?: Prisma.SortOrder
@@ -343,6 +352,7 @@ export type CommunicationConversationWhereUniqueInput = Prisma.AtLeast<{
   organisationId?: Prisma.UuidFilter<"CommunicationConversation"> | string
   matterId?: Prisma.UuidNullableFilter<"CommunicationConversation"> | string | null
   clientId?: Prisma.UuidNullableFilter<"CommunicationConversation"> | string | null
+  integrationConnectionId?: Prisma.UuidNullableFilter<"CommunicationConversation"> | string | null
   channel?: Prisma.EnumBusinessCommunicationChannelFilter<"CommunicationConversation"> | $Enums.BusinessCommunicationChannel
   subject?: Prisma.StringFilter<"CommunicationConversation"> | string
   status?: Prisma.EnumCommunicationConversationStatusFilter<"CommunicationConversation"> | $Enums.CommunicationConversationStatus
@@ -363,6 +373,7 @@ export type CommunicationConversationOrderByWithAggregationInput = {
   organisationId?: Prisma.SortOrder
   matterId?: Prisma.SortOrderInput | Prisma.SortOrder
   clientId?: Prisma.SortOrderInput | Prisma.SortOrder
+  integrationConnectionId?: Prisma.SortOrderInput | Prisma.SortOrder
   channel?: Prisma.SortOrder
   subject?: Prisma.SortOrder
   status?: Prisma.SortOrder
@@ -391,6 +402,7 @@ export type CommunicationConversationScalarWhereWithAggregatesInput = {
   organisationId?: Prisma.UuidWithAggregatesFilter<"CommunicationConversation"> | string
   matterId?: Prisma.UuidNullableWithAggregatesFilter<"CommunicationConversation"> | string | null
   clientId?: Prisma.UuidNullableWithAggregatesFilter<"CommunicationConversation"> | string | null
+  integrationConnectionId?: Prisma.UuidNullableWithAggregatesFilter<"CommunicationConversation"> | string | null
   channel?: Prisma.EnumBusinessCommunicationChannelWithAggregatesFilter<"CommunicationConversation"> | $Enums.BusinessCommunicationChannel
   subject?: Prisma.StringWithAggregatesFilter<"CommunicationConversation"> | string
   status?: Prisma.EnumCommunicationConversationStatusWithAggregatesFilter<"CommunicationConversation"> | $Enums.CommunicationConversationStatus
@@ -411,6 +423,7 @@ export type CommunicationConversationCreateInput = {
   organisationId: string
   matterId?: string | null
   clientId?: string | null
+  integrationConnectionId?: string | null
   channel: $Enums.BusinessCommunicationChannel
   subject: string
   status?: $Enums.CommunicationConversationStatus
@@ -431,6 +444,7 @@ export type CommunicationConversationUncheckedCreateInput = {
   organisationId: string
   matterId?: string | null
   clientId?: string | null
+  integrationConnectionId?: string | null
   channel: $Enums.BusinessCommunicationChannel
   subject: string
   status?: $Enums.CommunicationConversationStatus
@@ -451,6 +465,7 @@ export type CommunicationConversationUpdateInput = {
   organisationId?: Prisma.StringFieldUpdateOperationsInput | string
   matterId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   clientId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  integrationConnectionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   channel?: Prisma.EnumBusinessCommunicationChannelFieldUpdateOperationsInput | $Enums.BusinessCommunicationChannel
   subject?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.EnumCommunicationConversationStatusFieldUpdateOperationsInput | $Enums.CommunicationConversationStatus
@@ -471,6 +486,7 @@ export type CommunicationConversationUncheckedUpdateInput = {
   organisationId?: Prisma.StringFieldUpdateOperationsInput | string
   matterId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   clientId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  integrationConnectionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   channel?: Prisma.EnumBusinessCommunicationChannelFieldUpdateOperationsInput | $Enums.BusinessCommunicationChannel
   subject?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.EnumCommunicationConversationStatusFieldUpdateOperationsInput | $Enums.CommunicationConversationStatus
@@ -491,6 +507,7 @@ export type CommunicationConversationCreateManyInput = {
   organisationId: string
   matterId?: string | null
   clientId?: string | null
+  integrationConnectionId?: string | null
   channel: $Enums.BusinessCommunicationChannel
   subject: string
   status?: $Enums.CommunicationConversationStatus
@@ -511,6 +528,7 @@ export type CommunicationConversationUpdateManyMutationInput = {
   organisationId?: Prisma.StringFieldUpdateOperationsInput | string
   matterId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   clientId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  integrationConnectionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   channel?: Prisma.EnumBusinessCommunicationChannelFieldUpdateOperationsInput | $Enums.BusinessCommunicationChannel
   subject?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.EnumCommunicationConversationStatusFieldUpdateOperationsInput | $Enums.CommunicationConversationStatus
@@ -531,6 +549,7 @@ export type CommunicationConversationUncheckedUpdateManyInput = {
   organisationId?: Prisma.StringFieldUpdateOperationsInput | string
   matterId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   clientId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  integrationConnectionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   channel?: Prisma.EnumBusinessCommunicationChannelFieldUpdateOperationsInput | $Enums.BusinessCommunicationChannel
   subject?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.EnumCommunicationConversationStatusFieldUpdateOperationsInput | $Enums.CommunicationConversationStatus
@@ -556,6 +575,7 @@ export type CommunicationConversationCountOrderByAggregateInput = {
   organisationId?: Prisma.SortOrder
   matterId?: Prisma.SortOrder
   clientId?: Prisma.SortOrder
+  integrationConnectionId?: Prisma.SortOrder
   channel?: Prisma.SortOrder
   subject?: Prisma.SortOrder
   status?: Prisma.SortOrder
@@ -580,6 +600,7 @@ export type CommunicationConversationMaxOrderByAggregateInput = {
   organisationId?: Prisma.SortOrder
   matterId?: Prisma.SortOrder
   clientId?: Prisma.SortOrder
+  integrationConnectionId?: Prisma.SortOrder
   channel?: Prisma.SortOrder
   subject?: Prisma.SortOrder
   status?: Prisma.SortOrder
@@ -600,6 +621,7 @@ export type CommunicationConversationMinOrderByAggregateInput = {
   organisationId?: Prisma.SortOrder
   matterId?: Prisma.SortOrder
   clientId?: Prisma.SortOrder
+  integrationConnectionId?: Prisma.SortOrder
   channel?: Prisma.SortOrder
   subject?: Prisma.SortOrder
   status?: Prisma.SortOrder
@@ -634,6 +656,7 @@ export type CommunicationConversationSelect<ExtArgs extends runtime.Types.Extens
   organisationId?: boolean
   matterId?: boolean
   clientId?: boolean
+  integrationConnectionId?: boolean
   channel?: boolean
   subject?: boolean
   status?: boolean
@@ -654,6 +677,7 @@ export type CommunicationConversationSelectCreateManyAndReturn<ExtArgs extends r
   organisationId?: boolean
   matterId?: boolean
   clientId?: boolean
+  integrationConnectionId?: boolean
   channel?: boolean
   subject?: boolean
   status?: boolean
@@ -674,6 +698,7 @@ export type CommunicationConversationSelectUpdateManyAndReturn<ExtArgs extends r
   organisationId?: boolean
   matterId?: boolean
   clientId?: boolean
+  integrationConnectionId?: boolean
   channel?: boolean
   subject?: boolean
   status?: boolean
@@ -694,6 +719,7 @@ export type CommunicationConversationSelectScalar = {
   organisationId?: boolean
   matterId?: boolean
   clientId?: boolean
+  integrationConnectionId?: boolean
   channel?: boolean
   subject?: boolean
   status?: boolean
@@ -709,7 +735,7 @@ export type CommunicationConversationSelectScalar = {
   deletedAt?: boolean
 }
 
-export type CommunicationConversationOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "organisationId" | "matterId" | "clientId" | "channel" | "subject" | "status" | "externalThreadId" | "assignedToUserId" | "createdByUserId" | "lastMessageAt" | "resolvedAt" | "archivedAt" | "version" | "createdAt" | "updatedAt" | "deletedAt", ExtArgs["result"]["communicationConversation"]>
+export type CommunicationConversationOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "organisationId" | "matterId" | "clientId" | "integrationConnectionId" | "channel" | "subject" | "status" | "externalThreadId" | "assignedToUserId" | "createdByUserId" | "lastMessageAt" | "resolvedAt" | "archivedAt" | "version" | "createdAt" | "updatedAt" | "deletedAt", ExtArgs["result"]["communicationConversation"]>
 
 export type $CommunicationConversationPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "CommunicationConversation"
@@ -719,6 +745,7 @@ export type $CommunicationConversationPayload<ExtArgs extends runtime.Types.Exte
     organisationId: string
     matterId: string | null
     clientId: string | null
+    integrationConnectionId: string | null
     channel: $Enums.BusinessCommunicationChannel
     subject: string
     status: $Enums.CommunicationConversationStatus
@@ -1159,6 +1186,7 @@ export interface CommunicationConversationFieldRefs {
   readonly organisationId: Prisma.FieldRef<"CommunicationConversation", 'String'>
   readonly matterId: Prisma.FieldRef<"CommunicationConversation", 'String'>
   readonly clientId: Prisma.FieldRef<"CommunicationConversation", 'String'>
+  readonly integrationConnectionId: Prisma.FieldRef<"CommunicationConversation", 'String'>
   readonly channel: Prisma.FieldRef<"CommunicationConversation", 'BusinessCommunicationChannel'>
   readonly subject: Prisma.FieldRef<"CommunicationConversation", 'String'>
   readonly status: Prisma.FieldRef<"CommunicationConversation", 'CommunicationConversationStatus'>

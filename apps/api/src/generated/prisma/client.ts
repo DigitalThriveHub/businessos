@@ -155,6 +155,36 @@ export type AgentProfile = Prisma.AgentProfileModel
  */
 export type AgentPolicy = Prisma.AgentPolicyModel
 /**
+ * Model AgentConversation
+ * 
+ */
+export type AgentConversation = Prisma.AgentConversationModel
+/**
+ * Model AgentRun
+ * 
+ */
+export type AgentRun = Prisma.AgentRunModel
+/**
+ * Model AgentMessage
+ * 
+ */
+export type AgentMessage = Prisma.AgentMessageModel
+/**
+ * Model AgentAction
+ * 
+ */
+export type AgentAction = Prisma.AgentActionModel
+/**
+ * Model AgentToolCall
+ * 
+ */
+export type AgentToolCall = Prisma.AgentToolCallModel
+/**
+ * Model AgentUsage
+ * 
+ */
+export type AgentUsage = Prisma.AgentUsageModel
+/**
  * Model WorkforceAssignment
  * 
  */
@@ -404,6 +434,21 @@ export type FinanceJournalLine = Prisma.FinanceJournalLineModel
  * 
  */
 export type IntegrationConnection = Prisma.IntegrationConnectionModel
+/**
+ * Model ProviderConnectionConfig
+ * 
+ */
+export type ProviderConnectionConfig = Prisma.ProviderConnectionConfigModel
+/**
+ * Model BusinessCalendarEvent
+ * 
+ */
+export type BusinessCalendarEvent = Prisma.BusinessCalendarEventModel
+/**
+ * Model ProviderWebhookReceipt
+ * 
+ */
+export type ProviderWebhookReceipt = Prisma.ProviderWebhookReceiptModel
 /**
  * Model IntakeForm
  * 

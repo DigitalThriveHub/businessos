@@ -187,6 +187,55 @@ enum AgentAuthorityLevel {
   @@map("agent_authority_level")
 }
 
+enum AgentConversationStatus {
+  ACTIVE
+  ARCHIVED
+
+  @@map("agent_conversation_status")
+}
+
+enum AgentRunMode {
+  CHAT
+  DAILY_BRIEF
+
+  @@map("agent_run_mode")
+}
+
+enum AgentRunStatus {
+  RUNNING
+  COMPLETED
+  FAILED
+
+  @@map("agent_run_status")
+}
+
+enum AgentMessageRole {
+  USER
+  ASSISTANT
+
+  @@map("agent_message_role")
+}
+
+enum AgentActionStatus {
+  PROPOSED
+  PENDING_APPROVAL
+  BLOCKED
+  APPROVED
+  EXECUTING
+  EXECUTED
+  FAILED
+
+  @@map("agent_action_status")
+}
+
+enum AgentToolCallStatus {
+  SUCCEEDED
+  DENIED
+  FAILED
+
+  @@map("agent_tool_call_status")
+}
+
 enum OnboardingPlanStatus {
   PENDING
   PROVISIONED
@@ -719,8 +768,32 @@ enum IntegrationProvider {
   WORDPRESS
   STRIPE
   GENERIC
+  MICROSOFT_365
+  GOOGLE_WORKSPACE
+  WHATSAPP_BUSINESS
 
   @@map("integration_provider")
+}
+
+enum ProviderConnectionState {
+  SETUP_REQUIRED
+  READY
+  DEGRADED
+  DISABLED
+
+  @@map("provider_connection_state")
+}
+
+enum BusinessCalendarEventStatus {
+  PENDING_SYNC
+  SCHEDULED
+  CANCELLATION_PENDING
+  CANCELLED
+  COMPLETED
+  NO_SHOW
+  SYNC_FAILED
+
+  @@map("business_calendar_event_status")
 }
 
 enum IntegrationConnectionStatus {
@@ -874,6 +947,12 @@ model Organisation {
   jobProfileKpis            JobProfileKpi[]
   agentProfiles             AgentProfile[]
   agentPolicies             AgentPolicy[]
+  agentConversations        AgentConversation[]
+  agentRuns                 AgentRun[]
+  agentMessages             AgentMessage[]
+  agentActions              AgentAction[]
+  agentToolCalls            AgentToolCall[]
+  agentUsage                AgentUsage[]
   workforceAssignments      WorkforceAssignment[]
   workforceAssignmentKpis   WorkforceAssignmentKpi[]
   invitationOnboardingPlans InvitationOnboardingPlan[]
@@ -977,6 +1056,12 @@ model UserProfile {
   kpiDefinitionsUpdated            KpiDefinition[]            @relation("KpiDefinitionUpdatedBy")
   agentProfilesCreated             AgentProfile[]             @relation("AgentProfileCreatedBy")
   agentProfilesUpdated             AgentProfile[]             @relation("AgentProfileUpdatedBy")
+  agentConversationsOwned          AgentConversation[]        @relation("AgentConversationOwner")
+  agentRunsOwned                   AgentRun[]                 @relation("AgentRunOwner")
+  agentMessagesOwned               AgentMessage[]             @relation("AgentMessageOwner")
+  agentActionsOwned                AgentAction[]              @relation("AgentActionOwner")
+  agentToolCallsOwned              AgentToolCall[]            @relation("AgentToolCallOwner")
+  agentUsageOwned                  AgentUsage[]               @relation("AgentUsageOwner")
   workforceAssignmentsCreated      WorkforceAssignment[]      @relation("WorkforceAssignmentCreatedBy")
   workforceAssignmentsUpdated      WorkforceAssignment[]      @relation("WorkforceAssignmentUpdatedBy")
   workforceAssignmentsEnded        WorkforceAssignment[]      @relation("WorkforceAssignmentEndedBy")
@@ -1210,6 +1295,7 @@ model Permission {
 
   roles         RolePermission[]
   agentPolicies AgentPolicy[]
+  agentActions  AgentAction[]
 
   @@index([resource, action, dataScope, isActive], map: "ix_permissions_resource_action")
   @@index([resource, isActive, deletedAt], map: "ix_permissions_resource_active")
@@ -1603,6 +1689,8 @@ model AgentProfile {
   policies             AgentPolicy[]
   workforceAssignments WorkforceAssignment[]
   onboardingPlans      InvitationOnboardingPlan[]
+  conversations        AgentConversation[]
+  runs                 AgentRun[]
 
   @@unique([id, organisationId], map: "uq_agent_profiles_id_org")
   @@unique([organisationId, key], map: "uq_agent_profiles_org_key")
@@ -1637,6 +1725,172 @@ model AgentPolicy {
   @@index([organisationId, agentProfileId, isActive, deletedAt], map: "ix_agent_policies_profile_active")
   @@index([requiredPermissionKey, isActive, deletedAt], map: "ix_agent_policies_permission")
   @@map("agent_policies")
+}
+
+model AgentConversation {
+  id             String                  @id(map: "pk_agent_conversations") @default(uuid()) @map("id") @db.Uuid
+  organisationId String                  @map("organisation_id") @db.Uuid
+  userProfileId  String                  @map("user_profile_id") @db.Uuid
+  agentProfileId String?                 @map("agent_profile_id") @db.Uuid
+  title          String                  @map("title") @db.VarChar(160)
+  status         AgentConversationStatus @default(ACTIVE) @map("status")
+  lastMessageAt  DateTime                @default(now()) @map("last_message_at") @db.Timestamptz(6)
+  archivedAt     DateTime?               @map("archived_at") @db.Timestamptz(6)
+  version        Int                     @default(1) @map("version")
+  createdAt      DateTime                @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt      DateTime                @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  organisation Organisation   @relation(fields: [organisationId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_agent_conversations_organisation")
+  owner        UserProfile    @relation("AgentConversationOwner", fields: [userProfileId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_agent_conversations_user")
+  agentProfile AgentProfile?  @relation(fields: [agentProfileId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_agent_conversations_profile")
+  runs         AgentRun[]
+  messages     AgentMessage[]
+  actions      AgentAction[]
+
+  @@unique([id, organisationId], map: "uq_agent_conversations_id_org")
+  @@unique([id, organisationId, userProfileId], map: "uq_agent_conversations_owner")
+  @@index([organisationId, userProfileId, lastMessageAt(sort: Desc)], map: "ix_agent_conversations_owner_recent")
+  @@map("agent_conversations")
+}
+
+model AgentRun {
+  id                 String         @id(map: "pk_agent_runs") @default(uuid()) @map("id") @db.Uuid
+  organisationId     String         @map("organisation_id") @db.Uuid
+  userProfileId      String         @map("user_profile_id") @db.Uuid
+  conversationId     String         @map("conversation_id") @db.Uuid
+  agentProfileId     String?        @map("agent_profile_id") @db.Uuid
+  clientRequestId    String         @map("client_request_id") @db.Uuid
+  mode               AgentRunMode   @map("mode")
+  status             AgentRunStatus @default(RUNNING) @map("status")
+  model              String         @map("model") @db.VarChar(120)
+  providerResponseId String?        @map("provider_response_id") @db.VarChar(240)
+  providerRequestId  String?        @map("provider_request_id") @db.VarChar(240)
+  requestSha256      String         @map("request_sha256") @db.Char(64)
+  latencyMs          Int?           @map("latency_ms")
+  errorCode          String?        @map("error_code") @db.VarChar(80)
+  errorDetail        String?        @map("error_detail") @db.VarChar(500)
+  startedAt          DateTime       @default(now()) @map("started_at") @db.Timestamptz(6)
+  completedAt        DateTime?      @map("completed_at") @db.Timestamptz(6)
+  failedAt           DateTime?      @map("failed_at") @db.Timestamptz(6)
+  version            Int            @default(1) @map("version")
+  createdAt          DateTime       @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt          DateTime       @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  organisation Organisation      @relation(fields: [organisationId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_agent_runs_organisation")
+  owner        UserProfile       @relation("AgentRunOwner", fields: [userProfileId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_agent_runs_user")
+  conversation AgentConversation @relation(fields: [conversationId, organisationId, userProfileId], references: [id, organisationId, userProfileId], onDelete: Restrict, onUpdate: Cascade, map: "fk_agent_runs_conversation")
+  agentProfile AgentProfile?     @relation(fields: [agentProfileId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_agent_runs_profile")
+  messages     AgentMessage[]
+  actions      AgentAction[]
+  toolCalls    AgentToolCall[]
+  usage        AgentUsage?
+
+  @@unique([id, organisationId], map: "uq_agent_runs_id_org")
+  @@unique([id, organisationId, userProfileId], map: "uq_agent_runs_owner")
+  @@unique([organisationId, userProfileId, clientRequestId], map: "uq_agent_runs_client_request")
+  @@index([organisationId, userProfileId, createdAt(sort: Desc)], map: "ix_agent_runs_owner_recent")
+  @@index([organisationId, status, startedAt], map: "ix_agent_runs_status")
+  @@map("agent_runs")
+}
+
+model AgentMessage {
+  id                String           @id(map: "pk_agent_messages") @default(uuid()) @map("id") @db.Uuid
+  organisationId    String           @map("organisation_id") @db.Uuid
+  userProfileId     String           @map("user_profile_id") @db.Uuid
+  conversationId    String           @map("conversation_id") @db.Uuid
+  runId             String           @map("run_id") @db.Uuid
+  role              AgentMessageRole @map("role")
+  content           String           @map("content") @db.Text
+  structuredContent Json             @default("{}") @map("structured_content")
+  createdAt         DateTime         @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  organisation Organisation      @relation(fields: [organisationId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_agent_messages_organisation")
+  owner        UserProfile       @relation("AgentMessageOwner", fields: [userProfileId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_agent_messages_user")
+  conversation AgentConversation @relation(fields: [conversationId, organisationId, userProfileId], references: [id, organisationId, userProfileId], onDelete: Restrict, onUpdate: Cascade, map: "fk_agent_messages_conversation")
+  run          AgentRun          @relation(fields: [runId, organisationId, userProfileId], references: [id, organisationId, userProfileId], onDelete: Restrict, onUpdate: Cascade, map: "fk_agent_messages_run")
+
+  @@unique([id, organisationId], map: "uq_agent_messages_id_org")
+  @@index([organisationId, conversationId, createdAt(sort: Desc)], map: "ix_agent_messages_conversation_recent")
+  @@map("agent_messages")
+}
+
+model AgentAction {
+  id                    String                @id(map: "pk_agent_actions") @default(uuid()) @map("id") @db.Uuid
+  organisationId        String                @map("organisation_id") @db.Uuid
+  userProfileId         String                @map("user_profile_id") @db.Uuid
+  conversationId        String                @map("conversation_id") @db.Uuid
+  runId                 String                @map("run_id") @db.Uuid
+  approvalRequestId     String?               @map("approval_request_id") @db.Uuid
+  toolKey               String                @map("tool_key") @db.VarChar(160)
+  requiredPermissionKey String                @map("required_permission_key") @db.VarChar(180)
+  subjectType           AutomationSubjectType @map("subject_type")
+  subjectId             String                @map("subject_id") @db.Uuid
+  title                 String                @map("title") @db.VarChar(240)
+  summary               String                @map("summary") @db.VarChar(4000)
+  riskLevel             ApprovalRiskLevel     @map("risk_level")
+  proposedPayload       Json                  @default("{}") @map("proposed_payload")
+  status                AgentActionStatus     @default(PROPOSED) @map("status")
+  blockedReason         String?               @map("blocked_reason") @db.VarChar(500)
+  version               Int                   @default(1) @map("version")
+  createdAt             DateTime              @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt             DateTime              @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  organisation       Organisation      @relation(fields: [organisationId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_agent_actions_organisation")
+  owner              UserProfile       @relation("AgentActionOwner", fields: [userProfileId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_agent_actions_user")
+  conversation       AgentConversation @relation(fields: [conversationId, organisationId, userProfileId], references: [id, organisationId, userProfileId], onDelete: Restrict, onUpdate: Cascade, map: "fk_agent_actions_conversation")
+  run                AgentRun          @relation(fields: [runId, organisationId, userProfileId], references: [id, organisationId, userProfileId], onDelete: Restrict, onUpdate: Cascade, map: "fk_agent_actions_run")
+  approvalRequest    ApprovalRequest?  @relation(fields: [approvalRequestId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_agent_actions_approval")
+  requiredPermission Permission        @relation(fields: [requiredPermissionKey], references: [key], onDelete: Restrict, onUpdate: Cascade, map: "fk_agent_actions_permission")
+
+  @@unique([id, organisationId], map: "uq_agent_actions_id_org")
+  @@index([organisationId, userProfileId, status, createdAt(sort: Desc)], map: "ix_agent_actions_owner_status")
+  @@index([organisationId, approvalRequestId], map: "ix_agent_actions_approval")
+  @@map("agent_actions")
+}
+
+model AgentToolCall {
+  id             String              @id(map: "pk_agent_tool_calls") @default(uuid()) @map("id") @db.Uuid
+  organisationId String              @map("organisation_id") @db.Uuid
+  userProfileId  String              @map("user_profile_id") @db.Uuid
+  runId          String              @map("run_id") @db.Uuid
+  toolKey        String              @map("tool_key") @db.VarChar(160)
+  status         AgentToolCallStatus @map("status")
+  arguments      Json                @default("{}") @map("arguments")
+  resultSummary  Json                @default("{}") @map("result_summary")
+  errorCode      String?             @map("error_code") @db.VarChar(80)
+  startedAt      DateTime            @default(now()) @map("started_at") @db.Timestamptz(6)
+  completedAt    DateTime            @default(now()) @map("completed_at") @db.Timestamptz(6)
+  createdAt      DateTime            @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  organisation Organisation @relation(fields: [organisationId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_agent_tool_calls_organisation")
+  owner        UserProfile  @relation("AgentToolCallOwner", fields: [userProfileId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_agent_tool_calls_user")
+  run          AgentRun     @relation(fields: [runId, organisationId, userProfileId], references: [id, organisationId, userProfileId], onDelete: Restrict, onUpdate: Cascade, map: "fk_agent_tool_calls_run")
+
+  @@unique([id, organisationId], map: "uq_agent_tool_calls_id_org")
+  @@index([organisationId, runId, createdAt], map: "ix_agent_tool_calls_run")
+  @@map("agent_tool_calls")
+}
+
+model AgentUsage {
+  id                 String   @id(map: "pk_agent_usage") @default(uuid()) @map("id") @db.Uuid
+  organisationId     String   @map("organisation_id") @db.Uuid
+  userProfileId      String   @map("user_profile_id") @db.Uuid
+  runId              String   @map("run_id") @db.Uuid
+  model              String   @map("model") @db.VarChar(120)
+  inputTokens        Int      @map("input_tokens")
+  cachedInputTokens  Int      @default(0) @map("cached_input_tokens")
+  outputTokens       Int      @map("output_tokens")
+  totalTokens        Int      @map("total_tokens")
+  estimatedCostMinor Decimal? @map("estimated_cost_minor") @db.Decimal(18, 6)
+  createdAt          DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  organisation Organisation @relation(fields: [organisationId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_agent_usage_organisation")
+  owner        UserProfile  @relation("AgentUsageOwner", fields: [userProfileId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_agent_usage_user")
+  run          AgentRun     @relation(fields: [runId, organisationId, userProfileId], references: [id, organisationId, userProfileId], onDelete: Restrict, onUpdate: Cascade, map: "fk_agent_usage_run")
+
+  @@unique([id, organisationId], map: "uq_agent_usage_id_org")
+  @@unique([runId, organisationId, userProfileId], map: "uq_agent_usage_run")
+  @@map("agent_usage")
 }
 
 model WorkforceAssignment {
@@ -2627,6 +2881,7 @@ model ApprovalRequest {
   workflowRun    WorkflowRun?      @relation(fields: [workflowRunId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_approval_requests_run")
   workflowAction WorkflowAction?   @relation(fields: [workflowActionId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_approval_requests_action")
   decision       ApprovalDecision?
+  agentActions   AgentAction[]
 
   @@unique([id, organisationId], map: "uq_approval_requests_id_org")
   @@index([organisationId, status, expiresAt], map: "ix_approval_requests_org_status_expiry")
@@ -2744,23 +2999,24 @@ model PortalMatterUpdate {
 }
 
 model CommunicationConversation {
-  id               String                          @id(map: "pk_communication_conversations") @default(uuid()) @db.Uuid
-  organisationId   String                          @map("organisation_id") @db.Uuid
-  matterId         String?                         @map("matter_id") @db.Uuid
-  clientId         String?                         @map("client_id") @db.Uuid
-  channel          BusinessCommunicationChannel
-  subject          String                          @db.VarChar(240)
-  status           CommunicationConversationStatus @default(OPEN)
-  externalThreadId String?                         @map("external_thread_id") @db.VarChar(240)
-  assignedToUserId String?                         @map("assigned_to_user_id") @db.Uuid
-  createdByUserId  String?                         @map("created_by_user_id") @db.Uuid
-  lastMessageAt    DateTime?                       @map("last_message_at") @db.Timestamptz(6)
-  resolvedAt       DateTime?                       @map("resolved_at") @db.Timestamptz(6)
-  archivedAt       DateTime?                       @map("archived_at") @db.Timestamptz(6)
-  version          Int                             @default(1)
-  createdAt        DateTime                        @default(now()) @map("created_at") @db.Timestamptz(6)
-  updatedAt        DateTime                        @updatedAt @map("updated_at") @db.Timestamptz(6)
-  deletedAt        DateTime?                       @map("deleted_at") @db.Timestamptz(6)
+  id                      String                          @id(map: "pk_communication_conversations") @default(uuid()) @db.Uuid
+  organisationId          String                          @map("organisation_id") @db.Uuid
+  matterId                String?                         @map("matter_id") @db.Uuid
+  clientId                String?                         @map("client_id") @db.Uuid
+  integrationConnectionId String?                         @map("integration_connection_id") @db.Uuid
+  channel                 BusinessCommunicationChannel
+  subject                 String                          @db.VarChar(240)
+  status                  CommunicationConversationStatus @default(OPEN)
+  externalThreadId        String?                         @map("external_thread_id") @db.VarChar(240)
+  assignedToUserId        String?                         @map("assigned_to_user_id") @db.Uuid
+  createdByUserId         String?                         @map("created_by_user_id") @db.Uuid
+  lastMessageAt           DateTime?                       @map("last_message_at") @db.Timestamptz(6)
+  resolvedAt              DateTime?                       @map("resolved_at") @db.Timestamptz(6)
+  archivedAt              DateTime?                       @map("archived_at") @db.Timestamptz(6)
+  version                 Int                             @default(1)
+  createdAt               DateTime                        @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt               DateTime                        @updatedAt @map("updated_at") @db.Timestamptz(6)
+  deletedAt               DateTime?                       @map("deleted_at") @db.Timestamptz(6)
 
   @@unique([id, organisationId], map: "uq_conversation_id_org")
   @@index([organisationId, status, lastMessageAt(sort: Desc), createdAt(sort: Desc)], map: "ix_conversations_org_status_last")
@@ -2769,40 +3025,41 @@ model CommunicationConversation {
 }
 
 model CommunicationMessage {
-  id                  String                       @id(map: "pk_communication_messages") @default(uuid()) @db.Uuid
-  organisationId      String                       @map("organisation_id") @db.Uuid
-  conversationId      String                       @map("conversation_id") @db.Uuid
-  matterId            String?                      @map("matter_id") @db.Uuid
-  clientId            String?                      @map("client_id") @db.Uuid
-  channel             BusinessCommunicationChannel
-  direction           CommunicationDirection
-  actorType           CommunicationActorType       @map("actor_type")
-  authorUserProfileId String?                      @map("author_user_profile_id") @db.Uuid
-  senderAddress       String?                      @map("sender_address") @db.VarChar(320)
-  recipientAddresses  String[]                     @default([]) @map("recipient_addresses") @db.VarChar(320)
-  subject             String?                      @db.VarChar(500)
-  bodyText            String                       @map("body_text") @db.Text
-  status              CommunicationMessageStatus
-  clientVisible       Boolean                      @default(true) @map("client_visible")
-  approvalRequestId   String?                      @map("approval_request_id") @db.Uuid
-  idempotencyKey      String                       @map("idempotency_key") @db.VarChar(180)
-  provider            String?                      @db.VarChar(80)
-  providerMessageId   String?                      @map("provider_message_id") @db.VarChar(240)
-  scheduledAt         DateTime?                    @map("scheduled_at") @db.Timestamptz(6)
-  queuedAt            DateTime?                    @map("queued_at") @db.Timestamptz(6)
-  sentAt              DateTime?                    @map("sent_at") @db.Timestamptz(6)
-  deliveredAt         DateTime?                    @map("delivered_at") @db.Timestamptz(6)
-  readAt              DateTime?                    @map("read_at") @db.Timestamptz(6)
-  failedAt            DateTime?                    @map("failed_at") @db.Timestamptz(6)
-  failureCode         String?                      @map("failure_code") @db.VarChar(120)
-  failureDetail       String?                      @map("failure_detail") @db.VarChar(1000)
-  attempts            Int                          @default(0)
-  maxAttempts         Int                          @default(5) @map("max_attempts")
-  nextAttemptAt       DateTime                     @default(now()) @map("next_attempt_at") @db.Timestamptz(6)
-  leaseOwner          String?                      @map("lease_owner") @db.VarChar(160)
-  leaseExpiresAt      DateTime?                    @map("lease_expires_at") @db.Timestamptz(6)
-  createdAt           DateTime                     @default(now()) @map("created_at") @db.Timestamptz(6)
-  updatedAt           DateTime                     @updatedAt @map("updated_at") @db.Timestamptz(6)
+  id                      String                       @id(map: "pk_communication_messages") @default(uuid()) @db.Uuid
+  organisationId          String                       @map("organisation_id") @db.Uuid
+  conversationId          String                       @map("conversation_id") @db.Uuid
+  matterId                String?                      @map("matter_id") @db.Uuid
+  clientId                String?                      @map("client_id") @db.Uuid
+  integrationConnectionId String?                      @map("integration_connection_id") @db.Uuid
+  channel                 BusinessCommunicationChannel
+  direction               CommunicationDirection
+  actorType               CommunicationActorType       @map("actor_type")
+  authorUserProfileId     String?                      @map("author_user_profile_id") @db.Uuid
+  senderAddress           String?                      @map("sender_address") @db.VarChar(320)
+  recipientAddresses      String[]                     @default([]) @map("recipient_addresses") @db.VarChar(320)
+  subject                 String?                      @db.VarChar(500)
+  bodyText                String                       @map("body_text") @db.Text
+  status                  CommunicationMessageStatus
+  clientVisible           Boolean                      @default(true) @map("client_visible")
+  approvalRequestId       String?                      @map("approval_request_id") @db.Uuid
+  idempotencyKey          String                       @map("idempotency_key") @db.VarChar(180)
+  provider                String?                      @db.VarChar(80)
+  providerMessageId       String?                      @map("provider_message_id") @db.VarChar(240)
+  scheduledAt             DateTime?                    @map("scheduled_at") @db.Timestamptz(6)
+  queuedAt                DateTime?                    @map("queued_at") @db.Timestamptz(6)
+  sentAt                  DateTime?                    @map("sent_at") @db.Timestamptz(6)
+  deliveredAt             DateTime?                    @map("delivered_at") @db.Timestamptz(6)
+  readAt                  DateTime?                    @map("read_at") @db.Timestamptz(6)
+  failedAt                DateTime?                    @map("failed_at") @db.Timestamptz(6)
+  failureCode             String?                      @map("failure_code") @db.VarChar(120)
+  failureDetail           String?                      @map("failure_detail") @db.VarChar(1000)
+  attempts                Int                          @default(0)
+  maxAttempts             Int                          @default(5) @map("max_attempts")
+  nextAttemptAt           DateTime                     @default(now()) @map("next_attempt_at") @db.Timestamptz(6)
+  leaseOwner              String?                      @map("lease_owner") @db.VarChar(160)
+  leaseExpiresAt          DateTime?                    @map("lease_expires_at") @db.Timestamptz(6)
+  createdAt               DateTime                     @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt               DateTime                     @updatedAt @map("updated_at") @db.Timestamptz(6)
 
   @@unique([id, organisationId], map: "uq_message_id_org")
   @@unique([organisationId, idempotencyKey], map: "uq_message_org_idempotency")
@@ -3150,6 +3407,90 @@ model IntegrationConnection {
   @@unique([organisationId, provider, displayName], map: "uq_integration_connections_org_provider_name")
   @@index([organisationId, provider, status], map: "ix_integration_connections_org_provider_status")
   @@map("integration_connections")
+}
+
+model ProviderConnectionConfig {
+  id                  String                  @id(map: "pk_provider_connection_configs") @default(uuid()) @db.Uuid
+  organisationId      String                  @map("organisation_id") @db.Uuid
+  connectionId        String                  @unique(map: "uq_provider_config_connection") @map("connection_id") @db.Uuid
+  secretReference     String                  @map("secret_reference") @db.VarChar(160)
+  state               ProviderConnectionState @default(SETUP_REQUIRED)
+  capabilities        String[]                @default([]) @db.VarChar(40)
+  mailboxAddress      String?                 @map("mailbox_address") @db.VarChar(320)
+  phoneNumber         String?                 @map("phone_number") @db.VarChar(32)
+  webhookPublicId     String                  @unique(map: "uq_provider_config_webhook_public_id") @default(uuid()) @map("webhook_public_id") @db.Uuid
+  syncCursor          String?                 @map("sync_cursor") @db.Text
+  lastHealthCheckedAt DateTime?               @map("last_health_checked_at") @db.Timestamptz(6)
+  lastHealthyAt       DateTime?               @map("last_healthy_at") @db.Timestamptz(6)
+  lastSyncAt          DateTime?               @map("last_sync_at") @db.Timestamptz(6)
+  lastErrorCode       String?                 @map("last_error_code") @db.VarChar(120)
+  lastErrorDetail     String?                 @map("last_error_detail") @db.VarChar(500)
+  leaseOwner          String?                 @map("lease_owner") @db.VarChar(160)
+  leaseExpiresAt      DateTime?               @map("lease_expires_at") @db.Timestamptz(6)
+  createdByUserId     String                  @map("created_by_user_id") @db.Uuid
+  updatedByUserId     String                  @map("updated_by_user_id") @db.Uuid
+  version             Int                     @default(1)
+  createdAt           DateTime                @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt           DateTime                @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@unique([id, organisationId], map: "uq_provider_configs_id_org")
+  @@index([organisationId, state, updatedAt(sort: Desc)], map: "ix_provider_configs_org_state")
+  @@map("provider_connection_configs")
+}
+
+model BusinessCalendarEvent {
+  id                      String                      @id(map: "pk_business_calendar_events") @default(uuid()) @db.Uuid
+  organisationId          String                      @map("organisation_id") @db.Uuid
+  integrationConnectionId String                      @map("integration_connection_id") @db.Uuid
+  clientId                String?                     @map("client_id") @db.Uuid
+  matterId                String?                     @map("matter_id") @db.Uuid
+  conversationId          String?                     @map("conversation_id") @db.Uuid
+  title                   String                      @db.VarChar(240)
+  description             String?                     @db.VarChar(4000)
+  startsAt                DateTime                    @map("starts_at") @db.Timestamptz(6)
+  endsAt                  DateTime                    @map("ends_at") @db.Timestamptz(6)
+  timezone                String                      @default("Europe/London") @db.VarChar(80)
+  location                String?                     @db.VarChar(500)
+  attendeeAddresses       String[]                    @default([]) @map("attendee_addresses") @db.VarChar(320)
+  status                  BusinessCalendarEventStatus @default(PENDING_SYNC)
+  providerEventId         String?                     @map("provider_event_id") @db.VarChar(512)
+  providerJoinUrl         String?                     @map("provider_join_url") @db.VarChar(2048)
+  idempotencyKey          String                      @map("idempotency_key") @db.VarChar(180)
+  reminderMinutesBefore   Int?                        @map("reminder_minutes_before") @db.SmallInt
+  reminderMessageId       String?                     @map("reminder_message_id") @db.Uuid
+  failureCode             String?                     @map("failure_code") @db.VarChar(120)
+  failureDetail           String?                     @map("failure_detail") @db.VarChar(500)
+  createdByUserId         String                      @map("created_by_user_id") @db.Uuid
+  updatedByUserId         String                      @map("updated_by_user_id") @db.Uuid
+  version                 Int                         @default(1)
+  createdAt               DateTime                    @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt               DateTime                    @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@unique([id, organisationId], map: "uq_calendar_events_id_org")
+  @@unique([organisationId, idempotencyKey], map: "uq_calendar_events_org_idempotency")
+  @@unique([integrationConnectionId, providerEventId], map: "uq_calendar_events_provider")
+  @@index([organisationId, startsAt, status], map: "ix_calendar_events_org_starts")
+  @@map("business_calendar_events")
+}
+
+model ProviderWebhookReceipt {
+  id              String                 @id(map: "pk_provider_webhook_receipts") @default(uuid()) @db.Uuid
+  organisationId  String                 @map("organisation_id") @db.Uuid
+  connectionId    String                 @map("connection_id") @db.Uuid
+  provider        IntegrationProvider
+  externalEventId String                 @map("external_event_id") @db.VarChar(240)
+  eventType       String                 @map("event_type") @db.VarChar(160)
+  payloadSha256   String                 @map("payload_sha256") @db.Char(64)
+  status          IntegrationEventStatus @default(RECEIVED)
+  correlationId   String                 @default(uuid()) @map("correlation_id") @db.Uuid
+  errorCode       String?                @map("error_code") @db.VarChar(120)
+  occurredAt      DateTime               @map("occurred_at") @db.Timestamptz(6)
+  receivedAt      DateTime               @default(now()) @map("received_at") @db.Timestamptz(6)
+  processedAt     DateTime?              @map("processed_at") @db.Timestamptz(6)
+
+  @@unique([connectionId, externalEventId], map: "uq_provider_webhook_connection_event")
+  @@index([organisationId, status, receivedAt(sort: Desc)], map: "ix_provider_webhook_org_status")
+  @@map("provider_webhook_receipts")
 }
 
 model IntakeForm {

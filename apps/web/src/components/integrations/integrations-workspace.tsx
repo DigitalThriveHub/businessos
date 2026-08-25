@@ -50,6 +50,18 @@ function label(value: string): string {
   return value.replaceAll("_", " ").toLowerCase();
 }
 
+function isIntakeProvider(
+  provider: IntegrationConnection["provider"],
+): boolean {
+  return provider === "WORDPRESS" || provider === "GENERIC";
+}
+
+function isLegacyProvider(
+  provider: IntegrationConnection["provider"],
+): boolean {
+  return isIntakeProvider(provider) || provider === "STRIPE";
+}
+
 export function IntegrationsWorkspace({ organisationId, canManage }: Props) {
   const [dashboard, setDashboard] = useState<IntegrationsDashboard | null>(
     null,
@@ -95,7 +107,8 @@ export function IntegrationsWorkspace({ organisationId, canManage }: Props) {
         setDashboard(result);
         setGateH(intake);
         const connection = result.connections.find(
-          (entry) => entry.status === "ACTIVE" && entry.provider !== "STRIPE",
+          (entry) =>
+            entry.status === "ACTIVE" && isIntakeProvider(entry.provider),
         );
         if (connection) {
           setIntakeForm((current) =>
@@ -534,7 +547,7 @@ export function IntegrationsWorkspace({ organisationId, canManage }: Props) {
                     </p>
                   </div>
                 </div>
-                {canManage ? (
+                {canManage && isLegacyProvider(connection.provider) ? (
                   <div className="mt-4 flex flex-wrap gap-3">
                     <button
                       type="button"
@@ -544,7 +557,7 @@ export function IntegrationsWorkspace({ organisationId, canManage }: Props) {
                     >
                       {connection.status === "ACTIVE" ? "Disable" : "Enable"}
                     </button>
-                    {connection.provider !== "STRIPE" ? (
+                    {isIntakeProvider(connection.provider) ? (
                       <button
                         type="button"
                         onClick={() => void rotateSecret(connection)}
@@ -555,6 +568,13 @@ export function IntegrationsWorkspace({ organisationId, canManage }: Props) {
                       </button>
                     ) : null}
                   </div>
+                ) : !isLegacyProvider(connection.provider) ? (
+                  <a
+                    href="/communications"
+                    className="mt-4 inline-flex rounded-xl border border-slate-300 px-3 py-2 text-sm font-semibold"
+                  >
+                    Manage in Communications
+                  </a>
                 ) : null}
               </article>
             ))
@@ -679,7 +699,8 @@ export function IntegrationsWorkspace({ organisationId, canManage }: Props) {
                 {dashboard?.connections
                   .filter(
                     (entry) =>
-                      entry.status === "ACTIVE" && entry.provider !== "STRIPE",
+                      entry.status === "ACTIVE" &&
+                      isIntakeProvider(entry.provider),
                   )
                   .map((entry) => (
                     <option key={entry.id} value={entry.id}>

@@ -7,13 +7,11 @@ const isCi = Boolean(process.env.CI);
 const reuseExistingServer = !isCi;
 
 const webBaseUrl = (
-  process.env.PLAYWRIGHT_BASE_URL ??
-  "http://127.0.0.1:3000"
+  process.env.PLAYWRIGHT_BASE_URL ?? "http://127.0.0.1:3000"
 ).replace(/\/$/, "");
 
 const apiBaseUrl = (
-  process.env.PLAYWRIGHT_API_BASE_URL ??
-  "http://127.0.0.1:4000"
+  process.env.PLAYWRIGHT_API_BASE_URL ?? "http://127.0.0.1:4000"
 ).replace(/\/$/, "");
 
 export default defineConfig({
@@ -21,7 +19,9 @@ export default defineConfig({
   fullyParallel: false,
   forbidOnly: isCi,
   retries: isCi ? 2 : 0,
-  workers: isCi ? 1 : undefined,
+  // Shared AAL2 fixtures must run serially: concurrent TOTP challenges can
+  // invalidate one another and create false authentication failures.
+  workers: 1,
   reporter: [["list"], ["html", { open: "never" }]],
 
   use: {

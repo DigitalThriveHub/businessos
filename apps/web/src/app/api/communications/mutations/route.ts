@@ -88,6 +88,66 @@ function upstreamMutation(input: CommunicationsMutation): UpstreamMutation {
         body: input.payload,
         created: false,
       };
+    case "provider.configure":
+      return {
+        path: `${base}/provider-connections`,
+        body: input.payload,
+        created: true,
+      };
+    case "provider.health":
+      return {
+        path: `${base}/provider-connections/${encodeURIComponent(
+          input.connectionId,
+        )}/health`,
+        body: input.payload,
+        created: false,
+      };
+    case "provider.status":
+      return {
+        path: `${base}/provider-connections/${encodeURIComponent(
+          input.connectionId,
+        )}/status`,
+        body: input.payload,
+        created: false,
+      };
+    case "provider.sync":
+      return {
+        path: `${base}/provider-connections/${encodeURIComponent(
+          input.connectionId,
+        )}/sync`,
+        body: input.payload,
+        created: false,
+      };
+    case "calendar.create":
+      return {
+        path: `${base}/calendar-events`,
+        body: input.payload,
+        created: true,
+      };
+    case "calendar.cancel":
+      return {
+        path: `${base}/calendar-events/${encodeURIComponent(
+          input.eventId,
+        )}/cancel`,
+        body: input.payload,
+        created: false,
+      };
+    case "calendar.retry":
+      return {
+        path: `${base}/calendar-events/${encodeURIComponent(
+          input.eventId,
+        )}/retry`,
+        body: input.payload,
+        created: false,
+      };
+    case "calendar.outcome":
+      return {
+        path: `${base}/calendar-events/${encodeURIComponent(
+          input.eventId,
+        )}/outcome`,
+        body: input.payload,
+        created: false,
+      };
   }
 }
 

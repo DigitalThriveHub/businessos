@@ -166,6 +166,40 @@ const environmentSchema = z
       .regex(/^\d{4}-\d{2}-\d{2}(\.[A-Za-z0-9_-]+)?$/)
       .optional(),
 
+    OPENAI_AGENT_ENABLED: z.enum(['true', 'false']).default('false'),
+
+    OPENAI_API_KEY: z
+      .string()
+      .trim()
+      .min(20)
+      .max(512)
+      .startsWith('sk-', {
+        message: 'OPENAI_API_KEY must be an OpenAI API project key',
+      })
+      .optional(),
+
+    OPENAI_AGENT_MODEL: z
+      .string()
+      .trim()
+      .min(1)
+      .max(120)
+      .regex(/^[A-Za-z0-9][A-Za-z0-9._-]*$/)
+      .optional(),
+
+    OPENAI_AGENT_TIMEOUT_MS: z.coerce
+      .number()
+      .int()
+      .min(5_000)
+      .max(60_000)
+      .default(30_000),
+
+    OPENAI_AGENT_MAX_OUTPUT_TOKENS: z.coerce
+      .number()
+      .int()
+      .min(512)
+      .max(8_000)
+      .default(1_800),
+
     RELEASE_SHA: z.string().trim().min(7).max(64).optional(),
 
     SENTRY_DSN: z.string().url().optional(),
@@ -197,6 +231,37 @@ const environmentSchema = z
     AUTOMATION_WORKER_ENABLED: z.enum(['true', 'false']).default('true'),
 
     COMMUNICATION_DELIVERY_ENABLED: z.enum(['true', 'false']).default('false'),
+
+    GATE_L_LIVE_ENABLED: z.enum(['true', 'false']).default('false'),
+
+    GATE_L_SYNC_ENABLED: z.enum(['true', 'false']).default('false'),
+
+    GATE_L_PROVIDER_SECRETS_JSON: z
+      .string()
+      .trim()
+      .min(2)
+      .max(65_536)
+      .superRefine((value, ctx) => {
+        try {
+          const parsed: unknown = JSON.parse(value);
+          if (
+            typeof parsed !== 'object' ||
+            parsed === null ||
+            Array.isArray(parsed)
+          ) {
+            ctx.addIssue({
+              code: 'custom',
+              message: 'GATE_L_PROVIDER_SECRETS_JSON must be a JSON object',
+            });
+          }
+        } catch {
+          ctx.addIssue({
+            code: 'custom',
+            message: 'GATE_L_PROVIDER_SECRETS_JSON must contain valid JSON',
+          });
+        }
+      })
+      .optional(),
 
     DOCUMENT_SCANNER_ENABLED: z.enum(['true', 'false']).default('false'),
   })
@@ -268,6 +333,40 @@ const environmentSchema = z
             code: 'custom',
             path: [environmentName],
             message: `${environmentName} is required in production`,
+          });
+        }
+      }
+
+      if (environment.OPENAI_AGENT_ENABLED === 'true') {
+        for (const [environmentName, environmentValue] of [
+          ['OPENAI_API_KEY', environment.OPENAI_API_KEY],
+          ['OPENAI_AGENT_MODEL', environment.OPENAI_AGENT_MODEL],
+        ] as const) {
+          if (!environmentValue) {
+            ctx.addIssue({
+              code: 'custom',
+              path: [environmentName],
+              message: `${environmentName} is required when OPENAI_AGENT_ENABLED is true`,
+            });
+          }
+        }
+      }
+
+      if (environment.GATE_L_LIVE_ENABLED === 'true') {
+        if (!environment.GATE_L_PROVIDER_SECRETS_JSON) {
+          ctx.addIssue({
+            code: 'custom',
+            path: ['GATE_L_PROVIDER_SECRETS_JSON'],
+            message:
+              'GATE_L_PROVIDER_SECRETS_JSON is required when Gate L live providers are enabled',
+          });
+        }
+        if (environment.GATE_L_SYNC_ENABLED !== 'true') {
+          ctx.addIssue({
+            code: 'custom',
+            path: ['GATE_L_SYNC_ENABLED'],
+            message:
+              'GATE_L_SYNC_ENABLED must be true for live Gate L operation',
           });
         }
       }

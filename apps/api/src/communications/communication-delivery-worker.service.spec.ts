@@ -3,6 +3,12 @@ import { CommunicationDeliveryWorkerService } from './communication-delivery-wor
 const JOB = {
   messageId: '11111111-1111-4111-8111-111111111111',
   organisationId: '22222222-2222-4222-8222-222222222222',
+  channel: 'EMAIL',
+  connectionId: null,
+  provider: 'RESEND',
+  secretReference: null,
+  mailboxAddress: null,
+  phoneNumber: null,
   recipientAddresses: ['client@example.test'],
   subject: 'Case update',
   bodyText: 'A secure case update is available.',
@@ -27,8 +33,8 @@ describe('CommunicationDeliveryWorkerService', () => {
         .mockResolvedValueOnce([JOB])
         .mockResolvedValueOnce([{ messageStatus: 'SENT' }]),
     };
-    const email = {
-      sendTransactionalMessage: jest.fn().mockResolvedValue({
+    const providers = {
+      send: jest.fn().mockResolvedValue({
         provider: 'resend',
         messageId: 'provider-message-1',
       }),
@@ -36,11 +42,11 @@ describe('CommunicationDeliveryWorkerService', () => {
     const worker = new CommunicationDeliveryWorkerService(
       database as never,
       config as never,
-      email as never,
+      providers as never,
     );
 
     await expect(worker.runOnce()).resolves.toBe(true);
-    expect(email.sendTransactionalMessage).toHaveBeenCalledWith(
+    expect(providers.send).toHaveBeenCalledWith(
       expect.objectContaining({ messageId: JOB.messageId }),
     );
     expect(database.$queryRaw).toHaveBeenCalledTimes(3);
@@ -58,9 +64,7 @@ describe('CommunicationDeliveryWorkerService', () => {
       database as never,
       config as never,
       {
-        sendTransactionalMessage: jest
-          .fn()
-          .mockRejectedValue(new Error('provider unavailable')),
+        send: jest.fn().mockRejectedValue(new Error('provider unavailable')),
       } as never,
     );
 
@@ -73,7 +77,7 @@ describe('CommunicationDeliveryWorkerService', () => {
     const worker = new CommunicationDeliveryWorkerService(
       database as never,
       { ...config, enabled: false } as never,
-      { sendTransactionalMessage: jest.fn() } as never,
+      { send: jest.fn() } as never,
     );
 
     await expect(worker.runOnce()).resolves.toBe(false);
