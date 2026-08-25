@@ -125,6 +125,42 @@ describe('validateEnvironment Gate F controls', () => {
     });
   });
 
+  it('allows document-intelligence free mode while manual work remains available', () => {
+    expect(
+      validateEnvironment({
+        ...productionEnvironment,
+        OPENAI_AGENT_ENABLED: 'false',
+        OPENAI_API_KEY: undefined,
+        OPENAI_AGENT_MODEL: undefined,
+        DOCUMENT_INTELLIGENCE_ENABLED: 'false',
+      }),
+    ).toMatchObject({ DOCUMENT_INTELLIGENCE_ENABLED: 'false' });
+  });
+
+  it('requires a model when live document intelligence is enabled', () => {
+    expect(() =>
+      validateEnvironment({
+        ...productionEnvironment,
+        DOCUMENT_INTELLIGENCE_ENABLED: 'true',
+        DOCUMENT_INTELLIGENCE_MODEL: undefined,
+        OPENAI_AGENT_MODEL: undefined,
+      }),
+    ).toThrow(
+      'DOCUMENT_INTELLIGENCE_MODEL is required when DOCUMENT_INTELLIGENCE_ENABLED is true',
+    );
+  });
+
+  it('requires malware scanning before live document intelligence', () => {
+    expect(() =>
+      validateEnvironment({
+        ...productionEnvironment,
+        DOCUMENT_INTELLIGENCE_ENABLED: 'true',
+        DOCUMENT_INTELLIGENCE_MODEL: 'approved-vision-model',
+        DOCUMENT_SCANNER_ENABLED: 'false',
+      }),
+    ).toThrow('DOCUMENT_SCANNER_ENABLED must be true');
+  });
+
   it('fails closed when live Gate L has no server-side credential map', () => {
     expect(() =>
       validateEnvironment({

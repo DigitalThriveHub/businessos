@@ -264,6 +264,65 @@ const environmentSchema = z
       .optional(),
 
     DOCUMENT_SCANNER_ENABLED: z.enum(['true', 'false']).default('false'),
+
+    DOCUMENT_INTELLIGENCE_ENABLED: z.enum(['true', 'false']).default('false'),
+
+    DOCUMENT_INTELLIGENCE_MODEL: z
+      .string()
+      .trim()
+      .min(1)
+      .max(120)
+      .regex(/^[A-Za-z0-9][A-Za-z0-9._-]*$/)
+      .optional(),
+
+    DOCUMENT_INTELLIGENCE_POLL_INTERVAL_MS: z.coerce
+      .number()
+      .int()
+      .min(1_000)
+      .max(300_000)
+      .default(5_000),
+
+    DOCUMENT_INTELLIGENCE_LEASE_SECONDS: z.coerce
+      .number()
+      .int()
+      .min(30)
+      .max(1_800)
+      .default(300),
+
+    DOCUMENT_INTELLIGENCE_TIMEOUT_MS: z.coerce
+      .number()
+      .int()
+      .min(5_000)
+      .max(180_000)
+      .default(60_000),
+
+    DOCUMENT_INTELLIGENCE_MAX_OUTPUT_TOKENS: z.coerce
+      .number()
+      .int()
+      .min(512)
+      .max(8_000)
+      .default(2_400),
+
+    DOCUMENT_INTELLIGENCE_MAX_FILE_BYTES: z.coerce
+      .number()
+      .int()
+      .min(1)
+      .max(50_000_000)
+      .default(20_971_520),
+
+    DOCUMENT_INTELLIGENCE_INPUT_COST_PER_MILLION_MINOR: z.coerce
+      .number()
+      .int()
+      .min(0)
+      .max(100_000_000)
+      .default(0),
+
+    DOCUMENT_INTELLIGENCE_OUTPUT_COST_PER_MILLION_MINOR: z.coerce
+      .number()
+      .int()
+      .min(0)
+      .max(100_000_000)
+      .default(0),
   })
   .superRefine((environment, ctx) => {
     if (environment.NODE_ENV === 'production') {
@@ -349,6 +408,33 @@ const environmentSchema = z
               message: `${environmentName} is required when OPENAI_AGENT_ENABLED is true`,
             });
           }
+        }
+      }
+
+      if (environment.DOCUMENT_INTELLIGENCE_ENABLED === 'true') {
+        for (const [environmentName, environmentValue] of [
+          ['OPENAI_API_KEY', environment.OPENAI_API_KEY],
+          [
+            'DOCUMENT_INTELLIGENCE_MODEL',
+            environment.DOCUMENT_INTELLIGENCE_MODEL ??
+              environment.OPENAI_AGENT_MODEL,
+          ],
+        ] as const) {
+          if (!environmentValue) {
+            ctx.addIssue({
+              code: 'custom',
+              path: [environmentName],
+              message: `${environmentName} is required when DOCUMENT_INTELLIGENCE_ENABLED is true`,
+            });
+          }
+        }
+        if (environment.DOCUMENT_SCANNER_ENABLED !== 'true') {
+          ctx.addIssue({
+            code: 'custom',
+            path: ['DOCUMENT_SCANNER_ENABLED'],
+            message:
+              'DOCUMENT_SCANNER_ENABLED must be true before document intelligence is enabled',
+          });
         }
       }
 

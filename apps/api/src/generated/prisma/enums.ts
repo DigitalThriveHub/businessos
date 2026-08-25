@@ -510,6 +510,61 @@ export const DocumentScanJobStatus = {
 export type DocumentScanJobStatus = (typeof DocumentScanJobStatus)[keyof typeof DocumentScanJobStatus]
 
 
+export const DocumentIntelligenceStatus = {
+  PENDING: 'PENDING',
+  PROCESSING: 'PROCESSING',
+  READY: 'READY',
+  REVIEWED: 'REVIEWED',
+  REJECTED: 'REJECTED',
+  ERROR: 'ERROR'
+} as const
+
+export type DocumentIntelligenceStatus = (typeof DocumentIntelligenceStatus)[keyof typeof DocumentIntelligenceStatus]
+
+
+export const DocumentIntelligenceJobStatus = {
+  QUEUED: 'QUEUED',
+  LEASED: 'LEASED',
+  SUCCEEDED: 'SUCCEEDED',
+  CANCELLED: 'CANCELLED',
+  FAILED: 'FAILED',
+  DEAD_LETTER: 'DEAD_LETTER'
+} as const
+
+export type DocumentIntelligenceJobStatus = (typeof DocumentIntelligenceJobStatus)[keyof typeof DocumentIntelligenceJobStatus]
+
+
+export const DocumentIntelligenceReviewDecision = {
+  ACCEPTED: 'ACCEPTED',
+  CORRECTED: 'CORRECTED',
+  REJECTED: 'REJECTED'
+} as const
+
+export type DocumentIntelligenceReviewDecision = (typeof DocumentIntelligenceReviewDecision)[keyof typeof DocumentIntelligenceReviewDecision]
+
+
+export const DocumentReviewPriority = {
+  ROUTINE: 'ROUTINE',
+  ATTENTION: 'ATTENTION',
+  URGENT: 'URGENT'
+} as const
+
+export type DocumentReviewPriority = (typeof DocumentReviewPriority)[keyof typeof DocumentReviewPriority]
+
+
+export const OperationalValueCategory = {
+  AUTOMATION: 'AUTOMATION',
+  AI_ASSISTANCE: 'AI_ASSISTANCE',
+  DOCUMENT_PROCESSING: 'DOCUMENT_PROCESSING',
+  COMMUNICATION: 'COMMUNICATION',
+  WORKFLOW: 'WORKFLOW',
+  OPPORTUNITY_RECOVERY: 'OPPORTUNITY_RECOVERY',
+  OTHER: 'OTHER'
+} as const
+
+export type OperationalValueCategory = (typeof OperationalValueCategory)[keyof typeof OperationalValueCategory]
+
+
 export const DocumentRequestStatus = {
   DRAFT: 'DRAFT',
   SENT: 'SENT',

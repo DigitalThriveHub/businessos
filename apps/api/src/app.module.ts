@@ -21,6 +21,7 @@ import { IntegrationsModule } from './integrations/integrations.module';
 import { InvitationsModule } from './invitations/invitations.module';
 import { MyAiModule } from './my-ai/my-ai.module';
 import { OrganisationsModule } from './organisations/organisations.module';
+import { OperationalIntelligenceModule } from './operational-intelligence/operational-intelligence.module';
 import { OperationalReadinessModule } from './operational-readiness/operational-readiness.module';
 import { PaymentsModule } from './payments/payments.module';
 import { PilotReadinessModule } from './pilot-readiness/pilot-readiness.module';
@@ -51,6 +52,7 @@ import { WorkforceConfigurationModule } from './workforce-configuration/workforc
     IntegrationsModule,
     InvitationsModule,
     MyAiModule,
+    OperationalIntelligenceModule,
     OrganisationsModule,
     OperationalReadinessModule,
     PaymentsModule,

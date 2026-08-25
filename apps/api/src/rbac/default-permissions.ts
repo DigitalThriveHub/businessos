@@ -81,6 +81,10 @@ export const DEFAULT_PERMISSION_KEYS = [
   'document_requests.manage',
   'matter_timeline.read',
 
+  // Document intelligence and human-confirmed review
+  'document_intelligence.read',
+  'document_intelligence.review',
+
   // Deterministic workflow, SLA, escalation and approval controls
   'automation.read',
   'automation.manage',
@@ -118,6 +122,10 @@ export const DEFAULT_PERMISSION_KEYS = [
   'integrations.read',
   'integrations.manage',
   'command_centre.read',
+  'my_work.read',
+  'control_tower.read',
+  'operational_value.read',
+  'operational_value.manage',
   'engagements.read',
   'engagements.manage',
   'engagements.override',

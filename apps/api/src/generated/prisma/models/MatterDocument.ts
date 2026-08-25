@@ -45,6 +45,8 @@ export type MatterDocumentMinAggregateOutputType = {
   status: $Enums.DocumentStatus | null
   clientVisible: boolean | null
   currentVersionId: string | null
+  lastIntelligenceAnalysisId: string | null
+  expiresAt: Date | null
   retentionReviewAt: Date | null
   archivedAt: Date | null
   archiveReason: string | null
@@ -67,6 +69,8 @@ export type MatterDocumentMaxAggregateOutputType = {
   status: $Enums.DocumentStatus | null
   clientVisible: boolean | null
   currentVersionId: string | null
+  lastIntelligenceAnalysisId: string | null
+  expiresAt: Date | null
   retentionReviewAt: Date | null
   archivedAt: Date | null
   archiveReason: string | null
@@ -89,6 +93,8 @@ export type MatterDocumentCountAggregateOutputType = {
   status: number
   clientVisible: number
   currentVersionId: number
+  lastIntelligenceAnalysisId: number
+  expiresAt: number
   retentionReviewAt: number
   archivedAt: number
   archiveReason: number
@@ -121,6 +127,8 @@ export type MatterDocumentMinAggregateInputType = {
   status?: true
   clientVisible?: true
   currentVersionId?: true
+  lastIntelligenceAnalysisId?: true
+  expiresAt?: true
   retentionReviewAt?: true
   archivedAt?: true
   archiveReason?: true
@@ -143,6 +151,8 @@ export type MatterDocumentMaxAggregateInputType = {
   status?: true
   clientVisible?: true
   currentVersionId?: true
+  lastIntelligenceAnalysisId?: true
+  expiresAt?: true
   retentionReviewAt?: true
   archivedAt?: true
   archiveReason?: true
@@ -165,6 +175,8 @@ export type MatterDocumentCountAggregateInputType = {
   status?: true
   clientVisible?: true
   currentVersionId?: true
+  lastIntelligenceAnalysisId?: true
+  expiresAt?: true
   retentionReviewAt?: true
   archivedAt?: true
   archiveReason?: true
@@ -274,6 +286,8 @@ export type MatterDocumentGroupByOutputType = {
   status: $Enums.DocumentStatus
   clientVisible: boolean
   currentVersionId: string | null
+  lastIntelligenceAnalysisId: string | null
+  expiresAt: Date | null
   retentionReviewAt: Date | null
   archivedAt: Date | null
   archiveReason: string | null
@@ -319,6 +333,8 @@ export type MatterDocumentWhereInput = {
   status?: Prisma.EnumDocumentStatusFilter<"MatterDocument"> | $Enums.DocumentStatus
   clientVisible?: Prisma.BoolFilter<"MatterDocument"> | boolean
   currentVersionId?: Prisma.UuidNullableFilter<"MatterDocument"> | string | null
+  lastIntelligenceAnalysisId?: Prisma.UuidNullableFilter<"MatterDocument"> | string | null
+  expiresAt?: Prisma.DateTimeNullableFilter<"MatterDocument"> | Date | string | null
   retentionReviewAt?: Prisma.DateTimeNullableFilter<"MatterDocument"> | Date | string | null
   archivedAt?: Prisma.DateTimeNullableFilter<"MatterDocument"> | Date | string | null
   archiveReason?: Prisma.StringNullableFilter<"MatterDocument"> | string | null
@@ -348,6 +364,8 @@ export type MatterDocumentOrderByWithRelationInput = {
   status?: Prisma.SortOrder
   clientVisible?: Prisma.SortOrder
   currentVersionId?: Prisma.SortOrderInput | Prisma.SortOrder
+  lastIntelligenceAnalysisId?: Prisma.SortOrderInput | Prisma.SortOrder
+  expiresAt?: Prisma.SortOrderInput | Prisma.SortOrder
   retentionReviewAt?: Prisma.SortOrderInput | Prisma.SortOrder
   archivedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   archiveReason?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -382,6 +400,8 @@ export type MatterDocumentWhereUniqueInput = Prisma.AtLeast<{
   status?: Prisma.EnumDocumentStatusFilter<"MatterDocument"> | $Enums.DocumentStatus
   clientVisible?: Prisma.BoolFilter<"MatterDocument"> | boolean
   currentVersionId?: Prisma.UuidNullableFilter<"MatterDocument"> | string | null
+  lastIntelligenceAnalysisId?: Prisma.UuidNullableFilter<"MatterDocument"> | string | null
+  expiresAt?: Prisma.DateTimeNullableFilter<"MatterDocument"> | Date | string | null
   retentionReviewAt?: Prisma.DateTimeNullableFilter<"MatterDocument"> | Date | string | null
   archivedAt?: Prisma.DateTimeNullableFilter<"MatterDocument"> | Date | string | null
   archiveReason?: Prisma.StringNullableFilter<"MatterDocument"> | string | null
@@ -411,6 +431,8 @@ export type MatterDocumentOrderByWithAggregationInput = {
   status?: Prisma.SortOrder
   clientVisible?: Prisma.SortOrder
   currentVersionId?: Prisma.SortOrderInput | Prisma.SortOrder
+  lastIntelligenceAnalysisId?: Prisma.SortOrderInput | Prisma.SortOrder
+  expiresAt?: Prisma.SortOrderInput | Prisma.SortOrder
   retentionReviewAt?: Prisma.SortOrderInput | Prisma.SortOrder
   archivedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   archiveReason?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -441,6 +463,8 @@ export type MatterDocumentScalarWhereWithAggregatesInput = {
   status?: Prisma.EnumDocumentStatusWithAggregatesFilter<"MatterDocument"> | $Enums.DocumentStatus
   clientVisible?: Prisma.BoolWithAggregatesFilter<"MatterDocument"> | boolean
   currentVersionId?: Prisma.UuidNullableWithAggregatesFilter<"MatterDocument"> | string | null
+  lastIntelligenceAnalysisId?: Prisma.UuidNullableWithAggregatesFilter<"MatterDocument"> | string | null
+  expiresAt?: Prisma.DateTimeNullableWithAggregatesFilter<"MatterDocument"> | Date | string | null
   retentionReviewAt?: Prisma.DateTimeNullableWithAggregatesFilter<"MatterDocument"> | Date | string | null
   archivedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"MatterDocument"> | Date | string | null
   archiveReason?: Prisma.StringNullableWithAggregatesFilter<"MatterDocument"> | string | null
@@ -459,6 +483,8 @@ export type MatterDocumentCreateInput = {
   securityClassification?: $Enums.DocumentSecurityClassification
   status?: $Enums.DocumentStatus
   clientVisible?: boolean
+  lastIntelligenceAnalysisId?: string | null
+  expiresAt?: Date | string | null
   retentionReviewAt?: Date | string | null
   archivedAt?: Date | string | null
   archiveReason?: string | null
@@ -486,6 +512,8 @@ export type MatterDocumentUncheckedCreateInput = {
   status?: $Enums.DocumentStatus
   clientVisible?: boolean
   currentVersionId?: string | null
+  lastIntelligenceAnalysisId?: string | null
+  expiresAt?: Date | string | null
   retentionReviewAt?: Date | string | null
   archivedAt?: Date | string | null
   archiveReason?: string | null
@@ -505,6 +533,8 @@ export type MatterDocumentUpdateInput = {
   securityClassification?: Prisma.EnumDocumentSecurityClassificationFieldUpdateOperationsInput | $Enums.DocumentSecurityClassification
   status?: Prisma.EnumDocumentStatusFieldUpdateOperationsInput | $Enums.DocumentStatus
   clientVisible?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  lastIntelligenceAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   retentionReviewAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   archiveReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -532,6 +562,8 @@ export type MatterDocumentUncheckedUpdateInput = {
   status?: Prisma.EnumDocumentStatusFieldUpdateOperationsInput | $Enums.DocumentStatus
   clientVisible?: Prisma.BoolFieldUpdateOperationsInput | boolean
   currentVersionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastIntelligenceAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   retentionReviewAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   archiveReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -555,6 +587,8 @@ export type MatterDocumentCreateManyInput = {
   status?: $Enums.DocumentStatus
   clientVisible?: boolean
   currentVersionId?: string | null
+  lastIntelligenceAnalysisId?: string | null
+  expiresAt?: Date | string | null
   retentionReviewAt?: Date | string | null
   archivedAt?: Date | string | null
   archiveReason?: string | null
@@ -573,6 +607,8 @@ export type MatterDocumentUpdateManyMutationInput = {
   securityClassification?: Prisma.EnumDocumentSecurityClassificationFieldUpdateOperationsInput | $Enums.DocumentSecurityClassification
   status?: Prisma.EnumDocumentStatusFieldUpdateOperationsInput | $Enums.DocumentStatus
   clientVisible?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  lastIntelligenceAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   retentionReviewAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   archiveReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -593,6 +629,8 @@ export type MatterDocumentUncheckedUpdateManyInput = {
   status?: Prisma.EnumDocumentStatusFieldUpdateOperationsInput | $Enums.DocumentStatus
   clientVisible?: Prisma.BoolFieldUpdateOperationsInput | boolean
   currentVersionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastIntelligenceAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   retentionReviewAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   archiveReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -635,6 +673,8 @@ export type MatterDocumentCountOrderByAggregateInput = {
   status?: Prisma.SortOrder
   clientVisible?: Prisma.SortOrder
   currentVersionId?: Prisma.SortOrder
+  lastIntelligenceAnalysisId?: Prisma.SortOrder
+  expiresAt?: Prisma.SortOrder
   retentionReviewAt?: Prisma.SortOrder
   archivedAt?: Prisma.SortOrder
   archiveReason?: Prisma.SortOrder
@@ -661,6 +701,8 @@ export type MatterDocumentMaxOrderByAggregateInput = {
   status?: Prisma.SortOrder
   clientVisible?: Prisma.SortOrder
   currentVersionId?: Prisma.SortOrder
+  lastIntelligenceAnalysisId?: Prisma.SortOrder
+  expiresAt?: Prisma.SortOrder
   retentionReviewAt?: Prisma.SortOrder
   archivedAt?: Prisma.SortOrder
   archiveReason?: Prisma.SortOrder
@@ -683,6 +725,8 @@ export type MatterDocumentMinOrderByAggregateInput = {
   status?: Prisma.SortOrder
   clientVisible?: Prisma.SortOrder
   currentVersionId?: Prisma.SortOrder
+  lastIntelligenceAnalysisId?: Prisma.SortOrder
+  expiresAt?: Prisma.SortOrder
   retentionReviewAt?: Prisma.SortOrder
   archivedAt?: Prisma.SortOrder
   archiveReason?: Prisma.SortOrder
@@ -979,6 +1023,8 @@ export type MatterDocumentCreateWithoutOrganisationInput = {
   securityClassification?: $Enums.DocumentSecurityClassification
   status?: $Enums.DocumentStatus
   clientVisible?: boolean
+  lastIntelligenceAnalysisId?: string | null
+  expiresAt?: Date | string | null
   retentionReviewAt?: Date | string | null
   archivedAt?: Date | string | null
   archiveReason?: string | null
@@ -1004,6 +1050,8 @@ export type MatterDocumentUncheckedCreateWithoutOrganisationInput = {
   status?: $Enums.DocumentStatus
   clientVisible?: boolean
   currentVersionId?: string | null
+  lastIntelligenceAnalysisId?: string | null
+  expiresAt?: Date | string | null
   retentionReviewAt?: Date | string | null
   archivedAt?: Date | string | null
   archiveReason?: string | null
@@ -1056,6 +1104,8 @@ export type MatterDocumentScalarWhereInput = {
   status?: Prisma.EnumDocumentStatusFilter<"MatterDocument"> | $Enums.DocumentStatus
   clientVisible?: Prisma.BoolFilter<"MatterDocument"> | boolean
   currentVersionId?: Prisma.UuidNullableFilter<"MatterDocument"> | string | null
+  lastIntelligenceAnalysisId?: Prisma.UuidNullableFilter<"MatterDocument"> | string | null
+  expiresAt?: Prisma.DateTimeNullableFilter<"MatterDocument"> | Date | string | null
   retentionReviewAt?: Prisma.DateTimeNullableFilter<"MatterDocument"> | Date | string | null
   archivedAt?: Prisma.DateTimeNullableFilter<"MatterDocument"> | Date | string | null
   archiveReason?: Prisma.StringNullableFilter<"MatterDocument"> | string | null
@@ -1074,6 +1124,8 @@ export type MatterDocumentCreateWithoutCreatedByInput = {
   securityClassification?: $Enums.DocumentSecurityClassification
   status?: $Enums.DocumentStatus
   clientVisible?: boolean
+  lastIntelligenceAnalysisId?: string | null
+  expiresAt?: Date | string | null
   retentionReviewAt?: Date | string | null
   archivedAt?: Date | string | null
   archiveReason?: string | null
@@ -1100,6 +1152,8 @@ export type MatterDocumentUncheckedCreateWithoutCreatedByInput = {
   status?: $Enums.DocumentStatus
   clientVisible?: boolean
   currentVersionId?: string | null
+  lastIntelligenceAnalysisId?: string | null
+  expiresAt?: Date | string | null
   retentionReviewAt?: Date | string | null
   archivedAt?: Date | string | null
   archiveReason?: string | null
@@ -1128,6 +1182,8 @@ export type MatterDocumentCreateWithoutUpdatedByInput = {
   securityClassification?: $Enums.DocumentSecurityClassification
   status?: $Enums.DocumentStatus
   clientVisible?: boolean
+  lastIntelligenceAnalysisId?: string | null
+  expiresAt?: Date | string | null
   retentionReviewAt?: Date | string | null
   archivedAt?: Date | string | null
   archiveReason?: string | null
@@ -1154,6 +1210,8 @@ export type MatterDocumentUncheckedCreateWithoutUpdatedByInput = {
   status?: $Enums.DocumentStatus
   clientVisible?: boolean
   currentVersionId?: string | null
+  lastIntelligenceAnalysisId?: string | null
+  expiresAt?: Date | string | null
   retentionReviewAt?: Date | string | null
   archivedAt?: Date | string | null
   archiveReason?: string | null
@@ -1214,6 +1272,8 @@ export type MatterDocumentCreateWithoutMatterInput = {
   securityClassification?: $Enums.DocumentSecurityClassification
   status?: $Enums.DocumentStatus
   clientVisible?: boolean
+  lastIntelligenceAnalysisId?: string | null
+  expiresAt?: Date | string | null
   retentionReviewAt?: Date | string | null
   archivedAt?: Date | string | null
   archiveReason?: string | null
@@ -1238,6 +1298,8 @@ export type MatterDocumentUncheckedCreateWithoutMatterInput = {
   status?: $Enums.DocumentStatus
   clientVisible?: boolean
   currentVersionId?: string | null
+  lastIntelligenceAnalysisId?: string | null
+  expiresAt?: Date | string | null
   retentionReviewAt?: Date | string | null
   archivedAt?: Date | string | null
   archiveReason?: string | null
@@ -1283,6 +1345,8 @@ export type MatterDocumentCreateWithoutRequestItemInput = {
   securityClassification?: $Enums.DocumentSecurityClassification
   status?: $Enums.DocumentStatus
   clientVisible?: boolean
+  lastIntelligenceAnalysisId?: string | null
+  expiresAt?: Date | string | null
   retentionReviewAt?: Date | string | null
   archivedAt?: Date | string | null
   archiveReason?: string | null
@@ -1307,6 +1371,8 @@ export type MatterDocumentUncheckedCreateWithoutRequestItemInput = {
   status?: $Enums.DocumentStatus
   clientVisible?: boolean
   currentVersionId?: string | null
+  lastIntelligenceAnalysisId?: string | null
+  expiresAt?: Date | string | null
   retentionReviewAt?: Date | string | null
   archivedAt?: Date | string | null
   archiveReason?: string | null
@@ -1352,6 +1418,8 @@ export type MatterDocumentCreateWithoutVersionsInput = {
   securityClassification?: $Enums.DocumentSecurityClassification
   status?: $Enums.DocumentStatus
   clientVisible?: boolean
+  lastIntelligenceAnalysisId?: string | null
+  expiresAt?: Date | string | null
   retentionReviewAt?: Date | string | null
   archivedAt?: Date | string | null
   archiveReason?: string | null
@@ -1378,6 +1446,8 @@ export type MatterDocumentUncheckedCreateWithoutVersionsInput = {
   status?: $Enums.DocumentStatus
   clientVisible?: boolean
   currentVersionId?: string | null
+  lastIntelligenceAnalysisId?: string | null
+  expiresAt?: Date | string | null
   retentionReviewAt?: Date | string | null
   archivedAt?: Date | string | null
   archiveReason?: string | null
@@ -1401,6 +1471,8 @@ export type MatterDocumentCreateWithoutCurrentVersionInput = {
   securityClassification?: $Enums.DocumentSecurityClassification
   status?: $Enums.DocumentStatus
   clientVisible?: boolean
+  lastIntelligenceAnalysisId?: string | null
+  expiresAt?: Date | string | null
   retentionReviewAt?: Date | string | null
   archivedAt?: Date | string | null
   archiveReason?: string | null
@@ -1425,6 +1497,8 @@ export type MatterDocumentUncheckedCreateWithoutCurrentVersionInput = {
   securityClassification?: $Enums.DocumentSecurityClassification
   status?: $Enums.DocumentStatus
   clientVisible?: boolean
+  lastIntelligenceAnalysisId?: string | null
+  expiresAt?: Date | string | null
   retentionReviewAt?: Date | string | null
   archivedAt?: Date | string | null
   archiveReason?: string | null
@@ -1460,6 +1534,8 @@ export type MatterDocumentUpdateWithoutVersionsInput = {
   securityClassification?: Prisma.EnumDocumentSecurityClassificationFieldUpdateOperationsInput | $Enums.DocumentSecurityClassification
   status?: Prisma.EnumDocumentStatusFieldUpdateOperationsInput | $Enums.DocumentStatus
   clientVisible?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  lastIntelligenceAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   retentionReviewAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   archiveReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1486,6 +1562,8 @@ export type MatterDocumentUncheckedUpdateWithoutVersionsInput = {
   status?: Prisma.EnumDocumentStatusFieldUpdateOperationsInput | $Enums.DocumentStatus
   clientVisible?: Prisma.BoolFieldUpdateOperationsInput | boolean
   currentVersionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastIntelligenceAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   retentionReviewAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   archiveReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1515,6 +1593,8 @@ export type MatterDocumentUpdateWithoutCurrentVersionInput = {
   securityClassification?: Prisma.EnumDocumentSecurityClassificationFieldUpdateOperationsInput | $Enums.DocumentSecurityClassification
   status?: Prisma.EnumDocumentStatusFieldUpdateOperationsInput | $Enums.DocumentStatus
   clientVisible?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  lastIntelligenceAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   retentionReviewAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   archiveReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1539,6 +1619,8 @@ export type MatterDocumentUncheckedUpdateWithoutCurrentVersionInput = {
   securityClassification?: Prisma.EnumDocumentSecurityClassificationFieldUpdateOperationsInput | $Enums.DocumentSecurityClassification
   status?: Prisma.EnumDocumentStatusFieldUpdateOperationsInput | $Enums.DocumentStatus
   clientVisible?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  lastIntelligenceAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   retentionReviewAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   archiveReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1561,6 +1643,8 @@ export type MatterDocumentCreateManyOrganisationInput = {
   status?: $Enums.DocumentStatus
   clientVisible?: boolean
   currentVersionId?: string | null
+  lastIntelligenceAnalysisId?: string | null
+  expiresAt?: Date | string | null
   retentionReviewAt?: Date | string | null
   archivedAt?: Date | string | null
   archiveReason?: string | null
@@ -1579,6 +1663,8 @@ export type MatterDocumentUpdateWithoutOrganisationInput = {
   securityClassification?: Prisma.EnumDocumentSecurityClassificationFieldUpdateOperationsInput | $Enums.DocumentSecurityClassification
   status?: Prisma.EnumDocumentStatusFieldUpdateOperationsInput | $Enums.DocumentStatus
   clientVisible?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  lastIntelligenceAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   retentionReviewAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   archiveReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1604,6 +1690,8 @@ export type MatterDocumentUncheckedUpdateWithoutOrganisationInput = {
   status?: Prisma.EnumDocumentStatusFieldUpdateOperationsInput | $Enums.DocumentStatus
   clientVisible?: Prisma.BoolFieldUpdateOperationsInput | boolean
   currentVersionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastIntelligenceAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   retentionReviewAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   archiveReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1626,6 +1714,8 @@ export type MatterDocumentUncheckedUpdateManyWithoutOrganisationInput = {
   status?: Prisma.EnumDocumentStatusFieldUpdateOperationsInput | $Enums.DocumentStatus
   clientVisible?: Prisma.BoolFieldUpdateOperationsInput | boolean
   currentVersionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastIntelligenceAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   retentionReviewAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   archiveReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1648,6 +1738,8 @@ export type MatterDocumentCreateManyCreatedByInput = {
   status?: $Enums.DocumentStatus
   clientVisible?: boolean
   currentVersionId?: string | null
+  lastIntelligenceAnalysisId?: string | null
+  expiresAt?: Date | string | null
   retentionReviewAt?: Date | string | null
   archivedAt?: Date | string | null
   archiveReason?: string | null
@@ -1669,6 +1761,8 @@ export type MatterDocumentCreateManyUpdatedByInput = {
   status?: $Enums.DocumentStatus
   clientVisible?: boolean
   currentVersionId?: string | null
+  lastIntelligenceAnalysisId?: string | null
+  expiresAt?: Date | string | null
   retentionReviewAt?: Date | string | null
   archivedAt?: Date | string | null
   archiveReason?: string | null
@@ -1686,6 +1780,8 @@ export type MatterDocumentUpdateWithoutCreatedByInput = {
   securityClassification?: Prisma.EnumDocumentSecurityClassificationFieldUpdateOperationsInput | $Enums.DocumentSecurityClassification
   status?: Prisma.EnumDocumentStatusFieldUpdateOperationsInput | $Enums.DocumentStatus
   clientVisible?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  lastIntelligenceAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   retentionReviewAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   archiveReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1712,6 +1808,8 @@ export type MatterDocumentUncheckedUpdateWithoutCreatedByInput = {
   status?: Prisma.EnumDocumentStatusFieldUpdateOperationsInput | $Enums.DocumentStatus
   clientVisible?: Prisma.BoolFieldUpdateOperationsInput | boolean
   currentVersionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastIntelligenceAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   retentionReviewAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   archiveReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1734,6 +1832,8 @@ export type MatterDocumentUncheckedUpdateManyWithoutCreatedByInput = {
   status?: Prisma.EnumDocumentStatusFieldUpdateOperationsInput | $Enums.DocumentStatus
   clientVisible?: Prisma.BoolFieldUpdateOperationsInput | boolean
   currentVersionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastIntelligenceAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   retentionReviewAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   archiveReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1751,6 +1851,8 @@ export type MatterDocumentUpdateWithoutUpdatedByInput = {
   securityClassification?: Prisma.EnumDocumentSecurityClassificationFieldUpdateOperationsInput | $Enums.DocumentSecurityClassification
   status?: Prisma.EnumDocumentStatusFieldUpdateOperationsInput | $Enums.DocumentStatus
   clientVisible?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  lastIntelligenceAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   retentionReviewAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   archiveReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1777,6 +1879,8 @@ export type MatterDocumentUncheckedUpdateWithoutUpdatedByInput = {
   status?: Prisma.EnumDocumentStatusFieldUpdateOperationsInput | $Enums.DocumentStatus
   clientVisible?: Prisma.BoolFieldUpdateOperationsInput | boolean
   currentVersionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastIntelligenceAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   retentionReviewAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   archiveReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1799,6 +1903,8 @@ export type MatterDocumentUncheckedUpdateManyWithoutUpdatedByInput = {
   status?: Prisma.EnumDocumentStatusFieldUpdateOperationsInput | $Enums.DocumentStatus
   clientVisible?: Prisma.BoolFieldUpdateOperationsInput | boolean
   currentVersionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastIntelligenceAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   retentionReviewAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   archiveReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1818,6 +1924,8 @@ export type MatterDocumentCreateManyMatterInput = {
   status?: $Enums.DocumentStatus
   clientVisible?: boolean
   currentVersionId?: string | null
+  lastIntelligenceAnalysisId?: string | null
+  expiresAt?: Date | string | null
   retentionReviewAt?: Date | string | null
   archivedAt?: Date | string | null
   archiveReason?: string | null
@@ -1836,6 +1944,8 @@ export type MatterDocumentUpdateWithoutMatterInput = {
   securityClassification?: Prisma.EnumDocumentSecurityClassificationFieldUpdateOperationsInput | $Enums.DocumentSecurityClassification
   status?: Prisma.EnumDocumentStatusFieldUpdateOperationsInput | $Enums.DocumentStatus
   clientVisible?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  lastIntelligenceAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   retentionReviewAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   archiveReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1860,6 +1970,8 @@ export type MatterDocumentUncheckedUpdateWithoutMatterInput = {
   status?: Prisma.EnumDocumentStatusFieldUpdateOperationsInput | $Enums.DocumentStatus
   clientVisible?: Prisma.BoolFieldUpdateOperationsInput | boolean
   currentVersionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastIntelligenceAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   retentionReviewAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   archiveReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1881,6 +1993,8 @@ export type MatterDocumentUncheckedUpdateManyWithoutMatterInput = {
   status?: Prisma.EnumDocumentStatusFieldUpdateOperationsInput | $Enums.DocumentStatus
   clientVisible?: Prisma.BoolFieldUpdateOperationsInput | boolean
   currentVersionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastIntelligenceAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   retentionReviewAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   archiveReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1901,6 +2015,8 @@ export type MatterDocumentCreateManyRequestItemInput = {
   status?: $Enums.DocumentStatus
   clientVisible?: boolean
   currentVersionId?: string | null
+  lastIntelligenceAnalysisId?: string | null
+  expiresAt?: Date | string | null
   retentionReviewAt?: Date | string | null
   archivedAt?: Date | string | null
   archiveReason?: string | null
@@ -1919,6 +2035,8 @@ export type MatterDocumentUpdateWithoutRequestItemInput = {
   securityClassification?: Prisma.EnumDocumentSecurityClassificationFieldUpdateOperationsInput | $Enums.DocumentSecurityClassification
   status?: Prisma.EnumDocumentStatusFieldUpdateOperationsInput | $Enums.DocumentStatus
   clientVisible?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  lastIntelligenceAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   retentionReviewAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   archiveReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1943,6 +2061,8 @@ export type MatterDocumentUncheckedUpdateWithoutRequestItemInput = {
   status?: Prisma.EnumDocumentStatusFieldUpdateOperationsInput | $Enums.DocumentStatus
   clientVisible?: Prisma.BoolFieldUpdateOperationsInput | boolean
   currentVersionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastIntelligenceAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   retentionReviewAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   archiveReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1964,6 +2084,8 @@ export type MatterDocumentUncheckedUpdateManyWithoutRequestItemInput = {
   status?: Prisma.EnumDocumentStatusFieldUpdateOperationsInput | $Enums.DocumentStatus
   clientVisible?: Prisma.BoolFieldUpdateOperationsInput | boolean
   currentVersionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastIntelligenceAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   retentionReviewAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   archiveReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2017,6 +2139,8 @@ export type MatterDocumentSelect<ExtArgs extends runtime.Types.Extensions.Intern
   status?: boolean
   clientVisible?: boolean
   currentVersionId?: boolean
+  lastIntelligenceAnalysisId?: boolean
+  expiresAt?: boolean
   retentionReviewAt?: boolean
   archivedAt?: boolean
   archiveReason?: boolean
@@ -2047,6 +2171,8 @@ export type MatterDocumentSelectCreateManyAndReturn<ExtArgs extends runtime.Type
   status?: boolean
   clientVisible?: boolean
   currentVersionId?: boolean
+  lastIntelligenceAnalysisId?: boolean
+  expiresAt?: boolean
   retentionReviewAt?: boolean
   archivedAt?: boolean
   archiveReason?: boolean
@@ -2075,6 +2201,8 @@ export type MatterDocumentSelectUpdateManyAndReturn<ExtArgs extends runtime.Type
   status?: boolean
   clientVisible?: boolean
   currentVersionId?: boolean
+  lastIntelligenceAnalysisId?: boolean
+  expiresAt?: boolean
   retentionReviewAt?: boolean
   archivedAt?: boolean
   archiveReason?: boolean
@@ -2103,6 +2231,8 @@ export type MatterDocumentSelectScalar = {
   status?: boolean
   clientVisible?: boolean
   currentVersionId?: boolean
+  lastIntelligenceAnalysisId?: boolean
+  expiresAt?: boolean
   retentionReviewAt?: boolean
   archivedAt?: boolean
   archiveReason?: boolean
@@ -2114,7 +2244,7 @@ export type MatterDocumentSelectScalar = {
   deletedAt?: boolean
 }
 
-export type MatterDocumentOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "organisationId" | "matterId" | "requestItemId" | "title" | "category" | "securityClassification" | "status" | "clientVisible" | "currentVersionId" | "retentionReviewAt" | "archivedAt" | "archiveReason" | "createdByUserId" | "updatedByUserId" | "version" | "createdAt" | "updatedAt" | "deletedAt", ExtArgs["result"]["matterDocument"]>
+export type MatterDocumentOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "organisationId" | "matterId" | "requestItemId" | "title" | "category" | "securityClassification" | "status" | "clientVisible" | "currentVersionId" | "lastIntelligenceAnalysisId" | "expiresAt" | "retentionReviewAt" | "archivedAt" | "archiveReason" | "createdByUserId" | "updatedByUserId" | "version" | "createdAt" | "updatedAt" | "deletedAt", ExtArgs["result"]["matterDocument"]>
 export type MatterDocumentInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   organisation?: boolean | Prisma.OrganisationDefaultArgs<ExtArgs>
   matter?: boolean | Prisma.MatterDefaultArgs<ExtArgs>
@@ -2164,6 +2294,8 @@ export type $MatterDocumentPayload<ExtArgs extends runtime.Types.Extensions.Inte
     status: $Enums.DocumentStatus
     clientVisible: boolean
     currentVersionId: string | null
+    lastIntelligenceAnalysisId: string | null
+    expiresAt: Date | null
     retentionReviewAt: Date | null
     archivedAt: Date | null
     archiveReason: string | null
@@ -2613,6 +2745,8 @@ export interface MatterDocumentFieldRefs {
   readonly status: Prisma.FieldRef<"MatterDocument", 'DocumentStatus'>
   readonly clientVisible: Prisma.FieldRef<"MatterDocument", 'Boolean'>
   readonly currentVersionId: Prisma.FieldRef<"MatterDocument", 'String'>
+  readonly lastIntelligenceAnalysisId: Prisma.FieldRef<"MatterDocument", 'String'>
+  readonly expiresAt: Prisma.FieldRef<"MatterDocument", 'DateTime'>
   readonly retentionReviewAt: Prisma.FieldRef<"MatterDocument", 'DateTime'>
   readonly archivedAt: Prisma.FieldRef<"MatterDocument", 'DateTime'>
   readonly archiveReason: Prisma.FieldRef<"MatterDocument", 'String'>

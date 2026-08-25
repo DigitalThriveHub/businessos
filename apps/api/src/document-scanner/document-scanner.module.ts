@@ -18,6 +18,6 @@ import { SupabasePrivateStorageService } from './supabase-storage.service';
     ClamAvClientService,
     DocumentScanWorkerService,
   ],
-  exports: [DocumentScannerConfig],
+  exports: [DocumentScannerConfig, SupabasePrivateStorageService],
 })
 export class DocumentScannerModule {}

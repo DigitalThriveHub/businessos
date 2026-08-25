@@ -8445,6 +8445,8 @@ export const MatterDocumentScalarFieldEnum = {
   status: 'status',
   clientVisible: 'clientVisible',
   currentVersionId: 'currentVersionId',
+  lastIntelligenceAnalysisId: 'lastIntelligenceAnalysisId',
+  expiresAt: 'expiresAt',
   retentionReviewAt: 'retentionReviewAt',
   archivedAt: 'archivedAt',
   archiveReason: 'archiveReason',

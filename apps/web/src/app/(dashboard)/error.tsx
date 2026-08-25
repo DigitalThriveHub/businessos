@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { CircleAlert, RefreshCw } from "lucide-react";
+import { AlertTriangle, RotateCcw } from "lucide-react";
 
 export default function DashboardError({
   error,
@@ -11,23 +11,31 @@ export default function DashboardError({
   reset: () => void;
 }) {
   useEffect(() => {
-    // Production telemetry captures the digest; no sensitive request data is logged here.
-    if (process.env.NODE_ENV !== "production") console.error(error);
+    console.error("Dashboard route failed", {
+      name: error.name,
+      digest: error.digest,
+    });
   }, [error]);
 
   return (
-    <section className="mx-auto max-w-xl rounded-2xl border border-rose-200 bg-white p-6 text-center shadow-sm">
-      <CircleAlert aria-hidden className="mx-auto h-9 w-9 text-rose-600" />
+    <section
+      role="alert"
+      className="mx-auto max-w-xl rounded-2xl border border-red-200 bg-white p-6 shadow-sm"
+    >
+      <AlertTriangle aria-hidden="true" className="h-7 w-7 text-red-700" />
       <h1 className="mt-3 text-xl font-bold">This workspace could not load</h1>
-      <p className="mt-2 text-sm text-slate-600">
-        Your data was not changed. Retry the safe request. If the problem continues,
-        give support reference {error.digest ?? "shown in the error notification"}.
+      <p className="mt-2 text-sm leading-6 text-slate-600">
+        No change was made. Check your connection, then retry. If the problem
+        continues, give support the time of the failure—never send passwords or
+        API keys.
       </p>
       <button
-        className="mt-5 inline-flex h-10 items-center gap-2 rounded-lg bg-slate-950 px-4 text-sm font-semibold text-white"
+        type="button"
         onClick={reset}
+        className="mt-4 inline-flex h-10 items-center gap-2 rounded-lg bg-slate-950 px-4 text-sm font-semibold text-white"
       >
-        <RefreshCw aria-hidden className="h-4 w-4" /> Retry
+        <RotateCcw aria-hidden="true" className="h-4 w-4" />
+        Try again
       </button>
     </section>
   );

@@ -462,6 +462,56 @@ enum DocumentScanJobStatus {
   @@map("document_scan_job_status")
 }
 
+enum DocumentIntelligenceStatus {
+  PENDING
+  PROCESSING
+  READY
+  REVIEWED
+  REJECTED
+  ERROR
+
+  @@map("document_intelligence_status")
+}
+
+enum DocumentIntelligenceJobStatus {
+  QUEUED
+  LEASED
+  SUCCEEDED
+  CANCELLED
+  FAILED
+  DEAD_LETTER
+
+  @@map("document_intelligence_job_status")
+}
+
+enum DocumentIntelligenceReviewDecision {
+  ACCEPTED
+  CORRECTED
+  REJECTED
+
+  @@map("document_intelligence_review_decision")
+}
+
+enum DocumentReviewPriority {
+  ROUTINE
+  ATTENTION
+  URGENT
+
+  @@map("document_review_priority")
+}
+
+enum OperationalValueCategory {
+  AUTOMATION
+  AI_ASSISTANCE
+  DOCUMENT_PROCESSING
+  COMMUNICATION
+  WORKFLOW
+  OPPORTUNITY_RECOVERY
+  OTHER
+
+  @@map("operational_value_category")
+}
+
 enum DocumentRequestStatus {
   DRAFT
   SENT
@@ -2501,25 +2551,27 @@ model DocumentRequestItem {
 }
 
 model MatterDocument {
-  id                     String                         @id(map: "pk_matter_documents") @default(uuid()) @db.Uuid
-  organisationId         String                         @map("organisation_id") @db.Uuid
-  matterId               String                         @map("matter_id") @db.Uuid
-  requestItemId          String?                        @map("request_item_id") @db.Uuid
-  title                  String                         @db.VarChar(240)
-  category               DocumentCategory
-  securityClassification DocumentSecurityClassification @default(CONFIDENTIAL) @map("security_classification")
-  status                 DocumentStatus                 @default(PENDING_UPLOAD)
-  clientVisible          Boolean                        @default(false) @map("client_visible")
-  currentVersionId       String?                        @map("current_version_id") @db.Uuid
-  retentionReviewAt      DateTime?                      @map("retention_review_at") @db.Timestamptz(6)
-  archivedAt             DateTime?                      @map("archived_at") @db.Timestamptz(6)
-  archiveReason          String?                        @map("archive_reason") @db.VarChar(1000)
-  createdByUserId        String                         @map("created_by_user_id") @db.Uuid
-  updatedByUserId        String                         @map("updated_by_user_id") @db.Uuid
-  version                Int                            @default(1)
-  createdAt              DateTime                       @default(now()) @map("created_at") @db.Timestamptz(6)
-  updatedAt              DateTime                       @updatedAt @map("updated_at") @db.Timestamptz(6)
-  deletedAt              DateTime?                      @map("deleted_at") @db.Timestamptz(6)
+  id                         String                         @id(map: "pk_matter_documents") @default(uuid()) @db.Uuid
+  organisationId             String                         @map("organisation_id") @db.Uuid
+  matterId                   String                         @map("matter_id") @db.Uuid
+  requestItemId              String?                        @map("request_item_id") @db.Uuid
+  title                      String                         @db.VarChar(240)
+  category                   DocumentCategory
+  securityClassification     DocumentSecurityClassification @default(CONFIDENTIAL) @map("security_classification")
+  status                     DocumentStatus                 @default(PENDING_UPLOAD)
+  clientVisible              Boolean                        @default(false) @map("client_visible")
+  currentVersionId           String?                        @map("current_version_id") @db.Uuid
+  lastIntelligenceAnalysisId String?                        @map("last_intelligence_analysis_id") @db.Uuid
+  expiresAt                  DateTime?                      @map("expires_at") @db.Timestamptz(6)
+  retentionReviewAt          DateTime?                      @map("retention_review_at") @db.Timestamptz(6)
+  archivedAt                 DateTime?                      @map("archived_at") @db.Timestamptz(6)
+  archiveReason              String?                        @map("archive_reason") @db.VarChar(1000)
+  createdByUserId            String                         @map("created_by_user_id") @db.Uuid
+  updatedByUserId            String                         @map("updated_by_user_id") @db.Uuid
+  version                    Int                            @default(1)
+  createdAt                  DateTime                       @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt                  DateTime                       @updatedAt @map("updated_at") @db.Timestamptz(6)
+  deletedAt                  DateTime?                      @map("deleted_at") @db.Timestamptz(6)
 
   organisation   Organisation            @relation(fields: [organisationId], references: [id], onDelete: Restrict, onUpdate: Cascade, map: "fk_matter_documents_organisation")
   matter         Matter                  @relation(fields: [matterId, organisationId], references: [id, organisationId], onDelete: Restrict, onUpdate: Cascade, map: "fk_matter_documents_matter")
@@ -3196,6 +3248,159 @@ model DocumentScanJob {
   @@index([status, nextAttemptAt, createdAt], map: "ix_document_scan_jobs_claim")
   @@index([organisationId, status, updatedAt(sort: Desc)], map: "ix_document_scan_jobs_org_status")
   @@map("document_scan_jobs")
+  @@ignore
+}
+
+/// Service-owned analysis record. All reads and state transitions go through
+/// tenant-aware private functions so provider and review evidence cannot bypass
+/// RLS or the AAL2 human-confirmation boundary.
+model DocumentIntelligenceAnalysis {
+  id                    String                     @id(map: "pk_document_intelligence_analyses") @default(uuid()) @db.Uuid
+  organisationId        String                     @map("organisation_id") @db.Uuid
+  matterId              String                     @map("matter_id") @db.Uuid
+  documentId            String                     @map("document_id") @db.Uuid
+  versionId             String                     @unique(map: "uq_document_intelligence_analysis_version") @map("version_id") @db.Uuid
+  status                DocumentIntelligenceStatus @default(PENDING)
+  provider              String?                    @db.VarChar(120)
+  model                 String?                    @db.VarChar(120)
+  providerResponseId    String?                    @map("provider_response_id") @db.VarChar(240)
+  providerRequestId     String?                    @map("provider_request_id") @db.VarChar(240)
+  detectedCategory      DocumentCategory?          @map("detected_category")
+  categoryConfidenceBps Int?                       @map("category_confidence_bps")
+  extractedFields       Json                       @default("{}") @map("extracted_fields")
+  extractedNames        String[]                   @default([]) @map("extracted_names") @db.VarChar(240)
+  extractedDates        Json                       @default("[]") @map("extracted_dates")
+  expiryDate            DateTime?                  @map("expiry_date") @db.Date
+  missingPages          Int[]                      @default([]) @map("missing_pages")
+  missingInformation    String[]                   @default([]) @map("missing_information") @db.VarChar(500)
+  inconsistencies       String[]                   @default([]) @db.VarChar(500)
+  summary               String?                    @db.VarChar(4000)
+  reviewPriority        DocumentReviewPriority     @default(ROUTINE) @map("review_priority")
+  inputTokens           Int?                       @map("input_tokens")
+  outputTokens          Int?                       @map("output_tokens")
+  totalTokens           Int?                       @map("total_tokens")
+  estimatedCostMinor    BigInt?                    @map("estimated_cost_minor")
+  startedAt             DateTime?                  @map("started_at") @db.Timestamptz(6)
+  completedAt           DateTime?                  @map("completed_at") @db.Timestamptz(6)
+  failedAt              DateTime?                  @map("failed_at") @db.Timestamptz(6)
+  errorCode             String?                    @map("error_code") @db.VarChar(120)
+  errorDetail           String?                    @map("error_detail") @db.VarChar(1000)
+  version               Int                        @default(1)
+  createdAt             DateTime                   @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt             DateTime                   @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@unique([id, organisationId], map: "uq_document_intelligence_analyses_id_org")
+  @@index([organisationId, status, reviewPriority, createdAt(sort: Desc)], map: "ix_document_intelligence_analyses_org_queue")
+  @@index([organisationId, matterId, createdAt(sort: Desc)], map: "ix_document_intelligence_analyses_org_matter")
+  @@map("document_intelligence_analyses")
+  @@ignore
+}
+
+/// Immutable human decision evidence. Provider output is advisory until this
+/// AAL2-reviewed record exists.
+model DocumentIntelligenceReview {
+  id                      String                             @id(map: "pk_document_intelligence_reviews") @default(uuid()) @db.Uuid
+  organisationId          String                             @map("organisation_id") @db.Uuid
+  analysisId              String                             @unique(map: "uq_document_intelligence_reviews_analysis") @map("analysis_id") @db.Uuid
+  documentId              String                             @map("document_id") @db.Uuid
+  decision                DocumentIntelligenceReviewDecision
+  confirmedCategory       DocumentCategory                   @map("confirmed_category")
+  confirmedExpiryDate     DateTime?                          @map("confirmed_expiry_date") @db.Date
+  corrections             Json                               @default("{}")
+  notes                   String                             @db.VarChar(2000)
+  createFollowUpTask      Boolean                            @default(false) @map("create_follow_up_task")
+  reviewedByUserProfileId String                             @map("reviewed_by_user_profile_id") @db.Uuid
+  reviewedAt              DateTime                           @default(now()) @map("reviewed_at") @db.Timestamptz(6)
+
+  @@unique([id, organisationId], map: "uq_document_intelligence_reviews_id_org")
+  @@index([organisationId, reviewedAt(sort: Desc)], map: "ix_document_intelligence_reviews_org_reviewed")
+  @@map("document_intelligence_reviews")
+  @@ignore
+}
+
+/// Service-owned durable queue. Clean documents are enqueued automatically;
+/// workers can only claim, complete or fail through narrowly granted functions.
+model DocumentIntelligenceJob {
+  id              String                        @id(map: "pk_document_intelligence_jobs") @default(uuid()) @db.Uuid
+  organisationId  String                        @map("organisation_id") @db.Uuid
+  analysisId      String                        @unique(map: "uq_document_intelligence_jobs_analysis") @map("analysis_id") @db.Uuid
+  versionId       String                        @unique(map: "uq_document_intelligence_jobs_version") @map("version_id") @db.Uuid
+  status          DocumentIntelligenceJobStatus @default(QUEUED)
+  attempts        Int                           @default(0)
+  maxAttempts     Int                           @default(5) @map("max_attempts")
+  nextAttemptAt   DateTime                      @default(now()) @map("next_attempt_at") @db.Timestamptz(6)
+  leaseOwner      String?                       @map("lease_owner") @db.VarChar(160)
+  leaseExpiresAt  DateTime?                     @map("lease_expires_at") @db.Timestamptz(6)
+  lastErrorCode   String?                       @map("last_error_code") @db.VarChar(120)
+  lastErrorDetail String?                       @map("last_error_detail") @db.VarChar(1000)
+  completedAt     DateTime?                     @map("completed_at") @db.Timestamptz(6)
+  createdAt       DateTime                      @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt       DateTime                      @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@index([status, nextAttemptAt, createdAt], map: "ix_document_intelligence_jobs_claim")
+  @@index([organisationId, status, updatedAt(sort: Desc)], map: "ix_document_intelligence_jobs_org_status")
+  @@map("document_intelligence_jobs")
+  @@ignore
+}
+
+model OrganisationValueBenchmark {
+  id                        String                   @id(map: "pk_organisation_value_benchmarks") @default(uuid()) @db.Uuid
+  organisationId            String                   @map("organisation_id") @db.Uuid
+  eventKey                  String                   @map("event_key") @db.VarChar(120)
+  label                     String                   @db.VarChar(180)
+  category                  OperationalValueCategory
+  estimatedManualMinutes    Int                      @map("estimated_manual_minutes")
+  estimatedAutomatedMinutes Int                      @map("estimated_automated_minutes")
+  hourlyCostMinor           BigInt                   @map("hourly_cost_minor")
+  isActive                  Boolean                  @default(true) @map("is_active")
+  updatedByUserProfileId    String?                  @map("updated_by_user_profile_id") @db.Uuid
+  version                   Int                      @default(1)
+  createdAt                 DateTime                 @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt                 DateTime                 @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@unique([organisationId, eventKey], map: "uq_organisation_value_benchmarks_org_key")
+  @@index([organisationId, isActive, category], map: "ix_organisation_value_benchmarks_org_active")
+  @@map("organisation_value_benchmarks")
+  @@ignore
+}
+
+/// Append-only evidence behind displayed time-saving and value estimates.
+model AutomationValueEvent {
+  id                        String                   @id(map: "pk_automation_value_events") @default(uuid()) @db.Uuid
+  organisationId            String                   @map("organisation_id") @db.Uuid
+  eventKey                  String                   @map("event_key") @db.VarChar(120)
+  category                  OperationalValueCategory
+  sourceType                String                   @map("source_type") @db.VarChar(120)
+  sourceId                  String                   @map("source_id") @db.Uuid
+  estimatedManualMinutes    Int                      @map("estimated_manual_minutes")
+  estimatedAutomatedMinutes Int                      @map("estimated_automated_minutes")
+  estimatedMinutesSaved     Int                      @map("estimated_minutes_saved")
+  hourlyCostMinor           BigInt                   @map("hourly_cost_minor")
+  estimatedValueMinor       BigInt                   @map("estimated_value_minor")
+  evidence                  Json                     @default("{}")
+  occurredAt                DateTime                 @default(now()) @map("occurred_at") @db.Timestamptz(6)
+  createdAt                 DateTime                 @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  @@unique([organisationId, eventKey, sourceType, sourceId], map: "uq_automation_value_events_source")
+  @@index([organisationId, occurredAt(sort: Desc)], map: "ix_automation_value_events_org_occurred")
+  @@index([organisationId, category, occurredAt(sort: Desc)], map: "ix_automation_value_events_org_category")
+  @@map("automation_value_events")
+  @@ignore
+}
+
+model OperationalMetricSnapshot {
+  id             String   @id(map: "pk_operational_metric_snapshots") @default(uuid()) @db.Uuid
+  organisationId String   @map("organisation_id") @db.Uuid
+  periodStart    DateTime @map("period_start") @db.Date
+  periodEnd      DateTime @map("period_end") @db.Date
+  metrics        Json
+  generatedBy    String   @map("generated_by") @db.VarChar(120)
+  generatedAt    DateTime @default(now()) @map("generated_at") @db.Timestamptz(6)
+  createdAt      DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  @@unique([organisationId, periodStart, periodEnd], map: "uq_operational_metric_snapshots_org_period")
+  @@index([organisationId, periodEnd(sort: Desc)], map: "ix_operational_metric_snapshots_org_period")
+  @@map("operational_metric_snapshots")
   @@ignore
 }
 
