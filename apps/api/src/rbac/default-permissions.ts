@@ -130,6 +130,18 @@ export const DEFAULT_PERMISSION_KEYS = [
   'engagements.manage',
   'engagements.override',
 
+  // UK data protection operations, retention, breach response and evidence-
+  // backed production release governance.
+  'compliance.read',
+  'compliance.manage',
+  'incidents.read',
+  'incidents.manage',
+  'retention.read',
+  'retention.manage',
+  'assurance.read',
+  'assurance.manage',
+  'release.approve',
+
   // Governed personal AI workspace. Operational execution remains controlled
   // by the underlying domain permission and approval system.
   'ai.workspace.access',

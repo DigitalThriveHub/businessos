@@ -6,9 +6,6 @@ import { OrganisationsService } from './organisations.service';
 
 @Module({
   controllers: [OrganisationsController],
-  providers: [
-    OrganisationsService,
-    OrganisationAccessGuard,
-  ],
+  providers: [OrganisationsService, OrganisationAccessGuard],
 })
 export class OrganisationsModule {}

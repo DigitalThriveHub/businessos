@@ -1,4 +1,8 @@
-import { BadRequestException, ConflictException, NotFoundException } from '@nestjs/common';
+import {
+  BadRequestException,
+  ConflictException,
+  NotFoundException,
+} from '@nestjs/common';
 
 import type { OrganisationAccessContext } from '../auth/request-security-context';
 import { RlsTransactionService } from '../database/rls-transaction.service';
@@ -62,7 +66,9 @@ describe('CaseOperationsService', () => {
         operation: (value: typeof transaction) => Promise<unknown>,
       ) => operation(transaction),
     );
-    service = new CaseOperationsService(rls as unknown as RlsTransactionService);
+    service = new CaseOperationsService(
+      rls as unknown as RlsTransactionService,
+    );
   });
 
   it('rejects a reminder after its due time before opening a transaction', async () => {

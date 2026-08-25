@@ -193,7 +193,9 @@ const ALLOWED_CONTENT_TYPES = new Set([
   'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
 ]);
 
-const TASK_TRANSITIONS: Readonly<Record<CaseTaskStatus, readonly CaseTaskStatus[]>> = {
+const TASK_TRANSITIONS: Readonly<
+  Record<CaseTaskStatus, readonly CaseTaskStatus[]>
+> = {
   OPEN: ['IN_PROGRESS', 'BLOCKED', 'COMPLETED', 'CANCELLED'],
   IN_PROGRESS: ['OPEN', 'BLOCKED', 'COMPLETED', 'CANCELLED'],
   BLOCKED: ['OPEN', 'IN_PROGRESS', 'COMPLETED', 'CANCELLED'],
@@ -210,7 +212,9 @@ function databaseCode(error: unknown): string | null {
 }
 
 function iso(value: DatabaseDate): string {
-  return value instanceof Date ? value.toISOString() : new Date(value).toISOString();
+  return value instanceof Date
+    ? value.toISOString()
+    : new Date(value).toISOString();
 }
 
 function nullableIso(value: NullableDatabaseDate): string | null {
@@ -244,15 +248,15 @@ function deadlineView(row: DeadlineRow): MatterDeadlineView {
 function documentView(row: DocumentRow): MatterDocumentView {
   const hasVersion = Boolean(
     row.currentVersionId &&
-      row.versionNumber !== null &&
-      row.originalFileName &&
-      row.contentType &&
-      row.sizeBytes !== null &&
-      row.sha256Hex &&
-      row.storageBucket &&
-      row.storagePath &&
-      row.versionStatus &&
-      row.scanStatus,
+    row.versionNumber !== null &&
+    row.originalFileName &&
+    row.contentType &&
+    row.sizeBytes !== null &&
+    row.sha256Hex &&
+    row.storageBucket &&
+    row.storagePath &&
+    row.versionStatus &&
+    row.scanStatus,
   );
 
   return {
@@ -356,7 +360,8 @@ export class CaseOperationsService {
           RETURNING id
         `;
 
-        if (!created) throw new NotFoundException('Matter task could not be created.');
+        if (!created)
+          throw new NotFoundException('Matter task could not be created.');
 
         await this.writeTimeline(
           transaction,
@@ -368,10 +373,18 @@ export class CaseOperationsService {
           'Matter task created.',
           { priority: dto.priority ?? 'NORMAL', dueAt: dto.dueAt ?? null },
         );
-        await this.writeAudit(transaction, context, 'task.created', 'matter_task', created.id, null, {
-          matterId,
-          priority: dto.priority ?? 'NORMAL',
-        });
+        await this.writeAudit(
+          transaction,
+          context,
+          'task.created',
+          'matter_task',
+          created.id,
+          null,
+          {
+            matterId,
+            priority: dto.priority ?? 'NORMAL',
+          },
+        );
 
         return this.readTask(transaction, created.id);
       }),
@@ -394,12 +407,16 @@ export class CaseOperationsService {
         );
         this.assertVersion(current.version, dto.version);
         if (['COMPLETED', 'CANCELLED'].includes(current.status)) {
-          throw new ConflictException('Completed or cancelled tasks cannot be edited.');
+          throw new ConflictException(
+            'Completed or cancelled tasks cannot be edited.',
+          );
         }
 
         const currentTask = await this.readTask(transaction, taskId);
         this.assertReminderOrder(
-          dto.reminderAt === undefined ? currentTask.reminderAt : dto.reminderAt,
+          dto.reminderAt === undefined
+            ? currentTask.reminderAt
+            : dto.reminderAt,
           dto.dueAt === undefined ? currentTask.dueAt : dto.dueAt,
         );
 
@@ -425,12 +442,29 @@ export class CaseOperationsService {
         `;
         this.assertSingleUpdate(changed);
 
-        await this.writeTimeline(transaction, context, matterId, 'TASK_UPDATED', 'TASK', taskId, 'Matter task updated.', {
-          version: dto.version + 1,
-        });
-        await this.writeAudit(transaction, context, 'task.updated', 'matter_task', taskId, {
-          version: dto.version,
-        }, { version: dto.version + 1 });
+        await this.writeTimeline(
+          transaction,
+          context,
+          matterId,
+          'TASK_UPDATED',
+          'TASK',
+          taskId,
+          'Matter task updated.',
+          {
+            version: dto.version + 1,
+          },
+        );
+        await this.writeAudit(
+          transaction,
+          context,
+          'task.updated',
+          'matter_task',
+          taskId,
+          {
+            version: dto.version,
+          },
+          { version: dto.version + 1 },
+        );
         return this.readTask(transaction, taskId);
       }),
     );
@@ -444,7 +478,12 @@ export class CaseOperationsService {
   ): Promise<MatterTaskView> {
     return this.runSafely('task.status', () =>
       this.rls.run(this.rlsContext(context), async (transaction) => {
-        const current = await this.lockVersionedRecord(transaction, 'matter_tasks', taskId, matterId);
+        const current = await this.lockVersionedRecord(
+          transaction,
+          'matter_tasks',
+          taskId,
+          matterId,
+        );
         this.assertVersion(current.version, dto.version);
         this.assertTaskTransition(current.status as CaseTaskStatus, dto.status);
 
@@ -468,14 +507,31 @@ export class CaseOperationsService {
         `;
         this.assertSingleUpdate(changed);
 
-        await this.writeTimeline(transaction, context, matterId, 'TASK_STATUS_CHANGED', 'TASK', taskId, `Task moved to ${dto.status}.`, {
-          from: current.status,
-          to: dto.status,
-        });
-        await this.writeAudit(transaction, context, 'task.status.changed', 'matter_task', taskId, {
-          status: current.status,
-          version: dto.version,
-        }, { status: dto.status, version: dto.version + 1 });
+        await this.writeTimeline(
+          transaction,
+          context,
+          matterId,
+          'TASK_STATUS_CHANGED',
+          'TASK',
+          taskId,
+          `Task moved to ${dto.status}.`,
+          {
+            from: current.status,
+            to: dto.status,
+          },
+        );
+        await this.writeAudit(
+          transaction,
+          context,
+          'task.status.changed',
+          'matter_task',
+          taskId,
+          {
+            status: current.status,
+            version: dto.version,
+          },
+          { status: dto.status, version: dto.version + 1 },
+        );
         return this.readTask(transaction, taskId);
       }),
     );
@@ -503,18 +559,36 @@ export class CaseOperationsService {
           )
           RETURNING id
         `;
-        if (!created) throw new NotFoundException('Matter deadline could not be created.');
+        if (!created)
+          throw new NotFoundException('Matter deadline could not be created.');
 
-        await this.writeTimeline(transaction, context, matterId, 'DEADLINE_CREATED', 'DEADLINE', created.id, 'Matter deadline created.', {
-          type: dto.deadlineType,
-          dueAt: dto.dueAt,
-          critical: dto.isCritical ?? false,
-        });
-        await this.writeAudit(transaction, context, 'deadline.created', 'matter_deadline', created.id, null, {
+        await this.writeTimeline(
+          transaction,
+          context,
           matterId,
-          type: dto.deadlineType,
-          critical: dto.isCritical ?? false,
-        });
+          'DEADLINE_CREATED',
+          'DEADLINE',
+          created.id,
+          'Matter deadline created.',
+          {
+            type: dto.deadlineType,
+            dueAt: dto.dueAt,
+            critical: dto.isCritical ?? false,
+          },
+        );
+        await this.writeAudit(
+          transaction,
+          context,
+          'deadline.created',
+          'matter_deadline',
+          created.id,
+          null,
+          {
+            matterId,
+            type: dto.deadlineType,
+            critical: dto.isCritical ?? false,
+          },
+        );
         return this.readDeadline(transaction, created.id);
       }),
     );
@@ -528,7 +602,12 @@ export class CaseOperationsService {
   ): Promise<MatterDeadlineView> {
     return this.runSafely('deadline.update', () =>
       this.rls.run(this.rlsContext(context), async (transaction) => {
-        const current = await this.lockVersionedRecord(transaction, 'matter_deadlines', deadlineId, matterId);
+        const current = await this.lockVersionedRecord(
+          transaction,
+          'matter_deadlines',
+          deadlineId,
+          matterId,
+        );
         this.assertVersion(current.version, dto.version);
         if (current.status !== 'OPEN') {
           throw new ConflictException('Resolved deadlines cannot be edited.');
@@ -558,12 +637,29 @@ export class CaseOperationsService {
         `;
         this.assertSingleUpdate(changed);
 
-        await this.writeTimeline(transaction, context, matterId, 'DEADLINE_UPDATED', 'DEADLINE', deadlineId, 'Matter deadline updated.', {
-          version: dto.version + 1,
-        });
-        await this.writeAudit(transaction, context, 'deadline.updated', 'matter_deadline', deadlineId, {
-          version: dto.version,
-        }, { version: dto.version + 1 });
+        await this.writeTimeline(
+          transaction,
+          context,
+          matterId,
+          'DEADLINE_UPDATED',
+          'DEADLINE',
+          deadlineId,
+          'Matter deadline updated.',
+          {
+            version: dto.version + 1,
+          },
+        );
+        await this.writeAudit(
+          transaction,
+          context,
+          'deadline.updated',
+          'matter_deadline',
+          deadlineId,
+          {
+            version: dto.version,
+          },
+          { version: dto.version + 1 },
+        );
         return this.readDeadline(transaction, deadlineId);
       }),
     );
@@ -577,7 +673,12 @@ export class CaseOperationsService {
   ): Promise<MatterDeadlineView> {
     return this.runSafely('deadline.status', () =>
       this.rls.run(this.rlsContext(context), async (transaction) => {
-        const current = await this.lockVersionedRecord(transaction, 'matter_deadlines', deadlineId, matterId);
+        const current = await this.lockVersionedRecord(
+          transaction,
+          'matter_deadlines',
+          deadlineId,
+          matterId,
+        );
         this.assertVersion(current.version, dto.version);
         if (current.status !== 'OPEN' || dto.status === 'OPEN') {
           throw new ConflictException('Only open deadlines can be resolved.');
@@ -605,14 +706,31 @@ export class CaseOperationsService {
         `;
         this.assertSingleUpdate(changed);
 
-        await this.writeTimeline(transaction, context, matterId, 'DEADLINE_STATUS_CHANGED', 'DEADLINE', deadlineId, `Deadline moved to ${dto.status}.`, {
-          from: current.status,
-          to: dto.status,
-        });
-        await this.writeAudit(transaction, context, 'deadline.status.changed', 'matter_deadline', deadlineId, {
-          status: current.status,
-          version: dto.version,
-        }, { status: dto.status, version: dto.version + 1 });
+        await this.writeTimeline(
+          transaction,
+          context,
+          matterId,
+          'DEADLINE_STATUS_CHANGED',
+          'DEADLINE',
+          deadlineId,
+          `Deadline moved to ${dto.status}.`,
+          {
+            from: current.status,
+            to: dto.status,
+          },
+        );
+        await this.writeAudit(
+          transaction,
+          context,
+          'deadline.status.changed',
+          'matter_deadline',
+          deadlineId,
+          {
+            status: current.status,
+            version: dto.version,
+          },
+          { status: dto.status, version: dto.version + 1 },
+        );
         return this.readDeadline(transaction, deadlineId);
       }),
     );
@@ -637,7 +755,8 @@ export class CaseOperationsService {
           )
           RETURNING id
         `;
-        if (!created) throw new NotFoundException('Document request could not be created.');
+        if (!created)
+          throw new NotFoundException('Document request could not be created.');
 
         for (const item of dto.items) {
           await transaction.$executeRaw`
@@ -652,14 +771,31 @@ export class CaseOperationsService {
           `;
         }
 
-        await this.writeTimeline(transaction, context, matterId, 'DOCUMENT_REQUEST_CREATED', 'DOCUMENT_REQUEST', created.id, 'Document request drafted.', {
-          itemCount: dto.items.length,
-          dueAt: dto.dueAt ?? null,
-        });
-        await this.writeAudit(transaction, context, 'document_request.created', 'document_request', created.id, null, {
+        await this.writeTimeline(
+          transaction,
+          context,
           matterId,
-          itemCount: dto.items.length,
-        });
+          'DOCUMENT_REQUEST_CREATED',
+          'DOCUMENT_REQUEST',
+          created.id,
+          'Document request drafted.',
+          {
+            itemCount: dto.items.length,
+            dueAt: dto.dueAt ?? null,
+          },
+        );
+        await this.writeAudit(
+          transaction,
+          context,
+          'document_request.created',
+          'document_request',
+          created.id,
+          null,
+          {
+            matterId,
+            itemCount: dto.items.length,
+          },
+        );
         return this.readDocumentRequest(transaction, created.id);
       }),
     );
@@ -673,10 +809,17 @@ export class CaseOperationsService {
   ): Promise<DocumentRequestView> {
     return this.runSafely('document-request.send', () =>
       this.rls.run(this.rlsContext(context), async (transaction) => {
-        const current = await this.lockVersionedRecord(transaction, 'document_requests', requestId, matterId);
+        const current = await this.lockVersionedRecord(
+          transaction,
+          'document_requests',
+          requestId,
+          matterId,
+        );
         this.assertVersion(current.version, dto.version);
         if (current.status !== 'DRAFT') {
-          throw new ConflictException('Only draft document requests can be issued.');
+          throw new ConflictException(
+            'Only draft document requests can be issued.',
+          );
         }
 
         const changed = await transaction.$executeRaw`
@@ -694,11 +837,28 @@ export class CaseOperationsService {
         `;
         this.assertSingleUpdate(changed);
 
-        await this.writeTimeline(transaction, context, matterId, 'DOCUMENT_REQUEST_SENT', 'DOCUMENT_REQUEST', requestId, 'Document request issued.', null);
-        await this.writeAudit(transaction, context, 'document_request.sent', 'document_request', requestId, {
-          status: 'DRAFT',
-          version: dto.version,
-        }, { status: 'SENT', version: dto.version + 1 });
+        await this.writeTimeline(
+          transaction,
+          context,
+          matterId,
+          'DOCUMENT_REQUEST_SENT',
+          'DOCUMENT_REQUEST',
+          requestId,
+          'Document request issued.',
+          null,
+        );
+        await this.writeAudit(
+          transaction,
+          context,
+          'document_request.sent',
+          'document_request',
+          requestId,
+          {
+            status: 'DRAFT',
+            version: dto.version,
+          },
+          { status: 'SENT', version: dto.version + 1 },
+        );
         return this.readDocumentRequest(transaction, requestId);
       }),
     );
@@ -712,16 +872,25 @@ export class CaseOperationsService {
   ): Promise<DocumentRequestView> {
     return this.runSafely('document-request.manage', () =>
       this.rls.run(this.rlsContext(context), async (transaction) => {
-        const current = await this.lockVersionedRecord(transaction, 'document_requests', requestId, matterId);
+        const current = await this.lockVersionedRecord(
+          transaction,
+          'document_requests',
+          requestId,
+          matterId,
+        );
         this.assertVersion(current.version, dto.version);
         if (['COMPLETED', 'CANCELLED', 'EXPIRED'].includes(current.status)) {
-          throw new ConflictException('This document request is already final.');
+          throw new ConflictException(
+            'This document request is already final.',
+          );
         }
         if (dto.status === 'EXPIRED' && current.status === 'DRAFT') {
           throw new ConflictException('A draft request cannot be expired.');
         }
         if (dto.status === 'COMPLETED') {
-          const [outstanding] = await transaction.$queryRaw<Array<{ count: bigint | number }>>`
+          const [outstanding] = await transaction.$queryRaw<
+            Array<{ count: bigint | number }>
+          >`
             SELECT count(*) AS count
             FROM public.document_request_items
             WHERE organisation_id = ${context.organisationId}::uuid
@@ -730,7 +899,9 @@ export class CaseOperationsService {
               AND status NOT IN ('RECEIVED', 'ACCEPTED', 'WAIVED')
           `;
           if (Number(outstanding?.count ?? 0) > 0) {
-            throw new ConflictException('Required document items remain outstanding.');
+            throw new ConflictException(
+              'Required document items remain outstanding.',
+            );
           }
         }
 
@@ -751,14 +922,31 @@ export class CaseOperationsService {
         `;
         this.assertSingleUpdate(changed);
 
-        await this.writeTimeline(transaction, context, matterId, 'DOCUMENT_REQUEST_STATUS_CHANGED', 'DOCUMENT_REQUEST', requestId, `Document request moved to ${dto.status}.`, {
-          from: current.status,
-          to: dto.status,
-        });
-        await this.writeAudit(transaction, context, 'document_request.status.changed', 'document_request', requestId, {
-          status: current.status,
-          version: dto.version,
-        }, { status: dto.status, version: dto.version + 1 });
+        await this.writeTimeline(
+          transaction,
+          context,
+          matterId,
+          'DOCUMENT_REQUEST_STATUS_CHANGED',
+          'DOCUMENT_REQUEST',
+          requestId,
+          `Document request moved to ${dto.status}.`,
+          {
+            from: current.status,
+            to: dto.status,
+          },
+        );
+        await this.writeAudit(
+          transaction,
+          context,
+          'document_request.status.changed',
+          'document_request',
+          requestId,
+          {
+            status: current.status,
+            version: dto.version,
+          },
+          { status: dto.status, version: dto.version + 1 },
+        );
         return this.readDocumentRequest(transaction, requestId);
       }),
     );
@@ -773,7 +961,9 @@ export class CaseOperationsService {
 
     return this.runSafely('document.upload.register', () =>
       this.rls.run(this.rlsContext(context), async (transaction) => {
-        const [registration] = await transaction.$queryRaw<DocumentUploadRegistrationView[]>`
+        const [registration] = await transaction.$queryRaw<
+          DocumentUploadRegistrationView[]
+        >`
           WITH identifiers AS (
             SELECT pg_catalog.gen_random_uuid() AS document_id,
                    pg_catalog.gen_random_uuid() AS version_id
@@ -818,20 +1008,38 @@ export class CaseOperationsService {
             'PENDING_UPLOAD'::text AS status
           FROM inserted_version
         `;
-        if (!registration) throw new InternalServerErrorException('Upload registration failed.');
+        if (!registration)
+          throw new InternalServerErrorException('Upload registration failed.');
 
-        await this.writeTimeline(transaction, context, matterId, 'DOCUMENT_UPLOAD_REGISTERED', 'DOCUMENT', registration.documentId, 'Document upload registered in the private quarantine area.', {
-          versionId: registration.versionId,
-          classification: dto.securityClassification,
-          sizeBytes: dto.sizeBytes,
-        });
-        await this.writeAudit(transaction, context, 'document.upload.registered', 'matter_document', registration.documentId, null, {
+        await this.writeTimeline(
+          transaction,
+          context,
           matterId,
-          versionId: registration.versionId,
-          contentType: dto.contentType,
-          sizeBytes: dto.sizeBytes,
-          sha256Hex: dto.sha256Hex,
-        });
+          'DOCUMENT_UPLOAD_REGISTERED',
+          'DOCUMENT',
+          registration.documentId,
+          'Document upload registered in the private quarantine area.',
+          {
+            versionId: registration.versionId,
+            classification: dto.securityClassification,
+            sizeBytes: dto.sizeBytes,
+          },
+        );
+        await this.writeAudit(
+          transaction,
+          context,
+          'document.upload.registered',
+          'matter_document',
+          registration.documentId,
+          null,
+          {
+            matterId,
+            versionId: registration.versionId,
+            contentType: dto.contentType,
+            sizeBytes: dto.sizeBytes,
+            sha256Hex: dto.sha256Hex,
+          },
+        );
         return registration;
       }),
     );
@@ -847,7 +1055,9 @@ export class CaseOperationsService {
 
     return this.runSafely('document.version.register', () =>
       this.rls.run(this.rlsContext(context), async (transaction) => {
-        const [document] = await transaction.$queryRaw<Array<{ id: string; status: string }>>`
+        const [document] = await transaction.$queryRaw<
+          Array<{ id: string; status: string }>
+        >`
           SELECT id, status::text AS status
           FROM public.matter_documents
           WHERE id = ${documentId}::uuid
@@ -856,12 +1066,17 @@ export class CaseOperationsService {
             AND deleted_at IS NULL
           FOR UPDATE
         `;
-        if (!document) throw new NotFoundException('Matter document not found.');
+        if (!document)
+          throw new NotFoundException('Matter document not found.');
         if (document.status !== 'AVAILABLE') {
-          throw new ConflictException('A new version can only be added to an available document.');
+          throw new ConflictException(
+            'A new version can only be added to an available document.',
+          );
         }
 
-        const [registration] = await transaction.$queryRaw<DocumentUploadRegistrationView[]>`
+        const [registration] = await transaction.$queryRaw<
+          DocumentUploadRegistrationView[]
+        >`
           WITH identifiers AS (
             SELECT pg_catalog.gen_random_uuid() AS version_id
           ), next_version AS (
@@ -894,18 +1109,38 @@ export class CaseOperationsService {
             'PENDING_UPLOAD'::text AS status
           FROM inserted_version
         `;
-        if (!registration) throw new InternalServerErrorException('Version registration failed.');
+        if (!registration)
+          throw new InternalServerErrorException(
+            'Version registration failed.',
+          );
 
-        await this.writeTimeline(transaction, context, matterId, 'DOCUMENT_VERSION_REGISTERED', 'DOCUMENT', documentId, 'New document version registered in quarantine.', {
-          versionId: registration.versionId,
-          sizeBytes: dto.sizeBytes,
-        });
-        await this.writeAudit(transaction, context, 'document.version.registered', 'matter_document', documentId, null, {
-          versionId: registration.versionId,
-          contentType: dto.contentType,
-          sizeBytes: dto.sizeBytes,
-          sha256Hex: dto.sha256Hex,
-        });
+        await this.writeTimeline(
+          transaction,
+          context,
+          matterId,
+          'DOCUMENT_VERSION_REGISTERED',
+          'DOCUMENT',
+          documentId,
+          'New document version registered in quarantine.',
+          {
+            versionId: registration.versionId,
+            sizeBytes: dto.sizeBytes,
+          },
+        );
+        await this.writeAudit(
+          transaction,
+          context,
+          'document.version.registered',
+          'matter_document',
+          documentId,
+          null,
+          {
+            versionId: registration.versionId,
+            contentType: dto.contentType,
+            sizeBytes: dto.sizeBytes,
+            sha256Hex: dto.sha256Hex,
+          },
+        );
         return registration;
       }),
     );
@@ -928,7 +1163,8 @@ export class CaseOperationsService {
               AND organisation_id = ${context.organisationId}::uuid
           ) AS value
         `;
-        if (!match?.value) throw new NotFoundException('Registered document upload not found.');
+        if (!match?.value)
+          throw new NotFoundException('Registered document upload not found.');
 
         const [result] = await transaction.$queryRaw<
           Array<{
@@ -945,13 +1181,22 @@ export class CaseOperationsService {
             ${documentId}::uuid, ${versionId}::uuid
           )
         `;
-        if (!result) throw new NotFoundException('Registered document upload not found.');
+        if (!result)
+          throw new NotFoundException('Registered document upload not found.');
 
-        await this.writeAudit(transaction, context, 'document.upload.finalised', 'matter_document', documentId, null, {
-          versionId,
-          status: result.documentStatus,
-          scanStatus: result.scanStatus,
-        });
+        await this.writeAudit(
+          transaction,
+          context,
+          'document.upload.finalised',
+          'matter_document',
+          documentId,
+          null,
+          {
+            versionId,
+            status: result.documentStatus,
+            scanStatus: result.scanStatus,
+          },
+        );
         return result;
       }),
     );
@@ -965,7 +1210,12 @@ export class CaseOperationsService {
   ): Promise<MatterDocumentView> {
     return this.runSafely('document.metadata.update', () =>
       this.rls.run(this.rlsContext(context), async (transaction) => {
-        const current = await this.lockVersionedRecord(transaction, 'matter_documents', documentId, matterId);
+        const current = await this.lockVersionedRecord(
+          transaction,
+          'matter_documents',
+          documentId,
+          matterId,
+        );
         this.assertVersion(current.version, dto.version);
         if (current.status === 'ARCHIVED') {
           throw new ConflictException('Archived documents cannot be edited.');
@@ -994,12 +1244,29 @@ export class CaseOperationsService {
         `;
         this.assertSingleUpdate(changed);
 
-        await this.writeTimeline(transaction, context, matterId, 'DOCUMENT_METADATA_UPDATED', 'DOCUMENT', documentId, 'Document metadata and classification updated.', {
-          version: dto.version + 1,
-        });
-        await this.writeAudit(transaction, context, 'document.metadata.updated', 'matter_document', documentId, {
-          version: dto.version,
-        }, { version: dto.version + 1 });
+        await this.writeTimeline(
+          transaction,
+          context,
+          matterId,
+          'DOCUMENT_METADATA_UPDATED',
+          'DOCUMENT',
+          documentId,
+          'Document metadata and classification updated.',
+          {
+            version: dto.version + 1,
+          },
+        );
+        await this.writeAudit(
+          transaction,
+          context,
+          'document.metadata.updated',
+          'matter_document',
+          documentId,
+          {
+            version: dto.version,
+          },
+          { version: dto.version + 1 },
+        );
         return this.readDocument(transaction, documentId);
       }),
     );
@@ -1013,10 +1280,17 @@ export class CaseOperationsService {
   ): Promise<MatterDocumentView> {
     return this.runSafely('document.archive', () =>
       this.rls.run(this.rlsContext(context), async (transaction) => {
-        const current = await this.lockVersionedRecord(transaction, 'matter_documents', documentId, matterId);
+        const current = await this.lockVersionedRecord(
+          transaction,
+          'matter_documents',
+          documentId,
+          matterId,
+        );
         this.assertVersion(current.version, dto.version);
         if (current.status !== 'AVAILABLE') {
-          throw new ConflictException('Only available documents can be archived.');
+          throw new ConflictException(
+            'Only available documents can be archived.',
+          );
         }
 
         const changed = await transaction.$executeRaw`
@@ -1033,11 +1307,28 @@ export class CaseOperationsService {
         `;
         this.assertSingleUpdate(changed);
 
-        await this.writeTimeline(transaction, context, matterId, 'DOCUMENT_ARCHIVED', 'DOCUMENT', documentId, 'Document archived under controlled retention.', null);
-        await this.writeAudit(transaction, context, 'document.archived', 'matter_document', documentId, {
-          status: current.status,
-          version: dto.version,
-        }, { status: 'ARCHIVED', version: dto.version + 1 });
+        await this.writeTimeline(
+          transaction,
+          context,
+          matterId,
+          'DOCUMENT_ARCHIVED',
+          'DOCUMENT',
+          documentId,
+          'Document archived under controlled retention.',
+          null,
+        );
+        await this.writeAudit(
+          transaction,
+          context,
+          'document.archived',
+          'matter_document',
+          documentId,
+          {
+            status: current.status,
+            version: dto.version,
+          },
+          { status: 'ARCHIVED', version: dto.version + 1 },
+        );
         return this.readDocument(transaction, documentId);
       }),
     );
@@ -1067,11 +1358,19 @@ export class CaseOperationsService {
         AND matter.deleted_at IS NULL
       LIMIT 1
     `;
-    if (!matter) throw new NotFoundException('Matter not found or not authorised.');
+    if (!matter)
+      throw new NotFoundException('Matter not found or not authorised.');
 
-    const [members, tasks, deadlines, requests, requestItems, documents, timeline] =
-      await Promise.all([
-        transaction.$queryRaw<Array<{ id: string; label: string }>>`
+    const [
+      members,
+      tasks,
+      deadlines,
+      requests,
+      requestItems,
+      documents,
+      timeline,
+    ] = await Promise.all([
+      transaction.$queryRaw<Array<{ id: string; label: string }>>`
           SELECT profile.id,
             COALESCE(NULLIF(btrim(profile.display_name), ''),
               NULLIF(btrim(concat_ws(' ', profile.first_name, profile.last_name)), ''),
@@ -1084,25 +1383,25 @@ export class CaseOperationsService {
           ORDER BY label ASC
           LIMIT 500
         `,
-        transaction.$queryRaw<TaskRow[]>`${this.taskSelect()}
+      transaction.$queryRaw<TaskRow[]>`${this.taskSelect()}
           WHERE task.organisation_id = ${context.organisationId}::uuid
             AND task.matter_id = ${matterId}::uuid AND task.deleted_at IS NULL
           ORDER BY CASE task.status WHEN 'OPEN' THEN 0 WHEN 'IN_PROGRESS' THEN 1
             WHEN 'BLOCKED' THEN 2 ELSE 3 END, task.due_at ASC NULLS LAST, task.created_at DESC
         `,
-        transaction.$queryRaw<DeadlineRow[]>`${this.deadlineSelect()}
+      transaction.$queryRaw<DeadlineRow[]>`${this.deadlineSelect()}
           WHERE deadline.organisation_id = ${context.organisationId}::uuid
             AND deadline.matter_id = ${matterId}::uuid AND deadline.deleted_at IS NULL
           ORDER BY CASE deadline.status WHEN 'OPEN' THEN 0 ELSE 1 END,
             deadline.is_critical DESC, deadline.due_at ASC
         `,
-        transaction.$queryRaw<RequestRow[]>`${this.requestSelect()}
+      transaction.$queryRaw<RequestRow[]>`${this.requestSelect()}
           WHERE request_record.organisation_id = ${context.organisationId}::uuid
             AND request_record.matter_id = ${matterId}::uuid
             AND request_record.deleted_at IS NULL
           ORDER BY request_record.created_at DESC
         `,
-        transaction.$queryRaw<RequestItemRow[]>`
+      transaction.$queryRaw<RequestItemRow[]>`
           SELECT item.request_id AS "requestId", item.id, item.category,
             item.title, item.description, item.is_required AS "isRequired",
             item.status, item.status_reason AS "statusReason"
@@ -1115,13 +1414,13 @@ export class CaseOperationsService {
             AND request_record.deleted_at IS NULL
           ORDER BY item.created_at ASC, item.id ASC
         `,
-        transaction.$queryRaw<DocumentRow[]>`${this.documentSelect()}
+      transaction.$queryRaw<DocumentRow[]>`${this.documentSelect()}
           WHERE document_record.organisation_id = ${context.organisationId}::uuid
             AND document_record.matter_id = ${matterId}::uuid
             AND document_record.deleted_at IS NULL
           ORDER BY document_record.created_at DESC
         `,
-        transaction.$queryRaw<TimelineRow[]>`
+      transaction.$queryRaw<TimelineRow[]>`
           SELECT event_record.id, event_record.event_type AS "eventType",
             event_record.source_type AS "sourceType", event_record.source_id AS "sourceId",
             event_record.summary, event_record.details,
@@ -1141,7 +1440,7 @@ export class CaseOperationsService {
           ORDER BY event_record.occurred_at DESC, event_record.id DESC
           LIMIT 250
         `,
-      ]);
+    ]);
 
     const itemsByRequest = new Map<string, DocumentRequestItemView[]>();
     for (const item of requestItems) {
@@ -1163,7 +1462,9 @@ export class CaseOperationsService {
       members,
       tasks: tasks.map(taskView),
       deadlines: deadlines.map(deadlineView),
-      documentRequests: requests.map((row) => this.requestView(row, itemsByRequest.get(row.id) ?? [])),
+      documentRequests: requests.map((row) =>
+        this.requestView(row, itemsByRequest.get(row.id) ?? []),
+      ),
       documents: documents.map(documentView),
       timeline: timeline.map((row): MatterTimelineEventView => ({
         ...row,
@@ -1272,7 +1573,10 @@ export class CaseOperationsService {
     `;
   }
 
-  private async readTask(transaction: Transaction, taskId: string): Promise<MatterTaskView> {
+  private async readTask(
+    transaction: Transaction,
+    taskId: string,
+  ): Promise<MatterTaskView> {
     const [row] = await transaction.$queryRaw<TaskRow[]>`${this.taskSelect()}
       WHERE task.id = ${taskId}::uuid AND task.deleted_at IS NULL
     `;
@@ -1280,16 +1584,26 @@ export class CaseOperationsService {
     return taskView(row);
   }
 
-  private async readDeadline(transaction: Transaction, deadlineId: string): Promise<MatterDeadlineView> {
-    const [row] = await transaction.$queryRaw<DeadlineRow[]>`${this.deadlineSelect()}
+  private async readDeadline(
+    transaction: Transaction,
+    deadlineId: string,
+  ): Promise<MatterDeadlineView> {
+    const [row] = await transaction.$queryRaw<
+      DeadlineRow[]
+    >`${this.deadlineSelect()}
       WHERE deadline.id = ${deadlineId}::uuid AND deadline.deleted_at IS NULL
     `;
     if (!row) throw new NotFoundException('Matter deadline not found.');
     return deadlineView(row);
   }
 
-  private async readDocumentRequest(transaction: Transaction, requestId: string): Promise<DocumentRequestView> {
-    const [row] = await transaction.$queryRaw<RequestRow[]>`${this.requestSelect()}
+  private async readDocumentRequest(
+    transaction: Transaction,
+    requestId: string,
+  ): Promise<DocumentRequestView> {
+    const [row] = await transaction.$queryRaw<
+      RequestRow[]
+    >`${this.requestSelect()}
       WHERE request_record.id = ${requestId}::uuid AND request_record.deleted_at IS NULL
     `;
     if (!row) throw new NotFoundException('Document request not found.');
@@ -1303,7 +1617,10 @@ export class CaseOperationsService {
     return this.requestView(row, items);
   }
 
-  private requestView(row: RequestRow, items: DocumentRequestItemView[]): DocumentRequestView {
+  private requestView(
+    row: RequestRow,
+    items: DocumentRequestItemView[],
+  ): DocumentRequestView {
     return {
       ...row,
       dueAt: nullableIso(row.dueAt),
@@ -1315,8 +1632,13 @@ export class CaseOperationsService {
     };
   }
 
-  private async readDocument(transaction: Transaction, documentId: string): Promise<MatterDocumentView> {
-    const [row] = await transaction.$queryRaw<DocumentRow[]>`${this.documentSelect()}
+  private async readDocument(
+    transaction: Transaction,
+    documentId: string,
+  ): Promise<MatterDocumentView> {
+    const [row] = await transaction.$queryRaw<
+      DocumentRow[]
+    >`${this.documentSelect()}
       WHERE document_record.id = ${documentId}::uuid AND document_record.deleted_at IS NULL
     `;
     if (!row) throw new NotFoundException('Matter document not found.');
@@ -1325,7 +1647,11 @@ export class CaseOperationsService {
 
   private async lockVersionedRecord(
     transaction: Transaction,
-    table: 'matter_tasks' | 'matter_deadlines' | 'document_requests' | 'matter_documents',
+    table:
+      | 'matter_tasks'
+      | 'matter_deadlines'
+      | 'document_requests'
+      | 'matter_documents',
     id: string,
     matterId: string,
   ): Promise<VersionStateRow> {
@@ -1375,7 +1701,8 @@ export class CaseOperationsService {
     previousValue: unknown,
     newValue: unknown,
   ): Promise<void> {
-    const previousJson = previousValue === null ? null : JSON.stringify(previousValue);
+    const previousJson =
+      previousValue === null ? null : JSON.stringify(previousValue);
     const newJson = newValue === null ? null : JSON.stringify(newValue);
     await transaction.$executeRaw`
       INSERT INTO public.audit_events (
@@ -1395,31 +1722,44 @@ export class CaseOperationsService {
   private assertTaskTransition(from: CaseTaskStatus, to: CaseTaskStatus): void {
     if (from === to) throw new ConflictException(`The task is already ${to}.`);
     if (!TASK_TRANSITIONS[from].includes(to)) {
-      throw new ConflictException(`Task status cannot move from ${from} to ${to}.`);
+      throw new ConflictException(
+        `Task status cannot move from ${from} to ${to}.`,
+      );
     }
   }
 
-  private assertReminderOrder(reminderAt?: string | null, dueAt?: string | null): void {
+  private assertReminderOrder(
+    reminderAt?: string | null,
+    dueAt?: string | null,
+  ): void {
     if (reminderAt && dueAt && new Date(reminderAt) > new Date(dueAt)) {
-      throw new BadRequestException('Task reminder must be at or before its due time.');
+      throw new BadRequestException(
+        'Task reminder must be at or before its due time.',
+      );
     }
   }
 
   private assertAllowedContentType(contentType: string): void {
     if (!ALLOWED_CONTENT_TYPES.has(contentType)) {
-      throw new BadRequestException('This document file type is not permitted.');
+      throw new BadRequestException(
+        'This document file type is not permitted.',
+      );
     }
   }
 
   private assertVersion(current: number, expected: number): void {
     if (current !== expected) {
-      throw new ConflictException('This record changed. Refresh before saving.');
+      throw new ConflictException(
+        'This record changed. Refresh before saving.',
+      );
     }
   }
 
   private assertSingleUpdate(count: number): void {
     if (count !== 1) {
-      throw new ConflictException('The record changed while saving. Refresh and retry.');
+      throw new ConflictException(
+        'The record changed while saving. Refresh and retry.',
+      );
     }
   }
 
@@ -1431,7 +1771,10 @@ export class CaseOperationsService {
     } as const;
   }
 
-  private async runSafely<T>(operation: string, callback: () => Promise<T>): Promise<T> {
+  private async runSafely<T>(
+    operation: string,
+    callback: () => Promise<T>,
+  ): Promise<T> {
     try {
       return await callback();
     } catch (error) {
@@ -1439,19 +1782,32 @@ export class CaseOperationsService {
       const code = databaseCode(error);
 
       if (code === '42501') {
-        throw new ForbiddenException('This operation is not permitted, or MFA is required.');
+        throw new ForbiddenException(
+          'This operation is not permitted, or MFA is required.',
+        );
       }
       if (code === '23505' || code === 'P2002') {
-        throw new ConflictException('A protected case-operation record already exists.');
+        throw new ConflictException(
+          'A protected case-operation record already exists.',
+        );
       }
       if (code === '40001' || code === 'P2034') {
-        throw new ConflictException('The record changed during this operation. Refresh and retry.');
+        throw new ConflictException(
+          'The record changed during this operation. Refresh and retry.',
+        );
       }
       if (code === 'P0002' || code === 'P2025') {
         throw new NotFoundException('Case-operation record not found.');
       }
-      if (code === '23503' || code === '23514' || code === 'P2003' || code === 'P2004') {
-        throw new BadRequestException('The operation conflicts with an access, file-integrity or lifecycle control.');
+      if (
+        code === '23503' ||
+        code === '23514' ||
+        code === 'P2003' ||
+        code === 'P2004'
+      ) {
+        throw new BadRequestException(
+          'The operation conflicts with an access, file-integrity or lifecycle control.',
+        );
       }
 
       this.logger.error(
@@ -1459,7 +1815,9 @@ export class CaseOperationsService {
           error instanceof Error ? error.name : typeof error
         }`,
       );
-      throw new InternalServerErrorException('The case operation could not be completed.');
+      throw new InternalServerErrorException(
+        'The case operation could not be completed.',
+      );
     }
   }
 }

@@ -14,9 +14,7 @@ import {
   requireOrganisationAccessContext,
   type OrganisationScopedRequest,
 } from '../../request-security-context';
-import {
-  REQUIRED_PERMISSIONS_KEY,
-} from '../../decorators/require-permissions.decorator';
+import { REQUIRED_PERMISSIONS_KEY } from '../../decorators/require-permissions.decorator';
 
 @Injectable()
 export class PermissionGuard implements CanActivate {
@@ -25,33 +23,22 @@ export class PermissionGuard implements CanActivate {
     private readonly rls: RlsTransactionService,
   ) {}
 
-  async canActivate(
-    context: ExecutionContext,
-  ): Promise<boolean> {
-    const declaredPermissions =
-      this.reflector.getAllAndOverride<readonly string[]>(
-        REQUIRED_PERMISSIONS_KEY,
-        [
-          context.getHandler(),
-          context.getClass(),
-        ],
-      );
+  async canActivate(context: ExecutionContext): Promise<boolean> {
+    const declaredPermissions = this.reflector.getAllAndOverride<
+      readonly string[]
+    >(REQUIRED_PERMISSIONS_KEY, [context.getHandler(), context.getClass()]);
 
     if (!declaredPermissions?.length) {
       return true;
     }
 
-    const requiredPermissions = [
-      ...new Set(declaredPermissions),
-    ];
+    const requiredPermissions = [...new Set(declaredPermissions)];
 
-    const request =
-      context
-        .switchToHttp()
-        .getRequest<OrganisationScopedRequest>();
+    const request = context
+      .switchToHttp()
+      .getRequest<OrganisationScopedRequest>();
 
-    const access =
-      requireOrganisationAccessContext(request);
+    const access = requireOrganisationAccessContext(request);
 
     const now = new Date();
 
@@ -66,8 +53,7 @@ export class PermissionGuard implements CanActivate {
           where: {
             userProfileId: access.userId,
             organisationId: access.organisationId,
-            organisationMembershipId:
-              access.membershipId,
+            organisationMembershipId: access.membershipId,
             revokedAt: null,
             deletedAt: null,
             validFrom: {
@@ -87,8 +73,7 @@ export class PermissionGuard implements CanActivate {
               is: {
                 id: access.membershipId,
                 userProfileId: access.userId,
-                organisationId:
-                  access.organisationId,
+                organisationId: access.organisationId,
                 status: MembershipStatus.ACTIVE,
                 deletedAt: null,
                 organisation: {
@@ -98,8 +83,7 @@ export class PermissionGuard implements CanActivate {
               },
             },
             role: {
-              organisationId:
-                access.organisationId,
+              organisationId: access.organisationId,
               deletedAt: null,
               permissions: {
                 some: {
@@ -150,25 +134,16 @@ export class PermissionGuard implements CanActivate {
     >();
 
     for (const assignment of assignments) {
-      for (
-        const rolePermission
-        of assignment.role.permissions
-      ) {
-        grantedPermissions.set(
-          rolePermission.permission.key,
-          {
-            requiresMfa:
-              rolePermission.permission.requiresMfa,
-          },
-        );
+      for (const rolePermission of assignment.role.permissions) {
+        grantedPermissions.set(rolePermission.permission.key, {
+          requiresMfa: rolePermission.permission.requiresMfa,
+        });
       }
     }
 
-    const missingPermission =
-      requiredPermissions.find(
-        (permission) =>
-          !grantedPermissions.has(permission),
-      );
+    const missingPermission = requiredPermissions.find(
+      (permission) => !grantedPermissions.has(permission),
+    );
 
     if (missingPermission) {
       throw new ForbiddenException(
@@ -176,17 +151,11 @@ export class PermissionGuard implements CanActivate {
       );
     }
 
-    const requiresMfa =
-      requiredPermissions.some(
-        (permission) =>
-          grantedPermissions.get(permission)
-            ?.requiresMfa === true,
-      );
+    const requiresMfa = requiredPermissions.some(
+      (permission) => grantedPermissions.get(permission)?.requiresMfa === true,
+    );
 
-    if (
-      requiresMfa &&
-      access.aal !== 'AAL2'
-    ) {
+    if (requiresMfa && access.aal !== 'AAL2') {
       throw new ForbiddenException({
         statusCode: 403,
         error: 'Forbidden',

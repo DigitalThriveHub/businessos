@@ -29,11 +29,8 @@ describe('RbacService', () => {
 
   const prisma = {
     $transaction: jest.fn(
-      async (
-        callback: (
-          client: typeof transaction,
-        ) => Promise<unknown>,
-      ) => callback(transaction),
+      async (callback: (client: typeof transaction) => Promise<unknown>) =>
+        callback(transaction),
     ),
   };
 
@@ -70,9 +67,7 @@ describe('RbacService', () => {
       '00000000-0000-4000-8000-000000000100',
     );
 
-    expect(transaction.role.upsert).toHaveBeenCalledTimes(
-      DEFAULT_ROLES.length,
-    );
+    expect(transaction.role.upsert).toHaveBeenCalledTimes(DEFAULT_ROLES.length);
 
     const expectedConnections = DEFAULT_ROLES.reduce(
       (total, role) => total + role.permissions.length,
@@ -84,8 +79,7 @@ describe('RbacService', () => {
     );
 
     expect(result).toEqual({
-      organisationId:
-        '00000000-0000-4000-8000-000000000100',
+      organisationId: '00000000-0000-4000-8000-000000000100',
       rolesProvisioned: DEFAULT_ROLES.length,
       permissionsConnected: expectedConnections,
     });
@@ -95,32 +89,24 @@ describe('RbacService', () => {
     transaction.organisation.findFirst.mockResolvedValue(null);
 
     await expect(
-      service.provisionDefaultRoles(
-        '00000000-0000-4000-8000-000000000999',
-      ),
+      service.provisionDefaultRoles('00000000-0000-4000-8000-000000000999'),
     ).rejects.toBeInstanceOf(InternalServerErrorException);
 
     expect(transaction.role.upsert).not.toHaveBeenCalled();
   });
 
   it('rejects an incomplete permission catalogue', async () => {
-    transaction.permission.findMany.mockResolvedValue(
-      permissions.slice(0, -1),
-    );
+    transaction.permission.findMany.mockResolvedValue(permissions.slice(0, -1));
 
     await expect(
-      service.provisionDefaultRoles(
-        '00000000-0000-4000-8000-000000000100',
-      ),
+      service.provisionDefaultRoles('00000000-0000-4000-8000-000000000100'),
     ).rejects.toThrow('RBAC permission catalogue is incomplete');
 
     expect(transaction.role.upsert).not.toHaveBeenCalled();
   });
 
   it('restores and updates existing roles idempotently', async () => {
-    await service.provisionDefaultRoles(
-      '00000000-0000-4000-8000-000000000100',
-    );
+    await service.provisionDefaultRoles('00000000-0000-4000-8000-000000000100');
 
     expect(transaction.role.upsert).toHaveBeenCalledWith(
       expect.objectContaining({
@@ -133,17 +119,13 @@ describe('RbacService', () => {
   });
 
   it('removes obsolete permissions from managed system roles', async () => {
-    await service.provisionDefaultRoles(
-      '00000000-0000-4000-8000-000000000100',
+    await service.provisionDefaultRoles('00000000-0000-4000-8000-000000000100');
+
+    expect(transaction.rolePermission.deleteMany).toHaveBeenCalledTimes(
+      DEFAULT_ROLES.length,
     );
 
-    expect(
-      transaction.rolePermission.deleteMany,
-    ).toHaveBeenCalledTimes(DEFAULT_ROLES.length);
-
-    expect(
-      transaction.rolePermission.deleteMany,
-    ).toHaveBeenCalledWith({
+    expect(transaction.rolePermission.deleteMany).toHaveBeenCalledWith({
       where: {
         roleId: expect.any(String),
         permissionId: {

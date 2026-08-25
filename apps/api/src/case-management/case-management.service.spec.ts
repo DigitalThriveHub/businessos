@@ -1,7 +1,4 @@
-import {
-  BadRequestException,
-  ConflictException,
-} from '@nestjs/common';
+import { BadRequestException, ConflictException } from '@nestjs/common';
 
 import type { OrganisationAccessContext } from '../auth/request-security-context';
 import { RlsTransactionService } from '../database/rls-transaction.service';
@@ -209,11 +206,7 @@ describe('CaseManagementService', () => {
     ]);
 
     await expect(
-      service.updateClient(
-        CLIENT_ID,
-        { expectedVersion: 2 } as never,
-        CONTEXT,
-      ),
+      service.updateClient(CLIENT_ID, { expectedVersion: 2 } as never, CONTEXT),
     ).rejects.toBeInstanceOf(ConflictException);
   });
 });

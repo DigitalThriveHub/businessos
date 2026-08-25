@@ -1,44 +1,28 @@
-import {
-  type ExecutionContext,
-  UnauthorizedException,
-} from '@nestjs/common';
+import { type ExecutionContext, UnauthorizedException } from '@nestjs/common';
 import type { ConfigService } from '@nestjs/config';
-import {
-  createRemoteJWKSet,
-  jwtVerify,
-  type JWTPayload,
-} from 'jose';
-import {
-  JwtAuthGuard,
-  type AuthenticatedRequest,
-} from './jwt-auth.guard';
+import { createRemoteJWKSet, jwtVerify, type JWTPayload } from 'jose';
+import { JwtAuthGuard, type AuthenticatedRequest } from './jwt-auth.guard';
 
 jest.mock('jose', () => ({
   createRemoteJWKSet: jest.fn(),
   jwtVerify: jest.fn(),
 }));
 
-const USER_ID =
-  '11111111-1111-4111-8111-111111111111';
+const USER_ID = '11111111-1111-4111-8111-111111111111';
 
-const SESSION_ID =
-  '22222222-2222-4222-8222-222222222222';
+const SESSION_ID = '22222222-2222-4222-8222-222222222222';
 
-const SUPABASE_URL =
-  'https://example.supabase.co';
+const SUPABASE_URL = 'https://example.supabase.co';
 
-const ISSUER =
-  'https://example.supabase.co/auth/v1';
+const ISSUER = 'https://example.supabase.co/auth/v1';
 
 const AUDIENCE = 'authenticated';
 
-const createRemoteJwkSetMock =
-  createRemoteJWKSet as jest.MockedFunction<
-    typeof createRemoteJWKSet
-  >;
+const createRemoteJwkSetMock = createRemoteJWKSet as jest.MockedFunction<
+  typeof createRemoteJWKSet
+>;
 
-const jwtVerifyMock =
-  jwtVerify as jest.MockedFunction<typeof jwtVerify>;
+const jwtVerifyMock = jwtVerify as jest.MockedFunction<typeof jwtVerify>;
 
 function createConfigService(
   overrides: Partial<Record<string, string>> = {},
@@ -55,9 +39,7 @@ function createConfigService(
       const value = values[key];
 
       if (value === undefined) {
-        throw new Error(
-          `Missing test configuration: ${key}`,
-        );
+        throw new Error(`Missing test configuration: ${key}`);
       }
 
       return value;
@@ -65,9 +47,7 @@ function createConfigService(
   } as unknown as ConfigService;
 }
 
-function createExecutionContext(
-  authorization?: string,
-): {
+function createExecutionContext(authorization?: string): {
   context: ExecutionContext;
   request: AuthenticatedRequest;
 } {
@@ -91,9 +71,7 @@ function createExecutionContext(
   };
 }
 
-function createValidPayload(
-  overrides: Partial<JWTPayload> = {},
-): JWTPayload {
+function createValidPayload(overrides: Partial<JWTPayload> = {}): JWTPayload {
   const now = Math.floor(Date.now() / 1_000);
 
   return {
@@ -130,9 +108,7 @@ describe('JwtAuthGuard', () => {
     jest.resetAllMocks();
 
     createRemoteJwkSetMock.mockReturnValue(
-      jest.fn() as unknown as ReturnType<
-        typeof createRemoteJWKSet
-      >,
+      jest.fn() as unknown as ReturnType<typeof createRemoteJWKSet>,
     );
 
     guard = new JwtAuthGuard(createConfigService());
@@ -151,12 +127,11 @@ describe('JwtAuthGuard', () => {
   it('accepts a valid authenticated Supabase user token', async () => {
     mockSuccessfulVerification(createValidPayload());
 
-    const { context, request } =
-      createExecutionContext('Bearer valid.jwt.token');
+    const { context, request } = createExecutionContext(
+      'Bearer valid.jwt.token',
+    );
 
-    await expect(
-      guard.canActivate(context),
-    ).resolves.toBe(true);
+    await expect(guard.canActivate(context)).resolves.toBe(true);
 
     expect(jwtVerifyMock).toHaveBeenCalledWith(
       'valid.jwt.token',
@@ -197,12 +172,11 @@ describe('JwtAuthGuard', () => {
       }),
     );
 
-    const { context, request } =
-      createExecutionContext('Bearer valid.jwt.token');
+    const { context, request } = createExecutionContext(
+      'Bearer valid.jwt.token',
+    );
 
-    await expect(
-      guard.canActivate(context),
-    ).resolves.toBe(true);
+    await expect(guard.canActivate(context)).resolves.toBe(true);
 
     expect(request.user.aal).toBe('aal2');
   });
@@ -214,12 +188,11 @@ describe('JwtAuthGuard', () => {
 
     mockSuccessfulVerification(payload);
 
-    const { context, request } =
-      createExecutionContext('Bearer valid.jwt.token');
+    const { context, request } = createExecutionContext(
+      'Bearer valid.jwt.token',
+    );
 
-    await expect(
-      guard.canActivate(context),
-    ).resolves.toBe(true);
+    await expect(guard.canActivate(context)).resolves.toBe(true);
 
     expect(request.user.aal).toBe('aal1');
   });
@@ -227,48 +200,41 @@ describe('JwtAuthGuard', () => {
   it('rejects a request without an authorization header', async () => {
     const { context } = createExecutionContext();
 
-    await expect(
-      guard.canActivate(context),
-    ).rejects.toThrow(UnauthorizedException);
+    await expect(guard.canActivate(context)).rejects.toThrow(
+      UnauthorizedException,
+    );
 
     expect(jwtVerifyMock).not.toHaveBeenCalled();
   });
 
   it('rejects a malformed authorization scheme', async () => {
-    const { context } =
-      createExecutionContext('Basic credentials');
+    const { context } = createExecutionContext('Basic credentials');
 
-    await expect(
-      guard.canActivate(context),
-    ).rejects.toThrow(UnauthorizedException);
+    await expect(guard.canActivate(context)).rejects.toThrow(
+      UnauthorizedException,
+    );
 
     expect(jwtVerifyMock).not.toHaveBeenCalled();
   });
 
   it('rejects an oversized authorization header', async () => {
-    const { context } = createExecutionContext(
-      `Bearer ${'a'.repeat(16_384)}`,
-    );
+    const { context } = createExecutionContext(`Bearer ${'a'.repeat(16_384)}`);
 
-    await expect(
-      guard.canActivate(context),
-    ).rejects.toThrow(UnauthorizedException);
+    await expect(guard.canActivate(context)).rejects.toThrow(
+      UnauthorizedException,
+    );
 
     expect(jwtVerifyMock).not.toHaveBeenCalled();
   });
 
   it('rejects tokens that fail cryptographic verification', async () => {
-    jwtVerifyMock.mockRejectedValue(
-      new Error('Signature verification failed'),
-    );
+    jwtVerifyMock.mockRejectedValue(new Error('Signature verification failed'));
 
-    const { context } = createExecutionContext(
-      'Bearer invalid.jwt.token',
-    );
+    const { context } = createExecutionContext('Bearer invalid.jwt.token');
 
-    await expect(
-      guard.canActivate(context),
-    ).rejects.toThrow(UnauthorizedException);
+    await expect(guard.canActivate(context)).rejects.toThrow(
+      UnauthorizedException,
+    );
   });
 
   it('rejects service-role tokens', async () => {
@@ -278,12 +244,13 @@ describe('JwtAuthGuard', () => {
       }),
     );
 
-    const { context, request } =
-      createExecutionContext('Bearer service.jwt.token');
+    const { context, request } = createExecutionContext(
+      'Bearer service.jwt.token',
+    );
 
-    await expect(
-      guard.canActivate(context),
-    ).rejects.toThrow(UnauthorizedException);
+    await expect(guard.canActivate(context)).rejects.toThrow(
+      UnauthorizedException,
+    );
 
     expect(request.user).toBeUndefined();
   });
@@ -295,12 +262,13 @@ describe('JwtAuthGuard', () => {
       }),
     );
 
-    const { context, request } =
-      createExecutionContext('Bearer anonymous.jwt.token');
+    const { context, request } = createExecutionContext(
+      'Bearer anonymous.jwt.token',
+    );
 
-    await expect(
-      guard.canActivate(context),
-    ).rejects.toThrow(UnauthorizedException);
+    await expect(guard.canActivate(context)).rejects.toThrow(
+      UnauthorizedException,
+    );
 
     expect(request.user).toBeUndefined();
   });
@@ -312,13 +280,11 @@ describe('JwtAuthGuard', () => {
       }),
     );
 
-    const { context } = createExecutionContext(
-      'Bearer invalid-user.jwt.token',
-    );
+    const { context } = createExecutionContext('Bearer invalid-user.jwt.token');
 
-    await expect(
-      guard.canActivate(context),
-    ).rejects.toThrow(UnauthorizedException);
+    await expect(guard.canActivate(context)).rejects.toThrow(
+      UnauthorizedException,
+    );
   });
 
   it('rejects tokens with an invalid session identifier', async () => {
@@ -332,9 +298,9 @@ describe('JwtAuthGuard', () => {
       'Bearer invalid-session.jwt.token',
     );
 
-    await expect(
-      guard.canActivate(context),
-    ).rejects.toThrow(UnauthorizedException);
+    await expect(guard.canActivate(context)).rejects.toThrow(
+      UnauthorizedException,
+    );
   });
 
   it('rejects tokens with an unsupported assurance level', async () => {
@@ -344,28 +310,21 @@ describe('JwtAuthGuard', () => {
       }),
     );
 
-    const { context } = createExecutionContext(
-      'Bearer invalid-aal.jwt.token',
-    );
+    const { context } = createExecutionContext('Bearer invalid-aal.jwt.token');
 
-    await expect(
-      guard.canActivate(context),
-    ).rejects.toThrow(UnauthorizedException);
+    await expect(guard.canActivate(context)).rejects.toThrow(
+      UnauthorizedException,
+    );
   });
 
   it('rejects verified tokens without a signing-key identifier', async () => {
-    mockSuccessfulVerification(
-      createValidPayload(),
-      '',
-    );
+    mockSuccessfulVerification(createValidPayload(), '');
 
-    const { context } = createExecutionContext(
-      'Bearer missing-kid.jwt.token',
-    );
+    const { context } = createExecutionContext('Bearer missing-kid.jwt.token');
 
-    await expect(
-      guard.canActivate(context),
-    ).rejects.toThrow(UnauthorizedException);
+    await expect(guard.canActivate(context)).rejects.toThrow(
+      UnauthorizedException,
+    );
   });
 
   it('rejects insecure remote Supabase URLs at startup', () => {
@@ -373,13 +332,10 @@ describe('JwtAuthGuard', () => {
       () =>
         new JwtAuthGuard(
           createConfigService({
-            SUPABASE_URL:
-              'http://example.supabase.co',
+            SUPABASE_URL: 'http://example.supabase.co',
           }),
         ),
-    ).toThrow(
-      'SUPABASE_URL must use HTTPS outside local development',
-    );
+    ).toThrow('SUPABASE_URL must use HTTPS outside local development');
   });
 
   it('rejects Supabase URLs containing credentials', () => {
@@ -387,12 +343,9 @@ describe('JwtAuthGuard', () => {
       () =>
         new JwtAuthGuard(
           createConfigService({
-            SUPABASE_URL:
-              'https://username:password@example.supabase.co',
+            SUPABASE_URL: 'https://username:password@example.supabase.co',
           }),
         ),
-    ).toThrow(
-      'SUPABASE_URL must not contain credentials',
-    );
+    ).toThrow('SUPABASE_URL must not contain credentials');
   });
 });

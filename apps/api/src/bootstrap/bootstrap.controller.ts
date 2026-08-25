@@ -16,9 +16,7 @@ import type { BootstrapOrganisationResult } from './bootstrap.types';
 @Controller('bootstrap')
 @UseGuards(JwtAuthGuard)
 export class BootstrapController {
-  constructor(
-    private readonly bootstrapService: BootstrapService,
-  ) {}
+  constructor(private readonly bootstrapService: BootstrapService) {}
 
   @Post('organisation')
   async bootstrapOrganisation(

@@ -5,37 +5,27 @@ import {
   InternalServerErrorException,
   NotFoundException,
 } from '@nestjs/common';
-import {
-  Test,
-  type TestingModule,
-} from '@nestjs/testing';
+import { Test, type TestingModule } from '@nestjs/testing';
 
-import type {
-  OrganisationAccessContext,
-} from '../auth/request-security-context';
+import type { OrganisationAccessContext } from '../auth/request-security-context';
 import { RlsTransactionService } from '../database/rls-transaction.service';
 import { OrganisationsService } from './organisations.service';
 
-const USER_ID =
-  '11111111-1111-4111-8111-111111111111';
+const USER_ID = '11111111-1111-4111-8111-111111111111';
 
-const ORGANISATION_ID =
-  '22222222-2222-4222-8222-222222222222';
+const ORGANISATION_ID = '22222222-2222-4222-8222-222222222222';
 
-const MEMBERSHIP_ID =
-  '33333333-3333-4333-8333-333333333333';
+const MEMBERSHIP_ID = '33333333-3333-4333-8333-333333333333';
 
-const SESSION_ID =
-  '44444444-4444-4444-8444-444444444444';
+const SESSION_ID = '44444444-4444-4444-8444-444444444444';
 
-const CONTEXT: Readonly<OrganisationAccessContext> =
-  Object.freeze({
-    userId: USER_ID,
-    organisationId: ORGANISATION_ID,
-    membershipId: MEMBERSHIP_ID,
-    sessionId: SESSION_ID,
-    aal: 'AAL2',
-  });
+const CONTEXT: Readonly<OrganisationAccessContext> = Object.freeze({
+  userId: USER_ID,
+  organisationId: ORGANISATION_ID,
+  membershipId: MEMBERSHIP_ID,
+  sessionId: SESSION_ID,
+  aal: 'AAL2',
+});
 
 const DATABASE_ORGANISATION = {
   id: ORGANISATION_ID,
@@ -46,12 +36,8 @@ const DATABASE_ORGANISATION = {
   timezone: 'Europe/London',
   locale: 'en-GB',
   countryCode: 'GB',
-  createdAt: new Date(
-    '2026-08-17T10:00:00.000Z',
-  ),
-  updatedAt: new Date(
-    '2026-08-17T11:00:00.000Z',
-  ),
+  createdAt: new Date('2026-08-17T10:00:00.000Z'),
+  updatedAt: new Date('2026-08-17T11:00:00.000Z'),
 };
 
 const EXPECTED_ORGANISATION = {
@@ -93,27 +79,22 @@ describe('OrganisationsService', () => {
       run: jest.fn(
         async (
           _context: unknown,
-          operation: (
-            client: typeof transaction,
-          ) => Promise<unknown>,
+          operation: (client: typeof transaction) => Promise<unknown>,
         ) => operation(transaction),
       ),
     };
 
-    const module: TestingModule =
-      await Test.createTestingModule({
-        providers: [
-          OrganisationsService,
-          {
-            provide: RlsTransactionService,
-            useValue: rls,
-          },
-        ],
-      }).compile();
+    const module: TestingModule = await Test.createTestingModule({
+      providers: [
+        OrganisationsService,
+        {
+          provide: RlsTransactionService,
+          useValue: rls,
+        },
+      ],
+    }).compile();
 
-    service = module.get<OrganisationsService>(
-      OrganisationsService,
-    );
+    service = module.get<OrganisationsService>(OrganisationsService);
   });
 
   afterEach(() => {
@@ -125,14 +106,9 @@ describe('OrganisationsService', () => {
   });
 
   it('returns the organisation through verified tenant RLS', async () => {
-    transaction.organisation.findFirst
-      .mockResolvedValue(
-        DATABASE_ORGANISATION,
-      );
+    transaction.organisation.findFirst.mockResolvedValue(DATABASE_ORGANISATION);
 
-    await expect(
-      service.findCurrent(CONTEXT),
-    ).resolves.toEqual(
+    await expect(service.findCurrent(CONTEXT)).resolves.toEqual(
       EXPECTED_ORGANISATION,
     );
 
@@ -145,9 +121,7 @@ describe('OrganisationsService', () => {
       expect.any(Function),
     );
 
-    expect(
-      transaction.organisation.findFirst,
-    ).toHaveBeenCalledWith({
+    expect(transaction.organisation.findFirst).toHaveBeenCalledWith({
       where: {
         id: ORGANISATION_ID,
         deletedAt: null,
@@ -168,18 +142,17 @@ describe('OrganisationsService', () => {
   });
 
   it('returns not found when the organisation is unavailable', async () => {
-    transaction.organisation.findFirst
-      .mockResolvedValue(null);
+    transaction.organisation.findFirst.mockResolvedValue(null);
 
-    await expect(
-      service.findCurrent(CONTEXT),
-    ).rejects.toThrow(NotFoundException);
+    await expect(service.findCurrent(CONTEXT)).rejects.toThrow(
+      NotFoundException,
+    );
   });
 
   it('rejects an empty organisation update', async () => {
-    await expect(
-      service.updateCurrent({}, CONTEXT),
-    ).rejects.toThrow(BadRequestException);
+    await expect(service.updateCurrent({}, CONTEXT)).rejects.toThrow(
+      BadRequestException,
+    );
 
     expect(rls.run).not.toHaveBeenCalled();
   });
@@ -190,8 +163,7 @@ describe('OrganisationsService', () => {
         organisation: {
           ...EXPECTED_ORGANISATION,
           name: 'Updated Legal Services',
-          updatedAt:
-            '2026-08-17T12:00:00.000Z',
+          updatedAt: '2026-08-17T12:00:00.000Z',
         },
       },
     ]);
@@ -206,8 +178,7 @@ describe('OrganisationsService', () => {
     ).resolves.toEqual({
       ...EXPECTED_ORGANISATION,
       name: 'Updated Legal Services',
-      updatedAt:
-        '2026-08-17T12:00:00.000Z',
+      updatedAt: '2026-08-17T12:00:00.000Z',
     });
 
     expect(rls.run).toHaveBeenCalledWith(
@@ -219,9 +190,7 @@ describe('OrganisationsService', () => {
       expect.any(Function),
     );
 
-    expect(
-      transaction.$queryRaw,
-    ).toHaveBeenCalledTimes(1);
+    expect(transaction.$queryRaw).toHaveBeenCalledTimes(1);
   });
 
   it('maps database permission denial to forbidden', async () => {
@@ -276,8 +245,6 @@ describe('OrganisationsService', () => {
         },
         CONTEXT,
       ),
-    ).rejects.toThrow(
-      InternalServerErrorException,
-    );
+    ).rejects.toThrow(InternalServerErrorException);
   });
 });

@@ -2,59 +2,59 @@ import {
   BadRequestException,
   ConflictException,
   ServiceUnavailableException,
-} from "@nestjs/common";
-import { ConfigService } from "@nestjs/config";
-import { Test, type TestingModule } from "@nestjs/testing";
+} from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
+import { Test, type TestingModule } from '@nestjs/testing';
 
-import type { OrganisationAccessContext } from "../auth/request-security-context";
-import { RlsTransactionService } from "../database/rls-transaction.service";
+import type { OrganisationAccessContext } from '../auth/request-security-context';
+import { RlsTransactionService } from '../database/rls-transaction.service';
 import {
   AssignmentScope,
   InvitationStatus,
   OnboardingPlanStatus,
   RoleScope,
-} from "../generated/prisma/enums";
-import { EmailService } from "../notifications/email.service";
-import type { CreateOrganisationInvitationDto } from "./dto/create-organisation-invitation.dto";
-import { InvitationTokenService } from "./invitation-token.service";
-import { InvitationsService } from "./invitations.service";
+} from '../generated/prisma/enums';
+import { EmailService } from '../notifications/email.service';
+import type { CreateOrganisationInvitationDto } from './dto/create-organisation-invitation.dto';
+import { InvitationTokenService } from './invitation-token.service';
+import { InvitationsService } from './invitations.service';
 
-const USER_ID = "11111111-1111-4111-8111-111111111111";
-const ORGANISATION_ID = "22222222-2222-4222-8222-222222222222";
-const MEMBERSHIP_ID = "33333333-3333-4333-8333-333333333333";
-const SESSION_ID = "44444444-4444-4444-8444-444444444444";
-const INVITATION_ID = "55555555-5555-4555-8555-555555555555";
-const JOB_PROFILE_ID = "66666666-6666-4666-8666-666666666666";
-const DEPARTMENT_ID = "77777777-7777-4777-8777-777777777777";
-const TEAM_ID = "88888888-8888-4888-8888-888888888888";
-const MANAGER_MEMBERSHIP_ID = "99999999-9999-4999-8999-999999999999";
-const AGENT_PROFILE_ID = "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa";
-const ONBOARDING_PLAN_ID = "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb";
-const ROLE_ID = "cccccccc-cccc-4ccc-8ccc-cccccccccccc";
-const KPI_DEFINITION_ID = "dddddddd-dddd-4ddd-8ddd-dddddddddddd";
-const JOB_PROFILE_KPI_ID = "eeeeeeee-eeee-4eee-8eee-eeeeeeeeeeee";
+const USER_ID = '11111111-1111-4111-8111-111111111111';
+const ORGANISATION_ID = '22222222-2222-4222-8222-222222222222';
+const MEMBERSHIP_ID = '33333333-3333-4333-8333-333333333333';
+const SESSION_ID = '44444444-4444-4444-8444-444444444444';
+const INVITATION_ID = '55555555-5555-4555-8555-555555555555';
+const JOB_PROFILE_ID = '66666666-6666-4666-8666-666666666666';
+const DEPARTMENT_ID = '77777777-7777-4777-8777-777777777777';
+const TEAM_ID = '88888888-8888-4888-8888-888888888888';
+const MANAGER_MEMBERSHIP_ID = '99999999-9999-4999-8999-999999999999';
+const AGENT_PROFILE_ID = 'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa';
+const ONBOARDING_PLAN_ID = 'bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb';
+const ROLE_ID = 'cccccccc-cccc-4ccc-8ccc-cccccccccccc';
+const KPI_DEFINITION_ID = 'dddddddd-dddd-4ddd-8ddd-dddddddddddd';
+const JOB_PROFILE_KPI_ID = 'eeeeeeee-eeee-4eee-8eee-eeeeeeeeeeee';
 
-const NOW = new Date("2026-08-19T10:00:00.000Z");
-const STARTS_AT = new Date("2026-08-20T09:00:00.000Z");
-const EXPIRES_AT = new Date("2026-08-22T10:00:00.000Z");
-const CREATED_AT = new Date("2026-08-19T10:00:00.000Z");
-const UPDATED_AT = new Date("2026-08-19T10:00:00.000Z");
-const RAW_TOKEN = `boi_v1_${"A".repeat(43)}`;
-const TOKEN_HASH = "a".repeat(64);
+const NOW = new Date('2026-08-19T10:00:00.000Z');
+const STARTS_AT = new Date('2026-08-20T09:00:00.000Z');
+const EXPIRES_AT = new Date('2026-08-22T10:00:00.000Z');
+const CREATED_AT = new Date('2026-08-19T10:00:00.000Z');
+const UPDATED_AT = new Date('2026-08-19T10:00:00.000Z');
+const RAW_TOKEN = `boi_v1_${'A'.repeat(43)}`;
+const TOKEN_HASH = 'a'.repeat(64);
 
 const CONTEXT: Readonly<OrganisationAccessContext> = Object.freeze({
   userId: USER_ID,
   organisationId: ORGANISATION_ID,
   membershipId: MEMBERSHIP_ID,
   sessionId: SESSION_ID,
-  aal: "AAL2",
+  aal: 'AAL2',
 });
 
 const DTO: CreateOrganisationInvitationDto = {
-  email: "case.worker@example.com",
-  roleKeys: ["case_worker"],
+  email: 'case.worker@example.com',
+  roleKeys: ['case_worker'],
   jobProfileId: JOB_PROFILE_ID,
-  jobTitle: "Case Worker",
+  jobTitle: 'Case Worker',
   departmentId: DEPARTMENT_ID,
   teamId: TEAM_ID,
   managerOrganisationMembershipId: MANAGER_MEMBERSHIP_ID,
@@ -77,13 +77,13 @@ const ONBOARDING_METADATA = {
 };
 
 function invitationMetadata(
-  deliveryStatus: "QUEUED" | "SENT" | "FAILED" = "QUEUED",
+  deliveryStatus: 'QUEUED' | 'SENT' | 'FAILED' = 'QUEUED',
   providerMessageId: string | null = null,
 ) {
   return {
     schemaVersion: 2,
-    roleKeys: ["case_worker"],
-    jobTitle: "Case Worker",
+    roleKeys: ['case_worker'],
+    jobTitle: 'Case Worker',
     onboarding: ONBOARDING_METADATA,
     delivery: {
       status: deliveryStatus,
@@ -109,7 +109,7 @@ function invitationRecord(overrides: Record<string, unknown> = {}) {
   };
 }
 
-describe("InvitationsService", () => {
+describe('InvitationsService', () => {
   let service: InvitationsService;
 
   let transaction: {
@@ -181,17 +181,17 @@ describe("InvitationsService", () => {
     transaction = {
       userProfile: {
         findFirst: jest.fn().mockResolvedValue({
-          displayName: "Olivia Owner",
-          firstName: "Olivia",
-          lastName: "Owner",
-          email: "owner@example.com",
+          displayName: 'Olivia Owner',
+          firstName: 'Olivia',
+          lastName: 'Owner',
+          email: 'owner@example.com',
         }),
       },
       role: {
         findMany: jest.fn().mockResolvedValue([
           {
             id: ROLE_ID,
-            key: "case_worker",
+            key: 'case_worker',
             scope: RoleScope.TEAM,
           },
         ]),
@@ -219,23 +219,23 @@ describe("InvitationsService", () => {
       },
       organisation: {
         findFirst: jest.fn().mockResolvedValue({
-          name: "Example Legal Services",
+          name: 'Example Legal Services',
         }),
       },
       jobProfile: {
         findFirst: jest.fn().mockResolvedValue({
           id: JOB_PROFILE_ID,
-          name: "Case Worker",
+          name: 'Case Worker',
           departmentId: DEPARTMENT_ID,
           isManagerial: false,
           kpis: [
             {
               id: JOB_PROFILE_KPI_ID,
               kpiDefinitionId: KPI_DEFINITION_ID,
-              targetValue: "12.0000",
-              minimumValue: "8.0000",
-              maximumValue: "20.0000",
-              weightPercent: "100.00",
+              targetValue: '12.0000',
+              minimumValue: '8.0000',
+              maximumValue: '20.0000',
+              weightPercent: '100.00',
             },
           ],
         }),
@@ -290,14 +290,14 @@ describe("InvitationsService", () => {
 
     emails = {
       sendOrganisationInvitation: jest.fn().mockResolvedValue({
-        provider: "resend",
-        messageId: "resend-message-1",
+        provider: 'resend',
+        messageId: 'resend-message-1',
       }),
     };
 
     config = {
       get: jest.fn((key: string) =>
-        key === "INVITATION_TTL_HOURS" ? 72 : undefined,
+        key === 'INVITATION_TTL_HOURS' ? 72 : undefined,
       ),
     };
 
@@ -331,7 +331,7 @@ describe("InvitationsService", () => {
     jest.clearAllMocks();
   });
 
-  it("creates an immutable workforce onboarding plan, audits it and delivers the invitation", async () => {
+  it('creates an immutable workforce onboarding plan, audits it and delivers the invitation', async () => {
     const result = await service.create(DTO, CONTEXT);
 
     expect(result).toMatchObject({
@@ -339,9 +339,9 @@ describe("InvitationsService", () => {
       organisationId: ORGANISATION_ID,
       email: DTO.email,
       status: InvitationStatus.PENDING,
-      roleKeys: ["case_worker"],
-      jobTitle: "Case Worker",
-      deliveryStatus: "SENT",
+      roleKeys: ['case_worker'],
+      jobTitle: 'Case Worker',
+      deliveryStatus: 'SENT',
       onboardingPlanId: ONBOARDING_PLAN_ID,
       jobProfileId: JOB_PROFILE_ID,
       departmentId: DEPARTMENT_ID,
@@ -387,7 +387,7 @@ describe("InvitationsService", () => {
         teamId: TEAM_ID,
         managerOrganisationMembershipId: MANAGER_MEMBERSHIP_ID,
         agentProfileId: AGENT_PROFILE_ID,
-        jobTitle: "Case Worker",
+        jobTitle: 'Case Worker',
         isDepartmentManager: false,
         isTeamLead: false,
         startsAt: STARTS_AT,
@@ -419,10 +419,10 @@ describe("InvitationsService", () => {
             onboardingPlanId: ONBOARDING_PLAN_ID,
             kpiDefinitionId: KPI_DEFINITION_ID,
             sourceJobProfileKpiId: JOB_PROFILE_KPI_ID,
-            targetValue: "12.0000",
-            minimumValue: "8.0000",
-            maximumValue: "20.0000",
-            weightPercent: "100.00",
+            targetValue: '12.0000',
+            minimumValue: '8.0000',
+            maximumValue: '20.0000',
+            weightPercent: '100.00',
           },
         ],
       },
@@ -440,8 +440,8 @@ describe("InvitationsService", () => {
     expect(emails.sendOrganisationInvitation).toHaveBeenCalledWith({
       invitationId: INVITATION_ID,
       recipientEmail: DTO.email,
-      organisationName: "Example Legal Services",
-      inviterName: "Olivia Owner",
+      organisationName: 'Example Legal Services',
+      inviterName: 'Olivia Owner',
       invitationToken: RAW_TOKEN,
       expiresAt: EXPIRES_AT,
     });
@@ -454,7 +454,7 @@ describe("InvitationsService", () => {
         deletedAt: null,
       },
       data: {
-        metadata: invitationMetadata("SENT", "resend-message-1"),
+        metadata: invitationMetadata('SENT', 'resend-message-1'),
       },
     });
 
@@ -462,7 +462,7 @@ describe("InvitationsService", () => {
     expect(transaction.$executeRaw).toHaveBeenCalledTimes(2);
   });
 
-  it("rejects unknown or unassignable roles before creating an invitation", async () => {
+  it('rejects unknown or unassignable roles before creating an invitation', async () => {
     transaction.role.findMany.mockResolvedValue([]);
 
     await expect(service.create(DTO, CONTEXT)).rejects.toThrow(
@@ -474,7 +474,7 @@ describe("InvitationsService", () => {
     expect(emails.sendOrganisationInvitation).not.toHaveBeenCalled();
   });
 
-  it("rejects an invitation for an existing organisation member", async () => {
+  it('rejects an invitation for an existing organisation member', async () => {
     transaction.organisationMembership.findFirst.mockResolvedValue({
       id: MEMBERSHIP_ID,
     });
@@ -487,49 +487,49 @@ describe("InvitationsService", () => {
     expect(transaction.invitationOnboardingPlan.create).not.toHaveBeenCalled();
   });
 
-  it("rejects a team that is outside the resolved job-profile department", async () => {
+  it('rejects a team that is outside the resolved job-profile department', async () => {
     transaction.team.findFirst.mockResolvedValue({
       id: TEAM_ID,
-      departmentId: "ffffffff-ffff-4fff-8fff-ffffffffffff",
+      departmentId: 'ffffffff-ffff-4fff-8fff-ffffffffffff',
     });
 
     await expect(service.create(DTO, CONTEXT)).rejects.toThrow(
-      "The selected team does not belong to the selected department.",
+      'The selected team does not belong to the selected department.',
     );
 
     expect(transaction.invitation.create).not.toHaveBeenCalled();
     expect(transaction.invitationOnboardingPlan.create).not.toHaveBeenCalled();
   });
 
-  it("rejects a management assignment when the job profile is not managerial", async () => {
+  it('rejects a management assignment when the job profile is not managerial', async () => {
     const managementDto: CreateOrganisationInvitationDto = {
       ...DTO,
       isDepartmentManager: true,
     };
 
     await expect(service.create(managementDto, CONTEXT)).rejects.toThrow(
-      "The selected job profile is not approved for management duties.",
+      'The selected job profile is not approved for management duties.',
     );
 
     expect(transaction.invitation.create).not.toHaveBeenCalled();
   });
 
-  it("rejects an AI-agent profile restricted to another department", async () => {
+  it('rejects an AI-agent profile restricted to another department', async () => {
     transaction.agentProfile.findFirst.mockResolvedValue({
       id: AGENT_PROFILE_ID,
-      departmentId: "ffffffff-ffff-4fff-8fff-ffffffffffff",
+      departmentId: 'ffffffff-ffff-4fff-8fff-ffffffffffff',
     });
 
     await expect(service.create(DTO, CONTEXT)).rejects.toThrow(
-      "The selected AI-agent profile is restricted to another department.",
+      'The selected AI-agent profile is restricted to another department.',
     );
 
     expect(transaction.invitation.create).not.toHaveBeenCalled();
   });
 
-  it("records failed email delivery without storing or reusing the raw token", async () => {
+  it('records failed email delivery without storing or reusing the raw token', async () => {
     emails.sendOrganisationInvitation.mockRejectedValue(
-      new ServiceUnavailableException("Delivery failed."),
+      new ServiceUnavailableException('Delivery failed.'),
     );
 
     await expect(service.create(DTO, CONTEXT)).rejects.toThrow(
@@ -545,7 +545,7 @@ describe("InvitationsService", () => {
         deletedAt: null,
       },
       data: {
-        metadata: invitationMetadata("FAILED"),
+        metadata: invitationMetadata('FAILED'),
       },
     });
 
@@ -558,14 +558,14 @@ describe("InvitationsService", () => {
     ).not.toContain(RAW_TOKEN);
   });
 
-  it("lists invitations with pagination, onboarding context and safe expiry derivation", async () => {
+  it('lists invitations with pagination, onboarding context and safe expiry derivation', async () => {
     transaction.invitation.findMany.mockResolvedValue([
       invitationRecord({
-        expiresAt: new Date("2026-08-19T09:59:59.000Z"),
+        expiresAt: new Date('2026-08-19T09:59:59.000Z'),
       }),
       invitationRecord({
-        id: "ffffffff-ffff-4fff-8fff-ffffffffffff",
-        metadata: invitationMetadata("SENT", "resend-message-1"),
+        id: 'ffffffff-ffff-4fff-8fff-ffffffffffff',
+        metadata: invitationMetadata('SENT', 'resend-message-1'),
       }),
     ]);
     transaction.invitation.count.mockResolvedValue(2);
@@ -590,7 +590,7 @@ describe("InvitationsService", () => {
     });
     expect(result.items[1]).toMatchObject({
       status: InvitationStatus.PENDING,
-      deliveryStatus: "SENT",
+      deliveryStatus: 'SENT',
     });
 
     expect(transaction.invitation.findMany).toHaveBeenCalledWith(
@@ -605,14 +605,14 @@ describe("InvitationsService", () => {
     );
   });
 
-  it("safely reads legacy invitation metadata without inventing workforce access", async () => {
+  it('safely reads legacy invitation metadata without inventing workforce access', async () => {
     transaction.invitation.findMany.mockResolvedValue([
       invitationRecord({
         metadata: {
           schemaVersion: 1,
-          roleKeys: ["case_worker"],
-          jobTitle: "Case Worker",
-          delivery: { status: "SENT" },
+          roleKeys: ['case_worker'],
+          jobTitle: 'Case Worker',
+          delivery: { status: 'SENT' },
         },
       }),
     ]);
@@ -621,9 +621,9 @@ describe("InvitationsService", () => {
     const result = await service.findAll(CONTEXT, 1, 25);
 
     expect(result.items[0]).toMatchObject({
-      roleKeys: ["case_worker"],
-      jobTitle: "Case Worker",
-      deliveryStatus: "SENT",
+      roleKeys: ['case_worker'],
+      jobTitle: 'Case Worker',
+      deliveryStatus: 'SENT',
       onboardingPlanId: null,
       jobProfileId: null,
       departmentId: null,
@@ -636,7 +636,7 @@ describe("InvitationsService", () => {
     });
   });
 
-  it("rejects unsafe invitation pagination", async () => {
+  it('rejects unsafe invitation pagination', async () => {
     await expect(service.findAll(CONTEXT, 0, 101)).rejects.toThrow(
       BadRequestException,
     );
@@ -644,13 +644,13 @@ describe("InvitationsService", () => {
     expect(rls.run).not.toHaveBeenCalled();
   });
 
-  it("revokes an active pending invitation, cancels onboarding and audits it", async () => {
+  it('revokes an active pending invitation, cancels onboarding and audits it', async () => {
     const existing = invitationRecord();
     const revokedAt = NOW;
     const updated = invitationRecord({
       status: InvitationStatus.REVOKED,
       revokedAt,
-      revocationReason: "Invitation sent to the wrong address.",
+      revocationReason: 'Invitation sent to the wrong address.',
       updatedAt: revokedAt,
     });
 
@@ -660,13 +660,13 @@ describe("InvitationsService", () => {
 
     const result = await service.revoke(
       INVITATION_ID,
-      "  Invitation sent to the wrong address.  ",
+      '  Invitation sent to the wrong address.  ',
       CONTEXT,
     );
 
     expect(result.status).toBe(InvitationStatus.REVOKED);
     expect(result.revocationReason).toBe(
-      "Invitation sent to the wrong address.",
+      'Invitation sent to the wrong address.',
     );
 
     expect(transaction.invitation.updateMany).toHaveBeenCalledWith({
@@ -680,7 +680,7 @@ describe("InvitationsService", () => {
         status: InvitationStatus.REVOKED,
         revokedByUserProfileId: USER_ID,
         revokedAt,
-        revocationReason: "Invitation sent to the wrong address.",
+        revocationReason: 'Invitation sent to the wrong address.',
       },
     });
 
@@ -696,22 +696,22 @@ describe("InvitationsService", () => {
       data: {
         status: OnboardingPlanStatus.CANCELLED,
         cancelledAt: revokedAt,
-        cancellationReason: "Invitation sent to the wrong address.",
+        cancellationReason: 'Invitation sent to the wrong address.',
       },
     });
 
     expect(transaction.$executeRaw).toHaveBeenCalledTimes(1);
   });
 
-  it("does not revoke an expired invitation or mutate its onboarding plan", async () => {
+  it('does not revoke an expired invitation or mutate its onboarding plan', async () => {
     transaction.invitation.findFirst.mockResolvedValue(
       invitationRecord({
-        expiresAt: new Date("2026-08-19T09:59:59.000Z"),
+        expiresAt: new Date('2026-08-19T09:59:59.000Z'),
       }),
     );
 
     await expect(
-      service.revoke(INVITATION_ID, "No longer required.", CONTEXT),
+      service.revoke(INVITATION_ID, 'No longer required.', CONTEXT),
     ).rejects.toThrow(ConflictException);
 
     expect(transaction.invitation.updateMany).not.toHaveBeenCalled();

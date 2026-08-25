@@ -40,10 +40,9 @@ describe('CaseOperationsController', () => {
     archiveDocument: jest.fn(),
   };
   const request = {} as OrganisationScopedRequest;
-  const contextMock =
-    requireOrganisationAccessContext as jest.MockedFunction<
-      typeof requireOrganisationAccessContext
-    >;
+  const contextMock = requireOrganisationAccessContext as jest.MockedFunction<
+    typeof requireOrganisationAccessContext
+  >;
   let controller: CaseOperationsController;
 
   beforeEach(() => {
@@ -61,7 +60,11 @@ describe('CaseOperationsController', () => {
 
   it('passes controlled task completion evidence to the service', async () => {
     const taskId = '66666666-6666-4666-8666-666666666666';
-    const dto = { version: 2, status: 'COMPLETED' as const, completionNote: 'Checked.' };
+    const dto = {
+      version: 2,
+      status: 'COMPLETED' as const,
+      completionNote: 'Checked.',
+    };
     await controller.changeTaskStatus(
       ROUTE_ORGANISATION_ID,
       MATTER_ID,
@@ -99,5 +102,4 @@ describe('CaseOperationsController', () => {
       CONTEXT,
     );
   });
-
 });

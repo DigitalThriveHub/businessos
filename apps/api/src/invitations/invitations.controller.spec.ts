@@ -1,21 +1,21 @@
-import { Test, type TestingModule } from "@nestjs/testing";
+import { Test, type TestingModule } from '@nestjs/testing';
 
-import { JwtAuthGuard } from "../auth/guards/jwt-auth/jwt-auth.guard";
-import { OrganisationAccessGuard } from "../auth/guards/organisation-access/organisation-access.guard";
-import { PermissionGuard } from "../auth/guards/permission/permission.guard";
+import { JwtAuthGuard } from '../auth/guards/jwt-auth/jwt-auth.guard';
+import { OrganisationAccessGuard } from '../auth/guards/organisation-access/organisation-access.guard';
+import { PermissionGuard } from '../auth/guards/permission/permission.guard';
 import {
   type OrganisationAccessContext,
   type OrganisationScopedRequest,
   requireOrganisationAccessContext,
-} from "../auth/request-security-context";
-import type { CreateOrganisationInvitationDto } from "./dto/create-organisation-invitation.dto";
-import type { InvitationQueryDto } from "./dto/invitation-query.dto";
-import type { RevokeOrganisationInvitationDto } from "./dto/revoke-organisation-invitation.dto";
-import { InvitationsController } from "./invitations.controller";
-import { InvitationsService } from "./invitations.service";
+} from '../auth/request-security-context';
+import type { CreateOrganisationInvitationDto } from './dto/create-organisation-invitation.dto';
+import type { InvitationQueryDto } from './dto/invitation-query.dto';
+import type { RevokeOrganisationInvitationDto } from './dto/revoke-organisation-invitation.dto';
+import { InvitationsController } from './invitations.controller';
+import { InvitationsService } from './invitations.service';
 
-jest.mock("../auth/request-security-context", () => {
-  const actual = jest.requireActual("../auth/request-security-context");
+jest.mock('../auth/request-security-context', () => {
+  const actual = jest.requireActual('../auth/request-security-context');
 
   return {
     ...actual,
@@ -23,40 +23,40 @@ jest.mock("../auth/request-security-context", () => {
   };
 });
 
-const USER_ID = "11111111-1111-4111-8111-111111111111";
-const ORGANISATION_ID = "22222222-2222-4222-8222-222222222222";
-const MEMBERSHIP_ID = "33333333-3333-4333-8333-333333333333";
-const SESSION_ID = "44444444-4444-4444-8444-444444444444";
-const INVITATION_ID = "55555555-5555-4555-8555-555555555555";
-const JOB_PROFILE_ID = "66666666-6666-4666-8666-666666666666";
-const DEPARTMENT_ID = "77777777-7777-4777-8777-777777777777";
-const TEAM_ID = "88888888-8888-4888-8888-888888888888";
-const MANAGER_MEMBERSHIP_ID = "99999999-9999-4999-8999-999999999999";
-const AGENT_PROFILE_ID = "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa";
+const USER_ID = '11111111-1111-4111-8111-111111111111';
+const ORGANISATION_ID = '22222222-2222-4222-8222-222222222222';
+const MEMBERSHIP_ID = '33333333-3333-4333-8333-333333333333';
+const SESSION_ID = '44444444-4444-4444-8444-444444444444';
+const INVITATION_ID = '55555555-5555-4555-8555-555555555555';
+const JOB_PROFILE_ID = '66666666-6666-4666-8666-666666666666';
+const DEPARTMENT_ID = '77777777-7777-4777-8777-777777777777';
+const TEAM_ID = '88888888-8888-4888-8888-888888888888';
+const MANAGER_MEMBERSHIP_ID = '99999999-9999-4999-8999-999999999999';
+const AGENT_PROFILE_ID = 'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa';
 
 const CONTEXT: Readonly<OrganisationAccessContext> = Object.freeze({
   userId: USER_ID,
   organisationId: ORGANISATION_ID,
   membershipId: MEMBERSHIP_ID,
   sessionId: SESSION_ID,
-  aal: "AAL2",
+  aal: 'AAL2',
 });
 
 const CREATE_DTO: CreateOrganisationInvitationDto = {
-  email: "case.worker@example.com",
-  roleKeys: ["case_worker"],
+  email: 'case.worker@example.com',
+  roleKeys: ['case_worker'],
   jobProfileId: JOB_PROFILE_ID,
-  jobTitle: "Case Worker",
+  jobTitle: 'Case Worker',
   departmentId: DEPARTMENT_ID,
   teamId: TEAM_ID,
   managerOrganisationMembershipId: MANAGER_MEMBERSHIP_ID,
   agentProfileId: AGENT_PROFILE_ID,
-  startsAt: "2026-08-20T09:00:00.000Z",
+  startsAt: '2026-08-20T09:00:00.000Z',
   isDepartmentManager: false,
   isTeamLead: false,
 };
 
-describe("InvitationsController", () => {
+describe('InvitationsController', () => {
   let controller: InvitationsController;
 
   const invitationsServiceMock = {
@@ -104,15 +104,15 @@ describe("InvitationsController", () => {
     controller = module.get<InvitationsController>(InvitationsController);
   });
 
-  it("is defined with its service dependency", () => {
+  it('is defined with its service dependency', () => {
     expect(controller).toBeDefined();
   });
 
-  it("creates the complete workforce invitation using only verified tenant context", async () => {
+  it('creates the complete workforce invitation using only verified tenant context', async () => {
     const expected = {
       id: INVITATION_ID,
       organisationId: ORGANISATION_ID,
-      onboardingPlanId: "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb",
+      onboardingPlanId: 'bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb',
     };
 
     invitationsServiceMock.create.mockResolvedValue(expected);
@@ -130,8 +130,8 @@ describe("InvitationsController", () => {
     );
   });
 
-  it("does not trust the route organisation identifier as service security context", async () => {
-    const differentRouteOrganisationId = "cccccccc-cccc-4ccc-8ccc-cccccccccccc";
+  it('does not trust the route organisation identifier as service security context', async () => {
+    const differentRouteOrganisationId = 'cccccccc-cccc-4ccc-8ccc-cccccccccccc';
 
     invitationsServiceMock.create.mockResolvedValue({
       id: INVITATION_ID,
@@ -151,7 +151,7 @@ describe("InvitationsController", () => {
     );
   });
 
-  it("lists invitations with validated pagination and verified tenant context", async () => {
+  it('lists invitations with validated pagination and verified tenant context', async () => {
     const query = {
       page: 2,
       limit: 25,
@@ -175,7 +175,7 @@ describe("InvitationsController", () => {
     expect(invitationsServiceMock.findAll).toHaveBeenCalledWith(CONTEXT, 2, 25);
   });
 
-  it("passes omitted pagination to the service defaults without inventing values", async () => {
+  it('passes omitted pagination to the service defaults without inventing values', async () => {
     const query = {} as InvitationQueryDto;
 
     invitationsServiceMock.findAll.mockResolvedValue({
@@ -195,14 +195,14 @@ describe("InvitationsController", () => {
     );
   });
 
-  it("revokes only the requested invitation with the verified tenant context", async () => {
+  it('revokes only the requested invitation with the verified tenant context', async () => {
     const dto = {
-      reason: "Invitation no longer required.",
+      reason: 'Invitation no longer required.',
     } as RevokeOrganisationInvitationDto;
 
     const expected = {
       id: INVITATION_ID,
-      status: "REVOKED",
+      status: 'REVOKED',
     };
 
     invitationsServiceMock.revoke.mockResolvedValue(expected);

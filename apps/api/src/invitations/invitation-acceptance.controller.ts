@@ -10,9 +10,7 @@ import {
 
 import { CurrentUser } from '../auth/decorators/current-user/current-user.decorator';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth/jwt-auth.guard';
-import type {
-  VerifiedUserJwtPayload,
-} from '../auth/verified-jwt-payload';
+import type { VerifiedUserJwtPayload } from '../auth/verified-jwt-payload';
 import { AcceptOrganisationInvitationDto } from './dto/accept-organisation-invitation.dto';
 import { InvitationAcceptanceService } from './invitation-acceptance.service';
 
@@ -20,8 +18,7 @@ import { InvitationAcceptanceService } from './invitation-acceptance.service';
 @UseGuards(JwtAuthGuard)
 export class InvitationAcceptanceController {
   constructor(
-    private readonly acceptanceService:
-      InvitationAcceptanceService,
+    private readonly acceptanceService: InvitationAcceptanceService,
   ) {}
 
   @Post('accept')
@@ -34,9 +31,6 @@ export class InvitationAcceptanceController {
     user: VerifiedUserJwtPayload,
     @Body() dto: AcceptOrganisationInvitationDto,
   ) {
-    return this.acceptanceService.accept(
-      user,
-      dto.token,
-    );
+    return this.acceptanceService.accept(user, dto.token);
   }
 }

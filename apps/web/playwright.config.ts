@@ -14,6 +14,10 @@ const apiBaseUrl = (
   process.env.PLAYWRIGHT_API_BASE_URL ?? "http://127.0.0.1:4000"
 ).replace(/\/$/, "");
 
+const usesExternalDeployment = Boolean(
+  process.env.PLAYWRIGHT_BASE_URL && process.env.PLAYWRIGHT_API_BASE_URL,
+);
+
 export default defineConfig({
   testDir: "./e2e",
   fullyParallel: false,
@@ -40,28 +44,30 @@ export default defineConfig({
     },
   ],
 
-  webServer: [
-    {
-      name: "NestJS API",
-      command: "npm run start:e2e",
-      cwd: "../api",
-      url: `${apiBaseUrl}/api/v1`,
-      reuseExistingServer,
-      timeout: 120_000,
-      stdout: "ignore",
-      stderr: "pipe",
-    },
-    {
-      name: "Next.js Web",
-      command: "npm run start:e2e",
-      cwd: ".",
-      url: `${webBaseUrl}/login`,
-      reuseExistingServer,
-      timeout: 120_000,
-      stdout: "ignore",
-      stderr: "pipe",
-    },
-  ],
+  webServer: usesExternalDeployment
+    ? undefined
+    : [
+        {
+          name: "NestJS API",
+          command: "npm run start:e2e",
+          cwd: "../api",
+          url: `${apiBaseUrl}/api/v1`,
+          reuseExistingServer,
+          timeout: 120_000,
+          stdout: "ignore",
+          stderr: "pipe",
+        },
+        {
+          name: "Next.js Web",
+          command: "npm run start:e2e",
+          cwd: ".",
+          url: `${webBaseUrl}/login`,
+          reuseExistingServer,
+          timeout: 120_000,
+          stdout: "ignore",
+          stderr: "pipe",
+        },
+      ],
 
   outputDir: "test-results",
 });

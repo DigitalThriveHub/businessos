@@ -5,28 +5,19 @@ import {
   UnauthorizedException,
 } from '@nestjs/common';
 import { RlsTransactionService } from '../../../database/rls-transaction.service';
-import {
-  type OrganisationScopedRequest,
-} from '../../request-security-context';
-import type {
-  VerifiedUserJwtPayload,
-} from '../../verified-jwt-payload';
+import { type OrganisationScopedRequest } from '../../request-security-context';
+import type { VerifiedUserJwtPayload } from '../../verified-jwt-payload';
 import { OrganisationAccessGuard } from './organisation-access.guard';
 
-const USER_ID =
-  '11111111-1111-4111-8111-111111111111';
+const USER_ID = '11111111-1111-4111-8111-111111111111';
 
-const SESSION_ID =
-  '22222222-2222-4222-8222-222222222222';
+const SESSION_ID = '22222222-2222-4222-8222-222222222222';
 
-const ORGANISATION_ID =
-  '33333333-3333-4333-8333-333333333333';
+const ORGANISATION_ID = '33333333-3333-4333-8333-333333333333';
 
-const OTHER_ORGANISATION_ID =
-  '44444444-4444-4444-8444-444444444444';
+const OTHER_ORGANISATION_ID = '44444444-4444-4444-8444-444444444444';
 
-const MEMBERSHIP_ID =
-  '55555555-5555-4555-8555-555555555555';
+const MEMBERSHIP_ID = '55555555-5555-4555-8555-555555555555';
 
 function validUser(): VerifiedUserJwtPayload {
   const now = Math.floor(Date.now() / 1_000);
@@ -96,14 +87,11 @@ describe('OrganisationAccessGuard', () => {
   });
 
   function mockMembership(
-    membership:
-      | {
-          id: string;
-        }
-      | null,
+    membership: {
+      id: string;
+    } | null,
   ): jest.Mock {
-    const findFirst =
-      jest.fn().mockResolvedValue(membership);
+    const findFirst = jest.fn().mockResolvedValue(membership);
 
     const transaction = {
       organisationMembership: {
@@ -114,9 +102,7 @@ describe('OrganisationAccessGuard', () => {
     rls.run.mockImplementation(
       async (
         _context: unknown,
-        operation: (
-          client: typeof transaction,
-        ) => Promise<unknown>,
+        operation: (client: typeof transaction) => Promise<unknown>,
       ) => operation(transaction),
     );
 
@@ -128,17 +114,14 @@ describe('OrganisationAccessGuard', () => {
       id: MEMBERSHIP_ID,
     });
 
-    const { context, request } =
-      createExecutionContext({
-        user: validUser(),
-        body: {
-          organisationId: ORGANISATION_ID,
-        },
-      });
+    const { context, request } = createExecutionContext({
+      user: validUser(),
+      body: {
+        organisationId: ORGANISATION_ID,
+      },
+    });
 
-    await expect(
-      guard.canActivate(context),
-    ).resolves.toBe(true);
+    await expect(guard.canActivate(context)).resolves.toBe(true);
 
     expect(rls.run).toHaveBeenCalledWith(
       {
@@ -171,9 +154,7 @@ describe('OrganisationAccessGuard', () => {
       aal: 'AAL1',
     });
 
-    expect(
-      Object.isFrozen(request.organisationAccess),
-    ).toBe(true);
+    expect(Object.isFrozen(request.organisationAccess)).toBe(true);
   });
 
   it('accepts an organisation identifier from the query string', async () => {
@@ -188,9 +169,7 @@ describe('OrganisationAccessGuard', () => {
       },
     });
 
-    await expect(
-      guard.canActivate(context),
-    ).resolves.toBe(true);
+    await expect(guard.canActivate(context)).resolves.toBe(true);
   });
 
   it('rejects a missing organisation identifier', async () => {
@@ -198,9 +177,9 @@ describe('OrganisationAccessGuard', () => {
       user: validUser(),
     });
 
-    await expect(
-      guard.canActivate(context),
-    ).rejects.toThrow(BadRequestException);
+    await expect(guard.canActivate(context)).rejects.toThrow(
+      BadRequestException,
+    );
 
     expect(rls.run).not.toHaveBeenCalled();
   });
@@ -213,9 +192,9 @@ describe('OrganisationAccessGuard', () => {
       },
     });
 
-    await expect(
-      guard.canActivate(context),
-    ).rejects.toThrow(BadRequestException);
+    await expect(guard.canActivate(context)).rejects.toThrow(
+      BadRequestException,
+    );
 
     expect(rls.run).not.toHaveBeenCalled();
   });
@@ -231,9 +210,7 @@ describe('OrganisationAccessGuard', () => {
       },
     });
 
-    await expect(
-      guard.canActivate(context),
-    ).rejects.toThrow(
+    await expect(guard.canActivate(context)).rejects.toThrow(
       'Conflicting organisation identifiers were supplied',
     );
 
@@ -247,9 +224,9 @@ describe('OrganisationAccessGuard', () => {
       },
     });
 
-    await expect(
-      guard.canActivate(context),
-    ).rejects.toThrow(UnauthorizedException);
+    await expect(guard.canActivate(context)).rejects.toThrow(
+      UnauthorizedException,
+    );
 
     expect(rls.run).not.toHaveBeenCalled();
   });
@@ -264,8 +241,8 @@ describe('OrganisationAccessGuard', () => {
       },
     });
 
-    await expect(
-      guard.canActivate(context),
-    ).rejects.toThrow(ForbiddenException);
+    await expect(guard.canActivate(context)).rejects.toThrow(
+      ForbiddenException,
+    );
   });
 });

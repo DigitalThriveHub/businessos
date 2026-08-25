@@ -21,24 +21,16 @@ import {
 } from '../../verified-jwt-payload';
 
 @Injectable()
-export class OrganisationAccessGuard
-  implements CanActivate
-{
-  constructor(
-    private readonly rls: RlsTransactionService,
-  ) {}
+export class OrganisationAccessGuard implements CanActivate {
+  constructor(private readonly rls: RlsTransactionService) {}
 
-  async canActivate(
-    context: ExecutionContext,
-  ): Promise<boolean> {
-    const request =
-      context
-        .switchToHttp()
-        .getRequest<OrganisationScopedRequest>();
+  async canActivate(context: ExecutionContext): Promise<boolean> {
+    const request = context
+      .switchToHttp()
+      .getRequest<OrganisationScopedRequest>();
 
     const user = verifyUserJwtPayload(request.user);
-    const organisationId =
-      resolveRequestOrganisationId(request);
+    const organisationId = resolveRequestOrganisationId(request);
     const aal = resolveAssuranceLevel(user);
 
     const membership = await this.rls.run(

@@ -13,6 +13,7 @@ import { CaseOperationsModule } from './case-operations/case-operations.module';
 import { ClientPortalModule } from './client-portal/client-portal.module';
 import { CommandCentreModule } from './command-centre/command-centre.module';
 import { CommunicationsModule } from './communications/communications.module';
+import { ComplianceAssuranceModule } from './compliance-assurance/compliance-assurance.module';
 import { validateEnvironment } from './config/env.validation';
 import { DatabaseModule } from './database/database.module';
 import { EnquiriesModule } from './enquiries/enquiries.module';
@@ -47,6 +48,7 @@ import { WorkforceConfigurationModule } from './workforce-configuration/workforc
     ClientPortalModule,
     CommandCentreModule,
     CommunicationsModule,
+    ComplianceAssuranceModule,
     EnquiriesModule,
     FinanceModule,
     IntegrationsModule,

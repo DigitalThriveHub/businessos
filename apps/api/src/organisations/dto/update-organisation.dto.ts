@@ -8,21 +8,11 @@ import {
   MinLength,
 } from 'class-validator';
 
-function trimString({
-  value,
-}: {
-  value: unknown;
-}): unknown {
-  return typeof value === 'string'
-    ? value.trim()
-    : value;
+function trimString({ value }: { value: unknown }): unknown {
+  return typeof value === 'string' ? value.trim() : value;
 }
 
-function trimNullableString({
-  value,
-}: {
-  value: unknown;
-}): unknown {
+function trimNullableString({ value }: { value: unknown }): unknown {
   if (value === null) {
     return null;
   }
@@ -33,29 +23,15 @@ function trimNullableString({
 
   const trimmed = value.trim();
 
-  return trimmed.length > 0
-    ? trimmed
-    : null;
+  return trimmed.length > 0 ? trimmed : null;
 }
 
-function normaliseSlug({
-  value,
-}: {
-  value: unknown;
-}): unknown {
-  return typeof value === 'string'
-    ? value.trim().toLowerCase()
-    : value;
+function normaliseSlug({ value }: { value: unknown }): unknown {
+  return typeof value === 'string' ? value.trim().toLowerCase() : value;
 }
 
-function normaliseCountryCode({
-  value,
-}: {
-  value: unknown;
-}): unknown {
-  return typeof value === 'string'
-    ? value.trim().toUpperCase()
-    : value;
+function normaliseCountryCode({ value }: { value: unknown }): unknown {
+  return typeof value === 'string' ? value.trim().toUpperCase() : value;
 }
 
 export class UpdateOrganisationDto {
@@ -87,25 +63,18 @@ export class UpdateOrganisationDto {
   @Transform(trimString)
   @IsString()
   @MaxLength(64)
-  @Matches(
-    /^(?:UTC|[A-Za-z_+-]+(?:\/[A-Za-z0-9_+-]+)+)$/,
-    {
-      message:
-        'timezone must be a valid IANA-style timezone',
-    },
-  )
+  @Matches(/^(?:UTC|[A-Za-z_+-]+(?:\/[A-Za-z0-9_+-]+)+)$/, {
+    message: 'timezone must be a valid IANA-style timezone',
+  })
   timezone?: string;
 
   @IsOptional()
   @Transform(trimString)
   @IsString()
   @MaxLength(16)
-  @Matches(
-    /^[A-Za-z]{2,3}(?:-[A-Za-z0-9]{2,8})*$/,
-    {
-      message: 'locale must be a valid locale identifier',
-    },
-  )
+  @Matches(/^[A-Za-z]{2,3}(?:-[A-Za-z0-9]{2,8})*$/, {
+    message: 'locale must be a valid locale identifier',
+  })
   locale?: string;
 
   @IsOptional()
@@ -113,8 +82,7 @@ export class UpdateOrganisationDto {
   @IsString()
   @Length(2, 2)
   @Matches(/^[A-Z]{2}$/, {
-    message:
-      'countryCode must be a two-letter country code',
+    message: 'countryCode must be a two-letter country code',
   })
   countryCode?: string;
 }

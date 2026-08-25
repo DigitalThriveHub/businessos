@@ -1,30 +1,18 @@
-import {
-  ForbiddenException,
-  UnauthorizedException,
-} from '@nestjs/common';
-import {
-  Test,
-  type TestingModule,
-} from '@nestjs/testing';
+import { ForbiddenException, UnauthorizedException } from '@nestjs/common';
+import { Test, type TestingModule } from '@nestjs/testing';
 import type { JWTPayload } from 'jose';
 import { RlsTransactionService } from '../database/rls-transaction.service';
 import { AuthService } from './auth.service';
 
-const USER_ID =
-  '11111111-1111-4111-8111-111111111111';
+const USER_ID = '11111111-1111-4111-8111-111111111111';
 
-const SESSION_ID =
-  '22222222-2222-4222-8222-222222222222';
+const SESSION_ID = '22222222-2222-4222-8222-222222222222';
 
-const ORGANISATION_ID =
-  '33333333-3333-4333-8333-333333333333';
+const ORGANISATION_ID = '33333333-3333-4333-8333-333333333333';
 
-const MEMBERSHIP_ID =
-  '44444444-4444-4444-8444-444444444444';
+const MEMBERSHIP_ID = '44444444-4444-4444-8444-444444444444';
 
-function validPayload(
-  aal: 'aal1' | 'aal2' = 'aal1',
-): JWTPayload {
+function validPayload(aal: 'aal1' | 'aal2' = 'aal1'): JWTPayload {
   return {
     sub: USER_ID,
     email: 'owner@example.test',
@@ -95,16 +83,15 @@ describe('AuthService', () => {
       run: jest.fn(),
     };
 
-    const module: TestingModule =
-      await Test.createTestingModule({
-        providers: [
-          AuthService,
-          {
-            provide: RlsTransactionService,
-            useValue: rls,
-          },
-        ],
-      }).compile();
+    const module: TestingModule = await Test.createTestingModule({
+      providers: [
+        AuthService,
+        {
+          provide: RlsTransactionService,
+          useValue: rls,
+        },
+      ],
+    }).compile();
 
     service = module.get<AuthService>(AuthService);
   });
@@ -127,15 +114,11 @@ describe('AuthService', () => {
     rls.run.mockImplementation(
       async (
         _context: unknown,
-        operation: (
-          client: typeof transaction,
-        ) => Promise<unknown>,
+        operation: (client: typeof transaction) => Promise<unknown>,
       ) => operation(transaction),
     );
 
-    await expect(
-      service.getCurrentUser(validPayload()),
-    ).resolves.toEqual({
+    await expect(service.getCurrentUser(validPayload())).resolves.toEqual({
       id: USER_ID,
       email: 'owner@example.test',
       authenticated: true,
@@ -155,17 +138,13 @@ describe('AuthService', () => {
   it('resolves memberships and effective permissions through tenant RLS', async () => {
     const profileTransaction = {
       userProfile: {
-        findUnique: jest
-          .fn()
-          .mockResolvedValue(activeProfile()),
+        findUnique: jest.fn().mockResolvedValue(activeProfile()),
       },
     };
 
     const roleTransaction = {
       roleAssignment: {
-        findMany: jest
-          .fn()
-          .mockResolvedValue(roleAssignments()),
+        findMany: jest.fn().mockResolvedValue(roleAssignments()),
       },
     };
 
@@ -175,9 +154,7 @@ describe('AuthService', () => {
           organisationId?: string;
         },
         operation: (
-          client:
-            | typeof profileTransaction
-            | typeof roleTransaction,
+          client: typeof profileTransaction | typeof roleTransaction,
         ) => Promise<unknown>,
       ) =>
         context.organisationId
@@ -185,8 +162,7 @@ describe('AuthService', () => {
           : operation(profileTransaction),
     );
 
-    const result =
-      await service.getCurrentUser(validPayload());
+    const result = await service.getCurrentUser(validPayload());
 
     expect(result).toEqual({
       id: USER_ID,
@@ -234,17 +210,13 @@ describe('AuthService', () => {
   it('includes MFA-protected permissions for an AAL2 session', async () => {
     const profileTransaction = {
       userProfile: {
-        findUnique: jest
-          .fn()
-          .mockResolvedValue(activeProfile()),
+        findUnique: jest.fn().mockResolvedValue(activeProfile()),
       },
     };
 
     const roleTransaction = {
       roleAssignment: {
-        findMany: jest
-          .fn()
-          .mockResolvedValue(roleAssignments()),
+        findMany: jest.fn().mockResolvedValue(roleAssignments()),
       },
     };
 
@@ -254,9 +226,7 @@ describe('AuthService', () => {
           organisationId?: string;
         },
         operation: (
-          client:
-            | typeof profileTransaction
-            | typeof roleTransaction,
+          client: typeof profileTransaction | typeof roleTransaction,
         ) => Promise<unknown>,
       ) =>
         context.organisationId
@@ -264,14 +234,9 @@ describe('AuthService', () => {
           : operation(profileTransaction),
     );
 
-    const result =
-      await service.getCurrentUser(
-        validPayload('aal2'),
-      );
+    const result = await service.getCurrentUser(validPayload('aal2'));
 
-    expect(
-      result.organisations[0]?.permissions,
-    ).toEqual([
+    expect(result.organisations[0]?.permissions).toEqual([
       'enquiries.delete',
       'enquiries.read',
     ]);
@@ -290,15 +255,13 @@ describe('AuthService', () => {
     rls.run.mockImplementation(
       async (
         _context: unknown,
-        operation: (
-          client: typeof transaction,
-        ) => Promise<unknown>,
+        operation: (client: typeof transaction) => Promise<unknown>,
       ) => operation(transaction),
     );
 
-    await expect(
-      service.getCurrentUser(validPayload()),
-    ).rejects.toThrow(ForbiddenException);
+    await expect(service.getCurrentUser(validPayload())).rejects.toThrow(
+      ForbiddenException,
+    );
   });
 
   it('rejects an unverified JWT payload', async () => {

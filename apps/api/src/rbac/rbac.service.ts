@@ -1,7 +1,4 @@
-import {
-  Injectable,
-  InternalServerErrorException,
-} from '@nestjs/common';
+import { Injectable, InternalServerErrorException } from '@nestjs/common';
 import { PrismaService } from '../database/prisma.service';
 import { DEFAULT_PERMISSION_KEYS } from './default-permissions';
 import { DEFAULT_ROLES } from './default-roles';
@@ -65,10 +62,7 @@ export class RbacService {
       }
 
       const permissionIdByKey = new Map(
-        permissions.map((permission) => [
-          permission.key,
-          permission.id,
-        ]),
+        permissions.map((permission) => [permission.key, permission.id]),
       );
 
       let permissionsConnected = 0;

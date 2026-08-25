@@ -7,7 +7,12 @@ export const CASE_TASK_STATUSES = [
 ] as const;
 export type CaseTaskStatus = (typeof CASE_TASK_STATUSES)[number];
 
-export const CASE_TASK_PRIORITIES = ['LOW', 'NORMAL', 'HIGH', 'URGENT'] as const;
+export const CASE_TASK_PRIORITIES = [
+  'LOW',
+  'NORMAL',
+  'HIGH',
+  'URGENT',
+] as const;
 export type CaseTaskPriority = (typeof CASE_TASK_PRIORITIES)[number];
 
 export const MATTER_DEADLINE_TYPES = [
@@ -219,7 +224,8 @@ export interface MatterTimelineEventView {
   sourceId: string | null;
   summary: string;
   details: Record<string, unknown> | null;
-  actorType: 'USER' | 'AI_AGENT' | 'SERVICE' | 'SUPPORT' | 'SYSTEM' | 'ANONYMOUS';
+  actorType:
+    'USER' | 'AI_AGENT' | 'SERVICE' | 'SUPPORT' | 'SYSTEM' | 'ANONYMOUS';
   actorUserId: string | null;
   actorIdentifier: string | null;
   actorName: string;

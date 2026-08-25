@@ -6,8 +6,7 @@ export const DOCUMENT_SCAN_JOB_STATUSES = [
   'DEAD_LETTER',
 ] as const;
 
-export type DocumentScanJobStatus =
-  (typeof DOCUMENT_SCAN_JOB_STATUSES)[number];
+export type DocumentScanJobStatus = (typeof DOCUMENT_SCAN_JOB_STATUSES)[number];
 
 export type ScannerTerminalResult = 'CLEAN' | 'INFECTED' | 'ERROR';
 

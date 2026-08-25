@@ -14,6 +14,7 @@ import {
   ListTodo,
   Route,
   ClipboardCheck,
+  ShieldAlert,
   LayoutDashboard,
   LogOut,
   MessagesSquare,
@@ -166,6 +167,12 @@ const navigationItems: NavigationItem[] = [
     href: "/pilot-readiness",
     icon: ClipboardCheck,
     permissions: ["command_centre.read"],
+  },
+  {
+    label: "Assurance",
+    href: "/assurance",
+    icon: ShieldAlert,
+    permissions: ["compliance.read"],
   },
   {
     label: "My AI",

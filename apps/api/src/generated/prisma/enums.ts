@@ -565,6 +565,121 @@ export const OperationalValueCategory = {
 export type OperationalValueCategory = (typeof OperationalValueCategory)[keyof typeof OperationalValueCategory]
 
 
+export const DataSubjectRequestType = {
+  ACCESS: 'ACCESS',
+  RECTIFICATION: 'RECTIFICATION',
+  ERASURE: 'ERASURE',
+  RESTRICTION: 'RESTRICTION',
+  PORTABILITY: 'PORTABILITY',
+  OBJECTION: 'OBJECTION',
+  AUTOMATED_DECISION_REVIEW: 'AUTOMATED_DECISION_REVIEW'
+} as const
+
+export type DataSubjectRequestType = (typeof DataSubjectRequestType)[keyof typeof DataSubjectRequestType]
+
+
+export const DataSubjectRequestStatus = {
+  RECEIVED: 'RECEIVED',
+  IDENTITY_VERIFICATION: 'IDENTITY_VERIFICATION',
+  IN_PROGRESS: 'IN_PROGRESS',
+  ON_HOLD: 'ON_HOLD',
+  READY_FOR_REVIEW: 'READY_FOR_REVIEW',
+  COMPLETED: 'COMPLETED',
+  REFUSED: 'REFUSED',
+  WITHDRAWN: 'WITHDRAWN'
+} as const
+
+export type DataSubjectRequestStatus = (typeof DataSubjectRequestStatus)[keyof typeof DataSubjectRequestStatus]
+
+
+export const IdentityProofStatus = {
+  NOT_STARTED: 'NOT_STARTED',
+  PENDING: 'PENDING',
+  VERIFIED: 'VERIFIED',
+  FAILED: 'FAILED'
+} as const
+
+export type IdentityProofStatus = (typeof IdentityProofStatus)[keyof typeof IdentityProofStatus]
+
+
+export const PrivacyIncidentSeverity = {
+  LOW: 'LOW',
+  MEDIUM: 'MEDIUM',
+  HIGH: 'HIGH',
+  CRITICAL: 'CRITICAL'
+} as const
+
+export type PrivacyIncidentSeverity = (typeof PrivacyIncidentSeverity)[keyof typeof PrivacyIncidentSeverity]
+
+
+export const PrivacyIncidentStatus = {
+  OPEN: 'OPEN',
+  CONTAINING: 'CONTAINING',
+  INVESTIGATING: 'INVESTIGATING',
+  NOTIFICATION_DECISION: 'NOTIFICATION_DECISION',
+  RESOLVED: 'RESOLVED',
+  CLOSED: 'CLOSED'
+} as const
+
+export type PrivacyIncidentStatus = (typeof PrivacyIncidentStatus)[keyof typeof PrivacyIncidentStatus]
+
+
+export const BreachNotificationDecision = {
+  UNASSESSED: 'UNASSESSED',
+  NOT_REPORTABLE: 'NOT_REPORTABLE',
+  ICO_REQUIRED: 'ICO_REQUIRED',
+  ICO_NOTIFIED: 'ICO_NOTIFIED',
+  SUBJECTS_REQUIRED: 'SUBJECTS_REQUIRED',
+  SUBJECTS_NOTIFIED: 'SUBJECTS_NOTIFIED'
+} as const
+
+export type BreachNotificationDecision = (typeof BreachNotificationDecision)[keyof typeof BreachNotificationDecision]
+
+
+export const RetentionAction = {
+  REVIEW: 'REVIEW',
+  RETAIN: 'RETAIN',
+  ARCHIVE: 'ARCHIVE',
+  ANONYMISE: 'ANONYMISE',
+  DELETE: 'DELETE'
+} as const
+
+export type RetentionAction = (typeof RetentionAction)[keyof typeof RetentionAction]
+
+
+export const RetentionReviewStatus = {
+  DUE: 'DUE',
+  IN_REVIEW: 'IN_REVIEW',
+  BLOCKED: 'BLOCKED',
+  APPROVED: 'APPROVED',
+  COMPLETED: 'COMPLETED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type RetentionReviewStatus = (typeof RetentionReviewStatus)[keyof typeof RetentionReviewStatus]
+
+
+export const AssuranceEvidenceStatus = {
+  NOT_TESTED: 'NOT_TESTED',
+  SUBMITTED: 'SUBMITTED',
+  PASS: 'PASS',
+  FAIL: 'FAIL',
+  BLOCKED: 'BLOCKED',
+  EXPIRED: 'EXPIRED'
+} as const
+
+export type AssuranceEvidenceStatus = (typeof AssuranceEvidenceStatus)[keyof typeof AssuranceEvidenceStatus]
+
+
+export const ReleaseDecisionStatus = {
+  BLOCKED: 'BLOCKED',
+  APPROVED: 'APPROVED',
+  REVOKED: 'REVOKED'
+} as const
+
+export type ReleaseDecisionStatus = (typeof ReleaseDecisionStatus)[keyof typeof ReleaseDecisionStatus]
+
+
 export const DocumentRequestStatus = {
   DRAFT: 'DRAFT',
   SENT: 'SENT',

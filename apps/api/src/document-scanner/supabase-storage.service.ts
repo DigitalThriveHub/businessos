@@ -80,7 +80,10 @@ export class SupabasePrivateStorageService {
     if (!response.ok || !response.body) {
       clearTimeout(timeout);
       controller.abort();
-      const retryable = response.status === 408 || response.status === 429 || response.status >= 500;
+      const retryable =
+        response.status === 408 ||
+        response.status === 429 ||
+        response.status >= 500;
       throw new ScannerPipelineError(
         `STORAGE_HTTP_${response.status}`,
         'The private storage object could not be retrieved.',

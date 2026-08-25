@@ -4,17 +4,13 @@ import {
   ServiceUnavailableException,
 } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import {
-  createHmac,
-  randomBytes,
-} from 'node:crypto';
+import { createHmac, randomBytes } from 'node:crypto';
 
 import type { Environment } from '../config/env.validation';
 
 const TOKEN_PREFIX = 'boi_v1_';
 const TOKEN_BYTES = 32;
-const TOKEN_PATTERN =
-  /^boi_v1_[A-Za-z0-9_-]{43}$/;
+const TOKEN_PATTERN = /^boi_v1_[A-Za-z0-9_-]{43}$/;
 
 export interface IssuedInvitationToken {
   token: string;
@@ -23,20 +19,12 @@ export interface IssuedInvitationToken {
 
 @Injectable()
 export class InvitationTokenService {
-  constructor(
-    private readonly config: ConfigService<
-      Environment,
-      true
-    >,
-  ) {}
+  constructor(private readonly config: ConfigService<Environment, true>) {}
 
   issue(): IssuedInvitationToken {
-    const randomValue = randomBytes(
-      TOKEN_BYTES,
-    ).toString('base64url');
+    const randomValue = randomBytes(TOKEN_BYTES).toString('base64url');
 
-    const token =
-      `${TOKEN_PREFIX}${randomValue}`;
+    const token = `${TOKEN_PREFIX}${randomValue}`;
 
     return {
       token,
@@ -51,10 +39,7 @@ export class InvitationTokenService {
       );
     }
 
-    const secret = this.config.get(
-      'INVITATION_TOKEN_SECRET',
-      { infer: true },
-    );
+    const secret = this.config.get('INVITATION_TOKEN_SECRET', { infer: true });
 
     if (!secret) {
       throw new ServiceUnavailableException(
@@ -63,19 +48,11 @@ export class InvitationTokenService {
     }
 
     return createHmac('sha256', secret)
-      .update(
-        `businessos:organisation-invitation:v1:${token}`,
-        'utf8',
-      )
+      .update(`businessos:organisation-invitation:v1:${token}`, 'utf8')
       .digest('hex');
   }
 
-  isValidFormat(
-    token: unknown,
-  ): token is string {
-    return (
-      typeof token === 'string' &&
-      TOKEN_PATTERN.test(token)
-    );
+  isValidFormat(token: unknown): token is string {
+    return typeof token === 'string' && TOKEN_PATTERN.test(token);
   }
 }

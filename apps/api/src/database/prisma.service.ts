@@ -1,8 +1,4 @@
-import {
-  Injectable,
-  OnModuleDestroy,
-  OnModuleInit,
-} from '@nestjs/common';
+import { Injectable, OnModuleDestroy, OnModuleInit } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { PrismaPg } from '@prisma/adapter-pg';
 import { readFileSync } from 'node:fs';
@@ -22,20 +18,20 @@ export class PrismaService
   implements OnModuleInit, OnModuleDestroy
 {
   constructor(config: ConfigService) {
-        const adapter = new PrismaPg({
-        connectionString: config.getOrThrow<string>('DATABASE_URL'),
-        max: config.getOrThrow<number>('DATABASE_POOL_MAX'),
-        connectionTimeoutMillis: 5_000,
-        idleTimeoutMillis: 30_000,
+    const adapter = new PrismaPg({
+      connectionString: config.getOrThrow<string>('DATABASE_URL'),
+      max: config.getOrThrow<number>('DATABASE_POOL_MAX'),
+      connectionTimeoutMillis: 5_000,
+      idleTimeoutMillis: 30_000,
 
-        ssl: {
-            ca: readFileSync(
-            resolve(process.cwd(), 'certs', 'supabase-ca.crt'),
-            'utf8',
-            ),
-            rejectUnauthorized: true,
-        },
-        });
+      ssl: {
+        ca: readFileSync(
+          resolve(process.cwd(), 'certs', 'supabase-ca.crt'),
+          'utf8',
+        ),
+        rejectUnauthorized: true,
+      },
+    });
 
     super({
       adapter,

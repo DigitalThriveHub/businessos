@@ -33,9 +33,18 @@ function readResponse(socket: Socket, timeoutMs: number): Promise<string> {
     };
     const finish = () => {
       cleanup();
-      const response = Buffer.concat(chunks).toString('utf8').replace(/[\0\r\n]+$/g, '').trim();
+      const response = Buffer.concat(chunks)
+        .toString('utf8')
+        .replace(/[\0\r\n]+$/g, '')
+        .trim();
       if (!response) {
-        reject(new ScannerPipelineError('CLAMAV_EMPTY_RESPONSE', 'ClamAV returned no verdict.', true));
+        reject(
+          new ScannerPipelineError(
+            'CLAMAV_EMPTY_RESPONSE',
+            'ClamAV returned no verdict.',
+            true,
+          ),
+        );
         return;
       }
       resolve(response);
@@ -44,7 +53,13 @@ function readResponse(socket: Socket, timeoutMs: number): Promise<string> {
       length += chunk.length;
       if (length > RESPONSE_LIMIT_BYTES) {
         cleanup();
-        reject(new ScannerPipelineError('CLAMAV_RESPONSE_TOO_LARGE', 'ClamAV returned an invalid response.', false));
+        reject(
+          new ScannerPipelineError(
+            'CLAMAV_RESPONSE_TOO_LARGE',
+            'ClamAV returned an invalid response.',
+            false,
+          ),
+        );
         return;
       }
       chunks.push(chunk);
@@ -52,11 +67,24 @@ function readResponse(socket: Socket, timeoutMs: number): Promise<string> {
     };
     const onError = (error: Error) => {
       cleanup();
-      reject(new ScannerPipelineError('CLAMAV_CONNECTION_ERROR', 'ClamAV connection failed.', true, { cause: error }));
+      reject(
+        new ScannerPipelineError(
+          'CLAMAV_CONNECTION_ERROR',
+          'ClamAV connection failed.',
+          true,
+          { cause: error },
+        ),
+      );
     };
     const onTimeout = () => {
       cleanup();
-      reject(new ScannerPipelineError('CLAMAV_TIMEOUT', 'ClamAV did not return a verdict in time.', true));
+      reject(
+        new ScannerPipelineError(
+          'CLAMAV_TIMEOUT',
+          'ClamAV did not return a verdict in time.',
+          true,
+        ),
+      );
     };
     const onEnd = () => {
       if (chunks.length > 0) finish();
@@ -208,7 +236,13 @@ export class ClamAvClientService {
           });
       const timeout = setTimeout(() => {
         socket.destroy();
-        reject(new ScannerPipelineError('CLAMAV_CONNECT_TIMEOUT', 'ClamAV connection timed out.', true));
+        reject(
+          new ScannerPipelineError(
+            'CLAMAV_CONNECT_TIMEOUT',
+            'ClamAV connection timed out.',
+            true,
+          ),
+        );
       }, this.config.connectTimeoutMs);
       socket.once('connect', () => {
         clearTimeout(timeout);
@@ -218,7 +252,14 @@ export class ClamAvClientService {
       const onError = (error: Error) => {
         clearTimeout(timeout);
         socket.destroy();
-        reject(new ScannerPipelineError('CLAMAV_CONNECT_FAILED', 'ClamAV is unavailable.', true, { cause: error }));
+        reject(
+          new ScannerPipelineError(
+            'CLAMAV_CONNECT_FAILED',
+            'ClamAV is unavailable.',
+            true,
+            { cause: error },
+          ),
+        );
       };
       socket.once('error', onError);
     });

@@ -37,7 +37,8 @@ import {
 
 const SHA256_PATTERN = /^[0-9a-f]{64}$/;
 const TIMEZONE_PATTERN = /^[A-Za-z_]+(?:\/[A-Za-z0-9_+\-]+)+$/;
-const CONTENT_TYPE_PATTERN = /^[a-z0-9][a-z0-9!#$&^_.+\-]*\/[a-z0-9][a-z0-9!#$&^_.+\-]*$/;
+const CONTENT_TYPE_PATTERN =
+  /^[a-z0-9][a-z0-9!#$&^_.+\-]*\/[a-z0-9][a-z0-9!#$&^_.+\-]*$/;
 
 function trim({ value }: TransformFnParams): unknown {
   return typeof value === 'string' ? value.trim() : value;
@@ -141,14 +142,18 @@ export class ChangeMatterTaskStatusDto extends UpdateVersionDto {
   @Transform(nullableText)
   @IsString()
   @MaxLength(2000)
-  @ValidateIf((value: ChangeMatterTaskStatusDto) => value.status === 'COMPLETED')
+  @ValidateIf(
+    (value: ChangeMatterTaskStatusDto) => value.status === 'COMPLETED',
+  )
   completionNote?: string | null;
 
   @Transform(nullableText)
   @IsString()
   @MinLength(1)
   @MaxLength(1000)
-  @ValidateIf((value: ChangeMatterTaskStatusDto) => value.status === 'CANCELLED')
+  @ValidateIf(
+    (value: ChangeMatterTaskStatusDto) => value.status === 'CANCELLED',
+  )
   reason?: string | null;
 }
 

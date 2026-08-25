@@ -512,6 +512,111 @@ enum OperationalValueCategory {
   @@map("operational_value_category")
 }
 
+enum DataSubjectRequestType {
+  ACCESS
+  RECTIFICATION
+  ERASURE
+  RESTRICTION
+  PORTABILITY
+  OBJECTION
+  AUTOMATED_DECISION_REVIEW
+
+  @@map("data_subject_request_type")
+}
+
+enum DataSubjectRequestStatus {
+  RECEIVED
+  IDENTITY_VERIFICATION
+  IN_PROGRESS
+  ON_HOLD
+  READY_FOR_REVIEW
+  COMPLETED
+  REFUSED
+  WITHDRAWN
+
+  @@map("data_subject_request_status")
+}
+
+enum IdentityProofStatus {
+  NOT_STARTED
+  PENDING
+  VERIFIED
+  FAILED
+
+  @@map("identity_proof_status")
+}
+
+enum PrivacyIncidentSeverity {
+  LOW
+  MEDIUM
+  HIGH
+  CRITICAL
+
+  @@map("privacy_incident_severity")
+}
+
+enum PrivacyIncidentStatus {
+  OPEN
+  CONTAINING
+  INVESTIGATING
+  NOTIFICATION_DECISION
+  RESOLVED
+  CLOSED
+
+  @@map("privacy_incident_status")
+}
+
+enum BreachNotificationDecision {
+  UNASSESSED
+  NOT_REPORTABLE
+  ICO_REQUIRED
+  ICO_NOTIFIED
+  SUBJECTS_REQUIRED
+  SUBJECTS_NOTIFIED
+
+  @@map("breach_notification_decision")
+}
+
+enum RetentionAction {
+  REVIEW
+  RETAIN
+  ARCHIVE
+  ANONYMISE
+  DELETE
+
+  @@map("retention_action")
+}
+
+enum RetentionReviewStatus {
+  DUE
+  IN_REVIEW
+  BLOCKED
+  APPROVED
+  COMPLETED
+  CANCELLED
+
+  @@map("retention_review_status")
+}
+
+enum AssuranceEvidenceStatus {
+  NOT_TESTED
+  SUBMITTED
+  PASS
+  FAIL
+  BLOCKED
+  EXPIRED
+
+  @@map("assurance_evidence_status")
+}
+
+enum ReleaseDecisionStatus {
+  BLOCKED
+  APPROVED
+  REVOKED
+
+  @@map("release_decision_status")
+}
+
 enum DocumentRequestStatus {
   DRAFT
   SENT
@@ -3401,6 +3506,237 @@ model OperationalMetricSnapshot {
   @@unique([organisationId, periodStart, periodEnd], map: "uq_operational_metric_snapshots_org_period")
   @@index([organisationId, periodEnd(sort: Desc)], map: "ix_operational_metric_snapshots_org_period")
   @@map("operational_metric_snapshots")
+  @@ignore
+}
+
+/// UK data-subject-rights workflow. Service-owned functions enforce identity,
+/// deadlines, AAL2 transitions and append-only event evidence.
+model DataSubjectRequest {
+  id                     String                   @id(map: "pk_data_subject_requests") @default(uuid()) @db.Uuid
+  organisationId         String                   @map("organisation_id") @db.Uuid
+  requestReference       String                   @map("request_reference") @db.VarChar(40)
+  requestType            DataSubjectRequestType   @map("request_type")
+  status                 DataSubjectRequestStatus @default(RECEIVED)
+  identityStatus         IdentityProofStatus      @default(NOT_STARTED) @map("identity_status")
+  subjectName            String                   @map("subject_name") @db.VarChar(240)
+  subjectEmail           String?                  @map("subject_email") @db.VarChar(320)
+  subjectPhone           String?                  @map("subject_phone") @db.VarChar(50)
+  clientId               String?                  @map("client_id") @db.Uuid
+  requestDetails         String                   @map("request_details") @db.VarChar(4000)
+  receivedAt             DateTime                 @map("received_at") @db.Timestamptz(6)
+  dueAt                  DateTime                 @map("due_at") @db.Timestamptz(6)
+  extendedDueAt          DateTime?                @map("extended_due_at") @db.Timestamptz(6)
+  extensionReason        String?                  @map("extension_reason") @db.VarChar(2000)
+  ownerUserProfileId     String?                  @map("owner_user_profile_id") @db.Uuid
+  responseReference      String?                  @map("response_reference") @db.VarChar(1000)
+  resolutionNote         String?                  @map("resolution_note") @db.VarChar(4000)
+  completedAt            DateTime?                @map("completed_at") @db.Timestamptz(6)
+  createdByUserProfileId String                   @map("created_by_user_profile_id") @db.Uuid
+  updatedByUserProfileId String                   @map("updated_by_user_profile_id") @db.Uuid
+  version                Int                      @default(1)
+  createdAt              DateTime                 @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt              DateTime                 @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@unique([id, organisationId], map: "uq_data_subject_requests_id_org")
+  @@unique([organisationId, requestReference], map: "uq_data_subject_requests_org_reference")
+  @@index([organisationId, status, dueAt], map: "ix_data_subject_requests_org_status_due")
+  @@map("data_subject_requests")
+  @@ignore
+}
+
+model DataSubjectRequestEvent {
+  id                 String                    @id(map: "pk_data_subject_request_events") @default(uuid()) @db.Uuid
+  organisationId     String                    @map("organisation_id") @db.Uuid
+  requestId          String                    @map("request_id") @db.Uuid
+  fromStatus         DataSubjectRequestStatus? @map("from_status")
+  toStatus           DataSubjectRequestStatus  @map("to_status")
+  identityStatus     IdentityProofStatus       @map("identity_status")
+  note               String                    @db.VarChar(4000)
+  evidenceReference  String?                   @map("evidence_reference") @db.VarChar(1000)
+  actorUserProfileId String                    @map("actor_user_profile_id") @db.Uuid
+  occurredAt         DateTime                  @default(now()) @map("occurred_at") @db.Timestamptz(6)
+
+  @@index([organisationId, requestId, occurredAt(sort: Desc)], map: "ix_data_subject_request_events_request_occurred")
+  @@map("data_subject_request_events")
+  @@ignore
+}
+
+model LegalHold {
+  id                      String    @id(map: "pk_legal_holds") @default(uuid()) @db.Uuid
+  organisationId          String    @map("organisation_id") @db.Uuid
+  scopeType               String    @map("scope_type") @db.VarChar(20)
+  scopeId                 String?   @map("scope_id") @db.Uuid
+  reason                  String    @db.VarChar(4000)
+  startsAt                DateTime  @map("starts_at") @db.Timestamptz(6)
+  expiresAt               DateTime? @map("expires_at") @db.Timestamptz(6)
+  releasedAt              DateTime? @map("released_at") @db.Timestamptz(6)
+  releaseReason           String?   @map("release_reason") @db.VarChar(4000)
+  createdByUserProfileId  String    @map("created_by_user_profile_id") @db.Uuid
+  releasedByUserProfileId String?   @map("released_by_user_profile_id") @db.Uuid
+  version                 Int       @default(1)
+  createdAt               DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt               DateTime  @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@unique([id, organisationId], map: "uq_legal_holds_id_org")
+  @@index([organisationId, startsAt, expiresAt], map: "ix_legal_holds_org_active")
+  @@map("legal_holds")
+  @@ignore
+}
+
+model RetentionPolicy {
+  id                     String          @id(map: "pk_retention_policies") @default(uuid()) @db.Uuid
+  organisationId         String          @map("organisation_id") @db.Uuid
+  policyKey              String          @map("policy_key") @db.VarChar(120)
+  name                   String          @db.VarChar(180)
+  resourceType           String          @map("resource_type") @db.VarChar(120)
+  triggerEvent           String          @map("trigger_event") @db.VarChar(160)
+  retentionDays          Int             @map("retention_days")
+  action                 RetentionAction
+  lawfulReason           String          @map("lawful_reason") @db.VarChar(2000)
+  isActive               Boolean         @default(true) @map("is_active")
+  createdByUserProfileId String          @map("created_by_user_profile_id") @db.Uuid
+  updatedByUserProfileId String          @map("updated_by_user_profile_id") @db.Uuid
+  version                Int             @default(1)
+  createdAt              DateTime        @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt              DateTime        @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@unique([id, organisationId], map: "uq_retention_policies_id_org")
+  @@unique([organisationId, policyKey], map: "uq_retention_policies_org_key")
+  @@index([organisationId, isActive, resourceType], map: "ix_retention_policies_org_active")
+  @@map("retention_policies")
+  @@ignore
+}
+
+model RetentionReview {
+  id                          String                @id(map: "pk_retention_reviews") @default(uuid()) @db.Uuid
+  organisationId              String                @map("organisation_id") @db.Uuid
+  policyId                    String                @map("policy_id") @db.Uuid
+  resourceType                String                @map("resource_type") @db.VarChar(120)
+  resourceId                  String                @map("resource_id") @db.Uuid
+  status                      RetentionReviewStatus @default(DUE)
+  decision                    RetentionAction?
+  dueAt                       DateTime              @map("due_at") @db.Timestamptz(6)
+  legalHoldId                 String?               @map("legal_hold_id") @db.Uuid
+  ownerUserProfileId          String?               @map("owner_user_profile_id") @db.Uuid
+  decisionNotes               String?               @map("decision_notes") @db.VarChar(4000)
+  completionEvidenceReference String?               @map("completion_evidence_reference") @db.VarChar(1000)
+  decidedByUserProfileId      String?               @map("decided_by_user_profile_id") @db.Uuid
+  decidedAt                   DateTime?             @map("decided_at") @db.Timestamptz(6)
+  completedAt                 DateTime?             @map("completed_at") @db.Timestamptz(6)
+  createdByUserProfileId      String                @map("created_by_user_profile_id") @db.Uuid
+  version                     Int                   @default(1)
+  createdAt                   DateTime              @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt                   DateTime              @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@unique([id, organisationId], map: "uq_retention_reviews_id_org")
+  @@unique([organisationId, resourceType, resourceId, policyId], map: "uq_retention_reviews_org_resource_policy")
+  @@index([organisationId, status, dueAt], map: "ix_retention_reviews_org_status_due")
+  @@map("retention_reviews")
+  @@ignore
+}
+
+model PrivacyIncident {
+  id                          String                     @id(map: "pk_privacy_incidents") @default(uuid()) @db.Uuid
+  organisationId              String                     @map("organisation_id") @db.Uuid
+  incidentReference           String                     @map("incident_reference") @db.VarChar(40)
+  title                       String                     @db.VarChar(240)
+  description                 String                     @db.VarChar(8000)
+  severity                    PrivacyIncidentSeverity
+  status                      PrivacyIncidentStatus      @default(OPEN)
+  personalDataBreach          Boolean                    @map("personal_data_breach")
+  dataCategories              String[]                   @default([]) @map("data_categories") @db.VarChar(160)
+  approximatePeopleAffected   Int                        @default(0) @map("approximate_people_affected")
+  discoveredAt                DateTime                   @map("discovered_at") @db.Timestamptz(6)
+  notificationDeadlineAt      DateTime?                  @map("notification_deadline_at") @db.Timestamptz(6)
+  containedAt                 DateTime?                  @map("contained_at") @db.Timestamptz(6)
+  riskAssessment              String?                    @map("risk_assessment") @db.VarChar(8000)
+  notificationDecision        BreachNotificationDecision @default(UNASSESSED) @map("notification_decision")
+  icoReference                String?                    @map("ico_reference") @db.VarChar(240)
+  icoNotifiedAt               DateTime?                  @map("ico_notified_at") @db.Timestamptz(6)
+  subjectNotificationEvidence String?                    @map("subject_notification_evidence") @db.VarChar(1000)
+  subjectsNotifiedAt          DateTime?                  @map("subjects_notified_at") @db.Timestamptz(6)
+  resolution                  String?                    @db.VarChar(4000)
+  resolvedAt                  DateTime?                  @map("resolved_at") @db.Timestamptz(6)
+  ownerUserProfileId          String?                    @map("owner_user_profile_id") @db.Uuid
+  createdByUserProfileId      String                     @map("created_by_user_profile_id") @db.Uuid
+  updatedByUserProfileId      String                     @map("updated_by_user_profile_id") @db.Uuid
+  version                     Int                        @default(1)
+  createdAt                   DateTime                   @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt                   DateTime                   @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@unique([id, organisationId], map: "uq_privacy_incidents_id_org")
+  @@unique([organisationId, incidentReference], map: "uq_privacy_incidents_org_reference")
+  @@index([organisationId, status, severity, discoveredAt(sort: Desc)], map: "ix_privacy_incidents_org_status_severity")
+  @@map("privacy_incidents")
+  @@ignore
+}
+
+model PrivacyIncidentEvent {
+  id                   String                     @id(map: "pk_privacy_incident_events") @default(uuid()) @db.Uuid
+  organisationId       String                     @map("organisation_id") @db.Uuid
+  incidentId           String                     @map("incident_id") @db.Uuid
+  fromStatus           PrivacyIncidentStatus?     @map("from_status")
+  toStatus             PrivacyIncidentStatus      @map("to_status")
+  severity             PrivacyIncidentSeverity
+  notificationDecision BreachNotificationDecision @map("notification_decision")
+  note                 String                     @db.VarChar(4000)
+  evidenceReference    String?                    @map("evidence_reference") @db.VarChar(1000)
+  actorUserProfileId   String                     @map("actor_user_profile_id") @db.Uuid
+  occurredAt           DateTime                   @default(now()) @map("occurred_at") @db.Timestamptz(6)
+
+  @@index([organisationId, incidentId, occurredAt(sort: Desc)], map: "ix_privacy_incident_events_incident_occurred")
+  @@map("privacy_incident_events")
+  @@ignore
+}
+
+model AssuranceEvidence {
+  id                      String                  @id(map: "pk_assurance_evidence") @default(uuid()) @db.Uuid
+  organisationId          String                  @map("organisation_id") @db.Uuid
+  evidenceKey             String                  @map("evidence_key") @db.VarChar(120)
+  title                   String                  @db.VarChar(180)
+  category                String                  @db.VarChar(80)
+  mandatory               Boolean                 @default(false)
+  status                  AssuranceEvidenceStatus @default(NOT_TESTED)
+  evidenceReference       String?                 @map("evidence_reference") @db.VarChar(1000)
+  evidenceSha256          String?                 @map("evidence_sha256") @db.Char(64)
+  assessorName            String?                 @map("assessor_name") @db.VarChar(240)
+  assessorOrganisation    String?                 @map("assessor_organisation") @db.VarChar(240)
+  scope                   Json                    @default("{}")
+  testedAt                DateTime?               @map("tested_at") @db.Timestamptz(6)
+  expiresAt               DateTime?               @map("expires_at") @db.Timestamptz(6)
+  notes                   String?                 @db.VarChar(4000)
+  recordedByUserProfileId String?                 @map("recorded_by_user_profile_id") @db.Uuid
+  reviewedByUserProfileId String?                 @map("reviewed_by_user_profile_id") @db.Uuid
+  reviewedAt              DateTime?               @map("reviewed_at") @db.Timestamptz(6)
+  reviewNote              String?                 @map("review_note") @db.VarChar(4000)
+  version                 Int                     @default(1)
+  createdAt               DateTime                @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt               DateTime                @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@unique([id, organisationId], map: "uq_assurance_evidence_id_org")
+  @@unique([organisationId, evidenceKey], map: "uq_assurance_evidence_org_key")
+  @@index([organisationId, mandatory, status, expiresAt], map: "ix_assurance_evidence_org_status")
+  @@map("assurance_evidence")
+  @@ignore
+}
+
+model ProductionReleaseDecision {
+  id                     String                       @id(map: "pk_production_release_decisions") @default(uuid()) @db.Uuid
+  organisationId         String                       @map("organisation_id") @db.Uuid
+  releaseReference       String                       @map("release_reference") @db.VarChar(128)
+  environment            String                       @db.VarChar(20)
+  decision               ReleaseDecisionStatus
+  rationale              String                       @db.VarChar(4000)
+  changeReference        String?                      @map("change_reference") @db.VarChar(1000)
+  blockerSnapshot        Json                         @default("[]") @map("blocker_snapshot")
+  evidenceSnapshot       Json                         @default("[]") @map("evidence_snapshot")
+  decidedByUserProfileId String                       @map("decided_by_user_profile_id") @db.Uuid
+  assuranceLevel         AuthenticationAssuranceLevel @map("assurance_level")
+  decidedAt              DateTime                     @default(now()) @map("decided_at") @db.Timestamptz(6)
+
+  @@unique([id, organisationId], map: "uq_production_release_decisions_id_org")
+  @@index([organisationId, releaseReference, environment, decidedAt(sort: Desc)], map: "ix_production_release_decisions_org_release")
+  @@map("production_release_decisions")
   @@ignore
 }
 

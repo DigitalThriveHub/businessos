@@ -27,30 +27,17 @@ import { RevokeOrganisationInvitationDto } from './dto/revoke-organisation-invit
 import { InvitationsService } from './invitations.service';
 
 @Controller('organisations/:organisationId/invitations')
-@UseGuards(
-  JwtAuthGuard,
-  OrganisationAccessGuard,
-  PermissionGuard,
-)
+@UseGuards(JwtAuthGuard, OrganisationAccessGuard, PermissionGuard)
 export class InvitationsController {
-  constructor(
-    private readonly invitationsService:
-      InvitationsService,
-  ) {}
+  constructor(private readonly invitationsService: InvitationsService) {}
 
   @Post()
   @Header('Cache-Control', 'no-store, private')
   @Header('Pragma', 'no-cache')
   @Header('X-Content-Type-Options', 'nosniff')
-  @RequirePermissions(
-    'invitations.create',
-    'onboarding.manage',
-  )
+  @RequirePermissions('invitations.create', 'onboarding.manage')
   create(
-    @Param(
-      'organisationId',
-      new ParseUUIDPipe({ version: '4' }),
-    )
+    @Param('organisationId', new ParseUUIDPipe({ version: '4' }))
     _organisationId: string,
     @Body()
     dto: CreateOrganisationInvitationDto,
@@ -59,9 +46,7 @@ export class InvitationsController {
   ) {
     return this.invitationsService.create(
       dto,
-      requireOrganisationAccessContext(
-        request,
-      ),
+      requireOrganisationAccessContext(request),
     );
   }
 
@@ -69,15 +54,9 @@ export class InvitationsController {
   @Header('Cache-Control', 'no-store, private')
   @Header('Pragma', 'no-cache')
   @Header('X-Content-Type-Options', 'nosniff')
-  @RequirePermissions(
-    'invitations.read',
-    'onboarding.manage',
-  )
+  @RequirePermissions('invitations.read', 'onboarding.manage')
   findAll(
-    @Param(
-      'organisationId',
-      new ParseUUIDPipe({ version: '4' }),
-    )
+    @Param('organisationId', new ParseUUIDPipe({ version: '4' }))
     _organisationId: string,
     @Query()
     query: InvitationQueryDto,
@@ -85,9 +64,7 @@ export class InvitationsController {
     request: OrganisationScopedRequest,
   ) {
     return this.invitationsService.findAll(
-      requireOrganisationAccessContext(
-        request,
-      ),
+      requireOrganisationAccessContext(request),
       query.page,
       query.limit,
     );
@@ -98,20 +75,11 @@ export class InvitationsController {
   @Header('Cache-Control', 'no-store, private')
   @Header('Pragma', 'no-cache')
   @Header('X-Content-Type-Options', 'nosniff')
-  @RequirePermissions(
-    'invitations.revoke',
-    'onboarding.manage',
-  )
+  @RequirePermissions('invitations.revoke', 'onboarding.manage')
   revoke(
-    @Param(
-      'organisationId',
-      new ParseUUIDPipe({ version: '4' }),
-    )
+    @Param('organisationId', new ParseUUIDPipe({ version: '4' }))
     _organisationId: string,
-    @Param(
-      'invitationId',
-      new ParseUUIDPipe({ version: '4' }),
-    )
+    @Param('invitationId', new ParseUUIDPipe({ version: '4' }))
     invitationId: string,
     @Body()
     dto: RevokeOrganisationInvitationDto,
@@ -121,9 +89,7 @@ export class InvitationsController {
     return this.invitationsService.revoke(
       invitationId,
       dto.reason,
-      requireOrganisationAccessContext(
-        request,
-      ),
+      requireOrganisationAccessContext(request),
     );
   }
 }

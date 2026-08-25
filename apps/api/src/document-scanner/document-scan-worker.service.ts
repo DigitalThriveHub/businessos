@@ -23,7 +23,9 @@ interface FailureResult {
 }
 
 @Injectable()
-export class DocumentScanWorkerService implements OnModuleInit, OnModuleDestroy {
+export class DocumentScanWorkerService
+  implements OnModuleInit, OnModuleDestroy
+{
   private readonly logger = new Logger(DocumentScanWorkerService.name);
   private readonly workerId: string;
   private timer: NodeJS.Timeout | null = null;
@@ -37,13 +39,18 @@ export class DocumentScanWorkerService implements OnModuleInit, OnModuleDestroy 
     private readonly storage: SupabasePrivateStorageService,
     private readonly clamav: ClamAvClientService,
   ) {
-    this.workerId = `${config.workerIdPrefix}-${hostname().slice(0, 40)}-${process.pid}-${randomUUID().slice(0, 8)}`
-      .slice(0, 160);
+    this.workerId =
+      `${config.workerIdPrefix}-${hostname().slice(0, 40)}-${process.pid}-${randomUUID().slice(0, 8)}`.slice(
+        0,
+        160,
+      );
   }
 
   onModuleInit(): void {
     if (!this.config.enabled) {
-      this.logger.log('Document scanner is disabled; quarantined uploads remain fail-closed.');
+      this.logger.log(
+        'Document scanner is disabled; quarantined uploads remain fail-closed.',
+      );
       return;
     }
     this.logger.log('Document scanner worker enabled.');
@@ -117,7 +124,10 @@ export class DocumentScanWorkerService implements OnModuleInit, OnModuleDestroy 
         );
       }
 
-      const download = await this.storage.download(job.storageBucket, job.storagePath);
+      const download = await this.storage.download(
+        job.storageBucket,
+        job.storagePath,
+      );
       this.cancelCurrentDownload = download.cancel;
       try {
         if (
@@ -141,7 +151,10 @@ export class DocumentScanWorkerService implements OnModuleInit, OnModuleDestroy 
             false,
           );
         }
-        const verdict = await this.clamav.scan(download.chunks, expectedSizeBytes);
+        const verdict = await this.clamav.scan(
+          download.chunks,
+          expectedSizeBytes,
+        );
         const [completion] = await this.database.$queryRaw<ScanJobCompletion[]>`
           SELECT
             job_status AS "jobStatus",

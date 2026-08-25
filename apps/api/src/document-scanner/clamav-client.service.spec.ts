@@ -4,7 +4,9 @@ import { createServer, type Server, type Socket } from 'node:net';
 import { ClamAvClientService } from './clamav-client.service';
 import { DocumentScannerConfig } from './document-scanner.config';
 
-function startClamAvStub(verdict: string): Promise<{ server: Server; port: number }> {
+function startClamAvStub(
+  verdict: string,
+): Promise<{ server: Server; port: number }> {
   return new Promise((resolve, reject) => {
     const server = createServer((socket: Socket) => {
       let buffer = Buffer.alloc(0);
@@ -76,7 +78,9 @@ describe('ClamAvClientService', () => {
   });
 
   it('returns the bounded malware signature from an infected verdict', async () => {
-    const { server, port } = await startClamAvStub('stream: Eicar-Test-Signature FOUND');
+    const { server, port } = await startClamAvStub(
+      'stream: Eicar-Test-Signature FOUND',
+    );
     try {
       const config = new DocumentScannerConfig({
         DOCUMENT_SCANNER_ENABLED: 'true',

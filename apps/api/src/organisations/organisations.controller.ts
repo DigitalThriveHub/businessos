@@ -20,25 +20,16 @@ import { UpdateOrganisationDto } from './dto/update-organisation.dto';
 import { OrganisationsService } from './organisations.service';
 
 @Controller('organisations/:organisationId')
-@UseGuards(
-  JwtAuthGuard,
-  OrganisationAccessGuard,
-  PermissionGuard,
-)
+@UseGuards(JwtAuthGuard, OrganisationAccessGuard, PermissionGuard)
 export class OrganisationsController {
-  constructor(
-    private readonly organisationsService:
-      OrganisationsService,
-  ) {}
+  constructor(private readonly organisationsService: OrganisationsService) {}
 
   @Get()
   @Header('Cache-Control', 'no-store, private')
   @Header('Pragma', 'no-cache')
   @Header('X-Content-Type-Options', 'nosniff')
   @RequirePermissions('organisation.read')
-  findCurrent(
-    @Req() request: OrganisationScopedRequest,
-  ) {
+  findCurrent(@Req() request: OrganisationScopedRequest) {
     return this.organisationsService.findCurrent(
       requireOrganisationAccessContext(request),
     );

@@ -8,9 +8,7 @@ import {
   PayloadTooLargeException,
 } from '@nestjs/common';
 
-import type {
-  OrganisationAccessContext,
-} from '../auth/request-security-context';
+import type { OrganisationAccessContext } from '../auth/request-security-context';
 import { RlsTransactionService } from '../database/rls-transaction.service';
 import { UpdateOrganisationDto } from './dto/update-organisation.dto';
 
@@ -27,21 +25,10 @@ export interface OrganisationProfile {
   updatedAt: string;
 }
 
-const DATABASE_ERROR_CODES = new Set([
-  '22001',
-  '22023',
-  '23505',
-  '42501',
-]);
+const DATABASE_ERROR_CODES = new Set(['22001', '22023', '23505', '42501']);
 
-function isRecord(
-  value: unknown,
-): value is Record<string, unknown> {
-  return (
-    typeof value === 'object' &&
-    value !== null &&
-    !Array.isArray(value)
-  );
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === 'object' && value !== null && !Array.isArray(value);
 }
 
 function findDatabaseErrorCode(
@@ -60,25 +47,14 @@ function findDatabaseErrorCode(
 
   visited.add(error);
 
-  for (const value of Object.values(
-    error as Record<string, unknown>,
-  )) {
-    if (
-      typeof value === 'string' &&
-      DATABASE_ERROR_CODES.has(value)
-    ) {
+  for (const value of Object.values(error as Record<string, unknown>)) {
+    if (typeof value === 'string' && DATABASE_ERROR_CODES.has(value)) {
       return value;
     }
   }
 
-  for (const value of Object.values(
-    error as Record<string, unknown>,
-  )) {
-    const nestedCode = findDatabaseErrorCode(
-      value,
-      depth + 1,
-      visited,
-    );
+  for (const value of Object.values(error as Record<string, unknown>)) {
+    const nestedCode = findDatabaseErrorCode(value, depth + 1, visited);
 
     if (nestedCode) {
       return nestedCode;
@@ -88,26 +64,17 @@ function findDatabaseErrorCode(
   return undefined;
 }
 
-function toIsoTimestamp(
-  value: unknown,
-): string | null {
-  if (
-    typeof value !== 'string' &&
-    !(value instanceof Date)
-  ) {
+function toIsoTimestamp(value: unknown): string | null {
+  if (typeof value !== 'string' && !(value instanceof Date)) {
     return null;
   }
 
   const date = new Date(value);
 
-  return Number.isNaN(date.getTime())
-    ? null
-    : date.toISOString();
+  return Number.isNaN(date.getTime()) ? null : date.toISOString();
 }
 
-function parseOrganisationProfile(
-  value: unknown,
-): OrganisationProfile {
+function parseOrganisationProfile(value: unknown): OrganisationProfile {
   if (!isRecord(value)) {
     throw new InternalServerErrorException(
       'The organisation service returned an invalid response',
@@ -127,15 +94,11 @@ function parseOrganisationProfile(
     updatedAt,
   } = value;
 
-  const validLegalName =
-    legalName === null ||
-    typeof legalName === 'string';
+  const validLegalName = legalName === null || typeof legalName === 'string';
 
-  const createdAtIso =
-    toIsoTimestamp(createdAt);
+  const createdAtIso = toIsoTimestamp(createdAt);
 
-  const updatedAtIso =
-    toIsoTimestamp(updatedAt);
+  const updatedAtIso = toIsoTimestamp(updatedAt);
 
   if (
     typeof id !== 'string' ||
@@ -157,10 +120,7 @@ function parseOrganisationProfile(
   return {
     id,
     name,
-    legalName:
-      typeof legalName === 'string'
-        ? legalName
-        : null,
+    legalName: typeof legalName === 'string' ? legalName : null,
     slug,
     status,
     timezone,
@@ -175,23 +135,16 @@ function createUpdatePatch(
   dto: UpdateOrganisationDto,
 ): Record<string, unknown> {
   return Object.fromEntries(
-    Object.entries(dto).filter(
-      ([, value]) => value !== undefined,
-    ),
+    Object.entries(dto).filter(([, value]) => value !== undefined),
   );
 }
 
-function throwDatabaseError(
-  error: unknown,
-): never {
-  if (
-    error instanceof InternalServerErrorException
-  ) {
+function throwDatabaseError(error: unknown): never {
+  if (error instanceof InternalServerErrorException) {
     throw error;
   }
 
-  const databaseCode =
-    findDatabaseErrorCode(error);
+  const databaseCode = findDatabaseErrorCode(error);
 
   switch (databaseCode) {
     case '22001':
@@ -200,19 +153,13 @@ function throwDatabaseError(
       );
 
     case '22023':
-      throw new BadRequestException(
-        'The organisation details are invalid',
-      );
+      throw new BadRequestException('The organisation details are invalid');
 
     case '23505':
-      throw new ConflictException(
-        'The organisation URL is already in use',
-      );
+      throw new ConflictException('The organisation URL is already in use');
 
     case '42501':
-      throw new ForbiddenException(
-        'Organisation update is not permitted',
-      );
+      throw new ForbiddenException('Organisation update is not permitted');
 
     default:
       throw new InternalServerErrorException(
@@ -223,9 +170,7 @@ function throwDatabaseError(
 
 @Injectable()
 export class OrganisationsService {
-  constructor(
-    private readonly rls: RlsTransactionService,
-  ) {}
+  constructor(private readonly rls: RlsTransactionService) {}
 
   async findCurrent(
     context: Readonly<OrganisationAccessContext>,
@@ -234,8 +179,7 @@ export class OrganisationsService {
       const organisation = await this.rls.run(
         {
           userId: context.userId,
-          organisationId:
-            context.organisationId,
+          organisationId: context.organisationId,
           aal: context.aal,
         },
         (transaction) =>
@@ -260,14 +204,10 @@ export class OrganisationsService {
       );
 
       if (!organisation) {
-        throw new NotFoundException(
-          'Organisation was not found',
-        );
+        throw new NotFoundException('Organisation was not found');
       }
 
-      return parseOrganisationProfile(
-        organisation,
-      );
+      return parseOrganisationProfile(organisation);
     } catch (error) {
       if (error instanceof NotFoundException) {
         throw error;
@@ -295,8 +235,7 @@ export class OrganisationsService {
       const rows = await this.rls.run(
         {
           userId: context.userId,
-          organisationId:
-            context.organisationId,
+          organisationId: context.organisationId,
           aal: context.aal,
         },
         (transaction) =>
@@ -313,12 +252,9 @@ export class OrganisationsService {
           `,
       );
 
-      const organisation =
-        rows[0]?.organisation;
+      const organisation = rows[0]?.organisation;
 
-      return parseOrganisationProfile(
-        organisation,
-      );
+      return parseOrganisationProfile(organisation);
     } catch (error) {
       throwDatabaseError(error);
     }

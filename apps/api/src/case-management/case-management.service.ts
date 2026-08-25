@@ -227,9 +227,7 @@ function databaseCode(error: unknown): string | null {
 
   const meta = isRecord(error.meta) ? error.meta : null;
   const driverAdapterError =
-    meta && isRecord(meta.driverAdapterError)
-      ? meta.driverAdapterError
-      : null;
+    meta && isRecord(meta.driverAdapterError) ? meta.driverAdapterError : null;
   const cause =
     driverAdapterError && isRecord(driverAdapterError.cause)
       ? driverAdapterError.cause

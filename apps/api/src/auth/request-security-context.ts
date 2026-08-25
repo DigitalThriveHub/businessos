@@ -1,7 +1,4 @@
-import {
-  BadRequestException,
-  ForbiddenException,
-} from '@nestjs/common';
+import { BadRequestException, ForbiddenException } from '@nestjs/common';
 import type { Request } from 'express';
 import {
   isUuid,
@@ -22,24 +19,15 @@ export interface OrganisationScopedRequest extends Request {
   organisationAccess?: Readonly<OrganisationAccessContext>;
 }
 
-function readOrganisationId(
-  value: unknown,
-): unknown {
-  if (
-    typeof value !== 'object' ||
-    value === null
-  ) {
+function readOrganisationId(value: unknown): unknown {
+  if (typeof value !== 'object' || value === null) {
     return undefined;
   }
 
-  return (
-    value as Record<string, unknown>
-  ).organisationId;
+  return (value as Record<string, unknown>).organisationId;
 }
 
-export function resolveRequestOrganisationId(
-  request: Request,
-): string {
+export function resolveRequestOrganisationId(request: Request): string {
   const candidates = [
     readOrganisationId(request.body),
     readOrganisationId(request.query),
@@ -62,8 +50,7 @@ export function resolveRequestOrganisationId(
     return value;
   });
 
-  const uniqueOrganisationIds =
-    new Set(organisationIds);
+  const uniqueOrganisationIds = new Set(organisationIds);
 
   if (uniqueOrganisationIds.size !== 1) {
     throw new BadRequestException(
@@ -87,9 +74,7 @@ export function requireOrganisationAccessContext(
   request: OrganisationScopedRequest,
 ): Readonly<OrganisationAccessContext> {
   if (!request.organisationAccess) {
-    throw new ForbiddenException(
-      'Organisation access could not be verified',
-    );
+    throw new ForbiddenException('Organisation access could not be verified');
   }
 
   return request.organisationAccess;

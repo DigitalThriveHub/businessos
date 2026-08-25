@@ -1634,10 +1634,7 @@ export class WorkforceConfigurationService {
             context.organisationId,
             agentProfileId,
           ),
-          this.requireAiPermission(
-            transaction,
-            dto.requiredPermissionKey,
-          ),
+          this.requireAiPermission(transaction, dto.requiredPermissionKey),
         ]);
 
         this.assertAgentPolicyBoundary(profile, permission, dto);
@@ -1697,10 +1694,7 @@ export class WorkforceConfigurationService {
             context.organisationId,
             agentProfileId,
           ),
-          this.requireAiPermission(
-            transaction,
-            dto.requiredPermissionKey,
-          ),
+          this.requireAiPermission(transaction, dto.requiredPermissionKey),
           transaction.agentPolicy.findFirst({
             where: {
               id: policyId,
@@ -1843,10 +1837,7 @@ export class WorkforceConfigurationService {
     }
   }
 
-  private assertExpectedTimestamp(
-    current: Date,
-    expectedValue: string,
-  ): void {
+  private assertExpectedTimestamp(current: Date, expectedValue: string): void {
     const expected = new Date(expectedValue);
 
     if (expected.getTime() !== current.getTime()) {
@@ -1953,9 +1944,7 @@ export class WorkforceConfigurationService {
     });
 
     if (!department) {
-      throw new BadRequestException(
-        'The selected department is unavailable.',
-      );
+      throw new BadRequestException('The selected department is unavailable.');
     }
   }
 
@@ -2215,10 +2204,7 @@ export class WorkforceConfigurationService {
             deletedAt: null,
             effectiveFrom: { lte: now },
             isActive: true,
-            OR: [
-              { effectiveUntil: null },
-              { effectiveUntil: { gt: now } },
-            ],
+            OR: [{ effectiveUntil: null }, { effectiveUntil: { gt: now } }],
           },
         }),
         transaction.invitationOnboardingKpi.count({
@@ -2401,9 +2387,7 @@ export class WorkforceConfigurationService {
         organisationId,
         jobProfileId,
         deletedAt: null,
-        ...(excludedAssignmentId
-          ? { id: { not: excludedAssignmentId } }
-          : {}),
+        ...(excludedAssignmentId ? { id: { not: excludedAssignmentId } } : {}),
         ...(endsAt ? { startsAt: { lt: endsAt } } : {}),
         OR: [{ endsAt: null }, { endsAt: { gt: startsAt } }],
       },
@@ -2427,19 +2411,14 @@ export class WorkforceConfigurationService {
     const addedWeight = new Prisma.Decimal(proposedWeight);
 
     for (const boundary of boundaries) {
-      const existingWeight = overlapping.reduce(
-        (total, assignment) => {
-          const activeAtBoundary =
-            assignment.startsAt.getTime() <= boundary.getTime() &&
-            (!assignment.endsAt ||
-              assignment.endsAt.getTime() > boundary.getTime());
+      const existingWeight = overlapping.reduce((total, assignment) => {
+        const activeAtBoundary =
+          assignment.startsAt.getTime() <= boundary.getTime() &&
+          (!assignment.endsAt ||
+            assignment.endsAt.getTime() > boundary.getTime());
 
-          return activeAtBoundary
-            ? total.plus(assignment.weightPercent)
-            : total;
-        },
-        new Prisma.Decimal(0),
-      );
+        return activeAtBoundary ? total.plus(assignment.weightPercent) : total;
+      }, new Prisma.Decimal(0));
 
       if (existingWeight.plus(addedWeight).greaterThan(100)) {
         throw new BadRequestException(
@@ -2633,7 +2612,9 @@ export class WorkforceConfigurationService {
     }
   }
 
-  private assertConfigurationSize(configuration: Record<string, unknown>): void {
+  private assertConfigurationSize(
+    configuration: Record<string, unknown>,
+  ): void {
     try {
       const serialised = JSON.stringify(configuration);
 

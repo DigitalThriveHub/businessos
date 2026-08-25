@@ -45,33 +45,19 @@ type UpdateProfileDatabaseRow = {
   profile: unknown;
 };
 
-function optionalString(
-  value: unknown,
-): string | undefined {
-  return typeof value === 'string'
-    ? value
-    : undefined;
+function optionalString(value: unknown): string | undefined {
+  return typeof value === 'string' ? value : undefined;
 }
 
-function isObject(
-  value: unknown,
-): value is Record<string, unknown> {
-  return (
-    typeof value === 'object' &&
-    value !== null &&
-    !Array.isArray(value)
-  );
+function isObject(value: unknown): value is Record<string, unknown> {
+  return typeof value === 'object' && value !== null && !Array.isArray(value);
 }
 
-function isNullableString(
-  value: unknown,
-): value is string | null {
+function isNullableString(value: unknown): value is string | null {
   return value === null || typeof value === 'string';
 }
 
-function parseUpdatedProfile(
-  value: unknown,
-): UpdatedCurrentUserProfile | null {
+function parseUpdatedProfile(value: unknown): UpdatedCurrentUserProfile | null {
   let candidate = value;
 
   /*
@@ -124,10 +110,7 @@ function parseUpdatedProfile(
   };
 }
 
-function findPostgresErrorCode(
-  error: unknown,
-  depth = 0,
-): string | undefined {
+function findPostgresErrorCode(error: unknown, depth = 0): string | undefined {
   if (!isObject(error) || depth > 6) {
     return undefined;
   }
@@ -136,17 +119,10 @@ function findPostgresErrorCode(
    * Prefer nested PostgreSQL SQLSTATE values over Prisma adapter
    * codes such as P2039.
    */
-  for (const key of [
-    'originalCode',
-    'sqlState',
-    'sqlstate',
-  ]) {
+  for (const key of ['originalCode', 'sqlState', 'sqlstate']) {
     const value = error[key];
 
-    if (
-      typeof value === 'string' &&
-      /^[0-9A-Z]{5}$/.test(value)
-    ) {
+    if (typeof value === 'string' && /^[0-9A-Z]{5}$/.test(value)) {
       return value;
     }
   }
@@ -158,10 +134,7 @@ function findPostgresErrorCode(
     'originalError',
     'error',
   ]) {
-    const nestedCode = findPostgresErrorCode(
-      error[key],
-      depth + 1,
-    );
+    const nestedCode = findPostgresErrorCode(error[key], depth + 1);
 
     if (nestedCode) {
       return nestedCode;
@@ -170,10 +143,7 @@ function findPostgresErrorCode(
 
   const directCode = error.code;
 
-  return (
-    typeof directCode === 'string' &&
-    /^[0-9A-Z]{5}$/.test(directCode)
-  )
+  return typeof directCode === 'string' && /^[0-9A-Z]{5}$/.test(directCode)
     ? directCode
     : undefined;
 }
@@ -206,9 +176,7 @@ function buildProfilePatch(
   return patch;
 }
 
-function describeRuntimeType(
-  value: unknown,
-): string {
+function describeRuntimeType(value: unknown): string {
   if (value === null) {
     return 'null';
   }
@@ -226,23 +194,15 @@ function describeRuntimeType(
 
 @Injectable()
 export class AuthService {
-  private readonly logger = new Logger(
-    AuthService.name,
-  );
+  private readonly logger = new Logger(AuthService.name);
 
-  constructor(
-    private readonly rls: RlsTransactionService,
-  ) {}
+  constructor(private readonly rls: RlsTransactionService) {}
 
-  async getCurrentUser(
-    tokenUser: JWTPayload | undefined,
-  ) {
-    const verifiedUser =
-      verifyUserJwtPayload(tokenUser);
+  async getCurrentUser(tokenUser: JWTPayload | undefined) {
+    const verifiedUser = verifyUserJwtPayload(tokenUser);
 
     const userId = verifiedUser.sub;
-    const aal =
-      resolveAssuranceLevel(verifiedUser);
+    const aal = resolveAssuranceLevel(verifiedUser);
 
     const now = new Date();
 
@@ -299,48 +259,35 @@ export class AuthService {
     if (!profile) {
       return {
         id: userId,
-        email: optionalString(
-          verifiedUser.email,
-        ),
+        email: optionalString(verifiedUser.email),
         authenticated: true,
         onboardingRequired: true,
-        organisations:
-          [] as CurrentUserOrganisation[],
+        organisations: [] as CurrentUserOrganisation[],
       };
     }
 
     if (
-      profile.status !==
-        UserProfileStatus.ACTIVE ||
+      profile.status !== UserProfileStatus.ACTIVE ||
       profile.deletedAt !== null
     ) {
-      throw new ForbiddenException(
-        'Account access is unavailable',
-      );
+      throw new ForbiddenException('Account access is unavailable');
     }
 
-    const organisations:
-      CurrentUserOrganisation[] = [];
+    const organisations: CurrentUserOrganisation[] = [];
 
-    for (
-      const membership of
-      profile.organisationMemberships
-    ) {
+    for (const membership of profile.organisationMemberships) {
       const assignments = await this.rls.run(
         {
           userId,
-          organisationId:
-            membership.organisationId,
+          organisationId: membership.organisationId,
           aal,
         },
         (transaction) =>
           transaction.roleAssignment.findMany({
             where: {
               userProfileId: userId,
-              organisationId:
-                membership.organisationId,
-              organisationMembershipId:
-                membership.id,
+              organisationId: membership.organisationId,
+              organisationMembershipId: membership.id,
               revokedAt: null,
               deletedAt: null,
               validFrom: {
@@ -357,8 +304,7 @@ export class AuthService {
                 },
               ],
               role: {
-                organisationId:
-                  membership.organisationId,
+                organisationId: membership.organisationId,
                 deletedAt: null,
               },
             },
@@ -389,42 +335,27 @@ export class AuthService {
       );
 
       const roles = [
-        ...new Set(
-          assignments.map(
-            (assignment) =>
-              assignment.role.key,
-          ),
-        ),
+        ...new Set(assignments.map((assignment) => assignment.role.key)),
       ].sort();
 
       const permissions = [
         ...new Set(
-          assignments.flatMap(
-            (assignment) =>
-              assignment.role.permissions
-                .filter(
-                  ({ permission }) =>
-                    !permission.requiresMfa ||
-                    aal === 'AAL2',
-                )
-                .map(
-                  ({ permission }) =>
-                    permission.key,
-                ),
+          assignments.flatMap((assignment) =>
+            assignment.role.permissions
+              .filter(
+                ({ permission }) => !permission.requiresMfa || aal === 'AAL2',
+              )
+              .map(({ permission }) => permission.key),
           ),
         ),
       ].sort();
 
       organisations.push({
-        organisationId:
-          membership.organisationId,
+        organisationId: membership.organisationId,
         membershipId: membership.id,
-        organisationName:
-          membership.organisation.name,
-        organisationSlug:
-          membership.organisation.slug,
-        organisationStatus:
-          membership.organisation.status,
+        organisationName: membership.organisation.name,
+        organisationSlug: membership.organisation.slug,
+        organisationStatus: membership.organisation.status,
         jobTitle: membership.jobTitle,
         roles,
         permissions,
@@ -448,12 +379,10 @@ export class AuthService {
     tokenUser: JWTPayload | undefined,
     dto: UpdateCurrentUserProfileDto,
   ): Promise<UpdatedCurrentUserProfile> {
-    const verifiedUser =
-      verifyUserJwtPayload(tokenUser);
+    const verifiedUser = verifyUserJwtPayload(tokenUser);
 
     const userId = verifiedUser.sub;
-    const aal =
-      resolveAssuranceLevel(verifiedUser);
+    const aal = resolveAssuranceLevel(verifiedUser);
 
     const patch = buildProfilePatch(dto);
 
@@ -463,8 +392,7 @@ export class AuthService {
       );
     }
 
-    const serialisedPatch =
-      JSON.stringify(patch);
+    const serialisedPatch = JSON.stringify(patch);
 
     try {
       const rows = await this.rls.run(
@@ -473,9 +401,7 @@ export class AuthService {
           aal,
         },
         (transaction) =>
-          transaction.$queryRaw<
-            UpdateProfileDatabaseRow[]
-          >`
+          transaction.$queryRaw<UpdateProfileDatabaseRow[]>`
             SELECT (
               private.update_own_profile(
                 ${serialisedPatch}::jsonb
@@ -486,22 +412,15 @@ export class AuthService {
 
       const rawProfile = rows[0]?.profile;
 
-      const profile =
-        parseUpdatedProfile(rawProfile);
+      const profile = parseUpdatedProfile(rawProfile);
 
       if (!profile) {
         this.logger.error(
           [
             'Profile update response validation failed',
-            `profileType=${describeRuntimeType(
-              rawProfile,
-            )}`,
+            `profileType=${describeRuntimeType(rawProfile)}`,
             `rowKeys=${
-              isObject(rows[0])
-                ? Object.keys(rows[0])
-                    .sort()
-                    .join(',')
-                : 'none'
+              isObject(rows[0]) ? Object.keys(rows[0]).sort().join(',') : 'none'
             }`,
           ].join('; '),
         );
@@ -517,49 +436,28 @@ export class AuthService {
        * Response-validation failures are logged immediately above.
        * Do not expose database or adapter details to the caller.
        */
-      if (
-        error instanceof
-        InternalServerErrorException
-      ) {
+      if (error instanceof InternalServerErrorException) {
         throw error;
       }
 
-      const databaseCode =
-        findPostgresErrorCode(error);
+      const databaseCode = findPostgresErrorCode(error);
 
       if (databaseCode === '42501') {
-        throw new ForbiddenException(
-          'Account profile is unavailable',
-        );
+        throw new ForbiddenException('Account profile is unavailable');
       }
 
-      if (
-        databaseCode === '22001' ||
-        databaseCode === '22023'
-      ) {
-        throw new BadRequestException(
-          'The profile update is invalid',
-        );
+      if (databaseCode === '22001' || databaseCode === '22023') {
+        throw new BadRequestException('The profile update is invalid');
       }
 
       this.logger.error(
         [
           'Profile update database operation failed',
           `sqlState=${databaseCode ?? 'unknown'}`,
-          `errorType=${
-            error instanceof Error
-              ? error.name
-              : typeof error
-          }`,
-          `message=${
-            error instanceof Error
-              ? error.message
-              : 'Unknown error'
-          }`,
+          `errorType=${error instanceof Error ? error.name : typeof error}`,
+          `message=${error instanceof Error ? error.message : 'Unknown error'}`,
         ].join('; '),
-        error instanceof Error
-          ? error.stack
-          : undefined,
+        error instanceof Error ? error.stack : undefined,
       );
 
       throw new InternalServerErrorException(

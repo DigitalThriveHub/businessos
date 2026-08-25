@@ -37,35 +37,19 @@ export interface AcceptedOrganisationInvitation {
   jobTitle: string | null;
 }
 
-function isRecord(
-  value: unknown,
-): value is Record<string, unknown> {
-  return (
-    typeof value === 'object' &&
-    value !== null &&
-    !Array.isArray(value)
-  );
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === 'object' && value !== null && !Array.isArray(value);
 }
 
-function findPostgresErrorCode(
-  error: unknown,
-  depth = 0,
-): string | undefined {
+function findPostgresErrorCode(error: unknown, depth = 0): string | undefined {
   if (!isRecord(error) || depth > 6) {
     return undefined;
   }
 
-  for (const key of [
-    'originalCode',
-    'sqlState',
-    'sqlstate',
-  ]) {
+  for (const key of ['originalCode', 'sqlState', 'sqlstate']) {
     const value = error[key];
 
-    if (
-      typeof value === 'string' &&
-      /^[0-9A-Z]{5}$/.test(value)
-    ) {
+    if (typeof value === 'string' && /^[0-9A-Z]{5}$/.test(value)) {
       return value;
     }
   }
@@ -77,10 +61,7 @@ function findPostgresErrorCode(
     'originalError',
     'error',
   ]) {
-    const nestedCode = findPostgresErrorCode(
-      error[key],
-      depth + 1,
-    );
+    const nestedCode = findPostgresErrorCode(error[key], depth + 1);
 
     if (nestedCode) {
       return nestedCode;
@@ -89,25 +70,16 @@ function findPostgresErrorCode(
 
   const directCode = error.code;
 
-  return (
-    typeof directCode === 'string' &&
-    /^[0-9A-Z]{5}$/.test(directCode)
-  )
+  return typeof directCode === 'string' && /^[0-9A-Z]{5}$/.test(directCode)
     ? directCode
     : undefined;
 }
 
-function isStringArray(
-  value: unknown,
-): value is string[] {
+function isStringArray(value: unknown): value is string[] {
   return (
     Array.isArray(value) &&
     value.length > 0 &&
-    value.every(
-      (item) =>
-        typeof item === 'string' &&
-        item.length > 0,
-    )
+    value.every((item) => typeof item === 'string' && item.length > 0)
   );
 }
 
@@ -123,10 +95,7 @@ function parseAcceptanceResult(
     typeof row.membership_id !== 'string' ||
     row.invitation_status !== 'ACCEPTED' ||
     !isStringArray(row.role_keys) ||
-    !(
-      row.job_title === null ||
-      typeof row.job_title === 'string'
-    )
+    !(row.job_title === null || typeof row.job_title === 'string')
   ) {
     return null;
   }
@@ -145,9 +114,7 @@ function parseAcceptanceResult(
 
 @Injectable()
 export class InvitationAcceptanceService {
-  private readonly logger = new Logger(
-    InvitationAcceptanceService.name,
-  );
+  private readonly logger = new Logger(InvitationAcceptanceService.name);
 
   constructor(
     private readonly rls: RlsTransactionService,
@@ -158,14 +125,11 @@ export class InvitationAcceptanceService {
     tokenUser: JWTPayload | undefined,
     rawToken: string,
   ): Promise<AcceptedOrganisationInvitation> {
-    const verifiedUser =
-      verifyUserJwtPayload(tokenUser);
+    const verifiedUser = verifyUserJwtPayload(tokenUser);
 
     const userId = verifiedUser.sub;
-    const aal =
-      resolveAssuranceLevel(verifiedUser);
-    const tokenHash =
-      this.tokens.hashToken(rawToken);
+    const aal = resolveAssuranceLevel(verifiedUser);
+    const tokenHash = this.tokens.hashToken(rawToken);
 
     try {
       const rows = await this.rls.run(
@@ -174,9 +138,7 @@ export class InvitationAcceptanceService {
           aal,
         },
         (transaction) =>
-          transaction.$queryRaw<
-            InvitationAcceptanceDatabaseRow[]
-          >`
+          transaction.$queryRaw<InvitationAcceptanceDatabaseRow[]>`
             SELECT *
             FROM private.accept_organisation_invitation(
               ${tokenHash}
@@ -200,15 +162,11 @@ export class InvitationAcceptanceService {
 
       return result;
     } catch (error: unknown) {
-      if (
-        error instanceof
-        InternalServerErrorException
-      ) {
+      if (error instanceof InternalServerErrorException) {
         throw error;
       }
 
-      const databaseCode =
-        findPostgresErrorCode(error);
+      const databaseCode = findPostgresErrorCode(error);
 
       if (databaseCode === '22023') {
         throw new BadRequestException(
@@ -227,20 +185,14 @@ export class InvitationAcceptanceService {
         databaseCode === '23505' ||
         databaseCode === '23P01'
       ) {
-        throw new ConflictException(
-          'This invitation is no longer available.',
-        );
+        throw new ConflictException('This invitation is no longer available.');
       }
 
       this.logger.error(
         [
           'Invitation acceptance database operation failed',
           `sqlState=${databaseCode ?? 'unknown'}`,
-          `errorType=${
-            error instanceof Error
-              ? error.name
-              : typeof error
-          }`,
+          `errorType=${error instanceof Error ? error.name : typeof error}`,
         ].join('; '),
       );
 

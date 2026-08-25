@@ -61,9 +61,7 @@ function optionalText({ value }: TransformFnParams): unknown {
 }
 
 function optionalUuid({ value }: TransformFnParams): unknown {
-  return typeof value === 'string' && value.trim() === ''
-    ? null
-    : value;
+  return typeof value === 'string' && value.trim() === '' ? null : value;
 }
 
 function optionalDecimal({ value }: TransformFnParams): unknown {
@@ -247,8 +245,8 @@ export class CreateKpiDefinitionDto {
   unitLabel?: string | null;
 
   @Transform(upperCaseCode)
-  @ValidateIf((dto: CreateKpiDefinitionDto) =>
-    dto.valueType === KpiValueType.CURRENCY,
+  @ValidateIf(
+    (dto: CreateKpiDefinitionDto) => dto.valueType === KpiValueType.CURRENCY,
   )
   @IsString()
   @Matches(/^[A-Z]{3}$/)
@@ -295,8 +293,8 @@ export class UpdateKpiDefinitionDto {
   unitLabel!: string | null;
 
   @Transform(upperCaseCode)
-  @ValidateIf((dto: UpdateKpiDefinitionDto) =>
-    dto.valueType === KpiValueType.CURRENCY,
+  @ValidateIf(
+    (dto: UpdateKpiDefinitionDto) => dto.valueType === KpiValueType.CURRENCY,
   )
   @IsString()
   @Matches(/^[A-Z]{3}$/)

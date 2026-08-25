@@ -1,7 +1,4 @@
-import {
-  Transform,
-  type TransformFnParams,
-} from 'class-transformer';
+import { Transform, type TransformFnParams } from 'class-transformer';
 import {
   ArrayMaxSize,
   ArrayMinSize,
@@ -19,31 +16,21 @@ import {
   ValidateIf,
 } from 'class-validator';
 
-function normaliseEmail({
-  value,
-}: TransformFnParams): unknown {
-  return typeof value === 'string'
-    ? value.trim().toLowerCase()
-    : value;
+function normaliseEmail({ value }: TransformFnParams): unknown {
+  return typeof value === 'string' ? value.trim().toLowerCase() : value;
 }
 
-function normaliseRoleKeys({
-  value,
-}: TransformFnParams): unknown {
+function normaliseRoleKeys({ value }: TransformFnParams): unknown {
   if (!Array.isArray(value)) {
     return value;
   }
 
   return value.map((roleKey) =>
-    typeof roleKey === 'string'
-      ? roleKey.trim().toLowerCase()
-      : roleKey,
+    typeof roleKey === 'string' ? roleKey.trim().toLowerCase() : roleKey,
   );
 }
 
-function optionalTrimmedString({
-  value,
-}: TransformFnParams): unknown {
+function optionalTrimmedString({ value }: TransformFnParams): unknown {
   if (typeof value !== 'string') {
     return value;
   }
@@ -70,14 +57,10 @@ export class CreateOrganisationInvitationDto {
   @ArrayMaxSize(8)
   @ArrayUnique()
   @IsString({ each: true })
-  @Matches(
-    /^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$/,
-    {
-      each: true,
-      message:
-        'Each role key must be a valid registered role key',
-    },
-  )
+  @Matches(/^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$/, {
+    each: true,
+    message: 'Each role key must be a valid registered role key',
+  })
   roleKeys!: string[];
 
   @Transform(optionalTrimmedString)
@@ -93,12 +76,10 @@ export class CreateOrganisationInvitationDto {
   @Transform(optionalTrimmedString)
   @ValidateIf(
     (dto: CreateOrganisationInvitationDto) =>
-      dto.isDepartmentManager === true ||
-      dto.departmentId !== undefined,
+      dto.isDepartmentManager === true || dto.departmentId !== undefined,
   )
   @IsDefined({
-    message:
-      'departmentId is required for a department manager',
+    message: 'departmentId is required for a department manager',
   })
   @IsUUID('4')
   departmentId?: string;
@@ -106,8 +87,7 @@ export class CreateOrganisationInvitationDto {
   @Transform(optionalTrimmedString)
   @ValidateIf(
     (dto: CreateOrganisationInvitationDto) =>
-      dto.isTeamLead === true ||
-      dto.teamId !== undefined,
+      dto.isTeamLead === true || dto.teamId !== undefined,
   )
   @IsDefined({
     message: 'teamId is required for a team lead',

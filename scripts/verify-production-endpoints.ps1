@@ -40,7 +40,9 @@ foreach ($header in @(
   "Strict-Transport-Security",
   "X-Content-Type-Options",
   "X-Frame-Options",
-  "Referrer-Policy"
+  "Referrer-Policy",
+  "Content-Security-Policy",
+  "Permissions-Policy"
 )) {
   if (-not $login.Headers[$header]) { throw "Required web security header $header is missing." }
 }

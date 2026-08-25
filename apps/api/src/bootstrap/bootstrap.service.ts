@@ -8,10 +8,7 @@ import {
 import { Prisma } from '../generated/prisma/client';
 import { RlsTransactionService } from '../database/rls-transaction.service';
 import { BootstrapOrganisationDto } from './dto/bootstrap-organisation.dto';
-import {
-  BootstrapActor,
-  BootstrapOrganisationResult,
-} from './bootstrap.types';
+import { BootstrapActor, BootstrapOrganisationResult } from './bootstrap.types';
 
 interface DatabaseBootstrapRow {
   organisation_id: string;
@@ -24,9 +21,7 @@ interface DatabaseBootstrapRow {
 
 @Injectable()
 export class BootstrapService {
-  constructor(
-    private readonly rlsTransaction: RlsTransactionService,
-  ) {}
+  constructor(private readonly rlsTransaction: RlsTransactionService) {}
 
   async bootstrapOrganisation(
     actor: BootstrapActor,
@@ -77,11 +72,7 @@ export class BootstrapService {
 
       const result = rows[0];
 
-      if (
-        rows.length !== 1 ||
-        !result ||
-        result.status !== 'ACTIVE'
-      ) {
+      if (rows.length !== 1 || !result || result.status !== 'ACTIVE') {
         throw new InternalServerErrorException(
           'Organisation bootstrap returned an invalid result.',
         );
@@ -92,8 +83,7 @@ export class BootstrapService {
         organisationSlug: result.organisation_slug,
         membershipId: result.membership_id,
         ownerRoleId: result.owner_role_id,
-        ownerRoleAssignmentId:
-          result.owner_role_assignment_id,
+        ownerRoleAssignmentId: result.owner_role_assignment_id,
         status: 'ACTIVE',
       };
     } catch (error: unknown) {
@@ -121,12 +111,8 @@ export class BootstrapService {
 
       if (
         databaseCode === '42501' ||
-        databaseMessage.includes(
-          'owner email must match',
-        ) ||
-        databaseMessage.includes(
-          'authenticated user context is required',
-        )
+        databaseMessage.includes('owner email must match') ||
+        databaseMessage.includes('authenticated user context is required')
       ) {
         throw new ForbiddenException(
           'You are not authorised to bootstrap this organisation.',
@@ -135,51 +121,31 @@ export class BootstrapService {
 
       if (
         databaseCode === '23514' ||
-        databaseMessage.includes(
-          'invalid organisation slug',
-        ) ||
-        databaseMessage.includes(
-          'invalid iso country code',
-        ) ||
-        databaseMessage.includes(
-          'organisation name must',
-        )
+        databaseMessage.includes('invalid organisation slug') ||
+        databaseMessage.includes('invalid iso country code') ||
+        databaseMessage.includes('organisation name must')
       ) {
-        throw new BadRequestException(
-          'The organisation details are invalid.',
-        );
+        throw new BadRequestException('The organisation details are invalid.');
       }
 
-      throw new InternalServerErrorException(
-        'Organisation bootstrap failed.',
-      );
+      throw new InternalServerErrorException('Organisation bootstrap failed.');
     }
   }
 
-  private optionalText(
-    value: string | undefined,
-  ): string | null {
+  private optionalText(value: string | undefined): string | null {
     const normalized = value?.trim();
 
     return normalized ? normalized : null;
   }
 
   private getDatabaseCode(error: unknown): string {
-    if (
-      typeof error !== 'object' ||
-      error === null ||
-      !('meta' in error)
-    ) {
+    if (typeof error !== 'object' || error === null || !('meta' in error)) {
       return '';
     }
 
     const meta = error.meta;
 
-    if (
-      typeof meta !== 'object' ||
-      meta === null ||
-      !('code' in meta)
-    ) {
+    if (typeof meta !== 'object' || meta === null || !('code' in meta)) {
       return '';
     }
 

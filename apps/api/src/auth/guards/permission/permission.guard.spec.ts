@@ -1,46 +1,29 @@
-import {
-  type ExecutionContext,
-  ForbiddenException,
-} from '@nestjs/common';
-import {
-  Reflector,
-} from '@nestjs/core';
+import { type ExecutionContext, ForbiddenException } from '@nestjs/common';
+import { Reflector } from '@nestjs/core';
 import { RlsTransactionService } from '../../../database/rls-transaction.service';
-import {
-  REQUIRED_PERMISSIONS_KEY,
-} from '../../decorators/require-permissions.decorator';
-import type {
-  OrganisationScopedRequest,
-} from '../../request-security-context';
+import { REQUIRED_PERMISSIONS_KEY } from '../../decorators/require-permissions.decorator';
+import type { OrganisationScopedRequest } from '../../request-security-context';
 import { PermissionGuard } from './permission.guard';
 
-const USER_ID =
-  '11111111-1111-4111-8111-111111111111';
+const USER_ID = '11111111-1111-4111-8111-111111111111';
 
-const ORGANISATION_ID =
-  '22222222-2222-4222-8222-222222222222';
+const ORGANISATION_ID = '22222222-2222-4222-8222-222222222222';
 
-const MEMBERSHIP_ID =
-  '33333333-3333-4333-8333-333333333333';
+const MEMBERSHIP_ID = '33333333-3333-4333-8333-333333333333';
 
-const SESSION_ID =
-  '44444444-4444-4444-8444-444444444444';
+const SESSION_ID = '44444444-4444-4444-8444-444444444444';
 
 type TestPermission = {
   key: string;
   requiresMfa: boolean;
 };
 
-function assignment(
-  permissions: TestPermission[],
-) {
+function assignment(permissions: TestPermission[]) {
   return {
     role: {
-      permissions: permissions.map(
-        (permission) => ({
-          permission,
-        }),
-      ),
+      permissions: permissions.map((permission) => ({
+        permission,
+      })),
     },
   };
 }
@@ -60,16 +43,15 @@ function createExecutionContext(
     body: {},
     query: {},
     params: {},
-    organisationAccess:
-      includeAccessContext
-        ? Object.freeze({
-            userId: USER_ID,
-            organisationId: ORGANISATION_ID,
-            membershipId: MEMBERSHIP_ID,
-            sessionId: SESSION_ID,
-            aal,
-          })
-        : undefined,
+    organisationAccess: includeAccessContext
+      ? Object.freeze({
+          userId: USER_ID,
+          organisationId: ORGANISATION_ID,
+          membershipId: MEMBERSHIP_ID,
+          sessionId: SESSION_ID,
+          aal,
+        })
+      : undefined,
   } as unknown as OrganisationScopedRequest;
 
   const context = {
@@ -117,8 +99,7 @@ describe('PermissionGuard', () => {
   function mockAssignments(
     assignments: ReturnType<typeof assignment>[],
   ): jest.Mock {
-    const findMany =
-      jest.fn().mockResolvedValue(assignments);
+    const findMany = jest.fn().mockResolvedValue(assignments);
 
     const transaction = {
       roleAssignment: {
@@ -129,9 +110,7 @@ describe('PermissionGuard', () => {
     rls.run.mockImplementation(
       async (
         _context: unknown,
-        operation: (
-          client: typeof transaction,
-        ) => Promise<unknown>,
+        operation: (client: typeof transaction) => Promise<unknown>,
       ) => operation(transaction),
     );
 
@@ -139,25 +118,20 @@ describe('PermissionGuard', () => {
   }
 
   it('allows routes that declare no permissions', async () => {
-    reflector.getAllAndOverride
-      .mockReturnValue(undefined);
+    reflector.getAllAndOverride.mockReturnValue(undefined);
 
-    const { context } =
-      createExecutionContext();
+    const { context } = createExecutionContext();
 
-    await expect(
-      guard.canActivate(context),
-    ).resolves.toBe(true);
+    await expect(guard.canActivate(context)).resolves.toBe(true);
 
     expect(rls.run).not.toHaveBeenCalled();
   });
 
   it('grants every declared permission inside the verified tenant context', async () => {
-    reflector.getAllAndOverride
-      .mockReturnValue([
-        'enquiries.read',
-        'enquiries.update',
-      ]);
+    reflector.getAllAndOverride.mockReturnValue([
+      'enquiries.read',
+      'enquiries.update',
+    ]);
 
     const findMany = mockAssignments([
       assignment([
@@ -172,21 +146,13 @@ describe('PermissionGuard', () => {
       ]),
     ]);
 
-    const { context } =
-      createExecutionContext();
+    const { context } = createExecutionContext();
 
-    await expect(
-      guard.canActivate(context),
-    ).resolves.toBe(true);
+    await expect(guard.canActivate(context)).resolves.toBe(true);
 
-    expect(
-      reflector.getAllAndOverride,
-    ).toHaveBeenCalledWith(
+    expect(reflector.getAllAndOverride).toHaveBeenCalledWith(
       REQUIRED_PERMISSIONS_KEY,
-      [
-        context.getHandler(),
-        context.getClass(),
-      ],
+      [context.getHandler(), context.getClass()],
     );
 
     expect(rls.run).toHaveBeenCalledWith(
@@ -203,8 +169,7 @@ describe('PermissionGuard', () => {
         where: expect.objectContaining({
           userProfileId: USER_ID,
           organisationId: ORGANISATION_ID,
-          organisationMembershipId:
-            MEMBERSHIP_ID,
+          organisationMembershipId: MEMBERSHIP_ID,
           revokedAt: null,
           deletedAt: null,
           organisationMembership: {
@@ -222,11 +187,10 @@ describe('PermissionGuard', () => {
   });
 
   it('requires every declared permission', async () => {
-    reflector.getAllAndOverride
-      .mockReturnValue([
-        'enquiries.read',
-        'enquiries.delete',
-      ]);
+    reflector.getAllAndOverride.mockReturnValue([
+      'enquiries.read',
+      'enquiries.delete',
+    ]);
 
     mockAssignments([
       assignment([
@@ -237,19 +201,15 @@ describe('PermissionGuard', () => {
       ]),
     ]);
 
-    const { context } =
-      createExecutionContext();
+    const { context } = createExecutionContext();
 
-    await expect(
-      guard.canActivate(context),
-    ).rejects.toThrow(ForbiddenException);
+    await expect(guard.canActivate(context)).rejects.toThrow(
+      ForbiddenException,
+    );
   });
 
   it('denies an MFA-protected permission at AAL1', async () => {
-    reflector.getAllAndOverride
-      .mockReturnValue([
-        'enquiries.delete',
-      ]);
+    reflector.getAllAndOverride.mockReturnValue(['enquiries.delete']);
 
     mockAssignments([
       assignment([
@@ -260,22 +220,15 @@ describe('PermissionGuard', () => {
       ]),
     ]);
 
-    const { context } =
-      createExecutionContext('AAL1');
+    const { context } = createExecutionContext('AAL1');
 
     try {
       await guard.canActivate(context);
-      throw new Error(
-        'Expected MFA enforcement to deny access',
-      );
+      throw new Error('Expected MFA enforcement to deny access');
     } catch (error) {
-      expect(error).toBeInstanceOf(
-        ForbiddenException,
-      );
+      expect(error).toBeInstanceOf(ForbiddenException);
 
-      const response = (
-        error as ForbiddenException
-      ).getResponse();
+      const response = (error as ForbiddenException).getResponse();
 
       expect(response).toEqual(
         expect.objectContaining({
@@ -288,10 +241,7 @@ describe('PermissionGuard', () => {
   });
 
   it('allows an MFA-protected permission at AAL2', async () => {
-    reflector.getAllAndOverride
-      .mockReturnValue([
-        'enquiries.delete',
-      ]);
+    reflector.getAllAndOverride.mockReturnValue(['enquiries.delete']);
 
     mockAssignments([
       assignment([
@@ -302,29 +252,19 @@ describe('PermissionGuard', () => {
       ]),
     ]);
 
-    const { context } =
-      createExecutionContext('AAL2');
+    const { context } = createExecutionContext('AAL2');
 
-    await expect(
-      guard.canActivate(context),
-    ).resolves.toBe(true);
+    await expect(guard.canActivate(context)).resolves.toBe(true);
   });
 
   it('rejects permission evaluation without verified organisation access', async () => {
-    reflector.getAllAndOverride
-      .mockReturnValue([
-        'enquiries.read',
-      ]);
+    reflector.getAllAndOverride.mockReturnValue(['enquiries.read']);
 
-    const { context } =
-      createExecutionContext(
-        'AAL1',
-        false,
-      );
+    const { context } = createExecutionContext('AAL1', false);
 
-    await expect(
-      guard.canActivate(context),
-    ).rejects.toThrow(ForbiddenException);
+    await expect(guard.canActivate(context)).rejects.toThrow(
+      ForbiddenException,
+    );
 
     expect(rls.run).not.toHaveBeenCalled();
   });

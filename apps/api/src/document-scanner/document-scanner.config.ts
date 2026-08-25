@@ -23,14 +23,17 @@ function integerValue(
 ): number {
   const parsed = value === undefined ? fallback : Number(value);
   if (!Number.isInteger(parsed) || parsed < minimum || parsed > maximum) {
-    throw new Error(`${name} must be an integer between ${minimum} and ${maximum}.`);
+    throw new Error(
+      `${name} must be an integer between ${minimum} and ${maximum}.`,
+    );
   }
   return parsed;
 }
 
 function required(value: string | undefined, name: string): string {
   const normalised = value?.trim();
-  if (!normalised) throw new Error(`${name} is required when document scanning is enabled.`);
+  if (!normalised)
+    throw new Error(`${name} is required when document scanning is enabled.`);
   return normalised;
 }
 
@@ -111,10 +114,11 @@ export class DocumentScannerConfig {
         'DOCUMENT_SCANNER_LEASE_SECONDS must exceed the combined scanner timeouts by at least 30 seconds.',
       );
     }
-    this.workerIdPrefix = (environment.DOCUMENT_SCANNER_WORKER_ID_PREFIX ?? 'businessos-api')
-      .trim()
-      .replace(/[^a-zA-Z0-9._-]/g, '-')
-      .slice(0, 60) || 'businessos-api';
+    this.workerIdPrefix =
+      (environment.DOCUMENT_SCANNER_WORKER_ID_PREFIX ?? 'businessos-api')
+        .trim()
+        .replace(/[^a-zA-Z0-9._-]/g, '-')
+        .slice(0, 60) || 'businessos-api';
 
     if (!this.enabled) {
       this.supabaseUrl = '';
@@ -126,7 +130,10 @@ export class DocumentScannerConfig {
 
     const rawUrl = required(environment.SUPABASE_URL, 'SUPABASE_URL');
     const parsedUrl = new URL(rawUrl);
-    if (parsedUrl.protocol !== 'https:' && environment.NODE_ENV === 'production') {
+    if (
+      parsedUrl.protocol !== 'https:' &&
+      environment.NODE_ENV === 'production'
+    ) {
       throw new Error('SUPABASE_URL must use HTTPS in production.');
     }
     if (
@@ -136,7 +143,9 @@ export class DocumentScannerConfig {
       parsedUrl.hash ||
       parsedUrl.pathname !== '/'
     ) {
-      throw new Error('SUPABASE_URL must be an origin without credentials, query or path.');
+      throw new Error(
+        'SUPABASE_URL must be an origin without credentials, query or path.',
+      );
     }
     this.supabaseUrl = parsedUrl.toString().replace(/\/$/, '');
     this.supabaseServiceRoleKey = required(
@@ -153,7 +162,9 @@ export class DocumentScannerConfig {
       throw new Error('CLAMAV_SOCKET_PATH or CLAMAV_HOST is required.');
     }
     if (this.clamavSocketPath && this.clamavHost) {
-      throw new Error('Configure only one of CLAMAV_SOCKET_PATH or CLAMAV_HOST.');
+      throw new Error(
+        'Configure only one of CLAMAV_SOCKET_PATH or CLAMAV_HOST.',
+      );
     }
     if (this.clamavSocketPath && !isAbsolute(this.clamavSocketPath)) {
       throw new Error('CLAMAV_SOCKET_PATH must be an absolute path.');

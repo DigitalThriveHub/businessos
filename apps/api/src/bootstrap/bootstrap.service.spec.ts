@@ -30,15 +30,11 @@ describe('BootstrapService', () => {
   };
 
   const databaseResult = {
-    organisation_id:
-      '00000000-0000-4000-8000-000000000100',
+    organisation_id: '00000000-0000-4000-8000-000000000100',
     organisation_slug: 'example-legal',
-    membership_id:
-      '00000000-0000-4000-8000-000000000200',
-    owner_role_id:
-      '00000000-0000-4000-8000-000000000300',
-    owner_role_assignment_id:
-      '00000000-0000-4000-8000-000000000400',
+    membership_id: '00000000-0000-4000-8000-000000000200',
+    owner_role_id: '00000000-0000-4000-8000-000000000300',
+    owner_role_assignment_id: '00000000-0000-4000-8000-000000000400',
     status: 'ACTIVE',
   };
 
@@ -51,30 +47,21 @@ describe('BootstrapService', () => {
   beforeEach(() => {
     jest.clearAllMocks();
 
-    service = new BootstrapService(
-      rlsTransaction as never,
-    );
+    service = new BootstrapService(rlsTransaction as never);
 
     rlsTransaction.run.mockImplementation(
       async (
         _context: unknown,
-        operation: (transaction: {
-          $queryRaw: jest.Mock;
-        }) => Promise<unknown>,
+        operation: (transaction: { $queryRaw: jest.Mock }) => Promise<unknown>,
       ) =>
         operation({
-          $queryRaw: jest
-            .fn()
-            .mockResolvedValue([databaseResult]),
+          $queryRaw: jest.fn().mockResolvedValue([databaseResult]),
         }),
     );
   });
 
   it('bootstraps an organisation atomically', async () => {
-    const result = await service.bootstrapOrganisation(
-      actor,
-      dto,
-    );
+    const result = await service.bootstrapOrganisation(actor, dto);
 
     expect(rlsTransaction.run).toHaveBeenCalledWith(
       {
@@ -86,12 +73,10 @@ describe('BootstrapService', () => {
 
     expect(result).toEqual({
       organisationId: databaseResult.organisation_id,
-      organisationSlug:
-        databaseResult.organisation_slug,
+      organisationSlug: databaseResult.organisation_slug,
       membershipId: databaseResult.membership_id,
       ownerRoleId: databaseResult.owner_role_id,
-      ownerRoleAssignmentId:
-        databaseResult.owner_role_assignment_id,
+      ownerRoleAssignmentId: databaseResult.owner_role_assignment_id,
       status: 'ACTIVE',
     });
   });
@@ -125,14 +110,11 @@ describe('BootstrapService', () => {
   });
 
   it('maps a database uniqueness violation to conflict', async () => {
-    const error = Object.assign(
-      new Error('Unique constraint violation'),
-      {
-        meta: {
-          code: '23505',
-        },
+    const error = Object.assign(new Error('Unique constraint violation'), {
+      meta: {
+        code: '23505',
       },
-    );
+    });
 
     rlsTransaction.run.mockRejectedValue(error);
 
@@ -142,14 +124,11 @@ describe('BootstrapService', () => {
   });
 
   it('maps a database validation violation to bad request', async () => {
-    const error = Object.assign(
-      new Error('Invalid organisation slug'),
-      {
-        meta: {
-          code: '23514',
-        },
+    const error = Object.assign(new Error('Invalid organisation slug'), {
+      meta: {
+        code: '23514',
       },
-    );
+    });
 
     rlsTransaction.run.mockRejectedValue(error);
 
@@ -160,9 +139,7 @@ describe('BootstrapService', () => {
 
   it('maps a portal-only bootstrap denial to forbidden', async () => {
     const error = Object.assign(
-      new Error(
-        'Client portal identities cannot bootstrap organisations',
-      ),
+      new Error('Client portal identities cannot bootstrap organisations'),
       {
         meta: {
           code: '42501',
@@ -184,13 +161,9 @@ describe('BootstrapService', () => {
 
     await expect(
       service.bootstrapOrganisation(actor, dto),
-    ).rejects.toBeInstanceOf(
-      InternalServerErrorException,
-    );
+    ).rejects.toBeInstanceOf(InternalServerErrorException);
 
-    await expect(
-      service.bootstrapOrganisation(actor, dto),
-    ).rejects.toThrow(
+    await expect(service.bootstrapOrganisation(actor, dto)).rejects.toThrow(
       'Organisation bootstrap failed.',
     );
   });
@@ -198,9 +171,7 @@ describe('BootstrapService', () => {
   it('rejects an invalid database result', async () => {
     rlsTransaction.run.mockResolvedValue([]);
 
-    await expect(
-      service.bootstrapOrganisation(actor, dto),
-    ).rejects.toThrow(
+    await expect(service.bootstrapOrganisation(actor, dto)).rejects.toThrow(
       'Organisation bootstrap returned an invalid result.',
     );
   });

@@ -29,7 +29,11 @@ describe('DocumentScanWorkerService', () => {
         .fn()
         .mockResolvedValueOnce([JOB])
         .mockResolvedValueOnce([
-          { jobStatus: 'SUCCEEDED', documentStatus: 'AVAILABLE', scanStatus: 'CLEAN' },
+          {
+            jobStatus: 'SUCCEEDED',
+            documentStatus: 'AVAILABLE',
+            scanStatus: 'CLEAN',
+          },
         ]),
     };
     const cancel = jest.fn();
@@ -61,7 +65,10 @@ describe('DocumentScanWorkerService', () => {
     );
 
     await expect(worker.runOnce()).resolves.toBe(true);
-    expect(storage.download).toHaveBeenCalledWith(JOB.storageBucket, JOB.storagePath);
+    expect(storage.download).toHaveBeenCalledWith(
+      JOB.storageBucket,
+      JOB.storagePath,
+    );
     expect(clamav.scan).toHaveBeenCalledWith(expect.any(Object), 4);
     expect(database.$queryRaw).toHaveBeenCalledTimes(2);
     expect(cancel).toHaveBeenCalledTimes(1);
@@ -75,9 +82,15 @@ describe('DocumentScanWorkerService', () => {
         .mockResolvedValueOnce([{ jobStatus: 'QUEUED' }]),
     };
     const storage = {
-      download: jest.fn().mockRejectedValue(
-        new ScannerPipelineError('STORAGE_UNAVAILABLE', 'Storage unavailable.', true),
-      ),
+      download: jest
+        .fn()
+        .mockRejectedValue(
+          new ScannerPipelineError(
+            'STORAGE_UNAVAILABLE',
+            'Storage unavailable.',
+            true,
+          ),
+        ),
     };
     const worker = new DocumentScanWorkerService(
       database as never,

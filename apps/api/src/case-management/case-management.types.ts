@@ -35,8 +35,7 @@ export const PROCESSING_LAWFUL_BASES = [
   'VITAL_INTEREST',
   'PUBLIC_TASK',
 ] as const;
-export type ProcessingLawfulBasis =
-  (typeof PROCESSING_LAWFUL_BASES)[number];
+export type ProcessingLawfulBasis = (typeof PROCESSING_LAWFUL_BASES)[number];
 
 export const COMMUNICATION_CHANNELS = [
   'EMAIL',
@@ -46,8 +45,7 @@ export const COMMUNICATION_CHANNELS = [
   'POST',
   'NONE',
 ] as const;
-export type CommunicationChannel =
-  (typeof COMMUNICATION_CHANNELS)[number];
+export type CommunicationChannel = (typeof COMMUNICATION_CHANNELS)[number];
 
 export const MATTER_STATUSES = [
   'INTAKE',
@@ -94,8 +92,7 @@ export const CONFLICT_CHECK_STATUSES = [
   'FLAGGED',
   'WAIVED',
 ] as const;
-export type ConflictCheckStatus =
-  (typeof CONFLICT_CHECK_STATUSES)[number];
+export type ConflictCheckStatus = (typeof CONFLICT_CHECK_STATUSES)[number];
 
 export const AML_CHECK_STATUSES = [
   'NOT_REQUIRED',

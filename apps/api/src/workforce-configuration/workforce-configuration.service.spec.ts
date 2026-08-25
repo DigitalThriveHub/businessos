@@ -196,9 +196,9 @@ describe('WorkforceConfigurationService', () => {
       requiresHumanReview: true,
     };
 
-    await expect(service.createAgentProfile(dto, CONTEXT)).rejects.toBeInstanceOf(
-      BadRequestException,
-    );
+    await expect(
+      service.createAgentProfile(dto, CONTEXT),
+    ).rejects.toBeInstanceOf(BadRequestException);
     expect(rlsMock.run).not.toHaveBeenCalled();
   });
 

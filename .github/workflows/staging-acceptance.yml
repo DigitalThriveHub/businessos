@@ -1,0 +1,52 @@
+name: Staging acceptance
+
+on:
+  workflow_dispatch:
+    inputs:
+      require_live_providers:
+        description: Run paid/live K, L and M provider scenarios
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    environment: staging
+    defaults:
+      run:
+        working-directory: apps/web
+    env:
+      PLAYWRIGHT_BASE_URL: ${{ secrets.STAGING_WEB_ORIGIN }}
+      PLAYWRIGHT_API_BASE_URL: ${{ secrets.STAGING_API_ORIGIN }}
+      E2E_CASE_USER_EMAIL: ${{ secrets.E2E_CASE_USER_EMAIL }}
+      E2E_CASE_USER_PASSWORD: ${{ secrets.E2E_CASE_USER_PASSWORD }}
+      E2E_CASE_USER_TOTP_SECRET: ${{ secrets.E2E_CASE_USER_TOTP_SECRET }}
+      REQUIRE_LIVE_GATE_K: ${{ inputs.require_live_providers && '1' || '0' }}
+      REQUIRE_LIVE_GATE_L: ${{ inputs.require_live_providers && '1' || '0' }}
+      REQUIRE_LIVE_GATE_M: ${{ inputs.require_live_providers && '1' || '0' }}
+      REQUIRE_LIVE_GATE_N: "0"
+      E2E_GATE_L_RECIPIENT_EMAIL: ${{ secrets.E2E_GATE_L_RECIPIENT_EMAIL }}
+      E2E_GATE_L_RECIPIENT_PHONE: ${{ secrets.E2E_GATE_L_RECIPIENT_PHONE }}
+      E2E_GATE_M_DOCUMENT_TITLE: ${{ secrets.E2E_GATE_M_DOCUMENT_TITLE }}
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24.6.0
+          cache: npm
+          cache-dependency-path: apps/web/package-lock.json
+      - run: npm ci --ignore-scripts
+      - run: npx playwright install --with-deps chromium
+      - run: npx playwright test --project=chromium --workers=1
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: staging-browser-evidence-${{ github.run_id }}
+          path: |
+            apps/web/playwright-report
+            apps/web/test-results
+          retention-days: 30

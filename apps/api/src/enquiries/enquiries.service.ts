@@ -12,10 +12,7 @@ import { assertValidEnquiryTransition } from './enquiry-workflow';
 export class EnquiriesService {
   constructor(private readonly rls: RlsTransactionService) {}
 
-  async create(
-    dto: CreateEnquiryDto,
-    context: EnquiryRequestContext,
-  ) {
+  async create(dto: CreateEnquiryDto, context: EnquiryRequestContext) {
     const data: Prisma.EnquiryUncheckedCreateInput = {
       organisationId: context.organisationId,
       assignedToUserId: dto.assignedToUserId,
@@ -41,10 +38,7 @@ export class EnquiriesService {
     );
   }
 
-  async findAll(
-    query: EnquiryQueryDto,
-    context: EnquiryRequestContext,
-  ) {
+  async findAll(query: EnquiryQueryDto, context: EnquiryRequestContext) {
     const page = query.page ?? 1;
     const limit = query.limit ?? 20;
     const skip = (page - 1) * limit;
@@ -94,20 +88,18 @@ export class EnquiriesService {
         : {}),
     };
 
-    const [items, total] = await this.rls.run(
-      context,
-      (transaction) =>
-        Promise.all([
-          transaction.enquiry.findMany({
-            where,
-            skip,
-            take: limit,
-            orderBy: {
-              createdAt: 'desc',
-            },
-          }),
-          transaction.enquiry.count({ where }),
-        ]),
+    const [items, total] = await this.rls.run(context, (transaction) =>
+      Promise.all([
+        transaction.enquiry.findMany({
+          where,
+          skip,
+          take: limit,
+          orderBy: {
+            createdAt: 'desc',
+          },
+        }),
+        transaction.enquiry.count({ where }),
+      ]),
     );
 
     return {
@@ -121,16 +113,9 @@ export class EnquiriesService {
     };
   }
 
-  async findOne(
-    id: string,
-    context: EnquiryRequestContext,
-  ) {
+  async findOne(id: string, context: EnquiryRequestContext) {
     return this.rls.run(context, (transaction) =>
-      this.findOneWithClient(
-        transaction,
-        id,
-        context.organisationId,
-      ),
+      this.findOneWithClient(transaction, id, context.organisationId),
     );
   }
 
@@ -166,10 +151,7 @@ export class EnquiriesService {
         context.organisationId,
       );
 
-      assertValidEnquiryTransition(
-        current.status,
-        dto.status,
-      );
+      assertValidEnquiryTransition(current.status, dto.status);
 
       const data: Prisma.EnquiryUncheckedUpdateInput = {
         assignedToUserId: dto.assignedToUserId,
@@ -206,14 +188,9 @@ export class EnquiriesService {
     });
   }
 
-  async remove(
-    id: string,
-    context: EnquiryRequestContext,
-  ) {
+  async remove(id: string, context: EnquiryRequestContext) {
     return this.rls.run(context, async (transaction) => {
-      const [result] = await transaction.$queryRaw<
-        Array<{ deleted: boolean }>
-      >`
+      const [result] = await transaction.$queryRaw<Array<{ deleted: boolean }>>`
         SELECT private.soft_delete_enquiry(
           ${id}::uuid,
           ${context.organisationId}::uuid

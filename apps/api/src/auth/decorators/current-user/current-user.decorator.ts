@@ -4,9 +4,7 @@ import type { AuthenticatedRequest } from '../../guards/jwt-auth/jwt-auth.guard'
 
 export const CurrentUser = createParamDecorator(
   (_data: unknown, context: ExecutionContext): JWTPayload => {
-    const request = context
-      .switchToHttp()
-      .getRequest<AuthenticatedRequest>();
+    const request = context.switchToHttp().getRequest<AuthenticatedRequest>();
 
     return request.user;
   },

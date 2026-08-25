@@ -1,0 +1,5 @@
+# Prisma owns this output. Re-generate it from prisma/schema.prisma instead of
+# applying source-formatting rules that are undone by the next generation.
+src/generated/**
+dist/**
+coverage/**

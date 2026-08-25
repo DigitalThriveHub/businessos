@@ -151,7 +151,8 @@ export class CaseOperationsController {
     @Param('organisationId', new ParseUUIDPipe({ version: '4' }))
     _organisationId: string,
     @Param('matterId', new ParseUUIDPipe({ version: '4' })) matterId: string,
-    @Param('deadlineId', new ParseUUIDPipe({ version: '4' })) deadlineId: string,
+    @Param('deadlineId', new ParseUUIDPipe({ version: '4' }))
+    deadlineId: string,
     @Body() dto: UpdateMatterDeadlineDto,
     @Req() request: OrganisationScopedRequest,
   ) {
@@ -171,7 +172,8 @@ export class CaseOperationsController {
     @Param('organisationId', new ParseUUIDPipe({ version: '4' }))
     _organisationId: string,
     @Param('matterId', new ParseUUIDPipe({ version: '4' })) matterId: string,
-    @Param('deadlineId', new ParseUUIDPipe({ version: '4' })) deadlineId: string,
+    @Param('deadlineId', new ParseUUIDPipe({ version: '4' }))
+    deadlineId: string,
     @Body() dto: ChangeMatterDeadlineStatusDto,
     @Req() request: OrganisationScopedRequest,
   ) {
@@ -267,7 +269,8 @@ export class CaseOperationsController {
     @Param('organisationId', new ParseUUIDPipe({ version: '4' }))
     _organisationId: string,
     @Param('matterId', new ParseUUIDPipe({ version: '4' })) matterId: string,
-    @Param('documentId', new ParseUUIDPipe({ version: '4' })) documentId: string,
+    @Param('documentId', new ParseUUIDPipe({ version: '4' }))
+    documentId: string,
     @Body() dto: RegisterDocumentVersionDto,
     @Req() request: OrganisationScopedRequest,
   ) {
@@ -287,7 +290,8 @@ export class CaseOperationsController {
     @Param('organisationId', new ParseUUIDPipe({ version: '4' }))
     _organisationId: string,
     @Param('matterId', new ParseUUIDPipe({ version: '4' })) matterId: string,
-    @Param('documentId', new ParseUUIDPipe({ version: '4' })) documentId: string,
+    @Param('documentId', new ParseUUIDPipe({ version: '4' }))
+    documentId: string,
     @Param('versionId', new ParseUUIDPipe({ version: '4' })) versionId: string,
     @Req() request: OrganisationScopedRequest,
   ) {
@@ -307,7 +311,8 @@ export class CaseOperationsController {
     @Param('organisationId', new ParseUUIDPipe({ version: '4' }))
     _organisationId: string,
     @Param('matterId', new ParseUUIDPipe({ version: '4' })) matterId: string,
-    @Param('documentId', new ParseUUIDPipe({ version: '4' })) documentId: string,
+    @Param('documentId', new ParseUUIDPipe({ version: '4' }))
+    documentId: string,
     @Body() dto: UpdateDocumentMetadataDto,
     @Req() request: OrganisationScopedRequest,
   ) {
@@ -327,7 +332,8 @@ export class CaseOperationsController {
     @Param('organisationId', new ParseUUIDPipe({ version: '4' }))
     _organisationId: string,
     @Param('matterId', new ParseUUIDPipe({ version: '4' })) matterId: string,
-    @Param('documentId', new ParseUUIDPipe({ version: '4' })) documentId: string,
+    @Param('documentId', new ParseUUIDPipe({ version: '4' }))
+    documentId: string,
     @Body() dto: ArchiveDocumentDto,
     @Req() request: OrganisationScopedRequest,
   ) {

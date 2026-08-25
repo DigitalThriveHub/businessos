@@ -15,28 +15,24 @@ describe('EnquiriesService', () => {
     aal: 'AAL1' as const,
   };
 
-  const enquiryId =
-    '33333333-3333-4333-8333-333333333333';
+  const enquiryId = '33333333-3333-4333-8333-333333333333';
 
   beforeEach(async () => {
     rls = {
       run: jest.fn(),
     };
 
-    const module: TestingModule =
-      await Test.createTestingModule({
-        providers: [
-          EnquiriesService,
-          {
-            provide: RlsTransactionService,
-            useValue: rls,
-          },
-        ],
-      }).compile();
+    const module: TestingModule = await Test.createTestingModule({
+      providers: [
+        EnquiriesService,
+        {
+          provide: RlsTransactionService,
+          useValue: rls,
+        },
+      ],
+    }).compile();
 
-    service = module.get<EnquiriesService>(
-      EnquiriesService,
-    );
+    service = module.get<EnquiriesService>(EnquiriesService);
   });
 
   afterEach(() => {
@@ -58,9 +54,7 @@ describe('EnquiriesService', () => {
     rls.run.mockImplementation(
       async (
         suppliedContext: typeof context,
-        operation: (
-          client: typeof transaction,
-        ) => Promise<unknown>,
+        operation: (client: typeof transaction) => Promise<unknown>,
       ) => {
         expect(suppliedContext).toEqual(context);
 
@@ -89,9 +83,7 @@ describe('EnquiriesService', () => {
 
     expect(rls.run).toHaveBeenCalledTimes(1);
 
-    expect(
-      transaction.enquiry.findMany,
-    ).toHaveBeenCalledWith(
+    expect(transaction.enquiry.findMany).toHaveBeenCalledWith(
       expect.objectContaining({
         where: expect.objectContaining({
           organisationId: context.organisationId,
@@ -105,9 +97,7 @@ describe('EnquiriesService', () => {
       }),
     );
 
-    expect(
-      transaction.enquiry.count,
-    ).toHaveBeenCalledWith({
+    expect(transaction.enquiry.count).toHaveBeenCalledWith({
       where: expect.objectContaining({
         organisationId: context.organisationId,
         deletedAt: null,
@@ -127,9 +117,7 @@ describe('EnquiriesService', () => {
     rls.run.mockImplementation(
       async (
         suppliedContext: typeof context,
-        operation: (
-          client: typeof transaction,
-        ) => Promise<unknown>,
+        operation: (client: typeof transaction) => Promise<unknown>,
       ) => {
         expect(suppliedContext).toEqual(context);
 
@@ -137,28 +125,21 @@ describe('EnquiriesService', () => {
       },
     );
 
-    await expect(
-      service.remove(enquiryId, context),
-    ).resolves.toEqual({
+    await expect(service.remove(enquiryId, context)).resolves.toEqual({
       message: 'Enquiry deleted successfully',
     });
 
     expect(rls.run).toHaveBeenCalledTimes(1);
     expect(transaction.$queryRaw).toHaveBeenCalledTimes(1);
 
-    const queryCall =
-      transaction.$queryRaw.mock.calls[0];
+    const queryCall = transaction.$queryRaw.mock.calls[0];
 
-    expect(
-      Array.from(
-        queryCall[0] as TemplateStringsArray,
-      ).join(''),
-    ).toContain('private.soft_delete_enquiry');
+    expect(Array.from(queryCall[0] as TemplateStringsArray).join('')).toContain(
+      'private.soft_delete_enquiry',
+    );
 
     expect(queryCall[1]).toBe(enquiryId);
-    expect(queryCall[2]).toBe(
-      context.organisationId,
-    );
+    expect(queryCall[2]).toBe(context.organisationId);
   });
 
   it('returns not found when the database function does not delete an enquiry', async () => {
@@ -173,9 +154,7 @@ describe('EnquiriesService', () => {
     rls.run.mockImplementation(
       async (
         suppliedContext: typeof context,
-        operation: (
-          client: typeof transaction,
-        ) => Promise<unknown>,
+        operation: (client: typeof transaction) => Promise<unknown>,
       ) => {
         expect(suppliedContext).toEqual(context);
 
@@ -183,19 +162,16 @@ describe('EnquiriesService', () => {
       },
     );
 
-    await expect(
-      service.remove(enquiryId, context),
-    ).rejects.toThrow(NotFoundException);
+    await expect(service.remove(enquiryId, context)).rejects.toThrow(
+      NotFoundException,
+    );
 
     expect(rls.run).toHaveBeenCalledTimes(1);
     expect(transaction.$queryRaw).toHaveBeenCalledTimes(1);
 
-    const queryCall =
-      transaction.$queryRaw.mock.calls[0];
+    const queryCall = transaction.$queryRaw.mock.calls[0];
 
     expect(queryCall[1]).toBe(enquiryId);
-    expect(queryCall[2]).toBe(
-      context.organisationId,
-    );
+    expect(queryCall[2]).toBe(context.organisationId);
   });
 });
